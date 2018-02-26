@@ -4,3311 +4,3311 @@ xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitem
 xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
-<loc>http://ankursinha.in/blog/</loc>
-<lastmod>2018-02-26T10:02:39-00:00</lastmod>
+<loc>http://ankursinha.in/</loc>
+<lastmod>2018-02-26T11:17:10-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/tags.html</loc>
-<lastmod>2018-02-26T10:02:39-00:00</lastmod>
+<loc>http://ankursinha.in/tags.html</loc>
+<lastmod>2018-02-26T11:17:10-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/categories.html</loc>
-<lastmod>2018-02-26T10:02:39-00:00</lastmod>
+<loc>http://ankursinha.in/categories.html</loc>
+<lastmod>2018-02-26T11:17:10-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/pages/01-about.html</loc>
+<loc>http://ankursinha.in/pages/01-about.html</loc>
 <lastmod>2017-04-15T13:20:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/pages/02-research-profile.html</loc>
+<loc>http://ankursinha.in/pages/02-research-profile.html</loc>
 <lastmod>2017-04-15T10:22:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2017/12/25/managing-tasks-time-and-making-sure-one-takes-a-break-integrating-taskwarrior-timewarrior-and-gnome-pomodoro.html</loc>
+<loc>http://ankursinha.in/2017/12/25/managing-tasks-time-and-making-sure-one-takes-a-break-integrating-taskwarrior-timewarrior-and-gnome-pomodoro.html</loc>
 <lastmod>2017-12-25T01:16:02+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2017/12/16/transitioning-to-neomutt-and-friends-for-e-mail.html</loc>
+<loc>http://ankursinha.in/2017/12/16/transitioning-to-neomutt-and-friends-for-e-mail.html</loc>
 <lastmod>2017-12-16T00:01:53+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2017/10/07/fedora-classroom-git-101-report.html</loc>
+<loc>http://ankursinha.in/2017/10/07/fedora-classroom-git-101-report.html</loc>
 <lastmod>2017-10-07T14:19:10+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2017/09/19/writing-latex-well-in-vim.html</loc>
+<loc>http://ankursinha.in/2017/09/19/writing-latex-well-in-vim.html</loc>
 <lastmod>2017-09-19T00:40:41+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2017/08/26/setting-up-an-irc-bouncer-znc-on-amazon-aws-and-connecting-to-it-using-irssi.html</loc>
+<loc>http://ankursinha.in/2017/08/26/setting-up-an-irc-bouncer-znc-on-amazon-aws-and-connecting-to-it-using-irssi.html</loc>
 <lastmod>2017-08-26T13:42:40+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2017/08/10/fedora-classroom-command-line-101-report.html</loc>
+<loc>http://ankursinha.in/2017/08/10/fedora-classroom-command-line-101-report.html</loc>
 <lastmod>2017-08-10T23:03:24+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2017/07/12/bringing-together-gitter-irc-and-slack-channels-in-one-place-on-riot.html</loc>
+<loc>http://ankursinha.in/2017/07/12/bringing-together-gitter-irc-and-slack-channels-in-one-place-on-riot.html</loc>
 <lastmod>2017-07-12T13:55:17+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2017/06/26/a-channel-for-neuroscientists-on-gitter.html</loc>
+<loc>http://ankursinha.in/2017/06/26/a-channel-for-neuroscientists-on-gitter.html</loc>
 <lastmod>2017-06-26T10:30:01+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2017/06/21/giving-qutebrowser-a-go-a-fantastic-keyboard-focused-browser.html</loc>
+<loc>http://ankursinha.in/2017/06/21/giving-qutebrowser-a-go-a-fantastic-keyboard-focused-browser.html</loc>
 <lastmod>2017-06-21T00:09:30+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2017/05/23/fedora-join-meeting-22-may-2017-summary-and-updates.html</loc>
+<loc>http://ankursinha.in/2017/05/23/fedora-join-meeting-22-may-2017-summary-and-updates.html</loc>
 <lastmod>2017-05-23T18:41:34+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2017/05/17/a-well-filed-software-issue-considerably-improves-the-chances-of-the-issue-being-fixed-quicker.html</loc>
+<loc>http://ankursinha.in/2017/05/17/a-well-filed-software-issue-considerably-improves-the-chances-of-the-issue-being-fixed-quicker.html</loc>
 <lastmod>2017-05-17T00:22:32+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2017/03/04/fedora-free-media-programme-group-refresh.html</loc>
+<loc>http://ankursinha.in/2017/03/04/fedora-free-media-programme-group-refresh.html</loc>
 <lastmod>2017-03-04T17:35:32+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2017/02/28/using-wallabag-to-manage-your-online-reading-list.html</loc>
+<loc>http://ankursinha.in/2017/02/28/using-wallabag-to-manage-your-online-reading-list.html</loc>
 <lastmod>2017-02-28T20:52:40+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2017/02/18/finally-checking-out-flatpak.html</loc>
+<loc>http://ankursinha.in/2017/02/18/finally-checking-out-flatpak.html</loc>
 <lastmod>2017-02-18T19:14:24+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2017/02/08/an-update-on-the-migration-of-fedora-free-media-to-pagure.html</loc>
+<loc>http://ankursinha.in/2017/02/08/an-update-on-the-migration-of-fedora-free-media-to-pagure.html</loc>
 <lastmod>2017-02-08T14:50:50+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2017/02/05/fedora-join-meeting-30-january-2017-summary-and-updates.html</loc>
+<loc>http://ankursinha.in/2017/02/05/fedora-join-meeting-30-january-2017-summary-and-updates.html</loc>
 <lastmod>2017-02-05T21:18:19+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2017/01/10/python-analysing-large-files-some-notes-to-self.html</loc>
+<loc>http://ankursinha.in/2017/01/10/python-analysing-large-files-some-notes-to-self.html</loc>
 <lastmod>2017-01-10T15:38:26+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2016/11/27/cancelling-my-times-subscription-not-as-easy-it-should-have-been.html</loc>
+<loc>http://ankursinha.in/2016/11/27/cancelling-my-times-subscription-not-as-easy-it-should-have-been.html</loc>
 <lastmod>2016-11-27T22:33:36+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2016/11/26/two-new-planets-for-neuroscientists.html</loc>
+<loc>http://ankursinha.in/2016/11/26/two-new-planets-for-neuroscientists.html</loc>
 <lastmod>2016-11-26T14:53:57+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2016/11/07/fedora-join-meeting-7-november-2016-summary.html</loc>
+<loc>http://ankursinha.in/2016/11/07/fedora-join-meeting-7-november-2016-summary.html</loc>
 <lastmod>2016-11-07T19:51:46+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2016/10/24/fedora-join-meeting-24-october-2016-summary.html</loc>
+<loc>http://ankursinha.in/2016/10/24/fedora-join-meeting-24-october-2016-summary.html</loc>
 <lastmod>2016-10-24T21:26:54+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2016/10/17/on-jargon.html</loc>
+<loc>http://ankursinha.in/2016/10/17/on-jargon.html</loc>
 <lastmod>2016-10-17T08:26:30+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2016/10/15/hello-fedora-25-and-the-wayland-test-day.html</loc>
+<loc>http://ankursinha.in/2016/10/15/hello-fedora-25-and-the-wayland-test-day.html</loc>
 <lastmod>2016-10-15T20:25:03+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2016/10/11/fedora-join-meeting-10-october-2016-summary.html</loc>
+<loc>http://ankursinha.in/2016/10/11/fedora-join-meeting-10-october-2016-summary.html</loc>
 <lastmod>2016-10-11T01:28:06+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2016/10/05/fedora-join-meeting-26-september-2016-summary.html</loc>
+<loc>http://ankursinha.in/2016/10/05/fedora-join-meeting-26-september-2016-summary.html</loc>
 <lastmod>2016-10-05T10:41:54+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2016/09/24/fedora-join-meetings-to-begin-this-week.html</loc>
+<loc>http://ankursinha.in/2016/09/24/fedora-join-meetings-to-begin-this-week.html</loc>
 <lastmod>2016-09-24T11:06:28+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2016/09/11/some-notes-on-programming-languages-and-web-development.html</loc>
+<loc>http://ankursinha.in/2016/09/11/some-notes-on-programming-languages-and-web-development.html</loc>
 <lastmod>2016-09-11T20:58:54+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2016/09/02/using-neuron-part-ii.html</loc>
+<loc>http://ankursinha.in/2016/09/02/using-neuron-part-ii.html</loc>
 <lastmod>2016-09-02T13:39:16+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2016/08/27/quickly-scripting-a-grid-search-for-parameter-tuning.html</loc>
+<loc>http://ankursinha.in/2016/08/27/quickly-scripting-a-grid-search-for-parameter-tuning.html</loc>
 <lastmod>2016-08-27T10:10:04+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2016/08/05/using-neuron-part-i.html</loc>
+<loc>http://ankursinha.in/2016/08/05/using-neuron-part-i.html</loc>
 <lastmod>2016-08-05T13:24:48+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2016/08/04/tinkering-with-openlayers-and-js-cajal-a-hacked-up-neuroscience-research-map.html</loc>
+<loc>http://ankursinha.in/2016/08/04/tinkering-with-openlayers-and-js-cajal-a-hacked-up-neuroscience-research-map.html</loc>
 <lastmod>2016-08-04T18:49:08+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2016/06/02/checking-your-latex-sources-for-spelling-errors-with-hunspell.html</loc>
+<loc>http://ankursinha.in/2016/06/02/checking-your-latex-sources-for-spelling-errors-with-hunspell.html</loc>
 <lastmod>2016-06-02T11:42:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2016/05/31/some-tips-and-tricks-for-running-simulations-on-a-cluster.html</loc>
+<loc>http://ankursinha.in/2016/05/31/some-tips-and-tricks-for-running-simulations-on-a-cluster.html</loc>
 <lastmod>2016-05-31T19:17:32+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2016/03/13/my-business-card-in-latex.html</loc>
+<loc>http://ankursinha.in/2016/03/13/my-business-card-in-latex.html</loc>
 <lastmod>2016-03-13T18:30:33+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2016/03/05/calliope-helping-you-keep-a-diary-in-latex.html</loc>
+<loc>http://ankursinha.in/2016/03/05/calliope-helping-you-keep-a-diary-in-latex.html</loc>
 <lastmod>2016-03-05T14:07:52+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2016/03/02/sli-vim-syntax-file-for-the-nest-simulators-sli-language.html</loc>
+<loc>http://ankursinha.in/2016/03/02/sli-vim-syntax-file-for-the-nest-simulators-sli-language.html</loc>
 <lastmod>2016-03-02T10:53:58+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2016/02/28/new-zaphod-release-v0-5-7.html</loc>
+<loc>http://ankursinha.in/2016/02/28/new-zaphod-release-v0-5-7.html</loc>
 <lastmod>2016-02-28T16:52:27+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2016/02/13/zaphod-a-latex-change-tracking-tool.html</loc>
+<loc>http://ankursinha.in/2016/02/13/zaphod-a-latex-change-tracking-tool.html</loc>
 <lastmod>2016-02-13T17:16:24+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2016/01/19/list-of-bugzilla-headers.html</loc>
+<loc>http://ankursinha.in/2016/01/19/list-of-bugzilla-headers.html</loc>
 <lastmod>2016-01-19T14:03:29+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2015/12/30/savetheinternet-did-you-e-mail-trai-yet.html</loc>
+<loc>http://ankursinha.in/2015/12/30/savetheinternet-did-you-e-mail-trai-yet.html</loc>
 <lastmod>2015-12-30T13:03:17+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2015/10/25/learning-to-swim-as-an-adult-part-i-learning-to-not-drown.html</loc>
+<loc>http://ankursinha.in/2015/10/25/learning-to-swim-as-an-adult-part-i-learning-to-not-drown.html</loc>
 <lastmod>2015-10-25T18:04:10+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2015/10/13/fedora-join-meeting-on-friday-october-16.html</loc>
+<loc>http://ankursinha.in/2015/10/13/fedora-join-meeting-on-friday-october-16.html</loc>
 <lastmod>2015-10-13T14:16:33+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2015/09/25/hello-from-fedora-23.html</loc>
+<loc>http://ankursinha.in/2015/09/25/hello-from-fedora-23.html</loc>
 <lastmod>2015-09-25T14:57:53+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2015/09/15/pelican-and-github-pages-a-quickstart.html</loc>
+<loc>http://ankursinha.in/2015/09/15/pelican-and-github-pages-a-quickstart.html</loc>
 <lastmod>2015-09-15T17:53:08+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2015/09/06/copr-repository-for-neuroscience-related-packages.html</loc>
+<loc>http://ankursinha.in/2015/09/06/copr-repository-for-neuroscience-related-packages.html</loc>
 <lastmod>2015-09-06T19:50:46+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2015/08/14/cns-2015-workshops.html</loc>
+<loc>http://ankursinha.in/2015/08/14/cns-2015-workshops.html</loc>
 <lastmod>2015-08-14T14:41:46+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2015/08/14/cns-2015-day-2-and-3.html</loc>
+<loc>http://ankursinha.in/2015/08/14/cns-2015-day-2-and-3.html</loc>
 <lastmod>2015-08-14T14:00:59+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2015/07/30/cns-2015-day-1.html</loc>
+<loc>http://ankursinha.in/2015/07/30/cns-2015-day-1.html</loc>
 <lastmod>2015-07-30T13:43:52+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2015/07/29/cns-2015-day0.html</loc>
+<loc>http://ankursinha.in/2015/07/29/cns-2015-day0.html</loc>
 <lastmod>2015-07-29T11:04:59+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2015/06/27/fedora-22-gnome-do-not-disturb-is-now-an-extension.html</loc>
+<loc>http://ankursinha.in/2015/06/27/fedora-22-gnome-do-not-disturb-is-now-an-extension.html</loc>
 <lastmod>2015-06-27T14:30:12+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2015/06/26/scripting-in-scribus.html</loc>
+<loc>http://ankursinha.in/2015/06/26/scripting-in-scribus.html</loc>
 <lastmod>2015-06-26T14:59:08+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2015/06/24/f-i-curves-for-the-adex-neuron-model-without-adaptation.html</loc>
+<loc>http://ankursinha.in/2015/06/24/f-i-curves-for-the-adex-neuron-model-without-adaptation.html</loc>
 <lastmod>2015-06-24T21:30:16+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2015/06/24/pdfpc-now-in-the-fedora-repositories.html</loc>
+<loc>http://ankursinha.in/2015/06/24/pdfpc-now-in-the-fedora-repositories.html</loc>
 <lastmod>2015-06-24T21:01:33+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2015/06/16/gnome-dnd-f22.html</loc>
+<loc>http://ankursinha.in/2015/06/16/gnome-dnd-f22.html</loc>
 <lastmod>2015-06-16T21:22:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2015/06/15/pdfpc.html</loc>
+<loc>http://ankursinha.in/2015/06/15/pdfpc.html</loc>
 <lastmod>2015-06-15T17:31:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2015/06/12/vim-c-plugins.html</loc>
+<loc>http://ankursinha.in/2015/06/12/vim-c-plugins.html</loc>
 <lastmod>2015-06-12T17:31:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2015/05/29/letter-to-the-fedora-council-is-the-fedora-community-forgetting-its-primary-goal.html</loc>
+<loc>http://ankursinha.in/2015/05/29/letter-to-the-fedora-council-is-the-fedora-community-forgetting-its-primary-goal.html</loc>
 <lastmod>2015-05-29T17:31:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2015/05/28/appstream-data-for-rpmfusion-now-available.html</loc>
+<loc>http://ankursinha.in/2015/05/28/appstream-data-for-rpmfusion-now-available.html</loc>
 <lastmod>2015-05-28T21:56:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2015/05/25/appdata-for-rpmfusion.html</loc>
+<loc>http://ankursinha.in/2015/05/25/appdata-for-rpmfusion.html</loc>
 <lastmod>2015-05-25T14:07:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2015/05/25/so-long-and-thanks-for-all-the-fish.html</loc>
+<loc>http://ankursinha.in/2015/05/25/so-long-and-thanks-for-all-the-fish.html</loc>
 <lastmod>2015-05-25T14:07:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2015/05/17/fedup-to-fedora-22-works-like-a-charm.html</loc>
+<loc>http://ankursinha.in/2015/05/17/fedup-to-fedora-22-works-like-a-charm.html</loc>
 <lastmod>2015-05-17T10:20:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2015/03/29/on-chilli.html</loc>
+<loc>http://ankursinha.in/2015/03/29/on-chilli.html</loc>
 <lastmod>2015-03-29T15:13:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2015/03/02/howto-pelican.html</loc>
+<loc>http://ankursinha.in/2015/03/02/howto-pelican.html</loc>
 <lastmod>2015-03-02T10:39:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2015/03/01/moved-to-pelican.html</loc>
+<loc>http://ankursinha.in/2015/03/01/moved-to-pelican.html</loc>
 <lastmod>2015-03-01T21:15:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2015/02/20/extracting-small-chunks-of-data-from-extremely-large-files-say-hello-to-memory-mapped-files.html</loc>
+<loc>http://ankursinha.in/2015/02/20/extracting-small-chunks-of-data-from-extremely-large-files-say-hello-to-memory-mapped-files.html</loc>
 <lastmod>2015-02-20T18:12:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2014/09/05/be-careful-not-everyone-is-good.html</loc>
+<loc>http://ankursinha.in/2014/09/05/be-careful-not-everyone-is-good.html</loc>
 <lastmod>2014-09-05T17:27:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2014/07/31/taskwarrior-taskwarrior-server-and-mirakel-syncing-and-carrying-your-taskslist-with-you.html</loc>
+<loc>http://ankursinha.in/2014/07/31/taskwarrior-taskwarrior-server-and-mirakel-syncing-and-carrying-your-taskslist-with-you.html</loc>
 <lastmod>2014-07-31T05:02:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2014/06/25/released-the-code-i-wrote-for-my-masters-research.html</loc>
+<loc>http://ankursinha.in/2014/06/25/released-the-code-i-wrote-for-my-masters-research.html</loc>
 <lastmod>2014-06-25T08:38:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2014/06/03/fudcon-beijing-day-2.html</loc>
+<loc>http://ankursinha.in/2014/06/03/fudcon-beijing-day-2.html</loc>
 <lastmod>2014-06-03T11:19:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2014/05/30/fudcon-beijing-day-1.html</loc>
+<loc>http://ankursinha.in/2014/05/30/fudcon-beijing-day-1.html</loc>
 <lastmod>2014-05-30T07:46:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2014/05/29/fudcon-beijing-day-1-and-day-0.html</loc>
+<loc>http://ankursinha.in/2014/05/29/fudcon-beijing-day-1-and-day-0.html</loc>
 <lastmod>2014-05-29T09:51:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2014/04/09/managing-tasks-and-generating-timesheets-using-taskwarrior.html</loc>
+<loc>http://ankursinha.in/2014/04/09/managing-tasks-and-generating-timesheets-using-taskwarrior.html</loc>
 <lastmod>2014-04-09T09:41:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2014/04/06/rosrpm-irc-workshop-series.html</loc>
+<loc>http://ankursinha.in/2014/04/06/rosrpm-irc-workshop-series.html</loc>
 <lastmod>2014-04-06T23:56:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2014/02/21/gnome-3-12-3-11-90-on-fedora-20-a-peek.html</loc>
+<loc>http://ankursinha.in/2014/02/21/gnome-3-12-3-11-90-on-fedora-20-a-peek.html</loc>
 <lastmod>2014-02-21T05:31:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2014/02/18/neuron-simulator-on-fedora.html</loc>
+<loc>http://ankursinha.in/2014/02/18/neuron-simulator-on-fedora.html</loc>
 <lastmod>2014-02-18T07:58:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2013/12/16/time-and-task-tracking.html</loc>
+<loc>http://ankursinha.in/2013/12/16/time-and-task-tracking.html</loc>
 <lastmod>2013-12-16T01:15:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2013/10/03/hello-research-world-3.html</loc>
+<loc>http://ankursinha.in/2013/10/03/hello-research-world-3.html</loc>
 <lastmod>2013-10-03T15:57:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2013/09/19/donate-to-0ad-today.html</loc>
+<loc>http://ankursinha.in/2013/09/19/donate-to-0ad-today.html</loc>
 <lastmod>2013-09-19T23:13:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2013/09/18/fedora-20-first-impressions-and-more.html</loc>
+<loc>http://ankursinha.in/2013/09/18/fedora-20-first-impressions-and-more.html</loc>
 <lastmod>2013-09-18T17:30:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2013/09/04/minutes-from-last-nights-fedora-medical-irc-meeting.html</loc>
+<loc>http://ankursinha.in/2013/09/04/minutes-from-last-nights-fedora-medical-irc-meeting.html</loc>
 <lastmod>2013-09-04T09:23:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2013/09/03/fedora-medical-irc-meeting-today.html</loc>
+<loc>http://ankursinha.in/2013/09/03/fedora-medical-irc-meeting-today.html</loc>
 <lastmod>2013-09-03T10:28:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2013/08/30/the-406-error-conundrum.html</loc>
+<loc>http://ankursinha.in/2013/08/30/the-406-error-conundrum.html</loc>
 <lastmod>2013-08-30T13:34:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2013/08/29/what-have-i-been-up-to-in-fedora-lately.html</loc>
+<loc>http://ankursinha.in/2013/08/29/what-have-i-been-up-to-in-fedora-lately.html</loc>
 <lastmod>2013-08-29T11:29:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2013/08/27/on-building-a-ros-groovy-software-collection-for-fedora.html</loc>
+<loc>http://ankursinha.in/2013/08/27/on-building-a-ros-groovy-software-collection-for-fedora.html</loc>
 <lastmod>2013-08-27T23:47:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2013/08/26/monitoring-your-fedora-tasks-on-the-irc.html</loc>
+<loc>http://ankursinha.in/2013/08/26/monitoring-your-fedora-tasks-on-the-irc.html</loc>
 <lastmod>2013-08-26T23:02:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2013/06/23/fedora-and-journal-writing.html</loc>
+<loc>http://ankursinha.in/2013/06/23/fedora-and-journal-writing.html</loc>
 <lastmod>2013-06-23T22:53:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2013/06/16/fedora-20-electionsvoting.html</loc>
+<loc>http://ankursinha.in/2013/06/16/fedora-20-electionsvoting.html</loc>
 <lastmod>2013-06-16T20:06:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2013/06/14/fedora-20-elections-board-town-hall-logs.html</loc>
+<loc>http://ankursinha.in/2013/06/14/fedora-20-elections-board-town-hall-logs.html</loc>
 <lastmod>2013-06-14T17:30:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2013/06/12/fedora-20-elections-famsco-townhall-logs.html</loc>
+<loc>http://ankursinha.in/2013/06/12/fedora-20-elections-famsco-townhall-logs.html</loc>
 <lastmod>2013-06-12T07:34:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2013/06/11/fedora-20-elections-fesco-town-hall-logs.html</loc>
+<loc>http://ankursinha.in/2013/06/11/fedora-20-elections-fesco-town-hall-logs.html</loc>
 <lastmod>2013-06-11T04:21:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2013/06/04/fedora-20-elections-famsco-and-board-town-halls-confirmed.html</loc>
+<loc>http://ankursinha.in/2013/06/04/fedora-20-elections-famsco-and-board-town-halls-confirmed.html</loc>
 <lastmod>2013-06-04T23:30:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2013/06/03/a-small-askfedora-update.html</loc>
+<loc>http://ankursinha.in/2013/06/03/a-small-askfedora-update.html</loc>
 <lastmod>2013-06-03T14:13:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2013/05/31/fedora-20-elections-fesco-townhall-confirmed.html</loc>
+<loc>http://ankursinha.in/2013/05/31/fedora-20-elections-fesco-townhall-confirmed.html</loc>
 <lastmod>2013-05-31T10:28:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2013/05/29/new-gpg-key.html</loc>
+<loc>http://ankursinha.in/2013/05/29/new-gpg-key.html</loc>
 <lastmod>2013-05-29T19:38:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2013/05/28/yin-and-yang-dd-and-testdisk.html</loc>
+<loc>http://ankursinha.in/2013/05/28/yin-and-yang-dd-and-testdisk.html</loc>
 <lastmod>2013-05-28T13:07:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2013/05/27/fedora-20-elections-townhall-scheduler-emails-are-out.html</loc>
+<loc>http://ankursinha.in/2013/05/27/fedora-20-elections-townhall-scheduler-emails-are-out.html</loc>
 <lastmod>2013-05-27T17:26:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2013/05/25/reminder-fedora-20-election-nominations-and-questionnaire-close-today.html</loc>
+<loc>http://ankursinha.in/2013/05/25/reminder-fedora-20-election-nominations-and-questionnaire-close-today.html</loc>
 <lastmod>2013-05-25T13:33:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2013/05/22/reminder-questionnaire-and-nomination-dead-lines.html</loc>
+<loc>http://ankursinha.in/2013/05/22/reminder-questionnaire-and-nomination-dead-lines.html</loc>
 <lastmod>2013-05-22T12:36:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2013/05/15/its-always-the-right-time-to-join-fedora-and-start-contributing.html</loc>
+<loc>http://ankursinha.in/2013/05/15/its-always-the-right-time-to-join-fedora-and-start-contributing.html</loc>
 <lastmod>2013-05-15T21:03:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2013/05/15/fedora-board-fesco-famsco-and-fedora-20-name-election-process-has-begun.html</loc>
+<loc>http://ankursinha.in/2013/05/15/fedora-board-fesco-famsco-and-fedora-20-name-election-process-has-begun.html</loc>
 <lastmod>2013-05-15T13:36:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2013/05/12/setting-up-rygel-on-your-fedora-system.html</loc>
+<loc>http://ankursinha.in/2013/05/12/setting-up-rygel-on-your-fedora-system.html</loc>
 <lastmod>2013-05-12T15:51:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2013/05/02/fedora-19-and-a-few-bugs-ive-run-into.html</loc>
+<loc>http://ankursinha.in/2013/05/02/fedora-19-and-a-few-bugs-ive-run-into.html</loc>
 <lastmod>2013-05-02T19:27:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2013/04/10/a-set-of-new-monospace-fonts-anka-coder-fonts.html</loc>
+<loc>http://ankursinha.in/2013/04/10/a-set-of-new-monospace-fonts-anka-coder-fonts.html</loc>
 <lastmod>2013-04-10T23:16:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2013/04/08/installing-gazebo-with-your-ros-groovy-install-on-fedora-18.html</loc>
+<loc>http://ankursinha.in/2013/04/08/installing-gazebo-with-your-ros-groovy-install-on-fedora-18.html</loc>
 <lastmod>2013-04-08T22:04:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2013/04/08/installing-the-openni_camera-ros-groovy-package-on-fedora-18.html</loc>
+<loc>http://ankursinha.in/2013/04/08/installing-the-openni_camera-ros-groovy-package-on-fedora-18.html</loc>
 <lastmod>2013-04-08T15:09:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2013/04/07/extracting-raw-data-from-ros-topics.html</loc>
+<loc>http://ankursinha.in/2013/04/07/extracting-raw-data-from-ros-topics.html</loc>
 <lastmod>2013-04-07T15:22:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2013/04/06/new-blog-and-website.html</loc>
+<loc>http://ankursinha.in/2013/04/06/new-blog-and-website.html</loc>
 <lastmod>2013-04-06T16:10:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2013/04/04/of-laptops-and-workstations.html</loc>
+<loc>http://ankursinha.in/2013/04/04/of-laptops-and-workstations.html</loc>
 <lastmod>2013-04-04T11:01:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2013/03/28/ros-groovy-on-fedora-18.html</loc>
+<loc>http://ankursinha.in/2013/03/28/ros-groovy-on-fedora-18.html</loc>
 <lastmod>2013-03-28T04:33:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2013/03/14/adding-version-control-to-nautilus.html</loc>
+<loc>http://ankursinha.in/2013/03/14/adding-version-control-to-nautilus.html</loc>
 <lastmod>2013-03-14T04:37:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2013/03/07/i-really-like-gnome3.html</loc>
+<loc>http://ankursinha.in/2013/03/07/i-really-like-gnome3.html</loc>
 <lastmod>2013-03-07T17:09:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2013/02/22/free-media-in-australia-pricing.html</loc>
+<loc>http://ankursinha.in/2013/02/22/free-media-in-australia-pricing.html</loc>
 <lastmod>2013-02-22T07:02:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2013/02/17/integrating-mpd-better-with-gnome-shell.html</loc>
+<loc>http://ankursinha.in/2013/02/17/integrating-mpd-better-with-gnome-shell.html</loc>
 <lastmod>2013-02-17T19:02:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2013/02/10/free-media-in-australia.html</loc>
+<loc>http://ankursinha.in/2013/02/10/free-media-in-australia.html</loc>
 <lastmod>2013-02-10T16:59:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2012/11/13/nomination-period-for-fedora-elections-closes-today-have-you-nominated-yet.html</loc>
+<loc>http://ankursinha.in/2012/11/13/nomination-period-for-fedora-elections-closes-today-have-you-nominated-yet.html</loc>
 <lastmod>2012-11-13T05:06:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2012/11/06/updating-your-bios-when-youre-not-running-windows.html</loc>
+<loc>http://ankursinha.in/2012/11/06/updating-your-bios-when-youre-not-running-windows.html</loc>
 <lastmod>2012-11-06T13:42:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2012/10/07/beamer-making-hand-outs-for-your-presentations.html</loc>
+<loc>http://ankursinha.in/2012/10/07/beamer-making-hand-outs-for-your-presentations.html</loc>
 <lastmod>2012-10-07T15:55:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2012/08/23/compiling-the-cp210x-module-for-use-with-the-nao.html</loc>
+<loc>http://ankursinha.in/2012/08/23/compiling-the-cp210x-module-for-use-with-the-nao.html</loc>
 <lastmod>2012-08-23T12:00:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2012/08/22/using-surfmex-with-octave-3.html</loc>
+<loc>http://ankursinha.in/2012/08/22/using-surfmex-with-octave-3.html</loc>
 <lastmod>2012-08-22T07:47:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2012/08/09/what-have-i-been-upto.html</loc>
+<loc>http://ankursinha.in/2012/08/09/what-have-i-been-upto.html</loc>
 <lastmod>2012-08-09T18:55:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2012/07/07/unavailable-till-the-end-of-july.html</loc>
+<loc>http://ankursinha.in/2012/07/07/unavailable-till-the-end-of-july.html</loc>
 <lastmod>2012-07-07T15:41:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2012/06/30/migrating-your-contacts-from-your-blackberry-to-android-using-linux.html</loc>
+<loc>http://ankursinha.in/2012/06/30/migrating-your-contacts-from-your-blackberry-to-android-using-linux.html</loc>
 <lastmod>2012-06-30T00:41:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2012/06/23/integrating-byobuscreens-copy-buffer-with-xgnome-clipboard.html</loc>
+<loc>http://ankursinha.in/2012/06/23/integrating-byobuscreens-copy-buffer-with-xgnome-clipboard.html</loc>
 <lastmod>2012-06-23T17:16:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2012/06/16/announcing-fedora-join-sig.html</loc>
+<loc>http://ankursinha.in/2012/06/16/announcing-fedora-join-sig.html</loc>
 <lastmod>2012-06-16T02:24:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2012/06/14/fedora-join-sig-what-do-you-think.html</loc>
+<loc>http://ankursinha.in/2012/06/14/fedora-join-sig-what-do-you-think.html</loc>
 <lastmod>2012-06-14T18:01:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2012/05/28/open-source-creative-applications.html</loc>
+<loc>http://ankursinha.in/2012/05/28/open-source-creative-applications.html</loc>
 <lastmod>2012-05-28T23:30:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2012/05/28/fedora-elections-famsco-townhall-2.html</loc>
+<loc>http://ankursinha.in/2012/05/28/fedora-elections-famsco-townhall-2.html</loc>
 <lastmod>2012-05-28T19:04:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2012/05/27/fedora-elections-famsco-townhall-1.html</loc>
+<loc>http://ankursinha.in/2012/05/27/fedora-elections-famsco-townhall-1.html</loc>
 <lastmod>2012-05-27T19:45:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2012/05/24/byobu-and-mc.html</loc>
+<loc>http://ankursinha.in/2012/05/24/byobu-and-mc.html</loc>
 <lastmod>2012-05-24T22:14:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2012/05/23/fudcon-kuala-lumpur-day-2.html</loc>
+<loc>http://ankursinha.in/2012/05/23/fudcon-kuala-lumpur-day-2.html</loc>
 <lastmod>2012-05-23T23:48:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2012/05/23/fedora-elections-questionnaire-responses-are-up.html</loc>
+<loc>http://ankursinha.in/2012/05/23/fedora-elections-questionnaire-responses-are-up.html</loc>
 <lastmod>2012-05-23T22:59:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2012/05/22/fedora-elections-2012-questionnaire-due-today.html</loc>
+<loc>http://ankursinha.in/2012/05/22/fedora-elections-2012-questionnaire-due-today.html</loc>
 <lastmod>2012-05-22T09:03:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2012/05/20/fudcon-kuala-lumpur-day-1-0-1.html</loc>
+<loc>http://ankursinha.in/2012/05/20/fudcon-kuala-lumpur-day-1-0-1.html</loc>
 <lastmod>2012-05-20T10:32:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2012/05/15/ready-get-set-go.html</loc>
+<loc>http://ankursinha.in/2012/05/15/ready-get-set-go.html</loc>
 <lastmod>2012-05-15T18:04:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2012/05/13/installing-fedora-17-on-my-eeepc-using-a-kickstart.html</loc>
+<loc>http://ankursinha.in/2012/05/13/installing-fedora-17-on-my-eeepc-using-a-kickstart.html</loc>
 <lastmod>2012-05-13T19:15:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2012/05/11/presentations-for-fudcon-kl.html</loc>
+<loc>http://ankursinha.in/2012/05/11/presentations-for-fudcon-kl.html</loc>
 <lastmod>2012-05-11T16:40:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2012/05/09/fedora-tour-meeting-minutes-tuesday-may-8-2012.html</loc>
+<loc>http://ankursinha.in/2012/05/09/fedora-tour-meeting-minutes-tuesday-may-8-2012.html</loc>
 <lastmod>2012-05-09T15:14:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2012/05/09/fedora-elections-nomination-period-has-begun.html</loc>
+<loc>http://ankursinha.in/2012/05/09/fedora-elections-nomination-period-has-begun.html</loc>
 <lastmod>2012-05-09T11:01:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2012/05/04/fedora-tour-meeting-may-3-2012.html</loc>
+<loc>http://ankursinha.in/2012/05/04/fedora-tour-meeting-may-3-2012.html</loc>
 <lastmod>2012-05-04T01:22:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2012/05/03/on-spherical-cow.html</loc>
+<loc>http://ankursinha.in/2012/05/03/on-spherical-cow.html</loc>
 <lastmod>2012-05-03T18:18:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2012/04/30/more-mpd-madness.html</loc>
+<loc>http://ankursinha.in/2012/04/30/more-mpd-madness.html</loc>
 <lastmod>2012-04-30T19:43:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2012/04/29/cast-your-vote.html</loc>
+<loc>http://ankursinha.in/2012/04/29/cast-your-vote.html</loc>
 <lastmod>2012-04-29T22:44:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2012/04/26/are-you-a-newbie-looking-to-contribute-to-fedora.html</loc>
+<loc>http://ankursinha.in/2012/04/26/are-you-a-newbie-looking-to-contribute-to-fedora.html</loc>
 <lastmod>2012-04-26T15:13:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2012/04/25/im-going-to-fudcon-kuala-lumpur-are-you.html</loc>
+<loc>http://ankursinha.in/2012/04/25/im-going-to-fudcon-kuala-lumpur-are-you.html</loc>
 <lastmod>2012-04-25T15:17:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2012/04/25/updating-byobu.html</loc>
+<loc>http://ankursinha.in/2012/04/25/updating-byobu.html</loc>
 <lastmod>2012-04-25T14:38:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2012/04/25/one-of-the-worse-days-with-free-media-in-india.html</loc>
+<loc>http://ankursinha.in/2012/04/25/one-of-the-worse-days-with-free-media-in-india.html</loc>
 <lastmod>2012-04-25T11:30:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2012/04/20/fedora-tour-needs-web-developers.html</loc>
+<loc>http://ankursinha.in/2012/04/20/fedora-tour-needs-web-developers.html</loc>
 <lastmod>2012-04-20T16:20:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2012/04/19/change-in-behaviour-of-livecd-tools-testing-required.html</loc>
+<loc>http://ankursinha.in/2012/04/19/change-in-behaviour-of-livecd-tools-testing-required.html</loc>
 <lastmod>2012-04-19T12:57:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2012/04/14/fedora-17-beta.html</loc>
+<loc>http://ankursinha.in/2012/04/14/fedora-17-beta.html</loc>
 <lastmod>2012-04-14T12:33:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2012/04/04/yumdownloader-downloading-x86_32-packages-on-i686-systems.html</loc>
+<loc>http://ankursinha.in/2012/04/04/yumdownloader-downloading-x86_32-packages-on-i686-systems.html</loc>
 <lastmod>2012-04-04T14:48:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2012/03/24/pycscope-generates-a-cscope-index-of-python-source-trees.html</loc>
+<loc>http://ankursinha.in/2012/03/24/pycscope-generates-a-cscope-index-of-python-source-trees.html</loc>
 <lastmod>2012-03-24T19:23:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2012/03/23/138a0008-validity-sensors-inc-vfs300-fingeprint-reader-on-fedora-16.html</loc>
+<loc>http://ankursinha.in/2012/03/23/138a0008-validity-sensors-inc-vfs300-fingeprint-reader-on-fedora-16.html</loc>
 <lastmod>2012-03-23T15:21:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2012/03/21/a-small-parcellite-tip.html</loc>
+<loc>http://ankursinha.in/2012/03/21/a-small-parcellite-tip.html</loc>
 <lastmod>2012-03-21T01:52:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2012/03/21/how-i-got-my-first-semi-black-eye.html</loc>
+<loc>http://ankursinha.in/2012/03/21/how-i-got-my-first-semi-black-eye.html</loc>
 <lastmod>2012-03-21T00:25:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2012/03/13/latex-vim-and-fedora.html</loc>
+<loc>http://ankursinha.in/2012/03/13/latex-vim-and-fedora.html</loc>
 <lastmod>2012-03-13T00:55:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2012/03/11/what-ive-been-up-to-recently.html</loc>
+<loc>http://ankursinha.in/2012/03/11/what-ive-been-up-to-recently.html</loc>
 <lastmod>2012-03-11T17:51:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2012/03/02/google-summer-of-code-2012-some-things-to-remember-for-prospective-mentors.html</loc>
+<loc>http://ankursinha.in/2012/03/02/google-summer-of-code-2012-some-things-to-remember-for-prospective-mentors.html</loc>
 <lastmod>2012-03-02T10:46:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2012/02/25/fudcon-apac-recommendations.html</loc>
+<loc>http://ankursinha.in/2012/02/25/fudcon-apac-recommendations.html</loc>
 <lastmod>2012-02-25T14:37:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2012/02/23/the-easyfix-key-word-for-bugzilla.html</loc>
+<loc>http://ankursinha.in/2012/02/23/the-easyfix-key-word-for-bugzilla.html</loc>
 <lastmod>2012-02-23T20:46:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2012/02/23/updating-all-your-fedora-package-git-directories.html</loc>
+<loc>http://ankursinha.in/2012/02/23/updating-all-your-fedora-package-git-directories.html</loc>
 <lastmod>2012-02-23T20:34:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2012/02/19/test-from-blogtk.html</loc>
+<loc>http://ankursinha.in/2012/02/19/test-from-blogtk.html</loc>
 <lastmod>2012-02-19T18:53:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2012/02/18/my-library.html</loc>
+<loc>http://ankursinha.in/2012/02/18/my-library.html</loc>
 <lastmod>2012-02-18T18:28:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2012/02/17/fedora-free-media-tool-making-modifications-to-the-trac.html</loc>
+<loc>http://ankursinha.in/2012/02/17/fedora-free-media-tool-making-modifications-to-the-trac.html</loc>
 <lastmod>2012-02-17T12:28:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2012/02/16/on-my-relationship-with-fedora-medical.html</loc>
+<loc>http://ankursinha.in/2012/02/16/on-my-relationship-with-fedora-medical.html</loc>
 <lastmod>2012-02-16T16:35:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2012/02/16/fedora-free-media-tool-version-0-2alpha.html</loc>
+<loc>http://ankursinha.in/2012/02/16/fedora-free-media-tool-version-0-2alpha.html</loc>
 <lastmod>2012-02-16T01:01:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2012/02/14/gnote-snowy-tomdroid.html</loc>
+<loc>http://ankursinha.in/2012/02/14/gnote-snowy-tomdroid.html</loc>
 <lastmod>2012-02-14T16:31:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2012/02/12/burgers-at-thulp.html</loc>
+<loc>http://ankursinha.in/2012/02/12/burgers-at-thulp.html</loc>
 <lastmod>2012-02-12T14:51:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2012/02/08/the-status-of-free-media-program-in-india-a-quick-update.html</loc>
+<loc>http://ankursinha.in/2012/02/08/the-status-of-free-media-program-in-india-a-quick-update.html</loc>
 <lastmod>2012-02-08T13:02:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2012/02/02/using-askfedora-correctly.html</loc>
+<loc>http://ankursinha.in/2012/02/02/using-askfedora-correctly.html</loc>
 <lastmod>2012-02-02T10:02:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2012/01/25/hoggburger.html</loc>
+<loc>http://ankursinha.in/2012/01/25/hoggburger.html</loc>
 <lastmod>2012-01-25T15:16:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2012/01/24/fedora-free-media-ready-to-ship.html</loc>
+<loc>http://ankursinha.in/2012/01/24/fedora-free-media-ready-to-ship.html</loc>
 <lastmod>2012-01-24T12:54:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2012/01/18/im-on-strike-too.html</loc>
+<loc>http://ankursinha.in/2012/01/18/im-on-strike-too.html</loc>
 <lastmod>2012-01-18T12:40:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2012/01/17/vim-classroom-for-beginners-repeat-for-apac.html</loc>
+<loc>http://ankursinha.in/2012/01/17/vim-classroom-for-beginners-repeat-for-apac.html</loc>
 <lastmod>2012-01-17T00:13:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2012/01/10/an-informal-get-together-forum-food-court-koramangla-on-saturday-11am.html</loc>
+<loc>http://ankursinha.in/2012/01/10/an-informal-get-together-forum-food-court-koramangla-on-saturday-11am.html</loc>
 <lastmod>2012-01-10T23:41:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2011/12/24/happy-holidays.html</loc>
+<loc>http://ankursinha.in/2011/12/24/happy-holidays.html</loc>
 <lastmod>2011-12-24T19:00:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2011/12/14/logs-for-the-fedora-classroom-on-vim.html</loc>
+<loc>http://ankursinha.in/2011/12/14/logs-for-the-fedora-classroom-on-vim.html</loc>
 <lastmod>2011-12-14T03:44:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2011/12/09/a-fedora-classroom-on-vim.html</loc>
+<loc>http://ankursinha.in/2011/12/09/a-fedora-classroom-on-vim.html</loc>
 <lastmod>2011-12-09T19:44:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2011/12/09/free-media-vs-localcontacts-what-is-the-difference.html</loc>
+<loc>http://ankursinha.in/2011/12/09/free-media-vs-localcontacts-what-is-the-difference.html</loc>
 <lastmod>2011-12-09T14:07:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2011/12/08/fedora-ambassadors-survey.html</loc>
+<loc>http://ankursinha.in/2011/12/08/fedora-ambassadors-survey.html</loc>
 <lastmod>2011-12-08T10:12:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2011/12/08/this-is-not-a-rant.html</loc>
+<loc>http://ankursinha.in/2011/12/08/this-is-not-a-rant.html</loc>
 <lastmod>2011-12-08T03:43:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2011/12/07/reviving-the-india-local-contacts-program.html</loc>
+<loc>http://ankursinha.in/2011/12/07/reviving-the-india-local-contacts-program.html</loc>
 <lastmod>2011-12-07T20:55:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2011/12/07/indimpc-a-minimalistic-mpd-client-with-support-for-the-gnome-shell-indication-system-and-multimedia-keys.html</loc>
+<loc>http://ankursinha.in/2011/12/07/indimpc-a-minimalistic-mpd-client-with-support-for-the-gnome-shell-indication-system-and-multimedia-keys.html</loc>
 <lastmod>2011-12-07T20:38:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2011/12/04/opennero-packaging.html</loc>
+<loc>http://ankursinha.in/2011/12/04/opennero-packaging.html</loc>
 <lastmod>2011-12-04T13:05:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2011/11/07/fudcon-india-pune.html</loc>
+<loc>http://ankursinha.in/2011/11/07/fudcon-india-pune.html</loc>
 <lastmod>2011-11-07T21:18:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2011/11/07/fudcon-india-pune-day-2.html</loc>
+<loc>http://ankursinha.in/2011/11/07/fudcon-india-pune-day-2.html</loc>
 <lastmod>2011-11-07T15:37:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2011/11/04/fudcon-india-pune-day-1.html</loc>
+<loc>http://ankursinha.in/2011/11/04/fudcon-india-pune-day-1.html</loc>
 <lastmod>2011-11-04T17:40:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2011/11/03/latex-the-open-source-document-system-for-academia.html</loc>
+<loc>http://ankursinha.in/2011/11/03/latex-the-open-source-document-system-for-academia.html</loc>
 <lastmod>2011-11-03T00:21:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2011/10/31/the-experience-that-was-metallica.html</loc>
+<loc>http://ankursinha.in/2011/10/31/the-experience-that-was-metallica.html</loc>
 <lastmod>2011-10-31T12:32:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2011/10/19/fudcon-india-pune-booklet.html</loc>
+<loc>http://ankursinha.in/2011/10/19/fudcon-india-pune-booklet.html</loc>
 <lastmod>2011-10-19T10:58:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2011/10/16/rpmfusion-packages-that-need-co-maintainers.html</loc>
+<loc>http://ankursinha.in/2011/10/16/rpmfusion-packages-that-need-co-maintainers.html</loc>
 <lastmod>2011-10-16T17:38:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2011/10/14/my-keys.html</loc>
+<loc>http://ankursinha.in/2011/10/14/my-keys.html</loc>
 <lastmod>2011-10-14T18:02:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2011/10/13/dennis-ritchie-passes-away.html</loc>
+<loc>http://ankursinha.in/2011/10/13/dennis-ritchie-passes-away.html</loc>
 <lastmod>2011-10-13T12:30:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2011/10/11/i-am-going-to-fudcon-india-2011-are-you.html</loc>
+<loc>http://ankursinha.in/2011/10/11/i-am-going-to-fudcon-india-2011-are-you.html</loc>
 <lastmod>2011-10-11T14:37:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2011/10/05/how-in-heavens-name-did-my-language-change.html</loc>
+<loc>http://ankursinha.in/2011/10/05/how-in-heavens-name-did-my-language-change.html</loc>
 <lastmod>2011-10-05T18:40:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2011/10/04/ftp-usage.html</loc>
+<loc>http://ankursinha.in/2011/10/04/ftp-usage.html</loc>
 <lastmod>2011-10-04T01:34:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2011/09/30/what-is-ask-fedora.html</loc>
+<loc>http://ankursinha.in/2011/09/30/what-is-ask-fedora.html</loc>
 <lastmod>2011-09-30T15:43:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2011/09/30/using-your-gnotes-on-your-android-phone.html</loc>
+<loc>http://ankursinha.in/2011/09/30/using-your-gnotes-on-your-android-phone.html</loc>
 <lastmod>2011-09-30T01:18:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2011/09/24/vimperator.html</loc>
+<loc>http://ankursinha.in/2011/09/24/vimperator.html</loc>
 <lastmod>2011-09-24T17:08:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2011/09/03/mpde-0-0-2-release-a-daemon-that-picks-the-currently-playing-song-from-mpd-and-sets-it-as-your-empathy-status.html</loc>
+<loc>http://ankursinha.in/2011/09/03/mpde-0-0-2-release-a-daemon-that-picks-the-currently-playing-song-from-mpd-and-sets-it-as-your-empathy-status.html</loc>
 <lastmod>2011-09-03T10:49:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2011/08/28/easily-autotoolizing-a-project.html</loc>
+<loc>http://ankursinha.in/2011/08/28/easily-autotoolizing-a-project.html</loc>
 <lastmod>2011-08-28T16:17:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2011/08/20/fedora-gsoc-report.html</loc>
+<loc>http://ankursinha.in/2011/08/20/fedora-gsoc-report.html</loc>
 <lastmod>2011-08-20T13:21:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2011/08/15/fedora-gsoc-week-16.html</loc>
+<loc>http://ankursinha.in/2011/08/15/fedora-gsoc-week-16.html</loc>
 <lastmod>2011-08-15T16:12:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2011/08/13/if-your-wireless-stops-working-after-the-kernel-update.html</loc>
+<loc>http://ankursinha.in/2011/08/13/if-your-wireless-stops-working-after-the-kernel-update.html</loc>
 <lastmod>2011-08-13T17:55:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2011/08/13/restoring-single-files-with-deja-dup.html</loc>
+<loc>http://ankursinha.in/2011/08/13/restoring-single-files-with-deja-dup.html</loc>
 <lastmod>2011-08-13T16:48:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2011/08/07/fedora-gsoc-week-15.html</loc>
+<loc>http://ankursinha.in/2011/08/07/fedora-gsoc-week-15.html</loc>
 <lastmod>2011-08-07T14:22:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2011/08/01/fedora-gsoc-week-14.html</loc>
+<loc>http://ankursinha.in/2011/08/01/fedora-gsoc-week-14.html</loc>
 <lastmod>2011-08-01T12:25:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2011/07/25/fedora-gsoc-week-13.html</loc>
+<loc>http://ankursinha.in/2011/07/25/fedora-gsoc-week-13.html</loc>
 <lastmod>2011-07-25T22:57:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2011/07/17/fedora-gsoc-week-12.html</loc>
+<loc>http://ankursinha.in/2011/07/17/fedora-gsoc-week-12.html</loc>
 <lastmod>2011-07-17T19:38:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2011/07/10/fedora-gsoc-week-11.html</loc>
+<loc>http://ankursinha.in/2011/07/10/fedora-gsoc-week-11.html</loc>
 <lastmod>2011-07-10T11:10:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2011/07/04/if-sealert-is-still-broken-for-you.html</loc>
+<loc>http://ankursinha.in/2011/07/04/if-sealert-is-still-broken-for-you.html</loc>
 <lastmod>2011-07-04T08:13:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2011/07/03/fedora-gsoc-week-10.html</loc>
+<loc>http://ankursinha.in/2011/07/03/fedora-gsoc-week-10.html</loc>
 <lastmod>2011-07-03T17:50:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2011/06/26/fedora-gsoc-week-9.html</loc>
+<loc>http://ankursinha.in/2011/06/26/fedora-gsoc-week-9.html</loc>
 <lastmod>2011-06-26T09:31:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2011/06/20/keyboard-shortcuts-to-control-mpd.html</loc>
+<loc>http://ankursinha.in/2011/06/20/keyboard-shortcuts-to-control-mpd.html</loc>
 <lastmod>2011-06-20T12:45:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2011/06/18/fedora-gsoc-week-8.html</loc>
+<loc>http://ankursinha.in/2011/06/18/fedora-gsoc-week-8.html</loc>
 <lastmod>2011-06-18T20:07:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2011/06/14/fedora-gsoc-week-7.html</loc>
+<loc>http://ankursinha.in/2011/06/14/fedora-gsoc-week-7.html</loc>
 <lastmod>2011-06-14T14:09:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2011/06/05/fedora-gsoc-week-6.html</loc>
+<loc>http://ankursinha.in/2011/06/05/fedora-gsoc-week-6.html</loc>
 <lastmod>2011-06-05T13:33:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2011/05/30/fedora-gsoc-week-5.html</loc>
+<loc>http://ankursinha.in/2011/05/30/fedora-gsoc-week-5.html</loc>
 <lastmod>2011-05-30T01:32:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2011/05/25/f-15-turns-on-hot-russian-girls.html</loc>
+<loc>http://ankursinha.in/2011/05/25/f-15-turns-on-hot-russian-girls.html</loc>
 <lastmod>2011-05-25T12:01:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2011/05/22/fedora-gsoc-week-4.html</loc>
+<loc>http://ankursinha.in/2011/05/22/fedora-gsoc-week-4.html</loc>
 <lastmod>2011-05-22T00:30:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2011/05/21/counterstrike-condition-zero-on-fedora.html</loc>
+<loc>http://ankursinha.in/2011/05/21/counterstrike-condition-zero-on-fedora.html</loc>
 <lastmod>2011-05-21T21:10:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2011/05/19/a-qemu-quickie.html</loc>
+<loc>http://ankursinha.in/2011/05/19/a-qemu-quickie.html</loc>
 <lastmod>2011-05-19T18:23:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2011/05/15/fedora-gsoc-week-3.html</loc>
+<loc>http://ankursinha.in/2011/05/15/fedora-gsoc-week-3.html</loc>
 <lastmod>2011-05-15T20:19:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2011/05/09/fedora-gsoc-week-2.html</loc>
+<loc>http://ankursinha.in/2011/05/09/fedora-gsoc-week-2.html</loc>
 <lastmod>2011-05-09T00:29:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2011/05/02/gsoc-fedora-medical-week-1.html</loc>
+<loc>http://ankursinha.in/2011/05/02/gsoc-fedora-medical-week-1.html</loc>
 <lastmod>2011-05-02T06:09:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2011/04/24/if-empathy-stops-working-for-you-after-the-first-update-of-f15-beta.html</loc>
+<loc>http://ankursinha.in/2011/04/24/if-empathy-stops-working-for-you-after-the-first-update-of-f15-beta.html</loc>
 <lastmod>2011-04-24T22:11:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2011/04/19/automating-creation-of-free-media-envelopes.html</loc>
+<loc>http://ankursinha.in/2011/04/19/automating-creation-of-free-media-envelopes.html</loc>
 <lastmod>2011-04-19T15:59:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2011/04/16/task-updates.html</loc>
+<loc>http://ankursinha.in/2011/04/16/task-updates.html</loc>
 <lastmod>2011-04-16T15:22:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2011/03/15/tata-photon-users-something-you-should-know.html</loc>
+<loc>http://ankursinha.in/2011/03/15/tata-photon-users-something-you-should-know.html</loc>
 <lastmod>2011-03-15T13:03:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2011/03/09/my-first-batch-of-free-media-for-the-month.html</loc>
+<loc>http://ankursinha.in/2011/03/09/my-first-batch-of-free-media-for-the-month.html</loc>
 <lastmod>2011-03-09T19:07:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2011/02/26/playing-your-music-from-the-terminal-mpd-setup.html</loc>
+<loc>http://ankursinha.in/2011/02/26/playing-your-music-from-the-terminal-mpd-setup.html</loc>
 <lastmod>2011-02-26T15:06:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2011/02/23/a-complete-rtorrent-setup.html</loc>
+<loc>http://ankursinha.in/2011/02/23/a-complete-rtorrent-setup.html</loc>
 <lastmod>2011-02-23T14:31:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2011/02/21/using-torrent-rss-feeds-with-rtorrent.html</loc>
+<loc>http://ankursinha.in/2011/02/21/using-torrent-rss-feeds-with-rtorrent.html</loc>
 <lastmod>2011-02-21T02:20:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2011/02/16/folding-in-vim.html</loc>
+<loc>http://ankursinha.in/2011/02/16/folding-in-vim.html</loc>
 <lastmod>2011-02-16T17:56:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2011/02/10/tata-photon-on-fedora-14.html</loc>
+<loc>http://ankursinha.in/2011/02/10/tata-photon-on-fedora-14.html</loc>
 <lastmod>2011-02-10T19:53:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2011/02/07/note-to-self-static-member-variable-in-c.html</loc>
+<loc>http://ankursinha.in/2011/02/07/note-to-self-static-member-variable-in-c.html</loc>
 <lastmod>2011-02-07T20:34:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2011/02/03/how-i-came-about-learning-awk.html</loc>
+<loc>http://ankursinha.in/2011/02/03/how-i-came-about-learning-awk.html</loc>
 <lastmod>2011-02-03T15:36:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2011/01/27/statistics-from-the-irc-sig-meeting.html</loc>
+<loc>http://ankursinha.in/2011/01/27/statistics-from-the-irc-sig-meeting.html</loc>
 <lastmod>2011-01-27T22:54:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2011/01/25/a-remote-mini-fad-2.html</loc>
+<loc>http://ankursinha.in/2011/01/25/a-remote-mini-fad-2.html</loc>
 <lastmod>2011-01-25T19:18:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2011/01/24/a-remote-mini-fad.html</loc>
+<loc>http://ankursinha.in/2011/01/24/a-remote-mini-fad.html</loc>
 <lastmod>2011-01-24T13:39:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2011/01/14/turning-your-gnome-screensaver-on-and-off-with-a-single-click.html</loc>
+<loc>http://ankursinha.in/2011/01/14/turning-your-gnome-screensaver-on-and-off-with-a-single-click.html</loc>
 <lastmod>2011-01-14T10:52:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2011/01/14/my-first-ever-parking-ticket.html</loc>
+<loc>http://ankursinha.in/2011/01/14/my-first-ever-parking-ticket.html</loc>
 <lastmod>2011-01-14T10:17:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2011/01/12/i-did-19-review-requests-this-past-year.html</loc>
+<loc>http://ankursinha.in/2011/01/12/i-did-19-review-requests-this-past-year.html</loc>
 <lastmod>2011-01-12T11:16:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2011/01/11/fedora-using-pastebins.html</loc>
+<loc>http://ankursinha.in/2011/01/11/fedora-using-pastebins.html</loc>
 <lastmod>2011-01-11T08:58:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2011/01/11/memaker-an-avatar-creator-for-linux.html</loc>
+<loc>http://ankursinha.in/2011/01/11/memaker-an-avatar-creator-for-linux.html</loc>
 <lastmod>2011-01-11T08:12:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2011/01/07/evolution-remove-duplicates-for-f14.html</loc>
+<loc>http://ankursinha.in/2011/01/07/evolution-remove-duplicates-for-f14.html</loc>
 <lastmod>2011-01-07T10:32:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2011/01/07/contributing-to-rpmfusion.html</loc>
+<loc>http://ankursinha.in/2011/01/07/contributing-to-rpmfusion.html</loc>
 <lastmod>2011-01-07T09:40:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2011/01/07/evolution-user-dir-change.html</loc>
+<loc>http://ankursinha.in/2011/01/07/evolution-user-dir-change.html</loc>
 <lastmod>2011-01-07T09:38:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2011/01/07/wiley2bibtex-converting-onlinelibrary-wiley-citations-to-bibtex.html</loc>
+<loc>http://ankursinha.in/2011/01/07/wiley2bibtex-converting-onlinelibrary-wiley-citations-to-bibtex.html</loc>
 <lastmod>2011-01-07T09:38:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2010/12/28/on-the-new-xps-format-hell.html</loc>
+<loc>http://ankursinha.in/2010/12/28/on-the-new-xps-format-hell.html</loc>
 <lastmod>2010-12-28T12:56:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2010/12/28/fedora-14-on-christmas.html</loc>
+<loc>http://ankursinha.in/2010/12/28/fedora-14-on-christmas.html</loc>
 <lastmod>2010-12-28T11:09:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2010/12/27/evolution-rss.html</loc>
+<loc>http://ankursinha.in/2010/12/27/evolution-rss.html</loc>
 <lastmod>2010-12-27T22:53:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2010/12/05/setting-up-irssi-on-fedora.html</loc>
+<loc>http://ankursinha.in/2010/12/05/setting-up-irssi-on-fedora.html</loc>
 <lastmod>2010-12-05T15:54:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2010/12/04/unix-the-working-set-algorithm.html</loc>
+<loc>http://ankursinha.in/2010/12/04/unix-the-working-set-algorithm.html</loc>
 <lastmod>2010-12-04T23:04:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2010/12/04/mutex-vs-semaphore-the-toilet-example.html</loc>
+<loc>http://ankursinha.in/2010/12/04/mutex-vs-semaphore-the-toilet-example.html</loc>
 <lastmod>2010-12-04T11:33:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2010/12/03/irssi-quickly-pasting-a-fpaste-link-to-a-channel.html</loc>
+<loc>http://ankursinha.in/2010/12/03/irssi-quickly-pasting-a-fpaste-link-to-a-channel.html</loc>
 <lastmod>2010-12-03T18:21:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2010/12/01/a-new-dell-vostro-3400-laptop.html</loc>
+<loc>http://ankursinha.in/2010/12/01/a-new-dell-vostro-3400-laptop.html</loc>
 <lastmod>2010-12-01T11:36:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2010/12/01/shell-script-to-get-word-definitions-from-dict-org.html</loc>
+<loc>http://ankursinha.in/2010/12/01/shell-script-to-get-word-definitions-from-dict-org.html</loc>
 <lastmod>2010-12-01T00:18:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2010/11/29/some-troubleshooting-links.html</loc>
+<loc>http://ankursinha.in/2010/11/29/some-troubleshooting-links.html</loc>
 <lastmod>2010-11-29T21:27:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2010/11/29/my-non-technical-blog.html</loc>
+<loc>http://ankursinha.in/2010/11/29/my-non-technical-blog.html</loc>
 <lastmod>2010-11-29T20:01:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2010/11/29/unoconv-a-handy-tool-for-converting-your-oo-o-files-to-pdfs-on-the-terminal.html</loc>
+<loc>http://ankursinha.in/2010/11/29/unoconv-a-handy-tool-for-converting-your-oo-o-files-to-pdfs-on-the-terminal.html</loc>
 <lastmod>2010-11-29T02:36:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2010/11/28/text-messaging-woes.html</loc>
+<loc>http://ankursinha.in/2010/11/28/text-messaging-woes.html</loc>
 <lastmod>2010-11-28T14:40:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2010/11/28/vim-copying-to-the-system-clipboard.html</loc>
+<loc>http://ankursinha.in/2010/11/28/vim-copying-to-the-system-clipboard.html</loc>
 <lastmod>2010-11-28T11:32:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2010/11/23/making-vim-latex-load-when-you-open-a-new-tex-file.html</loc>
+<loc>http://ankursinha.in/2010/11/23/making-vim-latex-load-when-you-open-a-new-tex-file.html</loc>
 <lastmod>2010-11-23T20:43:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2010/11/23/out-for-the-month.html</loc>
+<loc>http://ankursinha.in/2010/11/23/out-for-the-month.html</loc>
 <lastmod>2010-11-23T17:53:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2010/11/23/the-fedora-distribution-process-needs-your-help.html</loc>
+<loc>http://ankursinha.in/2010/11/23/the-fedora-distribution-process-needs-your-help.html</loc>
 <lastmod>2010-11-23T00:36:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2010/11/22/note-to-self-command-line-text-utils.html</loc>
+<loc>http://ankursinha.in/2010/11/22/note-to-self-command-line-text-utils.html</loc>
 <lastmod>2010-11-22T15:56:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2010/11/18/odin-a-simple-minimax-based-zero-sum-game-is-almost-complete.html</loc>
+<loc>http://ankursinha.in/2010/11/18/odin-a-simple-minimax-based-zero-sum-game-is-almost-complete.html</loc>
 <lastmod>2010-11-18T16:06:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2010/11/12/system-crash-away-for-10-days.html</loc>
+<loc>http://ankursinha.in/2010/11/12/system-crash-away-for-10-days.html</loc>
 <lastmod>2010-11-12T21:03:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2010/11/10/transmission-2-11-2-for-fedora-14.html</loc>
+<loc>http://ankursinha.in/2010/11/10/transmission-2-11-2-for-fedora-14.html</loc>
 <lastmod>2010-11-10T01:31:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2010/11/09/keep-your-cool-always.html</loc>
+<loc>http://ankursinha.in/2010/11/09/keep-your-cool-always.html</loc>
 <lastmod>2010-11-09T13:50:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2010/11/06/resizing-pics-a-simple-command-line-approach.html</loc>
+<loc>http://ankursinha.in/2010/11/06/resizing-pics-a-simple-command-line-approach.html</loc>
 <lastmod>2010-11-06T18:17:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2010/11/03/if-virtualbox-fails-to-start-for-you.html</loc>
+<loc>http://ankursinha.in/2010/11/03/if-virtualbox-fails-to-start-for-you.html</loc>
 <lastmod>2010-11-03T23:01:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2010/11/03/trashing-from-the-terminal-non-destructively.html</loc>
+<loc>http://ankursinha.in/2010/11/03/trashing-from-the-terminal-non-destructively.html</loc>
 <lastmod>2010-11-03T18:00:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2010/11/01/cc-support-on-vim.html</loc>
+<loc>http://ankursinha.in/2010/11/01/cc-support-on-vim.html</loc>
 <lastmod>2010-11-01T15:58:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2010/09/30/free-media-statistics-for-the-month-of-september.html</loc>
+<loc>http://ankursinha.in/2010/09/30/free-media-statistics-for-the-month-of-september.html</loc>
 <lastmod>2010-09-30T15:36:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2010/09/27/another-fedora-experience-a-different-fedora-experience.html</loc>
+<loc>http://ankursinha.in/2010/09/27/another-fedora-experience-a-different-fedora-experience.html</loc>
 <lastmod>2010-09-27T18:26:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2010/09/23/fedora-india-give-the-gift-of-fedora.html</loc>
+<loc>http://ankursinha.in/2010/09/23/fedora-india-give-the-gift-of-fedora.html</loc>
 <lastmod>2010-09-23T21:35:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2010/09/23/mailer-for-the-free-media-program.html</loc>
+<loc>http://ankursinha.in/2010/09/23/mailer-for-the-free-media-program.html</loc>
 <lastmod>2010-09-23T00:54:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2010/09/22/getting-your-tablet-to-work-on-f13-using-wizardpen.html</loc>
+<loc>http://ankursinha.in/2010/09/22/getting-your-tablet-to-work-on-f13-using-wizardpen.html</loc>
 <lastmod>2010-09-22T20:07:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2010/09/16/work-in-progress.html</loc>
+<loc>http://ankursinha.in/2010/09/16/work-in-progress.html</loc>
 <lastmod>2010-09-16T19:00:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2010/09/10/i-had-to-i-had-no-choice.html</loc>
+<loc>http://ankursinha.in/2010/09/10/i-had-to-i-had-no-choice.html</loc>
 <lastmod>2010-09-10T12:02:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2010/09/05/some-free-media-statistics.html</loc>
+<loc>http://ankursinha.in/2010/09/05/some-free-media-statistics.html</loc>
 <lastmod>2010-09-05T20:32:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2010/09/03/weekly-update.html</loc>
+<loc>http://ankursinha.in/2010/09/03/weekly-update.html</loc>
 <lastmod>2010-09-03T23:24:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2010/08/28/oh-my-system-had-a-remote-i-had-forgotten-about.html</loc>
+<loc>http://ankursinha.in/2010/08/28/oh-my-system-had-a-remote-i-had-forgotten-about.html</loc>
 <lastmod>2010-08-28T16:16:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2010/08/22/end-of-dormant-spree.html</loc>
+<loc>http://ankursinha.in/2010/08/22/end-of-dormant-spree.html</loc>
 <lastmod>2010-08-22T08:19:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2010/07/31/from-qc.html</loc>
+<loc>http://ankursinha.in/2010/07/31/from-qc.html</loc>
 <lastmod>2010-07-31T09:11:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2010/07/30/how-to-request-media-from-fedora-ambassadors.html</loc>
+<loc>http://ankursinha.in/2010/07/30/how-to-request-media-from-fedora-ambassadors.html</loc>
 <lastmod>2010-07-30T10:20:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2010/07/21/if-the-recent-upgrade-wiped-your-accounts-from-empathy.html</loc>
+<loc>http://ankursinha.in/2010/07/21/if-the-recent-upgrade-wiped-your-accounts-from-empathy.html</loc>
 <lastmod>2010-07-21T19:48:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2010/07/17/loki-renamed-hleahtor.html</loc>
+<loc>http://ankursinha.in/2010/07/17/loki-renamed-hleahtor.html</loc>
 <lastmod>2010-07-17T22:54:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2010/07/17/yum-doesnt-help-when-youre-hungry.html</loc>
+<loc>http://ankursinha.in/2010/07/17/yum-doesnt-help-when-youre-hungry.html</loc>
 <lastmod>2010-07-17T14:39:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2010/07/17/nutritional-software-for-linux.html</loc>
+<loc>http://ankursinha.in/2010/07/17/nutritional-software-for-linux.html</loc>
 <lastmod>2010-07-17T14:18:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2010/07/10/surfraw.html</loc>
+<loc>http://ankursinha.in/2010/07/10/surfraw.html</loc>
 <lastmod>2010-07-10T02:30:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2010/07/09/an-intereting-thread.html</loc>
+<loc>http://ankursinha.in/2010/07/09/an-intereting-thread.html</loc>
 <lastmod>2010-07-09T19:21:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2010/07/08/why-fedora-tour-wont-be-a-fedora-14-feature.html</loc>
+<loc>http://ankursinha.in/2010/07/08/why-fedora-tour-wont-be-a-fedora-14-feature.html</loc>
 <lastmod>2010-07-08T13:35:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2010/07/08/meh-flash-on-64bit-for-chromium.html</loc>
+<loc>http://ankursinha.in/2010/07/08/meh-flash-on-64bit-for-chromium.html</loc>
 <lastmod>2010-07-08T11:36:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2010/07/02/iisc-the-dept-of-computer-science-automation-a-workshop-to-introduce-people-to-phd.html</loc>
+<loc>http://ankursinha.in/2010/07/02/iisc-the-dept-of-computer-science-automation-a-workshop-to-introduce-people-to-phd.html</loc>
 <lastmod>2010-07-02T18:25:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2010/06/29/loki-0-2-2-announcement.html</loc>
+<loc>http://ankursinha.in/2010/06/29/loki-0-2-2-announcement.html</loc>
 <lastmod>2010-06-29T23:57:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2010/06/27/my-ricoh-webcam-works.html</loc>
+<loc>http://ankursinha.in/2010/06/27/my-ricoh-webcam-works.html</loc>
 <lastmod>2010-06-27T16:38:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2010/06/24/blobby-0-9b-release-hits-f-13.html</loc>
+<loc>http://ankursinha.in/2010/06/24/blobby-0-9b-release-hits-f-13.html</loc>
 <lastmod>2010-06-24T00:09:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2010/06/20/loki-0-1-1-release-announcement.html</loc>
+<loc>http://ankursinha.in/2010/06/20/loki-0-1-1-release-announcement.html</loc>
 <lastmod>2010-06-20T13:13:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2010/06/11/learning-more-on-vim.html</loc>
+<loc>http://ankursinha.in/2010/06/11/learning-more-on-vim.html</loc>
 <lastmod>2010-06-11T13:56:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2010/06/05/fedora-13-release-party-with-fsmk-in-bengaluru.html</loc>
+<loc>http://ankursinha.in/2010/06/05/fedora-13-release-party-with-fsmk-in-bengaluru.html</loc>
 <lastmod>2010-06-05T22:56:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2010/06/03/fedora-within-fedora-d.html</loc>
+<loc>http://ankursinha.in/2010/06/03/fedora-within-fedora-d.html</loc>
 <lastmod>2010-06-03T17:13:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2010/06/01/my-first-fad-ever.html</loc>
+<loc>http://ankursinha.in/2010/06/01/my-first-fad-ever.html</loc>
 <lastmod>2010-06-01T22:28:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2010/05/20/day-1-at-the-iisc.html</loc>
+<loc>http://ankursinha.in/2010/05/20/day-1-at-the-iisc.html</loc>
 <lastmod>2010-05-20T15:22:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2010/05/13/playing-openarena-after-a-long-time.html</loc>
+<loc>http://ankursinha.in/2010/05/13/playing-openarena-after-a-long-time.html</loc>
 <lastmod>2010-05-13T16:44:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2010/05/12/an-applet-for-cricket-lovers.html</loc>
+<loc>http://ankursinha.in/2010/05/12/an-applet-for-cricket-lovers.html</loc>
 <lastmod>2010-05-12T08:25:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2010/05/11/my-first-gnome-bug-report.html</loc>
+<loc>http://ankursinha.in/2010/05/11/my-first-gnome-bug-report.html</loc>
 <lastmod>2010-05-11T10:25:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2010/05/10/backing-up-and-restoring-gnotes-in-f-13.html</loc>
+<loc>http://ankursinha.in/2010/05/10/backing-up-and-restoring-gnotes-in-f-13.html</loc>
 <lastmod>2010-05-10T22:14:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2010/05/10/going-f13-beta.html</loc>
+<loc>http://ankursinha.in/2010/05/10/going-f13-beta.html</loc>
 <lastmod>2010-05-10T18:00:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2010/05/05/nautilus-pastebin-now-in-fedora.html</loc>
+<loc>http://ankursinha.in/2010/05/05/nautilus-pastebin-now-in-fedora.html</loc>
 <lastmod>2010-05-05T22:26:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2010/04/12/fedora-tour-getting-more-folks-involved.html</loc>
+<loc>http://ankursinha.in/2010/04/12/fedora-tour-getting-more-folks-involved.html</loc>
 <lastmod>2010-04-12T23:05:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2010/04/08/a-short-fedora-tour-update.html</loc>
+<loc>http://ankursinha.in/2010/04/08/a-short-fedora-tour-update.html</loc>
 <lastmod>2010-04-08T18:55:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2010/04/08/a-short-fedora-tour-update-2.html</loc>
+<loc>http://ankursinha.in/2010/04/08/a-short-fedora-tour-update-2.html</loc>
 <lastmod>2010-04-08T18:55:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2010/03/31/fedora-tour-meet-april-fools-day-p.html</loc>
+<loc>http://ankursinha.in/2010/03/31/fedora-tour-meet-april-fools-day-p.html</loc>
 <lastmod>2010-03-31T19:51:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2010/03/14/hello-world-again.html</loc>
+<loc>http://ankursinha.in/2010/03/14/hello-world-again.html</loc>
 <lastmod>2010-03-14T12:52:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2010/03/14/hello-world-again-2.html</loc>
+<loc>http://ankursinha.in/2010/03/14/hello-world-again-2.html</loc>
 <lastmod>2010-03-14T12:52:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2010/03/06/gnunify-2010-at-pune.html</loc>
+<loc>http://ankursinha.in/2010/03/06/gnunify-2010-at-pune.html</loc>
 <lastmod>2010-03-06T09:30:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2010/01/21/fedora-tour-mockups.html</loc>
+<loc>http://ankursinha.in/2010/01/21/fedora-tour-mockups.html</loc>
 <lastmod>2010-01-21T19:32:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2010/01/21/fedora-tour-mockups-2.html</loc>
+<loc>http://ankursinha.in/2010/01/21/fedora-tour-mockups-2.html</loc>
 <lastmod>2010-01-21T19:32:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2009/12/29/arduino-on-a-f12-x86_64.html</loc>
+<loc>http://ankursinha.in/2009/12/29/arduino-on-a-f12-x86_64.html</loc>
 <lastmod>2009-12-29T17:43:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2009/12/26/pyclutter-woes-a-speed-bump.html</loc>
+<loc>http://ankursinha.in/2009/12/26/pyclutter-woes-a-speed-bump.html</loc>
 <lastmod>2009-12-26T18:49:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2009/12/26/pyclutter-woes-a-speed-bump-2.html</loc>
+<loc>http://ankursinha.in/2009/12/26/pyclutter-woes-a-speed-bump-2.html</loc>
 <lastmod>2009-12-26T18:49:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2009/12/25/christmas-greetings.html</loc>
+<loc>http://ankursinha.in/2009/12/25/christmas-greetings.html</loc>
 <lastmod>2009-12-25T12:37:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2009/12/19/fedora-hosts-fedora-tour.html</loc>
+<loc>http://ankursinha.in/2009/12/19/fedora-hosts-fedora-tour.html</loc>
 <lastmod>2009-12-19T11:57:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2009/12/16/tablets-on-f12.html</loc>
+<loc>http://ankursinha.in/2009/12/16/tablets-on-f12.html</loc>
 <lastmod>2009-12-16T11:04:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2009/11/26/a-new-fedora-project.html</loc>
+<loc>http://ankursinha.in/2009/11/26/a-new-fedora-project.html</loc>
 <lastmod>2009-11-26T09:34:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2009/11/25/mircrosoft-shouldnt-have-played-with-us.html</loc>
+<loc>http://ankursinha.in/2009/11/25/mircrosoft-shouldnt-have-played-with-us.html</loc>
 <lastmod>2009-11-25T05:35:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2009/11/25/mircrosoft-shouldnt-have-played-with-us-2.html</loc>
+<loc>http://ankursinha.in/2009/11/25/mircrosoft-shouldnt-have-played-with-us-2.html</loc>
 <lastmod>2009-11-25T05:35:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2009/11/22/fedora-india-meeting-minutes.html</loc>
+<loc>http://ankursinha.in/2009/11/22/fedora-india-meeting-minutes.html</loc>
 <lastmod>2009-11-22T14:36:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2009/11/22/i-saw-the-code-of-death-in-action.html</loc>
+<loc>http://ankursinha.in/2009/11/22/i-saw-the-code-of-death-in-action.html</loc>
 <lastmod>2009-11-22T04:09:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2009/11/20/rtorrent-3-3-3.html</loc>
+<loc>http://ankursinha.in/2009/11/20/rtorrent-3-3-3.html</loc>
 <lastmod>2009-11-20T19:54:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2009/11/20/fedora-packagekit-change.html</loc>
+<loc>http://ankursinha.in/2009/11/20/fedora-packagekit-change.html</loc>
 <lastmod>2009-11-20T04:52:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2009/11/18/installing-skype-big-trouble.html</loc>
+<loc>http://ankursinha.in/2009/11/18/installing-skype-big-trouble.html</loc>
 <lastmod>2009-11-18T17:24:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2009/11/18/fedora-12-after-release-stuff.html</loc>
+<loc>http://ankursinha.in/2009/11/18/fedora-12-after-release-stuff.html</loc>
 <lastmod>2009-11-18T08:04:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2009/11/06/codechef-campus-snackdown.html</loc>
+<loc>http://ankursinha.in/2009/11/06/codechef-campus-snackdown.html</loc>
 <lastmod>2009-11-06T13:26:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2009/11/04/the-f12-beta-experience.html</loc>
+<loc>http://ankursinha.in/2009/11/04/the-f12-beta-experience.html</loc>
 <lastmod>2009-11-04T11:49:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2009/11/01/running-pidgin-on-ion-mit-manipal.html</loc>
+<loc>http://ankursinha.in/2009/11/01/running-pidgin-on-ion-mit-manipal.html</loc>
 <lastmod>2009-11-01T05:45:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2009/10/31/fedora-community-screen-saver.html</loc>
+<loc>http://ankursinha.in/2009/10/31/fedora-community-screen-saver.html</loc>
 <lastmod>2009-10-31T07:43:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2009/10/04/this-one-really-cracked-me-up-roflmao.html</loc>
+<loc>http://ankursinha.in/2009/10/04/this-one-really-cracked-me-up-roflmao.html</loc>
 <lastmod>2009-10-04T06:22:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2009/08/18/campaign-to-get-more-folks-to-use-fedora.html</loc>
+<loc>http://ankursinha.in/2009/08/18/campaign-to-get-more-folks-to-use-fedora.html</loc>
 <lastmod>2009-08-18T17:37:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2009/08/15/fpaste-a-simple-tool-for-posting-info-onto-fpaste-org.html</loc>
+<loc>http://ankursinha.in/2009/08/15/fpaste-a-simple-tool-for-posting-info-onto-fpaste-org.html</loc>
 <lastmod>2009-08-15T05:56:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2009/08/05/how-awesome-is-this.html</loc>
+<loc>http://ankursinha.in/2009/08/05/how-awesome-is-this.html</loc>
 <lastmod>2009-08-05T17:26:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2009/08/01/my-worst-turned-best-day-with-fedora.html</loc>
+<loc>http://ankursinha.in/2009/08/01/my-worst-turned-best-day-with-fedora.html</loc>
 <lastmod>2009-08-01T05:58:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2009/07/17/the-good-people.html</loc>
+<loc>http://ankursinha.in/2009/07/17/the-good-people.html</loc>
 <lastmod>2009-07-17T05:12:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2009/07/07/first-commit-for-twit_tui-on-github.html</loc>
+<loc>http://ankursinha.in/2009/07/07/first-commit-for-twit_tui-on-github.html</loc>
 <lastmod>2009-07-07T17:36:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2009/07/07/gyachi-another-one-of-em-bugs.html</loc>
+<loc>http://ankursinha.in/2009/07/07/gyachi-another-one-of-em-bugs.html</loc>
 <lastmod>2009-07-07T11:59:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2009/07/07/gyachi-another-one-of-em-bugs-2.html</loc>
+<loc>http://ankursinha.in/2009/07/07/gyachi-another-one-of-em-bugs-2.html</loc>
 <lastmod>2009-07-07T11:59:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2009/07/06/gyachi-trouble.html</loc>
+<loc>http://ankursinha.in/2009/07/06/gyachi-trouble.html</loc>
 <lastmod>2009-07-06T10:38:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2009/07/04/f-spot.html</loc>
+<loc>http://ankursinha.in/2009/07/04/f-spot.html</loc>
 <lastmod>2009-07-04T09:33:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2009/06/17/twit-tui-a-command-line-twitter-client-v1.html</loc>
+<loc>http://ankursinha.in/2009/06/17/twit-tui-a-command-line-twitter-client-v1.html</loc>
 <lastmod>2009-06-17T16:35:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2009/06/12/aha-internet.html</loc>
+<loc>http://ankursinha.in/2009/06/12/aha-internet.html</loc>
 <lastmod>2009-06-12T05:21:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2009/05/24/twit_tui-made-some-improvements.html</loc>
+<loc>http://ankursinha.in/2009/05/24/twit_tui-made-some-improvements.html</loc>
 <lastmod>2009-05-24T19:13:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2009/05/23/facebook-goes-spammyway.html</loc>
+<loc>http://ankursinha.in/2009/05/23/facebook-goes-spammyway.html</loc>
 <lastmod>2009-05-23T19:52:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2009/05/23/wtf-c.html</loc>
+<loc>http://ankursinha.in/2009/05/23/wtf-c.html</loc>
 <lastmod>2009-05-23T13:21:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2009/05/22/opensource-in-class-xii-syllabus.html</loc>
+<loc>http://ankursinha.in/2009/05/22/opensource-in-class-xii-syllabus.html</loc>
 <lastmod>2009-05-22T09:25:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2009/05/21/fedora-11-media-for-lugs-in-india.html</loc>
+<loc>http://ankursinha.in/2009/05/21/fedora-11-media-for-lugs-in-india.html</loc>
 <lastmod>2009-05-21T05:31:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2009/05/20/f11-to-release-on-2nd-of-june.html</loc>
+<loc>http://ankursinha.in/2009/05/20/f11-to-release-on-2nd-of-june.html</loc>
 <lastmod>2009-05-20T04:52:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2009/05/19/fedora-11-podcast-series-podcast-4-kernel-mode-setting-with-adam-jackson.html</loc>
+<loc>http://ankursinha.in/2009/05/19/fedora-11-podcast-series-podcast-4-kernel-mode-setting-with-adam-jackson.html</loc>
 <lastmod>2009-05-19T14:18:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2009/05/19/java-challenge.html</loc>
+<loc>http://ankursinha.in/2009/05/19/java-challenge.html</loc>
 <lastmod>2009-05-19T06:01:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2009/05/18/fedora-11-podcasts-podcast-3-general-overview-of-f11-with-tom-spot-callaway.html</loc>
+<loc>http://ankursinha.in/2009/05/18/fedora-11-podcasts-podcast-3-general-overview-of-f11-with-tom-spot-callaway.html</loc>
 <lastmod>2009-05-18T15:25:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2009/05/18/fedora-11-podcasts-podcast-3-general-overview-of-f11-with-tom-spot-callaway-2.html</loc>
+<loc>http://ankursinha.in/2009/05/18/fedora-11-podcasts-podcast-3-general-overview-of-f11-with-tom-spot-callaway-2.html</loc>
 <lastmod>2009-05-18T15:25:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2009/05/17/usb-cofusion.html</loc>
+<loc>http://ankursinha.in/2009/05/17/usb-cofusion.html</loc>
 <lastmod>2009-05-17T10:17:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2009/05/15/curl-or-libcurl-for-the-app-noob-doubts.html</loc>
+<loc>http://ankursinha.in/2009/05/15/curl-or-libcurl-for-the-app-noob-doubts.html</loc>
 <lastmod>2009-05-15T08:04:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2009/05/14/fedora-11-podcasts-podcast-2-packagekit-in-f11.html</loc>
+<loc>http://ankursinha.in/2009/05/14/fedora-11-podcasts-podcast-2-packagekit-in-f11.html</loc>
 <lastmod>2009-05-14T14:16:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2009/05/14/fedora-11-podcasts-podcast-2-packagekit-in-f11-2.html</loc>
+<loc>http://ankursinha.in/2009/05/14/fedora-11-podcasts-podcast-2-packagekit-in-f11-2.html</loc>
 <lastmod>2009-05-14T14:16:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2009/05/14/my-first-app-a-command-line-client-for-twitter.html</loc>
+<loc>http://ankursinha.in/2009/05/14/my-first-app-a-command-line-client-for-twitter.html</loc>
 <lastmod>2009-05-14T08:59:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2009/05/13/article-collector-page.html</loc>
+<loc>http://ankursinha.in/2009/05/13/article-collector-page.html</loc>
 <lastmod>2009-05-13T06:26:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2009/05/12/fedora-11-podcasts-podcast-1.html</loc>
+<loc>http://ankursinha.in/2009/05/12/fedora-11-podcasts-podcast-1.html</loc>
 <lastmod>2009-05-12T14:38:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2009/05/12/fedora-10-best-for-everyday-use.html</loc>
+<loc>http://ankursinha.in/2009/05/12/fedora-10-best-for-everyday-use.html</loc>
 <lastmod>2009-05-12T07:00:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2009/05/10/good-news-delta-is-here.html</loc>
+<loc>http://ankursinha.in/2009/05/10/good-news-delta-is-here.html</loc>
 <lastmod>2009-05-10T21:18:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2009/05/10/my-adventures-with-packaging-im-stuck.html</loc>
+<loc>http://ankursinha.in/2009/05/10/my-adventures-with-packaging-im-stuck.html</loc>
 <lastmod>2009-05-10T21:06:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2009/05/10/my-adventures-with-packaging-im-stuck-2.html</loc>
+<loc>http://ankursinha.in/2009/05/10/my-adventures-with-packaging-im-stuck-2.html</loc>
 <lastmod>2009-05-10T21:06:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2009/05/08/my-adventures-with-packaging-moving-on-from-fonts-to-apps.html</loc>
+<loc>http://ankursinha.in/2009/05/08/my-adventures-with-packaging-moving-on-from-fonts-to-apps.html</loc>
 <lastmod>2009-05-08T19:29:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2009/05/06/preupgrade.html</loc>
+<loc>http://ankursinha.in/2009/05/06/preupgrade.html</loc>
 <lastmod>2009-05-06T08:05:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2009/05/02/presto-wont-make-it-to-f11.html</loc>
+<loc>http://ankursinha.in/2009/05/02/presto-wont-make-it-to-f11.html</loc>
 <lastmod>2009-05-02T14:02:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2009/05/02/presto-wont-make-it-to-f11-2.html</loc>
+<loc>http://ankursinha.in/2009/05/02/presto-wont-make-it-to-f11-2.html</loc>
 <lastmod>2009-05-02T14:02:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2009/05/02/fedora-11-links.html</loc>
+<loc>http://ankursinha.in/2009/05/02/fedora-11-links.html</loc>
 <lastmod>2009-05-02T10:00:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2009/03/31/photos-linux-open-week.html</loc>
+<loc>http://ankursinha.in/2009/03/31/photos-linux-open-week.html</loc>
 <lastmod>2009-03-31T16:40:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2009/03/30/event-report-linux-open-week.html</loc>
+<loc>http://ankursinha.in/2009/03/30/event-report-linux-open-week.html</loc>
 <lastmod>2009-03-30T19:10:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2009/03/18/learnt-a-little-more.html</loc>
+<loc>http://ankursinha.in/2009/03/18/learnt-a-little-more.html</loc>
 <lastmod>2009-03-18T02:52:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2009/03/13/open-week-posters.html</loc>
+<loc>http://ankursinha.in/2009/03/13/open-week-posters.html</loc>
 <lastmod>2009-03-13T10:25:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2009/03/07/offline-installs-death.html</loc>
+<loc>http://ankursinha.in/2009/03/07/offline-installs-death.html</loc>
 <lastmod>2009-03-07T11:05:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2009/02/20/solution-to-problem-1.html</loc>
+<loc>http://ankursinha.in/2009/02/20/solution-to-problem-1.html</loc>
 <lastmod>2009-02-20T12:34:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2009/02/19/programming-skills.html</loc>
+<loc>http://ankursinha.in/2009/02/19/programming-skills.html</loc>
 <lastmod>2009-02-19T17:26:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2009/02/17/fedora-article-for-the-lugm-magazine.html</loc>
+<loc>http://ankursinha.in/2009/02/17/fedora-article-for-the-lugm-magazine.html</loc>
 <lastmod>2009-02-17T08:49:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2009/02/16/install-fest-teaser.html</loc>
+<loc>http://ankursinha.in/2009/02/16/install-fest-teaser.html</loc>
 <lastmod>2009-02-16T04:29:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2009/02/15/amarok-missing-global-shortcuts.html</loc>
+<loc>http://ankursinha.in/2009/02/15/amarok-missing-global-shortcuts.html</loc>
 <lastmod>2009-02-15T08:40:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2009/02/11/work-around-to-the-xchat-gnome-bug.html</loc>
+<loc>http://ankursinha.in/2009/02/11/work-around-to-the-xchat-gnome-bug.html</loc>
 <lastmod>2009-02-11T18:02:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2009/02/11/xchat-gnomewhat-can-it-be.html</loc>
+<loc>http://ankursinha.in/2009/02/11/xchat-gnomewhat-can-it-be.html</loc>
 <lastmod>2009-02-11T14:40:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2009/02/10/threecovers.html</loc>
+<loc>http://ankursinha.in/2009/02/10/threecovers.html</loc>
 <lastmod>2009-02-10T14:15:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2009/02/09/open-week-teaser.html</loc>
+<loc>http://ankursinha.in/2009/02/09/open-week-teaser.html</loc>
 <lastmod>2009-02-09T17:53:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/2009/02/09/new-fedora-blog.html</loc>
+<loc>http://ankursinha.in/2009/02/09/new-fedora-blog.html</loc>
 <lastmod>2009-02-09T13:26:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/category/life/</loc>
+<loc>http://ankursinha.in/category/life/</loc>
 <lastmod>2016-11-27T22:33:36-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/category/other/</loc>
+<loc>http://ankursinha.in/category/other/</loc>
 <lastmod>2016-03-13T18:30:33-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/category/research/</loc>
+<loc>http://ankursinha.in/category/research/</loc>
 <lastmod>2017-06-26T10:30:01-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/category/tech/</loc>
+<loc>http://ankursinha.in/category/tech/</loc>
 <lastmod>2017-12-25T01:16:02-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/tag/bash/</loc>
+<loc>http://ankursinha.in/tag/bash/</loc>
 <lastmod>2017-12-25T01:16:02-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/tag/fedora/</loc>
+<loc>http://ankursinha.in/tag/fedora/</loc>
 <lastmod>2017-12-25T01:16:02-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/tag/timewarrior/</loc>
+<loc>http://ankursinha.in/tag/timewarrior/</loc>
 <lastmod>2017-12-25T01:16:02-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/tag/taskwarrior/</loc>
+<loc>http://ankursinha.in/tag/taskwarrior/</loc>
 <lastmod>2017-12-25T01:16:02-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/tag/pomodoro/</loc>
+<loc>http://ankursinha.in/tag/pomodoro/</loc>
 <lastmod>2017-12-25T01:16:02-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/tag/gnome-pomodoro/</loc>
+<loc>http://ankursinha.in/tag/gnome-pomodoro/</loc>
 <lastmod>2017-12-25T01:16:02-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/tag/time-management/</loc>
+<loc>http://ankursinha.in/tag/time-management/</loc>
 <lastmod>2017-12-25T01:16:02-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/tag/community/</loc>
+<loc>http://ankursinha.in/tag/community/</loc>
 <lastmod>2017-10-07T14:19:10-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/tag/git/</loc>
+<loc>http://ankursinha.in/tag/git/</loc>
 <lastmod>2017-10-07T14:19:10-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/tag/planet/</loc>
+<loc>http://ankursinha.in/tag/planet/</loc>
 <lastmod>2017-10-07T14:19:10-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/tag/calliope/</loc>
+<loc>http://ankursinha.in/tag/calliope/</loc>
 <lastmod>2017-09-19T00:40:41-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/tag/free-software/</loc>
+<loc>http://ankursinha.in/tag/free-software/</loc>
 <lastmod>2017-09-19T00:40:41-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/tag/latex/</loc>
+<loc>http://ankursinha.in/tag/latex/</loc>
 <lastmod>2017-09-19T00:40:41-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/tag/vim/</loc>
+<loc>http://ankursinha.in/tag/vim/</loc>
 <lastmod>2017-09-19T00:40:41-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/tag/irc/</loc>
+<loc>http://ankursinha.in/tag/irc/</loc>
 <lastmod>2017-08-26T13:42:40-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/tag/znc/</loc>
+<loc>http://ankursinha.in/tag/znc/</loc>
 <lastmod>2017-08-26T13:42:40-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/tag/aws/</loc>
+<loc>http://ankursinha.in/tag/aws/</loc>
 <lastmod>2017-08-26T13:42:40-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/tag/irssi/</loc>
+<loc>http://ankursinha.in/tag/irssi/</loc>
 <lastmod>2017-08-26T13:42:40-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/tag/blog/</loc>
+<loc>http://ankursinha.in/tag/blog/</loc>
 <lastmod>2017-08-10T23:03:24-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/tag/linux/</loc>
+<loc>http://ankursinha.in/tag/linux/</loc>
 <lastmod>2017-08-10T23:03:24-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/tag/computational-neuroscience/</loc>
+<loc>http://ankursinha.in/tag/computational-neuroscience/</loc>
 <lastmod>2017-07-12T13:55:17-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/tag/flatpak/</loc>
+<loc>http://ankursinha.in/tag/flatpak/</loc>
 <lastmod>2017-07-12T13:55:17-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/tag/gitter/</loc>
+<loc>http://ankursinha.in/tag/gitter/</loc>
 <lastmod>2017-07-12T13:55:17-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/tag/python/</loc>
+<loc>http://ankursinha.in/tag/python/</loc>
 <lastmod>2017-06-21T00:09:30-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/tag/qutebrowser/</loc>
+<loc>http://ankursinha.in/tag/qutebrowser/</loc>
 <lastmod>2017-06-21T00:09:30-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/tag/bugzilla/</loc>
+<loc>http://ankursinha.in/tag/bugzilla/</loc>
 <lastmod>2017-05-17T00:22:32-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/tag/social/</loc>
+<loc>http://ankursinha.in/tag/social/</loc>
 <lastmod>2017-03-04T17:35:32-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/tag/subscriptions/</loc>
+<loc>http://ankursinha.in/tag/subscriptions/</loc>
 <lastmod>2017-03-04T17:35:32-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/tag/wallabag/</loc>
+<loc>http://ankursinha.in/tag/wallabag/</loc>
 <lastmod>2017-02-28T20:52:40-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/tag/reading/</loc>
+<loc>http://ankursinha.in/tag/reading/</loc>
 <lastmod>2017-02-28T20:52:40-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/tag/programming/</loc>
+<loc>http://ankursinha.in/tag/programming/</loc>
 <lastmod>2017-01-10T15:38:26-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/tag/gnuplot/</loc>
+<loc>http://ankursinha.in/tag/gnuplot/</loc>
 <lastmod>2017-01-10T15:38:26-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/tag/matplotlib/</loc>
+<loc>http://ankursinha.in/tag/matplotlib/</loc>
 <lastmod>2017-01-10T15:38:26-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/tag/pandas/</loc>
+<loc>http://ankursinha.in/tag/pandas/</loc>
 <lastmod>2017-01-10T15:38:26-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/tag/numpy/</loc>
+<loc>http://ankursinha.in/tag/numpy/</loc>
 <lastmod>2017-01-10T15:38:26-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/tag/the-times/</loc>
+<loc>http://ankursinha.in/tag/the-times/</loc>
 <lastmod>2016-11-27T22:33:36-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/tag/ethics/</loc>
+<loc>http://ankursinha.in/tag/ethics/</loc>
 <lastmod>2016-11-27T22:33:36-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/tag/underhand-practices/</loc>
+<loc>http://ankursinha.in/tag/underhand-practices/</loc>
 <lastmod>2016-11-27T22:33:36-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/tag/erlang/</loc>
+<loc>http://ankursinha.in/tag/erlang/</loc>
 <lastmod>2016-09-11T20:58:54-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/tag/rust/</loc>
+<loc>http://ankursinha.in/tag/rust/</loc>
 <lastmod>2016-09-11T20:58:54-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/tag/flask/</loc>
+<loc>http://ankursinha.in/tag/flask/</loc>
 <lastmod>2016-09-11T20:58:54-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/tag/ror/</loc>
+<loc>http://ankursinha.in/tag/ror/</loc>
 <lastmod>2016-09-11T20:58:54-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/tag/scala/</loc>
+<loc>http://ankursinha.in/tag/scala/</loc>
 <lastmod>2016-09-11T20:58:54-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/tag/neuron/</loc>
+<loc>http://ankursinha.in/tag/neuron/</loc>
 <lastmod>2016-09-02T13:39:16-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/tag/openlayers/</loc>
+<loc>http://ankursinha.in/tag/openlayers/</loc>
 <lastmod>2016-08-04T18:49:08-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/tag/javascript/</loc>
+<loc>http://ankursinha.in/tag/javascript/</loc>
 <lastmod>2016-08-04T18:49:08-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/tag/cajal/</loc>
+<loc>http://ankursinha.in/tag/cajal/</loc>
 <lastmod>2016-08-04T18:49:08-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/tag/nest/</loc>
+<loc>http://ankursinha.in/tag/nest/</loc>
 <lastmod>2016-05-31T19:17:32-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/tag/sli-vim/</loc>
+<loc>http://ankursinha.in/tag/sli-vim/</loc>
 <lastmod>2016-03-02T10:53:58-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/tag/zaphod/</loc>
+<loc>http://ankursinha.in/tag/zaphod/</loc>
 <lastmod>2016-02-28T16:52:27-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/tag/gnome/</loc>
+<loc>http://ankursinha.in/tag/gnome/</loc>
 <lastmod>2016-01-19T14:03:29-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/tag/net-neutrality/</loc>
+<loc>http://ankursinha.in/tag/net-neutrality/</loc>
 <lastmod>2015-12-30T13:03:17-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/tag/sports/</loc>
+<loc>http://ankursinha.in/tag/sports/</loc>
 <lastmod>2015-10-25T18:04:10-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/tag/rpmfusion/</loc>
+<loc>http://ankursinha.in/tag/rpmfusion/</loc>
 <lastmod>2015-09-25T14:57:53-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/tag/pelican/</loc>
+<loc>http://ankursinha.in/tag/pelican/</loc>
 <lastmod>2015-09-15T17:53:08-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/tag/events/</loc>
+<loc>http://ankursinha.in/tag/events/</loc>
 <lastmod>2015-07-29T11:04:59-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/tag/scribus/</loc>
+<loc>http://ankursinha.in/tag/scribus/</loc>
 <lastmod>2015-06-26T14:59:08-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/tag/books/</loc>
+<loc>http://ankursinha.in/tag/books/</loc>
 <lastmod>2015-05-25T14:07:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/tag/food/</loc>
+<loc>http://ankursinha.in/tag/food/</loc>
 <lastmod>2015-03-29T15:13:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/tag/wordpress/</loc>
+<loc>http://ankursinha.in/tag/wordpress/</loc>
 <lastmod>2015-03-02T10:39:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/tag/robotics/</loc>
+<loc>http://ankursinha.in/tag/robotics/</loc>
 <lastmod>2014-06-25T08:38:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/tag/security/</loc>
+<loc>http://ankursinha.in/tag/security/</loc>
 <lastmod>2013-05-29T19:38:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/tag/rant/</loc>
+<loc>http://ankursinha.in/tag/rant/</loc>
 <lastmod>2012-04-25T11:30:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/tag/fudcon/</loc>
+<loc>http://ankursinha.in/tag/fudcon/</loc>
 <lastmod>2011-11-03T00:21:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/tag/music/</loc>
+<loc>http://ankursinha.in/tag/music/</loc>
 <lastmod>2011-10-31T12:32:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/tag/android/</loc>
+<loc>http://ankursinha.in/tag/android/</loc>
 <lastmod>2011-09-30T01:18:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/tag/bangalore/</loc>
+<loc>http://ankursinha.in/tag/bangalore/</loc>
 <lastmod>2011-01-14T10:17:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/tag/unix/</loc>
+<loc>http://ankursinha.in/tag/unix/</loc>
 <lastmod>2010-12-04T23:04:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/tag/operating-systems/</loc>
+<loc>http://ankursinha.in/tag/operating-systems/</loc>
 <lastmod>2010-12-04T11:33:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/tag/ai/</loc>
+<loc>http://ankursinha.in/tag/ai/</loc>
 <lastmod>2010-11-18T16:06:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/blog/author/ankur.html</loc>
+<loc>http://ankursinha.in/author/ankur.html</loc>
 <lastmod>2017-12-25T01:16:02-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
