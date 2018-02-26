@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="Ankur Sinha" />
+    <meta name="generator" content="Pelican (VoidyBootstrap theme)" />
+    <meta name="twitter:card" content="summary"> 
+    <meta name="twitter:title" content="Some tips and tricks for running simulations on a cluster">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:site" content="@sanjay_ankur">
+    <meta name="twitter:creator" content="@sanjay_ankur">
+    <meta name="twitter:domain" content="http://ankursinha.in/blog">
+
+    <title>Some tips and tricks for running simulations on a cluster - ankursinha.in/blog</title>
+
+   
+        <link rel="stylesheet"
+              href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+              integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+              crossorigin="anonymous" />
+      <link rel="stylesheet"
+            href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+            integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+            crossorigin="anonymous">
+
+
+      <link rel="stylesheet" href="http://ankursinha.in/blog/theme/css/use-opensans.css" />
+      <link rel="stylesheet" href="http://ankursinha.in/blog/theme/css/voidybootstrap.css" />
+      <link rel="stylesheet" href="http://ankursinha.in/blog/theme/css/pygment.css" />
+
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js" integrity="sha384-FFgGfda92tXC8nCNOxrCQ3R8x1TNkMFqDZVQdDaaJiiVbjkPBXIJBx0o7ETjy8Bh" crossorigin="anonymous"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js" integrity="sha384-ZoaMbDF+4LeFxg6WdScQ9nnR1QC2MIRxA1O9KWEXQwns1G8UNyIEZIQidzb0T1fo" crossorigin="anonymous"></script>
+    <![endif]-->
+
+    <link rel="shortcut icon" href="http://ankursinha.in/blog/favicon.ico" />
+        <link href="http://ankursinha.in/blog/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="ankursinha.in/blog Atom Feed" />
+        <link href="http://ankursinha.in/blog/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="ankursinha.in/blog RSS Feed" />
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-60261100-1', '');
+  ga('send', 'pageview');
+
+</script>
+  </head>
+
+  <body>
+   
+    <nav class="navbar navbar-default">
+      <div class="container">
+	   <div class="navbar-header">
+		<button type="button" class="navbar-toggle" 
+				data-toggle="collapse" data-target="#main-navbar-collapse">
+		  <span class="sr-only">Toggle navigation</span>
+		  <span class="icon-bar"></span>
+		  <span class="icon-bar"></span>
+		  <span class="icon-bar"></span>
+		</button>
+		<a class="navbar-brand" href="http://ankursinha.in/blog/" rel="home">
+          <i class="fa fa-home fa-fw fa-lg"> </i> </a>
+       </div>
+
+      <div class="collapse navbar-collapse" id="main-navbar-collapse">
+        <ul class="nav navbar-nav">
+              <li>
+                <a href="http://ankursinha.in/blog/pages/01-about.html">About Me</a>
+              </li>
+              <li>
+                <a href="http://ankursinha.in/blog/pages/02-research-profile.html">Research Profile</a>
+              </li>
+            <li class="divider"></li>
+            <li class="">
+              <a href="http://ankursinha.in/blog/pages/03-publications.html">Publications</a>
+            </li>
+            <li class="">
+              <a href="http://ankursinha.in/blog/pages/archives.html">Archives</a>
+            </li>
+          <li class="divider"></li>
+            <li><a href="http://ankursinha.in/blog/feeds/all.atom.xml" 
+                   type="application/atom+xml" rel="alternate">
+                <i class="fa fa-rss fa-fw fa-lg"></i> </a></li>
+        </ul> <!-- /nav -->
+      </div> <!-- /navbar-collapse -->
+	  </div> <!-- /container -->
+    </nav> <!-- /navbar -->
+
+	<div class="jumbotron" id="overview">
+	  <div class="container">
+		<h1><a href="http://ankursinha.in/blog/">ankursinha.in/blog</a></h1>
+		<p class="lead">neuroscience/fedora/musings</p>
+	  </div>
+	</div>
+
+    <div class="container" id="main-container">
+      <div class="row">
+        <div class="col-md-9" id="content">
+<article itemscope="itemscope" itemtype="http://schema.org/BlogPosting">
+  <header class="article-header">
+<abbr class="article-header-date">
+  Tue 31 May 2016
+</abbr> <h1>
+  <a href="http://ankursinha.in/blog/2016/05/31/some-tips-and-tricks-for-running-simulations-on-a-cluster.html" rel="bookmark"
+     title="Permalink to Some tips and tricks for running simulations on a cluster">
+    Some tips and tricks for running simulations on a cluster
+  </a>
+</h1><div class="article-header-info">
+  <p>
+      Posted by <a href="http://ankursinha.in/blog/author/ankur.html">ankur</a>
+    in 
+    <a href="http://ankursinha.in/blog/category/research/">
+      Research</a>
+(1056 words, approximately a 5 minute read)
+  </p>
+</div> <!-- /.article-header-info -->  </header>
+  <div class="content-body" itemprop="text articleBody">
+	<p>To begin with, you must use a terminal multiplexer! I use <a class="reference external" href="http://byobu.org/">Byobu with tmux</a> to multiplex a single SSH session. I use it on all my machines. It's an excellent tool.</p>
+<div class="section" id="monitoring-your-jobs">
+<h2>Monitoring your jobs</h2>
+<p>Three of my Byobu screens run these commands to monitor the queue and my jobs:</p>
+<pre class="code bash literal-block">
+watch -n <span class="m">30</span> qstat main
+watch -n <span class="m">30</span> qstat -B
+watch -n <span class="m">30</span> /usr/local/maui/bin/showq -u asinha
+</pre>
+<p><code>showq</code> may be installed elsewhere. Use <code>which showq</code> to locate it. More information on the commands can be found in their manuals:</p>
+<pre class="code bash literal-block">
+man watch
+man qstat
+</pre>
+<p>Remember, to find a man page, you can use the <code>apropos</code> command.</p>
+<p>I run all my simulations in a specific directory on the shared data disk. I usually also monitor this folder. It gives me an idea of how much my simulations have progressed. Something like this works:</p>
+<pre class="code bash literal-block">
+watch -n <span class="m">30</span> <span class="s1">'du -sch *'</span> <span class="c1"># in the directory that stores simulation results*</span>
+</pre>
+</div>
+<div class="section" id="use-git">
+<h2>Use Git</h2>
+<p>Of course. If you make frequent changes, you must use a version control system. I stick to <code>git</code> myself. You can use <code>svn</code> or <code>hg</code> if you wish - whatever floats your boat.</p>
+<p>An issue I've stumbled upon while working with the cluster is that the program you want it to run is not loaded into memory until your job begins to run. So, if you want to run a certain version of your program on the cluster, say some version_1, you must not make any changes to this version until the queued job has begun to run. This is extremely inconvenient, especially if you make frequent changes to your simulations, as is often the case in research. I would, for example, like to queue separate jobs in parallel for a myriad of tiny changes and then compare results.</p>
+<p>Enter <a class="reference external" href="https://git-scm.com/docs/git-worktree">git work-tree</a>! The simplest solution to the aforementioned issue is to checkout different work-trees for commits you want to test and queue up jobs for each individually. This would work really well. Once the simulation finishes, you can remove the work-tree.</p>
+<p>Unfortunately, clusters usually run stable long term support oriented versions of Linux distributions - EL/CentOS/Scientific. As a result, it's quite probable that the version of git on the cluster doesn't support work-trees - as is the case with the cluster I use. I came up with a workaround which works somewhat like work-trees - I manually clone my source repository to a temporary location, checkout the commit I want to run (which is what work-trees sort of are), and set up a job that runs this particular simulation version. It uses two scripts:</p>
+<ul class="simple">
+<li>A template PBS script for the simulation run. This will be passed to <code>qsub</code>.</li>
+<li>A script that clones my repo, checks out the required commit, completes the template script, and calls <code>qsub</code> to queue up the job.</li>
+</ul>
+<p>The first is a simple PBS script:</p>
+<pre class="code bash literal-block">
+<span class="c1"># File: run-sim.sh
+</span>
+<span class="c1">#PBS -l walltime=48:00:00
+#PBS -l nodes=50
+#PBS -m abe
+#PBS -N nest_v_s
+</span>
+module unload mpi/mpich-x86_64
+module load mvapich2-1.7
+
+<span class="nv">SIM_PATH</span><span class="o">=</span><span class="s2">&quot;/stri-data/asinha/simulations-nest/&quot;</span>
+<span class="nv">SIM_TIME</span><span class="o">=</span><span class="s2">&quot;&quot;</span>
+<span class="nv">PROGRAM_PATH</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$SIM_PATH</span><span class="s2">&quot;&quot;</span><span class="nv">$SIM_TIME</span><span class="s2">&quot;&quot;/Sinha2016/src/Sinha2016.py&quot;</span>
+<span class="nv">RESULT_PATH</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$SIM_PATH</span><span class="s2">&quot;&quot;</span><span class="nv">$SIM_TIME</span><span class="s2">&quot;&quot;/result/&quot;</span>
+<span class="nv">NUM_NODES</span><span class="o">=</span><span class="m">50</span>
+
+<span class="nb">echo</span> ------------------------------------------------------
+<span class="nb">echo</span> <span class="s1">'Job is running on nodes'</span><span class="p">;</span> cat <span class="nv">$PBS_NODEFILE</span>
+<span class="nb">echo</span> ------------------------------------------------------
+<span class="nb">echo</span> PBS: qsub is running on <span class="nv">$PBS_O_HOST</span>
+<span class="nb">echo</span> PBS: originating queue is <span class="nv">$PBS_O_QUEUE</span>
+<span class="nb">echo</span> PBS: executing queue is <span class="nv">$PBS_QUEUE</span>
+<span class="nb">echo</span> PBS: working directory is <span class="nv">$PBS_O_WORKDIR</span>
+<span class="nb">echo</span> PBS: execution mode is <span class="nv">$PBS_ENVIRONMENT</span>
+<span class="nb">echo</span> PBS: job identifier is <span class="nv">$PBS_JOBID</span>
+<span class="nb">echo</span> PBS: job name is <span class="nv">$PBS_JOBNAME</span>
+<span class="nb">echo</span> PBS: node file is <span class="nv">$PBS_NODEFILE</span>
+<span class="nb">echo</span> PBS: current home directory is <span class="nv">$PBS_O_HOME</span>
+<span class="nb">echo</span> PBS: <span class="nv">PATH</span> <span class="o">=</span> <span class="nv">$PBS_O_PATH</span>
+<span class="nb">echo</span> ------------------------------------------------------
+
+<span class="nb">echo</span> <span class="s2">&quot;ANKUR&gt;&gt; Begun at </span><span class="nv">$SIM_TIME</span><span class="s2">&quot;</span>
+<span class="nb">echo</span> <span class="s2">&quot;ANKUR&gt;&gt; Script: </span><span class="si">${</span><span class="nv">0</span><span class="si">}</span><span class="s2">&quot;</span>
+
+mkdir -pv <span class="nv">$RESULT_PATH</span>
+<span class="nb">cd</span> <span class="nv">$RESULT_PATH</span>
+
+/usr/local/bin/mpiexec -n <span class="nv">$NUM_NODES</span> python <span class="nv">$PROGRAM_PATH</span>
+
+<span class="nv">END_TIME</span><span class="o">=</span><span class="k">$(</span>date +%Y%m%d%H%M<span class="k">)</span>
+<span class="nb">echo</span> <span class="s2">&quot;ANKUR&gt;&gt; Ended at </span><span class="nv">$END_TIME</span><span class="s2">&quot;</span>
+</pre>
+<p>It sets up the required PBS options, then loads the MPI module I wish to use. It creates a directory where my simulation's results will be stored, enters it, and then uses <code>mpiexec</code> to run my Python program.</p>
+<p>The second script is a wrapper that clones the required commit, sets up the correct paths in the above script and the calls <code>qsub</code>:</p>
+<pre class="code bash literal-block">
+<span class="c1"># File: setup-job.sh
+</span>
+<span class="nv">SOURCE_PATH</span><span class="o">=</span><span class="s2">&quot;/home/asinha/Documents/02_Code/00_repos/00_mine/Sinha2016/&quot;</span>
+<span class="nv">GIT_COMMIT</span><span class="o">=</span><span class="s2">&quot;&quot;</span>
+<span class="nv">SIM_PATH</span><span class="o">=</span><span class="s2">&quot;/stri-data/asinha/simulations-nest/&quot;</span>
+<span class="nv">SIM_TIME</span><span class="o">=</span><span class="k">$(</span>date +%Y%m%d%H%M<span class="k">)</span>
+<span class="nv">RUN_SCRIPT</span><span class="o">=</span><span class="s2">&quot;scripts/cluster/nest-runsim.sh&quot;</span>
+<span class="nv">RUN_NEW</span><span class="o">=</span><span class="s2">&quot;&quot;</span>
+<span class="nv">ERROR</span><span class="o">=</span><span class="s2">&quot;no&quot;</span>
+<span class="nv">NUM_NODES</span><span class="o">=</span><span class="m">50</span>
+<span class="nv">CUR_SIM_PATH</span><span class="o">=</span><span class="s2">&quot;&quot;</span>
+
+<span class="k">function</span> queue_task
+<span class="o">{</span>
+    <span class="nb">pushd</span> <span class="s2">&quot;</span><span class="nv">$CUR_SIM_PATH</span><span class="s2">&quot;</span>
+        qsub <span class="s2">&quot;</span><span class="nv">$RUN_NEW</span><span class="s2">&quot;</span>
+    <span class="nb">popd</span>
+<span class="o">}</span>
+
+<span class="k">function</span> setup_env
+<span class="o">{</span>
+    <span class="nv">CUR_SIM_PATH</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$SIM_PATH</span><span class="s2">&quot;&quot;</span><span class="nv">$SIM_TIME</span><span class="s2">&quot;</span>
+    <span class="nb">echo</span> <span class="s2">&quot;This simulation will run in: </span><span class="nv">$CUR_SIM_PATH</span><span class="s2">&quot;</span>
+    mkdir -pv <span class="s2">&quot;</span><span class="nv">$CUR_SIM_PATH</span><span class="s2">&quot;</span>
+
+    <span class="nb">pushd</span> <span class="s2">&quot;</span><span class="nv">$CUR_SIM_PATH</span><span class="s2">&quot;</span>
+        <span class="nb">echo</span> <span class="s2">&quot;Cloning source repository...&quot;</span>
+        git clone <span class="s2">&quot;</span><span class="nv">$SOURCE_PATH</span><span class="s2">&quot;</span> <span class="s2">&quot;Sinha2016&quot;</span>
+
+        <span class="nb">pushd</span> <span class="s2">&quot;Sinha2016&quot;</span>
+            <span class="nb">echo</span> <span class="s2">&quot;Checking out commit </span><span class="nv">$GIT_COMMIT</span><span class="s2">...&quot;</span>
+            git checkout -b this_sim <span class="s2">&quot;</span><span class="nv">$GIT_COMMIT</span><span class="s2">&quot;</span>
+            <span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="nv">$?</span><span class="s2">&quot;</span> -ne <span class="m">0</span> <span class="o">]</span>
+            <span class="k">then</span>
+                <span class="nb">echo</span> <span class="s2">&quot;Error occured. Could not checkout </span><span class="nv">$GIT_COMMIT</span><span class="s2">. Exiting...&quot;</span>
+                <span class="nv">ERROR</span><span class="o">=</span><span class="s2">&quot;yes&quot;</span>
+            <span class="k">fi</span>
+        <span class="nb">popd</span>
+
+        <span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;xyes&quot;</span> <span class="o">==</span>  x<span class="s2">&quot;</span><span class="nv">$ERROR</span><span class="s2">&quot;</span> <span class="o">]</span>
+        <span class="k">then</span>
+            <span class="nb">exit</span> -1
+        <span class="k">fi</span>
+
+        <span class="nv">RUN_NEW</span><span class="o">=</span><span class="s2">&quot;nest_&quot;&quot;</span><span class="nv">$GIT_COMMIT</span><span class="s2">&quot;&quot;.sh&quot;</span>
+        <span class="nb">echo</span> <span class="s2">&quot;Setting up </span><span class="nv">$RUN_NEW</span><span class="s2">...&quot;</span>
+        cp <span class="s2">&quot;</span><span class="nv">$SOURCE_PATH</span><span class="s2">&quot;&quot;</span><span class="nv">$RUN_SCRIPT</span><span class="s2">&quot;</span> <span class="s2">&quot;</span><span class="nv">$RUN_NEW</span><span class="s2">&quot;</span> -v
+        sed -i <span class="s2">&quot;s|nest_v_s|nest_</span><span class="nv">$GIT_COMMIT</span><span class="s2">|&quot;</span> <span class="s2">&quot;</span><span class="nv">$RUN_NEW</span><span class="s2">&quot;</span>
+        sed -i <span class="s2">&quot;s|nodes=.*|nodes=</span><span class="nv">$NUM_NODES</span><span class="s2">|&quot;</span> <span class="s2">&quot;</span><span class="nv">$RUN_NEW</span><span class="s2">&quot;</span>
+        sed -i <span class="s2">&quot;s|NUM_NODES=.*|NUM_NODES=</span><span class="nv">$NUM_NODES</span><span class="s2">|&quot;</span> <span class="s2">&quot;</span><span class="nv">$RUN_NEW</span><span class="s2">&quot;</span>
+        sed -i <span class="s2">&quot;s|SIM_TIME=.*|SIM_TIME=</span><span class="nv">$SIM_TIME</span><span class="s2">|&quot;</span> <span class="s2">&quot;</span><span class="nv">$RUN_NEW</span><span class="s2">&quot;</span>
+    <span class="nb">popd</span>
+<span class="o">}</span>
+
+<span class="k">function</span> usage
+<span class="o">{</span>
+    <span class="nb">echo</span> <span class="s2">&quot;Usage: </span><span class="nv">$0</span><span class="s2">&quot;</span>
+    <span class="nb">echo</span> <span class="s2">&quot;Queue up a job to run a particular git commit&quot;</span>
+    <span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$0</span><span class="s2"> &lt;git_commit&gt; &lt;number_nodes&gt;&quot;</span>
+<span class="o">}</span>
+
+<span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="nv">$#</span><span class="s2">&quot;</span> -ne <span class="m">2</span> <span class="o">]</span><span class="p">;</span>
+<span class="k">then</span>
+    <span class="nb">echo</span> <span class="s2">&quot;Error occurred. Exiting...&quot;</span>
+    <span class="nb">echo</span> <span class="s2">&quot;Received </span><span class="nv">$#</span><span class="s2"> arguments. Expected: 3&quot;</span>
+    usage
+    <span class="nb">exit</span> -1
+<span class="k">fi</span>
+
+<span class="nv">GIT_COMMIT</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span>
+<span class="nv">NUM_NODES</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$2</span><span class="s2">&quot;</span>
+setup_env
+queue_task
+
+<span class="nb">exit</span> <span class="m">0</span>
+</pre>
+<p>This takes two arguments, as the <code>usage</code> function will tell you. The first argument is the commit you want to run the simulation for, and the second is the number of nodes you want to use. It'll clone your repository to a temporary location and checkout this specified commit. Then, it'll modify the first script <code>run-sim.sh</code> to set up the correct path to the code and also correctly specify the number of nodes you'd want to request. Finally, once all this is done, it'll call <code>qsub run-sim.sh</code> to queue up your job. I use unique date stamps as directory names to distinguish between simulation runs, but you can use another unique identifier.</p>
+<p>Now, this copy of your code, at the specified commit will be used for the job you've queued. You can merrily go about tinkering with the main source repo without affecting queued up jobs. Yay!</p>
+<p>Even though I've used Python here, you can use similar scripts for compiled languages. You'll simply have to compile your executable after you checkout the required commit.</p>
+</div>
+<div class="section" id="other-miscellaneous-stuff">
+<h2>Other miscellaneous stuff</h2>
+<p>My lab mate, Alex, recently introduced me to <a class="reference external" href="https://www.continuum.io/downloads">Anaconda</a>. It's a great tool for that lets you install packages in your user specific directory. It contains quite a few python and other related packages. No need to use <code>sudo</code> with it, and you can use <code>pip</code> etc. with it too. It even lets you set up virtual environments and things.</p>
+<p>I think that's it for today. I'll update the post with other things I find/learn as I continue my adventures with the cluster.</p>
+</div>
+
+  </div>
+  
+  <hr />
+  <div class="well well-sm">  <!-- Social media sharing buttons -->
+    <!-- Twitter -->
+    <a href="https://twitter.com/share" class="twitter-share-button" 
+       data-via="sanjay_ankur" >Tweet</a>&nbsp;
+
+    <!-- Google+ -->
+    <div class="g-plus" data-action="share" data-annotation="bubble"></div>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <div class="g-plusone" data-size="medium"></div>&nbsp;
+
+    <!-- Facebook -->
+    <div class="fb-like" 
+        data-href="http://ankursinha.in/blog/2016/05/31/some-tips-and-tricks-for-running-simulations-on-a-cluster.html" 
+        data-layout="button_count" 
+        data-action="like" data-show-faces="true" 
+        data-share="true">
+    </div>
+    &nbsp;
+  </div> <!-- /Social media sharing buttons -->
+  <div class="comments">
+	<h2>Comments</h2>
+	<div id="disqus_thread"></div>
+	<script type="text/javascript">
+				   (function() {
+						var dsq = document.createElement('script');
+						dsq.type = 'text/javascript'; dsq.async = true;
+						dsq.src = '//ankursinha.disqus.com/embed.js';
+						(document.getElementsByTagName('head')[0] ||
+						 document.getElementsByTagName('body')[0]).appendChild(dsq);
+				  })();
+	</script>
+  </div>
+</article>
+        </div><!-- /content -->
+
+        <div class="col-md-3 sidebar-nav" id="sidebar">
+
+<div class="row">
+
+<div class="col-xs-6 col-md-12">
+<h4><i class="fa fa-comment fa-fw fa-lg"></i> Social</h4>
+<ul class="list-unstyled social-links">
+    <li><a href="http://scholar.google.co.in/citations?user=919ScZEAAAAJ&hl=en" target="_blank">
+	  <i class="fa fa-google fa-fw fa-lg" title="Scholar"></i>
+		Scholar
+	</a></li>
+    <li><a href="http://github.com/sanjayankur31" target="_blank">
+	  <i class="fa fa-github-square fa-fw fa-lg" title="GitHub"></i>
+		GitHub
+	</a></li>
+    <li><a href=" https://orcid.org/0000-0001-7568-7167" target="_blank">
+	  <i class="fa fa-users fa-fw fa-lg" title="Orcid"></i>
+		Orcid
+	</a></li>
+    <li><a href="https://neurotree.org/neurotree/tree.php?pid=96687" target="_blank">
+	  <i class="fa fa-tree fa-fw fa-lg" title="NeuroTree"></i>
+		NeuroTree
+	</a></li>
+    <li><a href="https://www.goodreads.com/user/show/32360473-ankur" target="_blank">
+	  <i class="fa fa-book fa-fw fa-lg" title="Goodreads"></i>
+		Goodreads
+	</a></li>
+    <li><a href="https://twitter.com/sanjay_ankur" target="_blank">
+	  <i class="fa fa-twitter-square fa-fw fa-lg" title="Twitter"></i>
+		Twitter
+	</a></li>
+    <li><a href="http://www.facebook.com/sanjay.ankur" target="_blank">
+	  <i class="fa fa-facebook-square fa-fw fa-lg" title="Facebook"></i>
+		Facebook
+	</a></li>
+    <li><a href="https://instagram.com/sanjay.ankur/" target="_blank">
+	  <i class="fa fa-instagram fa-fw fa-lg" title="Instagram"></i>
+		Instagram
+	</a></li>
+    <li><a href="http://www.last.fm/user/sanjay_ankur" target="_blank">
+	  <i class="fa fa-lastfm-square fa-fw fa-lg" title="Last.fm"></i>
+		Last.fm
+	</a></li>
+</ul>
+</div>
+
+<div class="col-xs-6 col-md-12">
+<h4><i class="fa fa-folder fa-fw fa-lg"></i> Categories</h4>
+<ul class="list-unstyled category-links">
+  <li><a href="http://ankursinha.in/blog/category/life/" >
+    <i class="fa fa-folder-open fa-fw fa-lg"></i> Life</a></li>
+  <li><a href="http://ankursinha.in/blog/category/other/" >
+    <i class="fa fa-folder-open fa-fw fa-lg"></i> Other</a></li>
+  <li><a href="http://ankursinha.in/blog/category/research/" >
+    <i class="fa fa-folder-open fa-fw fa-lg"></i> Research</a></li>
+  <li><a href="http://ankursinha.in/blog/category/tech/" >
+    <i class="fa fa-folder-open fa-fw fa-lg"></i> Tech</a></li>
+</ul>
+</div>
+
+</div> <!-- /row -->
+
+  <h4><i class="fa fa-link fa-fw fa-lg"></i> Links</h4>
+  <ul class="list-unstyled category-links">
+    <li><a href="http://fedoraproject.org" >
+      <i class="fa fa-fw fa-external-link-square fa-lg"></i> Fedora Project</a></li>
+    <li><a href="https://ocns.memberclicks.net/" >
+      <i class="fa fa-fw fa-external-link-square fa-lg"></i> OCNS</a></li>
+    <li><a href="http://biocomputation.herts.ac.uk" >
+      <i class="fa fa-fw fa-external-link-square fa-lg"></i> UH Biocomputation</a></li>
+    <li><a href="http://home.earthlink.net/~perlewitz/index.html" >
+      <i class="fa fa-fw fa-external-link-square fa-lg"></i> Comp Neuro on the Web</a></li>
+    <li><a href="https://sanjayankur31.github.io/planet-neuroscience/" >
+      <i class="fa fa-fw fa-external-link-square fa-lg"></i> Neuroscience feeds</a></li>
+    <li><a href="https://sanjayankur31.github.io/planet-neuroscientists/" >
+      <i class="fa fa-fw fa-external-link-square fa-lg"></i> Neuroscientists feeds</a></li>
+    <li><a href="https://gitter.im/neuroscience-central/Lobby " >
+      <i class="fa fa-fw fa-external-link-square fa-lg"></i> Neuroscience central (chat)</a></li>
+    <li><a href="http://ankursinha.in/blog/feeds/" >
+      <i class="fa fa-fw fa-external-link-square fa-lg"></i> ankursinha.in/blog Feeds</a></li>
+  </ul>
+<h4><i class="fa fa-tags fa-fw fa-lg"></i> Tags</h4>
+<p class="tag-cloud">
+    <span class="tag-3">
+      <a href="http://ankursinha.in/blog/tag/vim/">
+          <i class="fa fa-tag"></i>
+        Vim
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="http://ankursinha.in/blog/tag/calliope/">
+          <i class="fa fa-tag"></i>
+        Calliope
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="http://ankursinha.in/blog/tag/sports/">
+          <i class="fa fa-tag"></i>
+        Sports
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="http://ankursinha.in/blog/tag/rant/">
+          <i class="fa fa-tag"></i>
+        Rant
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="http://ankursinha.in/blog/tag/blog/">
+          <i class="fa fa-tag"></i>
+        Blog
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="http://ankursinha.in/blog/tag/latex/">
+          <i class="fa fa-tag"></i>
+        LaTeX
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="http://ankursinha.in/blog/tag/gnome/">
+          <i class="fa fa-tag"></i>
+        GNOME
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="http://ankursinha.in/blog/tag/events/">
+          <i class="fa fa-tag"></i>
+        Events
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="http://ankursinha.in/blog/tag/bash/">
+          <i class="fa fa-tag"></i>
+        Bash
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="http://ankursinha.in/blog/tag/fedora/">
+          <i class="fa fa-tag"></i>
+        Fedora
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="http://ankursinha.in/blog/tag/neuron/">
+          <i class="fa fa-tag"></i>
+        Neuron
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="http://ankursinha.in/blog/tag/pelican/">
+          <i class="fa fa-tag"></i>
+        Pelican
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="http://ankursinha.in/blog/tag/flatpak/">
+          <i class="fa fa-tag"></i>
+        FlatPak
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="http://ankursinha.in/blog/tag/social/">
+          <i class="fa fa-tag"></i>
+        Social
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="http://ankursinha.in/blog/tag/robotics/">
+          <i class="fa fa-tag"></i>
+        Robotics
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="http://ankursinha.in/blog/tag/bugzilla/">
+          <i class="fa fa-tag"></i>
+        Bugzilla
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="http://ankursinha.in/blog/tag/planet/">
+          <i class="fa fa-tag"></i>
+        Planet
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="http://ankursinha.in/blog/tag/git/">
+          <i class="fa fa-tag"></i>
+        Git
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="http://ankursinha.in/blog/tag/free-software/">
+          <i class="fa fa-tag"></i>
+        Free software
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="http://ankursinha.in/blog/tag/subscriptions/">
+          <i class="fa fa-tag"></i>
+        Subscriptions
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="http://ankursinha.in/blog/tag/python/">
+          <i class="fa fa-tag"></i>
+        Python
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="http://ankursinha.in/blog/tag/nest/">
+          <i class="fa fa-tag"></i>
+        NEST
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="http://ankursinha.in/blog/tag/music/">
+          <i class="fa fa-tag"></i>
+        Music
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="http://ankursinha.in/blog/tag/computational-neuroscience/">
+          <i class="fa fa-tag"></i>
+        Computational neuroscience
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="http://ankursinha.in/blog/tag/rpmfusion/">
+          <i class="fa fa-tag"></i>
+        RPMFusion
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="http://ankursinha.in/blog/tag/gitter/">
+          <i class="fa fa-tag"></i>
+        Gitter
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="http://ankursinha.in/blog/tag/programming/">
+          <i class="fa fa-tag"></i>
+        Programming
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="http://ankursinha.in/blog/tag/zaphod/">
+          <i class="fa fa-tag"></i>
+        Zaphod
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="http://ankursinha.in/blog/tag/linux/">
+          <i class="fa fa-tag"></i>
+        Linux
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="http://ankursinha.in/blog/tag/community/">
+          <i class="fa fa-tag"></i>
+        Community
+      </a>
+    </span>
+</p>
+<h4><i class="fa fa-rss fa-fw fa-lg"></i> Feeds</h4>
+<ul class="list-unstyled">
+    <li><a href="http://ankursinha.in/blog/feeds/all.atom.xml" 
+		   type="application/atom+xml" rel="alternate">
+		<i class="fa fa-rss-square fa-fw fa-lg"></i> Atom Feed</a></li>
+    <li><a href="http://ankursinha.in/blog/feeds/all.rss.xml" 
+		   type="application/rss+xml" rel="alternate">
+		<i class="fa fa-rss-square fa-fw fa-lg"></i> RSS feed</a></li>
+</ul>
+
+<hr />
+
+        </div><!--/sidebar -->
+      </div><!--/row-->
+    </div><!--/.container /#main-container -->
+
+    <footer id="site-footer">
+ 
+      <address id="site-colophon">
+        <p class="text-center text-muted">
+        <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br /><a href="http://ankursinha.in/" target="_blank" xmlns:dct="http://purl.org/dc/terms/" property="dct:title">ankursinha.in</a> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://ankursinha.in/blog/pages/01-about.html" property="cc:attributionName" rel="cc:attributionURL" target="_blank">Ankur Sinha</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Attribution 4.0 International License</a>.<br />
+        Site built using <a href="http://getpelican.com/" target="_blank">Pelican</a>
+        &nbsp;&bull;&nbsp; Theme based on
+        <a href="http://www.voidynullness.net/page/voidy-bootstrap-pelican-theme/"
+           target="_blank">VoidyBootstrap</a> by 
+        <a href="http://www.robertiwancz.com/"
+           target="_blank">RKI</a>  
+        </p>
+      </address><!-- /colophon  -->
+    </footer>
+
+<!-- DISQUS script for displaying comment count -->
+<script type="text/javascript">
+    var disqus_shortname = 'ankursinha';
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+
+    <!-- javascript -->
+   
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+    <script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+
+
+<!-- Facebook -->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+</script>
+
+<!-- Twitter -->
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+<!-- Google+ -->
+<!-- Synchronous 
+<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+-->
+<!-- Asynchronous -->
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/platform.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>  </body>
+</html>

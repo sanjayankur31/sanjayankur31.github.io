@@ -1,0 +1,1088 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>ankursinha.in/blog</title><link href="http://ankursinha.in/blog/" rel="alternate"></link><link href="http://ankursinha.in/blog/feeds/all-en.atom.xml" rel="self"></link><id>http://ankursinha.in/blog/</id><updated>2017-12-25T01:16:02+00:00</updated><entry><title>Managing tasks, time, and making sure one takes a break: Integrating Taskwarrior, Timewarrior, and Gnome Pomodoro</title><link href="http://ankursinha.in/blog/2017/12/25/managing-tasks-time-and-making-sure-one-takes-a-break-integrating-taskwarrior-timewarrior-and-gnome-pomodoro.html" rel="alternate"></link><published>2017-12-25T01:16:02+00:00</published><updated>2017-12-25T01:16:02+00:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2017-12-25:/blog/2017/12/25/managing-tasks-time-and-making-sure-one-takes-a-break-integrating-taskwarrior-timewarrior-and-gnome-pomodoro.html</id><summary type="html">&lt;p class="first last"&gt;As the amount of work increases, it becomes ever so more important to
+manage time and work in an efficient way. So, there's &lt;a class="reference external" href="https://taskwarrior.org/"&gt;Taskwarrior&lt;/a&gt;
+for managing tasks, &lt;a class="reference external" href="https://timewarrior.net/"&gt;Timewarrior&lt;/a&gt; for tracking them, and &lt;a class="reference external" href="http://gnomepomodoro.org/"&gt;Gnome
+Pomodoro&lt;/a&gt; for making sure one takes regular breaks and doesn't let
+the long hours affect their health in a bad way.&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;With the new year, come resolutions. On many a list will there be a
+determination to do better in the coming year, to be more organised, more
+efficient, more productive.&lt;/p&gt;
+&lt;p&gt;I'm quite organised myself. I have lists, calendars, reminders, budgets, and
+all of that. Being a FOSS person, my first thought, inevitably, is to see if
+there's a piece of software that would aid me.&lt;/p&gt;
+&lt;p&gt;This post documents how one can get &lt;a class="reference external" href="https://taskwarrior.org/"&gt;Taskwarrior&lt;/a&gt;, &lt;a class="reference external" href="https://timewarrior.net/"&gt;Timewarrior&lt;/a&gt;, and &lt;a class="reference external" href="http://gnomepomodoro.org/"&gt;Gnome
+Pomodoro&lt;/a&gt; to work together to manage tasks, track them, and break those long
+hours into smaller bits with regular breaks.&lt;/p&gt;
+&lt;div class="section" id="taskwarrior-helps-manage-tasks"&gt;
+&lt;h2&gt;Taskwarrior helps manage tasks&lt;/h2&gt;
+&lt;p&gt;For managing tasks, there's the rather excellent &lt;a class="reference external" href="https://taskwarrior.org/"&gt;Taskwarrior&lt;/a&gt;. It's command
+line, and there are various user interfaces that have been developed for it
+too. (&lt;a class="reference external" href="https://tasktools.org/projects/vit.html"&gt;Vit&lt;/a&gt; is one that provides a terminal interface with &lt;a class="reference external" href="https://vim.org"&gt;Vim&lt;/a&gt; like
+keybindings, and there's a &lt;a class="reference external" href="https://github.com/blindFS/vim-taskwarrior"&gt;Vim plugin&lt;/a&gt; too.) One can even set up a
+&lt;a class="reference external" href="https://taskwarrior.org/"&gt;Taskwarrior&lt;/a&gt; server to sync the data between different machines. There are a
+few hosted services that give free &lt;a class="reference external" href="https://taskwarrior.org/"&gt;Taskwarrior&lt;/a&gt; server accounts too. Perhaps
+the best bit, is excellent documentation.  &lt;a class="reference external" href="https://taskwarrior.org/"&gt;Taskwarrior&lt;/a&gt; really does make it
+easy to &lt;a class="reference external" href="https://taskwarrior.org/news/news.20150627.html"&gt;get things done&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="timewarrior-tracks-time-spent-on-tasks"&gt;
+&lt;h2&gt;Timewarrior tracks time spent on tasks&lt;/h2&gt;
+&lt;p&gt;&lt;a class="reference external" href="https://taskwarrior.org/"&gt;Taskwarrior&lt;/a&gt; is not meant to be a time tracker, and upstream says so quite
+plainly. In fact, upstream went ahead and wrote &lt;a class="reference external" href="https://timewarrior.net/"&gt;Timewarrior&lt;/a&gt; for that purpose
+entirely. Like &lt;a class="reference external" href="https://taskwarrior.org/"&gt;Taskwarrior&lt;/a&gt;, &lt;a class="reference external" href="https://timewarrior.net/"&gt;Timewarrior&lt;/a&gt; is also a command line tool.&lt;/p&gt;
+&lt;p&gt;Integrating the two is quite easy, using a &lt;a class="reference external" href="https://taskwarrior.org/"&gt;Taskwarrior&lt;/a&gt; hook, as &lt;a class="reference external" href="https://taskwarrior.org/docs/timewarrior/taskwarrior.html"&gt;documented
+here&lt;/a&gt;. Each time
+a task is started, or stopped in &lt;a class="reference external" href="https://taskwarrior.org/"&gt;Taskwarrior&lt;/a&gt;, the hook calls &lt;a class="reference external" href="https://timewarrior.net/"&gt;Timewarrior&lt;/a&gt; to
+start or stop tracking the task too.&lt;/p&gt;
+&lt;p&gt;Note: to ensure that this hook is run before the &lt;a class="reference external" href="http://gnomepomodoro.org/"&gt;Gnome Pomodoro&lt;/a&gt; hook that we
+set up in the next section, please save the hook file as
+&lt;code&gt;~/.task/hooks/on-modify.00-timewarrior&lt;/code&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="gnome-pomodoro-reminds-us-to-take-regular-breaks"&gt;
+&lt;h2&gt;Gnome Pomodoro reminds us to take regular breaks&lt;/h2&gt;
+&lt;p&gt;So, one can manage tasks, and track the time spent working on them, and that's
+great. It was sufficient for me for quite a while, before I realised that I was
+spending too much time at my desk. What made it worse was the realisation that
+for us white collar professionals, a majority of our lives will be spent at a
+desk typing away on a computer. There's enough research to show that spending
+all those long hours working in a seated position is bad for one's health.&lt;/p&gt;
+&lt;p&gt;So, I went looking for the changes I should make to my work regime, and ran
+into the &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Pomodoro_Technique"&gt;Pomodoro&lt;/a&gt; technique. The idea is to take short breaks at regular
+intervals. One can use these to get up and walk around a bit, get them 10,000
+steps! There are plenty of tools that implement the &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Pomodoro_Technique"&gt;Pomodoro&lt;/a&gt; technique. A
+simple timer works too. The one I settled on is &lt;a class="reference external" href="http://gnomepomodoro.org/"&gt;Gnome Pomodoro&lt;/a&gt; which
+integrates really well with Gnome Shell. Every 25 minutes, it'll remind the
+user to take a 5 minute break.&lt;/p&gt;
+&lt;p&gt;Now, let us integrate &lt;a class="reference external" href="http://gnomepomodoro.org/"&gt;Gnome Pomodoro&lt;/a&gt; with both &lt;a class="reference external" href="https://taskwarrior.org/"&gt;Taskwarrior&lt;/a&gt; and &lt;a class="reference external" href="https://timewarrior.net/"&gt;Timewarrior&lt;/a&gt;:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;When a task is started using &lt;code&gt;task &amp;lt;filter&amp;gt; start&lt;/code&gt;, &lt;a class="reference external" href="https://taskwarrior.org/"&gt;Taskwarrior&lt;/a&gt;
+already begins to track it using the hook, and a Pomodoro should also be
+started.&lt;/li&gt;
+&lt;li&gt;When a Pomodoro is over and &lt;a class="reference external" href="http://gnomepomodoro.org/"&gt;Gnome Pomodoro&lt;/a&gt; notifies of a break,
+&lt;a class="reference external" href="https://timewarrior.net/"&gt;Timewarrior&lt;/a&gt; should be paused too.&lt;/li&gt;
+&lt;li&gt;When the break is over, and another Pomodoro starts, &lt;a class="reference external" href="https://timewarrior.net/"&gt;Timewarrior&lt;/a&gt; should
+resume tracking the task.&lt;/li&gt;
+&lt;li&gt;When a task is stopped, &lt;a class="reference external" href="https://taskwarrior.org/"&gt;Taskwarrior&lt;/a&gt; will stop tracking it via the hook
+already, and the Pomodoro should be stopped as well.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This is a very simple set up. A task must be started using &lt;a class="reference external" href="https://taskwarrior.org/"&gt;Taskwarrior&lt;/a&gt; here,
+and each time &lt;a class="reference external" href="http://gnomepomodoro.org/"&gt;Gnome Pomodoro&lt;/a&gt; pauses and resumes from breaks, the same task
+will be resumed unless it was stopped and another started.&lt;/p&gt;
+&lt;p&gt;It turned out to be quite easy because of how well these three tools have been
+designed. Here's a &lt;a class="reference external" href="https://taskwarrior.org/"&gt;Taskwarrior&lt;/a&gt; hook for &lt;a class="reference external" href="http://gnomepomodoro.org/"&gt;Gnome Pomodoro&lt;/a&gt; similar to the one
+for &lt;a class="reference external" href="https://timewarrior.net/"&gt;Timewarrior&lt;/a&gt;:&lt;/p&gt;
+&lt;pre class="code python literal-block"&gt;
+&lt;span class="ch"&gt;#!/usr/bin/env python2&lt;/span&gt;
+&lt;span class="c1"&gt;# API is here: https://taskwarrior.org/docs/hooks.html&lt;/span&gt;
+&lt;span class="c1"&gt;# To be saved at ~/.task/hooks/on-modify.01-gnome-pomodoro to ensure it is&lt;/span&gt;
+&lt;span class="c1"&gt;# run after the timewarrior hook, which should be saved as&lt;/span&gt;
+&lt;span class="c1"&gt;# ~/.task/hooks/on-modify.00-timewarrior&lt;/span&gt;
+&lt;span class="c1"&gt;# Otherwise, this is run before which then runs the Gnome-Pomodoro actions&lt;/span&gt;
+&lt;span class="c1"&gt;# things get quite messy!&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;json&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;os&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;sys&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Make no changes to the task, simply observe.&lt;/span&gt;
+&lt;span class="n"&gt;old&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;json&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;loads&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;sys&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;stdin&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;readline&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;
+&lt;span class="n"&gt;new&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;json&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;loads&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;sys&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;stdin&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;readline&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;json&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;dumps&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;new&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Start pomodoro when task is started&lt;/span&gt;
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="s1"&gt;'start'&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;new&lt;/span&gt; &lt;span class="ow"&gt;and&lt;/span&gt; &lt;span class="s1"&gt;'start'&lt;/span&gt; &lt;span class="ow"&gt;not&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;old&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;system&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'gnome-pomodoro --start'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="c1"&gt;# Stop pomodoro when a task is stopped&lt;/span&gt;
+&lt;span class="k"&gt;elif&lt;/span&gt; &lt;span class="s1"&gt;'start'&lt;/span&gt; &lt;span class="ow"&gt;not&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;new&lt;/span&gt; &lt;span class="ow"&gt;and&lt;/span&gt; &lt;span class="s1"&gt;'start'&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;old&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;system&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'gnome-pomodoro --stop'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;
+&lt;p&gt;It's called when a task is modified. It checks the old and new states. If a
+task is started, it starts &lt;code&gt;gnome-pomodoro&lt;/code&gt;, and when it's stopped, it
+stops it. This is one direction.&lt;/p&gt;
+&lt;p&gt;The other direction requires some tinkering with &lt;a class="reference external" href="http://gnomepomodoro.org/"&gt;Gnome Pomodoro&lt;/a&gt; to set up
+custom scripts. In the preferences, one must enable the &amp;quot;Custom actions&amp;quot;
+plugin:&lt;/p&gt;
+&lt;div class="figure align-center"&gt;
+&lt;a class="reference external image-reference" href="http://ankursinha.in/blog/images/20171225-gnome-pomodoro-plugins.png"&gt;&lt;img alt="A screenshot showing the plugin preferences in Gnome Pomodoro." src="http://ankursinha.in/blog/images/20171225-gnome-pomodoro-plugins.png" style="height: 300.0px;" /&gt;&lt;/a&gt;
+&lt;/div&gt;
+&lt;p&gt;Then, a &amp;quot;Custom Actions&amp;quot; entry will be added to the preferences. We need to add
+two of them. The first, resumes &lt;a class="reference external" href="https://timewarrior.net/"&gt;Timewarrior&lt;/a&gt; tracking when the Pomodoro
+resumes:&lt;/p&gt;
+&lt;div class="figure align-center"&gt;
+&lt;a class="reference external image-reference" href="http://ankursinha.in/blog/images/20171225-gnome-pomodoro-action-resume-timew.png"&gt;&lt;img alt="A screenshot showing custom action that will resume timew after a break." src="http://ankursinha.in/blog/images/20171225-gnome-pomodoro-action-resume-timew.png" style="height: 300.0px;" /&gt;&lt;/a&gt;
+&lt;/div&gt;
+&lt;p&gt;Similarly, the second stops &lt;a class="reference external" href="https://timewarrior.net/"&gt;Timewarrior&lt;/a&gt; when a break begins, or the user
+pauses the &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Pomodoro_Technique"&gt;Pomodoro&lt;/a&gt;:&lt;/p&gt;
+&lt;div class="figure align-center"&gt;
+&lt;a class="reference external image-reference" href="http://ankursinha.in/blog/images/20171225-gnome-pomodoro-action-stop-timew.png"&gt;&lt;img alt="A screenshot showing custom action that will stop timew at the start of a break." src="http://ankursinha.in/blog/images/20171225-gnome-pomodoro-action-stop-timew.png" style="height: 300.0px;" /&gt;&lt;/a&gt;
+&lt;/div&gt;
+&lt;p&gt;(If no tasks are active, &lt;a class="reference external" href="https://timewarrior.net/"&gt;Timewarrior&lt;/a&gt; doesn't do anything, so that case does
+not need to be handled separately.)&lt;/p&gt;
+&lt;p&gt;There are certain &lt;a class="reference external" href="https://github.com/codito/gnome-pomodoro/issues/275#issuecomment-282494447"&gt;limitations to what commands can go in there&lt;/a&gt;,
+so I've used a shell script to implement the required logic:&lt;/p&gt;
+&lt;pre class="code bash literal-block"&gt;
+&lt;span class="ch"&gt;#!/bin/bash
+&lt;/span&gt;&lt;span class="c1"&gt;# save as ~/bin/track-timew.sh
+# note that ~/bin/ must be in PATH
+&lt;/span&gt;
+resume &lt;span class="o"&gt;()&lt;/span&gt;
+&lt;span class="o"&gt;{&lt;/span&gt;
+    timew &lt;span class="o"&gt;||&lt;/span&gt; timew &lt;span class="k"&gt;continue&lt;/span&gt;
+&lt;span class="o"&gt;}&lt;/span&gt;
+
+pause &lt;span class="o"&gt;()&lt;/span&gt;
+&lt;span class="o"&gt;{&lt;/span&gt;
+    timew &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; timew stop
+&lt;span class="o"&gt;}&lt;/span&gt;
+
+clean &lt;span class="o"&gt;()&lt;/span&gt;
+&lt;span class="o"&gt;{&lt;/span&gt;
+    &lt;span class="c1"&gt;# sed only does greedy regex so it's slightly complicated
+&lt;/span&gt;    &lt;span class="c1"&gt;# could use perl to make this a lot simpler because perl does non
+&lt;/span&gt;    &lt;span class="c1"&gt;# greedy too.
+&lt;/span&gt;    &lt;span class="k"&gt;for&lt;/span&gt; entry in &lt;span class="k"&gt;$(&lt;/span&gt;timew summary :ids &lt;span class="p"&gt;|&lt;/span&gt; grep -o &lt;span class="s1"&gt;'&amp;#64;.*'&lt;/span&gt; &lt;span class="p"&gt;|&lt;/span&gt; sed -E &lt;span class="s1"&gt;'s/(^&amp;#64;[[:digit:]]+[[:space:]]+)/\1 |/'&lt;/span&gt; &lt;span class="p"&gt;|&lt;/span&gt; sed -E &lt;span class="s1"&gt;'s/([[:digit:]]+:[[:digit:]]+:[[:digit:]]+ )/| \1/'&lt;/span&gt; &lt;span class="p"&gt;|&lt;/span&gt; sed &lt;span class="s1"&gt;'s/|.*|//'&lt;/span&gt; &lt;span class="p"&gt;|&lt;/span&gt; sed -E &lt;span class="s1"&gt;'s/[[:space:]]{2,}/ /'&lt;/span&gt; &lt;span class="p"&gt;|&lt;/span&gt; cut -d &lt;span class="s1"&gt;' '&lt;/span&gt; -f &lt;span class="m"&gt;1&lt;/span&gt;,4 &lt;span class="p"&gt;|&lt;/span&gt; grep -E &lt;span class="s1"&gt;'0:0[01]:..'&lt;/span&gt; &lt;span class="p"&gt;|&lt;/span&gt; cut -d &lt;span class="s1"&gt;' '&lt;/span&gt; -f &lt;span class="m"&gt;1&lt;/span&gt; &lt;span class="p"&gt;|&lt;/span&gt; tr &lt;span class="s1"&gt;'\n'&lt;/span&gt; &lt;span class="s1"&gt;' '&lt;/span&gt;&lt;span class="k"&gt;)&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt; timew delete &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$entry&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;done&lt;/span&gt;
+&lt;span class="o"&gt;}&lt;/span&gt;
+
+usage &lt;span class="o"&gt;()&lt;/span&gt;
+&lt;span class="o"&gt;{&lt;/span&gt;
+    &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$0&lt;/span&gt;&lt;span class="s2"&gt;: wrapper script around timewarrior to carry out common tasks&amp;quot;&lt;/span&gt;
+    &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;For use with Gnome-Pomodoro's action plugin&amp;quot;&lt;/span&gt;
+    &lt;span class="nb"&gt;echo&lt;/span&gt;
+    &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Usage: &lt;/span&gt;&lt;span class="nv"&gt;$0&lt;/span&gt;&lt;span class="s2"&gt; &amp;lt;option&amp;gt;&amp;quot;&lt;/span&gt;
+    &lt;span class="nb"&gt;echo&lt;/span&gt;
+    &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;OPTIONS:&amp;quot;&lt;/span&gt;
+    &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;-r    resume tracking of most recently tracked task&amp;quot;&lt;/span&gt;
+    &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;-p    pause tracking&amp;quot;&lt;/span&gt;
+    &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;-c    clean up short tasks (less than 2 minutes long)&amp;quot;&lt;/span&gt;
+&lt;span class="o"&gt;}&lt;/span&gt;
+
+&lt;span class="c1"&gt;# check for options
+&lt;/span&gt;&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="o"&gt;[&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$#&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; -eq &lt;span class="m"&gt;0&lt;/span&gt; &lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;then&lt;/span&gt;
+    usage
+    &lt;span class="nb"&gt;exit&lt;/span&gt; &lt;span class="m"&gt;1&lt;/span&gt;
+&lt;span class="k"&gt;fi&lt;/span&gt;
+
+&lt;span class="c1"&gt;# parse options
+&lt;/span&gt;&lt;span class="k"&gt;while&lt;/span&gt; &lt;span class="nb"&gt;getopts&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;rpch&amp;quot;&lt;/span&gt; OPTION
+&lt;span class="k"&gt;do&lt;/span&gt;
+    &lt;span class="k"&gt;case&lt;/span&gt; &lt;span class="nv"&gt;$OPTION&lt;/span&gt; in
+        r&lt;span class="o"&gt;)&lt;/span&gt;
+            resume
+            &lt;span class="nb"&gt;exit&lt;/span&gt; &lt;span class="m"&gt;0&lt;/span&gt;
+            &lt;span class="p"&gt;;;&lt;/span&gt;
+        p&lt;span class="o"&gt;)&lt;/span&gt;
+            pause
+            &lt;span class="nb"&gt;exit&lt;/span&gt; &lt;span class="m"&gt;0&lt;/span&gt;
+            &lt;span class="p"&gt;;;&lt;/span&gt;
+        c&lt;span class="o"&gt;)&lt;/span&gt;
+            clean
+            &lt;span class="nb"&gt;exit&lt;/span&gt; &lt;span class="m"&gt;0&lt;/span&gt;
+            &lt;span class="p"&gt;;;&lt;/span&gt;
+        h&lt;span class="o"&gt;)&lt;/span&gt;
+            usage
+            &lt;span class="nb"&gt;exit&lt;/span&gt; &lt;span class="m"&gt;1&lt;/span&gt;
+            &lt;span class="p"&gt;;;&lt;/span&gt;
+        ?&lt;span class="o"&gt;)&lt;/span&gt;
+            usage
+            &lt;span class="nb"&gt;exit&lt;/span&gt; &lt;span class="m"&gt;1&lt;/span&gt;
+            &lt;span class="p"&gt;;;&lt;/span&gt;
+    &lt;span class="k"&gt;esac&lt;/span&gt;
+&lt;span class="k"&gt;done&lt;/span&gt;
+&lt;/pre&gt;
+&lt;p&gt;The script is quite simple, and I hope, self-explanatory too. I'll leave
+interpretation of the &lt;code&gt;clean&lt;/code&gt; function to the reader ;)&lt;/p&gt;
+&lt;p&gt;That's all there is to it. There must be other ways of doing the same thing,
+possibly with different tools too, but this system required least changes to my
+current workflow. Do remember that these tools can only aid us. It is us that
+need to show that bit of discipline to follow the plan through. I hope some
+will find it helpful, and may the new year be healthier and more productive for
+us all! :)&lt;/p&gt;
+&lt;/div&gt;
+</content><category term="Bash"></category><category term="Fedora"></category><category term="Timewarrior"></category><category term="Taskwarrior"></category><category term="Pomodoro"></category><category term="Gnome-Pomodoro"></category><category term="Time management"></category></entry><entry><title>Transitioning to Neomutt and friends for e-mail</title><link href="http://ankursinha.in/blog/2017/12/16/transitioning-to-neomutt-and-friends-for-e-mail.html" rel="alternate"></link><published>2017-12-16T00:01:53+00:00</published><updated>2017-12-16T00:01:53+00:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2017-12-16:/blog/2017/12/16/transitioning-to-neomutt-and-friends-for-e-mail.html</id><summary type="html">&lt;p class="first last"&gt;I finally took some time out to set up &lt;a class="reference external" href="https://www.neomutt.org"&gt;neomutt&lt;/a&gt; and related tools
+that let me access my e-mail in a terminal. This post documents how I
+went about it.&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;I'm constantly seeking out applications that provide &lt;a class="reference external" href="https://vim.org"&gt;Vim&lt;/a&gt; like keyboard
+bindings---it ensures that I have one set of keys that does the same thing
+everywhere, and so, it saves me from having to:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;remember different hot keys for different applications&lt;/li&gt;
+&lt;li&gt;leave the &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Touch_typing"&gt;home row&lt;/a&gt; to use the mouse/touchpad (Yeh, the home row is a
+thing!)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;So, I now use the excellent &lt;a class="reference external" href="http://byobu.co/"&gt;byobu&lt;/a&gt; where I run:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://github.com/arybczak/ncmpcpp"&gt;ncmpcpp&lt;/a&gt; for music: it provides &lt;a class="reference external" href="https://vim.org"&gt;Vim&lt;/a&gt; like key bindings.&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://vifm.info"&gt;Vifm&lt;/a&gt; for file management, although, a command line is usually sufficient.&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://github.com/scottkosty/vit"&gt;Vit&lt;/a&gt; as a &lt;a class="reference external" href="https://taskwarrior.org"&gt;Taskwarrior&lt;/a&gt; terminal based front-end, which, yep, provides &lt;a class="reference external" href="https://vim.org"&gt;Vim&lt;/a&gt;
+like key-bindings.&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://weechat.org"&gt;Weechat&lt;/a&gt; for IRC which also has &lt;a class="reference external" href="https://github.com/GermainZ/weechat-vimode"&gt;Vim bindings&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a class="reference external" href="https://vim.org"&gt;Vim&lt;/a&gt; has an in-built file browser, and one can use other plug-ins such as
+NerdTree for more advanced tasks. I even have a &lt;a class="reference external" href="https://taskwarrior.org"&gt;Taskwarrior&lt;/a&gt; plug-in for Vim
+that let's me quickly look up my tasks while writing code and the sort.&lt;/p&gt;
+&lt;p&gt;For other uses where the terminal is insufficient, I've found:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;a class="reference external" href="http://karlch.github.io/vimiv/"&gt;Vimiv&lt;/a&gt; for viewing images&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="http://www.qutebrowser.org/"&gt;Qutebrowser&lt;/a&gt; as a full featured browser. One can also use add-ons to
+Firefox/Chrome, but I've quite fallen for &lt;a class="reference external" href="http://www.qutebrowser.org/"&gt;Qutebrowser&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://pwmt.org/projects/zathura/"&gt;Zathura&lt;/a&gt; for viewing various document types.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I rarely use LibreOffice---I mostly stick to LaTeX, and &lt;a class="reference external" href="https://vim.org"&gt;Vim&lt;/a&gt; deals with it
+rather well.&lt;/p&gt;
+&lt;p&gt;In all of the above mentioned applications, &lt;code&gt;hjkl&lt;/code&gt; moves about, other hot
+keys such as &lt;code&gt;G&lt;/code&gt; and &lt;code&gt;gg&lt;/code&gt;, and so on work too, and they even have a
+command mode that can be accessed using &lt;code&gt;:&lt;/code&gt; as in &lt;a class="reference external" href="https://vim.org"&gt;Vim&lt;/a&gt;. So, I don't have
+to think of the shortcuts now---it's all muscle memory!&lt;/p&gt;
+&lt;p&gt;&lt;a class="reference external" href="https://wiki.gnome.org/Apps/Evolution"&gt;Evolution&lt;/a&gt;, being a modern GUI productivity tool, does not have a method to
+navigate around only using a keyboard, and this got me to look for an e-mail
+client that provided &lt;a class="reference external" href="https://vim.org"&gt;Vim&lt;/a&gt; like bindings. The answer I found was the rather well
+known &lt;a class="reference external" href="http://www.mutt.org/"&gt;mutt&lt;/a&gt; terminal client. I'd been thinking of giving it a go for a while
+now---more than a year. However, as I document later in this post, setting up
+&lt;a class="reference external" href="http://www.mutt.org/"&gt;mutt&lt;/a&gt; isn't as trivial as setting up &lt;a class="reference external" href="https://wiki.gnome.org/Apps/Evolution"&gt;Evolution&lt;/a&gt; where one simply uses Gnome
+Online Accounts and can get up and running in a few minutes.&lt;/p&gt;
+&lt;p&gt;At no point will I suggest that anyone migrate to such a terminal oriented
+setup. This is tailored to my personal, rather Vim-y needs. One should use
+whatever tools fit their personal tastes. We needn't spend time on &amp;quot;But, I
+prefer this, and it's better!&amp;quot; themed conversations.&lt;/p&gt;
+&lt;p&gt;Please note that everything that is documented here is for an up to date
+&lt;a class="reference external" href="http://getfedora.org"&gt;Fedora&lt;/a&gt; 27 system. Most steps should be general enough to work on other
+distributions. One will have to go find the right packages, though. I followed
+&lt;a class="reference external" href="https://hobo.house/2015/09/09/take-control-of-your-email-with-mutt-offlineimap-notmuch/"&gt;this guide&lt;/a&gt;
+as the main source of information, and the looked around when I needed some
+more info. I've collected a list of links at the bottom of this post.&lt;/p&gt;
+&lt;div class="section" id="e-mail-the-details"&gt;
+&lt;h2&gt;E-mail: the details&lt;/h2&gt;
+&lt;p&gt;When a majority of us use e-mail, we simply interact with a client. These
+clients: &lt;a class="reference external" href="https://wiki.gnome.org/Apps/Evolution"&gt;Evolution&lt;/a&gt;/&lt;a class="reference external" href="https://www.mozilla.org/en-GB/thunderbird/"&gt;Thunderbird&lt;/a&gt;/Outlook or the web applications that we access,
+keep the nitty-gritty details away from end users. The &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Email#Operation_overview"&gt;wikipedia article&lt;/a&gt; on e-mail explains
+the process quite well:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;An MUA (mail user agent) is the client that we use to read/write email.&lt;/li&gt;
+&lt;li&gt;The MUA interacts with an MSA (mail submission agent) to send e-mail, or an
+MDA (mail delivery agent) to receive e-mail to and fro a mailbox.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a class="reference external" href="http://www.mutt.org/"&gt;mutt&lt;/a&gt; is an MUA, so we need to set up the other bits for it to be able to
+interact with an MSA and an MDA, and that's why it is a little more work than
+setting up &lt;a class="reference external" href="https://wiki.gnome.org/Apps/Evolution"&gt;Evolution&lt;/a&gt; and so on where the tool takes care of setting up the
+whole chain.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="fetch-e-mail-with-offlineimap"&gt;
+&lt;h2&gt;Fetch e-mail with Offlineimap&lt;/h2&gt;
+&lt;p&gt;There are a few tools that fetch e-mail. &lt;a class="reference external" href="http://www.offlineimap.org/"&gt;Offlineimap&lt;/a&gt; seemed to be widely used,
+so I settled for it as well. On &lt;a class="reference external" href="http://getfedora.org"&gt;Fedora&lt;/a&gt;, one can use DNF:&lt;/p&gt;
+&lt;pre class="code bash literal-block"&gt;
+sudo dnf install offlineimap
+&lt;/pre&gt;
+&lt;p&gt;One must then set up their accounts with credentials and the sort. An example
+config file is provided with the package at
+&lt;code&gt;/usr/share/doc/offlineimap/offlineimap.conf&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;The config format is quite self explanatory. Here's an example:&lt;/p&gt;
+&lt;pre class="code ini literal-block"&gt;
+&lt;span class="k"&gt;[general]&lt;/span&gt;
+&lt;span class="na"&gt;accounts&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;account1&lt;/span&gt;
+
+&lt;span class="k"&gt;[Account account1]&lt;/span&gt;
+&lt;span class="na"&gt;localrepository&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;account1-local&lt;/span&gt;
+&lt;span class="na"&gt;remoterepository&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;account1-remote&lt;/span&gt;
+&lt;span class="na"&gt;status_backend&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;sqlite&lt;/span&gt;
+&lt;span class="na"&gt;postsynchook&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;notmuch new&lt;/span&gt;
+
+&lt;span class="k"&gt;[Repository account1-remote]&lt;/span&gt;
+&lt;span class="na"&gt;type&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;IMAP&lt;/span&gt;
+&lt;span class="na"&gt;remotehost&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;mailhost.com&lt;/span&gt;
+&lt;span class="na"&gt;remoteport&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;587&lt;/span&gt;
+&lt;span class="na"&gt;remoteuser&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;username&amp;#64;mailhost.com&lt;/span&gt;
+&lt;span class="na"&gt;remotepass&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;password&lt;/span&gt;
+&lt;span class="na"&gt;ssl&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;no&lt;/span&gt;
+&lt;span class="na"&gt;folderfilter&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;lambda foldername: foldername in ['INBOX', 'Sent', 'Spam', 'Trash', 'Drafts']&lt;/span&gt;
+&lt;span class="na"&gt;createfolders&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;False&lt;/span&gt;
+&lt;span class="na"&gt;maxconnections&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;2&lt;/span&gt;
+
+&lt;span class="k"&gt;[Repository account1-local]&lt;/span&gt;
+&lt;span class="na"&gt;type&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;Maildir&lt;/span&gt;
+&lt;span class="na"&gt;localfolders&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;~/Mail&lt;/span&gt;
+&lt;span class="na"&gt;restoreatime&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;no&lt;/span&gt;
+&lt;/pre&gt;
+&lt;p&gt;There's a &amp;quot;general&amp;quot; section where one defines what accounts are to be used. One
+can also define global options that will apply to all accounts here.&lt;/p&gt;
+&lt;p&gt;For each account, one then sets up the main configurations, and then set up the
+remote and local repositories. There are other advanced options that one can
+use too. The &lt;code&gt;folderfilter&lt;/code&gt;, for example, is a python statement that lets
+one select what folders on the remote should by synced. More in the offlineimap
+documentation.&lt;/p&gt;
+&lt;p&gt;The &lt;code&gt;postsynchook&lt;/code&gt; bit lets one run a command after &lt;a class="reference external" href="http://www.offlineimap.org/"&gt;Offlineimap&lt;/a&gt; has
+finished syncing. Here, it calls &lt;code&gt;notmuch&lt;/code&gt; to update its database. More on
+&lt;a class="reference external" href="https://notmuchmail.org/"&gt;notmuch&lt;/a&gt; later.&lt;/p&gt;
+&lt;p&gt;Once configured, one can run &lt;a class="reference external" href="http://www.offlineimap.org/"&gt;Offlineimap&lt;/a&gt; to fetch one's mail. The first sync
+will take quite a while, but subsequent syncs will be much quicker.&lt;/p&gt;
+&lt;pre class="code bash literal-block"&gt;
+offlineimap
+&lt;/pre&gt;
+&lt;p&gt;I set up a &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Cron"&gt;cronjob&lt;/a&gt; to sync my e-mail regularly. Most users also use a script
+that kills previously running &lt;a class="reference external" href="http://www.offlineimap.org/"&gt;Offlineimap&lt;/a&gt; instances that may have hung, so a
+script like this may be more useful:&lt;/p&gt;
+&lt;pre class="code bash literal-block"&gt;
+check &lt;span class="o"&gt;()&lt;/span&gt;
+&lt;span class="o"&gt;{&lt;/span&gt;
+    &lt;span class="k"&gt;while&lt;/span&gt; pkill offlineimap
+    &lt;span class="k"&gt;do&lt;/span&gt;
+        sleep &lt;span class="m"&gt;2&lt;/span&gt;
+    &lt;span class="k"&gt;done&lt;/span&gt;
+&lt;span class="o"&gt;}&lt;/span&gt;
+
+quick &lt;span class="o"&gt;()&lt;/span&gt;
+&lt;span class="o"&gt;{&lt;/span&gt;
+    offlineimap -u quiet -q -s
+&lt;span class="o"&gt;}&lt;/span&gt;
+
+full &lt;span class="o"&gt;()&lt;/span&gt;
+&lt;span class="o"&gt;{&lt;/span&gt;
+    offlineimap -u quiet -s
+&lt;span class="o"&gt;}&lt;/span&gt;
+
+&lt;span class="c1"&gt;# parse options
+&lt;/span&gt;&lt;span class="k"&gt;while&lt;/span&gt; &lt;span class="nb"&gt;getopts&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;qf&amp;quot;&lt;/span&gt; OPTION
+&lt;span class="k"&gt;do&lt;/span&gt;
+    &lt;span class="k"&gt;case&lt;/span&gt; &lt;span class="nv"&gt;$OPTION&lt;/span&gt; in
+        q&lt;span class="o"&gt;)&lt;/span&gt;
+            check
+            quick
+            &lt;span class="nb"&gt;exit&lt;/span&gt; &lt;span class="m"&gt;0&lt;/span&gt;
+            &lt;span class="p"&gt;;;&lt;/span&gt;
+        f&lt;span class="o"&gt;)&lt;/span&gt;
+            check
+            full
+            &lt;span class="nb"&gt;exit&lt;/span&gt; &lt;span class="m"&gt;0&lt;/span&gt;
+            &lt;span class="p"&gt;;;&lt;/span&gt;
+        ?&lt;span class="o"&gt;)&lt;/span&gt;
+            &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Nothing to do.&amp;quot;&lt;/span&gt;
+            &lt;span class="nb"&gt;exit&lt;/span&gt; &lt;span class="m"&gt;1&lt;/span&gt;
+            &lt;span class="p"&gt;;;&lt;/span&gt;
+    &lt;span class="k"&gt;esac&lt;/span&gt;
+&lt;span class="k"&gt;done&lt;/span&gt;
+&lt;/pre&gt;
+&lt;p&gt;My crontab then looks like this:&lt;/p&gt;
+&lt;pre class="code bash literal-block"&gt;
+*/20 * * * * /home/asinha/bin/fetch-mail.sh -q
+&lt;span class="m"&gt;10&lt;/span&gt; */8 * * * /home/asinha/bin/fetch-mail.sh -f
+&lt;/pre&gt;
+&lt;p&gt;So, every 20 minutes, I do a quick sync, and once every 8 hours, I do a full
+sync.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="sending-e-mail-with-msmtp"&gt;
+&lt;h2&gt;Sending e-mail with msmtp&lt;/h2&gt;
+&lt;p&gt;Now that we can fetch our e-mail, we look at sending e-mail. &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Sendmail"&gt;sendmail&lt;/a&gt; is quite
+a well known client, but the setup is a bit cludgy for me. &lt;a class="reference external" href="http://msmtp.sourceforge.net/"&gt;msmtp&lt;/a&gt; was
+recommended by quite a few users. On &lt;a class="reference external" href="http://getfedora.org"&gt;Fedora&lt;/a&gt;, one can install it using DNF:&lt;/p&gt;
+&lt;pre class="code bash literal-block"&gt;
+sudo dnf install msmtp
+&lt;/pre&gt;
+&lt;p&gt;The configuration for &lt;a class="reference external" href="http://msmtp.sourceforge.net/"&gt;msmtp&lt;/a&gt; is quite simple too. The package provides two
+example configuration files:&lt;/p&gt;
+&lt;pre class="code bash literal-block"&gt;
+/usr/share/doc/msmtp/msmtprc-system.example
+/usr/share/doc/msmtp/msmtprc-user.example
+&lt;/pre&gt;
+&lt;p&gt;Here's an example:&lt;/p&gt;
+&lt;pre class="code ini literal-block"&gt;
+&lt;span class="na"&gt;defaults&lt;/span&gt;
+&lt;span class="na"&gt;protocol smtp&lt;/span&gt;
+&lt;span class="na"&gt;auth on&lt;/span&gt;
+&lt;span class="na"&gt;tls on&lt;/span&gt;
+&lt;span class="na"&gt;tls_trust_file /etc/ssl/certs/ca-bundle.crt&lt;/span&gt;
+&lt;span class="na"&gt;syslog LOG_USER&lt;/span&gt;
+&lt;span class="na"&gt;logfile ~/.msmtp.log&lt;/span&gt;
+&lt;span class="na"&gt;timeout 60&lt;/span&gt;
+
+&lt;span class="na"&gt;account account1&lt;/span&gt;
+&lt;span class="na"&gt;host smtp.hostname.com&lt;/span&gt;
+&lt;span class="na"&gt;port 587&lt;/span&gt;
+&lt;span class="na"&gt;domain hostname.com&lt;/span&gt;
+&lt;span class="na"&gt;from something&amp;#64;hostname.com&lt;/span&gt;
+&lt;span class="na"&gt;user username&amp;#64;hostname.com&lt;/span&gt;
+&lt;span class="na"&gt;password password&lt;/span&gt;
+
+&lt;span class="na"&gt;account account2&lt;/span&gt;
+&lt;span class="na"&gt;host smtp.anotherhostname.com&lt;/span&gt;
+&lt;span class="na"&gt;port 587&lt;/span&gt;
+&lt;span class="na"&gt;domain anotherhostname.com&lt;/span&gt;
+&lt;span class="na"&gt;from something&amp;#64;anotherhostname.com&lt;/span&gt;
+&lt;span class="na"&gt;user username&amp;#64;anotherhostname.com&lt;/span&gt;
+&lt;span class="na"&gt;password password&lt;/span&gt;
+&lt;/pre&gt;
+&lt;p&gt;It has a default section where options common to all accounts can be set up.
+here it does to usual setup regarding TLS, and so on.&lt;/p&gt;
+&lt;p&gt;A separate section for each account then holds the credentials. One can then
+send e-mail from the command line:&lt;/p&gt;
+&lt;pre class="code bash literal-block"&gt;
+&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Subject: Test&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;|&lt;/span&gt; msmtp -a account1 someone&amp;#64;anotherhost.com
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div class="section" id="setting-up-the-mua-neo-mutt"&gt;
+&lt;h2&gt;Setting up the MUA: (neo)mutt&lt;/h2&gt;
+&lt;p&gt;The two MTAs are now set up, and we can fetch and send mail. We can now link
+these up to our MUA, &lt;a class="reference external" href="http://www.mutt.org/"&gt;mutt&lt;/a&gt;. Instead of &lt;a class="reference external" href="http://www.mutt.org/"&gt;mutt&lt;/a&gt;, I use &lt;a class="reference external" href="https://www.neomutt.org"&gt;neomutt&lt;/a&gt; which is &lt;a class="reference external" href="http://www.mutt.org/"&gt;mutt&lt;/a&gt; with
+additional patches and features. It isn't in the Fedora repos yet, but there's a
+&lt;a class="reference external" href="https://copr.fedorainfracloud.org/"&gt;COPR&lt;/a&gt; repository set up for users:&lt;/p&gt;
+&lt;pre class="code bash literal-block"&gt;
+sudo dnf copr &lt;span class="nb"&gt;enable&lt;/span&gt; flatcap/neomutt
+sudo dnf install neomutt
+&lt;/pre&gt;
+&lt;p&gt;The &lt;a class="reference external" href="https://www.neomutt.org"&gt;neomutt&lt;/a&gt; configuration is based on the &lt;a class="reference external" href="http://www.mutt.org/"&gt;mutt&lt;/a&gt; bits, and it's rather
+extensive. The package provides an example that I use as a starting point:&lt;/p&gt;
+&lt;pre class="code bash literal-block"&gt;
+/usr/share/doc/offlineimap/offlineimap.conf
+&lt;/pre&gt;
+&lt;p&gt;The important bits are here:&lt;/p&gt;
+&lt;pre class="code ini literal-block"&gt;
+&lt;span class="na"&gt;mailboxes&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;account1&amp;quot;&lt;/span&gt;
+&lt;span class="na"&gt;mailboxes `find ~/Mail/account1/* -maxdepth 0 -type d | grep -v &amp;quot;tmp\|new\|cur&amp;quot; | sed 's|/home/asinha/Mail/|&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;\&amp;quot;|g' | sed 's|$|\&amp;quot;|g' | tr '\n' ' '`&lt;/span&gt;
+&lt;span class="na"&gt;set from&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;user&amp;#64;hostname.com&amp;quot;&lt;/span&gt;
+&lt;span class="na"&gt;set use_from&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;yes&amp;quot;&lt;/span&gt;
+&lt;span class="na"&gt;set reply_to&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;yes&amp;quot;&lt;/span&gt;
+&lt;span class="na"&gt;set sendmail&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;msmtp -a account1&amp;quot;&lt;/span&gt;
+&lt;span class="na"&gt;set sendmail_wait&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;0&lt;/span&gt;
+&lt;span class="na"&gt;set mbox&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;+account1/INBOX&amp;quot;&lt;/span&gt;
+&lt;span class="na"&gt;set postponed&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;+account1/Drafts&amp;quot;&lt;/span&gt;
+&lt;span class="na"&gt;set record&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;+account1/Sent&amp;quot;&lt;/span&gt;
+&lt;/pre&gt;
+&lt;p&gt;The &lt;code&gt;mailboxes&lt;/code&gt; list what folders the sidebar in &lt;a class="reference external" href="https://www.neomutt.org"&gt;neomutt&lt;/a&gt;. These are what
+we've set up offlineimap to fetch for us. Similarly, the &lt;code&gt;sendmail&lt;/code&gt;
+setting tells neomutt to use &lt;code&gt;msmtp&lt;/code&gt; to send e-mail.&lt;/p&gt;
+&lt;p&gt;If it all went well, running &lt;code&gt;neomutt&lt;/code&gt; should bring up a window like the
+figure below:&lt;/p&gt;
+&lt;div class="figure align-center"&gt;
+&lt;a class="reference external image-reference" href="http://ankursinha.in/blog/images/20171215-neomutt.png"&gt;&lt;img alt="A screenshot of Neomutt in action" src="http://ankursinha.in/blog/images/20171215-neomutt.png" style="height: 480.0px;" /&gt;&lt;/a&gt;
+&lt;/div&gt;
+&lt;p&gt;On the left, there's the sidebar where all folders are listed. These can be
+configured using &lt;code&gt;mailboxes&lt;/code&gt; as &lt;a class="reference external" href="https://www.neomutt.org/feature/sidebar-intro"&gt;explained in the documentation here&lt;/a&gt;. On the right hand side, the
+various e-mails are listed on top in the &lt;code&gt;index&lt;/code&gt;, and a particular e-mail
+is visible in the &lt;code&gt;pager&lt;/code&gt; view. As can be seen, the index view also shows
+threads! (This is running in &lt;code&gt;byobu&lt;/code&gt;, by the way, which shows the other
+information in the bottom information bar.) More on all of this in the
+documentation, of course.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="searching-e-mail-with-notmuch"&gt;
+&lt;h2&gt;Searching e-mail with notmuch&lt;/h2&gt;
+&lt;p&gt;We have our e-mail set up, but we at the moment, it has a very basic search
+feature that &lt;a class="reference external" href="http://www.mutt.org/"&gt;mutt&lt;/a&gt; provides. &lt;a class="reference external" href="https://notmuchmail.org/"&gt;notmuch&lt;/a&gt;, which thinks &amp;quot;not much mail&amp;quot; of your
+massive e-mail collection helps here. &lt;a class="reference external" href="https://notmuchmail.org/"&gt;notmuch&lt;/a&gt; is called after each Offlineimap
+sync above, in the &lt;code&gt;postsynchook&lt;/code&gt;. Then, using simple keyboard shortcuts,
+one can use &lt;a class="reference external" href="https://notmuchmail.org/"&gt;notmuch&lt;/a&gt; search their whole e-mail database. &lt;a class="reference external" href="https://notmuchmail.org/"&gt;notmuch&lt;/a&gt; has quite a
+few advanced features, like searching as threads, and searching e-mail
+addresses, and the sort. &lt;a class="reference external" href="https://notmuchmail.org/"&gt;notmuch&lt;/a&gt; comes with the handy &lt;code&gt;notmuch-config&lt;/code&gt;
+which makes configuration trivial. Here's an example below:&lt;/p&gt;
+&lt;pre class="code bash literal-block"&gt;
+$ notmuch address from:*lists.fedoraproject.org
+classroom-request&amp;#64;lists.fedoraproject.org
+freemedia-owner&amp;#64;lists.fedoraproject.org
+fedora-join-bounces&amp;#64;lists.fedoraproject.org
+fedora-join-owner&amp;#64;lists.fedoraproject.org
+cwg-request&amp;#64;lists.fedoraproject.org
+cwg-private-request&amp;#64;lists.fedoraproject.org
+&lt;/pre&gt;
+&lt;p&gt;The same can be used within &lt;a class="reference external" href="https://www.neomutt.org"&gt;neomutt&lt;/a&gt; with a few simple hotkeys:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+macro index &amp;lt;F8&amp;gt; \
+&amp;quot;&amp;lt;enter-command&amp;gt;set my_old_pipe_decode=\$pipe_decode my_old_wait_key=\$wait_key nopipe_decode nowait_key&amp;lt;enter&amp;gt;\
+&amp;lt;shell-escape&amp;gt;notmuch-mutt -r --prompt search&amp;lt;enter&amp;gt;\
+&amp;lt;change-folder-readonly&amp;gt;`echo ${XDG_CACHE_HOME:-$HOME/.cache}/notmuch/mutt/results`&amp;lt;enter&amp;gt;\
+&amp;lt;enter-command&amp;gt;set pipe_decode=\$my_old_pipe_decode wait_key=\$my_old_wait_key&amp;lt;enter&amp;gt;&amp;quot; \
+ &amp;quot;notmuch: search mail&amp;quot;
+
+macro index &amp;lt;F9&amp;gt; \
+&amp;quot;&amp;lt;enter-command&amp;gt;set my_old_pipe_decode=\$pipe_decode my_old_wait_key=\$wait_key nopipe_decode nowait_key&amp;lt;enter&amp;gt;\
+&amp;lt;pipe-message&amp;gt;notmuch-mutt -r thread&amp;lt;enter&amp;gt;\
+&amp;lt;change-folder-readonly&amp;gt;`echo ${XDG_CACHE_HOME:-$HOME/.cache}/notmuch/mutt/results`&amp;lt;enter&amp;gt;\
+&amp;lt;enter-command&amp;gt;set pipe_decode=\$my_old_pipe_decode wait_key=\$my_old_wait_key&amp;lt;enter&amp;gt;&amp;quot; \
+ &amp;quot;notmuch: reconstruct thread&amp;quot;
+
+macro index &amp;lt;F6&amp;gt; \
+&amp;quot;&amp;lt;enter-command&amp;gt;set my_old_pipe_decode=\$pipe_decode my_old_wait_key=\$wait_key nopipe_decode nowait_key&amp;lt;enter&amp;gt;\
+&amp;lt;pipe-message&amp;gt;notmuch-mutt tag -- -inbox&amp;lt;enter&amp;gt;\
+&amp;lt;enter-command&amp;gt;set pipe_decode=\$my_old_pipe_decode wait_key=\$my_old_wait_key&amp;lt;enter&amp;gt;&amp;quot; \
+ &amp;quot;notmuch: remove message from inbox&amp;quot;
+&lt;/pre&gt;
+&lt;p&gt;The three commands in a &lt;code&gt;neomuttrc&lt;/code&gt; file will respectively:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;bind F8 to open a &lt;a class="reference external" href="https://www.neomutt.org"&gt;neomutt&lt;/a&gt; search&lt;/li&gt;
+&lt;li&gt;bind F9 to find a whole thread based the currently selected e-mail. This
+includes all folders.&lt;/li&gt;
+&lt;li&gt;binds F6 to untag an e-mail (more on &lt;a class="reference external" href="https://notmuchmail.org/"&gt;notmuch&lt;/a&gt; tagging in the docs)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="section" id="other-tweaks"&gt;
+&lt;h2&gt;Other tweaks&lt;/h2&gt;
+&lt;p&gt;The aforementioned bits cover most of the main functions that one would need
+with e-mail. Here are some more tips that I found helpful.&lt;/p&gt;
+&lt;p&gt;I have not yet set up a command line address book client. There seem to be a
+few that sync with Gmail and other providers and can be used with &lt;a class="reference external" href="http://www.mutt.org/"&gt;mutt&lt;/a&gt;, but I
+don't need them yet.  &lt;a class="reference external" href="https://notmuchmail.org/"&gt;notmuch&lt;/a&gt; provides sufficient completion for the time
+being, and when I begin to use newer addresses that are not already in my
+mailbox, I shall look at address book clients. For those that are interested,
+these are what I've found:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;a class="reference external" href="http://abook.sourceforge.net/"&gt;abook&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://gitlab.com/goobook/goobook"&gt;gobook&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="section" id="storing-passwords-using-pass"&gt;
+&lt;h3&gt;Storing passwords using pass&lt;/h3&gt;
+&lt;p&gt;Storing passwords as plain text is a terrible idea. Instead most use password
+managers. &lt;a class="reference external" href="https://www.passwordstore.org/"&gt;pass&lt;/a&gt; is an excellent command line password manager that uses &lt;a class="reference external" href="https://www.gnupg.org/"&gt;GPG&lt;/a&gt;
+to encrypt password files. It even integrates with &lt;a class="reference external" href="https://git-scm.com/"&gt;Git&lt;/a&gt; so that a central
+repository can hold the encrypted files, and can be cloned to various systems.&lt;/p&gt;
+&lt;p&gt;Both &lt;a class="reference external" href="http://www.offlineimap.org/"&gt;Offlineimap&lt;/a&gt; and &lt;a class="reference external" href="http://msmtp.sourceforge.net/"&gt;msmtp&lt;/a&gt; permit a user to store passwords in a tool and then
+run a command to extract it. In the &lt;code&gt;offlineimaprc&lt;/code&gt;, for example, one can
+use:&lt;/p&gt;
+&lt;pre class="code ini literal-block"&gt;
+&lt;span class="na"&gt;remotepasseval&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;get_pass(&amp;quot;E-mail&amp;quot;)&lt;/span&gt;
+&lt;/pre&gt;
+&lt;p&gt;to fetch passwords from pass. Here &lt;code&gt;get_pass&lt;/code&gt; is a python function that
+does the dirty work:&lt;/p&gt;
+&lt;pre class="code python literal-block"&gt;
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;get_pass&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;account&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;check_output&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;pass &amp;quot;&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;account&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;shell&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="bp"&gt;True&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;splitlines&lt;/span&gt;&lt;span class="p"&gt;()[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;decode&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;utf-8&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;
+&lt;p&gt;Similarly, &lt;a class="reference external" href="http://msmtp.sourceforge.net/"&gt;msmtp&lt;/a&gt; lets one use a shell command to get a password:&lt;/p&gt;
+&lt;pre class="code ini literal-block"&gt;
+&lt;span class="na"&gt;passwordeval pass E-mail&lt;/span&gt;
+&lt;/pre&gt;
+&lt;p&gt;where the &lt;code&gt;E-mail&lt;/code&gt; file is associated with the password for a certain account using pass.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="multiple-accounts"&gt;
+&lt;h3&gt;Multiple accounts&lt;/h3&gt;
+&lt;p&gt;Both &lt;a class="reference external" href="http://www.offlineimap.org/"&gt;Offlineimap&lt;/a&gt; and &lt;a class="reference external" href="http://msmtp.sourceforge.net/"&gt;msmtp&lt;/a&gt; can handle multiple accounts. &lt;a class="reference external" href="https://www.neomutt.org"&gt;neomutt&lt;/a&gt; can too,
+but to set sane defaults each time one switches mailboxes, a bit of trickery is
+required. The &lt;a class="reference external" href="https://gist.github.com/miguelmota/9456162"&gt;gist here&lt;/a&gt; shows
+what's needed. Essentially, using a &lt;code&gt;folder-hook&lt;/code&gt;, one updates the
+required configurations (signature, from address, sent mail folder, draft
+folder) when one switches to a folder associated with a different account. I
+use four accounts in &lt;a class="reference external" href="https://www.neomutt.org"&gt;neomutt&lt;/a&gt; currently. It works rather well. The snippet
+below is what I have in my &lt;a class="reference external" href="https://www.neomutt.org"&gt;neomutt&lt;/a&gt; configuration file. It sets up host3 as the
+default account, and each time I change to a different host folder, the
+folder-hook updates some configurations. Here, I have different files for each
+host.&lt;/p&gt;
+&lt;pre class="code ini literal-block"&gt;
+&lt;span class="c1"&gt;# Hooks for multi-setup&lt;/span&gt;
+&lt;span class="c1"&gt;# default&lt;/span&gt;
+&lt;span class="na"&gt;set folder&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;~/Mail&amp;quot;&lt;/span&gt;
+&lt;span class="na"&gt;set spoolfile&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;+host3/INBOX&amp;quot;&lt;/span&gt;
+&lt;span class="na"&gt;source ~/Documents/100_dotfiles/mail/host1.neomuttrc&lt;/span&gt;
+&lt;span class="na"&gt;source ~/Documents/100_dotfiles/mail/host4.neomuttrc&lt;/span&gt;
+&lt;span class="na"&gt;source ~/Documents/100_dotfiles/mail/host2.neomuttrc&lt;/span&gt;
+&lt;span class="na"&gt;source ~/Documents/100_dotfiles/mail/host3.neomuttrc&lt;/span&gt;
+
+&lt;span class="c1"&gt;# folder hook&lt;/span&gt;
+&lt;span class="na"&gt;folder-hook host4/* source ~/Documents/100_dotfiles/mail/host4.neomuttrc&lt;/span&gt;
+&lt;span class="na"&gt;folder-hook host1/* source ~/Documents/100_dotfiles/mail/host1.neomuttrc&lt;/span&gt;
+&lt;span class="na"&gt;folder-hook host2/* source ~/Documents/100_dotfiles/mail/host2.neomuttrc&lt;/span&gt;
+&lt;span class="na"&gt;folder-hook host3/* source ~/Documents/100_dotfiles/mail/host3.neomuttrc&lt;/span&gt;
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div class="section" id="gpg-signing"&gt;
+&lt;h3&gt;GPG signing&lt;/h3&gt;
+&lt;p&gt;I sign my e-mails with &lt;a class="reference external" href="https://keys.fedoraproject.org/pks/lookup?search=0xE629112D&amp;amp;op=vindex"&gt;my GPG key&lt;/a&gt;.
+&lt;a class="reference external" href="https://www.neomutt.org"&gt;neomutt&lt;/a&gt; supports this via a few configuration options:&lt;/p&gt;
+&lt;pre class="code ini literal-block"&gt;
+&lt;span class="na"&gt;set pgp_sign_as&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;0xE629112D&lt;/span&gt;
+&lt;span class="na"&gt;set crypt_autosign&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;yes&amp;quot;&lt;/span&gt;
+&lt;span class="na"&gt;set crypt_verify_sig&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;yes&amp;quot;&lt;/span&gt;
+&lt;span class="na"&gt;set crypt_replysign&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;yes&amp;quot;&lt;/span&gt;
+&lt;/pre&gt;
+&lt;p&gt;E-mails will be signed when they're going out, and when a signed e-mail comes
+in, &lt;a class="reference external" href="https://www.neomutt.org"&gt;neomutt&lt;/a&gt; will verify the signature if the key is available and so on. If
+you're not using GPG keys, this &lt;a class="reference external" href="https://fedoraproject.org/wiki/Creating_GPG_Keys"&gt;guide on the Fedora wiki&lt;/a&gt; is a great guide for
+beginners.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="viewing-html-mail-and-attachments"&gt;
+&lt;h3&gt;Viewing HTML mail and attachments&lt;/h3&gt;
+&lt;p&gt;Even though I send all my e-mail as plain text, I do receive lots of HTML mail.
+&lt;a class="reference external" href="https://www.neomutt.org"&gt;neomutt&lt;/a&gt; can be set up to automatically view HTML e-mail. It does so by using a
+tool such as &lt;code&gt;w3m&lt;/code&gt; to strip the e-mail of HTML tags and show the text.
+The screenshot below shows an example HTML from Quora.&lt;/p&gt;
+&lt;div class="figure align-center"&gt;
+&lt;a class="reference external image-reference" href="http://ankursinha.in/blog/images/20171215-neomutt-html.png"&gt;&lt;img alt="A screenshot of Neomutt showing HTML e-mail." src="http://ankursinha.in/blog/images/20171215-neomutt-html.png" style="height: 480.0px;" /&gt;&lt;/a&gt;
+&lt;/div&gt;
+&lt;p&gt;A simple configuration line tells &lt;a class="reference external" href="https://www.neomutt.org"&gt;neomutt&lt;/a&gt; what to do:&lt;/p&gt;
+&lt;pre class="code ini literal-block"&gt;
+&lt;span class="na"&gt;auto_view text/html&lt;/span&gt;
+&lt;/pre&gt;
+&lt;p&gt;&lt;a class="reference external" href="https://www.neomutt.org"&gt;neomutt&lt;/a&gt; uses information from &lt;code&gt;mailcap&lt;/code&gt; to do this. For those that are
+unaware of what &lt;code&gt;mailcap&lt;/code&gt; is, like I was, &lt;a class="reference external" href="https://linux.die.net/man/4/mailcap"&gt;here's the manual page&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The configuration file for &lt;code&gt;mailcap&lt;/code&gt; is &lt;code&gt;~/.mailcaprc&lt;/code&gt;. Mine looks
+like this:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+audio/*; /usr/bin/xdg-open %s ; copiousoutput
+
+image/*; /usr/bin/xdg-open %s ; copiousoutput
+
+application/msword; /usr/bin/xdg-open %s ; copiousoutput
+application/pdf; /usr/bin/xdg-open %s ; copiousoutput
+application/postscript ; /usr/bin/xdg-open %s ; copiousoutput
+
+text/html; qutebrowser %s &amp;amp;&amp;amp; sleep 5 ; test=test -n &amp;quot;$DISPLAY&amp;quot;;
+nametemplate=%s.html; needsterminal
+# text/html; lynx -dump %s ; copiousoutput; nametemplate=%s.html
+text/html; w3m -I %{charset} -T text/html ; copiousoutput; nametemplate=%s.html
+&lt;/pre&gt;
+&lt;p&gt;One can use either &lt;code&gt;lynx&lt;/code&gt; or &lt;code&gt;w3m&lt;/code&gt;. I tried both and settled for
+&lt;code&gt;w3m&lt;/code&gt;. &lt;a class="reference external" href="http://getfedora.org"&gt;Fedora&lt;/a&gt; systems have a default &lt;code&gt;mailcaprc&lt;/code&gt; file at
+&lt;code&gt;/etc/mailcap&lt;/code&gt; which I adapted from. The &lt;code&gt;copiousoutput&lt;/code&gt; option
+tells &lt;a class="reference external" href="https://www.neomutt.org"&gt;neomutt&lt;/a&gt; not to quickly delete the temporary file.&lt;/p&gt;
+&lt;p&gt;For cases where HTML e-mails also contain images, one can simply open the HTML
+e-mail in a browser. The HTML e-mails are present as attachements to the e-mail
+message. Pressing &lt;code&gt;v&lt;/code&gt; on an e-mail message shows the attachement menu.
+The screenshot below shows the attachment menu for the same e-mail as above.
+Hitting enter opens up the HTML attached version in the browser I've set up in
+my &lt;code&gt;mailcap&lt;/code&gt; above, &lt;code&gt;qutebrowser&lt;/code&gt;.&lt;/p&gt;
+&lt;div class="figure align-center"&gt;
+&lt;a class="reference external image-reference" href="http://ankursinha.in/blog/images/20171215-neomutt-attachments.png"&gt;&lt;img alt="A screenshot of Neomutt showing e-mail attachments." src="http://ankursinha.in/blog/images/20171215-neomutt-attachments.png" style="height: 480.0px;" /&gt;&lt;/a&gt;
+&lt;/div&gt;
+&lt;p&gt;Note: all attachments can be viewed like this.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="viewing-links-with-urlview"&gt;
+&lt;h3&gt;Viewing links with urlview&lt;/h3&gt;
+&lt;p&gt;Since I use &lt;a class="reference external" href="http://byobu.co/"&gt;byobu&lt;/a&gt;, which is based on either &lt;a class="reference external" href="https://github.com/tmux/tmux/wiki"&gt;tmux&lt;/a&gt; or &lt;a class="reference external" href="https://www.gnu.org/software/screen/"&gt;screen&lt;/a&gt;, I can copy and
+paste any text in the terminal using their buffers. &lt;a class="reference external" href="https://www.neomutt.org"&gt;neomutt&lt;/a&gt; provides an easier
+way, though, using &lt;a class="reference external" href="https://github.com/sigpipe/urlview"&gt;urlview&lt;/a&gt;. So, binding ctrl-b to &lt;a class="reference external" href="https://github.com/sigpipe/urlview"&gt;urlview&lt;/a&gt; will put the e-mail
+through &lt;a class="reference external" href="https://github.com/sigpipe/urlview"&gt;urlview&lt;/a&gt; to show a menu of all URLs in it. One can then pick what URL
+to open, as the screenshot below shows:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+# urlview bits
+macro index \cb | urlview\n
+macro pager \cb | urlview\n
+&lt;/pre&gt;
+&lt;div class="figure align-center"&gt;
+&lt;a class="reference external image-reference" href="http://ankursinha.in/blog/images/20171215-neomutt-urlview.png"&gt;&lt;img alt="A screenshot of Neomutt with urlview." src="http://ankursinha.in/blog/images/20171215-neomutt-urlview.png" style="height: 480.0px;" /&gt;&lt;/a&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="right-then-let-s-stick-to-the-home-row"&gt;
+&lt;h2&gt;Right then, let's stick to the home row!&lt;/h2&gt;
+&lt;p&gt;This post turned out to be a lot lengthier than I'd expected. There's always so
+much tweaking one can do. I hope this helps somewhat. It isn't complete by a
+far stretch, but it should include enough hints and links to enable a reader to
+Google up and figure things out. Read the docs, read the manuals---it's all in
+there.&lt;/p&gt;
+&lt;p&gt;Happy e-mailing!&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="incomplete-list-of-references"&gt;
+&lt;h2&gt;Incomplete list of references&lt;/h2&gt;
+&lt;p&gt;Here are most of the links I looked at, in no particular order:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://hobo.house/2015/09/09/take-control-of-your-email-with-mutt-offlineimap-notmuch/"&gt;https://hobo.house/2015/09/09/take-control-of-your-email-with-mutt-offlineimap-notmuch/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://github.com/sadsfae/misc-dotfiles/blob/master/muttrc-gpg.txt"&gt;https://github.com/sadsfae/misc-dotfiles/blob/master/muttrc-gpg.txt&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="http://upsilon.cc/~zack/blog/posts/2011/01/how_to_use_Notmuch_with_Mutt/"&gt;http://upsilon.cc/~zack/blog/posts/2011/01/how_to_use_Notmuch_with_Mutt/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://notmuchmail.org/"&gt;https://notmuchmail.org/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://git.notmuchmail.org/git/notmuch/blob/HEAD:/vim/README"&gt;https://git.notmuchmail.org/git/notmuch/blob/HEAD:/vim/README&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://www.neomutt.org/guide/optionalfeatures"&gt;https://www.neomutt.org/guide/optionalfeatures&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://wiki.archlinux.org/index.php/OfflineIMAP#Using_pass"&gt;https://wiki.archlinux.org/index.php/OfflineIMAP#Using_pass&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="http://www.df7cb.de/blog/2010/Using_multiple_IMAP_accounts_with_Mutt.html"&gt;http://www.df7cb.de/blog/2010/Using_multiple_IMAP_accounts_with_Mutt.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://github.com/OfflineIMAP/offlineimap/blob/master/offlineimap.conf"&gt;https://github.com/OfflineIMAP/offlineimap/blob/master/offlineimap.conf&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://wiki.archlinux.org/index.php/OfflineIMAP"&gt;https://wiki.archlinux.org/index.php/OfflineIMAP&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="http://www.offlineimap.org/doc/use_cases.html"&gt;http://www.offlineimap.org/doc/use_cases.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://sparkslinux.wordpress.com/2014/01/30/configuring-offlineimap-to-validate-ssltls-certificates/"&gt;https://sparkslinux.wordpress.com/2014/01/30/configuring-offlineimap-to-validate-ssltls-certificates/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="http://stevelosh.com/blog/2012/10/the-homely-mutt/#why-local-email"&gt;http://stevelosh.com/blog/2012/10/the-homely-mutt/#why-local-email&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://raisedfist.net/2017-05-02/muttupdated/"&gt;https://raisedfist.net/2017-05-02/muttupdated/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://stackoverflow.com/questions/18765928/mutt-send-signature-hook"&gt;https://stackoverflow.com/questions/18765928/mutt-send-signature-hook&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://notmuchmail.org/vimtips/"&gt;https://notmuchmail.org/vimtips/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://www.neomutt.org/guide/configuration.html#my-hdr"&gt;https://www.neomutt.org/guide/configuration.html#my-hdr&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://www.neomutt.org/guide/advancedusage.html"&gt;https://www.neomutt.org/guide/advancedusage.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://github.com/neomutt/neomutt/issues/629"&gt;https://github.com/neomutt/neomutt/issues/629&lt;/a&gt; - address completion using
+notmuch&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="http://jasonwryan.com/blog/2012/05/12/mutt/"&gt;http://jasonwryan.com/blog/2012/05/12/mutt/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+</content><category term="Fedora"></category></entry><entry><title>Fedora Classroom: Git 101: report</title><link href="http://ankursinha.in/blog/2017/10/07/fedora-classroom-git-101-report.html" rel="alternate"></link><published>2017-10-07T14:19:10+01:00</published><updated>2017-10-07T14:19:10+01:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2017-10-07:/blog/2017/10/07/fedora-classroom-git-101-report.html</id><summary type="html">&lt;p class="first last"&gt;I taught a &lt;a class="reference external" href="https://fedoraproject.org/wiki/Classroom"&gt;Fedora Classroom&lt;/a&gt; session the other day - &lt;a class="reference external" href="https://meetbot.fedoraproject.org/fedora-classroom/2017-10-05/fedora-classroom.2017-10-05-14.17.log.html"&gt;Git 101&lt;/a&gt; -
+where I walked through the basics of &lt;a class="reference external" href="https://git-scm.com/"&gt;Git&lt;/a&gt;. This is a quick summary
+of the session.&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;I taught another &lt;a class="reference external" href="https://fedoraproject.org/wiki/Classroom"&gt;Fedora Classroom&lt;/a&gt; this week, on &lt;a class="reference external" href="https://meetbot.fedoraproject.org/fedora-classroom/2017-10-05/fedora-classroom.2017-10-05-14.17.log.html"&gt;Git 101&lt;/a&gt;. I used the &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Internet_Relay_Chat"&gt;IRC&lt;/a&gt;
+again since this session was to be another hands-on walkthrough. I reckon I've
+now learned that hands-on sessions go on longer than initially planned. This
+one lasted about three hours!&lt;/p&gt;
+&lt;div class="section" id="some-metrics"&gt;
+&lt;h2&gt;Some metrics&lt;/h2&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Length: 3 hours&lt;/li&gt;
+&lt;li&gt;Attendees: ~25 people&lt;/li&gt;
+&lt;li&gt;Sentences spoken: LOTS!&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="section" id="summary"&gt;
+&lt;h2&gt;Summary&lt;/h2&gt;
+&lt;p&gt;I didn't go much into the theory, and there's a lot of it in &lt;a class="reference external" href="https://git-scm.com/"&gt;Git&lt;/a&gt;. Instead, I
+had made it my goal to walk the attendees through the usual &lt;a class="reference external" href="https://git-scm.com/"&gt;Git&lt;/a&gt; workflow.
+So, that's exactly what we did. We started by setting up an empty repository,
+then added files to it, learned how to see changes and so on. Then, we moved
+on to branching.&lt;/p&gt;
+&lt;p&gt;Once we'd explored the advantages of using branches we started working with
+remotes. Everyone set up repositories on &lt;a class="reference external" href="https://pagure.io"&gt;Pagure&lt;/a&gt; or &lt;a class="reference external" href="https://github.com"&gt;Github&lt;/a&gt;. To end with, I
+got everyone to fork my repository and submit pull requests.&lt;/p&gt;
+&lt;p&gt;I think everyone got the hang of it. There were some good questions, a bit of
+discussion too. I do hope it'll get more people to use &lt;a class="reference external" href="https://git-scm.com/"&gt;Git&lt;/a&gt; and contribute to
+different projects on &lt;a class="reference external" href="https://pagure.io"&gt;Pagure&lt;/a&gt; or &lt;a class="reference external" href="https://github.com"&gt;Github&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="feedback-is-always-welcome"&gt;
+&lt;h2&gt;Feedback is always welcome&lt;/h2&gt;
+&lt;p&gt;If you had attended the session, or have gone through the logs and have some
+feedback, please get in touch. You can use the Fedora classroom channels:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;a class="reference external" href="mailto:classroom&amp;#64;lists.fedoraproject.org"&gt;mailing list&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;#fedora-classroom on Freenode &lt;a class="reference external" href="http://webchat.freenode.net/?channels=%23fedora-classroom"&gt;IRC channel&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;You can even comment on this blog post, and of course, you can give me feedback
+privately. I'm FranciscoD on quite a few Fedora IRC channels, and I can be
+reached via e-mail on my Fedora address at ankursinha AT fedoraproject DOT org.
+All suggestions, comments, criticism is most welcome.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="more-instructors-needed"&gt;
+&lt;h2&gt;More instructors needed!&lt;/h2&gt;
+&lt;p&gt;The classroom sessions are going rather well, but &lt;a class="reference external" href="https://fedoraproject.org/wiki/Classroom#Help_wanted"&gt;we still need more help&lt;/a&gt;. We'd like to cover
+more topics from different areas, not just tech related- everything from
+design, to free software philosophy and community building! If there's anything
+at all you think is worth a classroom session, please get in touch with the
+team on the &lt;a class="reference external" href="mailto:classroom&amp;#64;lists.fedoraproject.org"&gt;Fedora classroom mailing list&lt;/a&gt;. A log of all past sessions -
+whether on &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Internet_Relay_Chat"&gt;IRC&lt;/a&gt; or on a video platform are maintained on the wiki page &lt;a class="reference external" href="https://fedoraproject.org/wiki/Classroom#Previous_Sessions"&gt;here&lt;/a&gt; for everyone to
+peruse at their convenience.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="logs"&gt;
+&lt;h2&gt;Logs&lt;/h2&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://meetbot.fedoraproject.org/fedora-classroom/2017-10-05/fedora-classroom.2017-10-05-14.17.log.html"&gt;HTML logs&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://meetbot.fedoraproject.org/fedora-classroom/2017-10-05/fedora-classroom.2017-10-05-14.17.html"&gt;HTML minutes&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://meetbot.fedoraproject.org/fedora-classroom/2017-10-05/fedora-classroom.2017-10-05-14.17.txt"&gt;Text minutes&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+</content><category term="Community"></category><category term="Fedora"></category><category term="Git"></category><category term="Planet"></category></entry><entry><title>Writing LaTeX well in Vim</title><link href="http://ankursinha.in/blog/2017/09/19/writing-latex-well-in-vim.html" rel="alternate"></link><published>2017-09-19T00:40:41+01:00</published><updated>2017-09-19T00:40:41+01:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2017-09-19:/blog/2017/09/19/writing-latex-well-in-vim.html</id><summary type="html">&lt;p class="first last"&gt;&lt;a class="reference external" href="https://vim.sourceforge.io/"&gt;Vim&lt;/a&gt; is a great text editor and &lt;a class="reference external" href="https://www.latex-project.org/"&gt;LaTeX&lt;/a&gt; is a great document writing system. Since I write a lot of &lt;a class="reference external" href="https://www.latex-project.org/"&gt;LaTeX&lt;/a&gt; for my research, I've been adding various &lt;a class="reference external" href="https://vim.sourceforge.io/"&gt;Vim&lt;/a&gt; plug-ins to make my writing easier over the years. This post documents some of these additions.&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;&lt;a class="reference external" href="https://vim.sourceforge.io/"&gt;Vim&lt;/a&gt; is a great text editor if one takes a bit of time to learn how to use it properly. There's quite enough documentation on how to use &lt;a class="reference external" href="https://vim.sourceforge.io/"&gt;Vim&lt;/a&gt; correctly, and efficiently so I shan't cover that here. &lt;code&gt;vimtutor&lt;/code&gt; is an excellent resource to begin at.&lt;/p&gt;
+&lt;p&gt;Similarly, &lt;a class="reference external" href="https://www.latex-project.org/"&gt;LaTeX&lt;/a&gt; is a &lt;a class="reference external" href="https://www.google.co.uk/search?hl=en-GB&amp;amp;q=why+use+latex+for+writing"&gt;brilliant documentation system&lt;/a&gt;, especially for scientific writing if one takes the time to learn it. Unlike the usual Microsoft Word type systems, &lt;a class="reference external" href="https://www.latex-project.org/"&gt;LaTeX&lt;/a&gt; is a set of commands/macros. Once the document is written using these, it must be compiled to produce a PDF document. It may appear daunting at first, but after one is familiar with it, it makes writing a breeze. Now, there are a editors especially designed for &lt;a class="reference external" href="https://www.latex-project.org/"&gt;LaTeX&lt;/a&gt;, but given that I use &lt;a class="reference external" href="https://vim.sourceforge.io/"&gt;Vim&lt;/a&gt; for about all my writing, I use it for &lt;a class="reference external" href="https://www.latex-project.org/"&gt;LaTeX&lt;/a&gt; too.&lt;/p&gt;
+&lt;p&gt;On Fedora, you can install &lt;a class="reference external" href="https://vim.sourceforge.io/"&gt;Vim&lt;/a&gt; using &lt;a class="reference external" href="https://github.com/rpm-software-management/dnf"&gt;DNF&lt;/a&gt;: &lt;code&gt;sudo dnf install vim-enhanced vim-X11&lt;/code&gt;. I install the X11 package too to &lt;a class="reference external" href="http://vim.wikia.com/wiki/Accessing_the_system_clipboard"&gt;use the system clipboard&lt;/a&gt;.&lt;/p&gt;
+&lt;div class="section" id="latex-tools"&gt;
+&lt;h2&gt;LaTeX tools&lt;/h2&gt;
+&lt;p&gt;To begin with, there are a few command line commands that one can use other than the necessary &lt;code&gt;latex&lt;/code&gt;, &lt;code&gt;pdflatex&lt;/code&gt;, &lt;code&gt;bibtex&lt;/code&gt;, &lt;code&gt;biber&lt;/code&gt;, and so on commands:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;code&gt;latexmk&lt;/code&gt; is a great tool that figures out the compilation sequence required to generate the document, and it does it for you.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;lacheck&lt;/code&gt; and &lt;code&gt;chktex&lt;/code&gt; are both linters for &lt;a class="reference external" href="https://www.latex-project.org/"&gt;LaTeX&lt;/a&gt; that make writing a lot easier.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;detex&lt;/code&gt; strips a tex document of &lt;a class="reference external" href="https://www.latex-project.org/"&gt;LaTeX&lt;/a&gt; commands to produce only the text bits.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;diction&lt;/code&gt;, and &lt;code&gt;style&lt;/code&gt; give the &lt;a class="reference external" href="https://www.linux.com/news/improve-your-writing-gnu-style-checkers"&gt;author an idea of the readability of the text&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;One can use any text editor and then these utilities to improve their &lt;a class="reference external" href="https://www.latex-project.org/"&gt;LaTeX&lt;/a&gt; writing experience.&lt;/p&gt;
+&lt;p&gt;On Fedora, install these with &lt;a class="reference external" href="https://github.com/rpm-software-management/dnf"&gt;DNF&lt;/a&gt;: &lt;code&gt;sudo dnf install latexmk /usr/bin/lacheck /usr/bin/chktex /usr/bin/detex diction&lt;/code&gt;. (Yes, you can tell &lt;a class="reference external" href="https://github.com/rpm-software-management/dnf"&gt;DNF&lt;/a&gt; what file you want to install too!)&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="built-in-vim-features"&gt;
+&lt;h2&gt;Built-in Vim features&lt;/h2&gt;
+&lt;p&gt;&lt;a class="reference external" href="https://vim.sourceforge.io/"&gt;Vim&lt;/a&gt; already contains quite a few features that make writing quite easy;&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;a class="reference external" href="http://vim.wikia.com/wiki/Omni_completion"&gt;Omni completion&lt;/a&gt; provides good suggestions based on the text under the cursor.&lt;/li&gt;
+&lt;li&gt;There's in-built &lt;a class="reference external" href="http://vimdoc.sourceforge.net/htmldoc/spell.html"&gt;spell checking&lt;/a&gt; already.&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="http://vimdoc.sourceforge.net/htmldoc/fold.html"&gt;Folding&lt;/a&gt; logical bits makes the document easier to read and navigate through.&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="http://vimdoc.sourceforge.net/htmldoc/syntax.html"&gt;Syntax highlighting&lt;/a&gt; makes it a lot easier to read code by marking different commands in different colours.&lt;/li&gt;
+&lt;li&gt;There are different flavours of &lt;a class="reference external" href="https://jeffkreeftmeijer.com/vim-number/"&gt;linenumbers&lt;/a&gt; that make moving about a document much simpler.&lt;/li&gt;
+&lt;li&gt;At some point, the &lt;a class="reference external" href="http://vimdoc.sourceforge.net/htmldoc/syntax.html#conceal"&gt;conceal&lt;/a&gt; feature was added that further improves readability of documents&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="http://vimdoc.sourceforge.net/htmldoc/windows.html#windows"&gt;Buffers, tabs, windows&lt;/a&gt; are available in &lt;a class="reference external" href="https://vim.sourceforge.io/"&gt;Vim&lt;/a&gt; too, of course.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="section" id="vim-plug-ins"&gt;
+&lt;h2&gt;Vim plug-ins&lt;/h2&gt;
+&lt;p&gt;There are a lot of &lt;a class="reference external" href="https://vim.sourceforge.io/"&gt;Vim&lt;/a&gt; plug-ins that extend some functionality or the other. The simplest way to install plug-ins is to use &lt;a class="reference external" href="https://github.com/VundleVim/Vundle.vim"&gt;Vundle&lt;/a&gt;. Here are some plug-ins that I use. They're not all specific to &lt;a class="reference external" href="https://www.latex-project.org/"&gt;LaTeX&lt;/a&gt;.&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://github.com/Konfekt/FastFold"&gt;Fastfold&lt;/a&gt; makes folding faster.&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://github.com/sheerun/vim-polyglot"&gt;vim-polyglot&lt;/a&gt; provides better syntax highlighting for a many languages.&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://github.com/vim-airline/vim-airline"&gt;vim-airline&lt;/a&gt; provides an excellent, informative status line.&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://github.com/majutsushi/tagbar"&gt;tagbar&lt;/a&gt; lists sections (tags in general) in a different pane.&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://github.com/altercation/vim-colors-solarized"&gt;vim-colors-solarized&lt;/a&gt; provides the solarized themes for &lt;a class="reference external" href="https://vim.sourceforge.io/"&gt;Vim&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://github.com/lervag/vimtex"&gt;vimtex&lt;/a&gt; provides commands to quickly compile &lt;a class="reference external" href="https://www.latex-project.org/"&gt;LaTeX&lt;/a&gt; files, complete references, citations, navigate quicker, view the generated files, and so on.&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://github.com/SirVer/ultisnips"&gt;ultisnips&lt;/a&gt; provides lots of snippets for many languages, including &lt;a class="reference external" href="https://www.latex-project.org/"&gt;LaTeX&lt;/a&gt;. Get the snippets from the &lt;a class="reference external" href="https://github.com/honza/vim-snippets"&gt;vim-snippets&lt;/a&gt; plug-in.&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://github.com/Valloric/YouCompleteMe"&gt;YouCompleteMe&lt;/a&gt; is a completion engine that supports many languages. Remember that this one needs to be compiled!&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://github.com/vim-syntastic/syntastic/"&gt;Syntastic&lt;/a&gt; provides syntax checkers for many languages, including &lt;a class="reference external" href="https://www.latex-project.org/"&gt;LaTeX&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I've also used &lt;a class="reference external" href="https://github.com/vim-latex/vim-latex"&gt;vim-latex&lt;/a&gt; in the past and it's very very good. However, since I have other plug-ins that provide the various functionality that it brings together for many other languages too, I'm no longer using it. Worth a go, though.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="an-example-document"&gt;
+&lt;h2&gt;An example document&lt;/h2&gt;
+&lt;p&gt;The image below shows a &lt;a class="reference external" href="https://www.latex-project.org/"&gt;LaTeX&lt;/a&gt; file open in &lt;a class="reference external" href="https://vim.sourceforge.io/"&gt;Vim&lt;/a&gt; with different plug-ins in action:&lt;/p&gt;
+&lt;center&gt;&lt;a class="reference external image-reference" href="http://ankursinha.in/blog/images/20170919-latex-vim.png"&gt;&lt;img alt="Screenshot of Vim with a LaTeX file open showing various features." class="align-center" src="http://ankursinha.in/blog/images/20170919-latex-vim.png" style="height: 480.0px;" /&gt;&lt;/a&gt;
+&lt;/center&gt;&lt;ul class="simple"&gt;
+&lt;li&gt;On top, one can see the open buffer. Only one buffer is open at the moment.&lt;/li&gt;
+&lt;li&gt;In the left hand side margin, one can see the fold indicators.&lt;/li&gt;
+&lt;li&gt;The &lt;code&gt;S&amp;gt;&lt;/code&gt; bit is an indicator from the linter that Syntastic uses, showing a warning or an error.&lt;/li&gt;
+&lt;li&gt;The line numbers are also visible in the left margin. Since I am in insert mode, they're just plain line numbers. Once one leaves insert mode, they change to relative.&lt;/li&gt;
+&lt;li&gt;On line 171, the conceal feature shows Greek symbols instead of their &lt;a class="reference external" href="https://www.latex-project.org/"&gt;LaTeX&lt;/a&gt; commands.&lt;/li&gt;
+&lt;li&gt;Syntax highlighting is clearly visible. The commands have different colours. This is the solarized dark theme, of course.&lt;/li&gt;
+&lt;li&gt;The &amp;quot;pop-up&amp;quot; shows Ultisnips at work. Here, I'm looking at adding a new equation environment.&lt;/li&gt;
+&lt;li&gt;Underneath the pop up, the dashed line is a folded section. The &lt;code&gt;+&lt;/code&gt; symbol in the left margin implies that it is folded.&lt;/li&gt;
+&lt;li&gt;In the status line, one can see that spell check is enabled, and that I'm using the &lt;code&gt;en_gb&lt;/code&gt; language.&lt;/li&gt;
+&lt;li&gt;Next, the git status, and the git branch I'm in. That's the &lt;a class="reference external" href="https://github.com/tpope/vim-fugitive"&gt;vim-fugitive&lt;/a&gt; plug-in at work.&lt;/li&gt;
+&lt;li&gt;Then, the filetype, the encoding, the number of words and so on provided by the airline plug-in.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Neat, huh? There is a lot more there that isn't easy to show in a screen-shot. For example, &lt;code&gt;\ll&lt;/code&gt; will compile the &lt;a class="reference external" href="https://www.latex-project.org/"&gt;LaTeX&lt;/a&gt; file; &lt;code&gt;\lv&lt;/code&gt; opens the generated PDF file in a PDF viewer, Evince in my case; &lt;code&gt;\lc&lt;/code&gt; will clean the directory of any temporary files that were generated while compiling the document.&lt;/p&gt;
+&lt;p&gt;I keep all my &lt;a class="reference external" href="https://github.com/sanjayankur31/vimfiles"&gt;vimfiles on Github&lt;/a&gt;. Feel free to take a look and derive your own. I tweak my configuration each time I find something new, though, so it may change rather frequently. Remember to read the documentation for whatever plug-ins in use. They provide a lot of options, lots of shortcuts, lots of other commands, and sometimes setting them up incorrectly can cause vim to behave in unexpected ways.&lt;/p&gt;
+&lt;p&gt;TL;DR: Use &lt;a class="reference external" href="https://vim.sourceforge.io/"&gt;Vim&lt;/a&gt;, and use &lt;a class="reference external" href="https://www.latex-project.org/"&gt;LaTeX&lt;/a&gt;!!&lt;/p&gt;
+&lt;/div&gt;
+</content><category term="Calliope"></category><category term="Fedora"></category><category term="Free software"></category><category term="LaTeX"></category><category term="Vim"></category></entry><entry><title>Setting up an IRC bouncer (ZNC) on Amazon AWS and connecting to it using Irssi</title><link href="http://ankursinha.in/blog/2017/08/26/setting-up-an-irc-bouncer-znc-on-amazon-aws-and-connecting-to-it-using-irssi.html" rel="alternate"></link><published>2017-08-26T13:42:40+01:00</published><updated>2017-08-26T13:42:40+01:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2017-08-26:/blog/2017/08/26/setting-up-an-irc-bouncer-znc-on-amazon-aws-and-connecting-to-it-using-irssi.html</id><summary type="html">&lt;p class="first last"&gt;I finally found the time to set up an IRC bouncer to keep myself permanently connected to &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Internet_Relay_Chat"&gt;IRC&lt;/a&gt; networks. This post documents how I went about it using &lt;a class="reference external" href="https://aws.amazon.com"&gt;Amazon AWS&lt;/a&gt;, &lt;a class="reference external" href="https://znc.in"&gt;ZNC&lt;/a&gt;, and &lt;a class="reference external" href="https://irssi.org/"&gt;Irssi&lt;/a&gt;.&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;Given how important a collaborative tool the &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Internet_Relay_Chat"&gt;IRC&lt;/a&gt; is for us free software enthusiasts, it is imperative that one be accessible on various networks as much as possible. Personally, I used to leave my system at the laboratory logged in all the time, but then I'd have to VPN into the university and then SSH into my system there. Not ideal, really.&lt;/p&gt;
+&lt;p&gt;The commonest way of always remaining connected to the &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Internet_Relay_Chat"&gt;IRC&lt;/a&gt; is to use an &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Internet_Relay_Chat"&gt;IRC&lt;/a&gt; bouncer. The bouncer remains connected to one's networks all the time, and one can use a client from wherever to connect to the networks via this bouncer. There are a few free to use bouncers that one can use, of course. On preliminary investigation though, it didn't seem too hard to set a private instance up, so I gave it a go.&lt;/p&gt;
+&lt;div class="section" id="amazon-aws-set-up"&gt;
+&lt;h2&gt;Amazon AWS set up&lt;/h2&gt;
+&lt;p&gt;The bouncer must be deployed on a system that is accessible from anywhere to be truly useful. While I do have hosting for this blog, it's cheap shared hosting without shell access. So, I needed another machine. Some research led me to &lt;a class="reference external" href="https://aws.amazon.com/free/"&gt;the free tier on Amazon AWS&lt;/a&gt; where one can get a free AWS instance for 12 months. The process is &lt;a class="reference external" href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/"&gt;very well documented&lt;/a&gt;, so I won't clone it here. There are various Linux operating systems that one can choose from. Being a Fedora user, I opted for Red Hat Enterprise Linux, but any Linux would work.&lt;/p&gt;
+&lt;p&gt;After the AWS instance is up and running, one must follow the instructions in the documentation to enable SSH access to it. It requires setting up security rules using the web console.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="znc-set-up"&gt;
+&lt;h2&gt;ZNC set up&lt;/h2&gt;
+&lt;p&gt;There are a few bouncers available. I chose the popular &lt;a class="reference external" href="https://znc.in"&gt;ZNC&lt;/a&gt; bouncer.&lt;/p&gt;
+&lt;p&gt;On a Red Hat system, &lt;a class="reference external" href="https://znc.in"&gt;ZNC&lt;/a&gt; is available in the &lt;a class="reference external" href="https://fedoraproject.org/wiki/EPEL#How_can_I_use_these_extra_packages.3F"&gt;&amp;quot;extra packages&amp;quot; repositories&lt;/a&gt;. So, it comes down to a few commands:&lt;/p&gt;
+&lt;pre class="code bash literal-block"&gt;
+sudo yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+sudo yum install znc
+&lt;/pre&gt;
+&lt;p&gt;This will install the &lt;a class="reference external" href="https://znc.in"&gt;ZNC&lt;/a&gt; package. &lt;a class="reference external" href="https://znc.in"&gt;ZNC&lt;/a&gt; provides a &lt;a class="reference external" href="https://wiki.znc.in/Configuration"&gt;simple way of configuring&lt;/a&gt; it too:&lt;/p&gt;
+&lt;pre class="code bash literal-block"&gt;
+sudo znc --makeconfig
+&lt;/pre&gt;
+&lt;p&gt;Of course, one must make sure that the service is always running:&lt;/p&gt;
+&lt;pre class="code bash literal-block"&gt;
+sudo systemctl &lt;span class="nb"&gt;enable&lt;/span&gt; znc.service
+sudo systemctl start znc.service
+&lt;/pre&gt;
+&lt;p&gt;During the configuration, one must note what port &lt;a class="reference external" href="https://znc.in"&gt;ZNC&lt;/a&gt; was set up to listen to, and what the public IP of the AWS machine is.  These are required to set up the &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Internet_Relay_Chat"&gt;IRC&lt;/a&gt; client later, in this case &lt;a class="reference external" href="https://irssi.org/"&gt;Irssi&lt;/a&gt;. One must also remember to open this port to inbound connections. This can be done using the AWS web console in the same way as the SSH port was enabled earlier. Please refer to the &lt;a class="reference external" href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AccessingInstancesLinux.html"&gt;relevant bits in the AWS documentation&lt;/a&gt;. &lt;a class="reference external" href="https://znc.in"&gt;ZNC&lt;/a&gt; can be further configured through the &lt;a class="reference external" href="https://wiki.znc.in/Webadmin"&gt;web administration interface&lt;/a&gt;. One can add more networks, channels, and useful &lt;a class="reference external" href="https://wiki.znc.in/Modules"&gt;ZNC modules&lt;/a&gt; there.&lt;/p&gt;
+&lt;p&gt;&lt;a class="reference external" href="https://jazzy.id.au/2012/08/23/why_does_chrome_consider_some_ports_unsafe.html"&gt;Browsers seem to ban connecting to a few ports that are deemed dangerous&lt;/a&gt;. I found this to be the case on &lt;a class="reference external" href="https://www.mozilla.org/en-GB/firefox/new/"&gt;Firefox&lt;/a&gt;, &lt;a class="reference external" href="https://www.google.com/chrome/index.html"&gt;Chrome&lt;/a&gt;, and &lt;a class="reference external" href="https://www.qutebrowser.org/"&gt;Qutebrowser&lt;/a&gt;. Instructions on how to workaround this ban are here for &lt;a class="reference external" href="https://support.mozilla.org/en-US/questions/1083282"&gt;Firefox&lt;/a&gt; and &lt;a class="reference external" href="https://superuser.com/questions/188006/how-to-fix-err-unsafe-port-error-on-chrome-when-browsing-to-unsafe-ports"&gt;Chrome&lt;/a&gt; respectively. I couldn't figure out how this needs to be done for &lt;a class="reference external" href="https://www.qutebrowser.org/"&gt;Qutebrowser&lt;/a&gt; and I've filed an &lt;a class="reference external" href="https://github.com/qutebrowser/qutebrowser/issues/2925#issuecomment-324812384"&gt;issue here&lt;/a&gt;. It seems to be an &lt;a class="reference external" href="https://bugreports.qt.io/browse/QTBUG-62808"&gt;upstream QT issue&lt;/a&gt; that is already being looked into.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="irssi-set-up"&gt;
+&lt;h2&gt;Irssi set up&lt;/h2&gt;
+&lt;p&gt;Once the bouncer has been deployed correctly, all that remains is to configure an &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Internet_Relay_Chat"&gt;IRC&lt;/a&gt; client to connect to it. I use &lt;a class="reference external" href="https://irssi.org/"&gt;Irssi&lt;/a&gt; myself so the steps documented here will be specific to it. However, they should be general enough to be applicable to other clients too.&lt;/p&gt;
+&lt;p&gt;Installing &lt;a class="reference external" href="https://irssi.org/"&gt;Irssi&lt;/a&gt; on a Fedora system is trivial, of course:&lt;/p&gt;
+&lt;pre class="code bash literal-block"&gt;
+sudo dnf install Fedora &lt;span class="c1"&gt;# node that Fedora uses DNF now&lt;/span&gt;
+&lt;/pre&gt;
+&lt;p&gt;&lt;a class="reference external" href="https://irssi.org/"&gt;Irssi&lt;/a&gt; reads its configuration file from &lt;code&gt;~/.irssi/config&lt;/code&gt;. There are commands to configure servers, and these write to the configuration file that has quite a simple structure and can be edited directly using a text editor. The relevant snippets from my configuration file are below. Here, because we're connecting to our &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Internet_Relay_Chat"&gt;IRC&lt;/a&gt; servers via the bouncer, the address in use will be that of the bouncer. The &lt;a class="reference external" href="https://znc.in"&gt;ZNC&lt;/a&gt; web administration interface informs on what the password should be.&lt;/p&gt;
+&lt;pre class="code text literal-block"&gt;
+servers = (
+  {
+    address = &amp;quot;&amp;lt;public address of the AWS instance&amp;quot;;
+    chatnet = &amp;quot;freenode&amp;quot;;
+    port = &amp;quot;&amp;lt;port ZNC is listening to&amp;gt;&amp;quot;;
+    password = &amp;quot;&amp;lt;ZNC username/network1:password&amp;gt;&amp;quot;;
+    use_tls = &amp;quot;yes&amp;quot;;
+    tls_verify = &amp;quot;no&amp;quot;;
+    autoconnect = &amp;quot;yes&amp;quot;;
+  },
+  {
+    address = &amp;quot;&amp;lt;public address of the AWS instance&amp;quot;;
+    chatnet = &amp;quot;slack&amp;quot;;
+    port = &amp;quot;port ZNC is listening to&amp;quot;;
+    password = &amp;quot;&amp;lt;ZNC username/network2:password&amp;gt;&amp;quot;;
+    use_tls = &amp;quot;yes&amp;quot;;
+    tls_verify = &amp;quot;no&amp;quot;;
+    autoconnect = &amp;quot;yes&amp;quot;;
+  }
+);
+&lt;/pre&gt;
+&lt;p&gt;&lt;a class="reference external" href="https://irssi.org/"&gt;Irssi&lt;/a&gt; can also be customised to suit the user - such as the window layout, plug-ins, theme. I won't document how here. Instead I refer to the &lt;a class="reference external" href="https://irssi.org/documentation/"&gt;Irssi documentation&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="conclusion"&gt;
+&lt;h2&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;That's quite it. The bouncer will always run, and wherever one is, one can use a client to keep up with happenings. I hope this post will make it easier for others to set up their private bouncers too. Comments, and feedback are always welcome. Cheers!&lt;/p&gt;
+&lt;/div&gt;
+</content><category term="Fedora"></category><category term="IRC"></category><category term="ZNC"></category><category term="AWS"></category><category term="Irssi"></category></entry><entry><title>Fedora Classroom: Command Line 101: report</title><link href="http://ankursinha.in/blog/2017/08/10/fedora-classroom-command-line-101-report.html" rel="alternate"></link><published>2017-08-10T23:03:24+01:00</published><updated>2017-08-10T23:03:24+01:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2017-08-10:/blog/2017/08/10/fedora-classroom-command-line-101-report.html</id><summary type="html">&lt;p class="first last"&gt;I taught a &lt;a class="reference external" href="https://fedoraproject.org/wiki/Classroom"&gt;Fedora classroom&lt;/a&gt; session today - &amp;quot;Command Line 101&amp;quot; - where I introduced the command line and demonstrated how useful the command line is. This is a quick summary of the session.&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;We've gotten the &lt;a class="reference external" href="https://fedoraproject.org/wiki/Classroom"&gt;Fedora classroom&lt;/a&gt; sessions going again. After two really good ones, I taught the &lt;a class="reference external" href="https://fedoramagazine.org/fedora-classroom-session-3/"&gt;third one&lt;/a&gt; today - a beginners session to the command line. Unlike the previous ones that used video platforms, I decided that the &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Internet_Relay_Chat"&gt;IRC&lt;/a&gt; was best suited to this session, even more so because I wanted it to be a hands-on session. It went off pretty well. Here are a few notes. Links to the logs are at the bottom of this post.&lt;/p&gt;
+&lt;div class="section" id="some-metrics"&gt;
+&lt;h2&gt;Some metrics&lt;/h2&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Length: 2 hours (was planned to be an hour, but we quickly realised that it wouldn't be enough!)&lt;/li&gt;
+&lt;li&gt;Attendees: 29 - a few of us had FAS usernames too (so we shared cookies!)&lt;/li&gt;
+&lt;li&gt;About 800 sentences were spoken (I spoke about half of these, of course)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="section" id="summary"&gt;
+&lt;h2&gt;Summary&lt;/h2&gt;
+&lt;p&gt;I quite enjoyed it, but then I enjoy tinkering with the command line anyway. A few folks stuck around for the full two hours, so that does indicate that they found the session somewhat useful. I'd put up a &lt;a class="reference external" href="https://gist.github.com/sanjayankur31/f40070c6925e8885394d2dd750ae4cb8"&gt;gist here with a tentative agenda&lt;/a&gt;. We didn't manage to go more than half way through it, though. We:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;did a quick introduction to what a shell is&lt;/li&gt;
+&lt;li&gt;learned how to get help using local information - using the man pages&lt;/li&gt;
+&lt;li&gt;quickly saw the difference between absolute and relative paths, and also learned about &lt;code&gt;..&lt;/code&gt; and &lt;code&gt;.&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;went on to look at some more basic commands/built-ins and their switches/flags/options: &lt;code&gt;ls, apropos, clear, cd, pwd, which, alias, rm, tree, mkdir, wget, rmdir, rm, fpaste, wc, head, tail, more, less, cat, tac, grep, sort, uniq&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;used these commands to download a copy of &lt;a class="reference external" href="http://www.gutenberg.org/cache/epub/1120/pg1120.txt"&gt;&amp;quot;The tragedy of Julius Caesar&amp;quot; from Project Gutenberg&lt;/a&gt;, and then extracted some information from it. For example, we obtained how many times Caesar was mentioned in the text. For a more advanced task we also obtained how many times Caesar, Brutus, Cassius, and Casca were each mentioned using a single set of commands. This required the use of &lt;code&gt;grep, sort, uniq, wc&lt;/code&gt; in different combinations using input-output redirection (pipes in this case). At no point did we use a text editor, and we stuck to using local man pages.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="section" id="takeaways"&gt;
+&lt;h2&gt;Takeaways&lt;/h2&gt;
+&lt;p&gt;I hope that this rather quick session gave the participants some idea of how the shell can be used for lots of tasks. I also hoped to show them that there's a lot of information available on the system itself that a user can refer to.&lt;/p&gt;
+&lt;p&gt;I learned a few things myself. I learned that an hour is too short for a proper online session, for example. My supposition that demonstrating commands using tasks would make the session more appealing seems to have been correct too. Only, maybe next time I'll pick a more contemporary text?&lt;/p&gt;
+&lt;p&gt;For the next session, I'll try and cover slightly more advanced topics, such as tests, loops, maybe even a bit of awk. We shall see.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="feedback-is-always-welcome"&gt;
+&lt;h2&gt;Feedback is always welcome&lt;/h2&gt;
+&lt;p&gt;If you had attended the session, or have gone through the logs and have some feedback, please get in touch. You can use the Fedora classroom channels:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;a class="reference external" href="mailto:classroom&amp;#64;lists.fedoraproject.org"&gt;mailing list&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;#fedora-classroom on Freenode &lt;a class="reference external" href="http://webchat.freenode.net/?channels=%23fedora-classroom"&gt;IRC channel&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;You can even comment on this blog post, and of course, you can give me feedback privately. I'm also looking to make a list of tasks that I can use in future sessions - tasks that would be useful, fun, and that would also require some command line tricks - such that they would demonstrate the power of the command line. So, if you have your pet command line tricks/aliases, please do get in touch.&lt;/p&gt;
+&lt;p&gt;I'm FranciscoD on quite a few Fedora IRC channels, and I can be reached via e-mail on my Fedora address at ankursinha AT fedoraproject DOT org. All suggestions, comments, criticism is most welcome.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="more-instructors-needed"&gt;
+&lt;h2&gt;More instructors needed!&lt;/h2&gt;
+&lt;p&gt;The classroom sessions are going rather well, but &lt;a class="reference external" href="https://fedoraproject.org/wiki/Classroom#Help_wanted"&gt;we still need more help&lt;/a&gt;. We need more people helping with logistics, and of course, if we are to continue these sessions every week, we need more instructors! If there's anything at all you think is worth a classroom session, please get in touch with the team on the &lt;a class="reference external" href="mailto:classroom&amp;#64;lists.fedoraproject.org"&gt;Fedora classroom mailing list&lt;/a&gt;. A log of all past sessions - whether on &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Internet_Relay_Chat"&gt;IRC&lt;/a&gt; or on a video platform are maintained on the wiki page &lt;a class="reference external" href="https://fedoraproject.org/wiki/Classroom#Previous_Sessions"&gt;here&lt;/a&gt; for everyone to peruse at their convenience.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="logs"&gt;
+&lt;h2&gt;Logs&lt;/h2&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://meetbot.fedoraproject.org/fedora-classroom/2017-08-10/%22fedora_classroom_-_command_line_101%22.2017-08-10-13.00.log.html"&gt;HTML logs&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://meetbot.fedoraproject.org/fedora-classroom/2017-08-10/%22fedora_classroom_-_command_line_101%22.2017-08-10-13.00.txt"&gt;Text minutes&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://meetbot.fedoraproject.org/fedora-classroom/2017-08-10/%22fedora_classroom_-_command_line_101%22.2017-08-10-13.00.html"&gt;HTML minutes&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+</content><category term="Bash"></category><category term="Blog"></category><category term="Community"></category><category term="Linux"></category><category term="Planet"></category><category term="Fedora"></category></entry><entry><title>Bringing together Gitter, IRC, and Slack channels in one place on Riot</title><link href="http://ankursinha.in/blog/2017/07/12/bringing-together-gitter-irc-and-slack-channels-in-one-place-on-riot.html" rel="alternate"></link><published>2017-07-12T13:55:17+01:00</published><updated>2017-07-12T13:55:17+01:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2017-07-12:/blog/2017/07/12/bringing-together-gitter-irc-and-slack-channels-in-one-place-on-riot.html</id><summary type="html">&lt;p class="first last"&gt;Different teams use different platforms to communicate within themselves. When teams on different communication platforms want to collaborate, though - there's a bit of an issue. In this post, I document how one can setup channels on various platforms (&lt;a class="reference external" href="https://slack.com"&gt;Slack&lt;/a&gt;, &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Internet_Relay_Chat"&gt;IRC&lt;/a&gt;, &lt;a class="reference external" href="https://gitter.im"&gt;Gitter&lt;/a&gt;) and bring them all together on &lt;a class="reference external" href="https://riot.im"&gt;Riot&lt;/a&gt;.&lt;/p&gt;
+</summary><content type="html">&lt;div class="section" id="let-s-not-let-our-choice-of-platform-limit-us"&gt;
+&lt;h2&gt;Let's not let our choice of platform limit us&lt;/h2&gt;
+&lt;p&gt;There are usually multiple platforms that provide similar functions. For instance, one can pick between &lt;a class="reference external" href="https://github.com"&gt;Github&lt;/a&gt;, &lt;a class="reference external" href="https://gitlab.com"&gt;GitLab&lt;/a&gt;, and &lt;a class="reference external" href="https://bitbucket.com"&gt;BitBucket&lt;/a&gt; for collaborative development interfaces, and one certainly should have the freedom to do so. Similarly, one can use different operating systems, web browsers, phones, etc etc etc. But, one must remember is that for a lot of us, these are simply means to an end - not the end themselves. They are tools that facilitate the completion of our goals. Different individuals or teams preferring different platforms should not hamper collaboration under any circumstances.&lt;/p&gt;
+&lt;p&gt;When it comes to communcation, different teams use different platforms. Some prefer e-mails - either private or using a mailing list. E-mails work well, but they're often overkill for simpler tasks. They're also not the best mode for quick collaborative development. This is where real-time chat comes in. Most open source communities maintain both mailing lists and chat infrastructure.&lt;/p&gt;
+&lt;p&gt;When it comes to chat platforms too, there are multiple options. &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Internet_Relay_Chat"&gt;IRC&lt;/a&gt;, &lt;a class="reference external" href="https://gitter.im"&gt;Gitter&lt;/a&gt;, and &lt;a class="reference external" href="https://riot.im"&gt;Riot&lt;/a&gt; are designed to handle large communities and are therefore, usually preferred by open source communities. &lt;a class="reference external" href="https://slack.com"&gt;Slack&lt;/a&gt; seems to be preferred by smaller teams. There are others - &lt;a class="reference external" href="https://mattermost.com"&gt;Mattermost&lt;/a&gt;, for example, but I haven't much experience with them.&lt;/p&gt;
+&lt;p&gt;Often, I've found people wary of hopping on to a different platform simply because it's too much work to set up yet another client that one must then also monitor. While this is understandable, it then has what I consider quite a major downside - limited communication amongst groups that are on different platforms. Fortunately, most platforms support bridges which lets the user connect them with other platforms.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="riot-bringing-it-all-together-in-once-place"&gt;
+&lt;h2&gt;Riot - bringing it all together in once place&lt;/h2&gt;
+&lt;center&gt;&lt;a class="reference external image-reference" href="http://ankursinha.in/blog/images/20170628-riot.png"&gt;&lt;img alt="Using riot to access IRC, Slack, and Gitter" class="text-center img-responsive pagination-centered" src="http://ankursinha.in/blog/images/20170628-riot.png" style="width: 70%;" /&gt;&lt;/a&gt;
+&lt;/center&gt;&lt;p&gt;&lt;a class="reference external" href="https://riot.im"&gt;Riot&lt;/a&gt; is an Open source platform that uses the &lt;a class="reference external" href="https://matrix.org/"&gt;Matrix&lt;/a&gt; protocol. It's similar to &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Internet_Relay_Chat"&gt;IRC&lt;/a&gt;, but it's a lot more usable. and what is better, one can integrate &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Internet_Relay_Chat"&gt;IRC&lt;/a&gt;, &lt;a class="reference external" href="https://slack.com"&gt;Slack&lt;/a&gt;, and &lt;a class="reference external" href="https://gitter.im"&gt;Gitter&lt;/a&gt; into &lt;a class="reference external" href="https://riot.im"&gt;Riot&lt;/a&gt; - so one can interact with users over all these platforms in one place. For example, the image below shows &lt;a class="reference external" href="https://riot.im/app/#/room/%23neuroscience-central-lobby:matrix.org"&gt;Neuroscience-central/Lobby&lt;/a&gt; room  that I've set up on &lt;a class="reference external" href="https://riot.im"&gt;Riot&lt;/a&gt;. But, I've also gone ahead and connected this room to the &lt;a class="reference external" href="https://gitter.im/neuroscience-central/Lobby"&gt;Neuroscience-central/Lobby room on Gitter&lt;/a&gt;, and to the &lt;a class="reference external" href="https://webchat.freenode.net/?channels=#neuroscience-central-lobby"&gt;#neuroscience-central-lobby channel on IRC&lt;/a&gt;. So, everyone on any of these platforms can communicate with each other.&lt;/p&gt;
+&lt;center&gt;&lt;a class="reference external image-reference" href="http://ankursinha.in/blog/images/20170628-riot-gitter.png"&gt;&lt;img alt="Neuroscience-Central/Lobby on Riot integrated with the same room on Gitter." class="text-center img-responsive pagination-centered" src="http://ankursinha.in/blog/images/20170628-riot-gitter.png" style="width: 70%;" /&gt;&lt;/a&gt;
+&lt;/center&gt;&lt;p&gt;Setting up the integrations is rather easy too. One needs to go to the integrations tab and set them up.&lt;/p&gt;
+&lt;center&gt;&lt;a class="reference external image-reference" href="http://ankursinha.in/blog/images/20170628-riot-integrations.png"&gt;&lt;img alt="Integrations on Riot" class="text-center img-responsive pagination-centered" src="http://ankursinha.in/blog/images/20170628-riot-integrations.png" style="width: 70%;" /&gt;&lt;/a&gt;
+&lt;/center&gt;&lt;p&gt;There are &lt;a class="reference external" href="https://riot.im/desktop.html"&gt;desktop clients&lt;/a&gt; available for &lt;a class="reference external" href="https://riot.im"&gt;Riot&lt;/a&gt; too. (&lt;a class="reference external" href="https://copr.fedorainfracloud.org/coprs/taw/Riot/"&gt;Here's a COPR for Fedora&lt;/a&gt;). &lt;a class="reference external" href="https://opensource.com/article/17/5/introducing-riot-IRC"&gt;Here's a great post on opensource.com&lt;/a&gt; discussing &lt;a class="reference external" href="https://riot.im"&gt;Riot&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;So, if you're an admin looking to set up a new chat channel - consider setting up on different platforms and integrating them with &lt;a class="reference external" href="https://riot.im"&gt;Riot&lt;/a&gt; - it'll make things a lot easier for your users.&lt;/p&gt;
+&lt;/div&gt;
+</content><category term="Community"></category><category term="Computational neuroscience"></category><category term="Fedora"></category><category term="FlatPak"></category><category term="Free software"></category><category term="Gitter"></category><category term="Linux"></category><category term="Planet"></category></entry><entry><title>A channel for neuroscientists on Gitter</title><link href="http://ankursinha.in/blog/2017/06/26/a-channel-for-neuroscientists-on-gitter.html" rel="alternate"></link><published>2017-06-26T10:30:01+01:00</published><updated>2017-06-26T10:30:01+01:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2017-06-26:/blog/2017/06/26/a-channel-for-neuroscientists-on-gitter.html</id><summary type="html">&lt;p class="first last"&gt;I've come across a few mailing lists for neuroscientists, but I couldn't find a chat channel. While mailing lists suit certain purposes, open source communities tend to use a combination of mailing lists and chat channels - each platform serves different purposes. TLDR: here's a new chat channel on &lt;a class="reference external" href="https://github.com/gitterHQ"&gt;Gitter&lt;/a&gt; &lt;a class="reference external" href="https://gitter.im/neuroscience-central/Lobby"&gt;here&lt;/a&gt; for everything neuroscience related. It is also accessible using the &lt;a class="reference external" href="https://webchat.freenode.net/?channels=#neuroscience-central-lobby"&gt;IRC&lt;/a&gt; and &lt;a class="reference external" href="https://riot.im/app/#/room/#neuroscience-central-lobby:matrix.org"&gt;Riot&lt;/a&gt;.&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;As opposed to the free software community, where I've been around long enough to know what's where, I'm still relatively new to the neuroscience community. Over the two years that I've been doing my PhD, I've found a few neuroscience related mailing lists, but not any chat channels. Various teams tend to use &lt;a class="reference external" href="https://slack.com/"&gt;Slack&lt;/a&gt; or another platform for internal communications, but nothing seems to be set up for the community in general - an open for all channel.&lt;/p&gt;
+&lt;p&gt;Mailing lists are extremely useful, but by design they are suited to particular types of tasks. They are very well suited for longer discussions, and general queries that are not time sensitive, for example. On the other hand, they do not work well for urgent queries, and of course, sometimes sending e-mails back and forth is quite an overhead for simpler tasks or collaborative development.&lt;/p&gt;
+&lt;p&gt;Most open source communities have both mailing lists and chat channels. I figured it'd be nice to have one for the neuroscience community too. There's the question of what platform was best suited, of course. We use &lt;a class="reference external" href="https://slack.com/"&gt;Slack&lt;/a&gt; for our internal communication, but &lt;a class="reference external" href="https://slack.com/"&gt;Slack&lt;/a&gt; only works well for small teams. It isn't designed for larger communities. The &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Internet_Relay_Chat"&gt;IRC&lt;/a&gt; is ideal for larger communities, but on the flip side, the &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Internet_Relay_Chat"&gt;IRC&lt;/a&gt; is not very user friendly.&lt;/p&gt;
+&lt;p&gt;The third option, and the popular alternative to IRC and Slack, is &lt;a class="reference external" href="https://github.com/gitterHQ"&gt;Gitter&lt;/a&gt; - it's been recently &lt;a class="reference external" href="https://about.gitlab.com/2017/03/15/gitter-acquisition/"&gt;acquired by GitLab&lt;/a&gt; and will be completely open sourced soon. It's completely free to use unlike &lt;a class="reference external" href="https://slack.com/"&gt;Slack&lt;/a&gt; where one needs to pay more as the number of group members increases, and is designed for large communities that number in the thousands. One can login using either Github or Twitter - so that's quite convenient too. There's even an &lt;a class="reference external" href="https://irc.gitter.im/"&gt;IRC gateway&lt;/a&gt; for more technical users.&lt;/p&gt;
+&lt;p&gt;So here's the channel then - &lt;a class="reference external" href="https://gitter.im/neuroscience-central/Lobby"&gt;https://gitter.im/neuroscience-central/Lobby&lt;/a&gt;. I hope it'll be useful, and if it doesn't, well no harm done :)&lt;/p&gt;
+&lt;p&gt;Update (12 July 2017):&lt;/p&gt;
+&lt;p&gt;To enable people to communicate over various platforms, I've also set the channel up with &lt;a class="reference external" href="https://riot.im"&gt;Riot&lt;/a&gt;. This enables people using &lt;a class="reference external" href="https://github.com/gitterHQ"&gt;Gitter&lt;/a&gt;, &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Internet_Relay_Chat"&gt;IRC&lt;/a&gt;, and &lt;a class="reference external" href="https://riot.im"&gt;Riot&lt;/a&gt; to &lt;a class="reference external" href="http://ankursinha.in/blog/2017/07/12/bringing-together-gitter-irc-and-slack-channels-in-one-place-on-riot.html"&gt;communicate with each other in one place using whatever platform they prefer&lt;/a&gt;. So, we also have:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://webchat.freenode.net/?channels=#neuroscience-central-lobby"&gt;#neuroscience-central-lobby&lt;/a&gt; on &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Internet_Relay_Chat"&gt;IRC&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://riot.im/app/#/room/#neuroscience-central-lobby:matrix.org"&gt;neuroscience-central/Lobby&lt;/a&gt; on &lt;a class="reference external" href="https://riot.im"&gt;Riot&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+</content><category term="Community"></category><category term="Computational neuroscience"></category><category term="Gitter"></category><category term="Planet"></category></entry><entry><title>Giving Qutebrowser a go - a fantastic keyboard-focused browser</title><link href="http://ankursinha.in/blog/2017/06/21/giving-qutebrowser-a-go-a-fantastic-keyboard-focused-browser.html" rel="alternate"></link><published>2017-06-21T00:09:30+01:00</published><updated>2017-06-21T00:09:30+01:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2017-06-21:/blog/2017/06/21/giving-qutebrowser-a-go-a-fantastic-keyboard-focused-browser.html</id><summary type="html">&lt;p class="first last"&gt;After years of using the excellent Firefox, I've decided to tweak my workflow a little more by giving &lt;a class="reference external" href="https://www.qutebrowser.org/"&gt;Qutebrowser&lt;/a&gt; a go. &lt;a class="reference external" href="https://www.qutebrowser.org/"&gt;Qutebrowser&lt;/a&gt; is a brilliant keyboard-focused browser. In this post, I document my first day with &lt;a class="reference external" href="https://www.qutebrowser.org/"&gt;Qutebrowser&lt;/a&gt;, and I also include some tips and tricks that others may find helpful.&lt;/p&gt;
+</summary><content type="html">&lt;center&gt;&lt;a class="reference external image-reference" href="http://ankursinha.in/blog/images/20170621-qutebrowser3.png"&gt;&lt;img alt="A screenshot showing hints in Qutebrowser on the Qutebrowser website" class="text-center img-responsive pagination-centered" src="http://ankursinha.in/blog/images/20170621-qutebrowser3.png" style="width: 80%;" /&gt;&lt;/a&gt;
+&lt;/center&gt;&lt;p&gt;Years ago, I was introduce to &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Touch_typing"&gt;touch typing&lt;/a&gt;. I knew immediately that it was a skill I must learn. I remember spending hours playing with &lt;a class="reference external" href="https://apps.fedoraproject.org/packages/gtypist"&gt;gtypist&lt;/a&gt; trying to improve my typing efficiency. I'm not too bad nowadays. I can mostly type without looking at the keyboard at all, and with few errors.&lt;/p&gt;
+&lt;p&gt;I've always loved using the command line. In fact, I maintain that new programmers should start at the command line and only move to IDEs once they've learned exactly what's being done under the hood. I use the terminal as much as conveniently possible - music via &lt;a class="reference external" href="https://apps.fedoraproject.org/packages/ncmpcpp"&gt;ncmpcpp&lt;/a&gt;, IRC on &lt;a class="reference external" href="https://apps.fedoraproject.org/packages/irssi"&gt;irssi&lt;/a&gt; (there are Gitter and Slack gateways to IRC too), &lt;a class="reference external" href="https://apps.fedoraproject.org/packages/task"&gt;taskwarrior&lt;/a&gt; to organise my TODOs, all my writing in &lt;a class="reference external" href="https://vim.sourceforge.io/"&gt;VIM&lt;/a&gt; (programming and otherwise), for example. &lt;a class="reference external" href="https://apps.fedoraproject.org/packages/byobu"&gt;Byobu&lt;/a&gt; makes it really easy.&lt;/p&gt;
+&lt;p&gt;The one effect sticking to the command line so much has had on me is that I've developed a slight aversion to the mouse/touchpad. I now feel mildly annoyed if I must move my fingers off the home-row to do something. I must use the touchpad to check my mail/calendar on Evolution, for example, but this doesn't annoy me too much because I usually check these when I've taken a break from programming (or my &lt;a class="reference external" href="https://xkcd.com/303/"&gt;code is compiling&lt;/a&gt;). It's really on Firefox that the constant switching between keyboard and mouse used to be a real downer.&lt;/p&gt;
+&lt;p&gt;Being a &lt;a class="reference external" href="https://vim.sourceforge.io/"&gt;VIM&lt;/a&gt; user, I did the expected - went looking to see if there was a way to use &lt;a class="reference external" href="https://vim.sourceforge.io/"&gt;VIM&lt;/a&gt; style key-mappings on Firefox. There are multiple add-ons that permit this with different feature sets - &lt;a class="reference external" href="http://vimperator.org/"&gt;vimperator&lt;/a&gt;, &lt;a class="reference external" href="http://5digits.org/pentadactyl/"&gt;pentadactyl&lt;/a&gt;, &lt;a class="reference external" href="https://vimium.github.io/"&gt;vimium&lt;/a&gt;, &lt;a class="reference external" href="https://addons.mozilla.org/en-GB/firefox/addon/vimfx/"&gt;vimFX&lt;/a&gt; are a few examples. Now, the different features these provide cater to different people's requirements. I went for pentadactly. Not only does it permit &lt;a class="reference external" href="https://vim.sourceforge.io/"&gt;VIM&lt;/a&gt; style key mappings and navigation, it also provides a vim style command line that is incredibly handy. I've used it for years now. The issue that has troubled pentadactyl for some time now is constant breakage - it tends to break each time the Firefox addon API is updated. Recently, I &lt;a class="reference external" href="https://github.com/5digits/dactyl/issues/99"&gt;read that some major changes in the API will make pentadactly pretty much unusable in the near future&lt;/a&gt;. This made me go looking for a more stable alternative. I tried one or two others - vimium for example, but somehow, I find vimium too simple.&lt;/p&gt;
+&lt;p&gt;So, I &lt;a class="reference external" href="https://www.reddit.com/r/linux/comments/3aqmhd/why_cant_we_have_a_nice_vimlike_webkit_browser/"&gt;dug further&lt;/a&gt; and ran into &lt;a class="reference external" href="https://fanglingsu.github.io/vimb/"&gt;Vimb&lt;/a&gt; and &lt;a class="reference external" href="https://www.qutebrowser.org/"&gt;Qutebrowser&lt;/a&gt;. They're both &amp;quot;vim like browsers&amp;quot; i.e., they're designed for more advanced users and they provide &lt;a class="reference external" href="https://vim.sourceforge.io/"&gt;VIM&lt;/a&gt; like key-mappings and modes. I gave vimb a short try, but &lt;a class="reference external" href="https://www.qutebrowser.org/"&gt;Qutebrowser&lt;/a&gt; really impressed me a lot more.&lt;/p&gt;
+&lt;div class="section" id="qutebrowser"&gt;
+&lt;h2&gt;Qutebrowser&lt;/h2&gt;
+&lt;p&gt;The best thing about &lt;a class="reference external" href="https://www.qutebrowser.org/"&gt;Qutebrowser&lt;/a&gt; is that it's &lt;a class="reference external" href="https://github.com/qutebrowser/qutebrowser/pulse/monthly"&gt;actively maintained&lt;/a&gt;. I even hopped on to the &lt;a class="reference external" href="https://webchat.freenode.net/?channels=#qutebrowser"&gt;IRC channel&lt;/a&gt; earlier today to get some help. The latest version is in Fedora already, so you can simply go &lt;code&gt;sudo dnf install qutebrowser&lt;/code&gt; to give it a whirl. I wanted to test out the latest codebase, so I quickly set up a &lt;a class="reference external" href="https://copr.fedorainfracloud.org/coprs/ankursinha/qutebrowser/"&gt;copr repository&lt;/a&gt; that you can use too. I'm tinkering with &lt;a class="reference external" href="http://flatpak.org/"&gt;FlatPak&lt;/a&gt; to try and build one too, so that it becomes even easier to install, but I'm still figuring out how FlatPaks are built.&lt;/p&gt;
+&lt;center&gt;&lt;a class="reference external image-reference" href="http://ankursinha.in/blog/images/20170621-qutebrowser1.png"&gt;&lt;img alt="A screenshot showing hints in Qutebrowser" class="text-center img-responsive pagination-centered" src="http://ankursinha.in/blog/images/20170621-qutebrowser1.png" style="width: 80%;" /&gt;&lt;/a&gt;
+&lt;/center&gt;&lt;p&gt;The screenshot shows &amp;quot;hinting&amp;quot; which is how one opens links. You press &amp;quot;f&amp;quot; and the various links in the page get labelled. Simply type the label of the link you want to visit. There's also &amp;quot;advanced hinting&amp;quot; which lets you do things like open links in a background tab, or in a new tab, or save (&lt;a class="reference external" href="https://unix.stackexchange.com/questions/209660/why-is-the-vi-editors-copy-command-called-yank"&gt;yank&lt;/a&gt;) a link URL.&lt;/p&gt;
+&lt;center&gt;&lt;a class="reference external image-reference" href="http://ankursinha.in/blog/images/20170621-qutebrowser2.png"&gt;&lt;img alt="A screenshot showing the command mode in Qutebrowser" class="text-center img-responsive pagination-centered" src="http://ankursinha.in/blog/images/20170621-qutebrowser2.png" style="width: 80%;" /&gt;&lt;/a&gt;
+&lt;/center&gt;&lt;p&gt;This one shows the command mode - everything can be done here, including configuration of the browser or browsing related tasks.&lt;/p&gt;
+&lt;div class="section" id="a-few-tips"&gt;
+&lt;h3&gt;A few tips&lt;/h3&gt;
+&lt;p&gt;I did a few things to get started. First, I wanted to use the new &amp;quot;webengine&amp;quot; backend. This requires the installation of two packages: &lt;code&gt;sudo dnf install python3-pyopengl python3-qt5-webengine&lt;/code&gt;, and then creating a new file in &lt;code&gt;~/.local/share/applications/qutebrowser.desktop&lt;/code&gt; with the following contents:&lt;/p&gt;
+&lt;pre class="code ini literal-block"&gt;
+&lt;span class="k"&gt;[Desktop Entry]&lt;/span&gt;
+&lt;span class="na"&gt;Name&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;qutebrowser&lt;/span&gt;
+&lt;span class="na"&gt;GenericName&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;Web Browser&lt;/span&gt;
+&lt;span class="na"&gt;Icon&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;qutebrowser&lt;/span&gt;
+&lt;span class="na"&gt;Type&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;Application&lt;/span&gt;
+&lt;span class="na"&gt;Categories&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;Network;WebBrowser;&lt;/span&gt;
+&lt;span class="na"&gt;Exec&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;qutebrowser --backend webengine %u&lt;/span&gt;
+&lt;span class="na"&gt;Terminal&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;false&lt;/span&gt;
+&lt;span class="na"&gt;StartupNotify&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;false&lt;/span&gt;
+&lt;span class="na"&gt;MimeType&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;text/html;text/xml;application/xhtml+xml;application/xml;application/rdf+xml;image/gif;image/jpeg;image/png;x-scheme-handler/http;x-scheme-handler/https;&lt;/span&gt;
+&lt;span class="na"&gt;Keywords&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;Browser&lt;/span&gt;
+&lt;span class="na"&gt;X-Desktop-File-Install-Version&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;0.23&lt;/span&gt;
+&lt;/pre&gt;
+&lt;p&gt;This new file simply ensures that picking &lt;a class="reference external" href="https://www.qutebrowser.org/"&gt;Qutebrowser&lt;/a&gt; from the activities menu will run the new backend. Without this, one would have to launch it from the terminal each time.&lt;/p&gt;
+&lt;p&gt;Next, I configured it a bit to my liking - still very limited, but it's a start. The configuration file for &lt;a class="reference external" href="https://www.qutebrowser.org/"&gt;Qutebrowser&lt;/a&gt; is at &lt;code&gt;~/.config/qutebrowser/qutebrowser.conf&lt;/code&gt;.  There's so much one can modify here. I've only set up a few search engines and updated the default to Google. To do this, one needs to modify the &lt;code&gt;[searchengines]&lt;/code&gt; section in the file:&lt;/p&gt;
+&lt;pre class="code ini literal-block"&gt;
+&lt;span class="na"&gt;DEFAULT&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;https://google.com/search?hl=en-GB&amp;amp;q={}&lt;/span&gt;
+&lt;span class="na"&gt;duckduckgo&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;https://duckduckgo.com/?q={}&lt;/span&gt;
+&lt;span class="na"&gt;github&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;https://github.com/search?q={}&lt;/span&gt;
+&lt;span class="na"&gt;google-scholar&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;https://scholar.google.co.uk/scholar?hl=en&amp;amp;q={}&lt;/span&gt;
+&lt;/pre&gt;
+&lt;p&gt;I also enable &lt;code&gt;save-session&lt;/code&gt; - just set it to &lt;code&gt;true&lt;/code&gt;. There are a few other tweaks, such as updating the &lt;code&gt;startpage&lt;/code&gt; to &lt;a class="reference external" href="http://start.fedoraproject.org"&gt;http://start.fedoraproject.org&lt;/a&gt;. There's even a built in ad-blocker that one can configure.&lt;/p&gt;
+&lt;p&gt;To get flash working, one needs to also install the ppapi bits. Assuming one already has the flash plugin repository installed, &lt;code&gt;sudo dnf install flash-player-ppapi&lt;/code&gt; does this. I haven't gotten Netflix to work yet - it requries some Silverlight thingy. I can always run Chrome or FF for that one rare purpose anyway.&lt;/p&gt;
+&lt;p&gt;There are, obviously a few limitations in the current &lt;a class="reference external" href="https://www.qutebrowser.org/"&gt;Qutebrowser&lt;/a&gt; version. The most noticeable one is probably the lack of a sync service similar to ones Firefox and Chrome provide. Google does tell me something about using &lt;a class="reference external" href="https://syncthing.net/"&gt;syncthing&lt;/a&gt; but I haven't gotten down to this yet. While it would be nice to have, it isn't quite that necessary. There isn't a password manager either. There are &lt;a class="reference external" href="https://github.com/qutebrowser/qutebrowser/issues/30"&gt;plans to develop a plug-in system&lt;/a&gt; in the pipeline to implement such features already, though. (&lt;a class="reference external" href="https://github.com/qutebrowser/qutebrowser/blob/master/doc/userscripts.asciidoc"&gt;userscripts&lt;/a&gt; seem to provide some additional functionality too.)&lt;/p&gt;
+&lt;p&gt;Anyway, it's a great, quick, and lean browser if you're a &lt;a class="reference external" href="https://vim.sourceforge.io/"&gt;VIM&lt;/a&gt; addict like me, so give it a go? If you have some cycles and are intersted in some hacking, get in touch with the devs over Github too. If not, please do at least &lt;a class="reference external" href="http://ankursinha.in/blog/2017/05/17/a-well-filed-software-issue-considerably-improves-the-chances-of-the-issue-being-fixed-quicker.html"&gt;file bugs&lt;/a&gt; if you see them.&lt;/p&gt;
+&lt;p&gt;Here's a &lt;a class="reference external" href="https://www.qutebrowser.org/doc/quickstart.html"&gt;quickstart&lt;/a&gt; to quickly get up and running with. Oh, and yeah, &lt;em&gt;the mouse/touchpad works in the browser too&lt;/em&gt;!&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</content><category term="Fedora"></category><category term="FlatPak"></category><category term="Free software"></category><category term="Linux"></category><category term="Python"></category><category term="Vim"></category><category term="Qutebrowser"></category></entry><entry><title>Fedora Join meeting - 22 May 2017 - Summary and updates</title><link href="http://ankursinha.in/blog/2017/05/23/fedora-join-meeting-22-may-2017-summary-and-updates.html" rel="alternate"></link><published>2017-05-23T18:41:34+01:00</published><updated>2017-05-23T18:41:34+01:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2017-05-23:/blog/2017/05/23/fedora-join-meeting-22-may-2017-summary-and-updates.html</id><summary type="html">&lt;p class="first last"&gt;A summary of the &lt;a class="reference external" href="https://fedoraproject.org/wiki/Fedora_Join_SIG"&gt;Fedora Join SIG&lt;/a&gt; meeting we had on 22nd May, 2017. We discussed the ongoing resurrection of the &lt;a class="reference external" href="https://fedoraproject.org/wiki/Classroom"&gt;IRC classroom programme&lt;/a&gt;, and then went on to discuss various video platforms that can be used for the &lt;a class="reference external" href="https://pagure.io/fedora-join/Fedora-Join/issue/22"&gt;Classroom v2 initiative&lt;/a&gt;. Both classroom programmes are aimed at seasoned contributors passing their knowledge on to newer ones. The IRC classrooms are text only (because they're held over the IRC) and this limits the breadth of topics that can be covered here. The new v2 initiative on the other hand, is aimed at using newer, more powerful platforms to host better sessions with more variety. There's much work to be done, and you can help!&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;We logged on to #fedora-meeting-3 for another constructive &lt;a class="reference external" href="https://fedoraproject.org/wiki/Fedora_Join_SIG"&gt;Fedora Join SIG&lt;/a&gt; meeting yesterday. There's quite a bit of work to be done, and quite a few ideas. These include classroom sessions, mentoring, and so on. The common theme here is to enable new contributors to pick up the required technical skills quicker, and in the process, integrate with the community faster too.&lt;/p&gt;
+&lt;p&gt;On this week's agenda were:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;an update on resurrection of the &lt;a class="reference external" href="https://fedoraproject.org/wiki/Classroom"&gt;IRC classroom programme&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;getting the ball rolling on the &lt;a class="reference external" href="https://pagure.io/fedora-join/Fedora-Join/issue/22"&gt;Classroom v2 initiative&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a class="reference external" href="https://fedoraproject.org/wiki/How_to_use_IRC"&gt;Here's a wiki page&lt;/a&gt; that explains how one can use &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Internet_Relay_Chat"&gt;IRC&lt;/a&gt;.&lt;/p&gt;
+&lt;div class="section" id="an-update-on-the-resurrection-of-the-irc-classroom-programme"&gt;
+&lt;h2&gt;An update on the resurrection of the IRC classroom programme&lt;/h2&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://pagure.io/fedora-join/Fedora-Join/issue/22"&gt;https://pagure.io/fedora-join/Fedora-Join/issue/22&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;While work goes on to set up a brand new classroom programme, that we refer to as v2, we decided we could get the ball rolling with the &lt;a class="reference external" href="https://fedoraproject.org/wiki/Classroom#Classroom_archives"&gt;classic IRC programme that was active a year or two ago&lt;/a&gt;. The advantage here is that all the infrastructure is already in place - just the one IRC channel, and since many IRC classroom sessions have happened in the past already, this is a time tested system. All it needs is instructors, students, and a few community members to help with the admin bits.&lt;/p&gt;
+&lt;p&gt;Various community members have already volunteered to instruct sessions, so we already have a time line set up. We intend to begin a few weeks after the &lt;a class="reference external" href="https://fedoraproject.org/wiki/Releases/26/Schedule"&gt;Fedora 26 release&lt;/a&gt;, so that the community isn't distracted from the release, and the classroom can ride on the release related marketing instead. The classes we have set up are:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;FOSS 101&lt;/li&gt;
+&lt;li&gt;Fedora Magazine 101&lt;/li&gt;
+&lt;li&gt;Command line 101&lt;/li&gt;
+&lt;li&gt;VIM 101&lt;/li&gt;
+&lt;li&gt;Emacs 101&lt;/li&gt;
+&lt;li&gt;Fedora QA 101&lt;/li&gt;
+&lt;li&gt;Git 101&lt;/li&gt;
+&lt;li&gt;Fedora packaging 101&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;You'll notice we've gone from individual tools to tasks that require one or more of these. I've omitted the dates here because they are yet to be decided. There'll be a class a week, and this is planned to start int the week of 24th July (for the moment).&lt;/p&gt;
+&lt;div class="section" id="we-re-looking-for-more-sessions-instructors-and-helpers"&gt;
+&lt;h3&gt;We're looking for more sessions, instructors, and helpers&lt;/h3&gt;
+&lt;p&gt;The hard bit here isn't restarting the programme, it is maintaining it. So, we need more sessions, more instructors from the community, and as numbers increase, more volunteers to help with related tasks.&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Have an idea? Get in touch!&lt;/li&gt;
+&lt;li&gt;Want to teach? Get in touch!&lt;/li&gt;
+&lt;li&gt;Have a friend that wants to teach? Get in touch!&lt;/li&gt;
+&lt;li&gt;Have some time to write related posts for the Fedora Magazine? Get in touch!&lt;/li&gt;
+&lt;li&gt;Have some time to write related posts for the Community Blog? Get in touch!&lt;/li&gt;
+&lt;li&gt;Have some time to help co-ordinate sessions? Get in touch!&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;You can either ping us on #fedora-classroom/#fedora-join on the IRC, or you can drop an e-mail on the &lt;a class="reference external" href="https://lists.fedoraproject.org/admin/lists/classroom.lists.fedoraproject.org/"&gt;Fedora classroom mailing list&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Note that while we have the IRC set up, you can use another platform too. For instance, if you have access to BlueJeans (a video conferencing platform), you are more than welcome to use it to teach a session.&lt;/p&gt;
+&lt;p&gt;I'm actively looking for more instructors, so keep an eye out for a ping ;)&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="reviewing-video-platforms-for-fedora-classroom-v2"&gt;
+&lt;h2&gt;Reviewing video platforms for Fedora classroom v2&lt;/h2&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://pagure.io/fedora-join/Fedora-Join/issue/23"&gt;https://pagure.io/fedora-join/Fedora-Join/issue/23&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The largest chunk of work for the v2 initiative is finding suitable software. The primary software requirement here is a good video platform. We've had a few suggestions already, so we thought we could review them to see what they can do:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://fedoraproject.org/wiki/User:Linuxmodder"&gt;Linuxmodder&lt;/a&gt; is reviewing &lt;a class="reference external" href="https://bigbluebutton.org/"&gt;Big Blue Button&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;I'm reviewing &lt;a class="reference external" href="http://openmeetings.apache.org/"&gt;Open meetings&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://fedoraproject.org/wiki/User:X3mboy"&gt;X3mboy&lt;/a&gt; is reviewing &lt;a class="reference external" href="http://www.ekiga.org/"&gt;Ekiga&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://fedoraproject.org/wiki/User:Skamath"&gt;Skamath&lt;/a&gt; s reviewing &lt;a class="reference external" href="https://jitsi.org/"&gt;Jitsi&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;We're looking for someone with access to &lt;a class="reference external" href="https://www.bluejeans.com/"&gt;BlueJeans&lt;/a&gt; to review it for us.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;There are certain requirements that we've listed for now:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;How many people can a video conference hold?&lt;/li&gt;
+&lt;li&gt;What other features does it have? Screen sharing, for example?&lt;/li&gt;
+&lt;li&gt;Is it a free service or a paid one? (We'd prefer something free of cost)&lt;/li&gt;
+&lt;li&gt;Is it FOSS or not? (We'd prefer FOSS)&lt;/li&gt;
+&lt;li&gt;What is the required setup? Can one deploy a server and how? (For instance, on Fedora Infrastructure?)&lt;/li&gt;
+&lt;li&gt;How do users connect/log in? (OpenID would be great, since FAS OpenID could be used)&lt;/li&gt;
+&lt;li&gt;Can the sessions be recorded?&lt;/li&gt;
+&lt;li&gt;How will participants interact amongst themselves and the instructor?&lt;/li&gt;
+&lt;li&gt;Is there an admin mode?&lt;/li&gt;
+&lt;li&gt;Can it setup/allow for meeting alerts like RSS feed or similar?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Each of us will use the respective platform and write up a blog post that will turn up on the planet.&lt;/p&gt;
+&lt;p&gt;That was it, pretty much. Come say &amp;quot;hi!&amp;quot; in #fedora-join or the &lt;a class="reference external" href="https://lists.fedoraproject.org/admin/lists/fedora-join&amp;#64;lists.fedoraproject.org/"&gt;mailing list&lt;/a&gt;!&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="links-to-the-full-logs-are-below"&gt;
+&lt;h2&gt;Links to the full logs are below:&lt;/h2&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Minutes: &lt;a class="reference external" href="https://meetbot.fedoraproject.org/fedora-meeting-3/2017-05-22/fedora-join.2017-05-22-15.08.html"&gt;https://meetbot.fedoraproject.org/fedora-meeting-3/2017-05-22/fedora-join.2017-05-22-15.08.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Minutes (text): &lt;a class="reference external" href="https://meetbot.fedoraproject.org/fedora-meeting-3/2017-05-22/fedora-join.2017-05-22-15.08.txt"&gt;https://meetbot.fedoraproject.org/fedora-meeting-3/2017-05-22/fedora-join.2017-05-22-15.08.txt&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Log: &lt;a class="reference external" href="https://meetbot.fedoraproject.org/fedora-meeting-3/2017-05-22/fedora-join.2017-05-22-15.08.log.html"&gt;https://meetbot.fedoraproject.org/fedora-meeting-3/2017-05-22/fedora-join.2017-05-22-15.08.log.html&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+</content><category term="Fedora"></category></entry></feed>
