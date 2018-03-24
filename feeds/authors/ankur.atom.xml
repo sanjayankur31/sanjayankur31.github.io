@@ -1,5 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>ankursinha.in/blog - ankur</title><link href="http://ankursinha.in/" rel="alternate"></link><link href="http://ankursinha.in//feeds/authors/ankur.atom.xml" rel="self"></link><id>http://ankursinha.in/</id><updated>2017-12-25T01:16:02+00:00</updated><entry><title>Managing tasks, time, and making sure one takes a break: Integrating Taskwarrior, Timewarrior, and Gnome Pomodoro</title><link href="http://ankursinha.in/2017/12/25/managing-tasks-time-and-making-sure-one-takes-a-break-integrating-taskwarrior-timewarrior-and-gnome-pomodoro.html" rel="alternate"></link><published>2017-12-25T01:16:02+00:00</published><updated>2017-12-25T01:16:02+00:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2017-12-25:/2017/12/25/managing-tasks-time-and-making-sure-one-takes-a-break-integrating-taskwarrior-timewarrior-and-gnome-pomodoro.html</id><summary type="html">&lt;p class="first last"&gt;As the amount of work increases, it becomes ever so more important to
+<feed xmlns="http://www.w3.org/2005/Atom"><title>ankursinha.in/blog - ankur</title><link href="http://ankursinha.in/" rel="alternate"></link><link href="http://ankursinha.in//feeds/authors/ankur.atom.xml" rel="self"></link><id>http://ankursinha.in/</id><updated>2018-03-24T12:07:07+00:00</updated><entry><title>Fedora Join is now on Telegram and Matrix</title><link href="http://ankursinha.in/2018/03/24/fedora-join-is-now-on-telegram-and-matrix.html" rel="alternate"></link><published>2018-03-24T12:07:07+00:00</published><updated>2018-03-24T12:07:07+00:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2018-03-24:/2018/03/24/fedora-join-is-now-on-telegram-and-matrix.html</id><summary type="html">&lt;p class="first last"&gt;We set up new communication channels for &lt;a class="reference external" href="https://fedoraproject.org/wiki/SIGs/Join?rd=Fedora_Join_SIG"&gt;Fedora Join&lt;/a&gt;. Come speak
+to us!&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;As the subject says, we're now on &lt;a class="reference external" href="https://telegram.org/"&gt;Telegram&lt;/a&gt; and on &lt;a class="reference external" href="https://matrix.org/blog/home/"&gt;Matrix&lt;/a&gt; now! If you'd like
+to contribute to Fedora, come speak to us! Spread the word!&lt;/p&gt;
+&lt;p&gt;We're now on:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;IRC: &lt;a class="reference external" href="https://webchat.freenode.net/?channels=#fedora-join"&gt;#fedora-join&lt;/a&gt; on Freenode&lt;/li&gt;
+&lt;li&gt;Telegram: &lt;a class="reference external" href="https://t.me/joinfedora"&gt;Fedora Join SIG&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Matrix: &lt;a class="reference external" href="https://riot.im/app/#/room/%23freenode_%23fedora-join:matrix.org"&gt;#fedora-join&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Mailing list: &lt;a class="reference external" href="https://lists.fedoraproject.org/admin/lists/fedora-join&amp;#64;lists.fedoraproject.org/"&gt;Fedora Join&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The &lt;a class="reference external" href="https://telegram.org/"&gt;Telegram&lt;/a&gt; and &lt;a class="reference external" href="https://matrix.org/blog/home/"&gt;Matrix&lt;/a&gt; channel are both bridged to the &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Freenode"&gt;IRC&lt;/a&gt; channel. So, one
+can monitor any of them and keep in touch.&lt;/p&gt;
+&lt;p&gt;We're already seeing more people in the channels, and that's really great to
+see!&lt;/p&gt;
+</content><category term="Fedora"></category><category term="IRC"></category><category term="Matrix"></category><category term="Telegram"></category></entry><entry><title>Managing tasks, time, and making sure one takes a break: Integrating Taskwarrior, Timewarrior, and Gnome Pomodoro</title><link href="http://ankursinha.in/2017/12/25/managing-tasks-time-and-making-sure-one-takes-a-break-integrating-taskwarrior-timewarrior-and-gnome-pomodoro.html" rel="alternate"></link><published>2017-12-25T01:16:02+00:00</published><updated>2017-12-25T01:16:02+00:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2017-12-25:/2017/12/25/managing-tasks-time-and-making-sure-one-takes-a-break-integrating-taskwarrior-timewarrior-and-gnome-pomodoro.html</id><summary type="html">&lt;p class="first last"&gt;As the amount of work increases, it becomes ever so more important to
 manage time and work in an efficient way. So, there's &lt;a class="reference external" href="https://taskwarrior.org/"&gt;Taskwarrior&lt;/a&gt;
 for managing tasks, &lt;a class="reference external" href="https://timewarrior.net/"&gt;Timewarrior&lt;/a&gt; for tracking them, and &lt;a class="reference external" href="http://gnomepomodoro.org/"&gt;Gnome
 Pomodoro&lt;/a&gt; for making sure one takes regular breaks and doesn't let
@@ -1006,83 +1021,4 @@ servers = (
 &lt;p&gt;Here's a &lt;a class="reference external" href="https://www.qutebrowser.org/doc/quickstart.html"&gt;quickstart&lt;/a&gt; to quickly get up and running with. Oh, and yeah, &lt;em&gt;the mouse/touchpad works in the browser too&lt;/em&gt;!&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-</content><category term="Fedora"></category><category term="FlatPak"></category><category term="Free software"></category><category term="Linux"></category><category term="Python"></category><category term="Vim"></category><category term="Qutebrowser"></category></entry><entry><title>Fedora Join meeting - 22 May 2017 - Summary and updates</title><link href="http://ankursinha.in/2017/05/23/fedora-join-meeting-22-may-2017-summary-and-updates.html" rel="alternate"></link><published>2017-05-23T18:41:34+01:00</published><updated>2017-05-23T18:41:34+01:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2017-05-23:/2017/05/23/fedora-join-meeting-22-may-2017-summary-and-updates.html</id><summary type="html">&lt;p class="first last"&gt;A summary of the &lt;a class="reference external" href="https://fedoraproject.org/wiki/Fedora_Join_SIG"&gt;Fedora Join SIG&lt;/a&gt; meeting we had on 22nd May, 2017. We discussed the ongoing resurrection of the &lt;a class="reference external" href="https://fedoraproject.org/wiki/Classroom"&gt;IRC classroom programme&lt;/a&gt;, and then went on to discuss various video platforms that can be used for the &lt;a class="reference external" href="https://pagure.io/fedora-join/Fedora-Join/issue/22"&gt;Classroom v2 initiative&lt;/a&gt;. Both classroom programmes are aimed at seasoned contributors passing their knowledge on to newer ones. The IRC classrooms are text only (because they're held over the IRC) and this limits the breadth of topics that can be covered here. The new v2 initiative on the other hand, is aimed at using newer, more powerful platforms to host better sessions with more variety. There's much work to be done, and you can help!&lt;/p&gt;
-</summary><content type="html">&lt;p&gt;We logged on to #fedora-meeting-3 for another constructive &lt;a class="reference external" href="https://fedoraproject.org/wiki/Fedora_Join_SIG"&gt;Fedora Join SIG&lt;/a&gt; meeting yesterday. There's quite a bit of work to be done, and quite a few ideas. These include classroom sessions, mentoring, and so on. The common theme here is to enable new contributors to pick up the required technical skills quicker, and in the process, integrate with the community faster too.&lt;/p&gt;
-&lt;p&gt;On this week's agenda were:&lt;/p&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;an update on resurrection of the &lt;a class="reference external" href="https://fedoraproject.org/wiki/Classroom"&gt;IRC classroom programme&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;getting the ball rolling on the &lt;a class="reference external" href="https://pagure.io/fedora-join/Fedora-Join/issue/22"&gt;Classroom v2 initiative&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;a class="reference external" href="https://fedoraproject.org/wiki/How_to_use_IRC"&gt;Here's a wiki page&lt;/a&gt; that explains how one can use &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Internet_Relay_Chat"&gt;IRC&lt;/a&gt;.&lt;/p&gt;
-&lt;div class="section" id="an-update-on-the-resurrection-of-the-irc-classroom-programme"&gt;
-&lt;h2&gt;An update on the resurrection of the IRC classroom programme&lt;/h2&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://pagure.io/fedora-join/Fedora-Join/issue/22"&gt;https://pagure.io/fedora-join/Fedora-Join/issue/22&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;While work goes on to set up a brand new classroom programme, that we refer to as v2, we decided we could get the ball rolling with the &lt;a class="reference external" href="https://fedoraproject.org/wiki/Classroom#Classroom_archives"&gt;classic IRC programme that was active a year or two ago&lt;/a&gt;. The advantage here is that all the infrastructure is already in place - just the one IRC channel, and since many IRC classroom sessions have happened in the past already, this is a time tested system. All it needs is instructors, students, and a few community members to help with the admin bits.&lt;/p&gt;
-&lt;p&gt;Various community members have already volunteered to instruct sessions, so we already have a time line set up. We intend to begin a few weeks after the &lt;a class="reference external" href="https://fedoraproject.org/wiki/Releases/26/Schedule"&gt;Fedora 26 release&lt;/a&gt;, so that the community isn't distracted from the release, and the classroom can ride on the release related marketing instead. The classes we have set up are:&lt;/p&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;FOSS 101&lt;/li&gt;
-&lt;li&gt;Fedora Magazine 101&lt;/li&gt;
-&lt;li&gt;Command line 101&lt;/li&gt;
-&lt;li&gt;VIM 101&lt;/li&gt;
-&lt;li&gt;Emacs 101&lt;/li&gt;
-&lt;li&gt;Fedora QA 101&lt;/li&gt;
-&lt;li&gt;Git 101&lt;/li&gt;
-&lt;li&gt;Fedora packaging 101&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;You'll notice we've gone from individual tools to tasks that require one or more of these. I've omitted the dates here because they are yet to be decided. There'll be a class a week, and this is planned to start int the week of 24th July (for the moment).&lt;/p&gt;
-&lt;div class="section" id="we-re-looking-for-more-sessions-instructors-and-helpers"&gt;
-&lt;h3&gt;We're looking for more sessions, instructors, and helpers&lt;/h3&gt;
-&lt;p&gt;The hard bit here isn't restarting the programme, it is maintaining it. So, we need more sessions, more instructors from the community, and as numbers increase, more volunteers to help with related tasks.&lt;/p&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;Have an idea? Get in touch!&lt;/li&gt;
-&lt;li&gt;Want to teach? Get in touch!&lt;/li&gt;
-&lt;li&gt;Have a friend that wants to teach? Get in touch!&lt;/li&gt;
-&lt;li&gt;Have some time to write related posts for the Fedora Magazine? Get in touch!&lt;/li&gt;
-&lt;li&gt;Have some time to write related posts for the Community Blog? Get in touch!&lt;/li&gt;
-&lt;li&gt;Have some time to help co-ordinate sessions? Get in touch!&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;You can either ping us on #fedora-classroom/#fedora-join on the IRC, or you can drop an e-mail on the &lt;a class="reference external" href="https://lists.fedoraproject.org/admin/lists/classroom.lists.fedoraproject.org/"&gt;Fedora classroom mailing list&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Note that while we have the IRC set up, you can use another platform too. For instance, if you have access to BlueJeans (a video conferencing platform), you are more than welcome to use it to teach a session.&lt;/p&gt;
-&lt;p&gt;I'm actively looking for more instructors, so keep an eye out for a ping ;)&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="section" id="reviewing-video-platforms-for-fedora-classroom-v2"&gt;
-&lt;h2&gt;Reviewing video platforms for Fedora classroom v2&lt;/h2&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://pagure.io/fedora-join/Fedora-Join/issue/23"&gt;https://pagure.io/fedora-join/Fedora-Join/issue/23&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;The largest chunk of work for the v2 initiative is finding suitable software. The primary software requirement here is a good video platform. We've had a few suggestions already, so we thought we could review them to see what they can do:&lt;/p&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://fedoraproject.org/wiki/User:Linuxmodder"&gt;Linuxmodder&lt;/a&gt; is reviewing &lt;a class="reference external" href="https://bigbluebutton.org/"&gt;Big Blue Button&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;I'm reviewing &lt;a class="reference external" href="http://openmeetings.apache.org/"&gt;Open meetings&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://fedoraproject.org/wiki/User:X3mboy"&gt;X3mboy&lt;/a&gt; is reviewing &lt;a class="reference external" href="http://www.ekiga.org/"&gt;Ekiga&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://fedoraproject.org/wiki/User:Skamath"&gt;Skamath&lt;/a&gt; s reviewing &lt;a class="reference external" href="https://jitsi.org/"&gt;Jitsi&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;We're looking for someone with access to &lt;a class="reference external" href="https://www.bluejeans.com/"&gt;BlueJeans&lt;/a&gt; to review it for us.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;There are certain requirements that we've listed for now:&lt;/p&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;How many people can a video conference hold?&lt;/li&gt;
-&lt;li&gt;What other features does it have? Screen sharing, for example?&lt;/li&gt;
-&lt;li&gt;Is it a free service or a paid one? (We'd prefer something free of cost)&lt;/li&gt;
-&lt;li&gt;Is it FOSS or not? (We'd prefer FOSS)&lt;/li&gt;
-&lt;li&gt;What is the required setup? Can one deploy a server and how? (For instance, on Fedora Infrastructure?)&lt;/li&gt;
-&lt;li&gt;How do users connect/log in? (OpenID would be great, since FAS OpenID could be used)&lt;/li&gt;
-&lt;li&gt;Can the sessions be recorded?&lt;/li&gt;
-&lt;li&gt;How will participants interact amongst themselves and the instructor?&lt;/li&gt;
-&lt;li&gt;Is there an admin mode?&lt;/li&gt;
-&lt;li&gt;Can it setup/allow for meeting alerts like RSS feed or similar?&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Each of us will use the respective platform and write up a blog post that will turn up on the planet.&lt;/p&gt;
-&lt;p&gt;That was it, pretty much. Come say &amp;quot;hi!&amp;quot; in #fedora-join or the &lt;a class="reference external" href="https://lists.fedoraproject.org/admin/lists/fedora-join&amp;#64;lists.fedoraproject.org/"&gt;mailing list&lt;/a&gt;!&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="links-to-the-full-logs-are-below"&gt;
-&lt;h2&gt;Links to the full logs are below:&lt;/h2&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;Minutes: &lt;a class="reference external" href="https://meetbot.fedoraproject.org/fedora-meeting-3/2017-05-22/fedora-join.2017-05-22-15.08.html"&gt;https://meetbot.fedoraproject.org/fedora-meeting-3/2017-05-22/fedora-join.2017-05-22-15.08.html&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Minutes (text): &lt;a class="reference external" href="https://meetbot.fedoraproject.org/fedora-meeting-3/2017-05-22/fedora-join.2017-05-22-15.08.txt"&gt;https://meetbot.fedoraproject.org/fedora-meeting-3/2017-05-22/fedora-join.2017-05-22-15.08.txt&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Log: &lt;a class="reference external" href="https://meetbot.fedoraproject.org/fedora-meeting-3/2017-05-22/fedora-join.2017-05-22-15.08.log.html"&gt;https://meetbot.fedoraproject.org/fedora-meeting-3/2017-05-22/fedora-join.2017-05-22-15.08.log.html&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-</content><category term="Fedora"></category></entry></feed>
+</content><category term="Fedora"></category><category term="FlatPak"></category><category term="Free software"></category><category term="Linux"></category><category term="Python"></category><category term="Vim"></category><category term="Qutebrowser"></category></entry></feed>
