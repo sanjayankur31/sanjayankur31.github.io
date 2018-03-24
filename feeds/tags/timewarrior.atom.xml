@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>ankursinha.in/blog - Timewarrior</title><link href="http://ankursinha.in/" rel="alternate"></link><link href="http://ankursinha.in//feeds/tags/timewarrior.atom.xml" rel="self"></link><id>http://ankursinha.in/</id><updated>2017-12-25T01:16:02+00:00</updated><entry><title>Managing tasks, time, and making sure one takes a break: Integrating Taskwarrior, Timewarrior, and Gnome Pomodoro</title><link href="http://ankursinha.in/2017/12/25/managing-tasks-time-and-making-sure-one-takes-a-break-integrating-taskwarrior-timewarrior-and-gnome-pomodoro.html" rel="alternate"></link><published>2017-12-25T01:16:02+00:00</published><updated>2017-12-25T01:16:02+00:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2017-12-25:/2017/12/25/managing-tasks-time-and-making-sure-one-takes-a-break-integrating-taskwarrior-timewarrior-and-gnome-pomodoro.html</id><summary type="html">&lt;p class="first last"&gt;As the amount of work increases, it becomes ever so more important to
+manage time and work in an efficient way. So, there's &lt;a class="reference external" href="https://taskwarrior.org/"&gt;Taskwarrior&lt;/a&gt;
+for managing tasks, &lt;a class="reference external" href="https://timewarrior.net/"&gt;Timewarrior&lt;/a&gt; for tracking them, and &lt;a class="reference external" href="http://gnomepomodoro.org/"&gt;Gnome
+Pomodoro&lt;/a&gt; for making sure one takes regular breaks and doesn't let
+the long hours affect their health in a bad way.&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;With the new year, come resolutions. On many a list will there be a
+determination to do better in the coming year, to be more organised, more
+efficient, more productive.&lt;/p&gt;
+&lt;p&gt;I'm quite organised myself. I have lists, calendars, reminders, budgets, and
+all of that. Being a FOSS person, my first thought, inevitably, is to see if
+there's a piece of software that would aid me.&lt;/p&gt;
+&lt;p&gt;This post documents how one can get &lt;a class="reference external" href="https://taskwarrior.org/"&gt;Taskwarrior&lt;/a&gt;, &lt;a class="reference external" href="https://timewarrior.net/"&gt;Timewarrior&lt;/a&gt;, and &lt;a class="reference external" href="http://gnomepomodoro.org/"&gt;Gnome
+Pomodoro&lt;/a&gt; to work together to manage tasks, track them, and break those long
+hours into smaller bits with regular breaks.&lt;/p&gt;
+&lt;div class="section" id="taskwarrior-helps-manage-tasks"&gt;
+&lt;h2&gt;Taskwarrior helps manage tasks&lt;/h2&gt;
+&lt;p&gt;For managing tasks, there's the rather excellent &lt;a class="reference external" href="https://taskwarrior.org/"&gt;Taskwarrior&lt;/a&gt;. It's command
+line, and there are various user interfaces that have been developed for it
+too. (&lt;a class="reference external" href="https://tasktools.org/projects/vit.html"&gt;Vit&lt;/a&gt; is one that provides a terminal interface with &lt;a class="reference external" href="https://vim.org"&gt;Vim&lt;/a&gt; like
+keybindings, and there's a &lt;a class="reference external" href="https://github.com/blindFS/vim-taskwarrior"&gt;Vim plugin&lt;/a&gt; too.) One can even set up a
+&lt;a class="reference external" href="https://taskwarrior.org/"&gt;Taskwarrior&lt;/a&gt; server to sync the data between different machines. There are a
+few hosted services that give free &lt;a class="reference external" href="https://taskwarrior.org/"&gt;Taskwarrior&lt;/a&gt; server accounts too. Perhaps
+the best bit, is excellent documentation.  &lt;a class="reference external" href="https://taskwarrior.org/"&gt;Taskwarrior&lt;/a&gt; really does make it
+easy to &lt;a class="reference external" href="https://taskwarrior.org/news/news.20150627.html"&gt;get things done&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="timewarrior-tracks-time-spent-on-tasks"&gt;
+&lt;h2&gt;Timewarrior tracks time spent on tasks&lt;/h2&gt;
+&lt;p&gt;&lt;a class="reference external" href="https://taskwarrior.org/"&gt;Taskwarrior&lt;/a&gt; is not meant to be a time tracker, and upstream says so quite
+plainly. In fact, upstream went ahead and wrote &lt;a class="reference external" href="https://timewarrior.net/"&gt;Timewarrior&lt;/a&gt; for that purpose
+entirely. Like &lt;a class="reference external" href="https://taskwarrior.org/"&gt;Taskwarrior&lt;/a&gt;, &lt;a class="reference external" href="https://timewarrior.net/"&gt;Timewarrior&lt;/a&gt; is also a command line tool.&lt;/p&gt;
+&lt;p&gt;Integrating the two is quite easy, using a &lt;a class="reference external" href="https://taskwarrior.org/"&gt;Taskwarrior&lt;/a&gt; hook, as &lt;a class="reference external" href="https://taskwarrior.org/docs/timewarrior/taskwarrior.html"&gt;documented
+here&lt;/a&gt;. Each time
+a task is started, or stopped in &lt;a class="reference external" href="https://taskwarrior.org/"&gt;Taskwarrior&lt;/a&gt;, the hook calls &lt;a class="reference external" href="https://timewarrior.net/"&gt;Timewarrior&lt;/a&gt; to
+start or stop tracking the task too.&lt;/p&gt;
+&lt;p&gt;Note: to ensure that this hook is run before the &lt;a class="reference external" href="http://gnomepomodoro.org/"&gt;Gnome Pomodoro&lt;/a&gt; hook that we
+set up in the next section, please save the hook file as
+&lt;code&gt;~/.task/hooks/on-modify.00-timewarrior&lt;/code&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="gnome-pomodoro-reminds-us-to-take-regular-breaks"&gt;
+&lt;h2&gt;Gnome Pomodoro reminds us to take regular breaks&lt;/h2&gt;
+&lt;p&gt;So, one can manage tasks, and track the time spent working on them, and that's
+great. It was sufficient for me for quite a while, before I realised that I was
+spending too much time at my desk. What made it worse was the realisation that
+for us white collar professionals, a majority of our lives will be spent at a
+desk typing away on a computer. There's enough research to show that spending
+all those long hours working in a seated position is bad for one's health.&lt;/p&gt;
+&lt;p&gt;So, I went looking for the changes I should make to my work regime, and ran
+into the &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Pomodoro_Technique"&gt;Pomodoro&lt;/a&gt; technique. The idea is to take short breaks at regular
+intervals. One can use these to get up and walk around a bit, get them 10,000
+steps! There are plenty of tools that implement the &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Pomodoro_Technique"&gt;Pomodoro&lt;/a&gt; technique. A
+simple timer works too. The one I settled on is &lt;a class="reference external" href="http://gnomepomodoro.org/"&gt;Gnome Pomodoro&lt;/a&gt; which
+integrates really well with Gnome Shell. Every 25 minutes, it'll remind the
+user to take a 5 minute break.&lt;/p&gt;
+&lt;p&gt;Now, let us integrate &lt;a class="reference external" href="http://gnomepomodoro.org/"&gt;Gnome Pomodoro&lt;/a&gt; with both &lt;a class="reference external" href="https://taskwarrior.org/"&gt;Taskwarrior&lt;/a&gt; and &lt;a class="reference external" href="https://timewarrior.net/"&gt;Timewarrior&lt;/a&gt;:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;When a task is started using &lt;code&gt;task &amp;lt;filter&amp;gt; start&lt;/code&gt;, &lt;a class="reference external" href="https://taskwarrior.org/"&gt;Taskwarrior&lt;/a&gt;
+already begins to track it using the hook, and a Pomodoro should also be
+started.&lt;/li&gt;
+&lt;li&gt;When a Pomodoro is over and &lt;a class="reference external" href="http://gnomepomodoro.org/"&gt;Gnome Pomodoro&lt;/a&gt; notifies of a break,
+&lt;a class="reference external" href="https://timewarrior.net/"&gt;Timewarrior&lt;/a&gt; should be paused too.&lt;/li&gt;
+&lt;li&gt;When the break is over, and another Pomodoro starts, &lt;a class="reference external" href="https://timewarrior.net/"&gt;Timewarrior&lt;/a&gt; should
+resume tracking the task.&lt;/li&gt;
+&lt;li&gt;When a task is stopped, &lt;a class="reference external" href="https://taskwarrior.org/"&gt;Taskwarrior&lt;/a&gt; will stop tracking it via the hook
+already, and the Pomodoro should be stopped as well.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This is a very simple set up. A task must be started using &lt;a class="reference external" href="https://taskwarrior.org/"&gt;Taskwarrior&lt;/a&gt; here,
+and each time &lt;a class="reference external" href="http://gnomepomodoro.org/"&gt;Gnome Pomodoro&lt;/a&gt; pauses and resumes from breaks, the same task
+will be resumed unless it was stopped and another started.&lt;/p&gt;
+&lt;p&gt;It turned out to be quite easy because of how well these three tools have been
+designed. Here's a &lt;a class="reference external" href="https://taskwarrior.org/"&gt;Taskwarrior&lt;/a&gt; hook for &lt;a class="reference external" href="http://gnomepomodoro.org/"&gt;Gnome Pomodoro&lt;/a&gt; similar to the one
+for &lt;a class="reference external" href="https://timewarrior.net/"&gt;Timewarrior&lt;/a&gt;:&lt;/p&gt;
+&lt;pre class="code python literal-block"&gt;
+&lt;span class="ch"&gt;#!/usr/bin/env python2&lt;/span&gt;
+&lt;span class="c1"&gt;# API is here: https://taskwarrior.org/docs/hooks.html&lt;/span&gt;
+&lt;span class="c1"&gt;# To be saved at ~/.task/hooks/on-modify.01-gnome-pomodoro to ensure it is&lt;/span&gt;
+&lt;span class="c1"&gt;# run after the timewarrior hook, which should be saved as&lt;/span&gt;
+&lt;span class="c1"&gt;# ~/.task/hooks/on-modify.00-timewarrior&lt;/span&gt;
+&lt;span class="c1"&gt;# Otherwise, this is run before which then runs the Gnome-Pomodoro actions&lt;/span&gt;
+&lt;span class="c1"&gt;# things get quite messy!&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;json&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;os&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;sys&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Make no changes to the task, simply observe.&lt;/span&gt;
+&lt;span class="n"&gt;old&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;json&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;loads&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;sys&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;stdin&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;readline&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;
+&lt;span class="n"&gt;new&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;json&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;loads&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;sys&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;stdin&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;readline&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;json&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;dumps&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;new&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Start pomodoro when task is started&lt;/span&gt;
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="s1"&gt;'start'&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;new&lt;/span&gt; &lt;span class="ow"&gt;and&lt;/span&gt; &lt;span class="s1"&gt;'start'&lt;/span&gt; &lt;span class="ow"&gt;not&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;old&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;system&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'gnome-pomodoro --start'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="c1"&gt;# Stop pomodoro when a task is stopped&lt;/span&gt;
+&lt;span class="k"&gt;elif&lt;/span&gt; &lt;span class="s1"&gt;'start'&lt;/span&gt; &lt;span class="ow"&gt;not&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;new&lt;/span&gt; &lt;span class="ow"&gt;and&lt;/span&gt; &lt;span class="s1"&gt;'start'&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;old&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;system&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'gnome-pomodoro --stop'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;
+&lt;p&gt;It's called when a task is modified. It checks the old and new states. If a
+task is started, it starts &lt;code&gt;gnome-pomodoro&lt;/code&gt;, and when it's stopped, it
+stops it. This is one direction.&lt;/p&gt;
+&lt;p&gt;The other direction requires some tinkering with &lt;a class="reference external" href="http://gnomepomodoro.org/"&gt;Gnome Pomodoro&lt;/a&gt; to set up
+custom scripts. In the preferences, one must enable the &amp;quot;Custom actions&amp;quot;
+plugin:&lt;/p&gt;
+&lt;div class="figure align-center"&gt;
+&lt;a class="reference external image-reference" href="http://ankursinha.in/images/20171225-gnome-pomodoro-plugins.png"&gt;&lt;img alt="A screenshot showing the plugin preferences in Gnome Pomodoro." src="http://ankursinha.in/images/20171225-gnome-pomodoro-plugins.png" style="height: 300.0px;" /&gt;&lt;/a&gt;
+&lt;/div&gt;
+&lt;p&gt;Then, a &amp;quot;Custom Actions&amp;quot; entry will be added to the preferences. We need to add
+two of them. The first, resumes &lt;a class="reference external" href="https://timewarrior.net/"&gt;Timewarrior&lt;/a&gt; tracking when the Pomodoro
+resumes:&lt;/p&gt;
+&lt;div class="figure align-center"&gt;
+&lt;a class="reference external image-reference" href="http://ankursinha.in/images/20171225-gnome-pomodoro-action-resume-timew.png"&gt;&lt;img alt="A screenshot showing custom action that will resume timew after a break." src="http://ankursinha.in/images/20171225-gnome-pomodoro-action-resume-timew.png" style="height: 300.0px;" /&gt;&lt;/a&gt;
+&lt;/div&gt;
+&lt;p&gt;Similarly, the second stops &lt;a class="reference external" href="https://timewarrior.net/"&gt;Timewarrior&lt;/a&gt; when a break begins, or the user
+pauses the &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Pomodoro_Technique"&gt;Pomodoro&lt;/a&gt;:&lt;/p&gt;
+&lt;div class="figure align-center"&gt;
+&lt;a class="reference external image-reference" href="http://ankursinha.in/images/20171225-gnome-pomodoro-action-stop-timew.png"&gt;&lt;img alt="A screenshot showing custom action that will stop timew at the start of a break." src="http://ankursinha.in/images/20171225-gnome-pomodoro-action-stop-timew.png" style="height: 300.0px;" /&gt;&lt;/a&gt;
+&lt;/div&gt;
+&lt;p&gt;(If no tasks are active, &lt;a class="reference external" href="https://timewarrior.net/"&gt;Timewarrior&lt;/a&gt; doesn't do anything, so that case does
+not need to be handled separately.)&lt;/p&gt;
+&lt;p&gt;There are certain &lt;a class="reference external" href="https://github.com/codito/gnome-pomodoro/issues/275#issuecomment-282494447"&gt;limitations to what commands can go in there&lt;/a&gt;,
+so I've used a shell script to implement the required logic:&lt;/p&gt;
+&lt;pre class="code bash literal-block"&gt;
+&lt;span class="ch"&gt;#!/bin/bash
+&lt;/span&gt;&lt;span class="c1"&gt;# save as ~/bin/track-timew.sh
+# note that ~/bin/ must be in PATH
+&lt;/span&gt;
+resume &lt;span class="o"&gt;()&lt;/span&gt;
+&lt;span class="o"&gt;{&lt;/span&gt;
+    timew &lt;span class="o"&gt;||&lt;/span&gt; timew &lt;span class="k"&gt;continue&lt;/span&gt;
+&lt;span class="o"&gt;}&lt;/span&gt;
+
+pause &lt;span class="o"&gt;()&lt;/span&gt;
+&lt;span class="o"&gt;{&lt;/span&gt;
+    timew &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; timew stop
+&lt;span class="o"&gt;}&lt;/span&gt;
+
+clean &lt;span class="o"&gt;()&lt;/span&gt;
+&lt;span class="o"&gt;{&lt;/span&gt;
+    &lt;span class="c1"&gt;# sed only does greedy regex so it's slightly complicated
+&lt;/span&gt;    &lt;span class="c1"&gt;# could use perl to make this a lot simpler because perl does non
+&lt;/span&gt;    &lt;span class="c1"&gt;# greedy too.
+&lt;/span&gt;    &lt;span class="k"&gt;for&lt;/span&gt; entry in &lt;span class="k"&gt;$(&lt;/span&gt;timew summary :ids &lt;span class="p"&gt;|&lt;/span&gt; grep -o &lt;span class="s1"&gt;'&amp;#64;.*'&lt;/span&gt; &lt;span class="p"&gt;|&lt;/span&gt; sed -E &lt;span class="s1"&gt;'s/(^&amp;#64;[[:digit:]]+[[:space:]]+)/\1 |/'&lt;/span&gt; &lt;span class="p"&gt;|&lt;/span&gt; sed -E &lt;span class="s1"&gt;'s/([[:digit:]]+:[[:digit:]]+:[[:digit:]]+ )/| \1/'&lt;/span&gt; &lt;span class="p"&gt;|&lt;/span&gt; sed &lt;span class="s1"&gt;'s/|.*|//'&lt;/span&gt; &lt;span class="p"&gt;|&lt;/span&gt; sed -E &lt;span class="s1"&gt;'s/[[:space:]]{2,}/ /'&lt;/span&gt; &lt;span class="p"&gt;|&lt;/span&gt; cut -d &lt;span class="s1"&gt;' '&lt;/span&gt; -f &lt;span class="m"&gt;1&lt;/span&gt;,4 &lt;span class="p"&gt;|&lt;/span&gt; grep -E &lt;span class="s1"&gt;'0:0[01]:..'&lt;/span&gt; &lt;span class="p"&gt;|&lt;/span&gt; cut -d &lt;span class="s1"&gt;' '&lt;/span&gt; -f &lt;span class="m"&gt;1&lt;/span&gt; &lt;span class="p"&gt;|&lt;/span&gt; tr &lt;span class="s1"&gt;'\n'&lt;/span&gt; &lt;span class="s1"&gt;' '&lt;/span&gt;&lt;span class="k"&gt;)&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt; timew delete &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$entry&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;done&lt;/span&gt;
+&lt;span class="o"&gt;}&lt;/span&gt;
+
+usage &lt;span class="o"&gt;()&lt;/span&gt;
+&lt;span class="o"&gt;{&lt;/span&gt;
+    &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$0&lt;/span&gt;&lt;span class="s2"&gt;: wrapper script around timewarrior to carry out common tasks&amp;quot;&lt;/span&gt;
+    &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;For use with Gnome-Pomodoro's action plugin&amp;quot;&lt;/span&gt;
+    &lt;span class="nb"&gt;echo&lt;/span&gt;
+    &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Usage: &lt;/span&gt;&lt;span class="nv"&gt;$0&lt;/span&gt;&lt;span class="s2"&gt; &amp;lt;option&amp;gt;&amp;quot;&lt;/span&gt;
+    &lt;span class="nb"&gt;echo&lt;/span&gt;
+    &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;OPTIONS:&amp;quot;&lt;/span&gt;
+    &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;-r    resume tracking of most recently tracked task&amp;quot;&lt;/span&gt;
+    &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;-p    pause tracking&amp;quot;&lt;/span&gt;
+    &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;-c    clean up short tasks (less than 2 minutes long)&amp;quot;&lt;/span&gt;
+&lt;span class="o"&gt;}&lt;/span&gt;
+
+&lt;span class="c1"&gt;# check for options
+&lt;/span&gt;&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="o"&gt;[&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$#&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; -eq &lt;span class="m"&gt;0&lt;/span&gt; &lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;then&lt;/span&gt;
+    usage
+    &lt;span class="nb"&gt;exit&lt;/span&gt; &lt;span class="m"&gt;1&lt;/span&gt;
+&lt;span class="k"&gt;fi&lt;/span&gt;
+
+&lt;span class="c1"&gt;# parse options
+&lt;/span&gt;&lt;span class="k"&gt;while&lt;/span&gt; &lt;span class="nb"&gt;getopts&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;rpch&amp;quot;&lt;/span&gt; OPTION
+&lt;span class="k"&gt;do&lt;/span&gt;
+    &lt;span class="k"&gt;case&lt;/span&gt; &lt;span class="nv"&gt;$OPTION&lt;/span&gt; in
+        r&lt;span class="o"&gt;)&lt;/span&gt;
+            resume
+            &lt;span class="nb"&gt;exit&lt;/span&gt; &lt;span class="m"&gt;0&lt;/span&gt;
+            &lt;span class="p"&gt;;;&lt;/span&gt;
+        p&lt;span class="o"&gt;)&lt;/span&gt;
+            pause
+            &lt;span class="nb"&gt;exit&lt;/span&gt; &lt;span class="m"&gt;0&lt;/span&gt;
+            &lt;span class="p"&gt;;;&lt;/span&gt;
+        c&lt;span class="o"&gt;)&lt;/span&gt;
+            clean
+            &lt;span class="nb"&gt;exit&lt;/span&gt; &lt;span class="m"&gt;0&lt;/span&gt;
+            &lt;span class="p"&gt;;;&lt;/span&gt;
+        h&lt;span class="o"&gt;)&lt;/span&gt;
+            usage
+            &lt;span class="nb"&gt;exit&lt;/span&gt; &lt;span class="m"&gt;1&lt;/span&gt;
+            &lt;span class="p"&gt;;;&lt;/span&gt;
+        ?&lt;span class="o"&gt;)&lt;/span&gt;
+            usage
+            &lt;span class="nb"&gt;exit&lt;/span&gt; &lt;span class="m"&gt;1&lt;/span&gt;
+            &lt;span class="p"&gt;;;&lt;/span&gt;
+    &lt;span class="k"&gt;esac&lt;/span&gt;
+&lt;span class="k"&gt;done&lt;/span&gt;
+&lt;/pre&gt;
+&lt;p&gt;The script is quite simple, and I hope, self-explanatory too. I'll leave
+interpretation of the &lt;code&gt;clean&lt;/code&gt; function to the reader ;)&lt;/p&gt;
+&lt;p&gt;That's all there is to it. There must be other ways of doing the same thing,
+possibly with different tools too, but this system required least changes to my
+current workflow. Do remember that these tools can only aid us. It is us that
+need to show that bit of discipline to follow the plan through. I hope some
+will find it helpful, and may the new year be healthier and more productive for
+us all! :)&lt;/p&gt;
+&lt;/div&gt;
+</content><category term="Bash"></category><category term="Fedora"></category><category term="Timewarrior"></category><category term="Taskwarrior"></category><category term="Pomodoro"></category><category term="Gnome-Pomodoro"></category><category term="Time management"></category></entry></feed>

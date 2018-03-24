@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>ankursinha.in/blog - NEST</title><link href="http://ankursinha.in/" rel="alternate"></link><link href="http://ankursinha.in//feeds/tags/nest.atom.xml" rel="self"></link><id>http://ankursinha.in/</id><updated>2016-05-31T19:17:32+01:00</updated><entry><title>Some tips and tricks for running simulations on a cluster</title><link href="http://ankursinha.in/2016/05/31/some-tips-and-tricks-for-running-simulations-on-a-cluster.html" rel="alternate"></link><published>2016-05-31T19:17:32+01:00</published><updated>2016-05-31T19:17:32+01:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2016-05-31:/2016/05/31/some-tips-and-tricks-for-running-simulations-on-a-cluster.html</id><summary type="html">&lt;p class="first last"&gt;I use the cluster here at university to run my simulations in &lt;a class="reference external" href="https://github.com/nest/nest-simulator"&gt;Nest&lt;/a&gt;. This post documents some tips and tricks I've come up with to make my cluster tasks easier.&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;To begin with, you must use a terminal multiplexer! I use &lt;a class="reference external" href="http://byobu.org/"&gt;Byobu with tmux&lt;/a&gt; to multiplex a single SSH session. I use it on all my machines. It's an excellent tool.&lt;/p&gt;
+&lt;div class="section" id="monitoring-your-jobs"&gt;
+&lt;h2&gt;Monitoring your jobs&lt;/h2&gt;
+&lt;p&gt;Three of my Byobu screens run these commands to monitor the queue and my jobs:&lt;/p&gt;
+&lt;pre class="code bash literal-block"&gt;
+watch -n &lt;span class="m"&gt;30&lt;/span&gt; qstat main
+watch -n &lt;span class="m"&gt;30&lt;/span&gt; qstat -B
+watch -n &lt;span class="m"&gt;30&lt;/span&gt; /usr/local/maui/bin/showq -u asinha
+&lt;/pre&gt;
+&lt;p&gt;&lt;code&gt;showq&lt;/code&gt; may be installed elsewhere. Use &lt;code&gt;which showq&lt;/code&gt; to locate it. More information on the commands can be found in their manuals:&lt;/p&gt;
+&lt;pre class="code bash literal-block"&gt;
+man watch
+man qstat
+&lt;/pre&gt;
+&lt;p&gt;Remember, to find a man page, you can use the &lt;code&gt;apropos&lt;/code&gt; command.&lt;/p&gt;
+&lt;p&gt;I run all my simulations in a specific directory on the shared data disk. I usually also monitor this folder. It gives me an idea of how much my simulations have progressed. Something like this works:&lt;/p&gt;
+&lt;pre class="code bash literal-block"&gt;
+watch -n &lt;span class="m"&gt;30&lt;/span&gt; &lt;span class="s1"&gt;'du -sch *'&lt;/span&gt; &lt;span class="c1"&gt;# in the directory that stores simulation results*&lt;/span&gt;
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div class="section" id="use-git"&gt;
+&lt;h2&gt;Use Git&lt;/h2&gt;
+&lt;p&gt;Of course. If you make frequent changes, you must use a version control system. I stick to &lt;code&gt;git&lt;/code&gt; myself. You can use &lt;code&gt;svn&lt;/code&gt; or &lt;code&gt;hg&lt;/code&gt; if you wish - whatever floats your boat.&lt;/p&gt;
+&lt;p&gt;An issue I've stumbled upon while working with the cluster is that the program you want it to run is not loaded into memory until your job begins to run. So, if you want to run a certain version of your program on the cluster, say some version_1, you must not make any changes to this version until the queued job has begun to run. This is extremely inconvenient, especially if you make frequent changes to your simulations, as is often the case in research. I would, for example, like to queue separate jobs in parallel for a myriad of tiny changes and then compare results.&lt;/p&gt;
+&lt;p&gt;Enter &lt;a class="reference external" href="https://git-scm.com/docs/git-worktree"&gt;git work-tree&lt;/a&gt;! The simplest solution to the aforementioned issue is to checkout different work-trees for commits you want to test and queue up jobs for each individually. This would work really well. Once the simulation finishes, you can remove the work-tree.&lt;/p&gt;
+&lt;p&gt;Unfortunately, clusters usually run stable long term support oriented versions of Linux distributions - EL/CentOS/Scientific. As a result, it's quite probable that the version of git on the cluster doesn't support work-trees - as is the case with the cluster I use. I came up with a workaround which works somewhat like work-trees - I manually clone my source repository to a temporary location, checkout the commit I want to run (which is what work-trees sort of are), and set up a job that runs this particular simulation version. It uses two scripts:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;A template PBS script for the simulation run. This will be passed to &lt;code&gt;qsub&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;A script that clones my repo, checks out the required commit, completes the template script, and calls &lt;code&gt;qsub&lt;/code&gt; to queue up the job.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The first is a simple PBS script:&lt;/p&gt;
+&lt;pre class="code bash literal-block"&gt;
+&lt;span class="c1"&gt;# File: run-sim.sh
+&lt;/span&gt;
+&lt;span class="c1"&gt;#PBS -l walltime=48:00:00
+#PBS -l nodes=50
+#PBS -m abe
+#PBS -N nest_v_s
+&lt;/span&gt;
+module unload mpi/mpich-x86_64
+module load mvapich2-1.7
+
+&lt;span class="nv"&gt;SIM_PATH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;/stri-data/asinha/simulations-nest/&amp;quot;&lt;/span&gt;
+&lt;span class="nv"&gt;SIM_TIME&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&amp;quot;&lt;/span&gt;
+&lt;span class="nv"&gt;PROGRAM_PATH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$SIM_PATH&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$SIM_TIME&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&amp;quot;/Sinha2016/src/Sinha2016.py&amp;quot;&lt;/span&gt;
+&lt;span class="nv"&gt;RESULT_PATH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$SIM_PATH&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$SIM_TIME&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&amp;quot;/result/&amp;quot;&lt;/span&gt;
+&lt;span class="nv"&gt;NUM_NODES&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;50&lt;/span&gt;
+
+&lt;span class="nb"&gt;echo&lt;/span&gt; ------------------------------------------------------
+&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s1"&gt;'Job is running on nodes'&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; cat &lt;span class="nv"&gt;$PBS_NODEFILE&lt;/span&gt;
+&lt;span class="nb"&gt;echo&lt;/span&gt; ------------------------------------------------------
+&lt;span class="nb"&gt;echo&lt;/span&gt; PBS: qsub is running on &lt;span class="nv"&gt;$PBS_O_HOST&lt;/span&gt;
+&lt;span class="nb"&gt;echo&lt;/span&gt; PBS: originating queue is &lt;span class="nv"&gt;$PBS_O_QUEUE&lt;/span&gt;
+&lt;span class="nb"&gt;echo&lt;/span&gt; PBS: executing queue is &lt;span class="nv"&gt;$PBS_QUEUE&lt;/span&gt;
+&lt;span class="nb"&gt;echo&lt;/span&gt; PBS: working directory is &lt;span class="nv"&gt;$PBS_O_WORKDIR&lt;/span&gt;
+&lt;span class="nb"&gt;echo&lt;/span&gt; PBS: execution mode is &lt;span class="nv"&gt;$PBS_ENVIRONMENT&lt;/span&gt;
+&lt;span class="nb"&gt;echo&lt;/span&gt; PBS: job identifier is &lt;span class="nv"&gt;$PBS_JOBID&lt;/span&gt;
+&lt;span class="nb"&gt;echo&lt;/span&gt; PBS: job name is &lt;span class="nv"&gt;$PBS_JOBNAME&lt;/span&gt;
+&lt;span class="nb"&gt;echo&lt;/span&gt; PBS: node file is &lt;span class="nv"&gt;$PBS_NODEFILE&lt;/span&gt;
+&lt;span class="nb"&gt;echo&lt;/span&gt; PBS: current home directory is &lt;span class="nv"&gt;$PBS_O_HOME&lt;/span&gt;
+&lt;span class="nb"&gt;echo&lt;/span&gt; PBS: &lt;span class="nv"&gt;PATH&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;$PBS_O_PATH&lt;/span&gt;
+&lt;span class="nb"&gt;echo&lt;/span&gt; ------------------------------------------------------
+
+&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;ANKUR&amp;gt;&amp;gt; Begun at &lt;/span&gt;&lt;span class="nv"&gt;$SIM_TIME&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;ANKUR&amp;gt;&amp;gt; Script: &lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;0&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+
+mkdir -pv &lt;span class="nv"&gt;$RESULT_PATH&lt;/span&gt;
+&lt;span class="nb"&gt;cd&lt;/span&gt; &lt;span class="nv"&gt;$RESULT_PATH&lt;/span&gt;
+
+/usr/local/bin/mpiexec -n &lt;span class="nv"&gt;$NUM_NODES&lt;/span&gt; python &lt;span class="nv"&gt;$PROGRAM_PATH&lt;/span&gt;
+
+&lt;span class="nv"&gt;END_TIME&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;date +%Y%m%d%H%M&lt;span class="k"&gt;)&lt;/span&gt;
+&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;ANKUR&amp;gt;&amp;gt; Ended at &lt;/span&gt;&lt;span class="nv"&gt;$END_TIME&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+&lt;/pre&gt;
+&lt;p&gt;It sets up the required PBS options, then loads the MPI module I wish to use. It creates a directory where my simulation's results will be stored, enters it, and then uses &lt;code&gt;mpiexec&lt;/code&gt; to run my Python program.&lt;/p&gt;
+&lt;p&gt;The second script is a wrapper that clones the required commit, sets up the correct paths in the above script and the calls &lt;code&gt;qsub&lt;/code&gt;:&lt;/p&gt;
+&lt;pre class="code bash literal-block"&gt;
+&lt;span class="c1"&gt;# File: setup-job.sh
+&lt;/span&gt;
+&lt;span class="nv"&gt;SOURCE_PATH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;/home/asinha/Documents/02_Code/00_repos/00_mine/Sinha2016/&amp;quot;&lt;/span&gt;
+&lt;span class="nv"&gt;GIT_COMMIT&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&amp;quot;&lt;/span&gt;
+&lt;span class="nv"&gt;SIM_PATH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;/stri-data/asinha/simulations-nest/&amp;quot;&lt;/span&gt;
+&lt;span class="nv"&gt;SIM_TIME&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;date +%Y%m%d%H%M&lt;span class="k"&gt;)&lt;/span&gt;
+&lt;span class="nv"&gt;RUN_SCRIPT&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;scripts/cluster/nest-runsim.sh&amp;quot;&lt;/span&gt;
+&lt;span class="nv"&gt;RUN_NEW&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&amp;quot;&lt;/span&gt;
+&lt;span class="nv"&gt;ERROR&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;no&amp;quot;&lt;/span&gt;
+&lt;span class="nv"&gt;NUM_NODES&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;50&lt;/span&gt;
+&lt;span class="nv"&gt;CUR_SIM_PATH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&amp;quot;&lt;/span&gt;
+
+&lt;span class="k"&gt;function&lt;/span&gt; queue_task
+&lt;span class="o"&gt;{&lt;/span&gt;
+    &lt;span class="nb"&gt;pushd&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$CUR_SIM_PATH&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+        qsub &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$RUN_NEW&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+    &lt;span class="nb"&gt;popd&lt;/span&gt;
+&lt;span class="o"&gt;}&lt;/span&gt;
+
+&lt;span class="k"&gt;function&lt;/span&gt; setup_env
+&lt;span class="o"&gt;{&lt;/span&gt;
+    &lt;span class="nv"&gt;CUR_SIM_PATH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$SIM_PATH&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$SIM_TIME&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+    &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;This simulation will run in: &lt;/span&gt;&lt;span class="nv"&gt;$CUR_SIM_PATH&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+    mkdir -pv &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$CUR_SIM_PATH&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+
+    &lt;span class="nb"&gt;pushd&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$CUR_SIM_PATH&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+        &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Cloning source repository...&amp;quot;&lt;/span&gt;
+        git clone &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$SOURCE_PATH&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Sinha2016&amp;quot;&lt;/span&gt;
+
+        &lt;span class="nb"&gt;pushd&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Sinha2016&amp;quot;&lt;/span&gt;
+            &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Checking out commit &lt;/span&gt;&lt;span class="nv"&gt;$GIT_COMMIT&lt;/span&gt;&lt;span class="s2"&gt;...&amp;quot;&lt;/span&gt;
+            git checkout -b this_sim &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$GIT_COMMIT&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+            &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="o"&gt;[&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$?&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; -ne &lt;span class="m"&gt;0&lt;/span&gt; &lt;span class="o"&gt;]&lt;/span&gt;
+            &lt;span class="k"&gt;then&lt;/span&gt;
+                &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Error occured. Could not checkout &lt;/span&gt;&lt;span class="nv"&gt;$GIT_COMMIT&lt;/span&gt;&lt;span class="s2"&gt;. Exiting...&amp;quot;&lt;/span&gt;
+                &lt;span class="nv"&gt;ERROR&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;yes&amp;quot;&lt;/span&gt;
+            &lt;span class="k"&gt;fi&lt;/span&gt;
+        &lt;span class="nb"&gt;popd&lt;/span&gt;
+
+        &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="o"&gt;[&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;xyes&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt;  x&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$ERROR&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;]&lt;/span&gt;
+        &lt;span class="k"&gt;then&lt;/span&gt;
+            &lt;span class="nb"&gt;exit&lt;/span&gt; -1
+        &lt;span class="k"&gt;fi&lt;/span&gt;
+
+        &lt;span class="nv"&gt;RUN_NEW&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;nest_&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$GIT_COMMIT&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&amp;quot;.sh&amp;quot;&lt;/span&gt;
+        &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Setting up &lt;/span&gt;&lt;span class="nv"&gt;$RUN_NEW&lt;/span&gt;&lt;span class="s2"&gt;...&amp;quot;&lt;/span&gt;
+        cp &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$SOURCE_PATH&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$RUN_SCRIPT&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$RUN_NEW&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; -v
+        sed -i &lt;span class="s2"&gt;&amp;quot;s|nest_v_s|nest_&lt;/span&gt;&lt;span class="nv"&gt;$GIT_COMMIT&lt;/span&gt;&lt;span class="s2"&gt;|&amp;quot;&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$RUN_NEW&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+        sed -i &lt;span class="s2"&gt;&amp;quot;s|nodes=.*|nodes=&lt;/span&gt;&lt;span class="nv"&gt;$NUM_NODES&lt;/span&gt;&lt;span class="s2"&gt;|&amp;quot;&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$RUN_NEW&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+        sed -i &lt;span class="s2"&gt;&amp;quot;s|NUM_NODES=.*|NUM_NODES=&lt;/span&gt;&lt;span class="nv"&gt;$NUM_NODES&lt;/span&gt;&lt;span class="s2"&gt;|&amp;quot;&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$RUN_NEW&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+        sed -i &lt;span class="s2"&gt;&amp;quot;s|SIM_TIME=.*|SIM_TIME=&lt;/span&gt;&lt;span class="nv"&gt;$SIM_TIME&lt;/span&gt;&lt;span class="s2"&gt;|&amp;quot;&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$RUN_NEW&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+    &lt;span class="nb"&gt;popd&lt;/span&gt;
+&lt;span class="o"&gt;}&lt;/span&gt;
+
+&lt;span class="k"&gt;function&lt;/span&gt; usage
+&lt;span class="o"&gt;{&lt;/span&gt;
+    &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Usage: &lt;/span&gt;&lt;span class="nv"&gt;$0&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+    &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Queue up a job to run a particular git commit&amp;quot;&lt;/span&gt;
+    &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$0&lt;/span&gt;&lt;span class="s2"&gt; &amp;lt;git_commit&amp;gt; &amp;lt;number_nodes&amp;gt;&amp;quot;&lt;/span&gt;
+&lt;span class="o"&gt;}&lt;/span&gt;
+
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="o"&gt;[&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$#&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; -ne &lt;span class="m"&gt;2&lt;/span&gt; &lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="k"&gt;then&lt;/span&gt;
+    &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Error occurred. Exiting...&amp;quot;&lt;/span&gt;
+    &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Received &lt;/span&gt;&lt;span class="nv"&gt;$#&lt;/span&gt;&lt;span class="s2"&gt; arguments. Expected: 3&amp;quot;&lt;/span&gt;
+    usage
+    &lt;span class="nb"&gt;exit&lt;/span&gt; -1
+&lt;span class="k"&gt;fi&lt;/span&gt;
+
+&lt;span class="nv"&gt;GIT_COMMIT&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$1&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+&lt;span class="nv"&gt;NUM_NODES&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$2&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+setup_env
+queue_task
+
+&lt;span class="nb"&gt;exit&lt;/span&gt; &lt;span class="m"&gt;0&lt;/span&gt;
+&lt;/pre&gt;
+&lt;p&gt;This takes two arguments, as the &lt;code&gt;usage&lt;/code&gt; function will tell you. The first argument is the commit you want to run the simulation for, and the second is the number of nodes you want to use. It'll clone your repository to a temporary location and checkout this specified commit. Then, it'll modify the first script &lt;code&gt;run-sim.sh&lt;/code&gt; to set up the correct path to the code and also correctly specify the number of nodes you'd want to request. Finally, once all this is done, it'll call &lt;code&gt;qsub run-sim.sh&lt;/code&gt; to queue up your job. I use unique date stamps as directory names to distinguish between simulation runs, but you can use another unique identifier.&lt;/p&gt;
+&lt;p&gt;Now, this copy of your code, at the specified commit will be used for the job you've queued. You can merrily go about tinkering with the main source repo without affecting queued up jobs. Yay!&lt;/p&gt;
+&lt;p&gt;Even though I've used Python here, you can use similar scripts for compiled languages. You'll simply have to compile your executable after you checkout the required commit.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="other-miscellaneous-stuff"&gt;
+&lt;h2&gt;Other miscellaneous stuff&lt;/h2&gt;
+&lt;p&gt;My lab mate, Alex, recently introduced me to &lt;a class="reference external" href="https://www.continuum.io/downloads"&gt;Anaconda&lt;/a&gt;. It's a great tool for that lets you install packages in your user specific directory. It contains quite a few python and other related packages. No need to use &lt;code&gt;sudo&lt;/code&gt; with it, and you can use &lt;code&gt;pip&lt;/code&gt; etc. with it too. It even lets you set up virtual environments and things.&lt;/p&gt;
+&lt;p&gt;I think that's it for today. I'll update the post with other things I find/learn as I continue my adventures with the cluster.&lt;/p&gt;
+&lt;/div&gt;
+</content><category term="Bash"></category><category term="Computational neuroscience"></category><category term="Git"></category><category term="Linux"></category><category term="NEST"></category><category term="Programming"></category><category term="Fedora"></category></entry><entry><title>sli.vim - syntax file for the NEST simulator's SLI language</title><link href="http://ankursinha.in/2016/03/02/sli-vim-syntax-file-for-the-nest-simulators-sli-language.html" rel="alternate"></link><published>2016-03-02T10:53:58+00:00</published><updated>2016-03-02T10:53:58+00:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2016-03-02:/2016/03/02/sli-vim-syntax-file-for-the-nest-simulators-sli-language.html</id><summary type="html">&lt;p class="first last"&gt;I've hacked up a syntax file for &lt;a class="reference external" href="http://nest-simulator.org"&gt;NEST&lt;/a&gt;'s &lt;a class="reference external" href="http://www.nest-simulator.org/quickref/"&gt;SLI&lt;/a&gt; simulation language. It is by no means complete, but it already makes reading and writing SLI a lot easier.&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;I've been reading some of &lt;a class="reference external" href="http://nest-simulator.org"&gt;NEST&lt;/a&gt;'s &lt;a class="reference external" href="http://www.nest-simulator.org/quickref/"&gt;SLI&lt;/a&gt; examples to understand the simulation better. I noticed that these files had no syntax highlighting at all which made the code difficult to read. I couldn't find a syntax highlighting file for Vim anywhere so I've begun writing my own. It isn't complete, and I'm sure it's buggy, but it already seems to make reading and writing SLI easier. Here's what it makes an SLI file look like:&lt;/p&gt;
+&lt;a class="reference external image-reference" href="http://ankursinha.in/images/20160302-sli-vim.png"&gt;&lt;img alt="Screenshot showing SLI syntax highlighting in Vim" class="align-center" src="http://ankursinha.in/images/20160302-sli-vim.png" style="width: 500px;" /&gt;&lt;/a&gt;
+&lt;div class="section" id="installation"&gt;
+&lt;h2&gt;Installation&lt;/h2&gt;
+&lt;p&gt;It's just a syntax file. You can drop it in &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;~/.vim/syntax/&lt;/span&gt;&lt;/tt&gt; directory (on Linux) or you can use &lt;a class="reference external" href="https://github.com/tpope/vim-pathogen"&gt;pathogen&lt;/a&gt; and just clone the repository and so on. Once done, add this to your &lt;tt class="docutils literal"&gt;vimrc&lt;/tt&gt; file:&lt;/p&gt;
+&lt;pre class="code vim literal-block"&gt;
+&lt;span class="k"&gt;au&lt;/span&gt; &lt;span class="nb"&gt;BufRead&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="nb"&gt;BufNewFile&lt;/span&gt; *.sli &lt;span class="k"&gt;set&lt;/span&gt; &lt;span class="k"&gt;filetype&lt;/span&gt;&lt;span class="p"&gt;=&lt;/span&gt;sli
+&lt;span class="k"&gt;au&lt;/span&gt; &lt;span class="nb"&gt;FileType&lt;/span&gt; sli &lt;span class="k"&gt;setl&lt;/span&gt; &lt;span class="nb"&gt;foldenable&lt;/span&gt; &lt;span class="nb"&gt;foldmethod&lt;/span&gt;&lt;span class="p"&gt;=&lt;/span&gt;&lt;span class="nb"&gt;syntax&lt;/span&gt;
+&lt;/pre&gt;
+&lt;p&gt;The file is &lt;a class="reference external" href="https://github.com/sanjayankur31/sli.vim"&gt;hosted on Github&lt;/a&gt;. Feel free to open issues, or even better, pull requests ;)&lt;/p&gt;
+&lt;/div&gt;
+</content><category term="Computational neuroscience"></category><category term="Fedora"></category><category term="Programming"></category><category term="Vim"></category><category term="NEST"></category><category term="sli-vim"></category></entry></feed>

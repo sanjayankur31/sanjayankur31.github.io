@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>ankursinha.in/blog - Music</title><link href="http://ankursinha.in/" rel="alternate"></link><link href="http://ankursinha.in//feeds/tags/music.atom.xml" rel="self"></link><id>http://ankursinha.in/</id><updated>2011-10-31T12:32:00+00:00</updated><entry><title>The experience that was Metallica</title><link href="http://ankursinha.in/2011/10/31/the-experience-that-was-metallica.html" rel="alternate"></link><published>2011-10-31T12:32:00+00:00</published><updated>2011-10-31T12:32:00+00:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2011-10-31:/2011/10/31/the-experience-that-was-metallica.html</id><summary type="html">&lt;p&gt;Can't walk, can't speak, neck gone stiff, yes, helluva concert last
+night! My first concert! If only hair metal came down to Bangalore!&lt;/p&gt;
+&lt;p&gt;m/&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;Can't walk, can't speak, neck gone stiff, yes, helluva concert last
+night! My first concert! If only hair metal came down to Bangalore!&lt;/p&gt;
+&lt;p&gt;m/&lt;/p&gt;
+</content><category term="Music"></category></entry><entry><title>mpdE (0.0.2 release): A daemon that picks the currently playing song from mpd and sets it as your Empathy status</title><link href="http://ankursinha.in/2011/09/03/mpde-0-0-2-release-a-daemon-that-picks-the-currently-playing-song-from-mpd-and-sets-it-as-your-empathy-status.html" rel="alternate"></link><published>2011-09-03T10:49:00+01:00</published><updated>2011-09-03T10:49:00+01:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2011-09-03:/2011/09/03/mpde-0-0-2-release-a-daemon-that-picks-the-currently-playing-song-from-mpd-and-sets-it-as-your-empathy-status.html</id><summary type="html">&lt;p&gt;I use &lt;a class="reference external" href="http://live.gnome.org/Empathy"&gt;Empathy&lt;/a&gt;. I also use &lt;a class="reference external" href="http://mpd.wikia.com/wiki/Music_Player_Daemon_Wiki"&gt;mpd&lt;/a&gt;. Now, the players I used earlier,
+they'd have a convenient plugin that sent &amp;quot;Now playing&amp;quot; to Empathy. I
+hadn't found one for mpd yet, so in true FOSS spirit, I jumped into it
+and decided to write my own. I'm not particularly a …&lt;/p&gt;</summary><content type="html">&lt;p&gt;I use &lt;a class="reference external" href="http://live.gnome.org/Empathy"&gt;Empathy&lt;/a&gt;. I also use &lt;a class="reference external" href="http://mpd.wikia.com/wiki/Music_Player_Daemon_Wiki"&gt;mpd&lt;/a&gt;. Now, the players I used earlier,
+they'd have a convenient plugin that sent &amp;quot;Now playing&amp;quot; to Empathy. I
+hadn't found one for mpd yet, so in true FOSS spirit, I jumped into it
+and decided to write my own. I'm not particularly a fan of sending my
+&amp;quot;Now Playing&amp;quot; to the world, but I just like to know that it can be done,
+even if I'm on mpd.&lt;/p&gt;
+&lt;p&gt;One can checkout the 0.0.2 release from &lt;a class="reference external" href="https://gitorious.org/mpde"&gt;gitorious&lt;/a&gt; using the following
+command. To compile it, one needs libmpd-devel and telepathy-glib-devel.
+Building it is as simple as ../configure &amp;amp;&amp;amp; make.&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+git clone git://gitorious.org/mpde/mpde.git
+&lt;/pre&gt;
+&lt;p&gt;I'd like to warn you, that this is a &amp;quot;just works&amp;quot; release. I need to
+work a lot more on this. Please have a look at the TODO file for
+information. Please send any bugs/feature requests to the emails listed
+in the AUTHORS file.&lt;/p&gt;
+</content><category term="Linux"></category><category term="Music"></category></entry><entry><title>Amarok + missing Global shortcuts..</title><link href="http://ankursinha.in/2009/02/15/amarok-missing-global-shortcuts.html" rel="alternate"></link><published>2009-02-15T08:40:00+00:00</published><updated>2009-02-15T08:40:00+00:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2009-02-15:/2009/02/15/amarok-missing-global-shortcuts.html</id><summary type="html">&lt;p&gt;Just updated my system today. All Amarok global shortcuts just stopped
+working. And I can't set them.&lt;/p&gt;
+&lt;p&gt;This is what I get :&lt;/p&gt;
+&lt;p&gt;&lt;img alt="1" src="http://dodoincfedora.files.wordpress.com/2009/02/1.png" /&gt;&lt;/p&gt;
+&lt;p&gt;Now what do we do?? :(&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;Just updated my system today. All Amarok global shortcuts just stopped
+working. And I can't set them.&lt;/p&gt;
+&lt;p&gt;This is what I get :&lt;/p&gt;
+&lt;p&gt;&lt;img alt="1" src="http://dodoincfedora.files.wordpress.com/2009/02/1.png" /&gt;&lt;/p&gt;
+&lt;p&gt;Now what do we do?? :(&lt;/p&gt;
+</content><category term="Linux"></category><category term="Music"></category></entry></feed>

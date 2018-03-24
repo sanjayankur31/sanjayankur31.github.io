@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0"><channel><title>ankursinha.in/blog - Robotics</title><link>http://ankursinha.in/</link><description>neuroscience/fedora/musings</description><lastBuildDate>Wed, 25 Jun 2014 08:38:00 +0100</lastBuildDate><item><title>Released the code I wrote for my masters research</title><link>http://ankursinha.in/2014/06/25/released-the-code-i-wrote-for-my-masters-research.html</link><description>&lt;p class="first last"&gt;The code I wrote for my masters research is now available on my Github account.&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">ankur</dc:creator><pubDate>Wed, 25 Jun 2014 08:38:00 +0100</pubDate><guid isPermaLink="false">tag:ankursinha.in,2014-06-25:/2014/06/25/released-the-code-i-wrote-for-my-masters-research.html</guid><category>Computational neuroscience</category><category>Robotics</category></item><item><title>Extracting raw data from ros topics</title><link>http://ankursinha.in/2013/04/07/extracting-raw-data-from-ros-topics.html</link><description>&lt;p&gt;Recently, I needed to extract raw data that we had collected from the
+&lt;a class="reference external" href="http://www.willowgarage.com/pages/pr2/overview"&gt;PR2&lt;/a&gt; robot. It's easy to collect data from &lt;a class="reference external" href="http://www.ros.org/wiki/Topics"&gt;topics&lt;/a&gt;, using the
+&lt;a class="reference external" href="http://www.ros.org/wiki/rosbag"&gt;rosbag&lt;/a&gt; tool. You can collect data from multiple topics in one bag at
+a time.&lt;/p&gt;
+&lt;p&gt;Here's an example command that collects data from the robot:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+rosbag …&lt;/pre&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">ankur</dc:creator><pubDate>Sun, 07 Apr 2013 15:22:00 +0100</pubDate><guid isPermaLink="false">tag:ankursinha.in,2013-04-07:/2013/04/07/extracting-raw-data-from-ros-topics.html</guid><category>Robotics</category></item><item><title>ROS groovy on Fedora 18</title><link>http://ankursinha.in/2013/03/28/ros-groovy-on-fedora-18.html</link><description>&lt;p&gt;&lt;a class="reference external" href="http://ankursinha.in/wp/wp-content/uploads/2013/03/ros-groovy.png"&gt;&lt;img alt="ros-groovy" src="http://ankursinha.in/wp/wp-content/uploads/2013/03/ros-groovy.png?w=300" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;div class="section" id="ros-what-is-ros"&gt;
+&lt;h2&gt;ROS? What is ROS?&lt;/h2&gt;
+&lt;p&gt;ROS is the &lt;a class="reference external" href="http://www.ros.org/"&gt;Robot Operating System&lt;/a&gt;. It provides a huge set of software
+that can be used to robotics research. It provides simulators,
+algorithms and well, a lot more. For example, it lets one interface with
+the &lt;a class="reference external" href="http://www.willowgarage.com/pages/pr2/overview"&gt;PR2 robot&lt;/a&gt;!&lt;/p&gt;
+&lt;p&gt;I've only learnt of ROS now, during …&lt;/p&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">ankur</dc:creator><pubDate>Thu, 28 Mar 2013 04:33:00 +0000</pubDate><guid isPermaLink="false">tag:ankursinha.in,2013-03-28:/2013/03/28/ros-groovy-on-fedora-18.html</guid><category>Robotics</category></item></channel></rss>
