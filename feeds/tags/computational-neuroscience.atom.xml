@@ -1,5 +1,263 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>ankursinha.in/blog - Computational neuroscience</title><link href="http://ankursinha.in/" rel="alternate"></link><link href="http://ankursinha.in/feeds/tags/computational-neuroscience.atom.xml" rel="self"></link><id>http://ankursinha.in/</id><updated>2017-07-12T13:55:17+01:00</updated><entry><title>Bringing together Gitter, IRC, and Slack channels in one place on Riot</title><link href="http://ankursinha.in/2017/07/12/bringing-together-gitter-irc-and-slack-channels-in-one-place-on-riot.html" rel="alternate"></link><published>2017-07-12T13:55:17+01:00</published><updated>2017-07-12T13:55:17+01:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2017-07-12:/2017/07/12/bringing-together-gitter-irc-and-slack-channels-in-one-place-on-riot.html</id><summary type="html">&lt;p class="first last"&gt;Different teams use different platforms to communicate within themselves. When teams on different communication platforms want to collaborate, though - there's a bit of an issue. In this post, I document how one can setup channels on various platforms (&lt;a class="reference external" href="https://slack.com"&gt;Slack&lt;/a&gt;, &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Internet_Relay_Chat"&gt;IRC&lt;/a&gt;, &lt;a class="reference external" href="https://gitter.im"&gt;Gitter&lt;/a&gt;) and bring them all together on &lt;a class="reference external" href="https://riot.im"&gt;Riot&lt;/a&gt;.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>ankursinha.in/blog - Computational neuroscience</title><link href="http://ankursinha.in/" rel="alternate"></link><link href="http://ankursinha.in/feeds/tags/computational-neuroscience.atom.xml" rel="self"></link><id>http://ankursinha.in/</id><updated>2018-05-12T20:53:25+01:00</updated><entry><title>Testing out Sumatra: a tool for managing iterations of simulations/analyses</title><link href="http://ankursinha.in/2018/05/12/testing-out-sumatra-a-tool-for-managing-iterations-of-simulations-analyses.html" rel="alternate"></link><published>2018-05-12T20:53:25+01:00</published><updated>2018-05-12T20:53:25+01:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2018-05-12:/2018/05/12/testing-out-sumatra-a-tool-for-managing-iterations-of-simulations-analyses.html</id><summary type="html">&lt;p class="first last"&gt;When working on projects that require multiple iterations of
+simulations and/or analyses, it's really quite hard to keep track of
+the changes one makes and how the results vary. &lt;a class="reference external" href="http://neuralensemble.org/sumatra/"&gt;Sumatra&lt;/a&gt; is a tool
+that is developed to help researchers manage such projects.&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;In the ~4 years that I've spent on my PhD now, I've run hundreds, nay,
+thousands of simulations. Research work is incredibly iterative. I (and I
+assume others too) make small changes to their methods and then study how these
+changes produce different results, and this cycle continues until a
+proposed hypothesis has either been accepted or refuted (or a completely new
+insight gained, which happens quite often too!).&lt;/p&gt;
+&lt;div class="section" id="folders-and-dropbox-please-no"&gt;
+&lt;h2&gt;Folders, and Dropbox? Please, no.&lt;/h2&gt;
+&lt;p&gt;Keeping track of all these iterations is quite a task. I've seen multiple
+methods that people use to do this. A popular method is to make a different
+folder for each different version of code, and then use something like Dropbox
+to store them all.&lt;/p&gt;
+&lt;p&gt;Since I come from a computing background, I firmly believe that this is not a
+good way of going about it. It may work for folks---people I know and work with
+use this method---but it is simply a bad way of going about it. This &lt;a class="reference external" href="http://phdcomics.com/"&gt;PhDComic&lt;/a&gt;
+does a rather good job of showing an example situation. Sure, this is about a
+document, but when source code is kept in different folders, a similar
+situation arises. You get the idea.&lt;/p&gt;
+&lt;a class="reference external image-reference" href="http://phdcomics.com/comics/archive.php?comicid=1531"&gt;&lt;img alt="PhDComic!" class="text-center img-responsive pagination-centered" src="http://www.phdcomics.com/comics/archive/phd101212s.gif" style="width: 80%;" /&gt;&lt;/a&gt;
+&lt;/div&gt;
+&lt;div class="section" id="version-control-yes"&gt;
+&lt;h2&gt;Version control, YES!&lt;/h2&gt;
+&lt;p&gt;If there weren't tools designed to track and manage such projects, one could
+still argue for using such methods, but the truth is that there is a plethora
+of &lt;a class="reference external" href="https://en.wikipedia.org/wiki/List_of_version_control_software"&gt;version control tools&lt;/a&gt; available
+under &lt;a class="reference external" href="https://www.gnu.org/philosophy/free-sw.en.html"&gt;Free/Open Source&lt;/a&gt; licenses. Not only do these tools manage projects,
+they also make collaborating over source code simple.&lt;/p&gt;
+&lt;p&gt;All my simulation code, for example, lives in a &lt;a class="reference external" href="https://git-scm.com/"&gt;Git&lt;/a&gt; repository (which will be
+made available under a &lt;a class="reference external" href="https://www.gnu.org/philosophy/free-sw.en.html"&gt;Free/Open source&lt;/a&gt; license as soon as my paper goes out
+to ensure that others can read, verify, and build on it). The support scripts
+that I use to set up simulations and then analyse the data they produce already
+live &lt;a class="reference external" href="https://github.com/sanjayankur31/Sinha2016-scripts"&gt;here on GitHub&lt;/a&gt;,
+for example. Please go ahead and use them if they fit your purpose.&lt;/p&gt;
+&lt;p&gt;I have different &lt;a class="reference external" href="https://git-scm.com/"&gt;Git&lt;/a&gt; branches for different features that I add to the
+simulations---the different hypothesis that I'm testing out. I also keep a
+rather meticulous record of everything I do in a research journal in &lt;a class="reference external" href="https://www.latex-project.org/"&gt;LaTeX&lt;/a&gt; that
+also lives in a &lt;a class="reference external" href="https://git-scm.com/"&gt;Git&lt;/a&gt; repository, and uses &lt;a class="reference external" href="https://github.com/sanjayankur31/calliope"&gt;Calliope&lt;/a&gt; (a simple helper script to
+manage various journaling tasks). Everything goes in here---graphs, images,
+sometimes patches and source code even, and the deductions and other
+comments/thoughts too.&lt;/p&gt;
+&lt;p&gt;My rather simple system is as follows:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Each new feature/hypothesis gets its own &lt;a class="reference external" href="https://git-scm.com/"&gt;Git&lt;/a&gt; branch.&lt;/li&gt;
+&lt;li&gt;Each version of its implementation, therefore, gets its own unique &lt;a class="reference external" href="https://github.com/sanjayankur31/Sinha2016-scripts/blob/master/runners/stri-cluster/start-nest-job.sh#L93"&gt;commit&lt;/a&gt;
+(a snapshot of code that &lt;a class="reference external" href="https://git-scm.com/"&gt;Git&lt;/a&gt; saves for the user with a unique identifier and
+a complete record of the changes that were made to the project, when they
+were made and so on.)&lt;/li&gt;
+&lt;li&gt;For each run of a snapshot, the generated data is stored in a folder that is
+named &lt;a class="reference external" href="https://github.com/sanjayankur31/Sinha2016-scripts/blob/master/runners/stri-cluster/start-nest-job.sh#L27"&gt;YYYYMMDDHHMM (Year, month, day, time)&lt;/a&gt;,
+which, unless you figure out how to go back in time, is also unique.&lt;/li&gt;
+&lt;li&gt;The commit hash + YYYYMMDD become a unique identifier for each code snapshot
+and the results that it generated.&lt;/li&gt;
+&lt;li&gt;A new chapter in my research journal holds a summary of the simulation, and
+all the analysis that I do. I even name the chapter &amp;quot;git-hash/YYYYMMDDHHMM&amp;quot;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;a class="reference external image-reference" href="https://xkcd.com/1597/"&gt;&lt;img alt="XKCD on Git." class="text-center img-responsive pagination-centered" src="https://imgs.xkcd.com/comics/git.png" style="width: 50%;" /&gt;&lt;/a&gt;
+&lt;p&gt;I know that learning a version control system has a steep initial curve, but I
+really do think that this is one tool that is well worth the time.&lt;/p&gt;
+&lt;p&gt;Using a version control system has many advantages, some of which are:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;It lets you keep the full history of your source code, and go back to any
+previous version.&lt;/li&gt;
+&lt;li&gt;You know exactly what you changed between two snapshots.&lt;/li&gt;
+&lt;li&gt;If multiple people work on the code, everyone knows exactly who authored
+what.&lt;/li&gt;
+&lt;li&gt;These tools make changing code, trying out things, and so on, very very easy.
+Try something out in a different branch, if it worked, yay, keep the branch
+running; maybe even merge it to the main branch? If it didn't make a note,
+delete the branch, and move on!&lt;/li&gt;
+&lt;li&gt;With services like &lt;a class="reference external" href="https://github.com"&gt;GitHub&lt;/a&gt;, &lt;a class="reference external" href="https://bitbucket.org"&gt;BitBucket&lt;/a&gt;, and &lt;a class="reference external" href="https://gitlab.com"&gt;GitLab&lt;/a&gt;, collaboration becomes
+really easy.&lt;/li&gt;
+&lt;li&gt;Ah, and note, that every collaborator has a copy of the source code, so it
+has been backed up too! Even if you work alone, there's always another copy
+on &lt;a class="reference external" href="https://github.com"&gt;GitHub&lt;/a&gt; (or whatever service you use).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Here's a quick beginners guide to using &lt;a class="reference external" href="https://git-scm.com/"&gt;Git&lt;/a&gt; and &lt;a class="reference external" href="https://github.com"&gt;GitHub&lt;/a&gt;:
+&lt;a class="reference external" href="http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004668"&gt;http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004668&lt;/a&gt;
+There are many more all over the WWW, of course. &lt;a class="reference external" href="https://duckduckgo.com"&gt;Duckduckgo&lt;/a&gt; is your friend.
+(&lt;a class="reference external" href="http://qr.ae/TU1wA9"&gt;Why Duckduckgo and not Google?&lt;/a&gt;)&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="what-s-sumatra-about-then"&gt;
+&lt;h2&gt;What's Sumatra about, then?&lt;/h2&gt;
+&lt;a class="reference external image-reference" href="http://neuralensemble.org/static/photos/sumatra_logo.png"&gt;&lt;img alt="Sumatra: a tool to manage and track simulation runs." class="text-center img-responsive pagination-centered" src="http://neuralensemble.org/static/photos/sumatra_logo.png" style="width: 30%;" /&gt;&lt;/a&gt;
+&lt;p&gt;I've been meaning to try &lt;a class="reference external" href="http://neuralensemble.org/sumatra/"&gt;Sumatra&lt;/a&gt; out for a while now. What &lt;a class="reference external" href="http://neuralensemble.org/sumatra/"&gt;Sumatra&lt;/a&gt; does is
+sort of bring the functions of all my scripts together into one well-designed
+tool.  &lt;a class="reference external" href="http://neuralensemble.org/sumatra/"&gt;Sumatra&lt;/a&gt; can do the running bit, then save the generated data in a
+unique location, and it even lets users add comments about the simulation.
+&lt;a class="reference external" href="http://neuralensemble.org/sumatra/"&gt;Sumatra&lt;/a&gt; even has a web based front end for those that would prefer a graphical
+interface instead of the command line.  Lastly, &lt;a class="reference external" href="http://neuralensemble.org/sumatra/"&gt;Sumatra&lt;/a&gt; is written in &lt;a class="reference external" href="https://python.org"&gt;Python&lt;/a&gt;,
+so it works on pretty much all systems. Note that &lt;a class="reference external" href="http://neuralensemble.org/sumatra/"&gt;Sumatra&lt;/a&gt; forces the use of a
+version control system (from what I've seen yet).&lt;/p&gt;
+&lt;div class="section" id="a-quick-walk-through"&gt;
+&lt;h3&gt;A quick walk-through&lt;/h3&gt;
+&lt;p&gt;The &lt;a class="reference external" href="http://sumatra.readthedocs.io/en/0.7.4/index.html"&gt;documentation&lt;/a&gt;
+contains all of this already, but I'll show the steps here too. I used a &lt;a class="reference external" href="https://github.com/sanjayankur31/sumatra-nest-cluster-test"&gt;dummy
+repository&lt;/a&gt; to
+test it out.&lt;/p&gt;
+&lt;p&gt;Installing &lt;a class="reference external" href="http://neuralensemble.org/sumatra/"&gt;Sumatra&lt;/a&gt; is as easy as a &lt;a class="reference external" href="https://docs.python.org/3/installing/index.html"&gt;pip&lt;/a&gt; command. I would suggest setting up a
+&lt;a class="reference external" href="https://docs.python.org/3/library/venv.html"&gt;virtual-environment&lt;/a&gt;, though:&lt;/p&gt;
+&lt;pre class="code bash literal-block"&gt;
+python3 -m venv --system-site-packages sumatra-virtual
+&lt;/pre&gt;
+&lt;p&gt;We then activate the virtual-environment, and install &lt;a class="reference external" href="http://neuralensemble.org/sumatra/"&gt;Sumatra&lt;/a&gt;:&lt;/p&gt;
+&lt;pre class="code bash literal-block"&gt;
+&lt;span class="nb"&gt;source&lt;/span&gt; sumatra-virtual/bin/activate
+pip install sumatra
+&lt;/pre&gt;
+&lt;p&gt;Once it finishes installing, simply mark a version controlled source
+repository as managed by &lt;a class="reference external" href="http://neuralensemble.org/sumatra/"&gt;Sumatra&lt;/a&gt;:&lt;/p&gt;
+&lt;pre class="code bash literal-block"&gt;
+&lt;span class="nb"&gt;cd&lt;/span&gt; my-awesome-project
+smt init my-awesome-project
+&lt;/pre&gt;
+&lt;p&gt;Then, one can see the information that &lt;a class="reference external" href="http://neuralensemble.org/sumatra/"&gt;Sumatra&lt;/a&gt; has on the project, for
+example:&lt;/p&gt;
+&lt;pre class="code bash literal-block"&gt;
+smt info
+Project name        : test-repo
+Default executable  : Python &lt;span class="o"&gt;(&lt;/span&gt;version: &lt;span class="m"&gt;3&lt;/span&gt;.6.5&lt;span class="o"&gt;)&lt;/span&gt; at /home/asinha/dump/sumatra-virt/bin/python3
+Default repository  : GitRepository at /home/asinha/Documents/02_Code/00_repos/00_mine/sumatra-nest-cluster-test &lt;span class="o"&gt;(&lt;/span&gt;upstream: git&amp;#64;github.com:sanjayankur31/sumatra-nest-cluster-test.git&lt;span class="o"&gt;)&lt;/span&gt;
+Default main file   : test.py
+Default launch mode : serial
+Data store &lt;span class="o"&gt;(&lt;/span&gt;output&lt;span class="o"&gt;)&lt;/span&gt; : /home/asinha/Documents/02_Code/00_repos/00_mine/sumatra-nest-cluster-test/Data
+.          &lt;span class="o"&gt;(&lt;/span&gt;input&lt;span class="o"&gt;)&lt;/span&gt;  : /
+Record store        : Django &lt;span class="o"&gt;(&lt;/span&gt;/home/asinha/Documents/02_Code/00_repos/00_mine/sumatra-nest-cluster-test/.smt/records&lt;span class="o"&gt;)&lt;/span&gt;
+Code change policy  : error
+Append label to     : None
+Label generator     : timestamp
+Timestamp format    : %Y%m%d-%H%M%S
+Plug-ins            : &lt;span class="o"&gt;[]&lt;/span&gt;
+Sumatra version     : &lt;span class="m"&gt;0&lt;/span&gt;.7.4
+&lt;/pre&gt;
+&lt;p&gt;My test script only prints a short message. Here's how one would run it using
+&lt;a class="reference external" href="http://neuralensemble.org/sumatra/"&gt;Sumatra&lt;/a&gt;:&lt;/p&gt;
+&lt;pre class="code bash literal-block"&gt;
+&lt;span class="c1"&gt;# so that we don't have to specify this for each run
+&lt;/span&gt;smt configure --executable&lt;span class="o"&gt;=&lt;/span&gt;python3 --main&lt;span class="o"&gt;=&lt;/span&gt;test.py
+
+smt run
+Hello Sumatra World!
+Record label &lt;span class="k"&gt;for&lt;/span&gt; this run: &lt;span class="s1"&gt;'20180512-200859'&lt;/span&gt;
+No data produced.
+&lt;/pre&gt;
+&lt;p&gt;One can now see all the runs of this simulation that have been made!&lt;/p&gt;
+&lt;pre class="code bash literal-block"&gt;
+smt list --long
+--------------------------------------------------------------------------------
+Label            : &lt;span class="m"&gt;20180512&lt;/span&gt;-200859
+Timestamp        : &lt;span class="m"&gt;2018&lt;/span&gt;-05-12 &lt;span class="m"&gt;20&lt;/span&gt;:08:59.761849
+Reason           :
+Outcome          :
+Duration         : &lt;span class="m"&gt;0&lt;/span&gt;.050611019134521484
+Repository       : GitRepository at /home/asinha/Documents/02_Code/00_repos/00_mine/sumatra-nest-
+                 : cluster-test &lt;span class="o"&gt;(&lt;/span&gt;upstream: git&amp;#64;github.com:sanjayankur31/sumatra-nest-cluster-
+                 : test.git&lt;span class="o"&gt;)&lt;/span&gt;
+Main_File        : test.py
+Version          : 6f4e1bf05f223a0100ca6f843c11ef4fd70490f3
+Script_Arguments :
+Executable       : Python &lt;span class="o"&gt;(&lt;/span&gt;version: &lt;span class="m"&gt;3&lt;/span&gt;.6.5&lt;span class="o"&gt;)&lt;/span&gt; at /home/asinha/dump/sumatra-virt/bin/python3
+Parameters       :
+Input_Data       : &lt;span class="o"&gt;[]&lt;/span&gt;
+Launch_Mode      : serial
+Output_Data      : &lt;span class="o"&gt;[]&lt;/span&gt;
+User             : Ankur Sinha &lt;span class="o"&gt;(&lt;/span&gt;Ankur Sinha Gmail&lt;span class="o"&gt;)&lt;/span&gt; &amp;lt;sanjay.ankur&amp;#64;gmail.com&amp;gt;
+Tags             :
+Repeats          : None
+--------------------------------------------------------------------------------
+Label            : &lt;span class="m"&gt;20180512&lt;/span&gt;-181422
+Timestamp        : &lt;span class="m"&gt;2018&lt;/span&gt;-05-12 &lt;span class="m"&gt;18&lt;/span&gt;:14:22.668655
+Reason           :
+Outcome          : Well that worked
+Duration         : &lt;span class="m"&gt;0&lt;/span&gt;.05211901664733887
+Repository       : GitRepository at /home/asinha/Documents/02_Code/00_repos/00_mine/sumatra-nest-
+                 : cluster-test &lt;span class="o"&gt;(&lt;/span&gt;upstream: git&amp;#64;github.com:sanjayankur31/sumatra-nest-cluster-
+                 : test.git&lt;span class="o"&gt;)&lt;/span&gt;
+Main_File        : test.py
+Version          : 4f151a368b1fee1fa8f21026c3b6d2c6b2531da8
+Script_Arguments :
+Executable       : Python &lt;span class="o"&gt;(&lt;/span&gt;version: &lt;span class="m"&gt;3&lt;/span&gt;.6.5&lt;span class="o"&gt;)&lt;/span&gt; at /home/asinha/dump/sumatra-virt/bin/python3
+Parameters       :
+Input_Data       : &lt;span class="o"&gt;[]&lt;/span&gt;
+Launch_Mode      : serial
+Output_Data      : &lt;span class="o"&gt;[]&lt;/span&gt;
+User             : Ankur Sinha &lt;span class="o"&gt;(&lt;/span&gt;Ankur Sinha Gmail&lt;span class="o"&gt;)&lt;/span&gt; &amp;lt;sanjay.ankur&amp;#64;gmail.com&amp;gt;
+Tags             :
+Repeats          : None
+&lt;/pre&gt;
+&lt;p&gt;There's a lot more that can be done, of course. I'll quickly show the GUI
+version here.&lt;/p&gt;
+&lt;p&gt;One can run the webversion using:&lt;/p&gt;
+&lt;pre class="code bash literal-block"&gt;
+smtweb -p &lt;span class="m"&gt;8001&lt;/span&gt; &lt;span class="c1"&gt;#whatever port number one wants to use&lt;/span&gt;
+&lt;/pre&gt;
+&lt;p&gt;Then, it'll open up in your default web-browser at &lt;a class="reference external" href="http://127.0.0.1:8001/"&gt;http://127.0.0.1:8001/&lt;/a&gt;.&lt;/p&gt;
+&lt;a class="reference external image-reference" href="http://ankursinha.in/images/20180512-sumatra1.png"&gt;&lt;img alt="Sumatra initial interface." class="text-center img-responsive pagination-centered" src="http://ankursinha.in/images/20180512-sumatra1.png" style="width: 80%;" /&gt;&lt;/a&gt;
+&lt;p&gt;For each project, one can see the various runs, with all the associated
+information too.&lt;/p&gt;
+&lt;a class="reference external image-reference" href="http://ankursinha.in/images/20180512-sumatra2.png"&gt;&lt;img alt="Records for a project in Sumatra" class="text-center img-responsive pagination-centered" src="http://ankursinha.in/images/20180512-sumatra2.png" style="width: 80%;" /&gt;&lt;/a&gt;
+&lt;p&gt;One can then add more information about a run. &lt;a class="reference external" href="http://neuralensemble.org/sumatra/"&gt;Sumatra&lt;/a&gt; already stores lots of
+important information as the image shows:&lt;/p&gt;
+&lt;a class="reference external image-reference" href="http://ankursinha.in/images/20180512-sumatra3.png"&gt;&lt;img alt="More information on each record in Sumatra" class="text-center img-responsive pagination-centered" src="http://ankursinha.in/images/20180512-sumatra3.png" style="width: 80%;" /&gt;&lt;/a&gt;
+&lt;p&gt;Pretty neat, huh?&lt;/p&gt;
+&lt;p&gt;I run my simulations on a cluster, and so have my own system to submit jobs to
+the queue system. &lt;a class="reference external" href="http://neuralensemble.org/sumatra/"&gt;Sumatra&lt;/a&gt; can run jobs in parallel on a cluster, but I've
+still got to check if it also integrates with the queue system that our cluster
+runs. Luckily, &lt;a class="reference external" href="http://neuralensemble.org/sumatra/"&gt;Sumatra&lt;/a&gt; also provides an API, so I should be able to write a
+few &lt;a class="reference external" href="https://python.org"&gt;Python&lt;/a&gt; scripts to handle that bit too. It's on my TODO list now.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="please-use-version-control-and-a-sumatra-style-record-keeper"&gt;
+&lt;h2&gt;Please use version control and a Sumatra style record keeper&lt;/h2&gt;
+&lt;p&gt;I haven't found another tool that does what &lt;a class="reference external" href="http://neuralensemble.org/sumatra/"&gt;Sumatra&lt;/a&gt; does yet. Maybe Jupyter
+notebooks would come close, but one would have to add some sort of wrapper
+around them to keep proper records. It'll probably be similar to my current
+system.&lt;/p&gt;
+&lt;p&gt;In summary, please use version control, and use a record keeper to manage and
+track simulations. Not only does it make it easier for you, the researcher, it
+also makes it easier for others to replicate the simulation since the record
+keeper provides all the information required to re-run the simulation.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="free-open-source-software-promotes-open-science"&gt;
+&lt;h2&gt;Free/Open source software promotes Open Science&lt;/h2&gt;
+&lt;video src="//static.fsf.org/nosvn/FSF30-video/FSF_30_720p.webm" controls width="640" height="390"&gt;&lt;/video&gt;&lt;p&gt;(The original video is at the &lt;a class="reference external" href="https://www.fsf.org/blogs/community/user-liberation-watch-and-share-our-new-video"&gt;Free Software Foundation's website&lt;/a&gt;.)&lt;/p&gt;
+&lt;p&gt;As a concluding plea, I request everyone to please use &lt;a class="reference external" href="https://www.gnu.org/philosophy/free-sw.en.html"&gt;Free/Open source&lt;/a&gt;
+software for all research. Not only are these available free of cost, they
+provide everyone with the right to read, validate, study, copy, share, and
+modify the software. One can learn so much from reading how research tools are
+built. One can be absolutely sure of their results if they can see the code
+that carries out the analysis. One can build on others' work if the source is
+available for all to use and change. How easy does replication become when the
+source and all related resources are given out for all to use?&lt;/p&gt;
+&lt;p&gt;Do not use Microsoft Word, for example. Not everyone, even today, has access
+to Microsoft software. Should researchers be required to buy a Microsoft
+license to be able to collaborate with us? The tools are here to enable
+science, not hamper it.  Proprietary software and formats do not enable
+science, they restrict it to those that can pay for such software. This is not
+a restriction we should endorse in any way.&lt;/p&gt;
+&lt;p&gt;Yes, I know that sometimes there aren't &lt;a class="reference external" href="https://www.gnu.org/philosophy/free-sw.en.html"&gt;Free/Open source&lt;/a&gt; software
+alternatives that carry the same set of features, but a little bit of extra
+work, for me, is an investment towards Open Science. Instead of Word, as an
+example, use &lt;a class="reference external" href="https://www.libreoffice.org/"&gt;Libreoffice&lt;/a&gt;, or &lt;a class="reference external" href="https://www.latex-project.org/"&gt;LaTeX&lt;/a&gt;. Use &lt;a class="reference external" href="http://opendocumentformat.org/"&gt;Open formats&lt;/a&gt;. There will be bugs, but until we report
+them, they will not be fixed. Until these &lt;a class="reference external" href="https://www.gnu.org/philosophy/free-sw.en.html"&gt;Free/Open source&lt;/a&gt; tools replace
+restricted software as the standard for science, they will only have small
+communities around them that build and maintain them.&lt;/p&gt;
+&lt;p&gt;Open Science is a necessity.  Researchers from the neuroscience community
+recently signed &lt;a class="reference external" href="http://opensourceforneuroscience.org/"&gt;this letter&lt;/a&gt;
+committing to the use of &lt;a class="reference external" href="https://www.gnu.org/philosophy/free-sw.en.html"&gt;Free/Open source&lt;/a&gt; software for their research. There
+are similar initiatives in other fields too, and of course, one must be aware
+of the Open Access movement etc.&lt;/p&gt;
+&lt;p&gt;I've made this plea in the context of science, but the video should also show
+you how in everyday life, it is important to use &lt;a class="reference external" href="https://www.gnu.org/philosophy/free-sw.en.html"&gt;Free/Open source&lt;/a&gt; resources.
+Please use &lt;a class="reference external" href="https://www.gnu.org/philosophy/free-sw.en.html"&gt;Free/Open source&lt;/a&gt; resources, as much as possible.&lt;/p&gt;
+&lt;!-- _ --&gt;
+&lt;/div&gt;
+</content><category term="Python"></category><category term="Reproducible research"></category><category term="Computational neuroscience"></category><category term="Sumatra"></category><category term="Fedora"></category></entry><entry><title>Bringing together Gitter, IRC, and Slack channels in one place on Riot</title><link href="http://ankursinha.in/2017/07/12/bringing-together-gitter-irc-and-slack-channels-in-one-place-on-riot.html" rel="alternate"></link><published>2017-07-12T13:55:17+01:00</published><updated>2017-07-12T13:55:17+01:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2017-07-12:/2017/07/12/bringing-together-gitter-irc-and-slack-channels-in-one-place-on-riot.html</id><summary type="html">&lt;p class="first last"&gt;Different teams use different platforms to communicate within themselves. When teams on different communication platforms want to collaborate, though - there's a bit of an issue. In this post, I document how one can setup channels on various platforms (&lt;a class="reference external" href="https://slack.com"&gt;Slack&lt;/a&gt;, &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Internet_Relay_Chat"&gt;IRC&lt;/a&gt;, &lt;a class="reference external" href="https://gitter.im"&gt;Gitter&lt;/a&gt;) and bring them all together on &lt;a class="reference external" href="https://riot.im"&gt;Riot&lt;/a&gt;.&lt;/p&gt;
 </summary><content type="html">&lt;div class="section" id="let-s-not-let-our-choice-of-platform-limit-us"&gt;
 &lt;h2&gt;Let's not let our choice of platform limit us&lt;/h2&gt;
 &lt;p&gt;There are usually multiple platforms that provide similar functions. For instance, one can pick between &lt;a class="reference external" href="https://github.com"&gt;Github&lt;/a&gt;, &lt;a class="reference external" href="https://gitlab.com"&gt;GitLab&lt;/a&gt;, and &lt;a class="reference external" href="https://bitbucket.com"&gt;BitBucket&lt;/a&gt; for collaborative development interfaces, and one certainly should have the freedom to do so. Similarly, one can use different operating systems, web browsers, phones, etc etc etc. But, one must remember is that for a lot of us, these are simply means to an end - not the end themselves. They are tools that facilitate the completion of our goals. Different individuals or teams preferring different platforms should not hamper collaboration under any circumstances.&lt;/p&gt;
@@ -687,167 +945,4 @@ $ which oc
 &lt;p&gt;Maybe there is a better, less hacky, way of going about it, but this works for a quick two day project. In the future, maybe I can use a server side database and so on - it depends on how much it needs to scale. I know my shared hosting account can't handle all that!&lt;/p&gt;
 &lt;p&gt;The &lt;a class="reference external" href="https://github.com/sanjayankur31/cajal/"&gt;source code is available on Github&lt;/a&gt;. To add more laboratories, entries need to be added to the &lt;code&gt;data/groups.yaml&lt;/code&gt; file - that's all. If you're a neuroscience researcher and want to add to the map, please open pull requests and I can then periodically regenerate the page as required.&lt;/p&gt;
 &lt;/div&gt;
-</content><category term="Community"></category><category term="Computational neuroscience"></category><category term="Fedora"></category><category term="Programming"></category><category term="Python"></category><category term="OpenLayers"></category><category term="JavaScript"></category><category term="Cajal"></category></entry><entry><title>Some tips and tricks for running simulations on a cluster</title><link href="http://ankursinha.in/2016/05/31/some-tips-and-tricks-for-running-simulations-on-a-cluster.html" rel="alternate"></link><published>2016-05-31T19:17:32+01:00</published><updated>2016-05-31T19:17:32+01:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2016-05-31:/2016/05/31/some-tips-and-tricks-for-running-simulations-on-a-cluster.html</id><summary type="html">&lt;p class="first last"&gt;I use the cluster here at university to run my simulations in &lt;a class="reference external" href="https://github.com/nest/nest-simulator"&gt;Nest&lt;/a&gt;. This post documents some tips and tricks I've come up with to make my cluster tasks easier.&lt;/p&gt;
-</summary><content type="html">&lt;p&gt;To begin with, you must use a terminal multiplexer! I use &lt;a class="reference external" href="http://byobu.org/"&gt;Byobu with tmux&lt;/a&gt; to multiplex a single SSH session. I use it on all my machines. It's an excellent tool.&lt;/p&gt;
-&lt;div class="section" id="monitoring-your-jobs"&gt;
-&lt;h2&gt;Monitoring your jobs&lt;/h2&gt;
-&lt;p&gt;Three of my Byobu screens run these commands to monitor the queue and my jobs:&lt;/p&gt;
-&lt;pre class="code bash literal-block"&gt;
-watch -n &lt;span class="m"&gt;30&lt;/span&gt; qstat main
-watch -n &lt;span class="m"&gt;30&lt;/span&gt; qstat -B
-watch -n &lt;span class="m"&gt;30&lt;/span&gt; /usr/local/maui/bin/showq -u asinha
-&lt;/pre&gt;
-&lt;p&gt;&lt;code&gt;showq&lt;/code&gt; may be installed elsewhere. Use &lt;code&gt;which showq&lt;/code&gt; to locate it. More information on the commands can be found in their manuals:&lt;/p&gt;
-&lt;pre class="code bash literal-block"&gt;
-man watch
-man qstat
-&lt;/pre&gt;
-&lt;p&gt;Remember, to find a man page, you can use the &lt;code&gt;apropos&lt;/code&gt; command.&lt;/p&gt;
-&lt;p&gt;I run all my simulations in a specific directory on the shared data disk. I usually also monitor this folder. It gives me an idea of how much my simulations have progressed. Something like this works:&lt;/p&gt;
-&lt;pre class="code bash literal-block"&gt;
-watch -n &lt;span class="m"&gt;30&lt;/span&gt; &lt;span class="s1"&gt;'du -sch *'&lt;/span&gt; &lt;span class="c1"&gt;# in the directory that stores simulation results*&lt;/span&gt;
-&lt;/pre&gt;
-&lt;/div&gt;
-&lt;div class="section" id="use-git"&gt;
-&lt;h2&gt;Use Git&lt;/h2&gt;
-&lt;p&gt;Of course. If you make frequent changes, you must use a version control system. I stick to &lt;code&gt;git&lt;/code&gt; myself. You can use &lt;code&gt;svn&lt;/code&gt; or &lt;code&gt;hg&lt;/code&gt; if you wish - whatever floats your boat.&lt;/p&gt;
-&lt;p&gt;An issue I've stumbled upon while working with the cluster is that the program you want it to run is not loaded into memory until your job begins to run. So, if you want to run a certain version of your program on the cluster, say some version_1, you must not make any changes to this version until the queued job has begun to run. This is extremely inconvenient, especially if you make frequent changes to your simulations, as is often the case in research. I would, for example, like to queue separate jobs in parallel for a myriad of tiny changes and then compare results.&lt;/p&gt;
-&lt;p&gt;Enter &lt;a class="reference external" href="https://git-scm.com/docs/git-worktree"&gt;git work-tree&lt;/a&gt;! The simplest solution to the aforementioned issue is to checkout different work-trees for commits you want to test and queue up jobs for each individually. This would work really well. Once the simulation finishes, you can remove the work-tree.&lt;/p&gt;
-&lt;p&gt;Unfortunately, clusters usually run stable long term support oriented versions of Linux distributions - EL/CentOS/Scientific. As a result, it's quite probable that the version of git on the cluster doesn't support work-trees - as is the case with the cluster I use. I came up with a workaround which works somewhat like work-trees - I manually clone my source repository to a temporary location, checkout the commit I want to run (which is what work-trees sort of are), and set up a job that runs this particular simulation version. It uses two scripts:&lt;/p&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;A template PBS script for the simulation run. This will be passed to &lt;code&gt;qsub&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;A script that clones my repo, checks out the required commit, completes the template script, and calls &lt;code&gt;qsub&lt;/code&gt; to queue up the job.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;The first is a simple PBS script:&lt;/p&gt;
-&lt;pre class="code bash literal-block"&gt;
-&lt;span class="c1"&gt;# File: run-sim.sh
-&lt;/span&gt;
-&lt;span class="c1"&gt;#PBS -l walltime=48:00:00
-#PBS -l nodes=50
-#PBS -m abe
-#PBS -N nest_v_s
-&lt;/span&gt;
-module unload mpi/mpich-x86_64
-module load mvapich2-1.7
-
-&lt;span class="nv"&gt;SIM_PATH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;/stri-data/asinha/simulations-nest/&amp;quot;&lt;/span&gt;
-&lt;span class="nv"&gt;SIM_TIME&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&amp;quot;&lt;/span&gt;
-&lt;span class="nv"&gt;PROGRAM_PATH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$SIM_PATH&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$SIM_TIME&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&amp;quot;/Sinha2016/src/Sinha2016.py&amp;quot;&lt;/span&gt;
-&lt;span class="nv"&gt;RESULT_PATH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$SIM_PATH&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$SIM_TIME&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&amp;quot;/result/&amp;quot;&lt;/span&gt;
-&lt;span class="nv"&gt;NUM_NODES&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;50&lt;/span&gt;
-
-&lt;span class="nb"&gt;echo&lt;/span&gt; ------------------------------------------------------
-&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s1"&gt;'Job is running on nodes'&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; cat &lt;span class="nv"&gt;$PBS_NODEFILE&lt;/span&gt;
-&lt;span class="nb"&gt;echo&lt;/span&gt; ------------------------------------------------------
-&lt;span class="nb"&gt;echo&lt;/span&gt; PBS: qsub is running on &lt;span class="nv"&gt;$PBS_O_HOST&lt;/span&gt;
-&lt;span class="nb"&gt;echo&lt;/span&gt; PBS: originating queue is &lt;span class="nv"&gt;$PBS_O_QUEUE&lt;/span&gt;
-&lt;span class="nb"&gt;echo&lt;/span&gt; PBS: executing queue is &lt;span class="nv"&gt;$PBS_QUEUE&lt;/span&gt;
-&lt;span class="nb"&gt;echo&lt;/span&gt; PBS: working directory is &lt;span class="nv"&gt;$PBS_O_WORKDIR&lt;/span&gt;
-&lt;span class="nb"&gt;echo&lt;/span&gt; PBS: execution mode is &lt;span class="nv"&gt;$PBS_ENVIRONMENT&lt;/span&gt;
-&lt;span class="nb"&gt;echo&lt;/span&gt; PBS: job identifier is &lt;span class="nv"&gt;$PBS_JOBID&lt;/span&gt;
-&lt;span class="nb"&gt;echo&lt;/span&gt; PBS: job name is &lt;span class="nv"&gt;$PBS_JOBNAME&lt;/span&gt;
-&lt;span class="nb"&gt;echo&lt;/span&gt; PBS: node file is &lt;span class="nv"&gt;$PBS_NODEFILE&lt;/span&gt;
-&lt;span class="nb"&gt;echo&lt;/span&gt; PBS: current home directory is &lt;span class="nv"&gt;$PBS_O_HOME&lt;/span&gt;
-&lt;span class="nb"&gt;echo&lt;/span&gt; PBS: &lt;span class="nv"&gt;PATH&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;$PBS_O_PATH&lt;/span&gt;
-&lt;span class="nb"&gt;echo&lt;/span&gt; ------------------------------------------------------
-
-&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;ANKUR&amp;gt;&amp;gt; Begun at &lt;/span&gt;&lt;span class="nv"&gt;$SIM_TIME&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
-&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;ANKUR&amp;gt;&amp;gt; Script: &lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;0&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
-
-mkdir -pv &lt;span class="nv"&gt;$RESULT_PATH&lt;/span&gt;
-&lt;span class="nb"&gt;cd&lt;/span&gt; &lt;span class="nv"&gt;$RESULT_PATH&lt;/span&gt;
-
-/usr/local/bin/mpiexec -n &lt;span class="nv"&gt;$NUM_NODES&lt;/span&gt; python &lt;span class="nv"&gt;$PROGRAM_PATH&lt;/span&gt;
-
-&lt;span class="nv"&gt;END_TIME&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;date +%Y%m%d%H%M&lt;span class="k"&gt;)&lt;/span&gt;
-&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;ANKUR&amp;gt;&amp;gt; Ended at &lt;/span&gt;&lt;span class="nv"&gt;$END_TIME&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
-&lt;/pre&gt;
-&lt;p&gt;It sets up the required PBS options, then loads the MPI module I wish to use. It creates a directory where my simulation's results will be stored, enters it, and then uses &lt;code&gt;mpiexec&lt;/code&gt; to run my Python program.&lt;/p&gt;
-&lt;p&gt;The second script is a wrapper that clones the required commit, sets up the correct paths in the above script and the calls &lt;code&gt;qsub&lt;/code&gt;:&lt;/p&gt;
-&lt;pre class="code bash literal-block"&gt;
-&lt;span class="c1"&gt;# File: setup-job.sh
-&lt;/span&gt;
-&lt;span class="nv"&gt;SOURCE_PATH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;/home/asinha/Documents/02_Code/00_repos/00_mine/Sinha2016/&amp;quot;&lt;/span&gt;
-&lt;span class="nv"&gt;GIT_COMMIT&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&amp;quot;&lt;/span&gt;
-&lt;span class="nv"&gt;SIM_PATH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;/stri-data/asinha/simulations-nest/&amp;quot;&lt;/span&gt;
-&lt;span class="nv"&gt;SIM_TIME&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;date +%Y%m%d%H%M&lt;span class="k"&gt;)&lt;/span&gt;
-&lt;span class="nv"&gt;RUN_SCRIPT&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;scripts/cluster/nest-runsim.sh&amp;quot;&lt;/span&gt;
-&lt;span class="nv"&gt;RUN_NEW&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&amp;quot;&lt;/span&gt;
-&lt;span class="nv"&gt;ERROR&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;no&amp;quot;&lt;/span&gt;
-&lt;span class="nv"&gt;NUM_NODES&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;50&lt;/span&gt;
-&lt;span class="nv"&gt;CUR_SIM_PATH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&amp;quot;&lt;/span&gt;
-
-&lt;span class="k"&gt;function&lt;/span&gt; queue_task
-&lt;span class="o"&gt;{&lt;/span&gt;
-    &lt;span class="nb"&gt;pushd&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$CUR_SIM_PATH&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
-        qsub &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$RUN_NEW&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
-    &lt;span class="nb"&gt;popd&lt;/span&gt;
-&lt;span class="o"&gt;}&lt;/span&gt;
-
-&lt;span class="k"&gt;function&lt;/span&gt; setup_env
-&lt;span class="o"&gt;{&lt;/span&gt;
-    &lt;span class="nv"&gt;CUR_SIM_PATH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$SIM_PATH&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$SIM_TIME&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
-    &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;This simulation will run in: &lt;/span&gt;&lt;span class="nv"&gt;$CUR_SIM_PATH&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
-    mkdir -pv &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$CUR_SIM_PATH&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
-
-    &lt;span class="nb"&gt;pushd&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$CUR_SIM_PATH&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
-        &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Cloning source repository...&amp;quot;&lt;/span&gt;
-        git clone &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$SOURCE_PATH&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Sinha2016&amp;quot;&lt;/span&gt;
-
-        &lt;span class="nb"&gt;pushd&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Sinha2016&amp;quot;&lt;/span&gt;
-            &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Checking out commit &lt;/span&gt;&lt;span class="nv"&gt;$GIT_COMMIT&lt;/span&gt;&lt;span class="s2"&gt;...&amp;quot;&lt;/span&gt;
-            git checkout -b this_sim &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$GIT_COMMIT&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
-            &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="o"&gt;[&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$?&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; -ne &lt;span class="m"&gt;0&lt;/span&gt; &lt;span class="o"&gt;]&lt;/span&gt;
-            &lt;span class="k"&gt;then&lt;/span&gt;
-                &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Error occured. Could not checkout &lt;/span&gt;&lt;span class="nv"&gt;$GIT_COMMIT&lt;/span&gt;&lt;span class="s2"&gt;. Exiting...&amp;quot;&lt;/span&gt;
-                &lt;span class="nv"&gt;ERROR&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;yes&amp;quot;&lt;/span&gt;
-            &lt;span class="k"&gt;fi&lt;/span&gt;
-        &lt;span class="nb"&gt;popd&lt;/span&gt;
-
-        &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="o"&gt;[&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;xyes&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt;  x&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$ERROR&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;]&lt;/span&gt;
-        &lt;span class="k"&gt;then&lt;/span&gt;
-            &lt;span class="nb"&gt;exit&lt;/span&gt; -1
-        &lt;span class="k"&gt;fi&lt;/span&gt;
-
-        &lt;span class="nv"&gt;RUN_NEW&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;nest_&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$GIT_COMMIT&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&amp;quot;.sh&amp;quot;&lt;/span&gt;
-        &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Setting up &lt;/span&gt;&lt;span class="nv"&gt;$RUN_NEW&lt;/span&gt;&lt;span class="s2"&gt;...&amp;quot;&lt;/span&gt;
-        cp &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$SOURCE_PATH&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$RUN_SCRIPT&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$RUN_NEW&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; -v
-        sed -i &lt;span class="s2"&gt;&amp;quot;s|nest_v_s|nest_&lt;/span&gt;&lt;span class="nv"&gt;$GIT_COMMIT&lt;/span&gt;&lt;span class="s2"&gt;|&amp;quot;&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$RUN_NEW&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
-        sed -i &lt;span class="s2"&gt;&amp;quot;s|nodes=.*|nodes=&lt;/span&gt;&lt;span class="nv"&gt;$NUM_NODES&lt;/span&gt;&lt;span class="s2"&gt;|&amp;quot;&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$RUN_NEW&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
-        sed -i &lt;span class="s2"&gt;&amp;quot;s|NUM_NODES=.*|NUM_NODES=&lt;/span&gt;&lt;span class="nv"&gt;$NUM_NODES&lt;/span&gt;&lt;span class="s2"&gt;|&amp;quot;&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$RUN_NEW&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
-        sed -i &lt;span class="s2"&gt;&amp;quot;s|SIM_TIME=.*|SIM_TIME=&lt;/span&gt;&lt;span class="nv"&gt;$SIM_TIME&lt;/span&gt;&lt;span class="s2"&gt;|&amp;quot;&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$RUN_NEW&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
-    &lt;span class="nb"&gt;popd&lt;/span&gt;
-&lt;span class="o"&gt;}&lt;/span&gt;
-
-&lt;span class="k"&gt;function&lt;/span&gt; usage
-&lt;span class="o"&gt;{&lt;/span&gt;
-    &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Usage: &lt;/span&gt;&lt;span class="nv"&gt;$0&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
-    &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Queue up a job to run a particular git commit&amp;quot;&lt;/span&gt;
-    &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$0&lt;/span&gt;&lt;span class="s2"&gt; &amp;lt;git_commit&amp;gt; &amp;lt;number_nodes&amp;gt;&amp;quot;&lt;/span&gt;
-&lt;span class="o"&gt;}&lt;/span&gt;
-
-&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="o"&gt;[&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$#&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; -ne &lt;span class="m"&gt;2&lt;/span&gt; &lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;span class="k"&gt;then&lt;/span&gt;
-    &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Error occurred. Exiting...&amp;quot;&lt;/span&gt;
-    &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Received &lt;/span&gt;&lt;span class="nv"&gt;$#&lt;/span&gt;&lt;span class="s2"&gt; arguments. Expected: 3&amp;quot;&lt;/span&gt;
-    usage
-    &lt;span class="nb"&gt;exit&lt;/span&gt; -1
-&lt;span class="k"&gt;fi&lt;/span&gt;
-
-&lt;span class="nv"&gt;GIT_COMMIT&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$1&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
-&lt;span class="nv"&gt;NUM_NODES&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$2&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
-setup_env
-queue_task
-
-&lt;span class="nb"&gt;exit&lt;/span&gt; &lt;span class="m"&gt;0&lt;/span&gt;
-&lt;/pre&gt;
-&lt;p&gt;This takes two arguments, as the &lt;code&gt;usage&lt;/code&gt; function will tell you. The first argument is the commit you want to run the simulation for, and the second is the number of nodes you want to use. It'll clone your repository to a temporary location and checkout this specified commit. Then, it'll modify the first script &lt;code&gt;run-sim.sh&lt;/code&gt; to set up the correct path to the code and also correctly specify the number of nodes you'd want to request. Finally, once all this is done, it'll call &lt;code&gt;qsub run-sim.sh&lt;/code&gt; to queue up your job. I use unique date stamps as directory names to distinguish between simulation runs, but you can use another unique identifier.&lt;/p&gt;
-&lt;p&gt;Now, this copy of your code, at the specified commit will be used for the job you've queued. You can merrily go about tinkering with the main source repo without affecting queued up jobs. Yay!&lt;/p&gt;
-&lt;p&gt;Even though I've used Python here, you can use similar scripts for compiled languages. You'll simply have to compile your executable after you checkout the required commit.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="other-miscellaneous-stuff"&gt;
-&lt;h2&gt;Other miscellaneous stuff&lt;/h2&gt;
-&lt;p&gt;My lab mate, Alex, recently introduced me to &lt;a class="reference external" href="https://www.continuum.io/downloads"&gt;Anaconda&lt;/a&gt;. It's a great tool for that lets you install packages in your user specific directory. It contains quite a few python and other related packages. No need to use &lt;code&gt;sudo&lt;/code&gt; with it, and you can use &lt;code&gt;pip&lt;/code&gt; etc. with it too. It even lets you set up virtual environments and things.&lt;/p&gt;
-&lt;p&gt;I think that's it for today. I'll update the post with other things I find/learn as I continue my adventures with the cluster.&lt;/p&gt;
-&lt;/div&gt;
-</content><category term="Bash"></category><category term="Computational neuroscience"></category><category term="Git"></category><category term="Linux"></category><category term="NEST"></category><category term="Programming"></category><category term="Fedora"></category></entry></feed>
+</content><category term="Community"></category><category term="Computational neuroscience"></category><category term="Fedora"></category><category term="Programming"></category><category term="Python"></category><category term="OpenLayers"></category><category term="JavaScript"></category><category term="Cajal"></category></entry></feed>

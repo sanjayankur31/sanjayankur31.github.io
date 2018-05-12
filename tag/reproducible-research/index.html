@@ -4,17 +4,11 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="" />
+    <meta name="description" content=" Posts tagged with Reproducible research" />
     <meta name="author" content="Ankur Sinha" />
     <meta name="generator" content="Pelican (VoidyBootstrap theme)" />
-    <meta name="twitter:card" content="summary"> 
-    <meta name="twitter:title" content="Computational Neuroscience 101 - A brief introduction">
-    <meta name="twitter:description" content="">
-    <meta name="twitter:site" content="@sanjay_ankur">
-    <meta name="twitter:creator" content="@sanjay_ankur">
-    <meta name="twitter:domain" content="http://ankursinha.in">
 
-    <title>Computational Neuroscience 101 - A brief introduction - ankursinha.in/blog</title>
+    <title>Tag:Reproducible research - ankursinha.in/blog</title>
 
    
         <link rel="stylesheet"
@@ -101,14 +95,19 @@
     <div class="container" id="main-container">
       <div class="row">
         <div class="col-md-9" id="content">
-<article itemscope="itemscope" itemtype="http://schema.org/BlogPosting">
-  <header class="article-header">
+<ol class="breadcrumb">
+    <li><a href="http://ankursinha.in/" title="Home" rel="home">
+		<i class="fas fa-home fa-fw fa-lg"></i> </a></li>
+    <li>Tags </li>
+    <li class="active">Reproducible research</li>
+</ol>
+    <article>
 <abbr class="article-header-date">
-  Sun 16 April 2017
+  Sat 12 May 2018
 </abbr> <h1>
-  <a href="http://ankursinha.in/drafts/computational-neuroscience-101-a-brief-introduction.html" rel="bookmark"
-     title="Permalink to Computational Neuroscience 101 - A brief introduction">
-    Computational Neuroscience 101 - A brief introduction
+  <a href="http://ankursinha.in/2018/05/12/testing-out-sumatra-a-tool-for-managing-iterations-of-simulations-analyses.html" rel="bookmark"
+     title="Permalink to Testing out Sumatra: a tool for managing iterations of simulations/analyses">
+    Testing out Sumatra: a tool for managing iterations of simulations/analyses
   </a>
 </h1><div class="article-header-info">
   <p>
@@ -116,85 +115,24 @@
     in 
     <a href="http://ankursinha.in/category/research/">
       Research</a>
-(599 words, approximately a 3 minute read)
+(1779 words, approximately a 8 minute read)
   </p>
-</div> <!-- /.article-header-info -->  </header>
-  <div class="content-body" itemprop="text articleBody">
-	<p>This is an introductory summary of what computational neuroscience is, and why it is an important branch of neuroscience. The goal of this series is to present information in a simplified way appropriate for a non academic audience - one with no background of neuroscience or computer science. I'll make an effort to cover a level of detail that does not sacrifice the readability of the text. Instead, I will provide links to academic sources for those interested in further, more involved, reading. This is also an exercise for me, aimed at improving the way I disseminate scientific facts, so all feedback is most welcome.</p>
-<div class="section" id="neuroscience">
-<h2>Neuroscience</h2>
-<p>Most people know what neuroscience is, but for the sake of completeness, here's the <a class="reference external" href="https://en.oxforddictionaries.com/definition/neuroscience">definition from the Oxford dictionary</a>:</p>
-<blockquote>
-<p>neuroscience:</p>
-<blockquote>
-Any or all of the sciences, such as neurochemistry and experimental psychology, which deal with the structure or function of the nervous system and brain.</blockquote>
-</blockquote>
-<p>As the definition says, it is the study of <em>all</em> sciences related to the nervous system. Of course, explaining the nervous system is not in the scope of this particular document, but for a quick refresher, <a class="reference external" href="http://www.bbc.co.uk/education/guides/zkdnb9q/revision">here's a GCSE biology revision course at the BBC</a> that would give one a gist. For a more detailed, academic source, <a class="reference external" href="https://www.amazon.co.uk/Principles-Neural-Science-Eric-Kandel/dp/0071120009">Kandel's Principles of Neuroscience</a> is an excellent book - one that I'm still reading bit by bit. One must note that neuroscience is <em>not limited to the human nervous system</em> either - neuroscientists also study the nervous systems of an array of different species that are of different complexities, from monkeys to <a class="reference external" href="http://www.wormbook.org/">worms</a>.</p>
-</div>
-<div class="section" id="different-levels-of-investigation">
-<h2>Different levels of investigation</h2>
-<p>The brain is that part of the nervous system that most of us are infatuated with. This is understandable, given the vast range of functions that it carries out. The brain interprets a majority of the information that we perceive from our environments, makes sense of it, and then enables us to react/interact with our environment. At a much higher level, it is also the brain that enables us to think. Neuroscience concerns itself with the mechanisms that make all of this possible. On the other hand, it is worth mentioning that there is a separate science that studies behaviour - Psychology.</p>
-<p>The brain, obviously, is a very complex organ. It is who we are. Every sensation that we experience, every emotion, every memory, even our sense of self is a product of whatever is happening in our brains.</p>
-<p>In a few numbers, the brain is thought to consist of around <strong>120 billion</strong> specialised cells (<strong>neurons</strong>) <a class="footnote-reference" href="#id6" id="id1">[1]</a>. While neurons seem to carry out most of the information processing, there are other cells that do other things, Glial cells, for example. Neurons don't function in isolation from each other, either. They &quot;speak&quot; to each other via <strong>synapses</strong>, with each neuron forming about <strong>7000</strong> synapses. This makes the total number of connections between neurons in the brain in the region of a <strong>quadrillion</strong>. Of course, there's a lot going on in the brain. It isn't surprising, therefore, that while the brain is only about <strong>2%</strong> of the total body weight, it uses <strong>20%</strong> of the Oxygen that we breathe <a class="footnote-reference" href="#id7" id="id2">[2]</a>.</p>
-<p>The regions of the brain have been classified in different ways. The lobes, for example, are an anatomical classification <a class="footnote-reference" href="#id8" id="id3">[3]</a>. The Broadmann areas are a functional classification <a class="footnote-reference" href="#id9" id="id4">[4]</a> and so on. There's just too much information here to summarise in a blog post. The Wikipedia pages should give you a good idea of the overall picture. If you're looking for a better academic resource, Kandel's Principles of Neural Science is an excellent book <a class="footnote-reference" href="#id10" id="id5">[5]</a>.</p>
-</div>
-<div class="section" id="references">
-<h2>References</h2>
-<table class="docutils footnote" frame="void" id="id6" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td><a class="reference external" href="http://journal.frontiersin.org/article/10.3389/neuro.09.031.2009/full">http://journal.frontiersin.org/article/10.3389/neuro.09.031.2009/full</a></td></tr>
-</tbody>
-</table>
-<table class="docutils footnote" frame="void" id="id7" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id2">[2]</a></td><td><a class="reference external" href="https://www.ncbi.nlm.nih.gov/books/NBK28194/">https://www.ncbi.nlm.nih.gov/books/NBK28194/</a></td></tr>
-</tbody>
-</table>
-<table class="docutils footnote" frame="void" id="id8" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id3">[3]</a></td><td><a class="reference external" href="https://en.wikipedia.org/wiki/Lobes_of_the_brain">https://en.wikipedia.org/wiki/Lobes_of_the_brain</a></td></tr>
-</tbody>
-</table>
-<table class="docutils footnote" frame="void" id="id9" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id4">[4]</a></td><td><a class="reference external" href="https://en.wikipedia.org/wiki/Brodmann_area">https://en.wikipedia.org/wiki/Brodmann_area</a></td></tr>
-</tbody>
-</table>
-<table class="docutils footnote" frame="void" id="id10" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id5">[5]</a></td><td><a class="reference external" href="https://www.amazon.co.uk/Principles-Neural-Science-Eric-Kandel/dp/0071120009">https://www.amazon.co.uk/Principles-Neural-Science-Eric-Kandel/dp/0071120009</a></td></tr>
-</tbody>
-</table>
-</div>
+</div> <!-- /.article-header-info -->
+      <div class="summary">
+		<p class="first last">When working on projects that require multiple iterations of
+simulations and/or analyses, it's really quite hard to keep track of
+the changes one makes and how the results vary. <a class="reference external" href="http://neuralensemble.org/sumatra/">Sumatra</a> is a tool
+that is developed to help researchers manage such projects.</p>
 
-  </div>
-  
-  <hr />
-  <div class="well well-sm">  <!-- Social media sharing buttons -->
-    <!-- Twitter -->
-    <a href="https://twitter.com/share" class="twitter-share-button" 
-       data-via="sanjay_ankur" >Tweet</a>&nbsp;
+		<p class="content-emphasis"><a href="http://ankursinha.in/2018/05/12/testing-out-sumatra-a-tool-for-managing-iterations-of-simulations-analyses.html">
+			Read more... <i class="fas fa-arrow-circle-right fa-fw fa-lg"></i> 
+		</a></p>
+      </div>    </article>
+    <hr />
 
-    <!-- Google+ -->
-    <div class="g-plus" data-action="share" data-annotation="bubble"></div>
-    &nbsp;&nbsp;&nbsp;&nbsp;
-    <div class="g-plusone" data-size="medium"></div>&nbsp;
+<nav class="index-pager">
 
-    <!-- Facebook -->
-    <div class="fb-like" 
-        data-href="http://ankursinha.in/drafts/computational-neuroscience-101-a-brief-introduction.html" 
-        data-layout="button_count" 
-        data-action="like" data-show-faces="true" 
-        data-share="true">
-    </div>
-    &nbsp;
-  </div> <!-- /Social media sharing buttons -->
-</article>
+</nav> <!-- /index-pager -->
         </div><!-- /content -->
 
         <div class="col-md-3 sidebar-nav" id="sidebar">
@@ -275,51 +213,9 @@ Any or all of the sciences, such as neurochemistry and experimental psychology, 
 <h4><i class="fas fa-tags fa-fw fa-lg"></i> Tags</h4>
 <p class="tag-cloud">
     <span class="tag-4">
-      <a href="http://ankursinha.in/tag/nest/">
+      <a href="http://ankursinha.in/tag/calliope/">
           <i class="fas fa-tag"></i>
-        NEST
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="http://ankursinha.in/tag/zaphod/">
-          <i class="fas fa-tag"></i>
-        Zaphod
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="http://ankursinha.in/tag/planet/">
-          <i class="fas fa-tag"></i>
-        Planet
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="http://ankursinha.in/tag/pelican/">
-          <i class="fas fa-tag"></i>
-        Pelican
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="http://ankursinha.in/tag/robotics/">
-          <i class="fas fa-tag"></i>
-        Robotics
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="http://ankursinha.in/tag/music/">
-          <i class="fas fa-tag"></i>
-        Music
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="http://ankursinha.in/tag/latex/">
-          <i class="fas fa-tag"></i>
-        LaTeX
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="http://ankursinha.in/tag/community/">
-          <i class="fas fa-tag"></i>
-        Community
+        Calliope
       </a>
     </span>
     <span class="tag-3">
@@ -328,10 +224,82 @@ Any or all of the sciences, such as neurochemistry and experimental psychology, 
         Python
       </a>
     </span>
+    <span class="tag-4">
+      <a href="http://ankursinha.in/tag/neuron/">
+          <i class="fas fa-tag"></i>
+        Neuron
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="http://ankursinha.in/tag/robotics/">
+          <i class="fas fa-tag"></i>
+        Robotics
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="http://ankursinha.in/tag/social/">
+          <i class="fas fa-tag"></i>
+        Social
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="http://ankursinha.in/tag/irc/">
+          <i class="fas fa-tag"></i>
+        IRC
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="http://ankursinha.in/tag/computational-neuroscience/">
+          <i class="fas fa-tag"></i>
+        Computational neuroscience
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="http://ankursinha.in/tag/flatpak/">
+          <i class="fas fa-tag"></i>
+        FlatPak
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="http://ankursinha.in/tag/gitter/">
+          <i class="fas fa-tag"></i>
+        Gitter
+      </a>
+    </span>
     <span class="tag-3">
       <a href="http://ankursinha.in/tag/gnome/">
           <i class="fas fa-tag"></i>
         GNOME
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="http://ankursinha.in/tag/programming/">
+          <i class="fas fa-tag"></i>
+        Programming
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="http://ankursinha.in/tag/free-software/">
+          <i class="fas fa-tag"></i>
+        Free software
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="http://ankursinha.in/tag/sports/">
+          <i class="fas fa-tag"></i>
+        Sports
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="http://ankursinha.in/tag/latex/">
+          <i class="fas fa-tag"></i>
+        LaTeX
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="http://ankursinha.in/tag/blog/">
+          <i class="fas fa-tag"></i>
+        Blog
       </a>
     </span>
     <span class="tag-3">
@@ -346,64 +314,10 @@ Any or all of the sciences, such as neurochemistry and experimental psychology, 
         Bugzilla
       </a>
     </span>
-    <span class="tag-4">
-      <a href="http://ankursinha.in/tag/blog/">
-          <i class="fas fa-tag"></i>
-        Blog
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="http://ankursinha.in/tag/git/">
-          <i class="fas fa-tag"></i>
-        Git
-      </a>
-    </span>
     <span class="tag-3">
-      <a href="http://ankursinha.in/tag/events/">
+      <a href="http://ankursinha.in/tag/bash/">
           <i class="fas fa-tag"></i>
-        Events
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="http://ankursinha.in/tag/social/">
-          <i class="fas fa-tag"></i>
-        Social
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="http://ankursinha.in/tag/gitter/">
-          <i class="fas fa-tag"></i>
-        Gitter
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="http://ankursinha.in/tag/flatpak/">
-          <i class="fas fa-tag"></i>
-        FlatPak
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="http://ankursinha.in/tag/irc/">
-          <i class="fas fa-tag"></i>
-        IRC
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="http://ankursinha.in/tag/programming/">
-          <i class="fas fa-tag"></i>
-        Programming
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="http://ankursinha.in/tag/vim/">
-          <i class="fas fa-tag"></i>
-        Vim
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="http://ankursinha.in/tag/sports/">
-          <i class="fas fa-tag"></i>
-        Sports
+        Bash
       </a>
     </span>
     <span class="tag-1">
@@ -413,9 +327,27 @@ Any or all of the sciences, such as neurochemistry and experimental psychology, 
       </a>
     </span>
     <span class="tag-3">
-      <a href="http://ankursinha.in/tag/bash/">
+      <a href="http://ankursinha.in/tag/events/">
           <i class="fas fa-tag"></i>
-        Bash
+        Events
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="http://ankursinha.in/tag/pelican/">
+          <i class="fas fa-tag"></i>
+        Pelican
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="http://ankursinha.in/tag/planet/">
+          <i class="fas fa-tag"></i>
+        Planet
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="http://ankursinha.in/tag/git/">
+          <i class="fas fa-tag"></i>
+        Git
       </a>
     </span>
     <span class="tag-2">
@@ -424,10 +356,16 @@ Any or all of the sciences, such as neurochemistry and experimental psychology, 
         Linux
       </a>
     </span>
-    <span class="tag-3">
-      <a href="http://ankursinha.in/tag/free-software/">
+    <span class="tag-2">
+      <a href="http://ankursinha.in/tag/community/">
           <i class="fas fa-tag"></i>
-        Free software
+        Community
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="http://ankursinha.in/tag/zaphod/">
+          <i class="fas fa-tag"></i>
+        Zaphod
       </a>
     </span>
     <span class="tag-4">
@@ -436,22 +374,22 @@ Any or all of the sciences, such as neurochemistry and experimental psychology, 
         Subscriptions
       </a>
     </span>
-    <span class="tag-2">
-      <a href="http://ankursinha.in/tag/computational-neuroscience/">
+    <span class="tag-4">
+      <a href="http://ankursinha.in/tag/nest/">
           <i class="fas fa-tag"></i>
-        Computational neuroscience
+        NEST
       </a>
     </span>
-    <span class="tag-4">
-      <a href="http://ankursinha.in/tag/calliope/">
+    <span class="tag-3">
+      <a href="http://ankursinha.in/tag/vim/">
           <i class="fas fa-tag"></i>
-        Calliope
+        Vim
       </a>
     </span>
-    <span class="tag-4">
-      <a href="http://ankursinha.in/tag/neuron/">
+    <span class="tag-3">
+      <a href="http://ankursinha.in/tag/music/">
           <i class="fas fa-tag"></i>
-        Neuron
+        Music
       </a>
     </span>
 </p>
@@ -506,30 +444,5 @@ Any or all of the sciences, such as neurochemistry and experimental psychology, 
     <script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 
 
-<!-- Facebook -->
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));
-</script>
-
-<!-- Twitter -->
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-
-<!-- Google+ -->
-<!-- Synchronous 
-<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
--->
-<!-- Asynchronous -->
-<script type="text/javascript">
-  (function() {
-    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-    po.src = 'https://apis.google.com/js/platform.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-  })();
-</script>  </body>
+  </body>
 </html>

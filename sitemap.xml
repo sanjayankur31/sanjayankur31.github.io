@@ -5,21 +5,21 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://ankursinha.in/</loc>
-<lastmod>2018-05-08T01:08:24-00:00</lastmod>
+<lastmod>2018-05-12T21:04:36-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://ankursinha.in/tags.html</loc>
-<lastmod>2018-05-08T01:08:24-00:00</lastmod>
+<lastmod>2018-05-12T21:04:36-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://ankursinha.in/categories.html</loc>
-<lastmod>2018-05-08T01:08:24-00:00</lastmod>
+<lastmod>2018-05-12T21:04:36-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -34,6 +34,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>http://ankursinha.in/pages/02-research-profile.html</loc>
 <lastmod>2017-04-15T10:22:00+01:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://ankursinha.in/2018/05/12/testing-out-sumatra-a-tool-for-managing-iterations-of-simulations-analyses.html</loc>
+<lastmod>2018-05-12T20:53:25+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
@@ -2819,7 +2826,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://ankursinha.in/category/research/</loc>
-<lastmod>2017-06-26T10:30:01-00:01</lastmod>
+<lastmod>2018-05-12T20:53:25-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -2832,14 +2839,42 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>http://ankursinha.in/tag/tex/</loc>
-<lastmod>2018-03-25T18:15:05-00:01</lastmod>
+<loc>http://ankursinha.in/tag/python/</loc>
+<lastmod>2018-05-12T20:53:25-00:01</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://ankursinha.in/tag/reproducible-research/</loc>
+<lastmod>2018-05-12T20:53:25-00:01</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://ankursinha.in/tag/computational-neuroscience/</loc>
+<lastmod>2018-05-12T20:53:25-00:01</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://ankursinha.in/tag/sumatra/</loc>
+<lastmod>2018-05-12T20:53:25-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://ankursinha.in/tag/fedora/</loc>
+<lastmod>2018-05-12T20:53:25-00:01</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://ankursinha.in/tag/tex/</loc>
 <lastmod>2018-03-25T18:15:05-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
@@ -2993,13 +3028,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>http://ankursinha.in/tag/computational-neuroscience/</loc>
-<lastmod>2017-07-12T13:55:17-00:01</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
 <loc>http://ankursinha.in/tag/flatpak/</loc>
 <lastmod>2017-07-12T13:55:17-00:01</lastmod>
 <changefreq>daily</changefreq>
@@ -3009,13 +3037,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>http://ankursinha.in/tag/gitter/</loc>
 <lastmod>2017-07-12T13:55:17-00:01</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<loc>http://ankursinha.in/tag/python/</loc>
-<lastmod>2017-06-21T00:09:30-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -3344,7 +3365,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://ankursinha.in/author/ankur.html</loc>
-<lastmod>2018-03-25T18:15:05-00:01</lastmod>
+<lastmod>2018-05-12T20:53:25-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>

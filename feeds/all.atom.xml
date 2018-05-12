@@ -1,5 +1,263 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>ankursinha.in/blog</title><link href="http://ankursinha.in/" rel="alternate"></link><link href="http://ankursinha.in/feeds/all.atom.xml" rel="self"></link><id>http://ankursinha.in/</id><updated>2018-03-25T18:15:05+01:00</updated><entry><title>Building TeX Live from source</title><link href="http://ankursinha.in/2018/03/25/building-tex-live-from-source.html" rel="alternate"></link><published>2018-03-25T18:15:05+01:00</published><updated>2018-03-25T18:15:05+01:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2018-03-25:/2018/03/25/building-tex-live-from-source.html</id><summary type="html">&lt;p class="first last"&gt;I thought it'd be fun to try and build &lt;a class="reference external" href="https://www.tug.org/texlive/"&gt;TeX Live&lt;/a&gt; from sources. So,
+<feed xmlns="http://www.w3.org/2005/Atom"><title>ankursinha.in/blog</title><link href="http://ankursinha.in/" rel="alternate"></link><link href="http://ankursinha.in/feeds/all.atom.xml" rel="self"></link><id>http://ankursinha.in/</id><updated>2018-05-12T20:53:25+01:00</updated><entry><title>Testing out Sumatra: a tool for managing iterations of simulations/analyses</title><link href="http://ankursinha.in/2018/05/12/testing-out-sumatra-a-tool-for-managing-iterations-of-simulations-analyses.html" rel="alternate"></link><published>2018-05-12T20:53:25+01:00</published><updated>2018-05-12T20:53:25+01:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2018-05-12:/2018/05/12/testing-out-sumatra-a-tool-for-managing-iterations-of-simulations-analyses.html</id><summary type="html">&lt;p class="first last"&gt;When working on projects that require multiple iterations of
+simulations and/or analyses, it's really quite hard to keep track of
+the changes one makes and how the results vary. &lt;a class="reference external" href="http://neuralensemble.org/sumatra/"&gt;Sumatra&lt;/a&gt; is a tool
+that is developed to help researchers manage such projects.&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;In the ~4 years that I've spent on my PhD now, I've run hundreds, nay,
+thousands of simulations. Research work is incredibly iterative. I (and I
+assume others too) make small changes to their methods and then study how these
+changes produce different results, and this cycle continues until a
+proposed hypothesis has either been accepted or refuted (or a completely new
+insight gained, which happens quite often too!).&lt;/p&gt;
+&lt;div class="section" id="folders-and-dropbox-please-no"&gt;
+&lt;h2&gt;Folders, and Dropbox? Please, no.&lt;/h2&gt;
+&lt;p&gt;Keeping track of all these iterations is quite a task. I've seen multiple
+methods that people use to do this. A popular method is to make a different
+folder for each different version of code, and then use something like Dropbox
+to store them all.&lt;/p&gt;
+&lt;p&gt;Since I come from a computing background, I firmly believe that this is not a
+good way of going about it. It may work for folks---people I know and work with
+use this method---but it is simply a bad way of going about it. This &lt;a class="reference external" href="http://phdcomics.com/"&gt;PhDComic&lt;/a&gt;
+does a rather good job of showing an example situation. Sure, this is about a
+document, but when source code is kept in different folders, a similar
+situation arises. You get the idea.&lt;/p&gt;
+&lt;a class="reference external image-reference" href="http://phdcomics.com/comics/archive.php?comicid=1531"&gt;&lt;img alt="PhDComic!" class="text-center img-responsive pagination-centered" src="http://www.phdcomics.com/comics/archive/phd101212s.gif" style="width: 80%;" /&gt;&lt;/a&gt;
+&lt;/div&gt;
+&lt;div class="section" id="version-control-yes"&gt;
+&lt;h2&gt;Version control, YES!&lt;/h2&gt;
+&lt;p&gt;If there weren't tools designed to track and manage such projects, one could
+still argue for using such methods, but the truth is that there is a plethora
+of &lt;a class="reference external" href="https://en.wikipedia.org/wiki/List_of_version_control_software"&gt;version control tools&lt;/a&gt; available
+under &lt;a class="reference external" href="https://www.gnu.org/philosophy/free-sw.en.html"&gt;Free/Open Source&lt;/a&gt; licenses. Not only do these tools manage projects,
+they also make collaborating over source code simple.&lt;/p&gt;
+&lt;p&gt;All my simulation code, for example, lives in a &lt;a class="reference external" href="https://git-scm.com/"&gt;Git&lt;/a&gt; repository (which will be
+made available under a &lt;a class="reference external" href="https://www.gnu.org/philosophy/free-sw.en.html"&gt;Free/Open source&lt;/a&gt; license as soon as my paper goes out
+to ensure that others can read, verify, and build on it). The support scripts
+that I use to set up simulations and then analyse the data they produce already
+live &lt;a class="reference external" href="https://github.com/sanjayankur31/Sinha2016-scripts"&gt;here on GitHub&lt;/a&gt;,
+for example. Please go ahead and use them if they fit your purpose.&lt;/p&gt;
+&lt;p&gt;I have different &lt;a class="reference external" href="https://git-scm.com/"&gt;Git&lt;/a&gt; branches for different features that I add to the
+simulations---the different hypothesis that I'm testing out. I also keep a
+rather meticulous record of everything I do in a research journal in &lt;a class="reference external" href="https://www.latex-project.org/"&gt;LaTeX&lt;/a&gt; that
+also lives in a &lt;a class="reference external" href="https://git-scm.com/"&gt;Git&lt;/a&gt; repository, and uses &lt;a class="reference external" href="https://github.com/sanjayankur31/calliope"&gt;Calliope&lt;/a&gt; (a simple helper script to
+manage various journaling tasks). Everything goes in here---graphs, images,
+sometimes patches and source code even, and the deductions and other
+comments/thoughts too.&lt;/p&gt;
+&lt;p&gt;My rather simple system is as follows:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Each new feature/hypothesis gets its own &lt;a class="reference external" href="https://git-scm.com/"&gt;Git&lt;/a&gt; branch.&lt;/li&gt;
+&lt;li&gt;Each version of its implementation, therefore, gets its own unique &lt;a class="reference external" href="https://github.com/sanjayankur31/Sinha2016-scripts/blob/master/runners/stri-cluster/start-nest-job.sh#L93"&gt;commit&lt;/a&gt;
+(a snapshot of code that &lt;a class="reference external" href="https://git-scm.com/"&gt;Git&lt;/a&gt; saves for the user with a unique identifier and
+a complete record of the changes that were made to the project, when they
+were made and so on.)&lt;/li&gt;
+&lt;li&gt;For each run of a snapshot, the generated data is stored in a folder that is
+named &lt;a class="reference external" href="https://github.com/sanjayankur31/Sinha2016-scripts/blob/master/runners/stri-cluster/start-nest-job.sh#L27"&gt;YYYYMMDDHHMM (Year, month, day, time)&lt;/a&gt;,
+which, unless you figure out how to go back in time, is also unique.&lt;/li&gt;
+&lt;li&gt;The commit hash + YYYYMMDD become a unique identifier for each code snapshot
+and the results that it generated.&lt;/li&gt;
+&lt;li&gt;A new chapter in my research journal holds a summary of the simulation, and
+all the analysis that I do. I even name the chapter &amp;quot;git-hash/YYYYMMDDHHMM&amp;quot;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;a class="reference external image-reference" href="https://xkcd.com/1597/"&gt;&lt;img alt="XKCD on Git." class="text-center img-responsive pagination-centered" src="https://imgs.xkcd.com/comics/git.png" style="width: 50%;" /&gt;&lt;/a&gt;
+&lt;p&gt;I know that learning a version control system has a steep initial curve, but I
+really do think that this is one tool that is well worth the time.&lt;/p&gt;
+&lt;p&gt;Using a version control system has many advantages, some of which are:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;It lets you keep the full history of your source code, and go back to any
+previous version.&lt;/li&gt;
+&lt;li&gt;You know exactly what you changed between two snapshots.&lt;/li&gt;
+&lt;li&gt;If multiple people work on the code, everyone knows exactly who authored
+what.&lt;/li&gt;
+&lt;li&gt;These tools make changing code, trying out things, and so on, very very easy.
+Try something out in a different branch, if it worked, yay, keep the branch
+running; maybe even merge it to the main branch? If it didn't make a note,
+delete the branch, and move on!&lt;/li&gt;
+&lt;li&gt;With services like &lt;a class="reference external" href="https://github.com"&gt;GitHub&lt;/a&gt;, &lt;a class="reference external" href="https://bitbucket.org"&gt;BitBucket&lt;/a&gt;, and &lt;a class="reference external" href="https://gitlab.com"&gt;GitLab&lt;/a&gt;, collaboration becomes
+really easy.&lt;/li&gt;
+&lt;li&gt;Ah, and note, that every collaborator has a copy of the source code, so it
+has been backed up too! Even if you work alone, there's always another copy
+on &lt;a class="reference external" href="https://github.com"&gt;GitHub&lt;/a&gt; (or whatever service you use).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Here's a quick beginners guide to using &lt;a class="reference external" href="https://git-scm.com/"&gt;Git&lt;/a&gt; and &lt;a class="reference external" href="https://github.com"&gt;GitHub&lt;/a&gt;:
+&lt;a class="reference external" href="http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004668"&gt;http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004668&lt;/a&gt;
+There are many more all over the WWW, of course. &lt;a class="reference external" href="https://duckduckgo.com"&gt;Duckduckgo&lt;/a&gt; is your friend.
+(&lt;a class="reference external" href="http://qr.ae/TU1wA9"&gt;Why Duckduckgo and not Google?&lt;/a&gt;)&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="what-s-sumatra-about-then"&gt;
+&lt;h2&gt;What's Sumatra about, then?&lt;/h2&gt;
+&lt;a class="reference external image-reference" href="http://neuralensemble.org/static/photos/sumatra_logo.png"&gt;&lt;img alt="Sumatra: a tool to manage and track simulation runs." class="text-center img-responsive pagination-centered" src="http://neuralensemble.org/static/photos/sumatra_logo.png" style="width: 30%;" /&gt;&lt;/a&gt;
+&lt;p&gt;I've been meaning to try &lt;a class="reference external" href="http://neuralensemble.org/sumatra/"&gt;Sumatra&lt;/a&gt; out for a while now. What &lt;a class="reference external" href="http://neuralensemble.org/sumatra/"&gt;Sumatra&lt;/a&gt; does is
+sort of bring the functions of all my scripts together into one well-designed
+tool.  &lt;a class="reference external" href="http://neuralensemble.org/sumatra/"&gt;Sumatra&lt;/a&gt; can do the running bit, then save the generated data in a
+unique location, and it even lets users add comments about the simulation.
+&lt;a class="reference external" href="http://neuralensemble.org/sumatra/"&gt;Sumatra&lt;/a&gt; even has a web based front end for those that would prefer a graphical
+interface instead of the command line.  Lastly, &lt;a class="reference external" href="http://neuralensemble.org/sumatra/"&gt;Sumatra&lt;/a&gt; is written in &lt;a class="reference external" href="https://python.org"&gt;Python&lt;/a&gt;,
+so it works on pretty much all systems. Note that &lt;a class="reference external" href="http://neuralensemble.org/sumatra/"&gt;Sumatra&lt;/a&gt; forces the use of a
+version control system (from what I've seen yet).&lt;/p&gt;
+&lt;div class="section" id="a-quick-walk-through"&gt;
+&lt;h3&gt;A quick walk-through&lt;/h3&gt;
+&lt;p&gt;The &lt;a class="reference external" href="http://sumatra.readthedocs.io/en/0.7.4/index.html"&gt;documentation&lt;/a&gt;
+contains all of this already, but I'll show the steps here too. I used a &lt;a class="reference external" href="https://github.com/sanjayankur31/sumatra-nest-cluster-test"&gt;dummy
+repository&lt;/a&gt; to
+test it out.&lt;/p&gt;
+&lt;p&gt;Installing &lt;a class="reference external" href="http://neuralensemble.org/sumatra/"&gt;Sumatra&lt;/a&gt; is as easy as a &lt;a class="reference external" href="https://docs.python.org/3/installing/index.html"&gt;pip&lt;/a&gt; command. I would suggest setting up a
+&lt;a class="reference external" href="https://docs.python.org/3/library/venv.html"&gt;virtual-environment&lt;/a&gt;, though:&lt;/p&gt;
+&lt;pre class="code bash literal-block"&gt;
+python3 -m venv --system-site-packages sumatra-virtual
+&lt;/pre&gt;
+&lt;p&gt;We then activate the virtual-environment, and install &lt;a class="reference external" href="http://neuralensemble.org/sumatra/"&gt;Sumatra&lt;/a&gt;:&lt;/p&gt;
+&lt;pre class="code bash literal-block"&gt;
+&lt;span class="nb"&gt;source&lt;/span&gt; sumatra-virtual/bin/activate
+pip install sumatra
+&lt;/pre&gt;
+&lt;p&gt;Once it finishes installing, simply mark a version controlled source
+repository as managed by &lt;a class="reference external" href="http://neuralensemble.org/sumatra/"&gt;Sumatra&lt;/a&gt;:&lt;/p&gt;
+&lt;pre class="code bash literal-block"&gt;
+&lt;span class="nb"&gt;cd&lt;/span&gt; my-awesome-project
+smt init my-awesome-project
+&lt;/pre&gt;
+&lt;p&gt;Then, one can see the information that &lt;a class="reference external" href="http://neuralensemble.org/sumatra/"&gt;Sumatra&lt;/a&gt; has on the project, for
+example:&lt;/p&gt;
+&lt;pre class="code bash literal-block"&gt;
+smt info
+Project name        : test-repo
+Default executable  : Python &lt;span class="o"&gt;(&lt;/span&gt;version: &lt;span class="m"&gt;3&lt;/span&gt;.6.5&lt;span class="o"&gt;)&lt;/span&gt; at /home/asinha/dump/sumatra-virt/bin/python3
+Default repository  : GitRepository at /home/asinha/Documents/02_Code/00_repos/00_mine/sumatra-nest-cluster-test &lt;span class="o"&gt;(&lt;/span&gt;upstream: git&amp;#64;github.com:sanjayankur31/sumatra-nest-cluster-test.git&lt;span class="o"&gt;)&lt;/span&gt;
+Default main file   : test.py
+Default launch mode : serial
+Data store &lt;span class="o"&gt;(&lt;/span&gt;output&lt;span class="o"&gt;)&lt;/span&gt; : /home/asinha/Documents/02_Code/00_repos/00_mine/sumatra-nest-cluster-test/Data
+.          &lt;span class="o"&gt;(&lt;/span&gt;input&lt;span class="o"&gt;)&lt;/span&gt;  : /
+Record store        : Django &lt;span class="o"&gt;(&lt;/span&gt;/home/asinha/Documents/02_Code/00_repos/00_mine/sumatra-nest-cluster-test/.smt/records&lt;span class="o"&gt;)&lt;/span&gt;
+Code change policy  : error
+Append label to     : None
+Label generator     : timestamp
+Timestamp format    : %Y%m%d-%H%M%S
+Plug-ins            : &lt;span class="o"&gt;[]&lt;/span&gt;
+Sumatra version     : &lt;span class="m"&gt;0&lt;/span&gt;.7.4
+&lt;/pre&gt;
+&lt;p&gt;My test script only prints a short message. Here's how one would run it using
+&lt;a class="reference external" href="http://neuralensemble.org/sumatra/"&gt;Sumatra&lt;/a&gt;:&lt;/p&gt;
+&lt;pre class="code bash literal-block"&gt;
+&lt;span class="c1"&gt;# so that we don't have to specify this for each run
+&lt;/span&gt;smt configure --executable&lt;span class="o"&gt;=&lt;/span&gt;python3 --main&lt;span class="o"&gt;=&lt;/span&gt;test.py
+
+smt run
+Hello Sumatra World!
+Record label &lt;span class="k"&gt;for&lt;/span&gt; this run: &lt;span class="s1"&gt;'20180512-200859'&lt;/span&gt;
+No data produced.
+&lt;/pre&gt;
+&lt;p&gt;One can now see all the runs of this simulation that have been made!&lt;/p&gt;
+&lt;pre class="code bash literal-block"&gt;
+smt list --long
+--------------------------------------------------------------------------------
+Label            : &lt;span class="m"&gt;20180512&lt;/span&gt;-200859
+Timestamp        : &lt;span class="m"&gt;2018&lt;/span&gt;-05-12 &lt;span class="m"&gt;20&lt;/span&gt;:08:59.761849
+Reason           :
+Outcome          :
+Duration         : &lt;span class="m"&gt;0&lt;/span&gt;.050611019134521484
+Repository       : GitRepository at /home/asinha/Documents/02_Code/00_repos/00_mine/sumatra-nest-
+                 : cluster-test &lt;span class="o"&gt;(&lt;/span&gt;upstream: git&amp;#64;github.com:sanjayankur31/sumatra-nest-cluster-
+                 : test.git&lt;span class="o"&gt;)&lt;/span&gt;
+Main_File        : test.py
+Version          : 6f4e1bf05f223a0100ca6f843c11ef4fd70490f3
+Script_Arguments :
+Executable       : Python &lt;span class="o"&gt;(&lt;/span&gt;version: &lt;span class="m"&gt;3&lt;/span&gt;.6.5&lt;span class="o"&gt;)&lt;/span&gt; at /home/asinha/dump/sumatra-virt/bin/python3
+Parameters       :
+Input_Data       : &lt;span class="o"&gt;[]&lt;/span&gt;
+Launch_Mode      : serial
+Output_Data      : &lt;span class="o"&gt;[]&lt;/span&gt;
+User             : Ankur Sinha &lt;span class="o"&gt;(&lt;/span&gt;Ankur Sinha Gmail&lt;span class="o"&gt;)&lt;/span&gt; &amp;lt;sanjay.ankur&amp;#64;gmail.com&amp;gt;
+Tags             :
+Repeats          : None
+--------------------------------------------------------------------------------
+Label            : &lt;span class="m"&gt;20180512&lt;/span&gt;-181422
+Timestamp        : &lt;span class="m"&gt;2018&lt;/span&gt;-05-12 &lt;span class="m"&gt;18&lt;/span&gt;:14:22.668655
+Reason           :
+Outcome          : Well that worked
+Duration         : &lt;span class="m"&gt;0&lt;/span&gt;.05211901664733887
+Repository       : GitRepository at /home/asinha/Documents/02_Code/00_repos/00_mine/sumatra-nest-
+                 : cluster-test &lt;span class="o"&gt;(&lt;/span&gt;upstream: git&amp;#64;github.com:sanjayankur31/sumatra-nest-cluster-
+                 : test.git&lt;span class="o"&gt;)&lt;/span&gt;
+Main_File        : test.py
+Version          : 4f151a368b1fee1fa8f21026c3b6d2c6b2531da8
+Script_Arguments :
+Executable       : Python &lt;span class="o"&gt;(&lt;/span&gt;version: &lt;span class="m"&gt;3&lt;/span&gt;.6.5&lt;span class="o"&gt;)&lt;/span&gt; at /home/asinha/dump/sumatra-virt/bin/python3
+Parameters       :
+Input_Data       : &lt;span class="o"&gt;[]&lt;/span&gt;
+Launch_Mode      : serial
+Output_Data      : &lt;span class="o"&gt;[]&lt;/span&gt;
+User             : Ankur Sinha &lt;span class="o"&gt;(&lt;/span&gt;Ankur Sinha Gmail&lt;span class="o"&gt;)&lt;/span&gt; &amp;lt;sanjay.ankur&amp;#64;gmail.com&amp;gt;
+Tags             :
+Repeats          : None
+&lt;/pre&gt;
+&lt;p&gt;There's a lot more that can be done, of course. I'll quickly show the GUI
+version here.&lt;/p&gt;
+&lt;p&gt;One can run the webversion using:&lt;/p&gt;
+&lt;pre class="code bash literal-block"&gt;
+smtweb -p &lt;span class="m"&gt;8001&lt;/span&gt; &lt;span class="c1"&gt;#whatever port number one wants to use&lt;/span&gt;
+&lt;/pre&gt;
+&lt;p&gt;Then, it'll open up in your default web-browser at &lt;a class="reference external" href="http://127.0.0.1:8001/"&gt;http://127.0.0.1:8001/&lt;/a&gt;.&lt;/p&gt;
+&lt;a class="reference external image-reference" href="http://ankursinha.in/images/20180512-sumatra1.png"&gt;&lt;img alt="Sumatra initial interface." class="text-center img-responsive pagination-centered" src="http://ankursinha.in/images/20180512-sumatra1.png" style="width: 80%;" /&gt;&lt;/a&gt;
+&lt;p&gt;For each project, one can see the various runs, with all the associated
+information too.&lt;/p&gt;
+&lt;a class="reference external image-reference" href="http://ankursinha.in/images/20180512-sumatra2.png"&gt;&lt;img alt="Records for a project in Sumatra" class="text-center img-responsive pagination-centered" src="http://ankursinha.in/images/20180512-sumatra2.png" style="width: 80%;" /&gt;&lt;/a&gt;
+&lt;p&gt;One can then add more information about a run. &lt;a class="reference external" href="http://neuralensemble.org/sumatra/"&gt;Sumatra&lt;/a&gt; already stores lots of
+important information as the image shows:&lt;/p&gt;
+&lt;a class="reference external image-reference" href="http://ankursinha.in/images/20180512-sumatra3.png"&gt;&lt;img alt="More information on each record in Sumatra" class="text-center img-responsive pagination-centered" src="http://ankursinha.in/images/20180512-sumatra3.png" style="width: 80%;" /&gt;&lt;/a&gt;
+&lt;p&gt;Pretty neat, huh?&lt;/p&gt;
+&lt;p&gt;I run my simulations on a cluster, and so have my own system to submit jobs to
+the queue system. &lt;a class="reference external" href="http://neuralensemble.org/sumatra/"&gt;Sumatra&lt;/a&gt; can run jobs in parallel on a cluster, but I've
+still got to check if it also integrates with the queue system that our cluster
+runs. Luckily, &lt;a class="reference external" href="http://neuralensemble.org/sumatra/"&gt;Sumatra&lt;/a&gt; also provides an API, so I should be able to write a
+few &lt;a class="reference external" href="https://python.org"&gt;Python&lt;/a&gt; scripts to handle that bit too. It's on my TODO list now.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="please-use-version-control-and-a-sumatra-style-record-keeper"&gt;
+&lt;h2&gt;Please use version control and a Sumatra style record keeper&lt;/h2&gt;
+&lt;p&gt;I haven't found another tool that does what &lt;a class="reference external" href="http://neuralensemble.org/sumatra/"&gt;Sumatra&lt;/a&gt; does yet. Maybe Jupyter
+notebooks would come close, but one would have to add some sort of wrapper
+around them to keep proper records. It'll probably be similar to my current
+system.&lt;/p&gt;
+&lt;p&gt;In summary, please use version control, and use a record keeper to manage and
+track simulations. Not only does it make it easier for you, the researcher, it
+also makes it easier for others to replicate the simulation since the record
+keeper provides all the information required to re-run the simulation.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="free-open-source-software-promotes-open-science"&gt;
+&lt;h2&gt;Free/Open source software promotes Open Science&lt;/h2&gt;
+&lt;video src="//static.fsf.org/nosvn/FSF30-video/FSF_30_720p.webm" controls width="640" height="390"&gt;&lt;/video&gt;&lt;p&gt;(The original video is at the &lt;a class="reference external" href="https://www.fsf.org/blogs/community/user-liberation-watch-and-share-our-new-video"&gt;Free Software Foundation's website&lt;/a&gt;.)&lt;/p&gt;
+&lt;p&gt;As a concluding plea, I request everyone to please use &lt;a class="reference external" href="https://www.gnu.org/philosophy/free-sw.en.html"&gt;Free/Open source&lt;/a&gt;
+software for all research. Not only are these available free of cost, they
+provide everyone with the right to read, validate, study, copy, share, and
+modify the software. One can learn so much from reading how research tools are
+built. One can be absolutely sure of their results if they can see the code
+that carries out the analysis. One can build on others' work if the source is
+available for all to use and change. How easy does replication become when the
+source and all related resources are given out for all to use?&lt;/p&gt;
+&lt;p&gt;Do not use Microsoft Word, for example. Not everyone, even today, has access
+to Microsoft software. Should researchers be required to buy a Microsoft
+license to be able to collaborate with us? The tools are here to enable
+science, not hamper it.  Proprietary software and formats do not enable
+science, they restrict it to those that can pay for such software. This is not
+a restriction we should endorse in any way.&lt;/p&gt;
+&lt;p&gt;Yes, I know that sometimes there aren't &lt;a class="reference external" href="https://www.gnu.org/philosophy/free-sw.en.html"&gt;Free/Open source&lt;/a&gt; software
+alternatives that carry the same set of features, but a little bit of extra
+work, for me, is an investment towards Open Science. Instead of Word, as an
+example, use &lt;a class="reference external" href="https://www.libreoffice.org/"&gt;Libreoffice&lt;/a&gt;, or &lt;a class="reference external" href="https://www.latex-project.org/"&gt;LaTeX&lt;/a&gt;. Use &lt;a class="reference external" href="http://opendocumentformat.org/"&gt;Open formats&lt;/a&gt;. There will be bugs, but until we report
+them, they will not be fixed. Until these &lt;a class="reference external" href="https://www.gnu.org/philosophy/free-sw.en.html"&gt;Free/Open source&lt;/a&gt; tools replace
+restricted software as the standard for science, they will only have small
+communities around them that build and maintain them.&lt;/p&gt;
+&lt;p&gt;Open Science is a necessity.  Researchers from the neuroscience community
+recently signed &lt;a class="reference external" href="http://opensourceforneuroscience.org/"&gt;this letter&lt;/a&gt;
+committing to the use of &lt;a class="reference external" href="https://www.gnu.org/philosophy/free-sw.en.html"&gt;Free/Open source&lt;/a&gt; software for their research. There
+are similar initiatives in other fields too, and of course, one must be aware
+of the Open Access movement etc.&lt;/p&gt;
+&lt;p&gt;I've made this plea in the context of science, but the video should also show
+you how in everyday life, it is important to use &lt;a class="reference external" href="https://www.gnu.org/philosophy/free-sw.en.html"&gt;Free/Open source&lt;/a&gt; resources.
+Please use &lt;a class="reference external" href="https://www.gnu.org/philosophy/free-sw.en.html"&gt;Free/Open source&lt;/a&gt; resources, as much as possible.&lt;/p&gt;
+&lt;!-- _ --&gt;
+&lt;/div&gt;
+</content><category term="Python"></category><category term="Reproducible research"></category><category term="Computational neuroscience"></category><category term="Sumatra"></category><category term="Fedora"></category></entry><entry><title>Building TeX Live from source</title><link href="http://ankursinha.in/2018/03/25/building-tex-live-from-source.html" rel="alternate"></link><published>2018-03-25T18:15:05+01:00</published><updated>2018-03-25T18:15:05+01:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2018-03-25:/2018/03/25/building-tex-live-from-source.html</id><summary type="html">&lt;p class="first last"&gt;I thought it'd be fun to try and build &lt;a class="reference external" href="https://www.tug.org/texlive/"&gt;TeX Live&lt;/a&gt; from sources. So,
 I spent a day trying to do it. Here's how it went.&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;Between all the &lt;a class="reference external" href="https://ctan.org/pkg/latex"&gt;LaTeX&lt;/a&gt; vs &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Microsoft_Word"&gt;Word&lt;/a&gt; discussions that I frequently become a part of,
 is the beauty of how it all works. They're both marvels, even if they each take
@@ -1022,16 +1280,4 @@ servers = (
 &lt;/center&gt;&lt;p&gt;There are &lt;a class="reference external" href="https://riot.im/desktop.html"&gt;desktop clients&lt;/a&gt; available for &lt;a class="reference external" href="https://riot.im"&gt;Riot&lt;/a&gt; too. (&lt;a class="reference external" href="https://copr.fedorainfracloud.org/coprs/taw/Riot/"&gt;Here's a COPR for Fedora&lt;/a&gt;). &lt;a class="reference external" href="https://opensource.com/article/17/5/introducing-riot-IRC"&gt;Here's a great post on opensource.com&lt;/a&gt; discussing &lt;a class="reference external" href="https://riot.im"&gt;Riot&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;So, if you're an admin looking to set up a new chat channel - consider setting up on different platforms and integrating them with &lt;a class="reference external" href="https://riot.im"&gt;Riot&lt;/a&gt; - it'll make things a lot easier for your users.&lt;/p&gt;
 &lt;/div&gt;
-</content><category term="Community"></category><category term="Computational neuroscience"></category><category term="Fedora"></category><category term="FlatPak"></category><category term="Free software"></category><category term="Gitter"></category><category term="Linux"></category><category term="Planet"></category></entry><entry><title>A channel for neuroscientists on Gitter</title><link href="http://ankursinha.in/2017/06/26/a-channel-for-neuroscientists-on-gitter.html" rel="alternate"></link><published>2017-06-26T10:30:01+01:00</published><updated>2017-06-26T10:30:01+01:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2017-06-26:/2017/06/26/a-channel-for-neuroscientists-on-gitter.html</id><summary type="html">&lt;p class="first last"&gt;I've come across a few mailing lists for neuroscientists, but I couldn't find a chat channel. While mailing lists suit certain purposes, open source communities tend to use a combination of mailing lists and chat channels - each platform serves different purposes. TLDR: here's a new chat channel on &lt;a class="reference external" href="https://github.com/gitterHQ"&gt;Gitter&lt;/a&gt; &lt;a class="reference external" href="https://gitter.im/neuroscience-central/Lobby"&gt;here&lt;/a&gt; for everything neuroscience related. It is also accessible using the &lt;a class="reference external" href="https://webchat.freenode.net/?channels=#neuroscience-central-lobby"&gt;IRC&lt;/a&gt; and &lt;a class="reference external" href="https://riot.im/app/#/room/#neuroscience-central-lobby:matrix.org"&gt;Riot&lt;/a&gt;.&lt;/p&gt;
-</summary><content type="html">&lt;p&gt;As opposed to the free software community, where I've been around long enough to know what's where, I'm still relatively new to the neuroscience community. Over the two years that I've been doing my PhD, I've found a few neuroscience related mailing lists, but not any chat channels. Various teams tend to use &lt;a class="reference external" href="https://slack.com/"&gt;Slack&lt;/a&gt; or another platform for internal communications, but nothing seems to be set up for the community in general - an open for all channel.&lt;/p&gt;
-&lt;p&gt;Mailing lists are extremely useful, but by design they are suited to particular types of tasks. They are very well suited for longer discussions, and general queries that are not time sensitive, for example. On the other hand, they do not work well for urgent queries, and of course, sometimes sending e-mails back and forth is quite an overhead for simpler tasks or collaborative development.&lt;/p&gt;
-&lt;p&gt;Most open source communities have both mailing lists and chat channels. I figured it'd be nice to have one for the neuroscience community too. There's the question of what platform was best suited, of course. We use &lt;a class="reference external" href="https://slack.com/"&gt;Slack&lt;/a&gt; for our internal communication, but &lt;a class="reference external" href="https://slack.com/"&gt;Slack&lt;/a&gt; only works well for small teams. It isn't designed for larger communities. The &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Internet_Relay_Chat"&gt;IRC&lt;/a&gt; is ideal for larger communities, but on the flip side, the &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Internet_Relay_Chat"&gt;IRC&lt;/a&gt; is not very user friendly.&lt;/p&gt;
-&lt;p&gt;The third option, and the popular alternative to IRC and Slack, is &lt;a class="reference external" href="https://github.com/gitterHQ"&gt;Gitter&lt;/a&gt; - it's been recently &lt;a class="reference external" href="https://about.gitlab.com/2017/03/15/gitter-acquisition/"&gt;acquired by GitLab&lt;/a&gt; and will be completely open sourced soon. It's completely free to use unlike &lt;a class="reference external" href="https://slack.com/"&gt;Slack&lt;/a&gt; where one needs to pay more as the number of group members increases, and is designed for large communities that number in the thousands. One can login using either Github or Twitter - so that's quite convenient too. There's even an &lt;a class="reference external" href="https://irc.gitter.im/"&gt;IRC gateway&lt;/a&gt; for more technical users.&lt;/p&gt;
-&lt;p&gt;So here's the channel then - &lt;a class="reference external" href="https://gitter.im/neuroscience-central/Lobby"&gt;https://gitter.im/neuroscience-central/Lobby&lt;/a&gt;. I hope it'll be useful, and if it doesn't, well no harm done :)&lt;/p&gt;
-&lt;p&gt;Update (12 July 2017):&lt;/p&gt;
-&lt;p&gt;To enable people to communicate over various platforms, I've also set the channel up with &lt;a class="reference external" href="https://riot.im"&gt;Riot&lt;/a&gt;. This enables people using &lt;a class="reference external" href="https://github.com/gitterHQ"&gt;Gitter&lt;/a&gt;, &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Internet_Relay_Chat"&gt;IRC&lt;/a&gt;, and &lt;a class="reference external" href="https://riot.im"&gt;Riot&lt;/a&gt; to &lt;a class="reference external" href="http://ankursinha.in/2017/07/12/bringing-together-gitter-irc-and-slack-channels-in-one-place-on-riot.html"&gt;communicate with each other in one place using whatever platform they prefer&lt;/a&gt;. So, we also have:&lt;/p&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://webchat.freenode.net/?channels=#neuroscience-central-lobby"&gt;#neuroscience-central-lobby&lt;/a&gt; on &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Internet_Relay_Chat"&gt;IRC&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://riot.im/app/#/room/#neuroscience-central-lobby:matrix.org"&gt;neuroscience-central/Lobby&lt;/a&gt; on &lt;a class="reference external" href="https://riot.im"&gt;Riot&lt;/a&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-</content><category term="Community"></category><category term="Computational neuroscience"></category><category term="Gitter"></category><category term="Planet"></category></entry></feed>
+</content><category term="Community"></category><category term="Computational neuroscience"></category><category term="Fedora"></category><category term="FlatPak"></category><category term="Free software"></category><category term="Gitter"></category><category term="Linux"></category><category term="Planet"></category></entry></feed>
