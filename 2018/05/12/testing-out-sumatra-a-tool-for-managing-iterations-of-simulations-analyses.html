@@ -116,7 +116,7 @@
     in 
     <a href="http://ankursinha.in/category/research/">
       Research</a>
-(1779 words, approximately a 8 minute read)
+(1787 words, approximately a 8 minute read)
   </p>
 </div> <!-- /.article-header-info -->  </header>
   <div class="content-body" itemprop="text articleBody">
@@ -219,99 +219,99 @@ repository</a> to
 test it out.</p>
 <p>Installing <a class="reference external" href="http://neuralensemble.org/sumatra/">Sumatra</a> is as easy as a <a class="reference external" href="https://docs.python.org/3/installing/index.html">pip</a> command. I would suggest setting up a
 <a class="reference external" href="https://docs.python.org/3/library/venv.html">virtual-environment</a>, though:</p>
-<pre class="code bash literal-block">
+<pre class="code literal-block">
 python3 -m venv --system-site-packages sumatra-virtual
 </pre>
 <p>We then activate the virtual-environment, and install <a class="reference external" href="http://neuralensemble.org/sumatra/">Sumatra</a>:</p>
-<pre class="code bash literal-block">
-<span class="nb">source</span> sumatra-virtual/bin/activate
+<pre class="code literal-block">
+source sumatra-virtual/bin/activate
 pip install sumatra
 </pre>
 <p>Once it finishes installing, simply mark a version controlled source
 repository as managed by <a class="reference external" href="http://neuralensemble.org/sumatra/">Sumatra</a>:</p>
-<pre class="code bash literal-block">
-<span class="nb">cd</span> my-awesome-project
+<pre class="code literal-block">
+cd my-awesome-project
 smt init my-awesome-project
 </pre>
 <p>Then, one can see the information that <a class="reference external" href="http://neuralensemble.org/sumatra/">Sumatra</a> has on the project, for
 example:</p>
-<pre class="code bash literal-block">
+<pre class="code literal-block">
 smt info
 Project name        : test-repo
-Default executable  : Python <span class="o">(</span>version: <span class="m">3</span>.6.5<span class="o">)</span> at /home/asinha/dump/sumatra-virt/bin/python3
-Default repository  : GitRepository at /home/asinha/Documents/02_Code/00_repos/00_mine/sumatra-nest-cluster-test <span class="o">(</span>upstream: git&#64;github.com:sanjayankur31/sumatra-nest-cluster-test.git<span class="o">)</span>
+Default executable  : Python (version: 3.6.5) at /home/asinha/dump/sumatra-virt/bin/python3
+Default repository  : GitRepository at /home/asinha/Documents/02_Code/00_repos/00_mine/sumatra-nest-cluster-test (upstream: git&#64;github.com:sanjayankur31/sumatra-nest-cluster-test.git)
 Default main file   : test.py
 Default launch mode : serial
-Data store <span class="o">(</span>output<span class="o">)</span> : /home/asinha/Documents/02_Code/00_repos/00_mine/sumatra-nest-cluster-test/Data
-.          <span class="o">(</span>input<span class="o">)</span>  : /
-Record store        : Django <span class="o">(</span>/home/asinha/Documents/02_Code/00_repos/00_mine/sumatra-nest-cluster-test/.smt/records<span class="o">)</span>
+Data store (output) : /home/asinha/Documents/02_Code/00_repos/00_mine/sumatra-nest-cluster-test/Data
+.          (input)  : /
+Record store        : Django (/home/asinha/Documents/02_Code/00_repos/00_mine/sumatra-nest-cluster-test/.smt/records)
 Code change policy  : error
 Append label to     : None
 Label generator     : timestamp
 Timestamp format    : %Y%m%d-%H%M%S
-Plug-ins            : <span class="o">[]</span>
-Sumatra version     : <span class="m">0</span>.7.4
+Plug-ins            : []
+Sumatra version     : 0.7.4
 </pre>
 <p>My test script only prints a short message. Here's how one would run it using
 <a class="reference external" href="http://neuralensemble.org/sumatra/">Sumatra</a>:</p>
-<pre class="code bash literal-block">
-<span class="c1"># so that we don't have to specify this for each run
-</span>smt configure --executable<span class="o">=</span>python3 --main<span class="o">=</span>test.py
+<pre class="code literal-block">
+# so that we don't have to specify this for each run
+smt configure --executable=python3 --main=test.py
 
 smt run
 Hello Sumatra World!
-Record label <span class="k">for</span> this run: <span class="s1">'20180512-200859'</span>
+Record label for this run: '20180512-200859'
 No data produced.
 </pre>
 <p>One can now see all the runs of this simulation that have been made!</p>
-<pre class="code bash literal-block">
+<pre class="code literal-block">
 smt list --long
 --------------------------------------------------------------------------------
-Label            : <span class="m">20180512</span>-200859
-Timestamp        : <span class="m">2018</span>-05-12 <span class="m">20</span>:08:59.761849
+Label            : 20180512-200859
+Timestamp        : 2018-05-12 20:08:59.761849
 Reason           :
 Outcome          :
-Duration         : <span class="m">0</span>.050611019134521484
+Duration         : 0.050611019134521484
 Repository       : GitRepository at /home/asinha/Documents/02_Code/00_repos/00_mine/sumatra-nest-
-                 : cluster-test <span class="o">(</span>upstream: git&#64;github.com:sanjayankur31/sumatra-nest-cluster-
-                 : test.git<span class="o">)</span>
+                 : cluster-test (upstream: git&#64;github.com:sanjayankur31/sumatra-nest-cluster-
+                 : test.git)
 Main_File        : test.py
 Version          : 6f4e1bf05f223a0100ca6f843c11ef4fd70490f3
 Script_Arguments :
-Executable       : Python <span class="o">(</span>version: <span class="m">3</span>.6.5<span class="o">)</span> at /home/asinha/dump/sumatra-virt/bin/python3
+Executable       : Python (version: 3.6.5) at /home/asinha/dump/sumatra-virt/bin/python3
 Parameters       :
-Input_Data       : <span class="o">[]</span>
+Input_Data       : []
 Launch_Mode      : serial
-Output_Data      : <span class="o">[]</span>
-User             : Ankur Sinha <span class="o">(</span>Ankur Sinha Gmail<span class="o">)</span> &lt;sanjay.ankur&#64;gmail.com&gt;
+Output_Data      : []
+User             : Ankur Sinha (Ankur Sinha Gmail) &lt;sanjay.ankur&#64;gmail.com&gt;
 Tags             :
 Repeats          : None
 --------------------------------------------------------------------------------
-Label            : <span class="m">20180512</span>-181422
-Timestamp        : <span class="m">2018</span>-05-12 <span class="m">18</span>:14:22.668655
+Label            : 20180512-181422
+Timestamp        : 2018-05-12 18:14:22.668655
 Reason           :
 Outcome          : Well that worked
-Duration         : <span class="m">0</span>.05211901664733887
+Duration         : 0.05211901664733887
 Repository       : GitRepository at /home/asinha/Documents/02_Code/00_repos/00_mine/sumatra-nest-
-                 : cluster-test <span class="o">(</span>upstream: git&#64;github.com:sanjayankur31/sumatra-nest-cluster-
-                 : test.git<span class="o">)</span>
+                 : cluster-test (upstream: git&#64;github.com:sanjayankur31/sumatra-nest-cluster-
+                 : test.git)
 Main_File        : test.py
 Version          : 4f151a368b1fee1fa8f21026c3b6d2c6b2531da8
 Script_Arguments :
-Executable       : Python <span class="o">(</span>version: <span class="m">3</span>.6.5<span class="o">)</span> at /home/asinha/dump/sumatra-virt/bin/python3
+Executable       : Python (version: 3.6.5) at /home/asinha/dump/sumatra-virt/bin/python3
 Parameters       :
-Input_Data       : <span class="o">[]</span>
+Input_Data       : []
 Launch_Mode      : serial
-Output_Data      : <span class="o">[]</span>
-User             : Ankur Sinha <span class="o">(</span>Ankur Sinha Gmail<span class="o">)</span> &lt;sanjay.ankur&#64;gmail.com&gt;
+Output_Data      : []
+User             : Ankur Sinha (Ankur Sinha Gmail) &lt;sanjay.ankur&#64;gmail.com&gt;
 Tags             :
 Repeats          : None
 </pre>
 <p>There's a lot more that can be done, of course. I'll quickly show the GUI
 version here.</p>
 <p>One can run the webversion using:</p>
-<pre class="code bash literal-block">
-smtweb -p <span class="m">8001</span> <span class="c1">#whatever port number one wants to use</span>
+<pre class="code literal-block">
+smtweb -p 8001 #whatever port number one wants to use
 </pre>
 <p>Then, it'll open up in your default web-browser at <a class="reference external" href="http://127.0.0.1:8001/">http://127.0.0.1:8001/</a>.</p>
 <a class="reference external image-reference" href="http://ankursinha.in/images/20180512-sumatra1.png"><img alt="Sumatra initial interface." class="text-center img-responsive pagination-centered" src="http://ankursinha.in/images/20180512-sumatra1.png" style="width: 80%;" /></a>
@@ -342,7 +342,29 @@ keeper provides all the information required to re-run the simulation.</p>
 </div>
 <div class="section" id="free-open-source-software-promotes-open-science">
 <h2>Free/Open source software promotes Open Science</h2>
-<video src="//static.fsf.org/nosvn/FSF30-video/FSF_30_720p.webm" controls width="640" height="390"></video><p>(The original video is at the <a class="reference external" href="https://www.fsf.org/blogs/community/user-liberation-watch-and-share-our-new-video">Free Software Foundation's website</a>.)</p>
+<video controls width="640" height="390" poster="//static.fsf.org/nosvn/FSF30-video/fsf30-poster.png">
+<source src="//static.fsf.org/nosvn/FSF30-video/FSF_30_720p.webm" type="video/webm">
+<track kind="subtitles" label="English" srclang="en" src="//static.fsf.org/nosvn/FSF30-video/captions/FSF_30_720p.en.vtt" default="default" />
+<track kind="subtitles" label="Spanish" srclang="es" src="//static.fsf.org/nosvn/FSF30-video/captions/FSF_30_es.vtt" />
+<track kind="subtitles" label="French" srclang="fr" src="//static.fsf.org/nosvn/FSF30-video/captions/FSF_30_720p.fr.vtt" />
+<track kind="subtitles" label="German" srclang="en" src="//static.fsf.org/nosvn/FSF30-video/captions/FSF_30_720p.de.vtt" />
+<track kind="subtitles" label="русский" srclang="ru" src="//static.fsf.org/nosvn/FSF30-video/captions/FSF_30_720p.ru.vtt" />
+<track kind="subtitles" label="italiano" srclang="it" src="//static.fsf.org/nosvn/FSF30-video/captions/FSF_30_720p.it.vtt" />
+<track kind="subtitles" label="português" srclang="pt" src="//static.fsf.org/nosvn/FSF30-video/captions/FSF_30_720p.pt.vtt" />
+<track kind="subtitles" label="српски" srclang="sr" src="//static.fsf.org/nosvn/FSF30-video/captions/FSF_30_720p.sr.vtt" />
+<track kind="subtitles" label="fārsi" srclang="fa" src="//static.fsf.org/nosvn/FSF30-video/captions/FSF_30_720p.fa.vtt" />
+<track kind="subtitles" label="nederlands" srclang="nl" src="//static.fsf.org/nosvn/FSF30-video/captions/FSF_30_720p.nl.vtt" />
+<track kind="subtitles" label="magyar" srclang="hu" src="//static.fsf.org/nosvn/FSF30-video/captions/FSF_30_720p.hu.vtt" />
+<track kind="subtitles" label="svenska" srclang="se" src="//static.fsf.org/nosvn/FSF30-video/captions/FSF_30_720p.se.vtt" />
+<track kind="subtitles" label="română" srclang="ro" src="//static.fsf.org/nosvn/FSF30-video/captions/FSF_30_720p.ro.vtt" />
+<track kind="subtitles" label="lietuvių" srclang="lt" src="//static.fsf.org/nosvn/FSF30-video/captions/FSF_30_720p.lt.vtt" />
+<track kind="subtitles" label="hebrew" srclang="lt" src="//static.fsf.org/nosvn/FSF30-video/captions/FSF_30_720p.he.vtt" />
+<track kind="subtitles" label="português do Brasil" srclang="pt-br" src="//static.fsf.org/nosvn/FSF30-video/captions/FSF_30_720p.pt-br.vtt" />
+<track kind="subtitles" label="chinese" srclang="lt" src="//static.fsf.org/nosvn/FSF30-video/captions/FSF_30_720p.zh-cn.vtt" />
+<p><a href="https://www.fsf.org/blogs/community/user-liberation-watch-and-share-our-new-video">
+User liberation video at the Free Software Foundation.
+</a></p>
+</video><p>(The original video is at the <a class="reference external" href="https://www.fsf.org/blogs/community/user-liberation-watch-and-share-our-new-video">Free Software Foundation's website</a>.)</p>
 <p>As a concluding plea, I request everyone to please use <a class="reference external" href="https://www.gnu.org/philosophy/free-sw.en.html">Free/Open source</a>
 software for all research. Not only are these available free of cost, they
 provide everyone with the right to read, validate, study, copy, share, and
@@ -496,64 +518,10 @@ Please use <a class="reference external" href="https://www.gnu.org/philosophy/fr
         IRC
       </a>
     </span>
-    <span class="tag-1">
-      <a href="http://ankursinha.in/tag/fedora/">
-          <i class="fas fa-tag"></i>
-        Fedora
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="http://ankursinha.in/tag/neuron/">
-          <i class="fas fa-tag"></i>
-        Neuron
-      </a>
-    </span>
     <span class="tag-3">
-      <a href="http://ankursinha.in/tag/robotics/">
+      <a href="http://ankursinha.in/tag/free-software/">
           <i class="fas fa-tag"></i>
-        Robotics
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="http://ankursinha.in/tag/computational-neuroscience/">
-          <i class="fas fa-tag"></i>
-        Computational neuroscience
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="http://ankursinha.in/tag/community/">
-          <i class="fas fa-tag"></i>
-        Community
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="http://ankursinha.in/tag/pelican/">
-          <i class="fas fa-tag"></i>
-        Pelican
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="http://ankursinha.in/tag/social/">
-          <i class="fas fa-tag"></i>
-        Social
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="http://ankursinha.in/tag/gnome/">
-          <i class="fas fa-tag"></i>
-        GNOME
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="http://ankursinha.in/tag/calliope/">
-          <i class="fas fa-tag"></i>
-        Calliope
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="http://ankursinha.in/tag/bugzilla/">
-          <i class="fas fa-tag"></i>
-        Bugzilla
+        Free software
       </a>
     </span>
     <span class="tag-3">
@@ -563,27 +531,39 @@ Please use <a class="reference external" href="https://www.gnu.org/philosophy/fr
       </a>
     </span>
     <span class="tag-3">
-      <a href="http://ankursinha.in/tag/vim/">
+      <a href="http://ankursinha.in/tag/planet/">
           <i class="fas fa-tag"></i>
-        Vim
+        Planet
       </a>
     </span>
     <span class="tag-4">
-      <a href="http://ankursinha.in/tag/sports/">
+      <a href="http://ankursinha.in/tag/nest/">
           <i class="fas fa-tag"></i>
-        Sports
+        NEST
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="http://ankursinha.in/tag/gnome/">
+          <i class="fas fa-tag"></i>
+        GNOME
       </a>
     </span>
     <span class="tag-4">
-      <a href="http://ankursinha.in/tag/zaphod/">
+      <a href="http://ankursinha.in/tag/bugzilla/">
           <i class="fas fa-tag"></i>
-        Zaphod
+        Bugzilla
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="http://ankursinha.in/tag/fedora/">
+          <i class="fas fa-tag"></i>
+        Fedora
       </a>
     </span>
     <span class="tag-2">
-      <a href="http://ankursinha.in/tag/latex/">
+      <a href="http://ankursinha.in/tag/linux/">
           <i class="fas fa-tag"></i>
-        LaTeX
+        Linux
       </a>
     </span>
     <span class="tag-2">
@@ -598,52 +578,16 @@ Please use <a class="reference external" href="https://www.gnu.org/philosophy/fr
         Music
       </a>
     </span>
-    <span class="tag-3">
-      <a href="http://ankursinha.in/tag/planet/">
-          <i class="fas fa-tag"></i>
-        Planet
-      </a>
-    </span>
     <span class="tag-4">
-      <a href="http://ankursinha.in/tag/blog/">
+      <a href="http://ankursinha.in/tag/neuron/">
           <i class="fas fa-tag"></i>
-        Blog
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="http://ankursinha.in/tag/linux/">
-          <i class="fas fa-tag"></i>
-        Linux
+        Neuron
       </a>
     </span>
     <span class="tag-3">
-      <a href="http://ankursinha.in/tag/bash/">
+      <a href="http://ankursinha.in/tag/pelican/">
           <i class="fas fa-tag"></i>
-        Bash
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="http://ankursinha.in/tag/subscriptions/">
-          <i class="fas fa-tag"></i>
-        Subscriptions
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="http://ankursinha.in/tag/python/">
-          <i class="fas fa-tag"></i>
-        Python
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="http://ankursinha.in/tag/nest/">
-          <i class="fas fa-tag"></i>
-        NEST
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="http://ankursinha.in/tag/rant/">
-          <i class="fas fa-tag"></i>
-        Rant
+        Pelican
       </a>
     </span>
     <span class="tag-3">
@@ -653,9 +597,33 @@ Please use <a class="reference external" href="https://www.gnu.org/philosophy/fr
       </a>
     </span>
     <span class="tag-3">
-      <a href="http://ankursinha.in/tag/free-software/">
+      <a href="http://ankursinha.in/tag/rant/">
           <i class="fas fa-tag"></i>
-        Free software
+        Rant
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="http://ankursinha.in/tag/calliope/">
+          <i class="fas fa-tag"></i>
+        Calliope
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="http://ankursinha.in/tag/bash/">
+          <i class="fas fa-tag"></i>
+        Bash
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="http://ankursinha.in/tag/robotics/">
+          <i class="fas fa-tag"></i>
+        Robotics
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="http://ankursinha.in/tag/social/">
+          <i class="fas fa-tag"></i>
+        Social
       </a>
     </span>
     <span class="tag-2">
@@ -664,10 +632,64 @@ Please use <a class="reference external" href="https://www.gnu.org/philosophy/fr
         Programming
       </a>
     </span>
+    <span class="tag-2">
+      <a href="http://ankursinha.in/tag/community/">
+          <i class="fas fa-tag"></i>
+        Community
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="http://ankursinha.in/tag/latex/">
+          <i class="fas fa-tag"></i>
+        LaTeX
+      </a>
+    </span>
     <span class="tag-4">
       <a href="http://ankursinha.in/tag/gitter/">
           <i class="fas fa-tag"></i>
         Gitter
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="http://ankursinha.in/tag/subscriptions/">
+          <i class="fas fa-tag"></i>
+        Subscriptions
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="http://ankursinha.in/tag/computational-neuroscience/">
+          <i class="fas fa-tag"></i>
+        Computational neuroscience
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="http://ankursinha.in/tag/vim/">
+          <i class="fas fa-tag"></i>
+        Vim
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="http://ankursinha.in/tag/sports/">
+          <i class="fas fa-tag"></i>
+        Sports
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="http://ankursinha.in/tag/python/">
+          <i class="fas fa-tag"></i>
+        Python
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="http://ankursinha.in/tag/zaphod/">
+          <i class="fas fa-tag"></i>
+        Zaphod
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="http://ankursinha.in/tag/blog/">
+          <i class="fas fa-tag"></i>
+        Blog
       </a>
     </span>
 </p>
