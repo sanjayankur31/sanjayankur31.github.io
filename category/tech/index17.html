@@ -103,6 +103,39 @@
 </ol>
     <article>
 <abbr class="article-header-date">
+  Tue 04 October 2011
+</abbr> <h1>
+  <a href="http://ankursinha.in/2011/10/04/ftp-usage.html" rel="bookmark"
+     title="Permalink to FTP usage">
+    FTP usage
+  </a>
+</h1><div class="article-header-info">
+  <p>
+      Posted by <a href="http://ankursinha.in/author/ankur.html">ankur</a>
+    in 
+    <a href="http://ankursinha.in/category/tech/">
+      Tech</a>
+(148 words, approximately a 1 minute read)
+  </p>
+</div> <!-- /.article-header-info -->
+      <div class="summary">
+		<p><a class="reference external" href="http://dodoincfedora.files.wordpress.com/2011/09/gnote.png"><img alt="image0" src="http://dodoincfedora.files.wordpress.com/2011/09/gnote.png" /></a> <a class="reference external" href="http://dodoincfedora.files.wordpress.com/2011/09/swiftp.jpg"><img alt="image1" src="http://dodoincfedora.files.wordpress.com/2011/09/swiftp.jpg" /></a> <a class="reference external" href="http://dodoincfedora.files.wordpress.com/2011/09/tomdroid.jpg"><img alt="image2" src="http://dodoincfedora.files.wordpress.com/2011/09/tomdroid.jpg" /></a></p>
+<p>At the end of my <a class="reference external" href="http://dodoincfedora.wordpress.com/2011/09/30/using-your-gnotes-on-your-android-phone/">last post</a>, I had mentioned that a combination of
+swiFTP and ftp is&nbsp; a convenient way of syncing your notes. Now, I make
+it even easier! Write a script like so:</p>
+<pre class="literal-block">
+cd ~/.local/share/gnote/
+
+ftp -n $1 2121 &lt;&lt; EndOfCommand123
+user myswiftpusername myswiftppassword
+cd sdcard …</pre>
+		<p class="content-emphasis"><a href="http://ankursinha.in/2011/10/04/ftp-usage.html">
+			Read more... <i class="fas fa-arrow-circle-right fa-fw fa-lg"></i> 
+		</a></p>
+      </div>    </article>
+    <hr />
+    <article>
+<abbr class="article-header-date">
   Fri 30 September 2011
 </abbr> <h1>
   <a href="http://ankursinha.in/2011/09/30/what-is-ask-fedora.html" rel="bookmark"
@@ -345,36 +378,6 @@ restore single files.</p>
 		</a></p>
       </div>    </article>
     <hr />
-    <article>
-<abbr class="article-header-date">
-  Sun 07 August 2011
-</abbr> <h1>
-  <a href="http://ankursinha.in/2011/08/07/fedora-gsoc-week-15.html" rel="bookmark"
-     title="Permalink to Fedora GSoC: Week 15">
-    Fedora GSoC: Week 15
-  </a>
-</h1><div class="article-header-info">
-  <p>
-      Posted by <a href="http://ankursinha.in/author/ankur.html">ankur</a>
-    in 
-    <a href="http://ankursinha.in/category/tech/">
-      Tech</a>
-(57 words, approximately a 1 minute read)
-  </p>
-</div> <!-- /.article-header-info -->
-      <div class="summary">
-		<p>Woah! Week 15!</p>
-<p><a class="reference external" href="https://bugzilla.redhat.com/show_bug.cgi?id=714328">xmedcon</a> is finally ready for review. Can you review it?! Both it's
-build dependencies were built and pushed to updates this week.</p>
-<p>I just submitted <a class="reference external" href="https://bugzilla.redhat.com/show_bug.cgi?id=728757">gnumed-client</a> for review. Susmit has already
-packaged <a class="reference external" href="http://bugz.fedoraproject.org/gnumed-server">gnumed-server</a> and it's available in the fedora repositories.
-:)</p>
-<p>The <a class="reference external" href="https://bugzilla.redhat.com/show_bug.cgi?id=715180">FreeMat</a> package has been fixed too …</p>
-		<p class="content-emphasis"><a href="http://ankursinha.in/2011/08/07/fedora-gsoc-week-15.html">
-			Read more... <i class="fas fa-arrow-circle-right fa-fw fa-lg"></i> 
-		</a></p>
-      </div>    </article>
-    <hr />
 
 <nav class="index-pager">
 	<ul class="pagination">
@@ -551,52 +554,10 @@ packaged <a class="reference external" href="http://bugz.fedoraproject.org/gnume
   </ul>
 <h4><i class="fas fa-tags fa-fw fa-lg"></i> Tags</h4>
 <p class="tag-cloud">
-    <span class="tag-4">
-      <a href="http://ankursinha.in/tag/blog/">
-          <i class="fas fa-tag"></i>
-        Blog
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="http://ankursinha.in/tag/books/">
-          <i class="fas fa-tag"></i>
-        Books
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="http://ankursinha.in/tag/sports/">
-          <i class="fas fa-tag"></i>
-        Sports
-      </a>
-    </span>
     <span class="tag-3">
-      <a href="http://ankursinha.in/tag/flatpak/">
+      <a href="http://ankursinha.in/tag/robotics/">
           <i class="fas fa-tag"></i>
-        FlatPak
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="http://ankursinha.in/tag/git/">
-          <i class="fas fa-tag"></i>
-        Git
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="http://ankursinha.in/tag/calliope/">
-          <i class="fas fa-tag"></i>
-        Calliope
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="http://ankursinha.in/tag/vim/">
-          <i class="fas fa-tag"></i>
-        Vim
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="http://ankursinha.in/tag/bugzilla/">
-          <i class="fas fa-tag"></i>
-        Bugzilla
+        Robotics
       </a>
     </span>
     <span class="tag-0">
@@ -611,16 +572,10 @@ packaged <a class="reference external" href="http://bugz.fedoraproject.org/gnume
         Community
       </a>
     </span>
-    <span class="tag-2">
-      <a href="http://ankursinha.in/tag/linux/">
-          <i class="fas fa-tag"></i>
-        Linux
-      </a>
-    </span>
     <span class="tag-3">
-      <a href="http://ankursinha.in/tag/robotics/">
+      <a href="http://ankursinha.in/tag/social/">
           <i class="fas fa-tag"></i>
-        Robotics
+        Social
       </a>
     </span>
     <span class="tag-4">
@@ -629,28 +584,22 @@ packaged <a class="reference external" href="http://bugz.fedoraproject.org/gnume
         RPMFusion
       </a>
     </span>
-    <span class="tag-3">
-      <a href="http://ankursinha.in/tag/python/">
-          <i class="fas fa-tag"></i>
-        Python
-      </a>
-    </span>
     <span class="tag-4">
-      <a href="http://ankursinha.in/tag/gitter/">
+      <a href="http://ankursinha.in/tag/neuron/">
           <i class="fas fa-tag"></i>
-        Gitter
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="http://ankursinha.in/tag/nest/">
-          <i class="fas fa-tag"></i>
-        NEST
+        Neuron
       </a>
     </span>
     <span class="tag-3">
-      <a href="http://ankursinha.in/tag/planet/">
+      <a href="http://ankursinha.in/tag/gnome/">
           <i class="fas fa-tag"></i>
-        Planet
+        GNOME
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="http://ankursinha.in/tag/programming/">
+          <i class="fas fa-tag"></i>
+        Programming
       </a>
     </span>
     <span class="tag-2">
@@ -660,9 +609,9 @@ packaged <a class="reference external" href="http://bugz.fedoraproject.org/gnume
       </a>
     </span>
     <span class="tag-3">
-      <a href="http://ankursinha.in/tag/bash/">
+      <a href="http://ankursinha.in/tag/free-software/">
           <i class="fas fa-tag"></i>
-        Bash
+        Free software
       </a>
     </span>
     <span class="tag-4">
@@ -671,22 +620,34 @@ packaged <a class="reference external" href="http://bugz.fedoraproject.org/gnume
         Subscriptions
       </a>
     </span>
+    <span class="tag-3">
+      <a href="http://ankursinha.in/tag/flatpak/">
+          <i class="fas fa-tag"></i>
+        FlatPak
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="http://ankursinha.in/tag/planet/">
+          <i class="fas fa-tag"></i>
+        Planet
+      </a>
+    </span>
     <span class="tag-2">
-      <a href="http://ankursinha.in/tag/computational-neuroscience/">
+      <a href="http://ankursinha.in/tag/git/">
           <i class="fas fa-tag"></i>
-        Computational neuroscience
+        Git
       </a>
     </span>
-    <span class="tag-3">
-      <a href="http://ankursinha.in/tag/events/">
+    <span class="tag-4">
+      <a href="http://ankursinha.in/tag/sports/">
           <i class="fas fa-tag"></i>
-        Events
+        Sports
       </a>
     </span>
-    <span class="tag-3">
-      <a href="http://ankursinha.in/tag/free-software/">
+    <span class="tag-4">
+      <a href="http://ankursinha.in/tag/gitter/">
           <i class="fas fa-tag"></i>
-        Free software
+        Gitter
       </a>
     </span>
     <span class="tag-4">
@@ -696,9 +657,69 @@ packaged <a class="reference external" href="http://bugz.fedoraproject.org/gnume
       </a>
     </span>
     <span class="tag-2">
-      <a href="http://ankursinha.in/tag/programming/">
+      <a href="http://ankursinha.in/tag/linux/">
           <i class="fas fa-tag"></i>
-        Programming
+        Linux
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="http://ankursinha.in/tag/computational-neuroscience/">
+          <i class="fas fa-tag"></i>
+        Computational neuroscience
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="http://ankursinha.in/tag/vim/">
+          <i class="fas fa-tag"></i>
+        Vim
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="http://ankursinha.in/tag/blog/">
+          <i class="fas fa-tag"></i>
+        Blog
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="http://ankursinha.in/tag/bugzilla/">
+          <i class="fas fa-tag"></i>
+        Bugzilla
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="http://ankursinha.in/tag/bash/">
+          <i class="fas fa-tag"></i>
+        Bash
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="http://ankursinha.in/tag/android/">
+          <i class="fas fa-tag"></i>
+        Android
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="http://ankursinha.in/tag/calliope/">
+          <i class="fas fa-tag"></i>
+        Calliope
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="http://ankursinha.in/tag/nest/">
+          <i class="fas fa-tag"></i>
+        NEST
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="http://ankursinha.in/tag/irc/">
+          <i class="fas fa-tag"></i>
+        IRC
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="http://ankursinha.in/tag/python/">
+          <i class="fas fa-tag"></i>
+        Python
       </a>
     </span>
     <span class="tag-3">
@@ -708,27 +729,9 @@ packaged <a class="reference external" href="http://bugz.fedoraproject.org/gnume
       </a>
     </span>
     <span class="tag-3">
-      <a href="http://ankursinha.in/tag/social/">
+      <a href="http://ankursinha.in/tag/events/">
           <i class="fas fa-tag"></i>
-        Social
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="http://ankursinha.in/tag/gnome/">
-          <i class="fas fa-tag"></i>
-        GNOME
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="http://ankursinha.in/tag/neuron/">
-          <i class="fas fa-tag"></i>
-        Neuron
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="http://ankursinha.in/tag/irc/">
-          <i class="fas fa-tag"></i>
-        IRC
+        Events
       </a>
     </span>
 </p>

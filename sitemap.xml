@@ -5,21 +5,21 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://ankursinha.in/</loc>
-<lastmod>2018-06-07T11:24:04-00:00</lastmod>
+<lastmod>2018-06-23T00:02:19-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://ankursinha.in/tags.html</loc>
-<lastmod>2018-06-07T11:24:04-00:00</lastmod>
+<lastmod>2018-06-23T00:02:19-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://ankursinha.in/categories.html</loc>
-<lastmod>2018-06-07T11:24:04-00:00</lastmod>
+<lastmod>2018-06-23T00:02:19-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -34,6 +34,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>http://ankursinha.in/pages/02-research-profile.html</loc>
 <lastmod>2017-04-15T10:22:00+01:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://ankursinha.in/2018/06/22/using-the-connfa-open-source-conference-management-software-set-the-cms.html</loc>
+<lastmod>2018-06-22T23:36:23+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
@@ -2329,7 +2336,28 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://ankursinha.in/category/tech/</loc>
-<lastmod>2018-06-07T10:50:39-00:01</lastmod>
+<lastmod>2018-06-22T23:36:23-00:01</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://ankursinha.in/tag/community/</loc>
+<lastmod>2018-06-22T23:36:23-00:01</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://ankursinha.in/tag/conference/</loc>
+<lastmod>2018-06-22T23:36:23-00:01</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://ankursinha.in/tag/android/</loc>
+<lastmod>2018-06-22T23:36:23-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -2442,13 +2470,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>http://ankursinha.in/tag/time-management/</loc>
 <lastmod>2017-12-25T01:16:02-00:01</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<loc>http://ankursinha.in/tag/community/</loc>
-<lastmod>2017-10-07T14:19:10-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -2825,13 +2846,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>http://ankursinha.in/tag/android/</loc>
-<lastmod>2011-09-30T01:18:00-00:01</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
 <loc>http://ankursinha.in/tag/bangalore/</loc>
 <lastmod>2011-01-14T10:17:00-00:01</lastmod>
 <changefreq>daily</changefreq>
@@ -2861,7 +2875,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://ankursinha.in/author/ankur.html</loc>
-<lastmod>2018-06-07T10:50:39-00:01</lastmod>
+<lastmod>2018-06-22T23:36:23-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
