@@ -4,17 +4,11 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="" />
+    <meta name="description" content="A Page in neuroscience/fedora/musings: Current work" />
     <meta name="author" content="Ankur Sinha" />
     <meta name="generator" content="Pelican (VoidyBootstrap theme)" />
-    <meta name="twitter:card" content="summary"> 
-    <meta name="twitter:title" content="Setting up irssi on Fedora.">
-    <meta name="twitter:description" content="">
-    <meta name="twitter:site" content="@sanjay_ankur">
-    <meta name="twitter:creator" content="@sanjay_ankur">
-    <meta name="twitter:domain" content="http://ankursinha.in">
 
-    <title>Setting up irssi on Fedora. - ankursinha.in/blog</title>
+    <title>Current work - ankursinha.in/blog</title>
 
    
         <link rel="stylesheet"
@@ -75,7 +69,7 @@
               <li>
                 <a href="http://ankursinha.in/pages/02-research-profile.html">Research Profile</a>
               </li>
-              <li>
+              <li class="active">
                 <a href="http://ankursinha.in/pages/04-current-work.html">Current work</a>
               </li>
             <li class="divider"></li>
@@ -104,126 +98,59 @@
     <div class="container" id="main-container">
       <div class="row">
         <div class="col-md-9" id="content">
-<article itemscope="itemscope" itemtype="http://schema.org/BlogPosting">
-  <header class="article-header">
-<abbr class="article-header-date">
-  Sun 05 December 2010
-</abbr> <h1>
-  <a href="http://ankursinha.in/2010/12/05/setting-up-irssi-on-fedora.html" rel="bookmark"
-     title="Permalink to Setting up irssi on Fedora.">
-    Setting up irssi on Fedora.
-  </a>
-</h1><div class="article-header-info">
-  <p>
-      Posted by <a href="http://ankursinha.in/author/ankur.html">ankur</a>
-    in 
-    <a href="http://ankursinha.in/category/tech/">
-      Tech</a>
-(316 words, approximately a 2 minute read)
-  </p>
-</div> <!-- /.article-header-info -->  </header>
-  <div class="content-body" itemprop="text articleBody">
-	<p>There are a lot of IRC clients that one can use. The more frequently
-used are <a class="reference external" href="http://www.xchat.org/">X-Chat</a>, <a class="reference external" href="http://www.pidgin.im/">Pidgin</a> and <a class="reference external" href="http://www.irssi.org/">irssi</a>. Since I prefer to stick to
-the terminal, I user the GNU Screen + irssi combination. Screen is
-configured to automatically run irssi on start up, and irssi is
-configured to &quot;autojoin&quot; the respective fedora IRC channels, with
-password authentication. I'll spell out the steps.</p>
-<div class="section" id="install-irssi-screen">
-<h2>Install irssi, screen:</h2>
-<p>Fire up a terminal and go:</p>
-<pre class="literal-block">
-$ su -c 'yum -y install irssi screen'
-</pre>
-<p>Once the install completes, proceed to setting them up for yourself.</p>
-</div>
-<div class="section" id="configure-screen">
-<h2>Configure screen</h2>
-<p>I've put up a sample .screenrc file <a class="reference external" href="http://ankursinha.fedorapeople.org/IRC/screenrc">here</a>. You can use it as a
-starting template. Place it as <strong>~/.screenrc.</strong> Documentation on screenrc
-file options is
-<a class="reference external" href="http://www.gnu.org/software/screen/manual/html_node/index.html#Top">here</a>.
-Do replace the names etc. with your own ;)</p>
-</div>
-<div class="section" id="configuring-irssi">
-<h2>Configuring irssi</h2>
-<p>I've also put up a sample config file for irssi <a class="reference external" href="http://ankursinha.fedorapeople.org/IRC/config">here.</a> This one is set
-up to auto connect to Freenode, auto join a bunch of Fedora channels,
-and also has quite a few aliases. Replace the &lt;nickname&gt; with your nick
-etc.before you attempt to run irssi. <strong>Your nick must
-be`registered`_with Freenode</strong>. The file needs to be placed as
-<strong>~/.irssi/config</strong><strong>.</strong></p>
-</div>
-<div class="section" id="running-irssi">
-<h2>Running irssi</h2>
-<p>Fire up a terminal and go:</p>
-<pre class="literal-block">
-$ screen
-</pre>
-<p>and it should work!</p>
-</div>
-<div class="section" id="extra-commands">
-<h2>Extra commands</h2>
-<p>Some necessities to start you up with:</p>
+<ol class="breadcrumb">
+  <li><a href="http://ankursinha.in/" title="Home">
+	  <i class="fas fa-home fa-fw fa-lg"></i> </a></li>
+  <li class="active">Current work</li>
+</ol>
+<article itemscope="itemscope" 
+         itemtype="http://schema.org/WebPage">
+  <header>
+    <h1 itemprop="name headline">Current work</h1>
+  </header>
+  <div class="content-body" itemprop="text">
+    <p>This is what I'm working on now. Unfortunately, one can only take on so much at
+once.</p>
+<div class="section" id="research">
+<h2>Research</h2>
+<p>My research work focusses on:</p>
 <ul class="simple">
-<li>Once in screen, use <strong>Ctrl + a followed by a &quot;?&quot;</strong> to see the
-commands.</li>
-<li>In irssi, <strong>Meta + &lt;1 to 0&gt;</strong> cycles channels in windows 1 to 10.
-<strong>Meta</strong> is usually the <strong>Alt</strong> key. <strong>Escape followed by a number</strong>
-works as well. For windows <strong>10-20</strong>, use the <strong>qwerty row</strong> on the
-keyboard. Once can also use**/win &lt;window#&gt;** to change windows.</li>
+<li>homeostatic plasticity</li>
+<li>structural plasticity</li>
+<li>synaptic plasticity</li>
+<li>associative memory</li>
 </ul>
 </div>
-<div class="section" id="added-reading">
-<h2>Added reading</h2>
-<p>Refer to these pages for detailed info :</p>
+<div class="section" id="open-neuroscience-and-free-software">
+<h2>Open Neuroscience and Free Software</h2>
+<p>In my role as a volunteer at the <a class="reference external" href="https://fedoraproject.org/wiki/User:Ankursinha">Fedora project</a>, I am currently involved in:</p>
 <ul class="simple">
-<li><a class="reference external" href="http://www.gnu.org/software/screen/manual/html_node/index.html#Top">GNU Screen docs</a></li>
-<li><a class="reference external" href="http://www.irssi.org/documentation">irssi docs</a></li>
-<li>Google up, there are many many pages with info on using Screen and
-irssi together.</li>
-<li><a class="reference external" href="http://dodoincfedora.wordpress.com/2010/12/05/setting-up-irssi-on-fedora/">Fedora project wiki page</a> on using X-chat.</li>
-<li><a class="reference external" href="http://fedoraproject.org/wiki/IRC">Fedora project wiki page</a> on
-how to use the IRC.</li>
+<li>helping with the <a class="reference external" href="https://fedoraproject.org/wiki/SIGs/Join">Fedora Join SIG</a> that aims to make it easier for new
+people to join the community.</li>
+<li>helping with organising <a class="reference external" href="https://fedoraproject.org/wiki/Classroom">Fedora Classrooms</a>. (I also instruct a few sessions
+on Packaging and the command line.)</li>
+<li>getting the <a class="reference external" href="https://fedoraproject.org/wiki/SIGs/NeuroFedora">NeuroFedora SIG</a> back up and running. It aims to provide
+neuroscience software in Fedora to make it a ready to use platform for
+neuroscientists.</li>
 </ul>
-<p>.</p>
+</div>
+<div class="section" id="help-wanted">
+<h2>Help wanted</h2>
+<ul class="simple">
+<li>The <a class="reference external" href="https://fedoraproject.org/wiki/SIGs/NeuroFedora">NeuroFedora SIG</a> is looking for contributors. It needs more people that
+can build and maintain rpm packages for Fedora.</li>
+<li>The <a class="reference external" href="https://fedoraproject.org/wiki/Classroom">Fedora Classrooms</a> need more instructors. If you'd like to teach a
+session, please get in touch.</li>
+<li>The <a class="reference external" href="https://fedoraproject.org/wiki/FreeMedia?rd=Distribution/FreeMedia">Fedora Free-media SIG</a> needs help to migrate to <a class="reference external" href="pagure.io">Pagure</a>.
+The Free Media programme is currently stalled until the migration can be
+completed.</li>
+</ul>
+<p>If you can help, please get in touch.</p>
 </div>
 
   </div>
-  
-  <hr />
-  <div class="well well-sm">  <!-- Social media sharing buttons -->
-    <!-- Twitter -->
-    <a href="https://twitter.com/share" class="twitter-share-button" 
-       data-via="sanjay_ankur" >Tweet</a>&nbsp;
 
-    <!-- Google+ -->
-    <div class="g-plus" data-action="share" data-annotation="bubble"></div>
-    &nbsp;&nbsp;&nbsp;&nbsp;
-    <div class="g-plusone" data-size="medium"></div>&nbsp;
 
-    <!-- Facebook -->
-    <div class="fb-like" 
-        data-href="http://ankursinha.in/2010/12/05/setting-up-irssi-on-fedora.html" 
-        data-layout="button_count" 
-        data-action="like" data-show-faces="true" 
-        data-share="true">
-    </div>
-    &nbsp;
-  </div> <!-- /Social media sharing buttons -->
-  <div class="comments">
-	<h2>Comments</h2>
-	<div id="disqus_thread"></div>
-	<script type="text/javascript">
-				   (function() {
-						var dsq = document.createElement('script');
-						dsq.type = 'text/javascript'; dsq.async = true;
-						dsq.src = '//ankursinha.disqus.com/embed.js';
-						(document.getElementsByTagName('head')[0] ||
-						 document.getElementsByTagName('body')[0]).appendChild(dsq);
-				  })();
-	</script>
-  </div>
 </article>
         </div><!-- /content -->
 
@@ -536,30 +463,5 @@ how to use the IRC.</li>
     <script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 
 
-<!-- Facebook -->
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));
-</script>
-
-<!-- Twitter -->
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-
-<!-- Google+ -->
-<!-- Synchronous 
-<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
--->
-<!-- Asynchronous -->
-<script type="text/javascript">
-  (function() {
-    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-    po.src = 'https://apis.google.com/js/platform.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-  })();
-</script>  </body>
+  </body>
 </html>
