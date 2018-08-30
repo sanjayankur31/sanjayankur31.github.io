@@ -5532,7 +5532,7 @@ listed in task on your laptop after you sync them all up.&lt;/li&gt;
 logs accesses, syncs and errors too.&lt;/p&gt;
 &lt;p&gt;EDIT: Updated generation portion.&lt;/p&gt;
 &lt;/div&gt;
-</content><category term="Fedora"></category></entry><entry><title>Released the code I wrote for my masters research</title><link href="/2014/06/25/released-the-code-i-wrote-for-my-masters-research.html" rel="alternate"></link><published>2014-06-25T08:38:00+01:00</published><updated>2014-06-25T08:38:00+01:00</updated><author><name>ankur</name></author><id>tag:None,2014-06-25:/2014/06/25/released-the-code-i-wrote-for-my-masters-research.html</id><summary type="html">&lt;p class="first last"&gt;The code I wrote for my masters research is now available on my Github account.&lt;/p&gt;
+</content><category term="Fedora"></category><category term="Taskwarrior"></category></entry><entry><title>Released the code I wrote for my masters research</title><link href="/2014/06/25/released-the-code-i-wrote-for-my-masters-research.html" rel="alternate"></link><published>2014-06-25T08:38:00+01:00</published><updated>2014-06-25T08:38:00+01:00</updated><author><name>ankur</name></author><id>tag:None,2014-06-25:/2014/06/25/released-the-code-i-wrote-for-my-masters-research.html</id><summary type="html">&lt;p class="first last"&gt;The code I wrote for my masters research is now available on my Github account.&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;In this week's research group meeting, I asked my supervisor if I could
 finally release the source code that I'd written during my masters for
 my thesis. Generally, research code is kept private until the papers
@@ -6037,7 +6037,7 @@ figure it out, please write a blog post documenting it for Fedora.
 &lt;a class="reference external" href="https://bugzilla.redhat.com/show_bug.cgi?id=1066573"&gt;threebean's working on the taskd&lt;/a&gt; package already.&lt;/p&gt;
 &lt;p&gt;Cheers!&lt;/p&gt;
 &lt;/div&gt;
-</content><category term="Fedora"></category></entry><entry><title>ROS/RPM IRC workshop series</title><link href="/2014/04/06/rosrpm-irc-workshop-series.html" rel="alternate"></link><published>2014-04-06T23:56:00+01:00</published><updated>2014-04-06T23:56:00+01:00</updated><author><name>ankur</name></author><id>tag:None,2014-04-06:/2014/04/06/rosrpm-irc-workshop-series.html</id><summary type="html">&lt;p class="first last"&gt;I plan to take some workshops dealing with the robot operating system (ROS) and rpm packaging for Fedora.&lt;/p&gt;
+</content><category term="Fedora"></category><category term="Taskwarrior"></category></entry><entry><title>ROS/RPM IRC workshop series</title><link href="/2014/04/06/rosrpm-irc-workshop-series.html" rel="alternate"></link><published>2014-04-06T23:56:00+01:00</published><updated>2014-04-06T23:56:00+01:00</updated><author><name>ankur</name></author><id>tag:None,2014-04-06:/2014/04/06/rosrpm-irc-workshop-series.html</id><summary type="html">&lt;p class="first last"&gt;I plan to take some workshops dealing with the robot operating system (ROS) and rpm packaging for Fedora.&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;I intend to take a ROS RPM packaging session at the upcoming &lt;a class="reference external" href="https://fedoraproject.org/wiki/FUDCon:Beijing_2014"&gt;FUDCon
 at Beijing in May&lt;/a&gt;.&amp;nbsp; With that in mind, I'd like to take a couple of
 workshops to help interested parties learn the tools before the final
