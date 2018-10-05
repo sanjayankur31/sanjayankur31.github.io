@@ -1,5 +1,89 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>ankursinha.in/blog - Linux</title><link href="http://ankursinha.in/" rel="alternate"></link><link href="http://ankursinha.in/feeds/tags/linux.atom.xml" rel="self"></link><id>http://ankursinha.in/</id><updated>2017-08-10T23:03:24+01:00</updated><entry><title>Fedora Classroom: Command Line 101: report</title><link href="http://ankursinha.in/2017/08/10/fedora-classroom-command-line-101-report.html" rel="alternate"></link><published>2017-08-10T23:03:24+01:00</published><updated>2017-08-10T23:03:24+01:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2017-08-10:/2017/08/10/fedora-classroom-command-line-101-report.html</id><summary type="html">&lt;p class="first last"&gt;I taught a &lt;a class="reference external" href="https://fedoraproject.org/wiki/Classroom"&gt;Fedora classroom&lt;/a&gt; session today - &amp;quot;Command Line 101&amp;quot; - where I introduced the command line and demonstrated how useful the command line is. This is a quick summary of the session.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>ankursinha.in/blog - Linux</title><link href="http://ankursinha.in/" rel="alternate"></link><link href="http://ankursinha.in/feeds/tags/linux.atom.xml" rel="self"></link><id>http://ankursinha.in/</id><updated>2018-10-06T00:19:32+01:00</updated><entry><title>NeuroFedora: towards a ready to use Free/Open source environment for neuroscientists</title><link href="http://ankursinha.in/2018/10/06/neurofedora-towards-a-read-to-use-free-open-source-environment-for-neuroscientists.html" rel="alternate"></link><published>2018-10-06T00:19:32+01:00</published><updated>2018-10-06T00:19:32+01:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2018-10-06:/2018/10/06/neurofedora-towards-a-read-to-use-free-open-source-environment-for-neuroscientists.html</id><summary type="html">&lt;p class="first last"&gt;I have recently resurrected the &lt;a class="reference external" href="https://fedoraproject.org/wiki/SIGs/NeuroFedora"&gt;NeuroFedora SIG&lt;/a&gt;. We aim to make
+&lt;a class="reference external" href="https://getfedora.org"&gt;Fedora&lt;/a&gt; a ready to use platform for neuroscientists, so that they can
+focus on the science. Read on to learn more!&lt;/p&gt;
+</summary><content type="html">&lt;div class="figure"&gt;
+&lt;a class="reference external image-reference" href="http://ankursinha.in/images/20181005-NeuroFedoraLogo01.png"&gt;&lt;img alt="NeuroFedora logo!" class="text-center img-responsive pagination-centered" src="http://ankursinha.in/images/20181005-NeuroFedoraLogo01.png" style="width: 30%;" /&gt;&lt;/a&gt;
+&lt;p class="caption"&gt;&lt;a class="reference external" href="https://pagure.io/design/issue/602"&gt;NeuroFedora logo by Terezahl from the Fedora Design Team&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;I've recently resurrected the &lt;a class="reference external" href="https://fedoraproject.org/wiki/SIGs/NeuroFedora"&gt;NeuroFedora SIG&lt;/a&gt;. Many thanks to &lt;a class="reference external" href="https://fedoraproject.org/wiki/User:Ignatenkobrain"&gt;Igor&lt;/a&gt; and the others who had
+worked on it in the past and have given us a firm base to build on.&lt;/p&gt;
+&lt;div class="section" id="the-goal"&gt;
+&lt;h2&gt;The goal&lt;/h2&gt;
+&lt;p&gt;The (current) goal of the &lt;a class="reference external" href="https://fedoraproject.org/wiki/SIGs/NeuroFedora"&gt;NeuroFedora SIG&lt;/a&gt; is to make Fedora an easy to use
+platform for neuroscientists. We aim to do this by making commonly used
+Neuroscience software easily installable on a &lt;a class="reference external" href="https://getfedora.org"&gt;Fedora&lt;/a&gt; system.&lt;/p&gt;
+&lt;p&gt;Neuroscience is an extremely multidisciplinary field. It brings together
+mathematicians, chemists, biologists, physicists, psychologists, engineers
+(electrical and others), computer scientists and more. A lot of software is used
+nowadays in Neuroscience for:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;data collection, analysis, and sharing&lt;/li&gt;
+&lt;li&gt;lots of image processing (a lot of ML is used here, think Data Science)&lt;/li&gt;
+&lt;li&gt;simulation of brain networks (&lt;a class="reference external" href="https://neuron.yale.edu/neuron/"&gt;NEURON&lt;/a&gt;, &lt;a class="reference external" href="https://nest-simulator.org"&gt;Nest&lt;/a&gt;, &lt;a class="reference external" href="https://github.com/BhallaLab/moose"&gt;Moose&lt;/a&gt;, &lt;a class="reference external" href="https://github.com/NeuralEnsemble/PyNN"&gt;PyNN&lt;/a&gt;, &lt;a class="reference external" href="http://briansimulator.org/"&gt;Brian&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;dissemination of scientific results (peer reviewed and otherwise, think
+&lt;a class="reference external" href="http://tug.org/"&gt;LaTeX&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Given that a large proportion of neuroscientists are not trained in
+computer science, a lot of time and effort is spent setting up systems,
+installing software (often building whole &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Dependency_hell"&gt;dependency chains&lt;/a&gt; from source). This can be
+hard for people not well-versed in build systems and so on.&lt;/p&gt;
+&lt;p&gt;So, at &lt;a class="reference external" href="https://fedoraproject.org/wiki/SIGs/NeuroFedora"&gt;NeuroFedora&lt;/a&gt;, we will provide a ready to use &lt;a class="reference external" href="https://getfedora.org"&gt;Fedora&lt;/a&gt; based system for
+neuroscientists to work with, so they can quickly get their environment set up
+and work on the science.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="why-fedora"&gt;
+&lt;h2&gt;Why Fedora?&lt;/h2&gt;
+&lt;p&gt;For one, I have been a &lt;a class="reference external" href="https://fedoraproject.org/wiki/User:Ankursinha"&gt;contributor&lt;/a&gt; for a while and know the
+&lt;a class="reference external" href="https://apps.fedoraproject.org/"&gt;community and the infrastructure&lt;/a&gt; quite
+well. That applies to me and others from the &lt;a class="reference external" href="https://getfedora.org"&gt;Fedora&lt;/a&gt; community that may work on
+this and not the research community in general.&lt;/p&gt;
+&lt;p&gt;Technically, there are many advantages of using &lt;a class="reference external" href="https://getfedora.org"&gt;Fedora&lt;/a&gt; as a base.
+Fedora is closely linked to the &lt;a class="reference external" href="https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux"&gt;Red Hat Enterprise Linux&lt;/a&gt;
+eco system---which &lt;a class="reference external" href="https://www.centos.org/"&gt;Cent OS&lt;/a&gt; is a part of and
+&lt;a class="reference external" href="https://www.scientificlinux.org/about/"&gt;Scientific Linux is&lt;/a&gt; is based on
+too (Recently, &lt;a class="reference external" href="https://coreos.com/"&gt;CoreOS also joined the Red Hat family&lt;/a&gt;). RPM based systems are commonly deployed in
+supercomputers and clusters. So, making this software available on &lt;a class="reference external" href="https://getfedora.org"&gt;Fedora&lt;/a&gt; also
+makes it simpler to make it available on these systems.  Additionally, the
+&lt;a class="reference external" href="https://getfedora.org"&gt;Fedora&lt;/a&gt; community is promoting &lt;a class="reference external" href="https://flatpak.org/"&gt;Flatpaks&lt;/a&gt;, and working to permit multiple
+versions of software via the &lt;a class="reference external" href="https://docs.fedoraproject.org/en-US/modularity/"&gt;modularity&lt;/a&gt; system. &lt;a class="reference external" href="https://getfedora.org"&gt;Fedora&lt;/a&gt; also supports &lt;a class="reference external" href="https://www.docker.com/"&gt;Docker&lt;/a&gt;
+very &lt;a class="reference external" href="https://fedoraproject.org/wiki/Docker"&gt;well&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="join-us"&gt;
+&lt;h2&gt;Join us!&lt;/h2&gt;
+&lt;p&gt;Packaging software is only &lt;em&gt;one&lt;/em&gt; way in which one can contribute.  Writing docs
+and answering questions about the software in &lt;a class="reference external" href="https://fedoraproject.org/wiki/SIGs/NeuroFedora"&gt;NeuroFedora&lt;/a&gt; are other ways too,
+for example.  If you are interested in neuroscience and in promoting &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Open_science"&gt;Open
+Science&lt;/a&gt;, please consider
+joining the SIG. You can get in touch with us via one of our many
+&lt;a class="reference external" href="https://fedoraproject.org/wiki/SIGs/NeuroFedora#Communication_and_getting_help"&gt;communication channels&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;This invitation extends to all--undergraduates, post-graduates, trainee
+researchers (PhD candidates like me), professional researchers, hobbyists, and
+everyone else.  If you work in the field already, it is a great way of
+supporting the research community. For others, it is a great place to
+learn about neuroscience, and  &lt;a class="reference external" href="https://www.fsf.org/blogs/community/user-liberation-watch-and-share-our-new-video"&gt;Free Software&lt;/a&gt;
+and the various technical skills that go into developing software.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="current-status"&gt;
+&lt;h2&gt;Current status&lt;/h2&gt;
+&lt;p&gt;We track the software we are working on &lt;a class="reference external" href="https://fedoraproject.org/wiki/SIGs/NeuroFedora/PackageSet"&gt;here&lt;/a&gt;. A lot of
+software is now ready to use in Fedora. This includes various Python libraries
+and simulators such as &lt;a class="reference external" href="https://nest-simulator.org"&gt;Nest&lt;/a&gt; and &lt;a class="reference external" href="https://github.com/BhallaLab/moose"&gt;Moose&lt;/a&gt;. &lt;a class="reference external" href="https://neuron.yale.edu/neuron/"&gt;Neuron&lt;/a&gt;, &lt;a class="reference external" href="http://briansimulator.org/"&gt;Brian&lt;/a&gt;, and &lt;a class="reference external" href="https://github.com/NeuralEnsemble/PyNN"&gt;PyNN&lt;/a&gt; are all in
+the pipeline. All of &lt;a class="reference external" href="http://tug.org/texlive/"&gt;TeX Live&lt;/a&gt; is also available in
+&lt;a class="reference external" href="https://getfedora.org"&gt;Fedora&lt;/a&gt;. If there is other Free/Open source software that you use which isn't
+on our list, please let us know.  If you can help maintain it with us, that'll
+be even better.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="fedora-free-software-and-science"&gt;
+&lt;h2&gt;Fedora/Free software and Science&lt;/h2&gt;
+&lt;p&gt;Open science shares the &lt;a class="reference external" href="https://www.gnu.org/philosophy/"&gt;philosophy of FOSS&lt;/a&gt;. The data, the tools, the results, should
+be accessible to all to understand, use, learn from, and develop. More and more
+researchers are making it a point to keep Science as open as possible whether
+it is to do with the &lt;a class="reference external" href="http://opensourceforneuroscience.org/"&gt;tools&lt;/a&gt; or
+&lt;a class="reference external" href="https://en.wikipedia.org/wiki/Open_access"&gt;dissemination&lt;/a&gt; of their
+findings. &lt;a class="reference external" href="https://fedoraproject.org/wiki/SIGs/NeuroFedora"&gt;NeuroFedora&lt;/a&gt; hopes to aid this movement. Come, join us!&lt;/p&gt;
+&lt;/div&gt;
+</content><category term="Community"></category><category term="Computational neuroscience"></category><category term="Fedora"></category><category term="Free software"></category><category term="Linux"></category><category term="NEST"></category><category term="Neuron"></category><category term="Numpy"></category><category term="Pandas"></category><category term="Planet"></category><category term="Python"></category><category term="Reproducible research"></category><category term="Sumatra"></category><category term="TeX"></category></entry><entry><title>Fedora Classroom: Command Line 101: report</title><link href="http://ankursinha.in/2017/08/10/fedora-classroom-command-line-101-report.html" rel="alternate"></link><published>2017-08-10T23:03:24+01:00</published><updated>2017-08-10T23:03:24+01:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2017-08-10:/2017/08/10/fedora-classroom-command-line-101-report.html</id><summary type="html">&lt;p class="first last"&gt;I taught a &lt;a class="reference external" href="https://fedoraproject.org/wiki/Classroom"&gt;Fedora classroom&lt;/a&gt; session today - &amp;quot;Command Line 101&amp;quot; - where I introduced the command line and demonstrated how useful the command line is. This is a quick summary of the session.&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;We've gotten the &lt;a class="reference external" href="https://fedoraproject.org/wiki/Classroom"&gt;Fedora classroom&lt;/a&gt; sessions going again. After two really good ones, I taught the &lt;a class="reference external" href="https://fedoramagazine.org/fedora-classroom-session-3/"&gt;third one&lt;/a&gt; today - a beginners session to the command line. Unlike the previous ones that used video platforms, I decided that the &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Internet_Relay_Chat"&gt;IRC&lt;/a&gt; was best suited to this session, even more so because I wanted it to be a hands-on session. It went off pretty well. Here are a few notes. Links to the logs are at the bottom of this post.&lt;/p&gt;
 &lt;div class="section" id="some-metrics"&gt;
 &lt;h2&gt;Some metrics&lt;/h2&gt;
@@ -379,78 +463,4 @@ $ man pdfpc
 &lt;/pre&gt;&lt;/div&gt;
 &lt;a class="reference external image-reference" href="https://pdfpc.github.io/screenshots/pdfpc-presenter.png"&gt;&lt;img alt="pdfpc screenshot" src="https://pdfpc.github.io/screenshots/pdfpc-presenter.png" style="height: 240.0px;" /&gt;&lt;/a&gt;
 &lt;p&gt;I'll update the post once the package is available in Fedora. Cheerio!&lt;/p&gt;
-</content><category term="Fedora"></category><category term="Linux"></category></entry><entry><title>Using Vim for C/C++ development efficiently</title><link href="http://ankursinha.in/2015/06/12/vim-c-plugins.html" rel="alternate"></link><published>2015-06-12T17:31:00+01:00</published><updated>2015-06-12T17:31:00+01:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2015-06-12:/2015/06/12/vim-c-plugins.html</id><summary type="html">&lt;p class="first last"&gt;Vim is a great editor. Here are some tips and plug-ins that I've collected over the years that will help you use it better while writing C/C++ code.&lt;/p&gt;
-</summary><content type="html">&lt;p&gt;Vim is truly a great editor. (Before you begin to yell, so is Emacs.) I've used Vim for quite a while now, and have collected certain plug-ins over time to improve my workflow. This post just collates this information - it's all take from various sources on the internet and I will provide references at the end of the page.&lt;/p&gt;
-&lt;div class="section" id="touch-typing"&gt;
-&lt;h2&gt;Touch typing&lt;/h2&gt;
-&lt;p&gt;Perhaps the most critical feature of Vim is that it enables touch typists to work extremely efficiently. If you don't know what touch typing is, now is a great time to learn. See those two protrusions on the F and J letters of your keyboard? They're there for a reason - that way you know where you &amp;quot;home row&amp;quot; is all the time. Vim is designed in a way that ensures that you never have to lift your hands off the home row. I dislike moving my hand to use the mouse, and I'll briefly discuss what I do to reduce mouse usage to a minimum too. A great tool available on most Linux distributions is &amp;quot;gtypist&amp;quot;. It has sets of exercises that teach you to touch type. On a Fedora system, you can install it by using DNF:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo dnf install gtypist
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="section" id="vim-modes-and-switching-between-them"&gt;
-&lt;h2&gt;Vim modes and switching between them&lt;/h2&gt;
-&lt;p&gt;Vim has three main modes that are used frequently - you should use vimtutor to learn them and how to use them efficiently:&lt;/p&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;&lt;strong&gt;Insert mode&lt;/strong&gt;: where it's basically a simple text editor - only use this when you're writing text, not for moving, not for copy pasting, not for anything, only when you enter text.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Command mode&lt;/strong&gt;: where you can use Vim commands to do things - move around efficiently, find, replace, copy, paste, run recorded command sequences, save, quit, and so on.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Last line mode&lt;/strong&gt;: similar to command mode, but instead of using keyboard short cuts to run commands, you write them on a command prompt&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;When Vim starts, you're in command mode. To move to insert mode, you simply press &amp;quot;i&amp;quot; and start typing. To move from command mode to last line mode, you press &amp;quot;:&amp;quot;. This brings up a &amp;quot;:&amp;quot; on the last line and you can enter commands there, like &amp;quot;:wq&amp;quot; which is used to save(w) and quit(q) the file.&lt;/p&gt;
-&lt;p&gt;Moving from insert mode back to command mode requires you to press Esc (escape). Now, this annoyed me, because escape isn't near the home row, but there is a historical reason for why Esc is still the chosen key. The good news is that &lt;strong&gt;you don't have to use Esc&lt;/strong&gt; to get out of insert mode, you can use one of the many &lt;strong&gt;alternatives&lt;/strong&gt; - Ctrl +C, or Ctrl+[ and so on and always keep your fingers on your home row.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="plug-in-installation-and-maintenance"&gt;
-&lt;h2&gt;Plug-in installation and maintenance&lt;/h2&gt;
-&lt;p&gt;Before I discuss plug-ins, a little bit about maintaining them. They all go into the ~/.vimrc directory, but keeping them sane across different machines is sometimes quite a pain. I've now been using &lt;strong&gt;pathogen&lt;/strong&gt; to install plug-ins - it makes things really easy. To maintain plug-ins, I use git, of course! Most plug-ins are housed on github, and you can simply clone them into the bundle directory that pathogen uses. To make it even easier, you can add them as git sub modules. Now, you can set up a new machine, clone your vim files repository and you're good to go! &lt;a class="reference external" href="https://github.com/sanjayankur31/vimfiles"&gt;My vimfiles directory is here&lt;/a&gt;. Obviously, it has various customisations, so it'll probably be better if you use it only as a reference.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="plugin-1-cvim-an-ide-for-c-c"&gt;
-&lt;h2&gt;Plugin 1 - CVim - an IDE for C/C++&lt;/h2&gt;
-&lt;p&gt;CVim adds all sorts of nifty features to Vim. For instance, you have commands that add template classes - declarations, comments, implemetations; hot keys to quickly compile and run your commands and so on. The &lt;a class="reference external" href="http://lug.fh-swf.de/vim/vim-c/c-hotkeys.pdf"&gt;hotkey cheatsheet&lt;/a&gt; will give you a good idea of what this plugin provides.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="plugin-2-cscope-ctags"&gt;
-&lt;h2&gt;Plugin 2 - cscope/ctags&lt;/h2&gt;
-&lt;p&gt;These aren't vim plug-ins, rather they are utilities that add tagging support to Vim. You can use these to find and jump to function calls, funciton and variable declarations and so on. They come in really handy, especially when you're reading code. On Fedora, you can install them using DNF:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo dnf install cscope ctags
-&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;There are cscope related plugins that will solve common issues too. For example, the cscope-autoload plugin comes in handy - it automatically loads the cscope database file for you when you open a programme source code file. It's the only one I use at the moment - quite enough.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="plugin-3-neocomplete"&gt;
-&lt;h2&gt;Plugin 3 - neocomplete&lt;/h2&gt;
-&lt;p&gt;Vim already has a basic completion feature in it. Neocomplete adds to that - completes all sorts of things. Have a look at the github page, they have screenshots.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="plugin-4-syntastic"&gt;
-&lt;h2&gt;Plugin 4 - syntastic&lt;/h2&gt;
-&lt;p&gt;As the main page says: Syntastic is a syntax checking plugin for Vim that runs files through external syntax checkers and displays any resulting errors to the user. It comes in really handy - even when I'm writing my blog posts in rst.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="keeping-your-fingers-on-the-home-row-outside-vim"&gt;
-&lt;h2&gt;Keeping your fingers on the home row outside Vim&lt;/h2&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;I rarely use the mouse to switch between windows. &amp;quot;Alt + Tab&amp;quot;; &amp;quot;Alt + ~&amp;quot; work nicely enough. This is why I really like Gnome3 - I don't need a bottom panel with windows listed on it.&lt;/li&gt;
-&lt;li&gt;For Firefox, I use the Pentadactyl extension - This basically lets you use vim keybindings in Firefox. It's brilliant - you rarely need to use the mouse.&lt;/li&gt;
-&lt;li&gt;On the terminal I use byobu-tmux - it let's you use multiple terminal screens that you can cycle between nicely using only key board shortcuts. Use any number of TUI programs you want with this - irssi, ncmpcpp, vim, rtorrent, vit (for taskwarrior) and so on - no need to use the mouse at all.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class="section" id="references"&gt;
-&lt;h2&gt;References&lt;/h2&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://en.wikipedia.org/wiki/Touch_typing"&gt;Touch typing&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://apps.fedoraproject.org/packages/gtypist"&gt;Gtypist&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference external" href="http://vim.wikia.com/wiki/Tutorial"&gt;vimtutor&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference external" href="http://vim.wikia.com/wiki/Avoid_the_escape_key"&gt;Avoiding the escape key in vim&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://github.com/tpope/vim-pathogen"&gt;Pathogen&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://git-scm.com/book/en/v2/Git-Tools-Submodules"&gt;Git submodules&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference external" href="http://www.vim.org/scripts/script.php?script_id=213"&gt;Cvim&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference external" href="http://cscope.sourceforge.net/cscope_vim_tutorial.html"&gt;Using cscope with Vim&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference external" href="http://vim.wikia.com/wiki/Browsing_programs_with_tags"&gt;Using tags in Vim&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference external" href="http://www.vim.org/scripts/script.php?script_id=157"&gt;Cscope autoload plug-in&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://github.com/Shougo/neocomplete.vim"&gt;Neocomplete&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://github.com/scrooloose/syntastic#introduction"&gt;Syntastic&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference external" href="http://5digits.org/pentadactyl/"&gt;Pentadactyl&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://apps.fedoraproject.org/packages/byobu"&gt;Byobu&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://apps.fedoraproject.org/packages/tmux"&gt;Tmux&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://apps.fedoraproject.org/packages/irssi"&gt;IRSSI&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://apps.fedoraproject.org/packages/ncmpcpp"&gt;ncmpcpp&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://apps.fedoraproject.org/packages/rtorrent"&gt;rtorrent&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://apps.fedoraproject.org/packages/vit"&gt;vit&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-</content><category term="Fedora"></category><category term="Programming"></category><category term="Linux"></category></entry></feed>
+</content><category term="Fedora"></category><category term="Linux"></category></entry></feed>

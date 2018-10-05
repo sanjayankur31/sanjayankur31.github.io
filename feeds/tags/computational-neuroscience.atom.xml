@@ -1,5 +1,89 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>ankursinha.in/blog - Computational neuroscience</title><link href="http://ankursinha.in/" rel="alternate"></link><link href="http://ankursinha.in/feeds/tags/computational-neuroscience.atom.xml" rel="self"></link><id>http://ankursinha.in/</id><updated>2018-05-12T20:53:25+01:00</updated><entry><title>Testing out Sumatra: a tool for managing iterations of simulations/analyses</title><link href="http://ankursinha.in/2018/05/12/testing-out-sumatra-a-tool-for-managing-iterations-of-simulations-analyses.html" rel="alternate"></link><published>2018-05-12T20:53:25+01:00</published><updated>2018-05-12T20:53:25+01:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2018-05-12:/2018/05/12/testing-out-sumatra-a-tool-for-managing-iterations-of-simulations-analyses.html</id><summary type="html">&lt;p class="first last"&gt;When working on projects that require multiple iterations of
+<feed xmlns="http://www.w3.org/2005/Atom"><title>ankursinha.in/blog - Computational neuroscience</title><link href="http://ankursinha.in/" rel="alternate"></link><link href="http://ankursinha.in/feeds/tags/computational-neuroscience.atom.xml" rel="self"></link><id>http://ankursinha.in/</id><updated>2018-10-06T00:19:32+01:00</updated><entry><title>NeuroFedora: towards a ready to use Free/Open source environment for neuroscientists</title><link href="http://ankursinha.in/2018/10/06/neurofedora-towards-a-read-to-use-free-open-source-environment-for-neuroscientists.html" rel="alternate"></link><published>2018-10-06T00:19:32+01:00</published><updated>2018-10-06T00:19:32+01:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2018-10-06:/2018/10/06/neurofedora-towards-a-read-to-use-free-open-source-environment-for-neuroscientists.html</id><summary type="html">&lt;p class="first last"&gt;I have recently resurrected the &lt;a class="reference external" href="https://fedoraproject.org/wiki/SIGs/NeuroFedora"&gt;NeuroFedora SIG&lt;/a&gt;. We aim to make
+&lt;a class="reference external" href="https://getfedora.org"&gt;Fedora&lt;/a&gt; a ready to use platform for neuroscientists, so that they can
+focus on the science. Read on to learn more!&lt;/p&gt;
+</summary><content type="html">&lt;div class="figure"&gt;
+&lt;a class="reference external image-reference" href="http://ankursinha.in/images/20181005-NeuroFedoraLogo01.png"&gt;&lt;img alt="NeuroFedora logo!" class="text-center img-responsive pagination-centered" src="http://ankursinha.in/images/20181005-NeuroFedoraLogo01.png" style="width: 30%;" /&gt;&lt;/a&gt;
+&lt;p class="caption"&gt;&lt;a class="reference external" href="https://pagure.io/design/issue/602"&gt;NeuroFedora logo by Terezahl from the Fedora Design Team&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;I've recently resurrected the &lt;a class="reference external" href="https://fedoraproject.org/wiki/SIGs/NeuroFedora"&gt;NeuroFedora SIG&lt;/a&gt;. Many thanks to &lt;a class="reference external" href="https://fedoraproject.org/wiki/User:Ignatenkobrain"&gt;Igor&lt;/a&gt; and the others who had
+worked on it in the past and have given us a firm base to build on.&lt;/p&gt;
+&lt;div class="section" id="the-goal"&gt;
+&lt;h2&gt;The goal&lt;/h2&gt;
+&lt;p&gt;The (current) goal of the &lt;a class="reference external" href="https://fedoraproject.org/wiki/SIGs/NeuroFedora"&gt;NeuroFedora SIG&lt;/a&gt; is to make Fedora an easy to use
+platform for neuroscientists. We aim to do this by making commonly used
+Neuroscience software easily installable on a &lt;a class="reference external" href="https://getfedora.org"&gt;Fedora&lt;/a&gt; system.&lt;/p&gt;
+&lt;p&gt;Neuroscience is an extremely multidisciplinary field. It brings together
+mathematicians, chemists, biologists, physicists, psychologists, engineers
+(electrical and others), computer scientists and more. A lot of software is used
+nowadays in Neuroscience for:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;data collection, analysis, and sharing&lt;/li&gt;
+&lt;li&gt;lots of image processing (a lot of ML is used here, think Data Science)&lt;/li&gt;
+&lt;li&gt;simulation of brain networks (&lt;a class="reference external" href="https://neuron.yale.edu/neuron/"&gt;NEURON&lt;/a&gt;, &lt;a class="reference external" href="https://nest-simulator.org"&gt;Nest&lt;/a&gt;, &lt;a class="reference external" href="https://github.com/BhallaLab/moose"&gt;Moose&lt;/a&gt;, &lt;a class="reference external" href="https://github.com/NeuralEnsemble/PyNN"&gt;PyNN&lt;/a&gt;, &lt;a class="reference external" href="http://briansimulator.org/"&gt;Brian&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;dissemination of scientific results (peer reviewed and otherwise, think
+&lt;a class="reference external" href="http://tug.org/"&gt;LaTeX&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Given that a large proportion of neuroscientists are not trained in
+computer science, a lot of time and effort is spent setting up systems,
+installing software (often building whole &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Dependency_hell"&gt;dependency chains&lt;/a&gt; from source). This can be
+hard for people not well-versed in build systems and so on.&lt;/p&gt;
+&lt;p&gt;So, at &lt;a class="reference external" href="https://fedoraproject.org/wiki/SIGs/NeuroFedora"&gt;NeuroFedora&lt;/a&gt;, we will provide a ready to use &lt;a class="reference external" href="https://getfedora.org"&gt;Fedora&lt;/a&gt; based system for
+neuroscientists to work with, so they can quickly get their environment set up
+and work on the science.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="why-fedora"&gt;
+&lt;h2&gt;Why Fedora?&lt;/h2&gt;
+&lt;p&gt;For one, I have been a &lt;a class="reference external" href="https://fedoraproject.org/wiki/User:Ankursinha"&gt;contributor&lt;/a&gt; for a while and know the
+&lt;a class="reference external" href="https://apps.fedoraproject.org/"&gt;community and the infrastructure&lt;/a&gt; quite
+well. That applies to me and others from the &lt;a class="reference external" href="https://getfedora.org"&gt;Fedora&lt;/a&gt; community that may work on
+this and not the research community in general.&lt;/p&gt;
+&lt;p&gt;Technically, there are many advantages of using &lt;a class="reference external" href="https://getfedora.org"&gt;Fedora&lt;/a&gt; as a base.
+Fedora is closely linked to the &lt;a class="reference external" href="https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux"&gt;Red Hat Enterprise Linux&lt;/a&gt;
+eco system---which &lt;a class="reference external" href="https://www.centos.org/"&gt;Cent OS&lt;/a&gt; is a part of and
+&lt;a class="reference external" href="https://www.scientificlinux.org/about/"&gt;Scientific Linux is&lt;/a&gt; is based on
+too (Recently, &lt;a class="reference external" href="https://coreos.com/"&gt;CoreOS also joined the Red Hat family&lt;/a&gt;). RPM based systems are commonly deployed in
+supercomputers and clusters. So, making this software available on &lt;a class="reference external" href="https://getfedora.org"&gt;Fedora&lt;/a&gt; also
+makes it simpler to make it available on these systems.  Additionally, the
+&lt;a class="reference external" href="https://getfedora.org"&gt;Fedora&lt;/a&gt; community is promoting &lt;a class="reference external" href="https://flatpak.org/"&gt;Flatpaks&lt;/a&gt;, and working to permit multiple
+versions of software via the &lt;a class="reference external" href="https://docs.fedoraproject.org/en-US/modularity/"&gt;modularity&lt;/a&gt; system. &lt;a class="reference external" href="https://getfedora.org"&gt;Fedora&lt;/a&gt; also supports &lt;a class="reference external" href="https://www.docker.com/"&gt;Docker&lt;/a&gt;
+very &lt;a class="reference external" href="https://fedoraproject.org/wiki/Docker"&gt;well&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="join-us"&gt;
+&lt;h2&gt;Join us!&lt;/h2&gt;
+&lt;p&gt;Packaging software is only &lt;em&gt;one&lt;/em&gt; way in which one can contribute.  Writing docs
+and answering questions about the software in &lt;a class="reference external" href="https://fedoraproject.org/wiki/SIGs/NeuroFedora"&gt;NeuroFedora&lt;/a&gt; are other ways too,
+for example.  If you are interested in neuroscience and in promoting &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Open_science"&gt;Open
+Science&lt;/a&gt;, please consider
+joining the SIG. You can get in touch with us via one of our many
+&lt;a class="reference external" href="https://fedoraproject.org/wiki/SIGs/NeuroFedora#Communication_and_getting_help"&gt;communication channels&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;This invitation extends to all--undergraduates, post-graduates, trainee
+researchers (PhD candidates like me), professional researchers, hobbyists, and
+everyone else.  If you work in the field already, it is a great way of
+supporting the research community. For others, it is a great place to
+learn about neuroscience, and  &lt;a class="reference external" href="https://www.fsf.org/blogs/community/user-liberation-watch-and-share-our-new-video"&gt;Free Software&lt;/a&gt;
+and the various technical skills that go into developing software.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="current-status"&gt;
+&lt;h2&gt;Current status&lt;/h2&gt;
+&lt;p&gt;We track the software we are working on &lt;a class="reference external" href="https://fedoraproject.org/wiki/SIGs/NeuroFedora/PackageSet"&gt;here&lt;/a&gt;. A lot of
+software is now ready to use in Fedora. This includes various Python libraries
+and simulators such as &lt;a class="reference external" href="https://nest-simulator.org"&gt;Nest&lt;/a&gt; and &lt;a class="reference external" href="https://github.com/BhallaLab/moose"&gt;Moose&lt;/a&gt;. &lt;a class="reference external" href="https://neuron.yale.edu/neuron/"&gt;Neuron&lt;/a&gt;, &lt;a class="reference external" href="http://briansimulator.org/"&gt;Brian&lt;/a&gt;, and &lt;a class="reference external" href="https://github.com/NeuralEnsemble/PyNN"&gt;PyNN&lt;/a&gt; are all in
+the pipeline. All of &lt;a class="reference external" href="http://tug.org/texlive/"&gt;TeX Live&lt;/a&gt; is also available in
+&lt;a class="reference external" href="https://getfedora.org"&gt;Fedora&lt;/a&gt;. If there is other Free/Open source software that you use which isn't
+on our list, please let us know.  If you can help maintain it with us, that'll
+be even better.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="fedora-free-software-and-science"&gt;
+&lt;h2&gt;Fedora/Free software and Science&lt;/h2&gt;
+&lt;p&gt;Open science shares the &lt;a class="reference external" href="https://www.gnu.org/philosophy/"&gt;philosophy of FOSS&lt;/a&gt;. The data, the tools, the results, should
+be accessible to all to understand, use, learn from, and develop. More and more
+researchers are making it a point to keep Science as open as possible whether
+it is to do with the &lt;a class="reference external" href="http://opensourceforneuroscience.org/"&gt;tools&lt;/a&gt; or
+&lt;a class="reference external" href="https://en.wikipedia.org/wiki/Open_access"&gt;dissemination&lt;/a&gt; of their
+findings. &lt;a class="reference external" href="https://fedoraproject.org/wiki/SIGs/NeuroFedora"&gt;NeuroFedora&lt;/a&gt; hopes to aid this movement. Come, join us!&lt;/p&gt;
+&lt;/div&gt;
+</content><category term="Community"></category><category term="Computational neuroscience"></category><category term="Fedora"></category><category term="Free software"></category><category term="Linux"></category><category term="NEST"></category><category term="Neuron"></category><category term="Numpy"></category><category term="Pandas"></category><category term="Planet"></category><category term="Python"></category><category term="Reproducible research"></category><category term="Sumatra"></category><category term="TeX"></category></entry><entry><title>Testing out Sumatra: a tool for managing iterations of simulations/analyses</title><link href="http://ankursinha.in/2018/05/12/testing-out-sumatra-a-tool-for-managing-iterations-of-simulations-analyses.html" rel="alternate"></link><published>2018-05-12T20:53:25+01:00</published><updated>2018-05-12T20:53:25+01:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2018-05-12:/2018/05/12/testing-out-sumatra-a-tool-for-managing-iterations-of-simulations-analyses.html</id><summary type="html">&lt;p class="first last"&gt;When working on projects that require multiple iterations of
 simulations and/or analyses, it's really quite hard to keep track of
 the changes one makes and how the results vary. &lt;a class="reference external" href="http://neuralensemble.org/sumatra/"&gt;Sumatra&lt;/a&gt; is a tool
 that is developed to help researchers manage such projects.&lt;/p&gt;
@@ -955,16 +1039,4 @@ $ which oc
 &lt;p&gt;I think that should be it! I've tested the instructions on my Fedora 24 machine but if you run into issues, drop a comment and I'll look into it.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-</content><category term="Fedora"></category><category term="Neuron"></category><category term="Computational neuroscience"></category></entry><entry><title>Tinkering with OpenLayers and JS - Cajal - a hacked up neuroscience research map</title><link href="http://ankursinha.in/2016/08/04/tinkering-with-openlayers-and-js-cajal-a-hacked-up-neuroscience-research-map.html" rel="alternate"></link><published>2016-08-04T18:49:08+01:00</published><updated>2016-08-04T18:49:08+01:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2016-08-04:/2016/08/04/tinkering-with-openlayers-and-js-cajal-a-hacked-up-neuroscience-research-map.html</id><summary type="html">&lt;p class="first last"&gt;I was tinkering with &lt;a class="reference external" href="https://www.javascript.com/"&gt;JavaScript&lt;/a&gt; and &lt;a class="reference external" href="http://openlayers.org/"&gt;OpenLayers&lt;/a&gt; recently and came up with a web application that shows the different Neuroscience labs on the world and some summary information on them. Still needs a lot of data to be really useful, but it's a start.&lt;/p&gt;
-</summary><content type="html">&lt;p&gt;I was a bit fed up with the various minute issues my simulations kept throwing at me and decided I needed a distraction to keep me from completely burning out. Research is hard work, and sometimes we hit solid walls where no progress seems possible. I haven't hit one yet, but I was beginning to see that my performance had begun to drop. The simplest answer to this situation is to take a holiday - a change of scenery. Unfortunately, I haven't any plans to take one at the moment. I've never understood the appeal of wandering around crowded cities with throngs of tourists anyway. Instead, I decided to set my simulations aside for a few days and tinker with other things for a bit.&lt;/p&gt;
-&lt;p&gt;I decided to take up a short &amp;quot;passion project&amp;quot;. It needed to be something that would keep me occupied for a few days at the most. I'd tinkered with &lt;a class="reference external" href="http://openlayers.org/"&gt;OpenLayers&lt;/a&gt; before and I'd been meaning to brush up on my &lt;a class="reference external" href="https://www.javascript.com/"&gt;JavaScript&lt;/a&gt; recently seeing as how it's become quite a dominant scripting language. So I thought up a simple web application that would use the two to do something useful.&lt;/p&gt;
-&lt;div class="section" id="cajal"&gt;
-&lt;h2&gt;Cajal&lt;/h2&gt;
-&lt;p&gt;To start with, the app needs to have a name. I've come up with some unique ones before (&lt;a class="reference external" href="http://ankursinha.in/blog/tag/zaphod/"&gt;Zaphod&lt;/a&gt;, &lt;a class="reference external" href="http://ankursinha.in/blog/tag/calliope/"&gt;Calliope&lt;/a&gt;). This time I decided to pay homage to &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Santiago_Ram%C3%B3n_y_Cajal"&gt;Santiago Ramón y Cajal&lt;/a&gt; who is considered the father of modern neuroscience. There are multiple applications called Cajal already, but not too many of them seem to be related to neuroscience. Unique enough, then.&lt;/p&gt;
-&lt;p&gt;Cajal is a simple web page that shows a world map. On this map are markers that denote different neuroscience laboratories. The markers are clickable, so when you click one of these, some information about the laboratory is displayed below the map - the principal investigator, the website address, and the sort. I've only managed to add a few laboratories to it now, but I've hosted a working demo &lt;a class="reference external" href="http://ankursinha.in/cajal-map/"&gt;here&lt;/a&gt;. The screenshot below shows what it looks like.&lt;/p&gt;
-&lt;a class="reference external image-reference" href="http://ankursinha.in/images/20160804-cajal.png"&gt;&lt;img alt="Screenshot of Cajal web application" class="align-center" src="http://ankursinha.in/images/20160804-cajal.png" style="height: 400.0px;" /&gt;&lt;/a&gt;
-&lt;p&gt;The code is quite simple. The data is stored in a &lt;code&gt;yaml&lt;/code&gt; file at &lt;code&gt;data/groups.yaml&lt;/code&gt;. The Python script &lt;code&gt;bin/populate_map.py&lt;/code&gt; takes this file and generates a &lt;a class="reference external" href="https://www.javascript.com/"&gt;JavaScript&lt;/a&gt; file with functions to set up the map, overlay the markers, and assign them all &lt;code&gt;singleclick&lt;/code&gt; events that display information - &lt;code&gt;js/cajal.js&lt;/code&gt;. The main &lt;code&gt;index.html&lt;/code&gt; file uses this JavaScript file to show a map and the markers with their associated information.&lt;/p&gt;
-&lt;p&gt;Maybe there is a better, less hacky, way of going about it, but this works for a quick two day project. In the future, maybe I can use a server side database and so on - it depends on how much it needs to scale. I know my shared hosting account can't handle all that!&lt;/p&gt;
-&lt;p&gt;The &lt;a class="reference external" href="https://github.com/sanjayankur31/cajal/"&gt;source code is available on Github&lt;/a&gt;. To add more laboratories, entries need to be added to the &lt;code&gt;data/groups.yaml&lt;/code&gt; file - that's all. If you're a neuroscience researcher and want to add to the map, please open pull requests and I can then periodically regenerate the page as required.&lt;/p&gt;
-&lt;/div&gt;
-</content><category term="Community"></category><category term="Computational neuroscience"></category><category term="Fedora"></category><category term="Programming"></category><category term="Python"></category><category term="OpenLayers"></category><category term="JavaScript"></category><category term="Cajal"></category></entry></feed>
+</content><category term="Fedora"></category><category term="Neuron"></category><category term="Computational neuroscience"></category></entry></feed>

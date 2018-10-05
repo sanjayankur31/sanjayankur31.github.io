@@ -1,5 +1,89 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>ankursinha.in/blog - Python</title><link href="http://ankursinha.in/" rel="alternate"></link><link href="http://ankursinha.in/feeds/tags/python.atom.xml" rel="self"></link><id>http://ankursinha.in/</id><updated>2018-05-12T20:53:25+01:00</updated><entry><title>Testing out Sumatra: a tool for managing iterations of simulations/analyses</title><link href="http://ankursinha.in/2018/05/12/testing-out-sumatra-a-tool-for-managing-iterations-of-simulations-analyses.html" rel="alternate"></link><published>2018-05-12T20:53:25+01:00</published><updated>2018-05-12T20:53:25+01:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2018-05-12:/2018/05/12/testing-out-sumatra-a-tool-for-managing-iterations-of-simulations-analyses.html</id><summary type="html">&lt;p class="first last"&gt;When working on projects that require multiple iterations of
+<feed xmlns="http://www.w3.org/2005/Atom"><title>ankursinha.in/blog - Python</title><link href="http://ankursinha.in/" rel="alternate"></link><link href="http://ankursinha.in/feeds/tags/python.atom.xml" rel="self"></link><id>http://ankursinha.in/</id><updated>2018-10-06T00:19:32+01:00</updated><entry><title>NeuroFedora: towards a ready to use Free/Open source environment for neuroscientists</title><link href="http://ankursinha.in/2018/10/06/neurofedora-towards-a-read-to-use-free-open-source-environment-for-neuroscientists.html" rel="alternate"></link><published>2018-10-06T00:19:32+01:00</published><updated>2018-10-06T00:19:32+01:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2018-10-06:/2018/10/06/neurofedora-towards-a-read-to-use-free-open-source-environment-for-neuroscientists.html</id><summary type="html">&lt;p class="first last"&gt;I have recently resurrected the &lt;a class="reference external" href="https://fedoraproject.org/wiki/SIGs/NeuroFedora"&gt;NeuroFedora SIG&lt;/a&gt;. We aim to make
+&lt;a class="reference external" href="https://getfedora.org"&gt;Fedora&lt;/a&gt; a ready to use platform for neuroscientists, so that they can
+focus on the science. Read on to learn more!&lt;/p&gt;
+</summary><content type="html">&lt;div class="figure"&gt;
+&lt;a class="reference external image-reference" href="http://ankursinha.in/images/20181005-NeuroFedoraLogo01.png"&gt;&lt;img alt="NeuroFedora logo!" class="text-center img-responsive pagination-centered" src="http://ankursinha.in/images/20181005-NeuroFedoraLogo01.png" style="width: 30%;" /&gt;&lt;/a&gt;
+&lt;p class="caption"&gt;&lt;a class="reference external" href="https://pagure.io/design/issue/602"&gt;NeuroFedora logo by Terezahl from the Fedora Design Team&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;I've recently resurrected the &lt;a class="reference external" href="https://fedoraproject.org/wiki/SIGs/NeuroFedora"&gt;NeuroFedora SIG&lt;/a&gt;. Many thanks to &lt;a class="reference external" href="https://fedoraproject.org/wiki/User:Ignatenkobrain"&gt;Igor&lt;/a&gt; and the others who had
+worked on it in the past and have given us a firm base to build on.&lt;/p&gt;
+&lt;div class="section" id="the-goal"&gt;
+&lt;h2&gt;The goal&lt;/h2&gt;
+&lt;p&gt;The (current) goal of the &lt;a class="reference external" href="https://fedoraproject.org/wiki/SIGs/NeuroFedora"&gt;NeuroFedora SIG&lt;/a&gt; is to make Fedora an easy to use
+platform for neuroscientists. We aim to do this by making commonly used
+Neuroscience software easily installable on a &lt;a class="reference external" href="https://getfedora.org"&gt;Fedora&lt;/a&gt; system.&lt;/p&gt;
+&lt;p&gt;Neuroscience is an extremely multidisciplinary field. It brings together
+mathematicians, chemists, biologists, physicists, psychologists, engineers
+(electrical and others), computer scientists and more. A lot of software is used
+nowadays in Neuroscience for:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;data collection, analysis, and sharing&lt;/li&gt;
+&lt;li&gt;lots of image processing (a lot of ML is used here, think Data Science)&lt;/li&gt;
+&lt;li&gt;simulation of brain networks (&lt;a class="reference external" href="https://neuron.yale.edu/neuron/"&gt;NEURON&lt;/a&gt;, &lt;a class="reference external" href="https://nest-simulator.org"&gt;Nest&lt;/a&gt;, &lt;a class="reference external" href="https://github.com/BhallaLab/moose"&gt;Moose&lt;/a&gt;, &lt;a class="reference external" href="https://github.com/NeuralEnsemble/PyNN"&gt;PyNN&lt;/a&gt;, &lt;a class="reference external" href="http://briansimulator.org/"&gt;Brian&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;dissemination of scientific results (peer reviewed and otherwise, think
+&lt;a class="reference external" href="http://tug.org/"&gt;LaTeX&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Given that a large proportion of neuroscientists are not trained in
+computer science, a lot of time and effort is spent setting up systems,
+installing software (often building whole &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Dependency_hell"&gt;dependency chains&lt;/a&gt; from source). This can be
+hard for people not well-versed in build systems and so on.&lt;/p&gt;
+&lt;p&gt;So, at &lt;a class="reference external" href="https://fedoraproject.org/wiki/SIGs/NeuroFedora"&gt;NeuroFedora&lt;/a&gt;, we will provide a ready to use &lt;a class="reference external" href="https://getfedora.org"&gt;Fedora&lt;/a&gt; based system for
+neuroscientists to work with, so they can quickly get their environment set up
+and work on the science.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="why-fedora"&gt;
+&lt;h2&gt;Why Fedora?&lt;/h2&gt;
+&lt;p&gt;For one, I have been a &lt;a class="reference external" href="https://fedoraproject.org/wiki/User:Ankursinha"&gt;contributor&lt;/a&gt; for a while and know the
+&lt;a class="reference external" href="https://apps.fedoraproject.org/"&gt;community and the infrastructure&lt;/a&gt; quite
+well. That applies to me and others from the &lt;a class="reference external" href="https://getfedora.org"&gt;Fedora&lt;/a&gt; community that may work on
+this and not the research community in general.&lt;/p&gt;
+&lt;p&gt;Technically, there are many advantages of using &lt;a class="reference external" href="https://getfedora.org"&gt;Fedora&lt;/a&gt; as a base.
+Fedora is closely linked to the &lt;a class="reference external" href="https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux"&gt;Red Hat Enterprise Linux&lt;/a&gt;
+eco system---which &lt;a class="reference external" href="https://www.centos.org/"&gt;Cent OS&lt;/a&gt; is a part of and
+&lt;a class="reference external" href="https://www.scientificlinux.org/about/"&gt;Scientific Linux is&lt;/a&gt; is based on
+too (Recently, &lt;a class="reference external" href="https://coreos.com/"&gt;CoreOS also joined the Red Hat family&lt;/a&gt;). RPM based systems are commonly deployed in
+supercomputers and clusters. So, making this software available on &lt;a class="reference external" href="https://getfedora.org"&gt;Fedora&lt;/a&gt; also
+makes it simpler to make it available on these systems.  Additionally, the
+&lt;a class="reference external" href="https://getfedora.org"&gt;Fedora&lt;/a&gt; community is promoting &lt;a class="reference external" href="https://flatpak.org/"&gt;Flatpaks&lt;/a&gt;, and working to permit multiple
+versions of software via the &lt;a class="reference external" href="https://docs.fedoraproject.org/en-US/modularity/"&gt;modularity&lt;/a&gt; system. &lt;a class="reference external" href="https://getfedora.org"&gt;Fedora&lt;/a&gt; also supports &lt;a class="reference external" href="https://www.docker.com/"&gt;Docker&lt;/a&gt;
+very &lt;a class="reference external" href="https://fedoraproject.org/wiki/Docker"&gt;well&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="join-us"&gt;
+&lt;h2&gt;Join us!&lt;/h2&gt;
+&lt;p&gt;Packaging software is only &lt;em&gt;one&lt;/em&gt; way in which one can contribute.  Writing docs
+and answering questions about the software in &lt;a class="reference external" href="https://fedoraproject.org/wiki/SIGs/NeuroFedora"&gt;NeuroFedora&lt;/a&gt; are other ways too,
+for example.  If you are interested in neuroscience and in promoting &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Open_science"&gt;Open
+Science&lt;/a&gt;, please consider
+joining the SIG. You can get in touch with us via one of our many
+&lt;a class="reference external" href="https://fedoraproject.org/wiki/SIGs/NeuroFedora#Communication_and_getting_help"&gt;communication channels&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;This invitation extends to all--undergraduates, post-graduates, trainee
+researchers (PhD candidates like me), professional researchers, hobbyists, and
+everyone else.  If you work in the field already, it is a great way of
+supporting the research community. For others, it is a great place to
+learn about neuroscience, and  &lt;a class="reference external" href="https://www.fsf.org/blogs/community/user-liberation-watch-and-share-our-new-video"&gt;Free Software&lt;/a&gt;
+and the various technical skills that go into developing software.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="current-status"&gt;
+&lt;h2&gt;Current status&lt;/h2&gt;
+&lt;p&gt;We track the software we are working on &lt;a class="reference external" href="https://fedoraproject.org/wiki/SIGs/NeuroFedora/PackageSet"&gt;here&lt;/a&gt;. A lot of
+software is now ready to use in Fedora. This includes various Python libraries
+and simulators such as &lt;a class="reference external" href="https://nest-simulator.org"&gt;Nest&lt;/a&gt; and &lt;a class="reference external" href="https://github.com/BhallaLab/moose"&gt;Moose&lt;/a&gt;. &lt;a class="reference external" href="https://neuron.yale.edu/neuron/"&gt;Neuron&lt;/a&gt;, &lt;a class="reference external" href="http://briansimulator.org/"&gt;Brian&lt;/a&gt;, and &lt;a class="reference external" href="https://github.com/NeuralEnsemble/PyNN"&gt;PyNN&lt;/a&gt; are all in
+the pipeline. All of &lt;a class="reference external" href="http://tug.org/texlive/"&gt;TeX Live&lt;/a&gt; is also available in
+&lt;a class="reference external" href="https://getfedora.org"&gt;Fedora&lt;/a&gt;. If there is other Free/Open source software that you use which isn't
+on our list, please let us know.  If you can help maintain it with us, that'll
+be even better.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="fedora-free-software-and-science"&gt;
+&lt;h2&gt;Fedora/Free software and Science&lt;/h2&gt;
+&lt;p&gt;Open science shares the &lt;a class="reference external" href="https://www.gnu.org/philosophy/"&gt;philosophy of FOSS&lt;/a&gt;. The data, the tools, the results, should
+be accessible to all to understand, use, learn from, and develop. More and more
+researchers are making it a point to keep Science as open as possible whether
+it is to do with the &lt;a class="reference external" href="http://opensourceforneuroscience.org/"&gt;tools&lt;/a&gt; or
+&lt;a class="reference external" href="https://en.wikipedia.org/wiki/Open_access"&gt;dissemination&lt;/a&gt; of their
+findings. &lt;a class="reference external" href="https://fedoraproject.org/wiki/SIGs/NeuroFedora"&gt;NeuroFedora&lt;/a&gt; hopes to aid this movement. Come, join us!&lt;/p&gt;
+&lt;/div&gt;
+</content><category term="Community"></category><category term="Computational neuroscience"></category><category term="Fedora"></category><category term="Free software"></category><category term="Linux"></category><category term="NEST"></category><category term="Neuron"></category><category term="Numpy"></category><category term="Pandas"></category><category term="Planet"></category><category term="Python"></category><category term="Reproducible research"></category><category term="Sumatra"></category><category term="TeX"></category></entry><entry><title>Testing out Sumatra: a tool for managing iterations of simulations/analyses</title><link href="http://ankursinha.in/2018/05/12/testing-out-sumatra-a-tool-for-managing-iterations-of-simulations-analyses.html" rel="alternate"></link><published>2018-05-12T20:53:25+01:00</published><updated>2018-05-12T20:53:25+01:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2018-05-12:/2018/05/12/testing-out-sumatra-a-tool-for-managing-iterations-of-simulations-analyses.html</id><summary type="html">&lt;p class="first last"&gt;When working on projects that require multiple iterations of
 simulations and/or analyses, it's really quite hard to keep track of
 the changes one makes and how the results vary. &lt;a class="reference external" href="http://neuralensemble.org/sumatra/"&gt;Sumatra&lt;/a&gt; is a tool
 that is developed to help researchers manage such projects.&lt;/p&gt;

@@ -1,5 +1,89 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>ankursinha.in/blog - Fedora</title><link href="http://ankursinha.in/" rel="alternate"></link><link href="http://ankursinha.in/feeds/tags/fedora.atom.xml" rel="self"></link><id>http://ankursinha.in/</id><updated>2018-06-22T23:36:23+01:00</updated><entry><title>Using the Connfa open source conference management software set: the CMS</title><link href="http://ankursinha.in/2018/06/22/using-the-connfa-open-source-conference-management-software-set-the-cms.html" rel="alternate"></link><published>2018-06-22T23:36:23+01:00</published><updated>2018-06-22T23:36:23+01:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2018-06-22:/2018/06/22/using-the-connfa-open-source-conference-management-software-set-the-cms.html</id><summary type="html">&lt;p class="first last"&gt;The &lt;a class="reference external" href="http://connfa.com/"&gt;Connfa&lt;/a&gt; open source suite looks like a great set of tools
+<feed xmlns="http://www.w3.org/2005/Atom"><title>ankursinha.in/blog - Fedora</title><link href="http://ankursinha.in/" rel="alternate"></link><link href="http://ankursinha.in/feeds/tags/fedora.atom.xml" rel="self"></link><id>http://ankursinha.in/</id><updated>2018-10-06T00:19:32+01:00</updated><entry><title>NeuroFedora: towards a ready to use Free/Open source environment for neuroscientists</title><link href="http://ankursinha.in/2018/10/06/neurofedora-towards-a-read-to-use-free-open-source-environment-for-neuroscientists.html" rel="alternate"></link><published>2018-10-06T00:19:32+01:00</published><updated>2018-10-06T00:19:32+01:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2018-10-06:/2018/10/06/neurofedora-towards-a-read-to-use-free-open-source-environment-for-neuroscientists.html</id><summary type="html">&lt;p class="first last"&gt;I have recently resurrected the &lt;a class="reference external" href="https://fedoraproject.org/wiki/SIGs/NeuroFedora"&gt;NeuroFedora SIG&lt;/a&gt;. We aim to make
+&lt;a class="reference external" href="https://getfedora.org"&gt;Fedora&lt;/a&gt; a ready to use platform for neuroscientists, so that they can
+focus on the science. Read on to learn more!&lt;/p&gt;
+</summary><content type="html">&lt;div class="figure"&gt;
+&lt;a class="reference external image-reference" href="http://ankursinha.in/images/20181005-NeuroFedoraLogo01.png"&gt;&lt;img alt="NeuroFedora logo!" class="text-center img-responsive pagination-centered" src="http://ankursinha.in/images/20181005-NeuroFedoraLogo01.png" style="width: 30%;" /&gt;&lt;/a&gt;
+&lt;p class="caption"&gt;&lt;a class="reference external" href="https://pagure.io/design/issue/602"&gt;NeuroFedora logo by Terezahl from the Fedora Design Team&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;I've recently resurrected the &lt;a class="reference external" href="https://fedoraproject.org/wiki/SIGs/NeuroFedora"&gt;NeuroFedora SIG&lt;/a&gt;. Many thanks to &lt;a class="reference external" href="https://fedoraproject.org/wiki/User:Ignatenkobrain"&gt;Igor&lt;/a&gt; and the others who had
+worked on it in the past and have given us a firm base to build on.&lt;/p&gt;
+&lt;div class="section" id="the-goal"&gt;
+&lt;h2&gt;The goal&lt;/h2&gt;
+&lt;p&gt;The (current) goal of the &lt;a class="reference external" href="https://fedoraproject.org/wiki/SIGs/NeuroFedora"&gt;NeuroFedora SIG&lt;/a&gt; is to make Fedora an easy to use
+platform for neuroscientists. We aim to do this by making commonly used
+Neuroscience software easily installable on a &lt;a class="reference external" href="https://getfedora.org"&gt;Fedora&lt;/a&gt; system.&lt;/p&gt;
+&lt;p&gt;Neuroscience is an extremely multidisciplinary field. It brings together
+mathematicians, chemists, biologists, physicists, psychologists, engineers
+(electrical and others), computer scientists and more. A lot of software is used
+nowadays in Neuroscience for:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;data collection, analysis, and sharing&lt;/li&gt;
+&lt;li&gt;lots of image processing (a lot of ML is used here, think Data Science)&lt;/li&gt;
+&lt;li&gt;simulation of brain networks (&lt;a class="reference external" href="https://neuron.yale.edu/neuron/"&gt;NEURON&lt;/a&gt;, &lt;a class="reference external" href="https://nest-simulator.org"&gt;Nest&lt;/a&gt;, &lt;a class="reference external" href="https://github.com/BhallaLab/moose"&gt;Moose&lt;/a&gt;, &lt;a class="reference external" href="https://github.com/NeuralEnsemble/PyNN"&gt;PyNN&lt;/a&gt;, &lt;a class="reference external" href="http://briansimulator.org/"&gt;Brian&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;dissemination of scientific results (peer reviewed and otherwise, think
+&lt;a class="reference external" href="http://tug.org/"&gt;LaTeX&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Given that a large proportion of neuroscientists are not trained in
+computer science, a lot of time and effort is spent setting up systems,
+installing software (often building whole &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Dependency_hell"&gt;dependency chains&lt;/a&gt; from source). This can be
+hard for people not well-versed in build systems and so on.&lt;/p&gt;
+&lt;p&gt;So, at &lt;a class="reference external" href="https://fedoraproject.org/wiki/SIGs/NeuroFedora"&gt;NeuroFedora&lt;/a&gt;, we will provide a ready to use &lt;a class="reference external" href="https://getfedora.org"&gt;Fedora&lt;/a&gt; based system for
+neuroscientists to work with, so they can quickly get their environment set up
+and work on the science.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="why-fedora"&gt;
+&lt;h2&gt;Why Fedora?&lt;/h2&gt;
+&lt;p&gt;For one, I have been a &lt;a class="reference external" href="https://fedoraproject.org/wiki/User:Ankursinha"&gt;contributor&lt;/a&gt; for a while and know the
+&lt;a class="reference external" href="https://apps.fedoraproject.org/"&gt;community and the infrastructure&lt;/a&gt; quite
+well. That applies to me and others from the &lt;a class="reference external" href="https://getfedora.org"&gt;Fedora&lt;/a&gt; community that may work on
+this and not the research community in general.&lt;/p&gt;
+&lt;p&gt;Technically, there are many advantages of using &lt;a class="reference external" href="https://getfedora.org"&gt;Fedora&lt;/a&gt; as a base.
+Fedora is closely linked to the &lt;a class="reference external" href="https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux"&gt;Red Hat Enterprise Linux&lt;/a&gt;
+eco system---which &lt;a class="reference external" href="https://www.centos.org/"&gt;Cent OS&lt;/a&gt; is a part of and
+&lt;a class="reference external" href="https://www.scientificlinux.org/about/"&gt;Scientific Linux is&lt;/a&gt; is based on
+too (Recently, &lt;a class="reference external" href="https://coreos.com/"&gt;CoreOS also joined the Red Hat family&lt;/a&gt;). RPM based systems are commonly deployed in
+supercomputers and clusters. So, making this software available on &lt;a class="reference external" href="https://getfedora.org"&gt;Fedora&lt;/a&gt; also
+makes it simpler to make it available on these systems.  Additionally, the
+&lt;a class="reference external" href="https://getfedora.org"&gt;Fedora&lt;/a&gt; community is promoting &lt;a class="reference external" href="https://flatpak.org/"&gt;Flatpaks&lt;/a&gt;, and working to permit multiple
+versions of software via the &lt;a class="reference external" href="https://docs.fedoraproject.org/en-US/modularity/"&gt;modularity&lt;/a&gt; system. &lt;a class="reference external" href="https://getfedora.org"&gt;Fedora&lt;/a&gt; also supports &lt;a class="reference external" href="https://www.docker.com/"&gt;Docker&lt;/a&gt;
+very &lt;a class="reference external" href="https://fedoraproject.org/wiki/Docker"&gt;well&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="join-us"&gt;
+&lt;h2&gt;Join us!&lt;/h2&gt;
+&lt;p&gt;Packaging software is only &lt;em&gt;one&lt;/em&gt; way in which one can contribute.  Writing docs
+and answering questions about the software in &lt;a class="reference external" href="https://fedoraproject.org/wiki/SIGs/NeuroFedora"&gt;NeuroFedora&lt;/a&gt; are other ways too,
+for example.  If you are interested in neuroscience and in promoting &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Open_science"&gt;Open
+Science&lt;/a&gt;, please consider
+joining the SIG. You can get in touch with us via one of our many
+&lt;a class="reference external" href="https://fedoraproject.org/wiki/SIGs/NeuroFedora#Communication_and_getting_help"&gt;communication channels&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;This invitation extends to all--undergraduates, post-graduates, trainee
+researchers (PhD candidates like me), professional researchers, hobbyists, and
+everyone else.  If you work in the field already, it is a great way of
+supporting the research community. For others, it is a great place to
+learn about neuroscience, and  &lt;a class="reference external" href="https://www.fsf.org/blogs/community/user-liberation-watch-and-share-our-new-video"&gt;Free Software&lt;/a&gt;
+and the various technical skills that go into developing software.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="current-status"&gt;
+&lt;h2&gt;Current status&lt;/h2&gt;
+&lt;p&gt;We track the software we are working on &lt;a class="reference external" href="https://fedoraproject.org/wiki/SIGs/NeuroFedora/PackageSet"&gt;here&lt;/a&gt;. A lot of
+software is now ready to use in Fedora. This includes various Python libraries
+and simulators such as &lt;a class="reference external" href="https://nest-simulator.org"&gt;Nest&lt;/a&gt; and &lt;a class="reference external" href="https://github.com/BhallaLab/moose"&gt;Moose&lt;/a&gt;. &lt;a class="reference external" href="https://neuron.yale.edu/neuron/"&gt;Neuron&lt;/a&gt;, &lt;a class="reference external" href="http://briansimulator.org/"&gt;Brian&lt;/a&gt;, and &lt;a class="reference external" href="https://github.com/NeuralEnsemble/PyNN"&gt;PyNN&lt;/a&gt; are all in
+the pipeline. All of &lt;a class="reference external" href="http://tug.org/texlive/"&gt;TeX Live&lt;/a&gt; is also available in
+&lt;a class="reference external" href="https://getfedora.org"&gt;Fedora&lt;/a&gt;. If there is other Free/Open source software that you use which isn't
+on our list, please let us know.  If you can help maintain it with us, that'll
+be even better.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="fedora-free-software-and-science"&gt;
+&lt;h2&gt;Fedora/Free software and Science&lt;/h2&gt;
+&lt;p&gt;Open science shares the &lt;a class="reference external" href="https://www.gnu.org/philosophy/"&gt;philosophy of FOSS&lt;/a&gt;. The data, the tools, the results, should
+be accessible to all to understand, use, learn from, and develop. More and more
+researchers are making it a point to keep Science as open as possible whether
+it is to do with the &lt;a class="reference external" href="http://opensourceforneuroscience.org/"&gt;tools&lt;/a&gt; or
+&lt;a class="reference external" href="https://en.wikipedia.org/wiki/Open_access"&gt;dissemination&lt;/a&gt; of their
+findings. &lt;a class="reference external" href="https://fedoraproject.org/wiki/SIGs/NeuroFedora"&gt;NeuroFedora&lt;/a&gt; hopes to aid this movement. Come, join us!&lt;/p&gt;
+&lt;/div&gt;
+</content><category term="Community"></category><category term="Computational neuroscience"></category><category term="Fedora"></category><category term="Free software"></category><category term="Linux"></category><category term="NEST"></category><category term="Neuron"></category><category term="Numpy"></category><category term="Pandas"></category><category term="Planet"></category><category term="Python"></category><category term="Reproducible research"></category><category term="Sumatra"></category><category term="TeX"></category></entry><entry><title>Using the Connfa open source conference management software set: the CMS</title><link href="http://ankursinha.in/2018/06/22/using-the-connfa-open-source-conference-management-software-set-the-cms.html" rel="alternate"></link><published>2018-06-22T23:36:23+01:00</published><updated>2018-06-22T23:36:23+01:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2018-06-22:/2018/06/22/using-the-connfa-open-source-conference-management-software-set-the-cms.html</id><summary type="html">&lt;p class="first last"&gt;The &lt;a class="reference external" href="http://connfa.com/"&gt;Connfa&lt;/a&gt; open source suite looks like a great set of tools
 for conference management. It consists of a web application, a
 central CMS integration server, and mobile applications for both
 Android and iOS. I was looking at how one could use the mobile
@@ -1256,68 +1340,4 @@ peruse at their convenience.&lt;/p&gt;
 &lt;p&gt;I keep all my &lt;a class="reference external" href="https://github.com/sanjayankur31/vimfiles"&gt;vimfiles on Github&lt;/a&gt;. Feel free to take a look and derive your own. I tweak my configuration each time I find something new, though, so it may change rather frequently. Remember to read the documentation for whatever plug-ins in use. They provide a lot of options, lots of shortcuts, lots of other commands, and sometimes setting them up incorrectly can cause vim to behave in unexpected ways.&lt;/p&gt;
 &lt;p&gt;TL;DR: Use &lt;a class="reference external" href="https://vim.sourceforge.io/"&gt;Vim&lt;/a&gt;, and use &lt;a class="reference external" href="https://www.latex-project.org/"&gt;LaTeX&lt;/a&gt;!!&lt;/p&gt;
 &lt;/div&gt;
-</content><category term="Calliope"></category><category term="Fedora"></category><category term="Free software"></category><category term="LaTeX"></category><category term="Vim"></category></entry><entry><title>Setting up an IRC bouncer (ZNC) on Amazon AWS and connecting to it using Irssi</title><link href="http://ankursinha.in/2017/08/26/setting-up-an-irc-bouncer-znc-on-amazon-aws-and-connecting-to-it-using-irssi.html" rel="alternate"></link><published>2017-08-26T13:42:40+01:00</published><updated>2017-08-26T13:42:40+01:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2017-08-26:/2017/08/26/setting-up-an-irc-bouncer-znc-on-amazon-aws-and-connecting-to-it-using-irssi.html</id><summary type="html">&lt;p class="first last"&gt;I finally found the time to set up an IRC bouncer to keep myself permanently connected to &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Internet_Relay_Chat"&gt;IRC&lt;/a&gt; networks. This post documents how I went about it using &lt;a class="reference external" href="https://aws.amazon.com"&gt;Amazon AWS&lt;/a&gt;, &lt;a class="reference external" href="https://znc.in"&gt;ZNC&lt;/a&gt;, and &lt;a class="reference external" href="https://irssi.org/"&gt;Irssi&lt;/a&gt;.&lt;/p&gt;
-</summary><content type="html">&lt;p&gt;Given how important a collaborative tool the &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Internet_Relay_Chat"&gt;IRC&lt;/a&gt; is for us free software enthusiasts, it is imperative that one be accessible on various networks as much as possible. Personally, I used to leave my system at the laboratory logged in all the time, but then I'd have to VPN into the university and then SSH into my system there. Not ideal, really.&lt;/p&gt;
-&lt;p&gt;The commonest way of always remaining connected to the &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Internet_Relay_Chat"&gt;IRC&lt;/a&gt; is to use an &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Internet_Relay_Chat"&gt;IRC&lt;/a&gt; bouncer. The bouncer remains connected to one's networks all the time, and one can use a client from wherever to connect to the networks via this bouncer. There are a few free to use bouncers that one can use, of course. On preliminary investigation though, it didn't seem too hard to set a private instance up, so I gave it a go.&lt;/p&gt;
-&lt;div class="section" id="amazon-aws-set-up"&gt;
-&lt;h2&gt;Amazon AWS set up&lt;/h2&gt;
-&lt;p&gt;The bouncer must be deployed on a system that is accessible from anywhere to be truly useful. While I do have hosting for this blog, it's cheap shared hosting without shell access. So, I needed another machine. Some research led me to &lt;a class="reference external" href="https://aws.amazon.com/free/"&gt;the free tier on Amazon AWS&lt;/a&gt; where one can get a free AWS instance for 12 months. The process is &lt;a class="reference external" href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/"&gt;very well documented&lt;/a&gt;, so I won't clone it here. There are various Linux operating systems that one can choose from. Being a Fedora user, I opted for Red Hat Enterprise Linux, but any Linux would work.&lt;/p&gt;
-&lt;p&gt;After the AWS instance is up and running, one must follow the instructions in the documentation to enable SSH access to it. It requires setting up security rules using the web console.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="znc-set-up"&gt;
-&lt;h2&gt;ZNC set up&lt;/h2&gt;
-&lt;p&gt;There are a few bouncers available. I chose the popular &lt;a class="reference external" href="https://znc.in"&gt;ZNC&lt;/a&gt; bouncer.&lt;/p&gt;
-&lt;p&gt;On a Red Hat system, &lt;a class="reference external" href="https://znc.in"&gt;ZNC&lt;/a&gt; is available in the &lt;a class="reference external" href="https://fedoraproject.org/wiki/EPEL#How_can_I_use_these_extra_packages.3F"&gt;&amp;quot;extra packages&amp;quot; repositories&lt;/a&gt;. So, it comes down to a few commands:&lt;/p&gt;
-&lt;pre class="code bash literal-block"&gt;
-sudo yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
-sudo yum install znc
-&lt;/pre&gt;
-&lt;p&gt;This will install the &lt;a class="reference external" href="https://znc.in"&gt;ZNC&lt;/a&gt; package. &lt;a class="reference external" href="https://znc.in"&gt;ZNC&lt;/a&gt; provides a &lt;a class="reference external" href="https://wiki.znc.in/Configuration"&gt;simple way of configuring&lt;/a&gt; it too:&lt;/p&gt;
-&lt;pre class="code bash literal-block"&gt;
-sudo znc --makeconfig
-&lt;/pre&gt;
-&lt;p&gt;Of course, one must make sure that the service is always running:&lt;/p&gt;
-&lt;pre class="code bash literal-block"&gt;
-sudo systemctl &lt;span class="nb"&gt;enable&lt;/span&gt; znc.service
-sudo systemctl start znc.service
-&lt;/pre&gt;
-&lt;p&gt;During the configuration, one must note what port &lt;a class="reference external" href="https://znc.in"&gt;ZNC&lt;/a&gt; was set up to listen to, and what the public IP of the AWS machine is.  These are required to set up the &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Internet_Relay_Chat"&gt;IRC&lt;/a&gt; client later, in this case &lt;a class="reference external" href="https://irssi.org/"&gt;Irssi&lt;/a&gt;. One must also remember to open this port to inbound connections. This can be done using the AWS web console in the same way as the SSH port was enabled earlier. Please refer to the &lt;a class="reference external" href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AccessingInstancesLinux.html"&gt;relevant bits in the AWS documentation&lt;/a&gt;. &lt;a class="reference external" href="https://znc.in"&gt;ZNC&lt;/a&gt; can be further configured through the &lt;a class="reference external" href="https://wiki.znc.in/Webadmin"&gt;web administration interface&lt;/a&gt;. One can add more networks, channels, and useful &lt;a class="reference external" href="https://wiki.znc.in/Modules"&gt;ZNC modules&lt;/a&gt; there.&lt;/p&gt;
-&lt;p&gt;&lt;a class="reference external" href="https://jazzy.id.au/2012/08/23/why_does_chrome_consider_some_ports_unsafe.html"&gt;Browsers seem to ban connecting to a few ports that are deemed dangerous&lt;/a&gt;. I found this to be the case on &lt;a class="reference external" href="https://www.mozilla.org/en-GB/firefox/new/"&gt;Firefox&lt;/a&gt;, &lt;a class="reference external" href="https://www.google.com/chrome/index.html"&gt;Chrome&lt;/a&gt;, and &lt;a class="reference external" href="https://www.qutebrowser.org/"&gt;Qutebrowser&lt;/a&gt;. Instructions on how to workaround this ban are here for &lt;a class="reference external" href="https://support.mozilla.org/en-US/questions/1083282"&gt;Firefox&lt;/a&gt; and &lt;a class="reference external" href="https://superuser.com/questions/188006/how-to-fix-err-unsafe-port-error-on-chrome-when-browsing-to-unsafe-ports"&gt;Chrome&lt;/a&gt; respectively. I couldn't figure out how this needs to be done for &lt;a class="reference external" href="https://www.qutebrowser.org/"&gt;Qutebrowser&lt;/a&gt; and I've filed an &lt;a class="reference external" href="https://github.com/qutebrowser/qutebrowser/issues/2925#issuecomment-324812384"&gt;issue here&lt;/a&gt;. It seems to be an &lt;a class="reference external" href="https://bugreports.qt.io/browse/QTBUG-62808"&gt;upstream QT issue&lt;/a&gt; that is already being looked into.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="irssi-set-up"&gt;
-&lt;h2&gt;Irssi set up&lt;/h2&gt;
-&lt;p&gt;Once the bouncer has been deployed correctly, all that remains is to configure an &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Internet_Relay_Chat"&gt;IRC&lt;/a&gt; client to connect to it. I use &lt;a class="reference external" href="https://irssi.org/"&gt;Irssi&lt;/a&gt; myself so the steps documented here will be specific to it. However, they should be general enough to be applicable to other clients too.&lt;/p&gt;
-&lt;p&gt;Installing &lt;a class="reference external" href="https://irssi.org/"&gt;Irssi&lt;/a&gt; on a Fedora system is trivial, of course:&lt;/p&gt;
-&lt;pre class="code bash literal-block"&gt;
-sudo dnf install Fedora &lt;span class="c1"&gt;# node that Fedora uses DNF now&lt;/span&gt;
-&lt;/pre&gt;
-&lt;p&gt;&lt;a class="reference external" href="https://irssi.org/"&gt;Irssi&lt;/a&gt; reads its configuration file from &lt;code&gt;~/.irssi/config&lt;/code&gt;. There are commands to configure servers, and these write to the configuration file that has quite a simple structure and can be edited directly using a text editor. The relevant snippets from my configuration file are below. Here, because we're connecting to our &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Internet_Relay_Chat"&gt;IRC&lt;/a&gt; servers via the bouncer, the address in use will be that of the bouncer. The &lt;a class="reference external" href="https://znc.in"&gt;ZNC&lt;/a&gt; web administration interface informs on what the password should be.&lt;/p&gt;
-&lt;pre class="code text literal-block"&gt;
-servers = (
-  {
-    address = &amp;quot;&amp;lt;public address of the AWS instance&amp;quot;;
-    chatnet = &amp;quot;freenode&amp;quot;;
-    port = &amp;quot;&amp;lt;port ZNC is listening to&amp;gt;&amp;quot;;
-    password = &amp;quot;&amp;lt;ZNC username/network1:password&amp;gt;&amp;quot;;
-    use_tls = &amp;quot;yes&amp;quot;;
-    tls_verify = &amp;quot;no&amp;quot;;
-    autoconnect = &amp;quot;yes&amp;quot;;
-  },
-  {
-    address = &amp;quot;&amp;lt;public address of the AWS instance&amp;quot;;
-    chatnet = &amp;quot;slack&amp;quot;;
-    port = &amp;quot;port ZNC is listening to&amp;quot;;
-    password = &amp;quot;&amp;lt;ZNC username/network2:password&amp;gt;&amp;quot;;
-    use_tls = &amp;quot;yes&amp;quot;;
-    tls_verify = &amp;quot;no&amp;quot;;
-    autoconnect = &amp;quot;yes&amp;quot;;
-  }
-);
-&lt;/pre&gt;
-&lt;p&gt;&lt;a class="reference external" href="https://irssi.org/"&gt;Irssi&lt;/a&gt; can also be customised to suit the user - such as the window layout, plug-ins, theme. I won't document how here. Instead I refer to the &lt;a class="reference external" href="https://irssi.org/documentation/"&gt;Irssi documentation&lt;/a&gt;.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="conclusion"&gt;
-&lt;h2&gt;Conclusion&lt;/h2&gt;
-&lt;p&gt;That's quite it. The bouncer will always run, and wherever one is, one can use a client to keep up with happenings. I hope this post will make it easier for others to set up their private bouncers too. Comments, and feedback are always welcome. Cheers!&lt;/p&gt;
-&lt;/div&gt;
-</content><category term="Fedora"></category><category term="IRC"></category><category term="ZNC"></category><category term="AWS"></category><category term="Irssi"></category></entry></feed>
+</content><category term="Calliope"></category><category term="Fedora"></category><category term="Free software"></category><category term="LaTeX"></category><category term="Vim"></category></entry></feed>
