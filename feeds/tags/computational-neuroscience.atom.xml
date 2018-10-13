@@ -1,5 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>ankursinha.in/blog - Computational neuroscience</title><link href="http://ankursinha.in/" rel="alternate"></link><link href="http://ankursinha.in/feeds/tags/computational-neuroscience.atom.xml" rel="self"></link><id>http://ankursinha.in/</id><updated>2018-10-06T00:19:32+01:00</updated><entry><title>NeuroFedora: towards a ready to use Free/Open source environment for neuroscientists</title><link href="http://ankursinha.in/2018/10/06/neurofedora-towards-a-ready-to-use-free-open-source-environment-for-neuroscientists.html" rel="alternate"></link><published>2018-10-06T00:19:32+01:00</published><updated>2018-10-06T00:19:32+01:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2018-10-06:/2018/10/06/neurofedora-towards-a-ready-to-use-free-open-source-environment-for-neuroscientists.html</id><summary type="html">&lt;p class="first last"&gt;I have recently resurrected the &lt;a class="reference external" href="https://fedoraproject.org/wiki/SIGs/NeuroFedora"&gt;NeuroFedora SIG&lt;/a&gt;. We aim to make
+<feed xmlns="http://www.w3.org/2005/Atom"><title>ankursinha.in/blog - Computational neuroscience</title><link href="http://ankursinha.in/" rel="alternate"></link><link href="http://ankursinha.in/feeds/tags/computational-neuroscience.atom.xml" rel="self"></link><id>http://ankursinha.in/</id><updated>2018-10-13T18:11:53+01:00</updated><entry><title>NeuroFedora update: week 41</title><link href="http://ankursinha.in/2018/10/13/neurofedora-update-week-41.html" rel="alternate"></link><published>2018-10-13T18:11:53+01:00</published><updated>2018-10-13T18:11:53+01:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2018-10-13:/2018/10/13/neurofedora-update-week-41.html</id><summary type="html">&lt;p class="first last"&gt;A quick update on &lt;a class="reference external" href="https://fedoraproject.org/wiki/SIGs/NeuroFedora"&gt;NeuroFedora&lt;/a&gt; at the end of week 41.&lt;/p&gt;
+</summary><content type="html">&lt;div class="figure"&gt;
+&lt;a class="reference external image-reference" href="http://ankursinha.in/images/20181005-NeuroFedoraLogo01.png"&gt;&lt;img alt="NeuroFedora logo!" class="text-center img-responsive pagination-centered" src="http://ankursinha.in/images/20181005-NeuroFedoraLogo01.png" style="width: 30%;" /&gt;&lt;/a&gt;
+&lt;p class="caption"&gt;&lt;a class="reference external" href="https://pagure.io/design/issue/602"&gt;NeuroFedora logo by Terezahl from the Fedora Design Team&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;In week 41, we finally announced &lt;a class="reference external" href="https://fedoraproject.org/wiki/SIGs/NeuroFedora"&gt;NeuroFedora&lt;/a&gt; to the community on the &lt;a class="reference external" href="https://lists.fedoraproject.org/archives/list/devel&amp;#64;lists.fedoraproject.org/message/VXN4UBCNIL6BUCDRN55IGVK3IMO3HF6C/"&gt;mailing
+list&lt;/a&gt;
+and on the &lt;a class="reference external" href="https://communityblog.fedoraproject.org/neurofedora-sig-call-for-participation/"&gt;Fedora Community Blog&lt;/a&gt;.
+So, it is officially a thing!&lt;/p&gt;
+&lt;p&gt;There is a lot of software available in &lt;a class="reference external" href="https://fedoraproject.org/wiki/SIGs/NeuroFedora"&gt;NeuroFedora&lt;/a&gt; already. You can see the
+list &lt;a class="reference external" href="https://fedoraproject.org/wiki/SIGs/NeuroFedora/PackageSet"&gt;here&lt;/a&gt;. If
+you use software that is not on our list, please suggest it to us using the
+&lt;a class="reference external" href="https://goo.gl/forms/j6AJ82yOh78MPxby1"&gt;suggestion form&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;In week 41:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://nest-simulator.org"&gt;NEST&lt;/a&gt; was updated to &lt;a class="reference external" href="https://github.com/nest/nest-simulator/releases/tag/v2.16.0"&gt;version 2.16.0&lt;/a&gt;. It is in
+testing for both &lt;a class="reference external" href="https://bodhi.fedoraproject.org/updates/FEDORA-2018-22afaeeee4"&gt;Fedora 28&lt;/a&gt; and
+&lt;a class="reference external" href="https://bodhi.fedoraproject.org/updates/FEDORA-2018-6a80c3dbb1"&gt;Fedora 29&lt;/a&gt;. They
+should both move to the stable repositories in a few days. This new version
+does not support 32 bit architectures, so I've had to drop support for those.&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://github.com/INCF/libneurosim"&gt;libneurosim&lt;/a&gt; has now been submitted for &lt;a class="reference external" href="https://bugzilla.redhat.com/show_bug.cgi?id=1638968"&gt;review&lt;/a&gt;. &lt;a class="reference external" href="https://nest-simulator.org"&gt;NEST&lt;/a&gt; must be
+built with &lt;a class="reference external" href="https://github.com/INCF/libneurosim"&gt;libneurosim&lt;/a&gt; support for &lt;a class="reference external" href="https://github.com/NeuralEnsemble/PyNN"&gt;PyNN&lt;/a&gt; to work with it properly. So &lt;a class="reference external" href="https://github.com/NeuralEnsemble/PyNN"&gt;PyNN&lt;/a&gt;
+will have to wait until this review is approved and &lt;a class="reference external" href="https://nest-simulator.org"&gt;NEST&lt;/a&gt; rebuilt.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I am hoping to spend some time on &lt;a class="reference external" href="https://fedoraproject.org/wiki/SIGs/NeuroFedora"&gt;NeuroFedora&lt;/a&gt; every week, and I will provide
+regular updates as I do. Feedback is always welcome. You can get in touch with
+us &lt;a class="reference external" href="https://fedoraproject.org/wiki/SIGs/NeuroFedora#Communication_and_getting_help"&gt;here&lt;/a&gt;.&lt;/p&gt;
+</content><category term="Community"></category><category term="Computational neuroscience"></category><category term="Free software"></category><category term="NEST"></category><category term="Fedora"></category><category term="NeuroFedora"></category></entry><entry><title>NeuroFedora: towards a ready to use Free/Open source environment for neuroscientists</title><link href="http://ankursinha.in/2018/10/06/neurofedora-towards-a-ready-to-use-free-open-source-environment-for-neuroscientists.html" rel="alternate"></link><published>2018-10-06T00:19:32+01:00</published><updated>2018-10-06T00:19:32+01:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2018-10-06:/2018/10/06/neurofedora-towards-a-ready-to-use-free-open-source-environment-for-neuroscientists.html</id><summary type="html">&lt;p class="first last"&gt;I have recently resurrected the &lt;a class="reference external" href="https://fedoraproject.org/wiki/SIGs/NeuroFedora"&gt;NeuroFedora SIG&lt;/a&gt;. We aim to make
 &lt;a class="reference external" href="https://getfedora.org"&gt;Fedora&lt;/a&gt; a ready to use platform for neuroscientists, so that they can
 focus on the science. Read on to learn more!&lt;/p&gt;
 </summary><content type="html">&lt;div class="figure"&gt;
@@ -850,193 +877,4 @@ $ &lt;span class="k"&gt;for&lt;/span&gt; commit in fd6a7fa 33c95be 51f96c1 .. e8
 &lt;p&gt;I have a bunch of scripts for post processing too - this grid search had 36 simulations, the postprocessing is still trudging along. The bigger question is: is there a good way of visualising all these results? I've had to resort to a spreadsheet - but if you have any suggestions, please do let me know. I really haven't found a nice front-end that would let me log results to a database and visualise them - over time, over parameters and so on - does anyone know one? What do people use to keep track of all their data?&lt;/p&gt;
 &lt;p&gt;Anyway, it's a long weekend here with Monday being a bank holiday. Enjoy the weekend, everyone!&lt;/p&gt;
 &lt;/div&gt;
-</content><category term="Computational neuroscience"></category><category term="Fedora"></category><category term="Git"></category><category term="Programming"></category><category term="Python"></category></entry><entry><title>Using NEURON - Part I</title><link href="http://ankursinha.in/2016/08/05/using-neuron-part-i.html" rel="alternate"></link><published>2016-08-05T13:24:48+01:00</published><updated>2016-08-05T13:24:48+01:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2016-08-05:/2016/08/05/using-neuron-part-i.html</id><summary type="html">&lt;p class="first last"&gt;I've got some time on my hands so I've decided to learn how to use the &lt;a class="reference external" href="http://www.neuron.yale.edu/neuron/"&gt;NEURON&lt;/a&gt; simulator. This series of posts are my personal notes. In this first one, we install &lt;a class="reference external" href="http://www.neuron.yale.edu/neuron/"&gt;NEURON&lt;/a&gt;.&lt;/p&gt;
-</summary><content type="html">&lt;div class="section" id="what-is-neuron"&gt;
-&lt;h2&gt;What is NEURON&lt;/h2&gt;
-&lt;p&gt;From the &lt;a class="reference external" href="http://www.neuron.yale.edu/neuron/what_is_neuron"&gt;website&lt;/a&gt;:&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;NEURON is a simulation environment for modeling individual neurons and networks of neurons. It provides tools for conveniently building, managing, and using models in a way that is numerically sound and computationally efficient. It is particularly well-suited to problems that are closely linked to experimental data, especially those that involve cells with complex anatomical and biophysical properties.&lt;/em&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="installing-neuron-on-fedora-24"&gt;
-&lt;h2&gt;Installing NEURON on Fedora 24&lt;/h2&gt;
-&lt;p&gt;The first thing you do is install the simulator. I've been trying to build &lt;a class="reference external" href="https://copr.fedorainfracloud.org/coprs/ankursinha/neuroscience-research/"&gt;copr&lt;/a&gt; packages but they're not as simple as I'd have liked - the configurations that upstream uses for iv and neuron are outdated and require quite a bit of patching.&lt;/p&gt;
-&lt;div class="section" id="download-the-sources"&gt;
-&lt;h3&gt;Download the sources&lt;/h3&gt;
-&lt;p&gt;First, download the source files:&lt;/p&gt;
-&lt;pre class="code bash literal-block"&gt;
-&lt;span class="c1"&gt;# Make sure we're in the /home/&amp;lt;user&amp;gt; directory
-&lt;/span&gt;&lt;span class="nb"&gt;cd&lt;/span&gt;
-&lt;span class="c1"&gt;# Make a new directory - use what you want but be consistent
-&lt;/span&gt;mkdir -p dump/neuron
-
-&lt;span class="c1"&gt;# Another one for the installed files
-# You can use /opt or /usr/local or any other directory
-# Using a directory in your home folder doesn't require root access
-&lt;/span&gt;mkdir -p dump/neuron-installation
-
-&lt;span class="c1"&gt;# Keep the sources here
-&lt;/span&gt;&lt;span class="nb"&gt;cd&lt;/span&gt; ~/dump/neuron
-
-&lt;span class="c1"&gt;# Install mercurial to checkout the neuron source code
-&lt;/span&gt;sudo dnf install hg
-&lt;span class="c1"&gt;# Download the source code
-# Can't build from the latest tar somehow.
-# http://www.neuron.yale.edu/neuron/download/getdevel
-&lt;/span&gt;hg clone http://www.neuron.yale.edu/hg/neuron/nrn
-
-&lt;span class="c1"&gt;# Check http://www.neuron.yale.edu/neuron/download/getstd for correct links
-&lt;/span&gt;wget http://www.neuron.yale.edu/ftp/neuron/versions/v7.4/iv-19.tar.gz
-
-&lt;span class="c1"&gt;# Untar the source for iv - this seems to work
-&lt;/span&gt;tar -xvf iv-19.tar.gz
-&lt;/pre&gt;
-&lt;/div&gt;
-&lt;div class="section" id="prep"&gt;
-&lt;h3&gt;Prep&lt;/h3&gt;
-&lt;p&gt;We need to build iv first. On Fedora 24, the default gcc flags include &lt;code&gt;-Wformat-security&lt;/code&gt; so a quick patch needs to be applied to iv to get it to build. The patch &lt;a class="reference external" href="https://www.neuron.yale.edu/phpBB/viewtopic.php?f=20&amp;amp;t=3536"&gt;has been reported here&lt;/a&gt;:&lt;/p&gt;
-&lt;pre class="code diff literal-block"&gt;
-&lt;span class="gh"&gt;diff -ur ../iv-18.orig/src/lib/IV-2_6/matcheditor.cpp ./src/lib/IV-2_6/matcheditor.cpp
-&lt;/span&gt;&lt;span class="gd"&gt;--- ../iv-18.orig/src/lib/IV-2_6/matcheditor.cpp   2014-01-08 19:10:44.895487120 +1100
-&lt;/span&gt;&lt;span class="gi"&gt;+++ ./src/lib/IV-2_6/matcheditor.cpp   2014-01-08 19:11:05.949315579 +1100
-&lt;/span&gt;&lt;span class="gu"&gt;&amp;#64;&amp;#64; -82,7 +82,7 &amp;#64;&amp;#64;
-&lt;/span&gt;         strncpy(buf, text-&amp;gt;Text(), length);
-         while (length &amp;gt; 0) {
-             buf[length] = '\0';
-&lt;span class="gd"&gt;-            if (sscanf(buf, pattern) == EOF) {
-&lt;/span&gt;&lt;span class="gi"&gt;+            if (sscanf(buf, &amp;quot;%s&amp;quot;, pattern) == EOF) {
-&lt;/span&gt;                 break;
-             }
-             --length;
-&lt;/pre&gt;
-&lt;p&gt;Copy the diff into a file and call it &lt;code&gt;iv-format-security.patch&lt;/code&gt;. Place this in the directory where you have the neuron sources (&lt;code&gt;~/dump/neuron&lt;/code&gt;).
-To apply the patch, enter the uncompressed iv directory:&lt;/p&gt;
-&lt;pre class="code bash literal-block"&gt;
-&lt;span class="nb"&gt;cd&lt;/span&gt; iv
-patch -p1 &amp;lt; ../iv-format-security.patch
-&lt;span class="c1"&gt;# On success, it'll say:
-# patching file src/lib/IV-2_6/matcheditor.cpp&lt;/span&gt;
-&lt;/pre&gt;
-&lt;p&gt;Before we build either iv or neuron, we need to install the build dependencies:&lt;/p&gt;
-&lt;pre class="code bash literal-block"&gt;
-&lt;span class="c1"&gt;# Install dependencies from the standard repositories
-&lt;/span&gt;sudo dnf install xorg-x11-server-devel chrpath libtiff-devel imake libX11-devel automake autoconf libtool libXext-devel ncurses-devel readline-devel Random123-devel Cython openmpi-devel
-&lt;/pre&gt;
-&lt;p&gt;I've left out Java - I have no intention of using the Java support. Instead of openmpi, you can also use mpich - that's up to you - replace &lt;code&gt;openmpi-devel&lt;/code&gt; with &lt;code&gt;mpich-devel&lt;/code&gt;.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="build"&gt;
-&lt;h3&gt;Build&lt;/h3&gt;
-&lt;p&gt;Follow the instructions &lt;a class="reference external" href="http://www.neuron.yale.edu/neuron/download/compile_linux"&gt;here&lt;/a&gt;.
-First we build iv:&lt;/p&gt;
-&lt;pre class="code bash literal-block"&gt;
-&lt;span class="c1"&gt;# we're already in the iv source directory
-# ./configure --help for all available options
-# I use the default Fedora CFLAGS and CXXFLAGS
-# You needn't use these
-# rpm -E %optflags will tell you what the default ones on your system are
-# echo $CFLAGS
-# -O2 -g -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector-strong --param=ssp-buffer-size=4 -grecord-gcc-switches -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -m64 -mtune=generic
-# echo $CXXFLAGS
-# -O2 -g -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector-strong --param=ssp-buffer-size=4 -grecord-gcc-switches -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -m64 -mtune=generic
-&lt;/span&gt;
-&lt;span class="c1"&gt;# iv doesn't build with -Wnarrowing which is also default, so we disable it
-&lt;/span&gt;&lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;CFLAGS&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$CFLAGS&lt;/span&gt;&lt;span class="s2"&gt; -Wno-narrowing&amp;quot;&lt;/span&gt;
-&lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;CXXFLAGS&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$CXXFLAGS&lt;/span&gt;&lt;span class="s2"&gt; -Wno-narrowing&amp;quot;&lt;/span&gt;
-
-&lt;span class="c1"&gt;# configure, make, make install
-&lt;/span&gt;./configure --prefix&lt;span class="o"&gt;=&lt;/span&gt;/home/asinha/dump/neuron-installation/ --with-x
-&lt;span class="c1"&gt;# I have 24 processors, check to see how many you do
-&lt;/span&gt;make -j24
-make install
-&lt;/pre&gt;
-&lt;p&gt;Then, we build neuron&lt;/p&gt;
-&lt;pre class="code bash literal-block"&gt;
-&lt;span class="nb"&gt;cd&lt;/span&gt; ../nrn
-&lt;span class="c1"&gt;# configure --help to see all options
-# Enable MPI
-&lt;/span&gt;module load mpi/openmpi-x86_64
-&lt;span class="c1"&gt;# More change to flags to get the thing to build
-&lt;/span&gt;&lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;CFLAGS&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$CFLAGS&lt;/span&gt;&lt;span class="s2"&gt; -Wno-narrowing -std=c99 -D_POSIX_C_SOURCE=200809L&amp;quot;&lt;/span&gt;
-&lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;CXXFLAGS&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$CXXFLAGS&lt;/span&gt;&lt;span class="s2"&gt; -Wno-narrowing -D_POSIX_C_SOURCE=200809L&amp;quot;&lt;/span&gt;
-./build.sh
-./configure --prefix&lt;span class="o"&gt;=&lt;/span&gt;/home/asinha/dump/neuron-installation/ --with-x --with-paranrn --with-mpi --with-multisend --with-nrniv --with-iv&lt;span class="o"&gt;=&lt;/span&gt;/home/asinha/dump/neuron-installation
-&lt;span class="c1"&gt;# I have 24 processors, check to see how many you do
-&lt;/span&gt;make -j24
-make install
-&lt;/pre&gt;
-&lt;/div&gt;
-&lt;div class="section" id="check"&gt;
-&lt;h3&gt;Check&lt;/h3&gt;
-&lt;p&gt;Follow the instructions &lt;a class="reference external" href="http://www.neuron.yale.edu/neuron/download/compile_linux"&gt;here&lt;/a&gt;.&lt;/p&gt;
-&lt;pre class="code bash literal-block"&gt;
-&lt;span class="nb"&gt;cd&lt;/span&gt;
-&lt;span class="nb"&gt;cd&lt;/span&gt; dump/neuron-installation/
-find . -name &lt;span class="s2"&gt;&amp;quot;neurondemo&amp;quot;&lt;/span&gt;
-&lt;span class="c1"&gt;# You'll get something like: ./x86_64/bin/neurondemo
-&lt;/span&gt;./86_64/bin/neurondemo
-&lt;span class="c1"&gt;# Will give out something like:
-# NEURON -- VERSION 7.5 (1454:2350fc838a79) 2016-08-01
-# Duke, Yale, and the BlueBrain Project -- Copyright 1984-2016
-# See http://neuron.yale.edu/neuron/credits
-#
-# loading membrane mechanisms from /home/asinha/dump/neuron-installation/share/nrn/demo/release/x86_64/.libs/libnrnmech.so
-# Additional mechanisms from files
-#  cabpump.mod cachan1.mod camchan.mod capump.mod invlfire.mod khhchan.mod mcna.mod nacaex.mod nachan.mod release.mod
-# first instance of j
-# first instance of itmp
-# first instance of using_cvode_
-# first instance of movie_frame_dur_
-# first instance of realtime
-# first instance of running_
-# first instance of rtstart
-# first instance of stdrun_quiet
-# first instance of screen_update_invl
-# first instance of tstop
-# first instance of steps_per_ms
-# first instance of nstep_steprun
-# first instance of runStopAt
-# first instance of runStopIn
-# first instance of global_ra
-# first instance of mapped_nrnmainmenu_
-# first instance of v_init
-# first instance of n_graph_lists
-# first instance of i
-# first instance of eventslow
-# first instance of eventcount
-# first instance of cnt
-# oc&amp;gt;
-#&lt;/span&gt;
-&lt;/pre&gt;
-&lt;/div&gt;
-&lt;div class="section" id="post"&gt;
-&lt;h3&gt;Post&lt;/h3&gt;
-&lt;p&gt;Last, we update the PATH and things so that everything works smoothly in the future. The docs suggest an &lt;code&gt;nrnenv&lt;/code&gt; file that can be sourced in the &lt;code&gt;.bashrc&lt;/code&gt; file. We'll just follow the suggested method.&lt;/p&gt;
-&lt;pre class="code bash literal-block"&gt;
-cat &amp;gt;&amp;gt; ~/dump/neuron-installation/x86_64/bin/nrnenv &lt;span class="s"&gt;&amp;lt;&amp;lt; EOF
-export NRNINSTALLATION=&amp;quot;\$HOME/dump/neuron-installation&amp;quot;
-export NRNCPU=&amp;quot;x86_64&amp;quot;
-export PATH=&amp;quot;\$PATH:\$NRNINSTALLATION/\$NRNCPU/bin&amp;quot;
-
-EOF&lt;/span&gt;
-&lt;/pre&gt;
-&lt;p&gt;and modify &lt;code&gt;.bashrc&lt;/code&gt; to source it:&lt;/p&gt;
-&lt;pre class="code bash literal-block"&gt;
-&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;source /home/asinha/dump/neuron-installation/x86_64/bin/nrnenv&amp;quot;&lt;/span&gt; &amp;gt;&amp;gt; ~/.bashrc
-&lt;/pre&gt;
-&lt;p&gt;Log out and back in, or source the file again: &lt;code&gt;source ~/.bashrc&lt;/code&gt;.  All the binaries for neuron should then be available to you:&lt;/p&gt;
-&lt;pre class="code bash literal-block"&gt;
-$ ls ~/dump/neuron-installation/x86_64/bin/
-bbswork.sh   iclass  idraw  memacs        modlunit  mos2nrn2.sh  nocmodl  nrngui  nrniv_makefile  nrnmech_makefile  nrnoc_makefile  nrnpyenv.sh  set_nrnpyenv.sh
-hel2mos1.sh  idemo   ivoc   mkthreadsafe  mos2nrn   neurondemo   nrnenv   nrniv   nrnivmodl       nrnoc             nrnocmodl       oc           sortspike
-
-$ which idraw
-~/dump/neuron-installation/x86_64/bin/idraw
-$ which nrniv
-~/dump/neuron-installation/x86_64/bin/nrniv
-$ which nrnoc
-~/dump/neuron-installation/x86_64/bin/nrnoc
-$ which oc
-~/dump/neuron-installation/x86_64/bin/oc
-&lt;/pre&gt;
-&lt;p&gt;I think that should be it! I've tested the instructions on my Fedora 24 machine but if you run into issues, drop a comment and I'll look into it.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-</content><category term="Fedora"></category><category term="Neuron"></category><category term="Computational neuroscience"></category></entry></feed>
+</content><category term="Computational neuroscience"></category><category term="Fedora"></category><category term="Git"></category><category term="Programming"></category><category term="Python"></category></entry></feed>

@@ -1,5 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>ankursinha.in/blog - Community</title><link href="http://ankursinha.in/" rel="alternate"></link><link href="http://ankursinha.in/feeds/tags/community.atom.xml" rel="self"></link><id>http://ankursinha.in/</id><updated>2018-10-06T00:19:32+01:00</updated><entry><title>NeuroFedora: towards a ready to use Free/Open source environment for neuroscientists</title><link href="http://ankursinha.in/2018/10/06/neurofedora-towards-a-ready-to-use-free-open-source-environment-for-neuroscientists.html" rel="alternate"></link><published>2018-10-06T00:19:32+01:00</published><updated>2018-10-06T00:19:32+01:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2018-10-06:/2018/10/06/neurofedora-towards-a-ready-to-use-free-open-source-environment-for-neuroscientists.html</id><summary type="html">&lt;p class="first last"&gt;I have recently resurrected the &lt;a class="reference external" href="https://fedoraproject.org/wiki/SIGs/NeuroFedora"&gt;NeuroFedora SIG&lt;/a&gt;. We aim to make
+<feed xmlns="http://www.w3.org/2005/Atom"><title>ankursinha.in/blog - Community</title><link href="http://ankursinha.in/" rel="alternate"></link><link href="http://ankursinha.in/feeds/tags/community.atom.xml" rel="self"></link><id>http://ankursinha.in/</id><updated>2018-10-13T18:11:53+01:00</updated><entry><title>NeuroFedora update: week 41</title><link href="http://ankursinha.in/2018/10/13/neurofedora-update-week-41.html" rel="alternate"></link><published>2018-10-13T18:11:53+01:00</published><updated>2018-10-13T18:11:53+01:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2018-10-13:/2018/10/13/neurofedora-update-week-41.html</id><summary type="html">&lt;p class="first last"&gt;A quick update on &lt;a class="reference external" href="https://fedoraproject.org/wiki/SIGs/NeuroFedora"&gt;NeuroFedora&lt;/a&gt; at the end of week 41.&lt;/p&gt;
+</summary><content type="html">&lt;div class="figure"&gt;
+&lt;a class="reference external image-reference" href="http://ankursinha.in/images/20181005-NeuroFedoraLogo01.png"&gt;&lt;img alt="NeuroFedora logo!" class="text-center img-responsive pagination-centered" src="http://ankursinha.in/images/20181005-NeuroFedoraLogo01.png" style="width: 30%;" /&gt;&lt;/a&gt;
+&lt;p class="caption"&gt;&lt;a class="reference external" href="https://pagure.io/design/issue/602"&gt;NeuroFedora logo by Terezahl from the Fedora Design Team&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;In week 41, we finally announced &lt;a class="reference external" href="https://fedoraproject.org/wiki/SIGs/NeuroFedora"&gt;NeuroFedora&lt;/a&gt; to the community on the &lt;a class="reference external" href="https://lists.fedoraproject.org/archives/list/devel&amp;#64;lists.fedoraproject.org/message/VXN4UBCNIL6BUCDRN55IGVK3IMO3HF6C/"&gt;mailing
+list&lt;/a&gt;
+and on the &lt;a class="reference external" href="https://communityblog.fedoraproject.org/neurofedora-sig-call-for-participation/"&gt;Fedora Community Blog&lt;/a&gt;.
+So, it is officially a thing!&lt;/p&gt;
+&lt;p&gt;There is a lot of software available in &lt;a class="reference external" href="https://fedoraproject.org/wiki/SIGs/NeuroFedora"&gt;NeuroFedora&lt;/a&gt; already. You can see the
+list &lt;a class="reference external" href="https://fedoraproject.org/wiki/SIGs/NeuroFedora/PackageSet"&gt;here&lt;/a&gt;. If
+you use software that is not on our list, please suggest it to us using the
+&lt;a class="reference external" href="https://goo.gl/forms/j6AJ82yOh78MPxby1"&gt;suggestion form&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;In week 41:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://nest-simulator.org"&gt;NEST&lt;/a&gt; was updated to &lt;a class="reference external" href="https://github.com/nest/nest-simulator/releases/tag/v2.16.0"&gt;version 2.16.0&lt;/a&gt;. It is in
+testing for both &lt;a class="reference external" href="https://bodhi.fedoraproject.org/updates/FEDORA-2018-22afaeeee4"&gt;Fedora 28&lt;/a&gt; and
+&lt;a class="reference external" href="https://bodhi.fedoraproject.org/updates/FEDORA-2018-6a80c3dbb1"&gt;Fedora 29&lt;/a&gt;. They
+should both move to the stable repositories in a few days. This new version
+does not support 32 bit architectures, so I've had to drop support for those.&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://github.com/INCF/libneurosim"&gt;libneurosim&lt;/a&gt; has now been submitted for &lt;a class="reference external" href="https://bugzilla.redhat.com/show_bug.cgi?id=1638968"&gt;review&lt;/a&gt;. &lt;a class="reference external" href="https://nest-simulator.org"&gt;NEST&lt;/a&gt; must be
+built with &lt;a class="reference external" href="https://github.com/INCF/libneurosim"&gt;libneurosim&lt;/a&gt; support for &lt;a class="reference external" href="https://github.com/NeuralEnsemble/PyNN"&gt;PyNN&lt;/a&gt; to work with it properly. So &lt;a class="reference external" href="https://github.com/NeuralEnsemble/PyNN"&gt;PyNN&lt;/a&gt;
+will have to wait until this review is approved and &lt;a class="reference external" href="https://nest-simulator.org"&gt;NEST&lt;/a&gt; rebuilt.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I am hoping to spend some time on &lt;a class="reference external" href="https://fedoraproject.org/wiki/SIGs/NeuroFedora"&gt;NeuroFedora&lt;/a&gt; every week, and I will provide
+regular updates as I do. Feedback is always welcome. You can get in touch with
+us &lt;a class="reference external" href="https://fedoraproject.org/wiki/SIGs/NeuroFedora#Communication_and_getting_help"&gt;here&lt;/a&gt;.&lt;/p&gt;
+</content><category term="Community"></category><category term="Computational neuroscience"></category><category term="Free software"></category><category term="NEST"></category><category term="Fedora"></category><category term="NeuroFedora"></category></entry><entry><title>NeuroFedora: towards a ready to use Free/Open source environment for neuroscientists</title><link href="http://ankursinha.in/2018/10/06/neurofedora-towards-a-ready-to-use-free-open-source-environment-for-neuroscientists.html" rel="alternate"></link><published>2018-10-06T00:19:32+01:00</published><updated>2018-10-06T00:19:32+01:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2018-10-06:/2018/10/06/neurofedora-towards-a-ready-to-use-free-open-source-environment-for-neuroscientists.html</id><summary type="html">&lt;p class="first last"&gt;I have recently resurrected the &lt;a class="reference external" href="https://fedoraproject.org/wiki/SIGs/NeuroFedora"&gt;NeuroFedora SIG&lt;/a&gt;. We aim to make
 &lt;a class="reference external" href="https://getfedora.org"&gt;Fedora&lt;/a&gt; a ready to use platform for neuroscientists, so that they can
 focus on the science. Read on to learn more!&lt;/p&gt;
 </summary><content type="html">&lt;div class="figure"&gt;
@@ -496,50 +523,4 @@ firefox-53.0-2.fc26.x86_64
 &lt;p&gt;The Free Media programme runs in isolation to the rest of the community, and we'd also like to change this. We want to see if we can have contributors from each region that also serve on the Fedora Ambassadors team - it'll help both teams keep up with each other to begin with, and it'll ensure that the Free Media team is not lost in the community. In order to make it a sustainable service, we need a constant influx of contributors to replace ones that leave or move and cannot contribute any more.&lt;/p&gt;
 &lt;p&gt;If you'd like to help out, please drop a comment on the tickets, or file a new one, or e-mail me, or drop a comment on this post, or catch me on IRC!&lt;/p&gt;
 &lt;/div&gt;
-</content><category term="Fedora"></category><category term="Community"></category></entry><entry><title>Fedora Join meeting 30 January 2017 - Summary and updates</title><link href="http://ankursinha.in/2017/02/05/fedora-join-meeting-30-january-2017-summary-and-updates.html" rel="alternate"></link><published>2017-02-05T21:18:19+00:00</published><updated>2017-02-05T21:18:19+00:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2017-02-05:/2017/02/05/fedora-join-meeting-30-january-2017-summary-and-updates.html</id><summary type="html">&lt;p class="first last"&gt;A summary of the &lt;a class="reference external" href="https://fedoraproject.org/wiki/Fedora_Join_SIG"&gt;Fedora Join SIG&lt;/a&gt; meeting we had on 30th January 2017.&lt;/p&gt;
-</summary><content type="html">&lt;p&gt;We had another constructive &lt;a class="reference external" href="https://fedoraproject.org/wiki/Fedora_Join_SIG"&gt;Fedora Join SIG&lt;/a&gt; meeting to kick off the new year. We're now working on what I refer to as &amp;quot;Stage 2&amp;quot;: improve the visibility of the &lt;a class="reference external" href="https://fedoraproject.org/wiki/Fedora_Join_SIG"&gt;Fedora Join SIG&lt;/a&gt; outside the community so that newcomers may easily find us.&lt;/p&gt;
-&lt;p&gt;I'd sent out an &lt;a class="reference external" href="https://lists.fedoraproject.org/archives/list/fedora-join&amp;#64;lists.fedoraproject.org/message/LSNTO76WGBICKWEZKQGYDJBXFSZNIX6A/"&gt;e-mail with ideas to the mailing list to set the meeting up&lt;/a&gt;. Based on the comments from the thread, we put a list of things together that need to now be done.&lt;/p&gt;
-&lt;div class="section" id="resurrect-the-classroom-programme"&gt;
-&lt;h2&gt;Resurrect the classroom programme&lt;/h2&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://pagure.io/fedora-join/Fedora-Join/issue/22"&gt;https://pagure.io/fedora-join/Fedora-Join/issue/22&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;We used to have &lt;a class="reference external" href="https://fedoraproject.org/wiki/Classroom"&gt;regular classroom sessions&lt;/a&gt; a few years ago. These were incredibly helpful for community members that were looking to pick up new skills. In fact, I began my contributions to Fedora via a classroom session on packaging years ago! We'd really like to get these restarted. If you have some ideas or would like to help organise these, please comment on the ticket.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="ressurect-the-mentoring-programme"&gt;
-&lt;h2&gt;Ressurect the mentoring programme&lt;/h2&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://pagure.io/fedora-join/Fedora-Join/issue/18"&gt;https://pagure.io/fedora-join/Fedora-Join/issue/18&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;We also had a mentoring system in place long ago and we'd like to resurrect it to aid newbies looking to join Fedora. It's quite useful to have a seasoned community member to turn to when one gets stuck.&lt;/p&gt;
-&lt;p&gt;If you'd like to help out with mentoring, please comment on the ticket. We're already looking to set it up in a way such that it's more sustainable - any suggestions and feedback here would be most helpful too.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="propose-stage-2-to-the-fedora-council-as-a-project-level-objective"&gt;
-&lt;h2&gt;Propose stage 2 to the Fedora Council as a project-level objective&lt;/h2&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://pagure.io/fedora-join/Fedora-Join/issue/19"&gt;https://pagure.io/fedora-join/Fedora-Join/issue/19&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;a class="reference external" href="https://fedoraproject.org/wiki/User:Mattdm"&gt;Mattdm&lt;/a&gt; suggested we could propose Stage 2 to the council as a project level objective. This would make the entire process get a lot more visibility in and outside the community.&lt;/p&gt;
-&lt;p&gt;Help is always welcome, of course. More information is available on the ticket.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="fedora-public-facing-web-space-audit"&gt;
-&lt;h2&gt;Fedora public facing web space audit&lt;/h2&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://pagure.io/fedora-join/Fedora-Join/issue/21"&gt;https://pagure.io/fedora-join/Fedora-Join/issue/21&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;The aim here is to go through the Fedora websites and identify what the entry points for newbies maybe. We can then add information about Fedora Join to these pages to make it easier for them to find us.&lt;/p&gt;
-&lt;p&gt;We requested some folks from the websites and design teams to help us here, and &lt;a class="reference external" href="https://fedoraproject.org/wiki/User:Duffy"&gt;Mo&lt;/a&gt;'s been brilliant as usual to drop a detailed comment on how one should go about this audit. If you have the time, please help us out here. It isn't a technical task at all.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="there-s-more"&gt;
-&lt;h2&gt;There's more&lt;/h2&gt;
-&lt;p&gt;There's a lot more happening - please take a look at both the &lt;a class="reference external" href="https://pagure.io/fedora-commops/"&gt;CommOps&lt;/a&gt; and the &lt;a class="reference external" href="https://pagure.io/fedora-join/Fedora-Join/issues"&gt;Join issue&lt;/a&gt; lists. You can always contact us on the IRC channel or the mailing list. You can always e-mail me at &lt;cite&gt;ankursinha AT fedoraproject DOT org&lt;/cite&gt; for more information.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="links-to-full-logs-are-below"&gt;
-&lt;h2&gt;Links to full logs are below:&lt;/h2&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;Minutes: &lt;a class="reference external" href="https://meetbot.fedoraproject.org/fedora-meeting-3/2017-01-30/fedora-join.2017-01-30-16.04.html"&gt;https://meetbot.fedoraproject.org/fedora-meeting-3/2017-01-30/fedora-join.2017-01-30-16.04.html&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Minutes (text): &lt;a class="reference external" href="https://meetbot.fedoraproject.org/fedora-meeting-3/2017-01-30/fedora-join.2017-01-30-16.04.txt"&gt;https://meetbot.fedoraproject.org/fedora-meeting-3/2017-01-30/fedora-join.2017-01-30-16.04.txt&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Log: &lt;a class="reference external" href="https://meetbot.fedoraproject.org/fedora-meeting-3/2017-01-30/fedora-join.2017-01-30-16.04.log.html"&gt;https://meetbot.fedoraproject.org/fedora-meeting-3/2017-01-30/fedora-join.2017-01-30-16.04.log.html&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-</content><category term="Fedora"></category><category term="Community"></category><category term="Free software"></category></entry></feed>
+</content><category term="Fedora"></category><category term="Community"></category></entry></feed>
