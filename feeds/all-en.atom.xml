@@ -14,14 +14,14 @@ you use software that is not on our list, please suggest it to us using the
 &lt;a class="reference external" href="https://goo.gl/forms/j6AJ82yOh78MPxby1"&gt;suggestion form&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;In week 41:&lt;/p&gt;
 &lt;ul class="simple"&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://nest-simulator.org"&gt;NEST&lt;/a&gt; was updated to &lt;a class="reference external" href="https://github.com/nest/nest-simulator/releases/tag/v2.16.0"&gt;version 2.16.0&lt;/a&gt;. It is in
+&lt;li&gt;&lt;a class="reference external" href="http://nest-simulator.org"&gt;NEST&lt;/a&gt; was updated to &lt;a class="reference external" href="https://github.com/nest/nest-simulator/releases/tag/v2.16.0"&gt;version 2.16.0&lt;/a&gt;. It is in
 testing for both &lt;a class="reference external" href="https://bodhi.fedoraproject.org/updates/FEDORA-2018-22afaeeee4"&gt;Fedora 28&lt;/a&gt; and
 &lt;a class="reference external" href="https://bodhi.fedoraproject.org/updates/FEDORA-2018-6a80c3dbb1"&gt;Fedora 29&lt;/a&gt;. They
 should both move to the stable repositories in a few days. This new version
 does not support 32 bit architectures, so I've had to drop support for those.&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://github.com/INCF/libneurosim"&gt;libneurosim&lt;/a&gt; has now been submitted for &lt;a class="reference external" href="https://bugzilla.redhat.com/show_bug.cgi?id=1638968"&gt;review&lt;/a&gt;. &lt;a class="reference external" href="https://nest-simulator.org"&gt;NEST&lt;/a&gt; must be
+&lt;li&gt;&lt;a class="reference external" href="https://github.com/INCF/libneurosim"&gt;libneurosim&lt;/a&gt; has now been submitted for &lt;a class="reference external" href="https://bugzilla.redhat.com/show_bug.cgi?id=1638968"&gt;review&lt;/a&gt;. &lt;a class="reference external" href="http://nest-simulator.org"&gt;NEST&lt;/a&gt; must be
 built with &lt;a class="reference external" href="https://github.com/INCF/libneurosim"&gt;libneurosim&lt;/a&gt; support for &lt;a class="reference external" href="https://github.com/NeuralEnsemble/PyNN"&gt;PyNN&lt;/a&gt; to work with it properly. So &lt;a class="reference external" href="https://github.com/NeuralEnsemble/PyNN"&gt;PyNN&lt;/a&gt;
-will have to wait until this review is approved and &lt;a class="reference external" href="https://nest-simulator.org"&gt;NEST&lt;/a&gt; rebuilt.&lt;/li&gt;
+will have to wait until this review is approved and &lt;a class="reference external" href="http://nest-simulator.org"&gt;NEST&lt;/a&gt; rebuilt.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;I am hoping to spend some time on &lt;a class="reference external" href="https://fedoraproject.org/wiki/SIGs/NeuroFedora"&gt;NeuroFedora&lt;/a&gt; every week, and I will provide
 regular updates as I do. Feedback is always welcome. You can get in touch with
