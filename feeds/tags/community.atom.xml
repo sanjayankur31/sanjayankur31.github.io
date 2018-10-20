@@ -1,5 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>ankursinha.in/blog - Community</title><link href="http://ankursinha.in/" rel="alternate"></link><link href="http://ankursinha.in/feeds/tags/community.atom.xml" rel="self"></link><id>http://ankursinha.in/</id><updated>2018-10-13T18:11:53+01:00</updated><entry><title>NeuroFedora update: week 41</title><link href="http://ankursinha.in/2018/10/13/neurofedora-update-week-41.html" rel="alternate"></link><published>2018-10-13T18:11:53+01:00</published><updated>2018-10-13T18:11:53+01:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2018-10-13:/2018/10/13/neurofedora-update-week-41.html</id><summary type="html">&lt;p class="first last"&gt;A quick update on &lt;a class="reference external" href="https://fedoraproject.org/wiki/SIGs/NeuroFedora"&gt;NeuroFedora&lt;/a&gt; at the end of week 41.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>ankursinha.in/blog - Community</title><link href="http://ankursinha.in/" rel="alternate"></link><link href="http://ankursinha.in/feeds/tags/community.atom.xml" rel="self"></link><id>http://ankursinha.in/</id><updated>2018-10-20T16:05:16+01:00</updated><entry><title>NeuroFedora update: week 42</title><link href="http://ankursinha.in/2018/10/20/neurofedora-update-week-42.html" rel="alternate"></link><published>2018-10-20T16:05:16+01:00</published><updated>2018-10-20T16:05:16+01:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2018-10-20:/2018/10/20/neurofedora-update-week-42.html</id><summary type="html">&lt;p class="first last"&gt;A quick update on &lt;a class="reference external" href="https://fedoraproject.org/wiki/SIGs/NeuroFedora"&gt;NeuroFedora&lt;/a&gt; at the end of week 42.&lt;/p&gt;
+</summary><content type="html">&lt;div class="figure"&gt;
+&lt;a class="reference external image-reference" href="http://ankursinha.in/images/20181005-NeuroFedoraLogo01.png"&gt;&lt;img alt="NeuroFedora logo!" class="text-center img-responsive pagination-centered" src="http://ankursinha.in/images/20181005-NeuroFedoraLogo01.png" style="width: 30%;" /&gt;&lt;/a&gt;
+&lt;p class="caption"&gt;&lt;a class="reference external" href="https://pagure.io/design/issue/602"&gt;NeuroFedora logo by Terezahl from the Fedora Design Team&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;In week 42:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;a class="reference external" href="http://nest-simulator.org"&gt;NEST&lt;/a&gt; 2.16.0 has hit the stable repositories. The different variants (with
+and without MPI) can now be easily installed using one or two DNF commands.
+You can find more information on installing &lt;a class="reference external" href="http://nest-simulator.org"&gt;NEST&lt;/a&gt; on Fedora &lt;a class="reference external" href="https://src.fedoraproject.org/rpms/nest"&gt;here&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://github.com/INCF/libneurosim"&gt;libneurosim&lt;/a&gt; has been submitted for &lt;a class="reference external" href="https://bugzilla.redhat.com/show_bug.cgi?id=1638968"&gt;review&lt;/a&gt;. I expect it'll be
+approved soon. I learned a few new things about building RPM packages while I
+was at it too. Once &lt;a class="reference external" href="https://github.com/INCF/libneurosim"&gt;libneurosim&lt;/a&gt; is approved and built, &lt;a class="reference external" href="http://nest-simulator.org"&gt;NEST&lt;/a&gt; will be rebuilt
+to support it too, and then I intend to work on &lt;a class="reference external" href="https://github.com/NeuralEnsemble/PyNN"&gt;PyNN&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;I almost have &lt;a class="reference external" href="https://github.com/INCF/MUSIC"&gt;MUSIC&lt;/a&gt; ready for review. I expect to submit a review ticket
+soon.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;There is a lot of software available in &lt;a class="reference external" href="https://fedoraproject.org/wiki/SIGs/NeuroFedora"&gt;NeuroFedora&lt;/a&gt; already. You can see the
+list &lt;a class="reference external" href="https://fedoraproject.org/wiki/SIGs/NeuroFedora/PackageSet"&gt;here&lt;/a&gt;. If
+you use software that is not on our list, please suggest it to us using the
+&lt;a class="reference external" href="https://goo.gl/forms/j6AJ82yOh78MPxby1"&gt;suggestion form&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Feedback is always welcome. You can get in touch with us &lt;a class="reference external" href="https://fedoraproject.org/wiki/SIGs/NeuroFedora#Communication_and_getting_help"&gt;here&lt;/a&gt;.&lt;/p&gt;
+</content><category term="Community"></category><category term="Computational neuroscience"></category><category term="Free software"></category><category term="NEST"></category><category term="Fedora"></category><category term="NeuroFedora"></category></entry><entry><title>NeuroFedora update: week 41</title><link href="http://ankursinha.in/2018/10/13/neurofedora-update-week-41.html" rel="alternate"></link><published>2018-10-13T18:11:53+01:00</published><updated>2018-10-13T18:11:53+01:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2018-10-13:/2018/10/13/neurofedora-update-week-41.html</id><summary type="html">&lt;p class="first last"&gt;A quick update on &lt;a class="reference external" href="https://fedoraproject.org/wiki/SIGs/NeuroFedora"&gt;NeuroFedora&lt;/a&gt; at the end of week 41.&lt;/p&gt;
 </summary><content type="html">&lt;div class="figure"&gt;
 &lt;a class="reference external image-reference" href="http://ankursinha.in/images/20181005-NeuroFedoraLogo01.png"&gt;&lt;img alt="NeuroFedora logo!" class="text-center img-responsive pagination-centered" src="http://ankursinha.in/images/20181005-NeuroFedoraLogo01.png" style="width: 30%;" /&gt;&lt;/a&gt;
 &lt;p class="caption"&gt;&lt;a class="reference external" href="https://pagure.io/design/issue/602"&gt;NeuroFedora logo by Terezahl from the Fedora Design Team&lt;/a&gt;&lt;/p&gt;
@@ -457,70 +479,4 @@ firefox-53.0-2.fc26.x86_64
 &lt;/ul&gt;
 &lt;p&gt;An admin will accept the ticket, verify the information, and add you to the FAS group, Pagure group, and the mailing list.&lt;/p&gt;
 &lt;p&gt;There's a lot of work still to do before we can complete the migration and re-enable the Free Media programme. If you'd like to help out, please take a look at the &lt;a class="reference external" href="https://pagure.io/Free-Media/Housekeeping/issues"&gt;open issues on the Housekeeping Pagure instance&lt;/a&gt;, or of course, get in touch with me. :)&lt;/p&gt;
-</content><category term="Community"></category><category term="Fedora"></category><category term="Social"></category><category term="Subscriptions"></category></entry><entry><title>An update on the migration of Fedora Free Media to Pagure</title><link href="http://ankursinha.in/2017/02/08/an-update-on-the-migration-of-fedora-free-media-to-pagure.html" rel="alternate"></link><published>2017-02-08T14:50:50+00:00</published><updated>2017-02-08T14:50:50+00:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2017-02-08:/2017/02/08/an-update-on-the-migration-of-fedora-free-media-to-pagure.html</id><summary type="html">&lt;p class="first last"&gt;The &lt;a class="reference external" href="https://fedoraproject.org/wiki/FreeMedia"&gt;Fedora Free Media programme&lt;/a&gt; is being migrated over to Pagure. Here's a quick update on what's going on and where you can help.&lt;/p&gt;
-</summary><content type="html">&lt;p&gt;The &lt;a class="reference external" href="https://fedoraproject.org/wiki/FreeMedia"&gt;Fedora Free Media programme&lt;/a&gt; aims to provide Fedora media to users in regions of the world where the internet connectivity is insufficient. The volunteers of this team download, burn, and mail out media from their own money. This is an imperative initiative that helps spread Free software to regions that are yet to catch up when it comes to infrastructure. When I'd checked last, we had about 250 volunteers in total - not all of them are active, of course, but that's the number I've been able to generate from querying FAS and the mailing list for the moment.&lt;/p&gt;
-&lt;div class="section" id="the-setup"&gt;
-&lt;h2&gt;The setup&lt;/h2&gt;
-&lt;p&gt;The programme uses a &lt;a class="reference external" href="http://fedoraproject.org/freemedia/FreeMedia-form.html"&gt;form&lt;/a&gt; that users fill to request media. This form is a frontend that files a ticket on our &lt;a class="reference external" href="https://fedorahosted.org/freemedia/"&gt;trac instance&lt;/a&gt;. Volunteers then accept tickets and send out requests, closing the tickets when they do. Tickets that have not been serviced are regularly closed as &amp;quot;WONTFIX&amp;quot;. We send out an e-mail to the filer simply saying that since we've received too many requests, we've been unable to service them all.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="the-migration-to-pagure"&gt;
-&lt;h2&gt;The migration to Pagure&lt;/h2&gt;
-&lt;p&gt;Since Fedorahosted will soon be shut down, we need to move our repository to Pagure. We're going to use this opportunity to revitalise the project. There's a tracker issue here on the Pagure repository.&lt;/p&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://pagure.io/pagure/issue/1223"&gt;https://pagure.io/pagure/issue/1223&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://pagure.io/Free-Media/Housekeeping/issue/1"&gt;https://pagure.io/Free-Media/Housekeeping/issue/1&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class="section" id="group-membership-refresh"&gt;
-&lt;h3&gt;Group membership refresh&lt;/h3&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://pagure.io/Free-Media/Housekeeping/issue/7"&gt;https://pagure.io/Free-Media/Housekeeping/issue/7&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://pagure.io/Free-Media/Housekeeping/issue/6"&gt;https://pagure.io/Free-Media/Housekeeping/issue/6&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Unlike most teams where having inactive accounts doesn't affect the functioning of the group too much, it does tend to affect the Free Media team. This is because we really do need active members to be able to handle the load. Another issue here is privacy - only group members have access to the tickets, since the tickets contain the filers' addresses. So, ideally, only the smallest number of people needed must have access to these tickets.&lt;/p&gt;
-&lt;p&gt;The idea we're floating is that we'll clean the group and the mailing list up, and invite existing users to re-join the team. Ones that volunteer will be added back. Please note that it is mandatory for each volunteer to have a Fedora user page, and every group member must also be subscribed to the mailing list so that they can be easily contacted when needed.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="new-repository-setup"&gt;
-&lt;h3&gt;New repository setup&lt;/h3&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://pagure.io/Free-Media/Housekeeping/issue/9"&gt;https://pagure.io/Free-Media/Housekeeping/issue/9&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;We can either have one repository that handles all tickets, or we can make it more modular and have a few repositories that handle tickets for various regions. Multiple repositories will need more work to do with the scripts and the frontend.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="update-form-to-work-with-pagure-based-on-our-new-setup"&gt;
-&lt;h3&gt;Update form to work with Pagure based on our new setup&lt;/h3&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://pagure.io/Free-Media/Housekeeping/issue/11"&gt;https://pagure.io/Free-Media/Housekeeping/issue/11&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;The form obviously needs to be updated to file tickets to the Pagure repository now. We have a new form that's much nicer, but it does need work before it can be deployed.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="translate-form"&gt;
-&lt;h3&gt;Translate form&lt;/h3&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://pagure.io/Free-Media/Housekeeping/issue/10"&gt;https://pagure.io/Free-Media/Housekeeping/issue/10&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;It'll be even nicer if we can translate the form to make it more accessible to the different regions.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="use-updated-liveisos-instead-of-release-images"&gt;
-&lt;h3&gt;Use updated liveisos instead of release images&lt;/h3&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://pagure.io/Free-Media/Housekeeping/issue/8"&gt;https://pagure.io/Free-Media/Housekeeping/issue/8&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Since the entire point of the programme is to serve users with limited internet connectivity, some of us feel there is little point in providing them release media that then must be udpated. The community already generates &lt;a class="reference external" href="http://dl.fedoraproject.org/pub/alt/live-respins/"&gt;updated media&lt;/a&gt;, and we'd like to use these instead. We'd also like to help maintain the updated media by mirroring/seeding the sources.&lt;/p&gt;
-&lt;p&gt;Of course, this also brings up the age old question of migrating to USB sticks. I don't think they're still cheap enough for the Free Media programme to send out.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="metrics"&gt;
-&lt;h3&gt;Metrics&lt;/h3&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://pagure.io/Free-Media/Housekeeping/issue/5"&gt;https://pagure.io/Free-Media/Housekeeping/issue/5&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;We want to put scripts in place that will generate metrics for us at regular intervals - monthly maybe. This would really help gauge the work of the programme, and in turn, help us improve.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="section" id="so-yeah"&gt;
-&lt;h2&gt;So, yeah!&lt;/h2&gt;
-&lt;p&gt;There's quite a lot of work to be done, as you can see.&lt;/p&gt;
-&lt;p&gt;We're &lt;a class="reference external" href="https://pagure.io/Free-Media/Housekeeping/issue/14"&gt;trying to ascertain if it's all worth it to begin with - are we servicing enough tickets, and do we have a sufficiently large team that can continue to do so&lt;/a&gt;? Is the Free Media programme useful? The only way we'll know is if we check the recent metrics, and, of course, we'd like to hear what the community thinks. I think the programme is quite useful. When I was back in India, I'd send out media every month, and I'd usually get a very nice e-mail from the ticket owner telling me how much they appreciated the media.&lt;/p&gt;
-&lt;p&gt;The Free Media programme runs in isolation to the rest of the community, and we'd also like to change this. We want to see if we can have contributors from each region that also serve on the Fedora Ambassadors team - it'll help both teams keep up with each other to begin with, and it'll ensure that the Free Media team is not lost in the community. In order to make it a sustainable service, we need a constant influx of contributors to replace ones that leave or move and cannot contribute any more.&lt;/p&gt;
-&lt;p&gt;If you'd like to help out, please drop a comment on the tickets, or file a new one, or e-mail me, or drop a comment on this post, or catch me on IRC!&lt;/p&gt;
-&lt;/div&gt;
-</content><category term="Fedora"></category><category term="Community"></category></entry></feed>
+</content><category term="Community"></category><category term="Fedora"></category><category term="Social"></category><category term="Subscriptions"></category></entry></feed>

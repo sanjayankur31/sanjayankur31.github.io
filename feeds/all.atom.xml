@@ -1,5 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>ankursinha.in/blog</title><link href="http://ankursinha.in/" rel="alternate"></link><link href="http://ankursinha.in/feeds/all.atom.xml" rel="self"></link><id>http://ankursinha.in/</id><updated>2018-10-13T18:11:53+01:00</updated><entry><title>NeuroFedora update: week 41</title><link href="http://ankursinha.in/2018/10/13/neurofedora-update-week-41.html" rel="alternate"></link><published>2018-10-13T18:11:53+01:00</published><updated>2018-10-13T18:11:53+01:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2018-10-13:/2018/10/13/neurofedora-update-week-41.html</id><summary type="html">&lt;p class="first last"&gt;A quick update on &lt;a class="reference external" href="https://fedoraproject.org/wiki/SIGs/NeuroFedora"&gt;NeuroFedora&lt;/a&gt; at the end of week 41.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>ankursinha.in/blog</title><link href="http://ankursinha.in/" rel="alternate"></link><link href="http://ankursinha.in/feeds/all.atom.xml" rel="self"></link><id>http://ankursinha.in/</id><updated>2018-10-20T16:05:16+01:00</updated><entry><title>NeuroFedora update: week 42</title><link href="http://ankursinha.in/2018/10/20/neurofedora-update-week-42.html" rel="alternate"></link><published>2018-10-20T16:05:16+01:00</published><updated>2018-10-20T16:05:16+01:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2018-10-20:/2018/10/20/neurofedora-update-week-42.html</id><summary type="html">&lt;p class="first last"&gt;A quick update on &lt;a class="reference external" href="https://fedoraproject.org/wiki/SIGs/NeuroFedora"&gt;NeuroFedora&lt;/a&gt; at the end of week 42.&lt;/p&gt;
+</summary><content type="html">&lt;div class="figure"&gt;
+&lt;a class="reference external image-reference" href="http://ankursinha.in/images/20181005-NeuroFedoraLogo01.png"&gt;&lt;img alt="NeuroFedora logo!" class="text-center img-responsive pagination-centered" src="http://ankursinha.in/images/20181005-NeuroFedoraLogo01.png" style="width: 30%;" /&gt;&lt;/a&gt;
+&lt;p class="caption"&gt;&lt;a class="reference external" href="https://pagure.io/design/issue/602"&gt;NeuroFedora logo by Terezahl from the Fedora Design Team&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;In week 42:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;a class="reference external" href="http://nest-simulator.org"&gt;NEST&lt;/a&gt; 2.16.0 has hit the stable repositories. The different variants (with
+and without MPI) can now be easily installed using one or two DNF commands.
+You can find more information on installing &lt;a class="reference external" href="http://nest-simulator.org"&gt;NEST&lt;/a&gt; on Fedora &lt;a class="reference external" href="https://src.fedoraproject.org/rpms/nest"&gt;here&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://github.com/INCF/libneurosim"&gt;libneurosim&lt;/a&gt; has been submitted for &lt;a class="reference external" href="https://bugzilla.redhat.com/show_bug.cgi?id=1638968"&gt;review&lt;/a&gt;. I expect it'll be
+approved soon. I learned a few new things about building RPM packages while I
+was at it too. Once &lt;a class="reference external" href="https://github.com/INCF/libneurosim"&gt;libneurosim&lt;/a&gt; is approved and built, &lt;a class="reference external" href="http://nest-simulator.org"&gt;NEST&lt;/a&gt; will be rebuilt
+to support it too, and then I intend to work on &lt;a class="reference external" href="https://github.com/NeuralEnsemble/PyNN"&gt;PyNN&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;I almost have &lt;a class="reference external" href="https://github.com/INCF/MUSIC"&gt;MUSIC&lt;/a&gt; ready for review. I expect to submit a review ticket
+soon.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;There is a lot of software available in &lt;a class="reference external" href="https://fedoraproject.org/wiki/SIGs/NeuroFedora"&gt;NeuroFedora&lt;/a&gt; already. You can see the
+list &lt;a class="reference external" href="https://fedoraproject.org/wiki/SIGs/NeuroFedora/PackageSet"&gt;here&lt;/a&gt;. If
+you use software that is not on our list, please suggest it to us using the
+&lt;a class="reference external" href="https://goo.gl/forms/j6AJ82yOh78MPxby1"&gt;suggestion form&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Feedback is always welcome. You can get in touch with us &lt;a class="reference external" href="https://fedoraproject.org/wiki/SIGs/NeuroFedora#Communication_and_getting_help"&gt;here&lt;/a&gt;.&lt;/p&gt;
+</content><category term="Community"></category><category term="Computational neuroscience"></category><category term="Free software"></category><category term="NEST"></category><category term="Fedora"></category><category term="NeuroFedora"></category></entry><entry><title>NeuroFedora update: week 41</title><link href="http://ankursinha.in/2018/10/13/neurofedora-update-week-41.html" rel="alternate"></link><published>2018-10-13T18:11:53+01:00</published><updated>2018-10-13T18:11:53+01:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2018-10-13:/2018/10/13/neurofedora-update-week-41.html</id><summary type="html">&lt;p class="first last"&gt;A quick update on &lt;a class="reference external" href="https://fedoraproject.org/wiki/SIGs/NeuroFedora"&gt;NeuroFedora&lt;/a&gt; at the end of week 41.&lt;/p&gt;
 </summary><content type="html">&lt;div class="figure"&gt;
 &lt;a class="reference external image-reference" href="http://ankursinha.in/images/20181005-NeuroFedoraLogo01.png"&gt;&lt;img alt="NeuroFedora logo!" class="text-center img-responsive pagination-centered" src="http://ankursinha.in/images/20181005-NeuroFedoraLogo01.png" style="width: 30%;" /&gt;&lt;/a&gt;
 &lt;p class="caption"&gt;&lt;a class="reference external" href="https://pagure.io/design/issue/602"&gt;NeuroFedora logo by Terezahl from the Fedora Design Team&lt;/a&gt;&lt;/p&gt;
@@ -1241,64 +1263,4 @@ notmuch&lt;/li&gt;
 &lt;li&gt;&lt;a class="reference external" href="http://jasonwryan.com/blog/2012/05/12/mutt/"&gt;http://jasonwryan.com/blog/2012/05/12/mutt/&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
-</content><category term="Fedora"></category></entry><entry><title>Fedora Classroom: Git 101: report</title><link href="http://ankursinha.in/2017/10/07/fedora-classroom-git-101-report.html" rel="alternate"></link><published>2017-10-07T14:19:10+01:00</published><updated>2017-10-07T14:19:10+01:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2017-10-07:/2017/10/07/fedora-classroom-git-101-report.html</id><summary type="html">&lt;p class="first last"&gt;I taught a &lt;a class="reference external" href="https://fedoraproject.org/wiki/Classroom"&gt;Fedora Classroom&lt;/a&gt; session the other day - &lt;a class="reference external" href="https://meetbot.fedoraproject.org/fedora-classroom/2017-10-05/fedora-classroom.2017-10-05-14.17.log.html"&gt;Git 101&lt;/a&gt; -
-where I walked through the basics of &lt;a class="reference external" href="https://git-scm.com/"&gt;Git&lt;/a&gt;. This is a quick summary
-of the session.&lt;/p&gt;
-</summary><content type="html">&lt;p&gt;I taught another &lt;a class="reference external" href="https://fedoraproject.org/wiki/Classroom"&gt;Fedora Classroom&lt;/a&gt; this week, on &lt;a class="reference external" href="https://meetbot.fedoraproject.org/fedora-classroom/2017-10-05/fedora-classroom.2017-10-05-14.17.log.html"&gt;Git 101&lt;/a&gt;. I used the &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Internet_Relay_Chat"&gt;IRC&lt;/a&gt;
-again since this session was to be another hands-on walkthrough. I reckon I've
-now learned that hands-on sessions go on longer than initially planned. This
-one lasted about three hours!&lt;/p&gt;
-&lt;div class="section" id="some-metrics"&gt;
-&lt;h2&gt;Some metrics&lt;/h2&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;Length: 3 hours&lt;/li&gt;
-&lt;li&gt;Attendees: ~25 people&lt;/li&gt;
-&lt;li&gt;Sentences spoken: LOTS!&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class="section" id="summary"&gt;
-&lt;h2&gt;Summary&lt;/h2&gt;
-&lt;p&gt;I didn't go much into the theory, and there's a lot of it in &lt;a class="reference external" href="https://git-scm.com/"&gt;Git&lt;/a&gt;. Instead, I
-had made it my goal to walk the attendees through the usual &lt;a class="reference external" href="https://git-scm.com/"&gt;Git&lt;/a&gt; workflow.
-So, that's exactly what we did. We started by setting up an empty repository,
-then added files to it, learned how to see changes and so on. Then, we moved
-on to branching.&lt;/p&gt;
-&lt;p&gt;Once we'd explored the advantages of using branches we started working with
-remotes. Everyone set up repositories on &lt;a class="reference external" href="https://pagure.io"&gt;Pagure&lt;/a&gt; or &lt;a class="reference external" href="https://github.com"&gt;Github&lt;/a&gt;. To end with, I
-got everyone to fork my repository and submit pull requests.&lt;/p&gt;
-&lt;p&gt;I think everyone got the hang of it. There were some good questions, a bit of
-discussion too. I do hope it'll get more people to use &lt;a class="reference external" href="https://git-scm.com/"&gt;Git&lt;/a&gt; and contribute to
-different projects on &lt;a class="reference external" href="https://pagure.io"&gt;Pagure&lt;/a&gt; or &lt;a class="reference external" href="https://github.com"&gt;Github&lt;/a&gt;.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="feedback-is-always-welcome"&gt;
-&lt;h2&gt;Feedback is always welcome&lt;/h2&gt;
-&lt;p&gt;If you had attended the session, or have gone through the logs and have some
-feedback, please get in touch. You can use the Fedora classroom channels:&lt;/p&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;&lt;a class="reference external" href="mailto:classroom&amp;#64;lists.fedoraproject.org"&gt;mailing list&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;#fedora-classroom on Freenode &lt;a class="reference external" href="http://webchat.freenode.net/?channels=%23fedora-classroom"&gt;IRC channel&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;You can even comment on this blog post, and of course, you can give me feedback
-privately. I'm FranciscoD on quite a few Fedora IRC channels, and I can be
-reached via e-mail on my Fedora address at ankursinha AT fedoraproject DOT org.
-All suggestions, comments, criticism is most welcome.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="more-instructors-needed"&gt;
-&lt;h2&gt;More instructors needed!&lt;/h2&gt;
-&lt;p&gt;The classroom sessions are going rather well, but &lt;a class="reference external" href="https://fedoraproject.org/wiki/Classroom#Help_wanted"&gt;we still need more help&lt;/a&gt;. We'd like to cover
-more topics from different areas, not just tech related- everything from
-design, to free software philosophy and community building! If there's anything
-at all you think is worth a classroom session, please get in touch with the
-team on the &lt;a class="reference external" href="mailto:classroom&amp;#64;lists.fedoraproject.org"&gt;Fedora classroom mailing list&lt;/a&gt;. A log of all past sessions -
-whether on &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Internet_Relay_Chat"&gt;IRC&lt;/a&gt; or on a video platform are maintained on the wiki page &lt;a class="reference external" href="https://fedoraproject.org/wiki/Classroom#Previous_Sessions"&gt;here&lt;/a&gt; for everyone to
-peruse at their convenience.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="logs"&gt;
-&lt;h2&gt;Logs&lt;/h2&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://meetbot.fedoraproject.org/fedora-classroom/2017-10-05/fedora-classroom.2017-10-05-14.17.log.html"&gt;HTML logs&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://meetbot.fedoraproject.org/fedora-classroom/2017-10-05/fedora-classroom.2017-10-05-14.17.html"&gt;HTML minutes&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://meetbot.fedoraproject.org/fedora-classroom/2017-10-05/fedora-classroom.2017-10-05-14.17.txt"&gt;Text minutes&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-</content><category term="Community"></category><category term="Fedora"></category><category term="Git"></category><category term="Planet"></category></entry></feed>
+</content><category term="Fedora"></category></entry></feed>
