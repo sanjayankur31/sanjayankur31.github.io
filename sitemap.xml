@@ -5,21 +5,21 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://ankursinha.in/</loc>
-<lastmod>2018-10-30T11:39:01-00:00</lastmod>
+<lastmod>2018-11-03T10:25:33-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://ankursinha.in/tags.html</loc>
-<lastmod>2018-10-30T11:39:01-00:00</lastmod>
+<lastmod>2018-11-03T10:25:33-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://ankursinha.in/categories.html</loc>
-<lastmod>2018-10-30T11:39:01-00:00</lastmod>
+<lastmod>2018-11-03T10:25:33-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -41,6 +41,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>http://ankursinha.in/pages/04-current-work.html</loc>
 <lastmod>2018-06-26T12:27:40+01:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://ankursinha.in/2018/11/03/neurofedora-update-week-44.html</loc>
+<lastmod>2018-11-03T10:02:24+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
@@ -2364,7 +2371,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://ankursinha.in/category/research/</loc>
-<lastmod>2018-10-27T10:56:49-00:01</lastmod>
+<lastmod>2018-11-03T10:02:24-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -2378,42 +2385,42 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://ankursinha.in/tag/community/</loc>
-<lastmod>2018-10-27T10:56:49-00:01</lastmod>
+<lastmod>2018-11-03T10:02:24-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://ankursinha.in/tag/computational-neuroscience/</loc>
-<lastmod>2018-10-27T10:56:49-00:01</lastmod>
+<lastmod>2018-11-03T10:02:24-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://ankursinha.in/tag/free-software/</loc>
-<lastmod>2018-10-27T10:56:49-00:01</lastmod>
+<lastmod>2018-11-03T10:02:24-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://ankursinha.in/tag/nest/</loc>
-<lastmod>2018-10-27T10:56:49-00:01</lastmod>
+<lastmod>2018-11-03T10:02:24-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://ankursinha.in/tag/fedora/</loc>
-<lastmod>2018-10-27T10:56:49-00:01</lastmod>
+<lastmod>2018-11-03T10:02:24-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://ankursinha.in/tag/neurofedora/</loc>
-<lastmod>2018-10-27T10:56:49-00:01</lastmod>
+<lastmod>2018-11-03T10:02:24-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -2917,7 +2924,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://ankursinha.in/author/ankur.html</loc>
-<lastmod>2018-10-27T10:56:49-00:01</lastmod>
+<lastmod>2018-11-03T10:02:24-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>

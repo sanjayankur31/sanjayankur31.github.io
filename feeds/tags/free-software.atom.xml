@@ -1,5 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>ankursinha.in/blog - Free software</title><link href="http://ankursinha.in/" rel="alternate"></link><link href="http://ankursinha.in/feeds/tags/free-software.atom.xml" rel="self"></link><id>http://ankursinha.in/</id><updated>2018-10-27T10:56:49+01:00</updated><entry><title>NeuroFedora update: week 43</title><link href="http://ankursinha.in/2018/10/27/neurofedora-update-week-43.html" rel="alternate"></link><published>2018-10-27T10:56:49+01:00</published><updated>2018-10-27T10:56:49+01:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2018-10-27:/2018/10/27/neurofedora-update-week-43.html</id><summary type="html">&lt;p class="first last"&gt;A quick update on &lt;a class="reference external" href="https://fedoraproject.org/wiki/SIGs/NeuroFedora"&gt;NeuroFedora&lt;/a&gt; at the end of week 43.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>ankursinha.in/blog - Free software</title><link href="http://ankursinha.in/" rel="alternate"></link><link href="http://ankursinha.in/feeds/tags/free-software.atom.xml" rel="self"></link><id>http://ankursinha.in/</id><updated>2018-11-03T10:02:24+00:00</updated><entry><title>NeuroFedora update: week 44</title><link href="http://ankursinha.in/2018/11/03/neurofedora-update-week-44.html" rel="alternate"></link><published>2018-11-03T10:02:24+00:00</published><updated>2018-11-03T10:02:24+00:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2018-11-03:/2018/11/03/neurofedora-update-week-44.html</id><summary type="html">&lt;p class="first last"&gt;A quick update on &lt;a class="reference external" href="https://fedoraproject.org/wiki/SIGs/NeuroFedora"&gt;NeuroFedora&lt;/a&gt; at the end of week 44. More software,
+some housekeeping, and a few upstream tickets.&lt;/p&gt;
+</summary><content type="html">&lt;div class="figure"&gt;
+&lt;a class="reference external image-reference" href="http://ankursinha.in/images/20181005-NeuroFedoraLogo01.png"&gt;&lt;img alt="NeuroFedora logo!" class="text-center img-responsive pagination-centered" src="http://ankursinha.in/images/20181005-NeuroFedoraLogo01.png" style="width: 30%;" /&gt;&lt;/a&gt;
+&lt;p class="caption"&gt;&lt;a class="reference external" href="https://pagure.io/design/issue/602"&gt;NeuroFedora logo by Terezahl from the Fedora Design Team&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;In week 44:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://src.fedoraproject.org/rpms/python-PyLEMS"&gt;PyLEMS&lt;/a&gt; was imported into Fedora and is now in &lt;a class="reference external" href="https://bodhi.fedoraproject.org/updates/?packages=python-PyLEMS"&gt;testing&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;We received a suggestion to include &lt;a class="reference external" href="https://git.fmrib.ox.ac.uk/fsl/fsleyes"&gt;fsleyes&lt;/a&gt;, so we've begun working on that.
+Two of its dependencies are in review now: &lt;a class="reference external" href="https://bugzilla.redhat.com/show_bug.cgi?id=1645329"&gt;fslpy&lt;/a&gt; and &lt;a class="reference external" href="https://bugzilla.redhat.com/show_bug.cgi?id=1645661"&gt;fsleyes-widgets&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Keeping in line with the spirit of FOSS development, we try to &lt;a class="reference external" href="https://fedoraproject.org/wiki/Staying_close_to_upstream_projects"&gt;stay close to
+upstream&lt;/a&gt;, so:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://src.fedoraproject.org/rpms/python-PyLEMS"&gt;PyLEMS&lt;/a&gt;: issues were filed to request that &lt;a class="reference external" href="https://github.com/LEMS/pylems/issues/42"&gt;examples&lt;/a&gt; and the &lt;a class="reference external" href="https://github.com/LEMS/pylems/issues/39"&gt;license
+text&lt;/a&gt; be included in the PyPi
+tarball.&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://github.com/NeuroML/NeuroMLlite"&gt;NeuroMLlite&lt;/a&gt;: I opened a &lt;a class="reference external" href="https://github.com/NeuroML/NeuroMLlite/pull/2"&gt;PR adding the license file to the sources&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://github.com/INCF/MUSIC"&gt;MUSIC&lt;/a&gt;: Unfortunately &lt;a class="reference external" href="https://github.com/INCF/MUSIC"&gt;MUSIC&lt;/a&gt; uses a private copy of &lt;a class="reference external" href="https://github.com/mflood/rudeconfig"&gt;rudeconfig&lt;/a&gt; that contains
+changes that have not yet been sent upstream. Bundling is &lt;a class="reference external" href="https://fedoraproject.org/wiki/Packaging:Guidelines#Bundling_and_Duplication_of_system_libraries"&gt;to be avoided&lt;/a&gt;
+in Fedora for good reason, so I've filed a ticket &lt;a class="reference external" href="https://github.com/INCF/MUSIC/issues/56"&gt;asking if the local
+changes to rudeconfig could be sent upstream&lt;/a&gt;. Until this is solved,
+&lt;a class="reference external" href="https://github.com/INCF/MUSIC"&gt;MUSIC&lt;/a&gt; cannot be included in Fedora, unless a bundling exception is made.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The task list was moved to the &lt;a class="reference external" href="https://pagure.io/neuro-sig/NeuroFedora/issues"&gt;Pagure issue tracker&lt;/a&gt;.
+I've done a bit of housekeeping so that we now use labels like the &lt;a class="reference external" href="https://github.com/nest/nest-simulator/wiki/issue-labeling-scheme"&gt;NEST&lt;/a&gt;
+initiative does, inspired by &lt;a class="reference external" href="https://medium.com/&amp;#64;dave_lunny/sane-github-labels-c5d2e6004b63#.ve6i7zcou"&gt;this post&lt;/a&gt;.
+It really does make handling issues much easier.&lt;/p&gt;
+&lt;hr class="docutils" /&gt;
+&lt;p&gt;There is a lot of software available in &lt;a class="reference external" href="https://fedoraproject.org/wiki/SIGs/NeuroFedora"&gt;NeuroFedora&lt;/a&gt; already. You can see the
+complete list &lt;a class="reference external" href="https://src.fedoraproject.org/group/neuro-sig"&gt;here on Fedora SCM&lt;/a&gt;. Software that is currently
+being worked on is listed &lt;a class="reference external" href="https://pagure.io/neuro-sig/NeuroFedora/issues"&gt;on our Pagure project instance&lt;/a&gt;. If you use software that
+is not on our list, please suggest it to us using the &lt;a class="reference external" href="https://goo.gl/forms/j6AJ82yOh78MPxby1"&gt;suggestion form&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Feedback is always welcome. You can get in touch with us &lt;a class="reference external" href="https://fedoraproject.org/wiki/SIGs/NeuroFedora#Communication_and_getting_help"&gt;here&lt;/a&gt;.&lt;/p&gt;
+</content><category term="Community"></category><category term="Computational neuroscience"></category><category term="Free software"></category><category term="NEST"></category><category term="Fedora"></category><category term="NeuroFedora"></category></entry><entry><title>NeuroFedora update: week 43</title><link href="http://ankursinha.in/2018/10/27/neurofedora-update-week-43.html" rel="alternate"></link><published>2018-10-27T10:56:49+01:00</published><updated>2018-10-27T10:56:49+01:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2018-10-27:/2018/10/27/neurofedora-update-week-43.html</id><summary type="html">&lt;p class="first last"&gt;A quick update on &lt;a class="reference external" href="https://fedoraproject.org/wiki/SIGs/NeuroFedora"&gt;NeuroFedora&lt;/a&gt; at the end of week 43.&lt;/p&gt;
 </summary><content type="html">&lt;div class="figure"&gt;
 &lt;a class="reference external image-reference" href="http://ankursinha.in/images/20181005-NeuroFedoraLogo01.png"&gt;&lt;img alt="NeuroFedora logo!" class="text-center img-responsive pagination-centered" src="http://ankursinha.in/images/20181005-NeuroFedoraLogo01.png" style="width: 30%;" /&gt;&lt;/a&gt;
 &lt;p class="caption"&gt;&lt;a class="reference external" href="https://pagure.io/design/issue/602"&gt;NeuroFedora logo by Terezahl from the Fedora Design Team&lt;/a&gt;&lt;/p&gt;
