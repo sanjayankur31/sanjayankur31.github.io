@@ -1,5 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>ankursinha.in/blog - Free software</title><link href="http://ankursinha.in/" rel="alternate"></link><link href="http://ankursinha.in/feeds/tags/free-software.atom.xml" rel="self"></link><id>http://ankursinha.in/</id><updated>2018-11-03T10:02:24+00:00</updated><entry><title>NeuroFedora update: week 44</title><link href="http://ankursinha.in/2018/11/03/neurofedora-update-week-44.html" rel="alternate"></link><published>2018-11-03T10:02:24+00:00</published><updated>2018-11-03T10:02:24+00:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2018-11-03:/2018/11/03/neurofedora-update-week-44.html</id><summary type="html">&lt;p class="first last"&gt;A quick update on &lt;a class="reference external" href="https://fedoraproject.org/wiki/SIGs/NeuroFedora"&gt;NeuroFedora&lt;/a&gt; at the end of week 44. More software,
+<feed xmlns="http://www.w3.org/2005/Atom"><title>ankursinha.in/blog - Free software</title><link href="http://ankursinha.in/" rel="alternate"></link><link href="http://ankursinha.in/feeds/tags/free-software.atom.xml" rel="self"></link><id>http://ankursinha.in/</id><updated>2018-11-10T11:20:00+00:00</updated><entry><title>NeuroFedora update: week 45</title><link href="http://ankursinha.in/2018/11/10/neurofedora-update-week-45.html" rel="alternate"></link><published>2018-11-10T11:20:00+00:00</published><updated>2018-11-10T11:20:00+00:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2018-11-10:/2018/11/10/neurofedora-update-week-45.html</id><summary type="html">&lt;p class="first last"&gt;A quick update on &lt;a class="reference external" href="https://fedoraproject.org/wiki/SIGs/NeuroFedora"&gt;NeuroFedora&lt;/a&gt; at the end of week 45. More software,
+some housekeeping, and a few upstream tickets.&lt;/p&gt;
+</summary><content type="html">&lt;div class="figure"&gt;
+&lt;a class="reference external image-reference" href="http://ankursinha.in/images/20181005-NeuroFedoraLogo01.png"&gt;&lt;img alt="NeuroFedora logo!" class="text-center img-responsive pagination-centered" src="http://ankursinha.in/images/20181005-NeuroFedoraLogo01.png" style="width: 30%;" /&gt;&lt;/a&gt;
+&lt;p class="caption"&gt;&lt;a class="reference external" href="https://pagure.io/design/issue/602"&gt;NeuroFedora logo by Terezahl from the Fedora Design Team&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;In week 45:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://src.fedoraproject.org/rpms/libneurosim"&gt;libneurosim&lt;/a&gt; was pushed to the stable repositories. &lt;a class="reference external" href="https://github.com/nest/nest-simulator/wiki/issue-labeling-scheme"&gt;NEST&lt;/a&gt; does not build with
+it yet, because &lt;a class="reference external" href="https://github.com/nest/nest-simulator/wiki/issue-labeling-scheme"&gt;NEST&lt;/a&gt; tries to link with both &lt;a class="reference external" href="https://src.fedoraproject.org/rpms/libneurosim"&gt;libneurosim&lt;/a&gt; and its Python
+bindings during the build. I've filed a &lt;a class="reference external" href="https://github.com/nest/nest-simulator/issues/1063"&gt;ticket upstream&lt;/a&gt;  to clarify if this
+is correct. I have already &lt;a class="reference external" href="https://github.com/INCF/libneurosim/issues/12"&gt;filed a PR&lt;/a&gt; that puts the &lt;a class="reference external" href="https://src.fedoraproject.org/rpms/libneurosim"&gt;libneurosim&lt;/a&gt;
+Python bindings in the right location.&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://src.fedoraproject.org/rpms/python-libNeuroML"&gt;python-libNeuroML&lt;/a&gt; was pushed to the stable repositories and is now ready to use.&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://pagure.io/neuro-sig/NeuroFedora/issue/56"&gt;biosig&lt;/a&gt; is a WIP. It required &lt;a class="reference external" href="https://src.fedoraproject.org/rpms/libb64"&gt;libb64&lt;/a&gt; which was approved this week and is
+currently in testing.&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://src.fedoraproject.org/rpms/python-duecredit"&gt;python-duecredit&lt;/a&gt; is currently in testing. It should be pushed to stable in a
+few days.&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://src.fedoraproject.org/rpms/python-visionegg-quest"&gt;python-visionegg-quest&lt;/a&gt; is currently in testing. It should be pushed to stable in a
+few days.&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://src.fedoraproject.org/rpms/python-nibabel"&gt;python-nibabel&lt;/a&gt; was updated to the latest version and is currently in
+testing.&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://src.fedoraproject.org/rpms/python-grabbit"&gt;python-grabbit&lt;/a&gt; was updated to the latest version and is currently in
+testing.&lt;/li&gt;
+&lt;li&gt;On the way to building &lt;a class="reference external" href="https://pagure.io/neuro-sig/NeuroFedora/issue/3"&gt;fsleyes&lt;/a&gt;, &lt;a class="reference external" href="https://src.fedoraproject.org/rpms/python-fslpy"&gt;fslpy&lt;/a&gt;, &lt;a class="reference external" href="https://src.fedoraproject.org/rpms/python-fsleyes-props"&gt;fsleyes-props&lt;/a&gt;, &lt;a class="reference external" href="https://src.fedoraproject.org/rpms/python-fsleyes-widgets"&gt;fsleyes-widgets&lt;/a&gt;
+have all been reviewed, approved, and are now in testing.&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://src.fedoraproject.org/rpms/python-nitime"&gt;python-nitime&lt;/a&gt; was approved and is in testing.&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://src.fedoraproject.org/rpms/python-nilearn"&gt;python-nilearn&lt;/a&gt; was approved and is in testing.&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://src.fedoraproject.org/rpms/python-petlink"&gt;python-petlink&lt;/a&gt; was approved and is in testing. This also required an update
+to &lt;a class="reference external" href="https://src.fedoraproject.org/rpms/python-simplewrap"&gt;python-simplewrap&lt;/a&gt;. Upstream was really quick to &lt;a class="reference external" href="https://github.com/spedemon/petlink/issues/2"&gt;make the required fixes
+for us&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;All new packages must go through &lt;a class="reference external" href="https://getfedora.org"&gt;Fedora&lt;/a&gt;'s QA (testing) process before being
+made available to end users in the repositories. You can help test these
+packages following the instructions &lt;a class="reference external" href="https://fedoraproject.org/wiki/QA:Updates_Testing?rd=QA/Updates_Testing"&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;A lot of the software we worked on this week was related to neuro-imaging, and
+fortunately, a lot of it was Python based which is usually quite simple to
+build. The coming week, though, I intend to work on &lt;a class="reference external" href="https://pagure.io/neuro-sig/NeuroFedora/issue/27"&gt;NEURON&lt;/a&gt;. Unfortunately,
+&lt;a class="reference external" href="https://pagure.io/neuro-sig/NeuroFedora/issue/27"&gt;NEURON&lt;/a&gt; isn't the easiest to build:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;It depends on &lt;a class="reference external" href="https://github.com/neuronsimulator/iv"&gt;iv&lt;/a&gt;, which bundles a really old version of &lt;a class="reference external" href="http://www.simplesystems.org/libtiff/"&gt;libtiff&lt;/a&gt;. I've filed
+a ticket &lt;a class="reference external" href="https://github.com/neuronsimulator/iv/issues/3"&gt;here&lt;/a&gt; about
+this, but have not had the time to port the code to the newest version of
+&lt;a class="reference external" href="http://www.simplesystems.org/libtiff/"&gt;libtiff&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://pagure.io/neuro-sig/NeuroFedora/issue/27"&gt;NEURON&lt;/a&gt; bundles &lt;a class="reference external" href="https://src.fedoraproject.org/rpms/Random123"&gt;Random123&lt;/a&gt;, which was relatively easy to remove. However,
+&lt;a class="reference external" href="https://pagure.io/neuro-sig/NeuroFedora/issue/27"&gt;NEURON&lt;/a&gt; also bundles a really old version of the &lt;a class="reference external" href="https://computation.llnl.gov/projects/sundials"&gt;SUNDIALS&lt;/a&gt; libraries, and
+updating the code to use the latest versions is not straightforward. I have
+filed an issue about it &lt;a class="reference external" href="https://github.com/neuronsimulator/nrn/issues/113"&gt;here&lt;/a&gt; now. This is based on
+my initial investigations into building &lt;a class="reference external" href="https://pagure.io/neuro-sig/NeuroFedora/issue/27"&gt;NEURON&lt;/a&gt;. So there's a chance that
+more work will need to be done once these issues are solved.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr class="docutils" /&gt;
+&lt;p&gt;There is a lot of software available in &lt;a class="reference external" href="https://fedoraproject.org/wiki/SIGs/NeuroFedora"&gt;NeuroFedora&lt;/a&gt; already. You can see the
+complete list &lt;a class="reference external" href="https://src.fedoraproject.org/group/neuro-sig"&gt;here on Fedora SCM&lt;/a&gt;. Software that is currently
+being worked on is listed &lt;a class="reference external" href="https://pagure.io/neuro-sig/NeuroFedora/issues"&gt;on our Pagure project instance&lt;/a&gt;. If you use software that
+is not on our list, please suggest it to us using the &lt;a class="reference external" href="https://goo.gl/forms/j6AJ82yOh78MPxby1"&gt;suggestion form&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Feedback is always welcome. You can get in touch with us &lt;a class="reference external" href="https://fedoraproject.org/wiki/SIGs/NeuroFedora#Communication_and_getting_help"&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;div class="section" id="the-fedora-community-enabling-open-science"&gt;
+&lt;h2&gt;The Fedora community: enabling Open Science&lt;/h2&gt;
+&lt;p&gt;While the &lt;a class="reference external" href="https://fedoraproject.org/wiki/SIGs/NeuroFedora"&gt;NeuroFedora&lt;/a&gt; SIG is actively working on these packages, it would not
+be possible without our friends in the &lt;a class="reference external" href="https://getfedora.org"&gt;Fedora&lt;/a&gt; community that have helped with
+the various stages of the package maintenance pipeline.&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://fedoraproject.org/wiki/User:Eclipseo"&gt;eclipseo&lt;/a&gt;, &lt;a class="reference external" href="https://fedoraproject.org/wiki/User:Churchyard"&gt;churchyard&lt;/a&gt;, &lt;a class="reference external" href="https://fedoraproject.org/wiki/User:Blackfile"&gt;blackfile&lt;/a&gt;, &lt;a class="reference external" href="https://fedoraproject.org/wiki/User:Zbyszek"&gt;zbyszek&lt;/a&gt; have reviewed these packages
+before approving them for inclusion in &lt;a class="reference external" href="https://getfedora.org"&gt;Fedora&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;The awesome folks at &lt;a class="reference external" href="https://pagure.io/releng"&gt;releng&lt;/a&gt; have, of course, been super quick with SCM
+requests.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;We're grateful to the various upstreams that we're bothering with issues, and
+everyone in the &lt;a class="reference external" href="https://getfedora.org"&gt;Fedora&lt;/a&gt; community (including people I may have missed) for
+enabling us to further &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Open_science"&gt;Open Science&lt;/a&gt; via &lt;a class="reference external" href="https://getfedora.org"&gt;Fedora&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+</content><category term="Community"></category><category term="Computational neuroscience"></category><category term="Free software"></category><category term="NEST"></category><category term="Fedora"></category><category term="NeuroFedora"></category></entry><entry><title>NeuroFedora update: week 44</title><link href="http://ankursinha.in/2018/11/03/neurofedora-update-week-44.html" rel="alternate"></link><published>2018-11-03T10:02:24+00:00</published><updated>2018-11-03T10:02:24+00:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2018-11-03:/2018/11/03/neurofedora-update-week-44.html</id><summary type="html">&lt;p class="first last"&gt;A quick update on &lt;a class="reference external" href="https://fedoraproject.org/wiki/SIGs/NeuroFedora"&gt;NeuroFedora&lt;/a&gt; at the end of week 44. More software,
 some housekeeping, and a few upstream tickets.&lt;/p&gt;
 </summary><content type="html">&lt;div class="figure"&gt;
 &lt;a class="reference external image-reference" href="http://ankursinha.in/images/20181005-NeuroFedoraLogo01.png"&gt;&lt;img alt="NeuroFedora logo!" class="text-center img-responsive pagination-centered" src="http://ankursinha.in/images/20181005-NeuroFedoraLogo01.png" style="width: 30%;" /&gt;&lt;/a&gt;
@@ -444,50 +516,4 @@ firefox-53.0-2.fc26.x86_64
 &lt;/ul&gt;
 &lt;p&gt;Feedback is always welcome. Please comment below, or contact me via e-mail.&lt;/p&gt;
 &lt;/div&gt;
-</content><category term="Bugzilla"></category><category term="Community"></category><category term="Free software"></category><category term="Fedora"></category></entry><entry><title>Fedora Join meeting 30 January 2017 - Summary and updates</title><link href="http://ankursinha.in/2017/02/05/fedora-join-meeting-30-january-2017-summary-and-updates.html" rel="alternate"></link><published>2017-02-05T21:18:19+00:00</published><updated>2017-02-05T21:18:19+00:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2017-02-05:/2017/02/05/fedora-join-meeting-30-january-2017-summary-and-updates.html</id><summary type="html">&lt;p class="first last"&gt;A summary of the &lt;a class="reference external" href="https://fedoraproject.org/wiki/Fedora_Join_SIG"&gt;Fedora Join SIG&lt;/a&gt; meeting we had on 30th January 2017.&lt;/p&gt;
-</summary><content type="html">&lt;p&gt;We had another constructive &lt;a class="reference external" href="https://fedoraproject.org/wiki/Fedora_Join_SIG"&gt;Fedora Join SIG&lt;/a&gt; meeting to kick off the new year. We're now working on what I refer to as &amp;quot;Stage 2&amp;quot;: improve the visibility of the &lt;a class="reference external" href="https://fedoraproject.org/wiki/Fedora_Join_SIG"&gt;Fedora Join SIG&lt;/a&gt; outside the community so that newcomers may easily find us.&lt;/p&gt;
-&lt;p&gt;I'd sent out an &lt;a class="reference external" href="https://lists.fedoraproject.org/archives/list/fedora-join&amp;#64;lists.fedoraproject.org/message/LSNTO76WGBICKWEZKQGYDJBXFSZNIX6A/"&gt;e-mail with ideas to the mailing list to set the meeting up&lt;/a&gt;. Based on the comments from the thread, we put a list of things together that need to now be done.&lt;/p&gt;
-&lt;div class="section" id="resurrect-the-classroom-programme"&gt;
-&lt;h2&gt;Resurrect the classroom programme&lt;/h2&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://pagure.io/fedora-join/Fedora-Join/issue/22"&gt;https://pagure.io/fedora-join/Fedora-Join/issue/22&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;We used to have &lt;a class="reference external" href="https://fedoraproject.org/wiki/Classroom"&gt;regular classroom sessions&lt;/a&gt; a few years ago. These were incredibly helpful for community members that were looking to pick up new skills. In fact, I began my contributions to Fedora via a classroom session on packaging years ago! We'd really like to get these restarted. If you have some ideas or would like to help organise these, please comment on the ticket.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="ressurect-the-mentoring-programme"&gt;
-&lt;h2&gt;Ressurect the mentoring programme&lt;/h2&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://pagure.io/fedora-join/Fedora-Join/issue/18"&gt;https://pagure.io/fedora-join/Fedora-Join/issue/18&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;We also had a mentoring system in place long ago and we'd like to resurrect it to aid newbies looking to join Fedora. It's quite useful to have a seasoned community member to turn to when one gets stuck.&lt;/p&gt;
-&lt;p&gt;If you'd like to help out with mentoring, please comment on the ticket. We're already looking to set it up in a way such that it's more sustainable - any suggestions and feedback here would be most helpful too.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="propose-stage-2-to-the-fedora-council-as-a-project-level-objective"&gt;
-&lt;h2&gt;Propose stage 2 to the Fedora Council as a project-level objective&lt;/h2&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://pagure.io/fedora-join/Fedora-Join/issue/19"&gt;https://pagure.io/fedora-join/Fedora-Join/issue/19&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;a class="reference external" href="https://fedoraproject.org/wiki/User:Mattdm"&gt;Mattdm&lt;/a&gt; suggested we could propose Stage 2 to the council as a project level objective. This would make the entire process get a lot more visibility in and outside the community.&lt;/p&gt;
-&lt;p&gt;Help is always welcome, of course. More information is available on the ticket.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="fedora-public-facing-web-space-audit"&gt;
-&lt;h2&gt;Fedora public facing web space audit&lt;/h2&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://pagure.io/fedora-join/Fedora-Join/issue/21"&gt;https://pagure.io/fedora-join/Fedora-Join/issue/21&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;The aim here is to go through the Fedora websites and identify what the entry points for newbies maybe. We can then add information about Fedora Join to these pages to make it easier for them to find us.&lt;/p&gt;
-&lt;p&gt;We requested some folks from the websites and design teams to help us here, and &lt;a class="reference external" href="https://fedoraproject.org/wiki/User:Duffy"&gt;Mo&lt;/a&gt;'s been brilliant as usual to drop a detailed comment on how one should go about this audit. If you have the time, please help us out here. It isn't a technical task at all.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="there-s-more"&gt;
-&lt;h2&gt;There's more&lt;/h2&gt;
-&lt;p&gt;There's a lot more happening - please take a look at both the &lt;a class="reference external" href="https://pagure.io/fedora-commops/"&gt;CommOps&lt;/a&gt; and the &lt;a class="reference external" href="https://pagure.io/fedora-join/Fedora-Join/issues"&gt;Join issue&lt;/a&gt; lists. You can always contact us on the IRC channel or the mailing list. You can always e-mail me at &lt;cite&gt;ankursinha AT fedoraproject DOT org&lt;/cite&gt; for more information.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="links-to-full-logs-are-below"&gt;
-&lt;h2&gt;Links to full logs are below:&lt;/h2&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;Minutes: &lt;a class="reference external" href="https://meetbot.fedoraproject.org/fedora-meeting-3/2017-01-30/fedora-join.2017-01-30-16.04.html"&gt;https://meetbot.fedoraproject.org/fedora-meeting-3/2017-01-30/fedora-join.2017-01-30-16.04.html&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Minutes (text): &lt;a class="reference external" href="https://meetbot.fedoraproject.org/fedora-meeting-3/2017-01-30/fedora-join.2017-01-30-16.04.txt"&gt;https://meetbot.fedoraproject.org/fedora-meeting-3/2017-01-30/fedora-join.2017-01-30-16.04.txt&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Log: &lt;a class="reference external" href="https://meetbot.fedoraproject.org/fedora-meeting-3/2017-01-30/fedora-join.2017-01-30-16.04.log.html"&gt;https://meetbot.fedoraproject.org/fedora-meeting-3/2017-01-30/fedora-join.2017-01-30-16.04.log.html&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-</content><category term="Fedora"></category><category term="Community"></category><category term="Free software"></category></entry></feed>
+</content><category term="Bugzilla"></category><category term="Community"></category><category term="Free software"></category><category term="Fedora"></category></entry></feed>
