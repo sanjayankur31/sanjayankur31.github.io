@@ -1,5 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>ankursinha.in/blog</title><link href="http://ankursinha.in/" rel="alternate"></link><link href="http://ankursinha.in/feeds/all.atom.xml" rel="self"></link><id>http://ankursinha.in/</id><updated>2018-11-10T11:20:00+00:00</updated><entry><title>NeuroFedora update: week 45</title><link href="http://ankursinha.in/2018/11/10/neurofedora-update-week-45.html" rel="alternate"></link><published>2018-11-10T11:20:00+00:00</published><updated>2018-11-10T11:20:00+00:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2018-11-10:/2018/11/10/neurofedora-update-week-45.html</id><summary type="html">&lt;p class="first last"&gt;A quick update on &lt;a class="reference external" href="https://fedoraproject.org/wiki/SIGs/NeuroFedora"&gt;NeuroFedora&lt;/a&gt; at the end of week 45. More software,
+<feed xmlns="http://www.w3.org/2005/Atom"><title>ankursinha.in/blog</title><link href="http://ankursinha.in/" rel="alternate"></link><link href="http://ankursinha.in/feeds/all.atom.xml" rel="self"></link><id>http://ankursinha.in/</id><updated>2018-11-17T15:53:58+00:00</updated><entry><title>NeuroFedora update: week 46</title><link href="http://ankursinha.in/2018/11/17/neurofedora-update-week-46.html" rel="alternate"></link><published>2018-11-17T15:53:58+00:00</published><updated>2018-11-17T15:53:58+00:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2018-11-17:/2018/11/17/neurofedora-update-week-46.html</id><summary type="html">&lt;p class="first last"&gt;A quick update on &lt;a class="reference external" href="https://fedoraproject.org/wiki/SIGs/NeuroFedora"&gt;NeuroFedora&lt;/a&gt; at the end of week 46. &lt;a class="reference external" href="https://src.fedoraproject.org/rpms/python-brian2"&gt;Brian&lt;/a&gt; and
+more software are now ready to use.&lt;/p&gt;
+</summary><content type="html">&lt;div class="figure"&gt;
+&lt;a class="reference external image-reference" href="http://ankursinha.in/images/20181005-NeuroFedoraLogo01.png"&gt;&lt;img alt="NeuroFedora logo!" class="text-center img-responsive pagination-centered" src="http://ankursinha.in/images/20181005-NeuroFedoraLogo01.png" style="width: 30%;" /&gt;&lt;/a&gt;
+&lt;p class="caption"&gt;&lt;a class="reference external" href="https://pagure.io/design/issue/602"&gt;NeuroFedora logo by Terezahl from the Fedora Design Team&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;In week 46:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://src.fedoraproject.org/rpms/python-nitime"&gt;python-nitime&lt;/a&gt; was pushed to stable, and is ready to use.&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://src.fedoraproject.org/rpms/python-nilearn"&gt;python-nilearn&lt;/a&gt; was pushed to stable, and is ready to use.&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://src.fedoraproject.org/rpms/python-petlink"&gt;python-petlink&lt;/a&gt; was pushed to stable, and is ready to use.&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://src.fedoraproject.org/rpms/python-duecredit"&gt;python-duecredit&lt;/a&gt; was pushed to stable, and is ready to use.&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://src.fedoraproject.org/rpms/python-PyLEMS"&gt;PyLEMS&lt;/a&gt; was pushed to stable, and is ready to use.&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://src.fedoraproject.org/rpms/python-visionegg-quest"&gt;python-visionegg-quest&lt;/a&gt; was pushed to stable, and is ready to use.&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://src.fedoraproject.org/rpms/python-pyemd"&gt;python-pyemd&lt;/a&gt; was approved and is in testing.&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://src.fedoraproject.org/rpms/python-pybids"&gt;python-pybids&lt;/a&gt; was approved and is in testing.&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://src.fedoraproject.org/rpms/python-nineml"&gt;nineML-python&lt;/a&gt; was approved and is in testing.&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://src.fedoraproject.org/rpms/python-brian2"&gt;Brian&lt;/a&gt; (the Brian simulator) was approved and is in testing.&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://src.fedoraproject.org/rpms/python-fsleyes"&gt;fsleyes&lt;/a&gt; was approved and is in testing.&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://src.fedoraproject.org/rpms/dcm2niix"&gt;dcm2niix&lt;/a&gt; was updated to the latest version.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr class="docutils" /&gt;
+&lt;p&gt;While we were working on these:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://pagure.io/neuro-sig/NeuroFedora/issue/27"&gt;NEURON&lt;/a&gt; is still a work in progress, but until it is updated to work with a
+new SUNDIALS version, it cannot be packaged. There's an issue open &lt;a class="reference external" href="https://github.com/neuronsimulator/nrn/issues/113"&gt;here&lt;/a&gt; for this.&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://src.fedoraproject.org/rpms/vxl"&gt;vxl&lt;/a&gt; needs to be updated, but unfortunately, it is another software that
+bundles an old version of a library, &lt;a class="reference external" href="https://src.fedoraproject.org/rpms/dcmtk"&gt;DCMTK&lt;/a&gt;. I've filed a ticket about this
+&lt;a class="reference external" href="https://github.com/vxl/vxl/issues/550"&gt;here&lt;/a&gt;. As I've mentioned in the
+ticket, I  have neither the experience with &lt;a class="reference external" href="https://src.fedoraproject.org/rpms/dcmtk"&gt;DCMTK&lt;/a&gt; nor the free cycles to
+look into this issue presently.&lt;/li&gt;
+&lt;li&gt;A &lt;a class="reference external" href="https://github.com/INCF/nineml-python/issues/40"&gt;bug&lt;/a&gt; in &lt;a class="reference external" href="https://src.fedoraproject.org/rpms/python-nineml"&gt;nineml-python&lt;/a&gt;
+was fixed.&lt;/li&gt;
+&lt;li&gt;There are still a few kinks to clear up before &lt;a class="reference external" href="https://github.com/nest/nest-simulator"&gt;NEST&lt;/a&gt; can be build with
+&lt;a class="reference external" href="https://github.com/nest/nest-simulator/issues/1063"&gt;libneurosim&lt;/a&gt; and
+&lt;a class="reference external" href="https://github.com/INCF/MUSIC/issues/56"&gt;MUSIC&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;We'll keep at it.&lt;/p&gt;
+&lt;hr class="docutils" /&gt;
+&lt;p&gt;There is a lot of software available in &lt;a class="reference external" href="https://fedoraproject.org/wiki/SIGs/NeuroFedora"&gt;NeuroFedora&lt;/a&gt; already. You can see the
+complete list &lt;a class="reference external" href="https://src.fedoraproject.org/group/neuro-sig"&gt;here on Fedora SCM&lt;/a&gt;. Software that is currently
+being worked on is listed &lt;a class="reference external" href="https://pagure.io/neuro-sig/NeuroFedora/issues"&gt;on our Pagure project instance&lt;/a&gt;. If you use software that
+is not on our list, please suggest it to us using the &lt;a class="reference external" href="https://goo.gl/forms/j6AJ82yOh78MPxby1"&gt;suggestion form&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Feedback is always welcome. You can get in touch with us &lt;a class="reference external" href="https://fedoraproject.org/wiki/SIGs/NeuroFedora#Communication_and_getting_help"&gt;here&lt;/a&gt;.&lt;/p&gt;
+</content><category term="Community"></category><category term="Computational neuroscience"></category><category term="Free software"></category><category term="NEST"></category><category term="Fedora"></category><category term="NeuroFedora"></category><category term="Planet"></category></entry><entry><title>NeuroFedora update: week 45</title><link href="http://ankursinha.in/2018/11/10/neurofedora-update-week-45.html" rel="alternate"></link><published>2018-11-10T11:20:00+00:00</published><updated>2018-11-10T11:20:00+00:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2018-11-10:/2018/11/10/neurofedora-update-week-45.html</id><summary type="html">&lt;p class="first last"&gt;A quick update on &lt;a class="reference external" href="https://fedoraproject.org/wiki/SIGs/NeuroFedora"&gt;NeuroFedora&lt;/a&gt; at the end of week 45. More software,
 some housekeeping, and a few upstream tickets.&lt;/p&gt;
 </summary><content type="html">&lt;div class="figure"&gt;
 &lt;a class="reference external image-reference" href="http://ankursinha.in/images/20181005-NeuroFedoraLogo01.png"&gt;&lt;img alt="NeuroFedora logo!" class="text-center img-responsive pagination-centered" src="http://ankursinha.in/images/20181005-NeuroFedoraLogo01.png" style="width: 30%;" /&gt;&lt;/a&gt;
@@ -625,63 +669,4 @@ you how in everyday life, it is important to use &lt;a class="reference external
 Please use &lt;a class="reference external" href="https://www.gnu.org/philosophy/free-sw.en.html"&gt;Free/Open source&lt;/a&gt; resources, as much as possible.&lt;/p&gt;
 &lt;!-- _ --&gt;
 &lt;/div&gt;
-</content><category term="Python"></category><category term="Reproducible research"></category><category term="Computational neuroscience"></category><category term="Sumatra"></category><category term="Fedora"></category><category term="Planet"></category></entry><entry><title>Building TeX Live from source</title><link href="http://ankursinha.in/2018/03/25/building-tex-live-from-source.html" rel="alternate"></link><published>2018-03-25T18:15:05+01:00</published><updated>2018-03-25T18:15:05+01:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2018-03-25:/2018/03/25/building-tex-live-from-source.html</id><summary type="html">&lt;p class="first last"&gt;I thought it'd be fun to try and build &lt;a class="reference external" href="https://www.tug.org/texlive/"&gt;TeX Live&lt;/a&gt; from sources. So,
-I spent a day trying to do it. Here's how it went.&lt;/p&gt;
-</summary><content type="html">&lt;p&gt;Between all the &lt;a class="reference external" href="https://ctan.org/pkg/latex"&gt;LaTeX&lt;/a&gt; vs &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Microsoft_Word"&gt;Word&lt;/a&gt; discussions that I frequently become a part of,
-is the beauty of how it all works. They're both marvels, even if they each take
-turns to exasperate users. There are pros and cons of each, and each has their
-learning curves.&lt;/p&gt;
-&lt;p&gt;I use &lt;a class="reference external" href="https://ctan.org/pkg/latex"&gt;LaTeX&lt;/a&gt; for various reasons. To start with, it takes me 5 minutes to write
-a document in &lt;a class="reference external" href="https://ctan.org/pkg/latex"&gt;LaTeX&lt;/a&gt; and 30 to write the same in &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Microsoft_Word"&gt;Word&lt;/a&gt;, but it can be the
-opposite for another user. May be I've gotten a system set up now where writing
-in &lt;a class="reference external" href="https://ctan.org/pkg/latex"&gt;LaTeX&lt;/a&gt; isn't inefficient any more. This is me using &lt;a class="reference external" href="https://www.vim.org"&gt;Vim&lt;/a&gt;, with &lt;a class="reference external" href="https://github.com/sanjayankur31/vimfiles"&gt;plugins&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Of course, the fact that it is &lt;a class="reference external" href="https://tug.org/texlive/copying.html"&gt;Free software&lt;/a&gt; is very important to me. It may not
-mean much to larger universities that have Microsoft services, but it does make
-a difference to universities that don't have that kind of funding. When I'd
-done my undergraduate degree back in India, for example, we didn't have a
-university wide Microsoft license. I used &lt;a class="reference external" href="https://fedoraproject.org"&gt;Fedora&lt;/a&gt; throughout, and having &lt;a class="reference external" href="https://www.tug.org/texlive/"&gt;TeX
-Live&lt;/a&gt; (and other free software) available to me was quite something. We
-must remember to think of the way events and actions impact society, or that's
-my point of view, anyway.&lt;/p&gt;
-&lt;p&gt;&lt;a class="reference external" href="https://fedoraproject.org"&gt;Fedora&lt;/a&gt; provides &lt;a class="reference external" href="https://www.tug.org/texlive/"&gt;TeX Live&lt;/a&gt; in its repos. It takes quite an effort to build it
-since it's a whole bunch of packages that must be built. There's a bit of
-scripting required to even &lt;a class="reference external" href="https://src.fedoraproject.org/rpms/texlive/tree/master"&gt;build the spec file&lt;/a&gt;. So, it's simply:&lt;/p&gt;
-&lt;pre class="code bash literal-block"&gt;
-sudo dnf install texlive
-&lt;/pre&gt;
-&lt;p&gt;The advantage of the rpm packaging is that subsequent packages can also be
-installed by specifying the &lt;code&gt;sty&lt;/code&gt; files. For the &lt;code&gt;lineno&lt;/code&gt; package,
-for example, one can use:&lt;/p&gt;
-&lt;pre class="code bash literal-block"&gt;
-sudo dnf install &lt;span class="s1"&gt;'tex(lineno.sty)'&lt;/span&gt;
-&lt;/pre&gt;
-&lt;p&gt;Not everyone must build &lt;a class="reference external" href="https://www.tug.org/texlive/"&gt;TeX Live&lt;/a&gt; from source, upstream provides binaries for
-all platforms, and a &lt;a class="reference external" href="https://www.tug.org/texlive/acquire-netinstall.html"&gt;convenient installer&lt;/a&gt;.&lt;/p&gt;
-&lt;a class="reference external image-reference" href="http://ankursinha.in/images/20180325-texlive.png"&gt;&lt;img alt="TeX Live installer" class="text-center img-responsive pagination-centered" src="http://ankursinha.in/images/20180325-texlive.png" style="width: 80%;" /&gt;&lt;/a&gt;
-&lt;p&gt;As it says, the whole collection is quite large, about 5GB.&lt;/p&gt;
-&lt;div class="section" id="building-from-source"&gt;
-&lt;h2&gt;Building from source&lt;/h2&gt;
-&lt;p&gt;I followed the &lt;a class="reference external" href="https://www.tug.org/texlive/doc/tlbuild.html"&gt;documentation&lt;/a&gt; that's provided for this
-already. Luckily, it uses &lt;a class="reference external" href="http://www.gnu.org/software/automake/manual/html_node/Autotools-Introduction.html#Autotools-Introduction"&gt;Autotools&lt;/a&gt;, and I've quite a bit of experience with
-them. &lt;a class="reference external" href="https://fedoraproject.org"&gt;Fedora&lt;/a&gt; provides the 2016 release, so I played with the 2017 release
-here. I also referred to the &lt;a class="reference external" href="https://fedoraproject.org"&gt;Fedora&lt;/a&gt; spec files, which made life so much easier:&lt;/p&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://src.fedoraproject.org/rpms/texlive/blob/master/f/texlive.spec"&gt;https://src.fedoraproject.org/rpms/texlive/blob/master/f/texlive.spec&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://src.fedoraproject.org/rpms/texlive-base/blob/master/f/texlive-base.spec"&gt;https://src.fedoraproject.org/rpms/texlive-base/blob/master/f/texlive-base.spec&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;The build turned out to be quite simple. Fetch the sources, and then run
-&lt;code&gt;configure &amp;amp;&amp;amp; make &amp;amp;&amp;amp; sudo make install&lt;/code&gt;, and that's quite it for the
-base packages.&lt;/p&gt;
-&lt;p&gt;I ran it on my headless &lt;a class="reference external" href="https://getfedora.org/en/server/"&gt;Fedora Server&lt;/a&gt;
-system, and it pretty much went off without a hitch. I now have a base &lt;a class="reference external" href="https://www.tug.org/texlive/"&gt;TeX
-Live&lt;/a&gt; distribution there in &lt;code&gt;/usr/local/texmf-dist&lt;/code&gt;. Note, that this
-isn't sufficient. It only installs the basic bits of &lt;a class="reference external" href="https://www.tug.org/texlive/"&gt;TeX Live&lt;/a&gt;, not even the
-&lt;a class="reference external" href="https://ctan.org/pkg/latex"&gt;LaTeX&lt;/a&gt; macro package. So, while it's easy and somewhat fun to tinker with on a
-day off, I wouldn't suggest it for any end-users. On my work machines, the two
-&lt;a class="reference external" href="https://getfedora.org/en/workstation/"&gt;Fedora Workstation&lt;/a&gt; installs, I'm
-going to stick to the &lt;a class="reference external" href="https://fedoraproject.org"&gt;Fedora&lt;/a&gt; packages, which are more than sufficient! (If
-you're a &lt;a class="reference external" href="https://fedoraproject.org"&gt;Fedora&lt;/a&gt; user, please shower the &lt;a class="reference external" href="https://fedoraproject.org"&gt;Fedora&lt;/a&gt; &lt;a class="reference external" href="https://www.tug.org/texlive/"&gt;TeX Live&lt;/a&gt; maintainers with
-&lt;a class="reference external" href="http://threebean.org/blog/karma-cookies/"&gt;cookies&lt;/a&gt;! Get on &lt;a class="reference external" href="https://webchat.freenode.net/?channels=#fedora-devel"&gt;#fedora-devel&lt;/a&gt; on Freenode, and go
-&lt;code&gt;&amp;lt;FAS username/Linked IRC nick&amp;gt;++&lt;/code&gt;)&lt;/p&gt;
-&lt;/div&gt;
-</content><category term="TeX"></category><category term="Fedora"></category></entry></feed>
+</content><category term="Python"></category><category term="Reproducible research"></category><category term="Computational neuroscience"></category><category term="Sumatra"></category><category term="Fedora"></category><category term="Planet"></category></entry></feed>
