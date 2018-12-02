@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>ankursinha.in/blog - Matlab</title><link href="http://ankursinha.in/" rel="alternate"></link><link href="http://ankursinha.in/feeds/tags/matlab.atom.xml" rel="self"></link><id>http://ankursinha.in/</id><updated>2018-12-02T15:26:50+00:00</updated><entry><title>NeuroFedora update: week 48</title><link href="http://ankursinha.in/2018/12/02/neurofedora-update-week-48.html" rel="alternate"></link><published>2018-12-02T15:26:50+00:00</published><updated>2018-12-02T15:26:50+00:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2018-12-02:/2018/12/02/neurofedora-update-week-48.html</id><summary type="html">&lt;p class="first last"&gt;An update on &lt;a class="reference external" href="https://fedoraproject.org/wiki/SIGs/NeuroFedora"&gt;NeuroFedora&lt;/a&gt; at the end of week 48.&lt;/p&gt;
+</summary><content type="html">&lt;div class="figure"&gt;
+&lt;a class="reference external image-reference" href="http://ankursinha.in/images/20181005-NeuroFedoraLogo01.png"&gt;&lt;img alt="NeuroFedora logo!" class="text-center img-responsive pagination-centered" src="http://ankursinha.in/images/20181005-NeuroFedoraLogo01.png" style="width: 30%;" /&gt;&lt;/a&gt;
+&lt;p class="caption"&gt;&lt;a class="reference external" href="https://pagure.io/design/issue/602"&gt;NeuroFedora logo by Terezahl from the Fedora Design Team&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;In week 48:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://src.fedoraproject.org/rpms/python-chaospy"&gt;python-chaospy&lt;/a&gt; was approved and is in testing.&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://src.fedoraproject.org/rpms/python-pynwb"&gt;python-pynwb&lt;/a&gt; was approved and is in testing.&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://src.fedoraproject.org/rpms/python-pyphi"&gt;python-pyphi&lt;/a&gt; was pushed to stable.&lt;/li&gt;
+&lt;li&gt;we've started looking into packaging &lt;a class="reference external" href="https://git.fmrib.ox.ac.uk/fsl"&gt;FSL&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://github.com/NeuralEnsemble/PyNN/issues/611"&gt;PyNN does not support the latest version of NEST yet&lt;/a&gt;, so we're waiting on
+upstream here.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="section" id="packaging-matlab-tool-boxes"&gt;
+&lt;h2&gt;Packaging MATLab tool boxes&lt;/h2&gt;
+&lt;p&gt;The use of MATLab tool boxes is quite common in data-analysis. There's a
+noticeable movement in the scientific community towards using Python, but the
+work that has already been done, and the eco-systems that have developed around
+MATlab will take time to migrate to a Python based eco-system.&lt;/p&gt;
+&lt;p&gt;A majority of the tool boxes in use are Free/Open Source, but MATLab itself is
+not. As supporters of Free/Open source, we will not attempt to include MATLab
+in Fedora, but the question remains on whether we provide the toolboxes.  We've
+begun discussing this in the SIG, and we'll reach out to the broader Fedora
+community before we decide on how to proceed.&lt;/p&gt;
+&lt;div class="section" id="personal-views"&gt;
+&lt;h3&gt;Personal views&lt;/h3&gt;
+&lt;p&gt;Personally, I'd prefer if we only provided Free/Open source software. The use
+of proprietary software in science, while currently necessary, should be
+avoided.  Yes, it may make things a little harder to start with, but the
+Free/Open source tools that will be used will be accessible by all. Overtime,
+just like the Free software community, the eco system will mature.&lt;/p&gt;
+&lt;p&gt;A example case is the use of Microsoft products that is common in developed
+countries where universities can afford their licenses. In developing
+countries, this is not the case. They cannot always afford these fees. The
+solution, of course, is to use &lt;a class="reference external" href="https://www.latex-project.org"&gt;LaTeX&lt;/a&gt; which is free for all to use, extend,
+study, and share. Similarly, while universities and laboratories in developed
+countries may be able to pay for MATlab licenses, this financial requirement
+can hold back others---smaller labs and independent researchers.&lt;/p&gt;
+&lt;p&gt;If proprietary tools such as MATlab are the norm, then science is not open to
+all. It should be.&lt;/p&gt;
+&lt;p&gt;(I've signed the &lt;a class="reference external" href="http://opensourceforneuroscience.org/"&gt;Open source for Neuroscience letter that you can read
+here&lt;/a&gt;.)&lt;/p&gt;
+&lt;hr class="docutils" /&gt;
+&lt;p&gt;There is a lot of software available in &lt;a class="reference external" href="https://fedoraproject.org/wiki/SIGs/NeuroFedora"&gt;NeuroFedora&lt;/a&gt; already. You can see the
+complete list &lt;a class="reference external" href="https://src.fedoraproject.org/group/neuro-sig"&gt;here on Fedora SCM&lt;/a&gt;. Software that is currently
+being worked on is listed &lt;a class="reference external" href="https://pagure.io/neuro-sig/NeuroFedora/issues"&gt;on our Pagure project instance&lt;/a&gt;. If you use software that
+is not on our list, please suggest it to us using the &lt;a class="reference external" href="https://goo.gl/forms/j6AJ82yOh78MPxby1"&gt;suggestion form&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Feedback is always welcome. You can get in touch with us &lt;a class="reference external" href="https://fedoraproject.org/wiki/SIGs/NeuroFedora#Communication_and_getting_help"&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</content><category term="Community"></category><category term="Matlab"></category><category term="Computational neuroscience"></category><category term="Free software"></category><category term="Fedora"></category><category term="NeuroFedora"></category><category term="Planet"></category></entry></feed>

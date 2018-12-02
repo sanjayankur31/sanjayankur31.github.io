@@ -5,21 +5,21 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://ankursinha.in/</loc>
-<lastmod>2018-12-02T18:14:24-00:00</lastmod>
+<lastmod>2018-12-02T18:16:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://ankursinha.in/tags.html</loc>
-<lastmod>2018-12-02T18:14:24-00:00</lastmod>
+<lastmod>2018-12-02T18:16:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://ankursinha.in/categories.html</loc>
-<lastmod>2018-12-02T18:14:24-00:00</lastmod>
+<lastmod>2018-12-02T18:16:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -2419,6 +2419,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
+<loc>http://ankursinha.in/tag/matlab/</loc>
+<lastmod>2018-12-02T15:26:50-00:01</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
 <loc>http://ankursinha.in/tag/computational-neuroscience/</loc>
 <lastmod>2018-12-02T15:26:50-00:01</lastmod>
 <changefreq>daily</changefreq>
@@ -2427,13 +2434,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://ankursinha.in/tag/free-software/</loc>
-<lastmod>2018-12-02T15:26:50-00:01</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<loc>http://ankursinha.in/tag/nest/</loc>
 <lastmod>2018-12-02T15:26:50-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
@@ -2456,6 +2456,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>http://ankursinha.in/tag/planet/</loc>
 <lastmod>2018-12-02T15:26:50-00:01</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://ankursinha.in/tag/nest/</loc>
+<lastmod>2018-11-24T18:37:28-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
