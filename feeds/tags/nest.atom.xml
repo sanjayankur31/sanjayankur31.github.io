@@ -1,5 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>ankursinha.in/blog - NEST</title><link href="http://ankursinha.in/" rel="alternate"></link><link href="http://ankursinha.in/feeds/tags/nest.atom.xml" rel="self"></link><id>http://ankursinha.in/</id><updated>2018-11-24T18:37:28+00:00</updated><entry><title>NeuroFedora update: week 47</title><link href="http://ankursinha.in/2018/11/24/neurofedora-update-week-47.html" rel="alternate"></link><published>2018-11-24T18:37:28+00:00</published><updated>2018-11-24T18:37:28+00:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2018-11-24:/2018/11/24/neurofedora-update-week-47.html</id><summary type="html">&lt;p class="first last"&gt;A quick update on &lt;a class="reference external" href="https://fedoraproject.org/wiki/SIGs/NeuroFedora"&gt;NeuroFedora&lt;/a&gt; at the end of week 47. We've made more
+<feed xmlns="http://www.w3.org/2005/Atom"><title>ankursinha.in/blog - NEST</title><link href="http://ankursinha.in/" rel="alternate"></link><link href="http://ankursinha.in/feeds/tags/nest.atom.xml" rel="self"></link><id>http://ankursinha.in/</id><updated>2018-12-02T15:26:50+00:00</updated><entry><title>NeuroFedora update: week 48</title><link href="http://ankursinha.in/2018/12/02/neurofedora-update-week-48.html" rel="alternate"></link><published>2018-12-02T15:26:50+00:00</published><updated>2018-12-02T15:26:50+00:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2018-12-02:/2018/12/02/neurofedora-update-week-48.html</id><summary type="html">&lt;p class="first last"&gt;An update on &lt;a class="reference external" href="https://fedoraproject.org/wiki/SIGs/NeuroFedora"&gt;NeuroFedora&lt;/a&gt; at the end of week 48.&lt;/p&gt;
+</summary><content type="html">&lt;div class="figure"&gt;
+&lt;a class="reference external image-reference" href="http://ankursinha.in/images/20181005-NeuroFedoraLogo01.png"&gt;&lt;img alt="NeuroFedora logo!" class="text-center img-responsive pagination-centered" src="http://ankursinha.in/images/20181005-NeuroFedoraLogo01.png" style="width: 30%;" /&gt;&lt;/a&gt;
+&lt;p class="caption"&gt;&lt;a class="reference external" href="https://pagure.io/design/issue/602"&gt;NeuroFedora logo by Terezahl from the Fedora Design Team&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;In week 48:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://src.fedoraproject.org/rpms/python-chaospy"&gt;python-chaospy&lt;/a&gt; was approved and is in testing.&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://src.fedoraproject.org/rpms/python-pynwb"&gt;python-pynwb&lt;/a&gt; was approved and is in testing.&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://src.fedoraproject.org/rpms/python-pyphi"&gt;python-pyphi&lt;/a&gt; was pushed to stable.&lt;/li&gt;
+&lt;li&gt;we've started looking into packaging &lt;a class="reference external" href="https://git.fmrib.ox.ac.uk/fsl"&gt;FSL&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://github.com/NeuralEnsemble/PyNN/issues/611"&gt;PyNN does not support the latest version of NEST yet&lt;/a&gt;, so we're waiting on
+upstream here.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="section" id="packaging-matlab-tool-boxes"&gt;
+&lt;h2&gt;Packaging MATLab tool boxes&lt;/h2&gt;
+&lt;p&gt;The use of MATLab tool boxes is quite common in data-analysis. There's a
+noticeable movement in the scientific community towards using Python, but the
+work that has already been done, and the eco-systems that have developed around
+MATlab will take time to migrate to a Python based eco-system.&lt;/p&gt;
+&lt;p&gt;A majority of the tool boxes in use are Free/Open Source, but MATLab itself is
+not. As supporters of Free/Open source, we will not attempt to include MATLab
+in Fedora, but the question remains on whether we provide the toolboxes.  We've
+begun discussing this in the SIG, and we'll reach out to the broader Fedora
+community before we decide on how to proceed.&lt;/p&gt;
+&lt;div class="section" id="personal-views"&gt;
+&lt;h3&gt;Personal views&lt;/h3&gt;
+&lt;p&gt;Personally, I'd prefer if we only provided Free/Open source software. The use
+of proprietary software in science, while currently necessary, should be
+avoided.  Yes, it may make things a little harder to start with, but the
+Free/Open source tools that will be used will be accessible by all. Overtime,
+just like the Free software community, the eco system will mature.&lt;/p&gt;
+&lt;p&gt;A example case is the use of Microsoft products that is common in developed
+countries where universities can afford their licenses. In developing
+countries, this is not the case. They cannot always afford these fees. The
+solution, of course, is to use &lt;a class="reference external" href="https://www.latex-project.org"&gt;LaTeX&lt;/a&gt; which is free for all to use, extend,
+study, and share. Similarly, while universities and laboratories in developed
+countries may be able to pay for MATlab licenses, this financial requirement
+can hold back others---smaller labs and independent researchers.&lt;/p&gt;
+&lt;p&gt;If proprietary tools such as MATlab are the norm, then science is not open to
+all. It should be.&lt;/p&gt;
+&lt;p&gt;(I've signed the &lt;a class="reference external" href="http://opensourceforneuroscience.org/"&gt;Open source for Neuroscience letter that you can read
+here&lt;/a&gt;.)&lt;/p&gt;
+&lt;hr class="docutils" /&gt;
+&lt;p&gt;There is a lot of software available in &lt;a class="reference external" href="https://fedoraproject.org/wiki/SIGs/NeuroFedora"&gt;NeuroFedora&lt;/a&gt; already. You can see the
+complete list &lt;a class="reference external" href="https://src.fedoraproject.org/group/neuro-sig"&gt;here on Fedora SCM&lt;/a&gt;. Software that is currently
+being worked on is listed &lt;a class="reference external" href="https://pagure.io/neuro-sig/NeuroFedora/issues"&gt;on our Pagure project instance&lt;/a&gt;. If you use software that
+is not on our list, please suggest it to us using the &lt;a class="reference external" href="https://goo.gl/forms/j6AJ82yOh78MPxby1"&gt;suggestion form&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Feedback is always welcome. You can get in touch with us &lt;a class="reference external" href="https://fedoraproject.org/wiki/SIGs/NeuroFedora#Communication_and_getting_help"&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</content><category term="Community"></category><category term="Computational neuroscience"></category><category term="Free software"></category><category term="NEST"></category><category term="Fedora"></category><category term="NeuroFedora"></category><category term="Planet"></category></entry><entry><title>NeuroFedora update: week 47</title><link href="http://ankursinha.in/2018/11/24/neurofedora-update-week-47.html" rel="alternate"></link><published>2018-11-24T18:37:28+00:00</published><updated>2018-11-24T18:37:28+00:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2018-11-24:/2018/11/24/neurofedora-update-week-47.html</id><summary type="html">&lt;p class="first last"&gt;A quick update on &lt;a class="reference external" href="https://fedoraproject.org/wiki/SIGs/NeuroFedora"&gt;NeuroFedora&lt;/a&gt; at the end of week 47. We've made more
 progress on the software that we're trying to provide. More
 importantly, more volunteers have joined the core team!&lt;/p&gt;
 </summary><content type="html">&lt;div class="figure"&gt;
@@ -510,16 +561,4 @@ queue_task
 &lt;p&gt;My lab mate, Alex, recently introduced me to &lt;a class="reference external" href="https://www.continuum.io/downloads"&gt;Anaconda&lt;/a&gt;. It's a great tool for that lets you install packages in your user specific directory. It contains quite a few python and other related packages. No need to use &lt;code&gt;sudo&lt;/code&gt; with it, and you can use &lt;code&gt;pip&lt;/code&gt; etc. with it too. It even lets you set up virtual environments and things.&lt;/p&gt;
 &lt;p&gt;I think that's it for today. I'll update the post with other things I find/learn as I continue my adventures with the cluster.&lt;/p&gt;
 &lt;/div&gt;
-</content><category term="Bash"></category><category term="Computational neuroscience"></category><category term="Git"></category><category term="Linux"></category><category term="NEST"></category><category term="Programming"></category><category term="Fedora"></category></entry><entry><title>sli.vim - syntax file for the NEST simulator's SLI language</title><link href="http://ankursinha.in/2016/03/02/sli-vim-syntax-file-for-the-nest-simulators-sli-language.html" rel="alternate"></link><published>2016-03-02T10:53:58+00:00</published><updated>2016-03-02T10:53:58+00:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2016-03-02:/2016/03/02/sli-vim-syntax-file-for-the-nest-simulators-sli-language.html</id><summary type="html">&lt;p class="first last"&gt;I've hacked up a syntax file for &lt;a class="reference external" href="http://nest-simulator.org"&gt;NEST&lt;/a&gt;'s &lt;a class="reference external" href="http://www.nest-simulator.org/quickref/"&gt;SLI&lt;/a&gt; simulation language. It is by no means complete, but it already makes reading and writing SLI a lot easier.&lt;/p&gt;
-</summary><content type="html">&lt;p&gt;I've been reading some of &lt;a class="reference external" href="http://nest-simulator.org"&gt;NEST&lt;/a&gt;'s &lt;a class="reference external" href="http://www.nest-simulator.org/quickref/"&gt;SLI&lt;/a&gt; examples to understand the simulation better. I noticed that these files had no syntax highlighting at all which made the code difficult to read. I couldn't find a syntax highlighting file for Vim anywhere so I've begun writing my own. It isn't complete, and I'm sure it's buggy, but it already seems to make reading and writing SLI easier. Here's what it makes an SLI file look like:&lt;/p&gt;
-&lt;a class="reference external image-reference" href="http://ankursinha.in/images/20160302-sli-vim.png"&gt;&lt;img alt="Screenshot showing SLI syntax highlighting in Vim" class="align-center" src="http://ankursinha.in/images/20160302-sli-vim.png" style="width: 500px;" /&gt;&lt;/a&gt;
-&lt;div class="section" id="installation"&gt;
-&lt;h2&gt;Installation&lt;/h2&gt;
-&lt;p&gt;It's just a syntax file. You can drop it in &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;~/.vim/syntax/&lt;/span&gt;&lt;/tt&gt; directory (on Linux) or you can use &lt;a class="reference external" href="https://github.com/tpope/vim-pathogen"&gt;pathogen&lt;/a&gt; and just clone the repository and so on. Once done, add this to your &lt;tt class="docutils literal"&gt;vimrc&lt;/tt&gt; file:&lt;/p&gt;
-&lt;pre class="code vim literal-block"&gt;
-&lt;span class="k"&gt;au&lt;/span&gt; &lt;span class="nb"&gt;BufRead&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="nb"&gt;BufNewFile&lt;/span&gt; *.sli &lt;span class="k"&gt;set&lt;/span&gt; &lt;span class="k"&gt;filetype&lt;/span&gt;&lt;span class="p"&gt;=&lt;/span&gt;sli
-&lt;span class="k"&gt;au&lt;/span&gt; &lt;span class="nb"&gt;FileType&lt;/span&gt; sli &lt;span class="k"&gt;setl&lt;/span&gt; &lt;span class="nb"&gt;foldenable&lt;/span&gt; &lt;span class="nb"&gt;foldmethod&lt;/span&gt;&lt;span class="p"&gt;=&lt;/span&gt;&lt;span class="nb"&gt;syntax&lt;/span&gt;
-&lt;/pre&gt;
-&lt;p&gt;The file is &lt;a class="reference external" href="https://github.com/sanjayankur31/sli.vim"&gt;hosted on Github&lt;/a&gt;. Feel free to open issues, or even better, pull requests ;)&lt;/p&gt;
-&lt;/div&gt;
-</content><category term="Computational neuroscience"></category><category term="Fedora"></category><category term="Programming"></category><category term="Vim"></category><category term="NEST"></category><category term="sli-vim"></category></entry></feed>
+</content><category term="Bash"></category><category term="Computational neuroscience"></category><category term="Git"></category><category term="Linux"></category><category term="NEST"></category><category term="Programming"></category><category term="Fedora"></category></entry></feed>
