@@ -1,5 +1,127 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>ankursinha.in/blog - Matlab</title><link href="http://ankursinha.in/" rel="alternate"></link><link href="http://ankursinha.in/feeds/tags/matlab.atom.xml" rel="self"></link><id>http://ankursinha.in/</id><updated>2019-01-06T21:04:14+00:00</updated><subtitle>neuroscience/fedora/musings</subtitle><entry><title>NeuroFedora update: 2019 week 1</title><link href="http://ankursinha.in/2019/01/06/neurofedora-update-2019-week-1.html" rel="alternate"></link><published>2019-01-06T21:04:14+00:00</published><updated>2019-01-06T21:04:14+00:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2019-01-06:/2019/01/06/neurofedora-update-2019-week-1.html</id><summary type="html">&lt;p class="first last"&gt;An update on &lt;a class="reference external" href="https://fedoraproject.org/wiki/SIGs/NeuroFedora"&gt;NeuroFedora&lt;/a&gt; at the end of week 1 in 2019. Happy new
+<feed xmlns="http://www.w3.org/2005/Atom"><title>ankursinha.in/blog - Matlab</title><link href="http://ankursinha.in/" rel="alternate"></link><link href="http://ankursinha.in/feeds/tags/matlab.atom.xml" rel="self"></link><id>http://ankursinha.in/</id><updated>2019-01-13T20:55:44+00:00</updated><subtitle>neuroscience/fedora/musings</subtitle><entry><title>NeuroFedora updated: 2019 week 2</title><link href="http://ankursinha.in/2019/01/13/neurofedora-update-2019-week-2.html" rel="alternate"></link><published>2019-01-13T20:55:44+00:00</published><updated>2019-01-13T20:55:44+00:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2019-01-13:/2019/01/13/neurofedora-update-2019-week-2.html</id><summary type="html">&lt;p class="first last"&gt;An update on &lt;a class="reference external" href="https://fedoraproject.org/wiki/SIGs/NeuroFedora"&gt;NeuroFedora&lt;/a&gt; at the end of week 2 in 2019.&lt;/p&gt;
+</summary><content type="html">&lt;div class="figure"&gt;
+&lt;a class="reference external image-reference" href="https://docs.fedoraproject.org/en-US/neurofedora/overview/"&gt;&lt;img alt="NeuroFedora logo" class="img-responsive" src="http://ankursinha.in/images/20181005-NeuroFedoraLogo01.png" style="width: 30%;" /&gt;&lt;/a&gt;
+&lt;p class="caption"&gt;&lt;a class="reference external" href="https://pagure.io/design/issue/602"&gt;NeuroFedora logo by Terezahl from the Fedora Design Team&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;We had our first meeting of the year. The &lt;a class="reference external" href="https://meetbot.fedoraproject.org/teams/neurofedora/neurofedora.2019-01-11-14.00.log.html"&gt;full logs&lt;/a&gt;
+from our meeting are available here on the &lt;a class="reference external" href="https://meetbot.fedoraproject.org/"&gt;Fedora mote application&lt;/a&gt;. I have pasted the minutes of the
+meeting at the end for your convenience.&lt;/p&gt;
+&lt;p&gt;The meeting was broadly for the team to come together and discuss a few things.
+We checked on the status of current tasks, and discussed our future steps.
+We've got to work on our documentation, for example.  There's a lot to do, and
+a lot of cool new things to learn---in science, computing, and community
+development. If you'd like to get involved, please get in touch.&lt;/p&gt;
+&lt;p&gt;We're continuing our work on including software in NeuroFedora, since that's
+the major chunk of our work load.&lt;/p&gt;
+&lt;hr class="docutils" /&gt;
+&lt;div class="section" id="meeting-summary"&gt;
+&lt;h2&gt;Meeting summary&lt;/h2&gt;
+&lt;p&gt;Meeting started by FranciscoD at 14:00:15 UTC.&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;dl class="first docutils"&gt;
+&lt;dt&gt;Roll call  (FranciscoD, 14:00:43)&lt;/dt&gt;
+&lt;dd&gt;&lt;ul class="first last"&gt;
+&lt;li&gt;IRC meeting commands: &lt;a class="reference external" href="https://fedoraproject.org/wiki/Meeting:Guide"&gt;https://fedoraproject.org/wiki/Meeting:Guide&lt;/a&gt; (FranciscoD, 14:01:56)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;dl class="first docutils"&gt;
+&lt;dt&gt;Joining the team  (FranciscoD, 14:04:37)&lt;/dt&gt;
+&lt;dd&gt;&lt;ul class="first last"&gt;
+&lt;li&gt;We need package maintainers, testers, doc writers, users---&amp;gt; there are so
+many ways of getting involved  (FranciscoD, 14:05:30)&lt;/li&gt;
+&lt;li&gt;To help with packaging, please join the neuro-sig FAS group, and then log
+out and back in to src.fp.o once your membership is approved  (FranciscoD,
+14:05:49)&lt;/li&gt;
+&lt;li&gt;To join the group on pagure (where we maintain issues), please drop any of
+us a ping and we'll add you  (FranciscoD, 14:06:10)&lt;/li&gt;
+&lt;li&gt;Our channels: #fedora-neuro on IRC, &lt;a class="reference external" href="https://t.me/NeuroFedora"&gt;https://t.me/NeuroFedora&lt;/a&gt; on Telegram,
+&lt;a class="reference external" href="mailto:neuro-sig&amp;#64;lists.fp.o"&gt;neuro-sig&amp;#64;lists.fp.o&lt;/a&gt; is our ML  (FranciscoD, 14:07:07)&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://pagure.io/neuro-sig/NeuroFedora"&gt;https://pagure.io/neuro-sig/NeuroFedora&lt;/a&gt; -&amp;gt; housekeeping repo (FranciscoD, 14:07:57)&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://pagure.io/neuro-sig/documentation"&gt;https://pagure.io/neuro-sig/documentation&lt;/a&gt; -&amp;gt; documentation repo (FranciscoD, 14:08:05)&lt;/li&gt;
+&lt;li&gt;Tickets:
+&lt;a class="reference external" href="https://pagure.io/neuro-sig/NeuroFedora/issues?tags=S%3A+Next+meeting"&gt;https://pagure.io/neuro-sig/NeuroFedora/issues?tags=S%3A+Next+meeting&lt;/a&gt;
+(FranciscoD, 14:11:56)&lt;/li&gt;
+&lt;li&gt;Additional agenda item: prioritise packages so we have some order in which
+to go about them  (FranciscoD, 14:12:36)&lt;/li&gt;
+&lt;li&gt;Poster at CNS: &lt;a class="reference external" href="https://pagure.io/neuro-sig/NeuroFedora/issue/189"&gt;https://pagure.io/neuro-sig/NeuroFedora/issue/189&lt;/a&gt;
+(FranciscoD, 14:13:49)&lt;/li&gt;
+&lt;li&gt;Annual organisation for computational neuroscience conference is at
+Barcelona in July this year: &lt;a class="reference external" href="https://www.cnsorg.org/cns-2019"&gt;https://www.cnsorg.org/cns-2019&lt;/a&gt; (FranciscoD,
+14:14:18)&lt;/li&gt;
+&lt;li&gt;Everyone that contributes in any way will be a mentioned in the author
+list  (FranciscoD, 14:14:53)&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://pagure.io/neuro-sig/NeuroFedora/issue/188"&gt;https://pagure.io/neuro-sig/NeuroFedora/issue/188&lt;/a&gt; -&amp;gt; Own neurofedora.org?
+(FranciscoD, 14:16:20)&lt;/li&gt;
+&lt;li&gt;AGREED: Use neuro.fp.o (+5, -0)  (FranciscoD, 14:18:28)&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://pagure.io/neuro-sig/NeuroFedora/issue/152"&gt;https://pagure.io/neuro-sig/NeuroFedora/issue/152&lt;/a&gt; -&amp;gt; Organisational blog
+on neurofedora.github.io?  (FranciscoD, 14:19:08)&lt;/li&gt;
+&lt;li&gt;We do have a github organisation: &lt;a class="reference external" href="https://github.com/neurofedora"&gt;https://github.com/neurofedora&lt;/a&gt;
+(FranciscoD, 14:19:26)&lt;/li&gt;
+&lt;li&gt;AGREED: FranciscoD publish updates on his blog for the time being.
+Organisational blog to be revisited in the future (+6, -0) (FranciscoD,
+14:26:45)&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://pagure.io/neuro-sig/NeuroFedora/issue/8"&gt;https://pagure.io/neuro-sig/NeuroFedora/issue/8&lt;/a&gt; -&amp;gt; A web location for
+user-end troubleshooting?  (FranciscoD, 14:27:01)&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://neurostars.org/"&gt;https://neurostars.org/&lt;/a&gt; -&amp;gt; NeuroStars generic troubleshooting form
+(FranciscoD, 14:29:51)&lt;/li&gt;
+&lt;li&gt;A list of neuroscience resources is here:
+&lt;a class="reference external" href="https://docs.fedoraproject.org/en-US/neurofedora/related-links/"&gt;https://docs.fedoraproject.org/en-US/neurofedora/related-links/&lt;/a&gt;
+(FranciscoD, 14:30:14)&lt;/li&gt;
+&lt;li&gt;A new FAS (better interface etc) is being planned, but there's no ETA of
+when it'll be ready for deployment  (FranciscoD, 14:33:55)&lt;/li&gt;
+&lt;li&gt;ACTION: FranciscoD update docs to request users to file bugs on pagure
+(FranciscoD, 14:35:34)&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://pagure.io/neuro-sig/NeuroFedora/issue/121"&gt;https://pagure.io/neuro-sig/NeuroFedora/issue/121&lt;/a&gt; -&amp;gt; Add comps groups
+(FranciscoD, 14:35:46)&lt;/li&gt;
+&lt;li&gt;Neuron (without MPI/Python) is currently in review:
+&lt;a class="reference external" href="https://bugzilla.redhat.com/show_bug.cgi?id=1662526"&gt;https://bugzilla.redhat.com/show_bug.cgi?id=1662526&lt;/a&gt;  (FranciscoD,
+14:37:30)&lt;/li&gt;
+&lt;li&gt;Link to our suggestion form is here:
+&lt;a class="reference external" href="https://docs.fedoraproject.org/en-US/neurofedora/overview/#_suggest_software_for_inclusion"&gt;https://docs.fedoraproject.org/en-US/neurofedora/overview/#_suggest_software_for_inclusion&lt;/a&gt;
+(FranciscoD, 14:39:06)&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://pagure.io/neuro-sig/NeuroFedora/issue/180"&gt;https://pagure.io/neuro-sig/NeuroFedora/issue/180&lt;/a&gt; -&amp;gt; Docker images for
+NEST  (FranciscoD, 14:41:26)&lt;/li&gt;
+&lt;li&gt;ACTION: FranciscoD create new page for third party software resources in
+docs  (FranciscoD, 14:49:18)&lt;/li&gt;
+&lt;li&gt;ACTION: FranciscoD add &lt;a class="reference external" href="https://flathub.org/apps/details/org.gnode.NixView"&gt;https://flathub.org/apps/details/org.gnode.NixView&lt;/a&gt;
+to &amp;quot;third party sources list&amp;quot; on docs  (FranciscoD, 14:50:38)&lt;/li&gt;
+&lt;li&gt;LINK: &lt;a class="reference external" href="https://github.com/G-Node/nix/"&gt;https://github.com/G-Node/nix/&lt;/a&gt;   (gicmo, 14:53:20)&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://pagure.io/neuro-sig/NeuroFedora/issue/155"&gt;https://pagure.io/neuro-sig/NeuroFedora/issue/155&lt;/a&gt; -&amp;gt; Including packages
+that need Matlab at runtime  (FranciscoD, 14:55:27)&lt;/li&gt;
+&lt;li&gt;Prioritise python over Matlab/Octave  (FranciscoD, 14:57:56)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;dl class="first docutils"&gt;
+&lt;dt&gt;Open floor  (FranciscoD, 14:58:50)&lt;/dt&gt;
+&lt;dd&gt;&lt;ul class="first last"&gt;
+&lt;li&gt;ACTION: FranciscoD add a page &amp;quot;neuroscience resources for beginners&amp;quot;
+(FranciscoD, 15:03:56)&lt;/li&gt;
+&lt;li&gt;LINK: &lt;a class="reference external" href="https://labs.fedoraproject.org/"&gt;https://labs.fedoraproject.org/&lt;/a&gt; -&amp;gt; I mean these  (FranciscoD,
+15:05:12)&lt;/li&gt;
+&lt;li&gt;ACTION: FranciscoD send out logs  (FranciscoD, 15:06:28)&lt;/li&gt;
+&lt;li&gt;ACTION: FranciscoD summarise meeting discussion in next blog post
+(FranciscoD, 15:06:38)&lt;/li&gt;
+&lt;li&gt;LoKoMurdoK and zbyszek are package maintainer sponsors  (FranciscoD,
+15:08:33)&lt;/li&gt;
+&lt;li&gt;Thanks gicmo pac23 zbyszek LoKoMurdoK blackfile mhough for coming, and
+helping out  (FranciscoD, 15:09:35)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Meeting ended at 15:10:43 UTC.&lt;/p&gt;
+&lt;hr class="docutils" /&gt;
+&lt;p&gt;&lt;a class="reference external" href="https://docs.fedoraproject.org/en-US/neurofedora/overview/"&gt;NeuroFedora documentation&lt;/a&gt; is available on
+&lt;a class="reference external" href="https://docs.fedoraproject.org/en-US/docs/"&gt;the Fedora documentation website&lt;/a&gt;.  Feedback is always welcome.
+You can get in touch with us &lt;a class="reference external" href="https://docs.fedoraproject.org/en-US/neurofedora/overview/#_communicating_and_getting_help"&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+</content><category term="Community"></category><category term="Matlab"></category><category term="Computational neuroscience"></category><category term="Free software"></category><category term="Fedora"></category><category term="NeuroFedora"></category><category term="Planet"></category></entry><entry><title>NeuroFedora update: 2019 week 1</title><link href="http://ankursinha.in/2019/01/06/neurofedora-update-2019-week-1.html" rel="alternate"></link><published>2019-01-06T21:04:14+00:00</published><updated>2019-01-06T21:04:14+00:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2019-01-06:/2019/01/06/neurofedora-update-2019-week-1.html</id><summary type="html">&lt;p class="first last"&gt;An update on &lt;a class="reference external" href="https://fedoraproject.org/wiki/SIGs/NeuroFedora"&gt;NeuroFedora&lt;/a&gt; at the end of week 1 in 2019. Happy new
 year!&lt;/p&gt;
 </summary><content type="html">&lt;div class="figure"&gt;
 &lt;a class="reference external image-reference" href="https://docs.fedoraproject.org/en-US/neurofedora/overview/"&gt;&lt;img alt="NeuroFedora logo" class="img-responsive" src="http://ankursinha.in/images/20181005-NeuroFedoraLogo01.png" style="width: 30%;" /&gt;&lt;/a&gt;
