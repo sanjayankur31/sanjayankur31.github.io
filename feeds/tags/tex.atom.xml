@@ -28,7 +28,7 @@ nowadays in Neuroscience for:&lt;/p&gt;
 computer science, a lot of time and effort is spent setting up systems,
 installing software (often building whole &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Dependency_hell"&gt;dependency chains&lt;/a&gt; from source). This can be
 hard for people not well-versed in build systems and so on.&lt;/p&gt;
-&lt;p&gt;So, at &lt;a class="reference external" href="https://fedoraproject.org/wiki/SIGs/NeuroFedora"&gt;NeuroFedora&lt;/a&gt;, we will provide a ready to use &lt;a class="reference external" href="https://getfedora.org"&gt;Fedora&lt;/a&gt; based system for
+&lt;p&gt;So, at &lt;a class="reference external" href="https://neuro.fedoraproject.org"&gt;NeuroFedora&lt;/a&gt;, we will provide a ready to use &lt;a class="reference external" href="https://getfedora.org"&gt;Fedora&lt;/a&gt; based system for
 neuroscientists to work with, so they can quickly get their environment set up
 and work on the science.&lt;/p&gt;
 &lt;/div&gt;
@@ -52,7 +52,7 @@ very &lt;a class="reference external" href="https://fedoraproject.org/wiki/Docke
 &lt;div class="section" id="join-us"&gt;
 &lt;h2&gt;Join us!&lt;/h2&gt;
 &lt;p&gt;Packaging software is only &lt;em&gt;one&lt;/em&gt; way in which one can contribute.  Writing docs
-and answering questions about the software in &lt;a class="reference external" href="https://fedoraproject.org/wiki/SIGs/NeuroFedora"&gt;NeuroFedora&lt;/a&gt; are other ways too,
+and answering questions about the software in &lt;a class="reference external" href="https://neuro.fedoraproject.org"&gt;NeuroFedora&lt;/a&gt; are other ways too,
 for example.  If you are interested in neuroscience and in promoting &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Open_science"&gt;Open
 Science&lt;/a&gt;, please consider
 joining the SIG. You can get in touch with us via one of our many
@@ -81,7 +81,7 @@ be accessible to all to understand, use, learn from, and develop. More and more
 researchers are making it a point to keep Science as open as possible whether
 it is to do with the &lt;a class="reference external" href="http://opensourceforneuroscience.org/"&gt;tools&lt;/a&gt; or
 &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Open_access"&gt;dissemination&lt;/a&gt; of their
-findings. &lt;a class="reference external" href="https://fedoraproject.org/wiki/SIGs/NeuroFedora"&gt;NeuroFedora&lt;/a&gt; hopes to aid this movement. Come, join us!&lt;/p&gt;
+findings. &lt;a class="reference external" href="https://neuro.fedoraproject.org"&gt;NeuroFedora&lt;/a&gt; hopes to aid this movement. Come, join us!&lt;/p&gt;
 &lt;/div&gt;
 </content><category term="Community"></category><category term="Computational neuroscience"></category><category term="Fedora"></category><category term="Free software"></category><category term="Linux"></category><category term="NEST"></category><category term="Neuron"></category><category term="Numpy"></category><category term="Pandas"></category><category term="Planet"></category><category term="Python"></category><category term="Reproducible research"></category><category term="Sumatra"></category><category term="TeX"></category><category term="NeuroFedora"></category></entry><entry><title>Building TeX Live from source</title><link href="http://ankursinha.in/2018/03/25/building-tex-live-from-source.html" rel="alternate"></link><published>2018-03-25T18:15:05+01:00</published><updated>2018-03-25T18:15:05+01:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2018-03-25:/2018/03/25/building-tex-live-from-source.html</id><summary type="html">&lt;p class="first last"&gt;I thought it'd be fun to try and build &lt;a class="reference external" href="https://www.tug.org/texlive/"&gt;TeX Live&lt;/a&gt; from sources. So,
 I spent a day trying to do it. Here's how it went.&lt;/p&gt;
