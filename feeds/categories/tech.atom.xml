@@ -1,5 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>ankursinha.in/blog - Tech</title><link href="http://ankursinha.in/" rel="alternate"></link><link href="http://ankursinha.in/feeds/categories/tech.atom.xml" rel="self"></link><id>http://ankursinha.in/</id><updated>2018-06-22T23:36:23+01:00</updated><subtitle>neuroscience/fedora/musings</subtitle><entry><title>Using the Connfa open source conference management software set: the CMS</title><link href="http://ankursinha.in/2018/06/22/using-the-connfa-open-source-conference-management-software-set-the-cms.html" rel="alternate"></link><published>2018-06-22T23:36:23+01:00</published><updated>2018-06-22T23:36:23+01:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2018-06-22:/2018/06/22/using-the-connfa-open-source-conference-management-software-set-the-cms.html</id><summary type="html">&lt;p class="first last"&gt;The &lt;a class="reference external" href="http://connfa.com/"&gt;Connfa&lt;/a&gt; open source suite looks like a great set of tools
+<feed xmlns="http://www.w3.org/2005/Atom"><title>ankursinha.in/blog - Tech</title><link href="http://ankursinha.in/" rel="alternate"></link><link href="http://ankursinha.in/feeds/categories/tech.atom.xml" rel="self"></link><id>http://ankursinha.in/</id><updated>2019-01-24T11:20:00+00:00</updated><subtitle>neuroscience/fedora/musings</subtitle><entry><title>New maintainers needed for these packages</title><link href="http://ankursinha.in/2019/01/24/new-maintainers-needed-for-these-packages.html" rel="alternate"></link><published>2019-01-24T11:20:00+00:00</published><updated>2019-01-24T11:20:00+00:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2019-01-24:/2019/01/24/new-maintainers-needed-for-these-packages.html</id><summary type="html">&lt;p class="first last"&gt;I am looking to pass on Fedora packages that I no longer use to new maintainers.&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;I've recently realised that I am now busy enough to need to prioritise what
+tasks I undertake. Apart from my research work (PhD and related activities),
+I'd like to focus my time on &lt;a class="reference external" href="https://neuro.fedoraproject.org"&gt;NeuroFedora&lt;/a&gt;.
+Therefore, I'm giving up a lot of the packages that I've accrued over the years
+but no longer use. If any of these interest you, please take them from me.
+Otherwise, I will orphan them at the end of the month.&lt;/p&gt;
+&lt;p&gt;I am quite happy to mentor contributors who are not yet packagers to help them
+learn the necessary skills. You can become a package maintainer by helping to
+co-maintain packages, as documented &lt;a class="reference external" href="https://fedoraproject.org/wiki/How_to_get_sponsored_into_the_packager_group#Become_a_co-maintainer"&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;I have already &lt;a class="reference external" href="https://lists.fedoraproject.org/archives/list/devel&amp;#64;lists.fedoraproject.org/thread/VDK46C23DKBCOHYO3EOCSLRJF2UUPDFK/"&gt;e-mailed the devel mailing list&lt;/a&gt;,
+but also post here to ensure sufficient visibility of the note.&lt;/p&gt;
+&lt;div class="section" id="orphaned-inactive-upstreams-or-retired-due-to-broken-deps"&gt;
+&lt;h2&gt;Orphaned (inactive upstreams or retired due to broken deps)&lt;/h2&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;albumart: was retired, now orphaned&lt;/li&gt;
+&lt;li&gt;gtg: inactive upstream&lt;/li&gt;
+&lt;li&gt;labyrinth: inactive upstream&lt;/li&gt;
+&lt;li&gt;memaker: inactive upstream&lt;/li&gt;
+&lt;li&gt;pyode: dead package, py3ode is available but needs packaging&lt;/li&gt;
+&lt;li&gt;python-inlinestyler: retired, now orphaned&lt;/li&gt;
+&lt;li&gt;scout: inactive upstream&lt;/li&gt;
+&lt;li&gt;toothchart: inactive upstream&lt;/li&gt;
+&lt;li&gt;xword: inactive upstream&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="section" id="looking-for-new-co-maintainers"&gt;
+&lt;h2&gt;Looking for new (co)-maintainers:&lt;/h2&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;axel: Light command line download accelerator&lt;/li&gt;
+&lt;li&gt;bibus: The bibus rpms&lt;/li&gt;
+&lt;li&gt;blobby: The blobby rpms&lt;/li&gt;
+&lt;li&gt;dcm4che-test: The dcm4che-test rpms&lt;/li&gt;
+&lt;li&gt;gitg: The gitg rpms&lt;/li&gt;
+&lt;li&gt;gnote: A note taking application for Gnome&lt;/li&gt;
+&lt;li&gt;gnumed: The GNUmed electronic medical record client&lt;/li&gt;
+&lt;li&gt;gtg: Getting Things GNOME!&lt;/li&gt;
+&lt;li&gt;hamster-time-tracker: A GTK3 time tracker&lt;/li&gt;
+&lt;li&gt;jigdo: The jigdo rpms&lt;/li&gt;
+&lt;li&gt;kapow: The kapow rpms&lt;/li&gt;
+&lt;li&gt;libgexiv2 A GObject wrapper around the Exiv2 photo metadata library&lt;/li&gt;
+&lt;li&gt;lifeograph: The lifeograph rpms&lt;/li&gt;
+&lt;li&gt;lingot: LINGOT Is Not a Guitar-Only Tuner&lt;/li&gt;
+&lt;li&gt;mrpt: The mrpt rpms&lt;/li&gt;
+&lt;li&gt;nautilus-pastebin: The nautilus-pastebin rpms&lt;/li&gt;
+&lt;li&gt;nut-nutrition: The nut-nutrition rpms&lt;/li&gt;
+&lt;li&gt;openarena: The openarena rpms&lt;/li&gt;
+&lt;li&gt;openmolar: The openmolar rpms&lt;/li&gt;
+&lt;li&gt;OSGi-bundle-ant-task: The OSGi-bundle-ant-task rpms&lt;/li&gt;
+&lt;li&gt;Panini: Visual tool for creating perspective views from panoramic and wide angle photographs&lt;/li&gt;
+&lt;li&gt;prepaid-manager-applet: The prepaid-manager-applet rpms&lt;/li&gt;
+&lt;li&gt;pystache: The pystache rpms&lt;/li&gt;
+&lt;li&gt;python-baker: The python-baker rpms&lt;/li&gt;
+&lt;li&gt;python-django-post_office: The python-django-post_office rpms&lt;/li&gt;
+&lt;li&gt;python-django-stopforumspam&lt;/li&gt;
+&lt;li&gt;python-uri-templates: The python-uri-templates rpms&lt;/li&gt;
+&lt;li&gt;rssdler: RSS Broadcatcher for podcasts, videocasts, and torrent feeds&lt;/li&gt;
+&lt;li&gt;tagtool: The tagtool rpms&lt;/li&gt;
+&lt;li&gt;trash-cli: Command line interface to the freedesktop.org trashcan&lt;/li&gt;
+&lt;li&gt;xmedcon: The xmedcon rpms&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+</content><category term="Fedora"></category><category term="RPM"></category><category term="Package maintenance"></category></entry><entry><title>Using the Connfa open source conference management software set: the CMS</title><link href="http://ankursinha.in/2018/06/22/using-the-connfa-open-source-conference-management-software-set-the-cms.html" rel="alternate"></link><published>2018-06-22T23:36:23+01:00</published><updated>2018-06-22T23:36:23+01:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2018-06-22:/2018/06/22/using-the-connfa-open-source-conference-management-software-set-the-cms.html</id><summary type="html">&lt;p class="first last"&gt;The &lt;a class="reference external" href="http://connfa.com/"&gt;Connfa&lt;/a&gt; open source suite looks like a great set of tools
 for conference management. It consists of a web application, a
 central CMS integration server, and mobile applications for both
 Android and iOS. I was looking at how one could use the mobile
@@ -1040,53 +1102,4 @@ servers = (
 &lt;h2&gt;Conclusion&lt;/h2&gt;
 &lt;p&gt;That's quite it. The bouncer will always run, and wherever one is, one can use a client to keep up with happenings. I hope this post will make it easier for others to set up their private bouncers too. Comments, and feedback are always welcome. Cheers!&lt;/p&gt;
 &lt;/div&gt;
-</content><category term="Fedora"></category><category term="IRC"></category><category term="ZNC"></category><category term="AWS"></category><category term="Irssi"></category></entry><entry><title>Fedora Classroom: Command Line 101: report</title><link href="http://ankursinha.in/2017/08/10/fedora-classroom-command-line-101-report.html" rel="alternate"></link><published>2017-08-10T23:03:24+01:00</published><updated>2017-08-10T23:03:24+01:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2017-08-10:/2017/08/10/fedora-classroom-command-line-101-report.html</id><summary type="html">&lt;p class="first last"&gt;I taught a &lt;a class="reference external" href="https://fedoraproject.org/wiki/Classroom"&gt;Fedora classroom&lt;/a&gt; session today - &amp;quot;Command Line 101&amp;quot; - where I introduced the command line and demonstrated how useful the command line is. This is a quick summary of the session.&lt;/p&gt;
-</summary><content type="html">&lt;p&gt;We've gotten the &lt;a class="reference external" href="https://fedoraproject.org/wiki/Classroom"&gt;Fedora classroom&lt;/a&gt; sessions going again. After two really good ones, I taught the &lt;a class="reference external" href="https://fedoramagazine.org/fedora-classroom-session-3/"&gt;third one&lt;/a&gt; today - a beginners session to the command line. Unlike the previous ones that used video platforms, I decided that the &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Internet_Relay_Chat"&gt;IRC&lt;/a&gt; was best suited to this session, even more so because I wanted it to be a hands-on session. It went off pretty well. Here are a few notes. Links to the logs are at the bottom of this post.&lt;/p&gt;
-&lt;div class="section" id="some-metrics"&gt;
-&lt;h2&gt;Some metrics&lt;/h2&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;Length: 2 hours (was planned to be an hour, but we quickly realised that it wouldn't be enough!)&lt;/li&gt;
-&lt;li&gt;Attendees: 29 - a few of us had FAS usernames too (so we shared cookies!)&lt;/li&gt;
-&lt;li&gt;About 800 sentences were spoken (I spoke about half of these, of course)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class="section" id="summary"&gt;
-&lt;h2&gt;Summary&lt;/h2&gt;
-&lt;p&gt;I quite enjoyed it, but then I enjoy tinkering with the command line anyway. A few folks stuck around for the full two hours, so that does indicate that they found the session somewhat useful. I'd put up a &lt;a class="reference external" href="https://gist.github.com/sanjayankur31/f40070c6925e8885394d2dd750ae4cb8"&gt;gist here with a tentative agenda&lt;/a&gt;. We didn't manage to go more than half way through it, though. We:&lt;/p&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;did a quick introduction to what a shell is&lt;/li&gt;
-&lt;li&gt;learned how to get help using local information - using the man pages&lt;/li&gt;
-&lt;li&gt;quickly saw the difference between absolute and relative paths, and also learned about &lt;code&gt;..&lt;/code&gt; and &lt;code&gt;.&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;went on to look at some more basic commands/built-ins and their switches/flags/options: &lt;code&gt;ls, apropos, clear, cd, pwd, which, alias, rm, tree, mkdir, wget, rmdir, rm, fpaste, wc, head, tail, more, less, cat, tac, grep, sort, uniq&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;used these commands to download a copy of &lt;a class="reference external" href="http://www.gutenberg.org/cache/epub/1120/pg1120.txt"&gt;&amp;quot;The tragedy of Julius Caesar&amp;quot; from Project Gutenberg&lt;/a&gt;, and then extracted some information from it. For example, we obtained how many times Caesar was mentioned in the text. For a more advanced task we also obtained how many times Caesar, Brutus, Cassius, and Casca were each mentioned using a single set of commands. This required the use of &lt;code&gt;grep, sort, uniq, wc&lt;/code&gt; in different combinations using input-output redirection (pipes in this case). At no point did we use a text editor, and we stuck to using local man pages.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class="section" id="takeaways"&gt;
-&lt;h2&gt;Takeaways&lt;/h2&gt;
-&lt;p&gt;I hope that this rather quick session gave the participants some idea of how the shell can be used for lots of tasks. I also hoped to show them that there's a lot of information available on the system itself that a user can refer to.&lt;/p&gt;
-&lt;p&gt;I learned a few things myself. I learned that an hour is too short for a proper online session, for example. My supposition that demonstrating commands using tasks would make the session more appealing seems to have been correct too. Only, maybe next time I'll pick a more contemporary text?&lt;/p&gt;
-&lt;p&gt;For the next session, I'll try and cover slightly more advanced topics, such as tests, loops, maybe even a bit of awk. We shall see.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="feedback-is-always-welcome"&gt;
-&lt;h2&gt;Feedback is always welcome&lt;/h2&gt;
-&lt;p&gt;If you had attended the session, or have gone through the logs and have some feedback, please get in touch. You can use the Fedora classroom channels:&lt;/p&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;&lt;a class="reference external" href="mailto:classroom&amp;#64;lists.fedoraproject.org"&gt;mailing list&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;#fedora-classroom on Freenode &lt;a class="reference external" href="http://webchat.freenode.net/?channels=%23fedora-classroom"&gt;IRC channel&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;You can even comment on this blog post, and of course, you can give me feedback privately. I'm also looking to make a list of tasks that I can use in future sessions - tasks that would be useful, fun, and that would also require some command line tricks - such that they would demonstrate the power of the command line. So, if you have your pet command line tricks/aliases, please do get in touch.&lt;/p&gt;
-&lt;p&gt;I'm FranciscoD on quite a few Fedora IRC channels, and I can be reached via e-mail on my Fedora address at ankursinha AT fedoraproject DOT org. All suggestions, comments, criticism is most welcome.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="more-instructors-needed"&gt;
-&lt;h2&gt;More instructors needed!&lt;/h2&gt;
-&lt;p&gt;The classroom sessions are going rather well, but &lt;a class="reference external" href="https://fedoraproject.org/wiki/Classroom#Help_wanted"&gt;we still need more help&lt;/a&gt;. We need more people helping with logistics, and of course, if we are to continue these sessions every week, we need more instructors! If there's anything at all you think is worth a classroom session, please get in touch with the team on the &lt;a class="reference external" href="mailto:classroom&amp;#64;lists.fedoraproject.org"&gt;Fedora classroom mailing list&lt;/a&gt;. A log of all past sessions - whether on &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Internet_Relay_Chat"&gt;IRC&lt;/a&gt; or on a video platform are maintained on the wiki page &lt;a class="reference external" href="https://fedoraproject.org/wiki/Classroom#Previous_Sessions"&gt;here&lt;/a&gt; for everyone to peruse at their convenience.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="logs"&gt;
-&lt;h2&gt;Logs&lt;/h2&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://meetbot.fedoraproject.org/fedora-classroom/2017-08-10/%22fedora_classroom_-_command_line_101%22.2017-08-10-13.00.log.html"&gt;HTML logs&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://meetbot.fedoraproject.org/fedora-classroom/2017-08-10/%22fedora_classroom_-_command_line_101%22.2017-08-10-13.00.txt"&gt;Text minutes&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://meetbot.fedoraproject.org/fedora-classroom/2017-08-10/%22fedora_classroom_-_command_line_101%22.2017-08-10-13.00.html"&gt;HTML minutes&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-</content><category term="Bash"></category><category term="Blog"></category><category term="Community"></category><category term="Linux"></category><category term="Planet"></category><category term="Fedora"></category></entry></feed>
+</content><category term="Fedora"></category><category term="IRC"></category><category term="ZNC"></category><category term="AWS"></category><category term="Irssi"></category></entry></feed>
