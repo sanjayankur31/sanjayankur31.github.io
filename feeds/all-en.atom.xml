@@ -1,5 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>ankursinha.in/blog</title><link href="http://ankursinha.in/" rel="alternate"></link><link href="http://ankursinha.in/feeds/all-en.atom.xml" rel="self"></link><id>http://ankursinha.in/</id><updated>2019-01-24T11:20:00+00:00</updated><subtitle>neuroscience/fedora/musings</subtitle><entry><title>New maintainers needed for these packages</title><link href="http://ankursinha.in/2019/01/24/new-maintainers-needed-for-these-packages.html" rel="alternate"></link><published>2019-01-24T11:20:00+00:00</published><updated>2019-01-24T11:20:00+00:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2019-01-24:/2019/01/24/new-maintainers-needed-for-these-packages.html</id><summary type="html">&lt;p class="first last"&gt;I am looking to pass on Fedora packages that I no longer use to new maintainers.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>ankursinha.in/blog</title><link href="http://ankursinha.in/" rel="alternate"></link><link href="http://ankursinha.in/feeds/all-en.atom.xml" rel="self"></link><id>http://ankursinha.in/</id><updated>2019-01-27T15:11:35+00:00</updated><subtitle>neuroscience/fedora/musings</subtitle><entry><title>Useful DuckDuckGo bangs</title><link href="http://ankursinha.in/2019/01/27/useful-duckduckgo-bangs.html" rel="alternate"></link><published>2019-01-27T15:11:35+00:00</published><updated>2019-01-27T15:11:35+00:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2019-01-27:/2019/01/27/useful-duckduckgo-bangs.html</id><summary type="html">&lt;p class="first last"&gt;I switched to &lt;a class="reference external" href="https://duckduckgo.com"&gt;DuckDuckGo&lt;/a&gt; some time ago, and I've not had to look
+back. In this post, I document some of the &lt;a class="reference external" href="https://duckduckgo.com/bang"&gt;&amp;quot;bangs&amp;quot;&lt;/a&gt; I find useful.&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;If you haven't moved to &lt;a class="reference external" href="https://duckduckgo.com"&gt;DuckDuckGo&lt;/a&gt; yet, &lt;a class="reference external" href="https://www.quora.com/Why-should-I-use-DuckDuckGo-instead-of-Google/answer/Gabriel-Weinberg?share=9560e87d&amp;amp;srid=pJKz"&gt;here's&lt;/a&gt;
+why you should consider it. I moved to it a while back, and I've not looked
+back since. In this post, I document some of the &lt;a class="reference external" href="https://duckduckgo.com/bang"&gt;&amp;quot;bangs&amp;quot;&lt;/a&gt; that I use which make &lt;a class="reference external" href="https://duckduckgo.com"&gt;DuckDuckGo&lt;/a&gt; even nicer
+to use!&lt;/p&gt;
+&lt;p&gt;A &lt;a class="reference external" href="https://duckduckgo.com/bang"&gt;&amp;quot;bang&amp;quot;&lt;/a&gt; is a search shortcut, like ones you
+can set up in Firefox and Chrome. Instead of navigating to the website to use
+their search box, bangs allow you to search via &lt;a class="reference external" href="https://duckduckgo.com"&gt;DuckDuckGo&lt;/a&gt;, and it redirects
+you to the search results on the website. So, apart from the obvious privacy
+advantage: &lt;a class="reference external" href="https://duckduckgo.com"&gt;DuckDuckGo&lt;/a&gt; uses the website search, not you, it also means you can
+search a plethora of websites right from &lt;a class="reference external" href="https://duckduckgo.com"&gt;DuckDuckGo&lt;/a&gt;. If you are used to using
+the Firefox search bar, for example, this becomes really handy.&lt;/p&gt;
+&lt;div class="section" id="general-bangs"&gt;
+&lt;h2&gt;General bangs&lt;/h2&gt;
+&lt;img alt="GIF showing the use of DuckDuckGo bangs to search Wikipedia." class="img-responsive" src="http://ankursinha.in/images/20190127-duckduckgo-wikipedia.gif" style="width: 60%;" /&gt;
+&lt;p&gt;I use a number of general bangs:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;code&gt;!bang&lt;/code&gt; to search for bangs.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;!w&lt;/code&gt; to search Wikipedia&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;!g&lt;/code&gt; to use Google when I must.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;!gmaps&lt;/code&gt; to search Google Maps.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;!openstreetmap&lt;/code&gt; to search Open Street Maps.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;!youtuble&lt;/code&gt; to search Youtube.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;!bbcw&lt;/code&gt; to search BBC weather.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;!goodreads&lt;/code&gt; to search Goodreads.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;!sauk&lt;/code&gt; to search Amazon UK (smile.amazon.uk).&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;!github&lt;/code&gt; to search Github.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;A few academic ones I use often are:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;code&gt;!gsc&lt;/code&gt; to search Google Scholar.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;!arxiv&lt;/code&gt; to search ArXiv.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;!pubmed&lt;/code&gt; to search PubMed&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="section" id="fedora-related-bangs"&gt;
+&lt;h2&gt;Fedora related bangs&lt;/h2&gt;
+&lt;p&gt;Now, here's where bangs get even more useful! Fedora related bangs!  You can
+use &lt;code&gt;!bang Fedora&lt;/code&gt; to see them all, but I list the ones that are
+available now here for you (and me):&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;code&gt;!fedora&lt;/code&gt; or &lt;code&gt;!fedorawiki&lt;/code&gt; to search the wiki.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;!kojipkg&lt;/code&gt; to search Koji for a package.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;!fedpack&lt;/code&gt; to search the Fedora packages app.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;!fedoramagazine&lt;/code&gt; to search the Fedora Magazine.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;!askfedora&lt;/code&gt; to search Ask Fedora.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;!copr&lt;/code&gt; to search COPR.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;!rhbugs&lt;/code&gt; or &lt;code&gt;!rhbz&lt;/code&gt; to search Redhat Bugzilla.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;img alt="GIF showing the use of DuckDuckGo bangs to search the Fedora packages application." class="img-responsive" src="http://ankursinha.in/images/20190127-duckduckgo-fedora.gif" style="width: 60%;" /&gt;
+&lt;p&gt;If you do use the quick search boxes that most browsers now provide, this makes
+things so much easier. You needn't even use the drop down to select a search.
+You just keep using &lt;a class="reference external" href="https://duckduckgo.com"&gt;DuckDuckGo&lt;/a&gt;. I use &lt;a class="reference external" href="https://www.qutebrowser.org/"&gt;Qutebrowser&lt;/a&gt; for example, where I use the command window
+to do all my navigating. This is how quick it is (Capital O to open a new-tab,
+and then &lt;code&gt;!fedpack nest&lt;/code&gt; to search the Fedora packages application for
+NEST, since &lt;a class="reference external" href="https://duckduckgo.com"&gt;DuckDuckGo&lt;/a&gt; is set as my default search service):&lt;/p&gt;
+&lt;img alt="GIF showing the use of DuckDuckGo bangs from Qutebrowser." class="img-responsive" src="http://ankursinha.in/images/20190127-duckduckgo-qutebrowser.gif" style="width: 60%;" /&gt;
+&lt;p&gt;So, there are lots of bangs. Use &lt;a class="reference external" href="https://duckduckgo.com"&gt;DuckDuckGo&lt;/a&gt;, use bangs, profit!
+Happy ducking!&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="addendum"&gt;
+&lt;h2&gt;Addendum&lt;/h2&gt;
+&lt;p&gt;There is, of course, a lmddgtfy service. Try: &lt;code&gt;!lmddgtfy lmddgtfy&lt;/code&gt;.
+&lt;a class="reference external" href="https://duckduckgo.com"&gt;DuckDuckGo&lt;/a&gt; also provides an &lt;a class="reference external" href="https://play.google.com/store/apps/details?id=com.duckduckgo.mobile.android"&gt;App for Android&lt;/a&gt;,
+and a widget that helps you search without having to open the browser first.&lt;/p&gt;
+&lt;p&gt;Bangs can be &lt;a class="reference external" href="https://duckduckgo.com/newbang"&gt;suggested&lt;/a&gt;, so please do
+suggest new bangs for other services that you use frequently.&lt;/p&gt;
+&lt;/div&gt;
+</content><category term="DuckDuckGo"></category><category term="Searching"></category><category term="Fedora"></category></entry><entry><title>New maintainers needed for these packages</title><link href="http://ankursinha.in/2019/01/24/new-maintainers-needed-for-these-packages.html" rel="alternate"></link><published>2019-01-24T11:20:00+00:00</published><updated>2019-01-24T11:20:00+00:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2019-01-24:/2019/01/24/new-maintainers-needed-for-these-packages.html</id><summary type="html">&lt;p class="first last"&gt;I am looking to pass on Fedora packages that I no longer use to new maintainers.&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;I've recently realised that I am now busy enough to need to prioritise what
 tasks I undertake. Apart from my research work (PhD and related activities),
 I'd like to focus my time on &lt;a class="reference external" href="https://neuro.fedoraproject.org"&gt;NeuroFedora&lt;/a&gt;.
@@ -443,39 +512,4 @@ requests.&lt;/li&gt;
 everyone in the &lt;a class="reference external" href="https://getfedora.org"&gt;Fedora&lt;/a&gt; community (including people I may have missed) for
 enabling us to further &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Open_science"&gt;Open Science&lt;/a&gt; via &lt;a class="reference external" href="https://getfedora.org"&gt;Fedora&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
-</content><category term="Community"></category><category term="Computational neuroscience"></category><category term="Free software"></category><category term="NEST"></category><category term="Fedora"></category><category term="NeuroFedora"></category><category term="Planet"></category></entry><entry><title>NeuroFedora update: week 44</title><link href="http://ankursinha.in/2018/11/03/neurofedora-update-week-44.html" rel="alternate"></link><published>2018-11-03T10:02:24+00:00</published><updated>2018-11-03T10:02:24+00:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2018-11-03:/2018/11/03/neurofedora-update-week-44.html</id><summary type="html">&lt;p class="first last"&gt;A quick update on &lt;a class="reference external" href="https://neuro.fedoraproject.org"&gt;NeuroFedora&lt;/a&gt; at the end of week 44. More software,
-some housekeeping, and a few upstream tickets.&lt;/p&gt;
-</summary><content type="html">&lt;div class="figure"&gt;
-&lt;a class="reference external image-reference" href="http://ankursinha.in/images/20181005-NeuroFedoraLogo01.png"&gt;&lt;img alt="NeuroFedora logo!" class="text-center img-responsive pagination-centered" src="http://ankursinha.in/images/20181005-NeuroFedoraLogo01.png" style="width: 30%;" /&gt;&lt;/a&gt;
-&lt;p class="caption"&gt;&lt;a class="reference external" href="https://pagure.io/design/issue/602"&gt;NeuroFedora logo by Terezahl from the Fedora Design Team&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;p&gt;In week 44:&lt;/p&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://src.fedoraproject.org/rpms/python-PyLEMS"&gt;PyLEMS&lt;/a&gt; was imported into Fedora and is now in &lt;a class="reference external" href="https://bodhi.fedoraproject.org/updates/?packages=python-PyLEMS"&gt;testing&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;We received a suggestion to include &lt;a class="reference external" href="https://git.fmrib.ox.ac.uk/fsl/fsleyes"&gt;fsleyes&lt;/a&gt;, so we've begun working on that.
-Two of its dependencies are in review now: &lt;a class="reference external" href="https://bugzilla.redhat.com/show_bug.cgi?id=1645329"&gt;fslpy&lt;/a&gt; and &lt;a class="reference external" href="https://bugzilla.redhat.com/show_bug.cgi?id=1645661"&gt;fsleyes-widgets&lt;/a&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Keeping in line with the spirit of FOSS development, we try to &lt;a class="reference external" href="https://fedoraproject.org/wiki/Staying_close_to_upstream_projects"&gt;stay close to
-upstream&lt;/a&gt;, so:&lt;/p&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://src.fedoraproject.org/rpms/python-PyLEMS"&gt;PyLEMS&lt;/a&gt;: issues were filed to request that &lt;a class="reference external" href="https://github.com/LEMS/pylems/issues/42"&gt;examples&lt;/a&gt; and the &lt;a class="reference external" href="https://github.com/LEMS/pylems/issues/39"&gt;license
-text&lt;/a&gt; be included in the PyPi
-tarball.&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://github.com/NeuroML/NeuroMLlite"&gt;NeuroMLlite&lt;/a&gt;: I opened a &lt;a class="reference external" href="https://github.com/NeuroML/NeuroMLlite/pull/2"&gt;PR adding the license file to the sources&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://github.com/INCF/MUSIC"&gt;MUSIC&lt;/a&gt;: Unfortunately &lt;a class="reference external" href="https://github.com/INCF/MUSIC"&gt;MUSIC&lt;/a&gt; uses a private copy of &lt;a class="reference external" href="https://github.com/mflood/rudeconfig"&gt;rudeconfig&lt;/a&gt; that contains
-changes that have not yet been sent upstream. Bundling is &lt;a class="reference external" href="https://fedoraproject.org/wiki/Packaging:Guidelines#Bundling_and_Duplication_of_system_libraries"&gt;to be avoided&lt;/a&gt;
-in Fedora for good reason, so I've filed a ticket &lt;a class="reference external" href="https://github.com/INCF/MUSIC/issues/56"&gt;asking if the local
-changes to rudeconfig could be sent upstream&lt;/a&gt;. Until this is solved,
-&lt;a class="reference external" href="https://github.com/INCF/MUSIC"&gt;MUSIC&lt;/a&gt; cannot be included in Fedora, unless a bundling exception is made.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;The task list was moved to the &lt;a class="reference external" href="https://pagure.io/neuro-sig/NeuroFedora/issues"&gt;Pagure issue tracker&lt;/a&gt;.
-I've done a bit of housekeeping so that we now use labels like the &lt;a class="reference external" href="https://github.com/nest/nest-simulator/wiki/issue-labeling-scheme"&gt;NEST&lt;/a&gt;
-initiative does, inspired by &lt;a class="reference external" href="https://medium.com/&amp;#64;dave_lunny/sane-github-labels-c5d2e6004b63#.ve6i7zcou"&gt;this post&lt;/a&gt;.
-It really does make handling issues much easier.&lt;/p&gt;
-&lt;hr class="docutils" /&gt;
-&lt;p&gt;There is a lot of software available in &lt;a class="reference external" href="https://neuro.fedoraproject.org"&gt;NeuroFedora&lt;/a&gt; already. You can see the
-complete list &lt;a class="reference external" href="https://src.fedoraproject.org/group/neuro-sig"&gt;here on Fedora SCM&lt;/a&gt;. Software that is currently
-being worked on is listed &lt;a class="reference external" href="https://pagure.io/neuro-sig/NeuroFedora/issues"&gt;on our Pagure project instance&lt;/a&gt;. If you use software that
-is not on our list, please suggest it to us using the &lt;a class="reference external" href="https://goo.gl/forms/j6AJ82yOh78MPxby1"&gt;suggestion form&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Feedback is always welcome. You can get in touch with us &lt;a class="reference external" href="https://fedoraproject.org/wiki/SIGs/NeuroFedora#Communication_and_getting_help"&gt;here&lt;/a&gt;.&lt;/p&gt;
 </content><category term="Community"></category><category term="Computational neuroscience"></category><category term="Free software"></category><category term="NEST"></category><category term="Fedora"></category><category term="NeuroFedora"></category><category term="Planet"></category></entry></feed>
