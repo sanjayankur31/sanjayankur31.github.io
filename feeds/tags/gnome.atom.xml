@@ -48,12 +48,7 @@
  --method org.gnome.SessionManager.Presence.SetStatus &lt;span class="m"&gt;0&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;I just tested it out, and of course, the commands work. Florian also said that if users really find the switch important, it could be added back in the UI in the future. Here's to undisturbed work! Cheers!&lt;/p&gt;
-</content><category term="Fedora"></category><category term="GNOME"></category></entry><entry><title>Restoring single files with deja-dup</title><link href="http://ankursinha.in/2011/08/13/restoring-single-files-with-deja-dup.html" rel="alternate"></link><published>2011-08-13T16:48:00+01:00</published><updated>2011-08-13T16:48:00+01:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2011-08-13:/2011/08/13/restoring-single-files-with-deja-dup.html</id><summary type="html">&lt;p&gt;Yes. I understand you wouldn't want to restore all your XXGBs of data to
-get back a lost file. Please have a look at the following links to
-restore single files.&lt;/p&gt;
-&lt;p&gt;&lt;a class="reference external" href="http://live.gnome.org/DejaDup/Help/Restore/Revert"&gt;http://live.gnome.org/DejaDup/Help/Restore/Revert&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a class="reference external" href="http://live.gnome.org/DejaDup/Help/Restore/LostFile"&gt;http://live.gnome.org/DejaDup/Help/Restore/LostFile&lt;/a&gt;&lt;/p&gt;
-</summary><content type="html">&lt;p&gt;Yes. I understand you wouldn't want to restore all your XXGBs of data to
+</content><category term="Fedora"></category><category term="GNOME"></category></entry><entry><title>Restoring single files with deja-dup</title><link href="http://ankursinha.in/2011/08/13/restoring-single-files-with-deja-dup.html" rel="alternate"></link><published>2011-08-13T16:48:00+01:00</published><updated>2011-08-13T16:48:00+01:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2011-08-13:/2011/08/13/restoring-single-files-with-deja-dup.html</id><content type="html">&lt;p&gt;Yes. I understand you wouldn't want to restore all your XXGBs of data to
 get back a lost file. Please have a look at the following links to
 restore single files.&lt;/p&gt;
 &lt;p&gt;&lt;a class="reference external" href="http://live.gnome.org/DejaDup/Help/Restore/Revert"&gt;http://live.gnome.org/DejaDup/Help/Restore/Revert&lt;/a&gt;&lt;/p&gt;
