@@ -16,7 +16,7 @@ generated doxygen documents for my code too. This can be found here:
 the papers document. I'd begun implementing place cells, but I ran out
 of time in my master's course.&lt;/p&gt;
 &lt;p&gt;More on my research here: &lt;a class="reference external" href="http://ankursinha.in/wp/research/"&gt;http://ankursinha.in/wp/research/&lt;/a&gt;&lt;/p&gt;
-</content><category term="Computational neuroscience"></category><category term="Robotics"></category></entry><entry><title>Extracting raw data from ros topics</title><link href="http://ankursinha.in/2013/04/07/extracting-raw-data-from-ros-topics.html" rel="alternate"></link><published>2013-04-07T15:22:00+01:00</published><updated>2013-04-07T15:22:00+01:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2013-04-07:/2013/04/07/extracting-raw-data-from-ros-topics.html</id><summary type="html">&lt;p&gt;Recently, I needed to extract raw data that we had collected from the
+</content><category term="Research"></category><category term="Computational neuroscience"></category><category term="Robotics"></category></entry><entry><title>Extracting raw data from ros topics</title><link href="http://ankursinha.in/2013/04/07/extracting-raw-data-from-ros-topics.html" rel="alternate"></link><published>2013-04-07T15:22:00+01:00</published><updated>2013-04-07T15:22:00+01:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2013-04-07:/2013/04/07/extracting-raw-data-from-ros-topics.html</id><summary type="html">&lt;p&gt;Recently, I needed to extract raw data that we had collected from the
 &lt;a class="reference external" href="http://www.willowgarage.com/pages/pr2/overview"&gt;PR2&lt;/a&gt; robot. It's easy to collect data from &lt;a class="reference external" href="http://www.ros.org/wiki/Topics"&gt;topics&lt;/a&gt;, using the
 &lt;a class="reference external" href="http://www.ros.org/wiki/rosbag"&gt;rosbag&lt;/a&gt; tool. You can collect data from multiple topics in one bag at
 a time.&lt;/p&gt;
@@ -213,7 +213,7 @@ if __name__ == &amp;quot;__main__&amp;quot;:
 &lt;/pre&gt;
 &lt;p&gt;I've &lt;a class="reference external" href="https://github.com/sanjayankur31/ros-work/blob/master/helper-scripts/extractRawInfo.py"&gt;hosted it on my github repository&lt;/a&gt;. It'll be easier to
 read/download it from there if you need to.&lt;/p&gt;
-</content><category term="Robotics"></category></entry><entry><title>ROS groovy on Fedora 18</title><link href="http://ankursinha.in/2013/03/28/ros-groovy-on-fedora-18.html" rel="alternate"></link><published>2013-03-28T04:33:00+00:00</published><updated>2013-03-28T04:33:00+00:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2013-03-28:/2013/03/28/ros-groovy-on-fedora-18.html</id><summary type="html">&lt;p&gt;&lt;a class="reference external" href="http://ankursinha.in/wp/wp-content/uploads/2013/03/ros-groovy.png"&gt;&lt;img alt="ros-groovy" src="http://ankursinha.in/wp/wp-content/uploads/2013/03/ros-groovy.png?w=300" /&gt;&lt;/a&gt;&lt;/p&gt;
+</content><category term="Research"></category><category term="Robotics"></category></entry><entry><title>ROS groovy on Fedora 18</title><link href="http://ankursinha.in/2013/03/28/ros-groovy-on-fedora-18.html" rel="alternate"></link><published>2013-03-28T04:33:00+00:00</published><updated>2013-03-28T04:33:00+00:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2013-03-28:/2013/03/28/ros-groovy-on-fedora-18.html</id><summary type="html">&lt;p&gt;&lt;a class="reference external" href="http://ankursinha.in/wp/wp-content/uploads/2013/03/ros-groovy.png"&gt;&lt;img alt="ros-groovy" src="http://ankursinha.in/wp/wp-content/uploads/2013/03/ros-groovy.png?w=300" /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;div class="section" id="ros-what-is-ros"&gt;
 &lt;h2&gt;ROS? What is ROS?&lt;/h2&gt;
 &lt;p&gt;ROS is the &lt;a class="reference external" href="http://www.ros.org/"&gt;Robot Operating System&lt;/a&gt;. It provides a huge set of software
@@ -268,4 +268,4 @@ and shut down twice. Keep your laptop near an AC when you build it!)&lt;/p&gt;
 &lt;p&gt;A few unsolved errors persist. I've asked questions on the &lt;a class="reference external" href="http://answers.ros.org/questions/"&gt;ros askbot
 instance&lt;/a&gt;. I will file bugs upstream if nothing comes of it in a while.&lt;/p&gt;
 &lt;/div&gt;
-</content><category term="Robotics"></category></entry></feed>
+</content><category term="Tech"></category><category term="Robotics"></category></entry></feed>
