@@ -20,6 +20,7 @@ dabble in &lt;a class="reference external" href="https://en.wikipedia.org/wiki/V
     &lt;span class="k"&gt;let&lt;/span&gt; this_file_type &lt;span class="p"&gt;=&lt;/span&gt; &amp;amp;&lt;span class="k"&gt;filetype&lt;/span&gt;
     &lt;span class="k"&gt;if&lt;/span&gt; this_file_type &lt;span class="p"&gt;!=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;mail&amp;quot;&lt;/span&gt;
         echo &lt;span class="s2"&gt;&amp;quot;This is not a mail file! Not running!&amp;quot;&lt;/span&gt;
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="m"&gt;1&lt;/span&gt;
     &lt;span class="k"&gt;endif&lt;/span&gt;
 &lt;span class="c"&gt;
     &amp;quot; Get the current signature's line&lt;/span&gt;
