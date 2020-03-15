@@ -5,21 +5,21 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://ankursinha.in/</loc>
-<lastmod>2019-10-28T12:36:51-00:00</lastmod>
+<lastmod>2020-03-15T10:22:38-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://ankursinha.in/tags.html</loc>
-<lastmod>2019-10-28T12:36:51-00:00</lastmod>
+<lastmod>2020-03-15T10:22:38-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://ankursinha.in/categories.html</loc>
-<lastmod>2019-10-28T12:36:51-00:00</lastmod>
+<lastmod>2020-03-15T10:22:38-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -41,6 +41,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>http://ankursinha.in/pages/04-current-work.html</loc>
 <lastmod>2018-06-26T12:27:40+01:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://ankursinha.in/2020/03/15/a-vimscript-function-to-select-signatures-in-neomutt.html</loc>
+<lastmod>2020-03-15T09:39:20+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
@@ -2448,7 +2455,35 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://ankursinha.in/category/tech/</loc>
-<lastmod>2019-01-27T15:11:35-00:01</lastmod>
+<lastmod>2020-03-15T09:39:20-00:01</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://ankursinha.in/tag/planet/</loc>
+<lastmod>2020-03-15T09:39:20-00:01</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://ankursinha.in/tag/vim/</loc>
+<lastmod>2020-03-15T09:39:20-00:01</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://ankursinha.in/tag/neomutt/</loc>
+<lastmod>2020-03-15T09:39:20-00:01</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://ankursinha.in/tag/fedora/</loc>
+<lastmod>2020-03-15T09:39:20-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -2462,13 +2497,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://ankursinha.in/tag/searching/</loc>
-<lastmod>2019-01-27T15:11:35-00:01</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<loc>http://ankursinha.in/tag/fedora/</loc>
 <lastmod>2019-01-27T15:11:35-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
@@ -2518,13 +2546,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://ankursinha.in/tag/neurofedora/</loc>
-<lastmod>2019-01-13T20:55:44-00:01</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<loc>http://ankursinha.in/tag/planet/</loc>
 <lastmod>2019-01-13T20:55:44-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
@@ -2700,13 +2721,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://ankursinha.in/tag/latex/</loc>
-<lastmod>2017-09-19T00:40:41-00:01</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<loc>http://ankursinha.in/tag/vim/</loc>
 <lastmod>2017-09-19T00:40:41-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
@@ -3043,7 +3057,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://ankursinha.in/author/ankur.html</loc>
-<lastmod>2019-01-27T15:11:35-00:01</lastmod>
+<lastmod>2020-03-15T09:39:20-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>

@@ -1,5 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>ankursinha.in/blog</title><link href="http://ankursinha.in/" rel="alternate"></link><link href="http://ankursinha.in/feeds/all-en.atom.xml" rel="self"></link><id>http://ankursinha.in/</id><updated>2019-01-27T15:11:35+00:00</updated><subtitle>neuroscience/fedora/musings</subtitle><entry><title>Useful DuckDuckGo bangs</title><link href="http://ankursinha.in/2019/01/27/useful-duckduckgo-bangs.html" rel="alternate"></link><published>2019-01-27T15:11:35+00:00</published><updated>2019-01-27T15:11:35+00:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2019-01-27:/2019/01/27/useful-duckduckgo-bangs.html</id><summary type="html">&lt;p class="first last"&gt;I switched to &lt;a class="reference external" href="https://duckduckgo.com"&gt;DuckDuckGo&lt;/a&gt; some time ago, and I've not had to look
+<feed xmlns="http://www.w3.org/2005/Atom"><title>ankursinha.in/blog</title><link href="http://ankursinha.in/" rel="alternate"></link><link href="http://ankursinha.in/feeds/all-en.atom.xml" rel="self"></link><id>http://ankursinha.in/</id><updated>2020-03-15T09:39:20+00:00</updated><subtitle>neuroscience/fedora/musings</subtitle><entry><title>A Vim script function to select signatures in Neomutt</title><link href="http://ankursinha.in/2020/03/15/a-vimscript-function-to-select-signatures-in-neomutt.html" rel="alternate"></link><published>2020-03-15T09:39:20+00:00</published><updated>2020-03-15T09:39:20+00:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2020-03-15:/2020/03/15/a-vimscript-function-to-select-signatures-in-neomutt.html</id><summary type="html">&lt;p class="first last"&gt;I was dabbling in &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Vim_(text_editor)#Vim_script"&gt;Vim script&lt;/a&gt; and wrote myself a simple function to
+select signatures when composing e-mails in &lt;a class="reference external" href="https://neomutt.org/"&gt;Neomutt&lt;/a&gt;.&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;I've been using &lt;a class="reference external" href="https://neomutt.org/"&gt;Neomutt&lt;/a&gt; for a &lt;a class="reference external" href="http://ankursinha.in/2017/12/16/transitioning-to-neomutt-and-friends-for-e-mail.html"&gt;while now&lt;/a&gt;.
+It allows me to stick to the &lt;a class="reference external" href="https://www.byobu.org/"&gt;Byobu&lt;/a&gt; based terminal workflow that I'm used to.
+Most importantly, it lets me use &lt;a class="reference external" href="https://www.vim.org/"&gt;Vim&lt;/a&gt; to write my e-mails, so I don't need to
+really learn another tool now.&lt;/p&gt;
+&lt;p&gt;&lt;a class="reference external" href="https://neomutt.org/"&gt;Neomutt&lt;/a&gt; can be configured to add a signature at the end of the e-mail, and one
+can select a signature depending on various parameters, such as the senders
+address using &lt;a class="reference external" href="https://neomutt.org/man/neomuttrc"&gt;hooks&lt;/a&gt;. However,
+sometimes, one does need to select other signatures.&lt;/p&gt;
+&lt;p&gt;The simple &lt;a class="reference external" href="https://www.vim.org/"&gt;Vim&lt;/a&gt; way, of course, is to simply delete the last few lines, and
+then read in the new signature using &lt;code&gt;:r &amp;lt;filename&amp;gt;&lt;/code&gt;. This takes a few
+more key strokes than one would like (well, than I like) so I thought I'd
+dabble in &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Vim_(text_editor)#Vim_script"&gt;Vim script&lt;/a&gt; a bit and automate it. Here's what I've come up with:&lt;/p&gt;
+&lt;pre class="code vim literal-block"&gt;
+&lt;span class="c"&gt;&amp;quot; A function to load the right signature when I'm using neomutt&lt;/span&gt;
+&lt;span class="k"&gt;function&lt;/span&gt;&lt;span class="p"&gt;!&lt;/span&gt; LoadSignature&lt;span class="p"&gt;(&lt;/span&gt;signature&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="c"&gt;    &amp;quot; Only work for mail files&lt;/span&gt;
+    &lt;span class="k"&gt;let&lt;/span&gt; this_file_type &lt;span class="p"&gt;=&lt;/span&gt; &amp;amp;&lt;span class="k"&gt;filetype&lt;/span&gt;
+    &lt;span class="k"&gt;if&lt;/span&gt; this_file_type &lt;span class="p"&gt;!=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;mail&amp;quot;&lt;/span&gt;
+        echo &lt;span class="s2"&gt;&amp;quot;This is not a mail file! Not running!&amp;quot;&lt;/span&gt;
+    &lt;span class="k"&gt;endif&lt;/span&gt;
+&lt;span class="c"&gt;
+    &amp;quot; Get the current signature's line&lt;/span&gt;
+&lt;span class="c"&gt;    &amp;quot; Go to last line&lt;/span&gt;
+    &lt;span class="k"&gt;let&lt;/span&gt; saved_cursor_position &lt;span class="p"&gt;=&lt;/span&gt; getpos&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'.'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="c"&gt;    &amp;quot; Set cursor to file end and search backwards&lt;/span&gt;
+    &lt;span class="k"&gt;call&lt;/span&gt; cursor&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="m"&gt;99999999999999999999&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="m"&gt;0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="k"&gt;let&lt;/span&gt; &lt;span class="k"&gt;l&lt;/span&gt;:sigstart &lt;span class="p"&gt;=&lt;/span&gt; search&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'-- '&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'b'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="c"&gt;    &amp;quot; Confirm that the line was found&lt;/span&gt;
+    &lt;span class="k"&gt;if&lt;/span&gt; sigstart &lt;span class="p"&gt;==&lt;/span&gt; &lt;span class="m"&gt;0&lt;/span&gt;
+        echo &lt;span class="s2"&gt;&amp;quot;No signatures detected.&amp;quot;&lt;/span&gt;
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="m"&gt;1&lt;/span&gt;
+    &lt;span class="k"&gt;endif&lt;/span&gt;
+&lt;span class="c"&gt;
+    &amp;quot; Check if signature file exists&lt;/span&gt;
+    &lt;span class="k"&gt;let&lt;/span&gt; &lt;span class="k"&gt;l&lt;/span&gt;:sigdir &lt;span class="p"&gt;=&lt;/span&gt; escape&lt;span class="p"&gt;(&lt;/span&gt;expand&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'$HOME'&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="s1"&gt;'\'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; . &lt;span class="s2"&gt;&amp;quot;/Sync/99_private/neomuttdir/&amp;quot;&lt;/span&gt;
+    &lt;span class="k"&gt;let&lt;/span&gt; &lt;span class="k"&gt;l&lt;/span&gt;:sigfile &lt;span class="p"&gt;=&lt;/span&gt; sigdir . &lt;span class="k"&gt;a&lt;/span&gt;:signature . &lt;span class="s2"&gt;&amp;quot;.sig&amp;quot;&lt;/span&gt;
+    &lt;span class="k"&gt;if&lt;/span&gt; filereadable&lt;span class="p"&gt;(&lt;/span&gt;sigfile&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="c"&gt;        &amp;quot; delete the current lines after the &amp;quot;-- &amp;quot; line&lt;/span&gt;
+        &lt;span class="k"&gt;let&lt;/span&gt; &lt;span class="k"&gt;l&lt;/span&gt;:delstart &lt;span class="p"&gt;=&lt;/span&gt; sigstart &lt;span class="p"&gt;+&lt;/span&gt; &lt;span class="m"&gt;1&lt;/span&gt;
+        execute delstart . &lt;span class="s2"&gt;&amp;quot;,$d&amp;quot;&lt;/span&gt;
+&lt;span class="c"&gt;        &amp;quot; Read the new signature&lt;/span&gt;
+        execute sigstart . &lt;span class="s2"&gt;&amp;quot;read &amp;quot;&lt;/span&gt; . sigfile
+&lt;span class="c"&gt;        &amp;quot; Return cursor to wherever it was&lt;/span&gt;
+        &lt;span class="k"&gt;call&lt;/span&gt; setpos&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'.'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; saved_cursor_position&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="k"&gt;else&lt;/span&gt;
+        echo &lt;span class="s2"&gt;&amp;quot;File &amp;quot;&lt;/span&gt; . sigfile . &lt;span class="s2"&gt;&amp;quot; not found!&amp;quot;&lt;/span&gt;
+        echo &lt;span class="s2"&gt;&amp;quot;Available signature files:\n&amp;quot;&lt;/span&gt; . globpath&lt;span class="p"&gt;(&lt;/span&gt;sigdir&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'*.sig'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="k"&gt;endif&lt;/span&gt;
+&lt;span class="k"&gt;endfunction&lt;/span&gt;
+&lt;/pre&gt;
+&lt;p&gt;So, adding this to &lt;code&gt;~/.vimrc&lt;/code&gt; would let one run &lt;code&gt;:call
+LoadSignature('signature')&lt;/code&gt; in &lt;a class="reference external" href="https://www.vim.org/"&gt;Vim&lt;/a&gt; to select a signature. Each signature is a
+different file with a &lt;code&gt;.sig&lt;/code&gt; file extension in the location given by
+&lt;code&gt;sigdir&lt;/code&gt;, and the name of the file is the argument that needs to be given
+to the function. If the signature file cannot be found, it'll list available ones.&lt;/p&gt;
+&lt;p&gt;It's quite simple really, and I'm sure it can be made better, but it works.&lt;/p&gt;
+</content><category term="Tech"></category><category term="Planet"></category><category term="Vim"></category><category term="Neomutt"></category><category term="Fedora"></category></entry><entry><title>Useful DuckDuckGo bangs</title><link href="http://ankursinha.in/2019/01/27/useful-duckduckgo-bangs.html" rel="alternate"></link><published>2019-01-27T15:11:35+00:00</published><updated>2019-01-27T15:11:35+00:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2019-01-27:/2019/01/27/useful-duckduckgo-bangs.html</id><summary type="html">&lt;p class="first last"&gt;I switched to &lt;a class="reference external" href="https://duckduckgo.com"&gt;DuckDuckGo&lt;/a&gt; some time ago, and I've not had to look
 back. In this post, I document some of the &lt;a class="reference external" href="https://duckduckgo.com/bang"&gt;&amp;quot;bangs&amp;quot;&lt;/a&gt; I find useful.&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;If you haven't moved to &lt;a class="reference external" href="https://duckduckgo.com"&gt;DuckDuckGo&lt;/a&gt; yet, &lt;a class="reference external" href="https://www.quora.com/Why-should-I-use-DuckDuckGo-instead-of-Google/answer/Gabriel-Weinberg?share=9560e87d&amp;amp;srid=pJKz"&gt;here's&lt;/a&gt;
 why you should consider it. I moved to it a while back, and I've not looked
@@ -444,76 +502,4 @@ complete list &lt;a class="reference external" href="https://src.fedoraproject.o
 being worked on is listed &lt;a class="reference external" href="https://pagure.io/neuro-sig/NeuroFedora/issues"&gt;on our Pagure project instance&lt;/a&gt;. If you use software that
 is not on our list, please suggest it to us using the &lt;a class="reference external" href="https://goo.gl/forms/j6AJ82yOh78MPxby1"&gt;suggestion form&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Feedback is always welcome. You can get in touch with us &lt;a class="reference external" href="https://fedoraproject.org/wiki/SIGs/NeuroFedora#Communication_and_getting_help"&gt;here&lt;/a&gt;.&lt;/p&gt;
-</content><category term="Research"></category><category term="Community"></category><category term="Computational neuroscience"></category><category term="Free software"></category><category term="NEST"></category><category term="Fedora"></category><category term="NeuroFedora"></category><category term="Planet"></category></entry><entry><title>NeuroFedora update: week 45</title><link href="http://ankursinha.in/2018/11/10/neurofedora-update-week-45.html" rel="alternate"></link><published>2018-11-10T11:20:00+00:00</published><updated>2018-11-10T11:20:00+00:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2018-11-10:/2018/11/10/neurofedora-update-week-45.html</id><summary type="html">&lt;p class="first last"&gt;A quick update on &lt;a class="reference external" href="https://neuro.fedoraproject.org"&gt;NeuroFedora&lt;/a&gt; at the end of week 45. More software,
-some housekeeping, and a few upstream tickets.&lt;/p&gt;
-</summary><content type="html">&lt;div class="figure"&gt;
-&lt;a class="reference external image-reference" href="http://ankursinha.in/images/20181005-NeuroFedoraLogo01.png"&gt;&lt;img alt="NeuroFedora logo!" class="text-center img-responsive pagination-centered" src="http://ankursinha.in/images/20181005-NeuroFedoraLogo01.png" style="width: 30%;" /&gt;&lt;/a&gt;
-&lt;p class="caption"&gt;&lt;a class="reference external" href="https://pagure.io/design/issue/602"&gt;NeuroFedora logo by Terezahl from the Fedora Design Team&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;p&gt;In week 45:&lt;/p&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://src.fedoraproject.org/rpms/libneurosim"&gt;libneurosim&lt;/a&gt; was pushed to the stable repositories. &lt;a class="reference external" href="https://github.com/nest/nest-simulator/wiki/issue-labeling-scheme"&gt;NEST&lt;/a&gt; does not build with
-it yet, because &lt;a class="reference external" href="https://github.com/nest/nest-simulator/wiki/issue-labeling-scheme"&gt;NEST&lt;/a&gt; tries to link with both &lt;a class="reference external" href="https://src.fedoraproject.org/rpms/libneurosim"&gt;libneurosim&lt;/a&gt; and its Python
-bindings during the build. I've filed a &lt;a class="reference external" href="https://github.com/nest/nest-simulator/issues/1063"&gt;ticket upstream&lt;/a&gt;  to clarify if this
-is correct. I have already &lt;a class="reference external" href="https://github.com/INCF/libneurosim/issues/12"&gt;filed a PR&lt;/a&gt; that puts the &lt;a class="reference external" href="https://src.fedoraproject.org/rpms/libneurosim"&gt;libneurosim&lt;/a&gt;
-Python bindings in the right location.&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://src.fedoraproject.org/rpms/python-libNeuroML"&gt;python-libNeuroML&lt;/a&gt; was pushed to the stable repositories and is now ready to use.&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://pagure.io/neuro-sig/NeuroFedora/issue/56"&gt;biosig&lt;/a&gt; is a WIP. It required &lt;a class="reference external" href="https://src.fedoraproject.org/rpms/libb64"&gt;libb64&lt;/a&gt; which was approved this week and is
-currently in testing.&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://src.fedoraproject.org/rpms/python-duecredit"&gt;python-duecredit&lt;/a&gt; is currently in testing. It should be pushed to stable in a
-few days.&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://src.fedoraproject.org/rpms/python-visionegg-quest"&gt;python-visionegg-quest&lt;/a&gt; is currently in testing. It should be pushed to stable in a
-few days.&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://src.fedoraproject.org/rpms/python-nibabel"&gt;python-nibabel&lt;/a&gt; was updated to the latest version and is currently in
-testing.&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://src.fedoraproject.org/rpms/python-grabbit"&gt;python-grabbit&lt;/a&gt; was updated to the latest version and is currently in
-testing.&lt;/li&gt;
-&lt;li&gt;On the way to building &lt;a class="reference external" href="https://pagure.io/neuro-sig/NeuroFedora/issue/3"&gt;fsleyes&lt;/a&gt;, &lt;a class="reference external" href="https://src.fedoraproject.org/rpms/python-fslpy"&gt;fslpy&lt;/a&gt;, &lt;a class="reference external" href="https://src.fedoraproject.org/rpms/python-fsleyes-props"&gt;fsleyes-props&lt;/a&gt;, &lt;a class="reference external" href="https://src.fedoraproject.org/rpms/python-fsleyes-widgets"&gt;fsleyes-widgets&lt;/a&gt;
-have all been reviewed, approved, and are now in testing.&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://src.fedoraproject.org/rpms/python-nitime"&gt;python-nitime&lt;/a&gt; was approved and is in testing.&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://src.fedoraproject.org/rpms/python-nilearn"&gt;python-nilearn&lt;/a&gt; was approved and is in testing.&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://src.fedoraproject.org/rpms/python-petlink"&gt;python-petlink&lt;/a&gt; was approved and is in testing. This also required an update
-to &lt;a class="reference external" href="https://src.fedoraproject.org/rpms/python-simplewrap"&gt;python-simplewrap&lt;/a&gt;. Upstream was really quick to &lt;a class="reference external" href="https://github.com/spedemon/petlink/issues/2"&gt;make the required fixes
-for us&lt;/a&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;All new packages must go through &lt;a class="reference external" href="https://getfedora.org"&gt;Fedora&lt;/a&gt;'s QA (testing) process before being
-made available to end users in the repositories. You can help test these
-packages following the instructions &lt;a class="reference external" href="https://fedoraproject.org/wiki/QA:Updates_Testing?rd=QA/Updates_Testing"&gt;here&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;A lot of the software we worked on this week was related to neuro-imaging, and
-fortunately, a lot of it was Python based which is usually quite simple to
-build. The coming week, though, I intend to work on &lt;a class="reference external" href="https://pagure.io/neuro-sig/NeuroFedora/issue/27"&gt;NEURON&lt;/a&gt;. Unfortunately,
-&lt;a class="reference external" href="https://pagure.io/neuro-sig/NeuroFedora/issue/27"&gt;NEURON&lt;/a&gt; isn't the easiest to build:&lt;/p&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;It depends on &lt;a class="reference external" href="https://github.com/neuronsimulator/iv"&gt;iv&lt;/a&gt;, which bundles a really old version of &lt;a class="reference external" href="http://www.simplesystems.org/libtiff/"&gt;libtiff&lt;/a&gt;. I've filed
-a ticket &lt;a class="reference external" href="https://github.com/neuronsimulator/iv/issues/3"&gt;here&lt;/a&gt; about
-this, but have not had the time to port the code to the newest version of
-&lt;a class="reference external" href="http://www.simplesystems.org/libtiff/"&gt;libtiff&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://pagure.io/neuro-sig/NeuroFedora/issue/27"&gt;NEURON&lt;/a&gt; bundles &lt;a class="reference external" href="https://src.fedoraproject.org/rpms/Random123"&gt;Random123&lt;/a&gt;, which was relatively easy to remove. However,
-&lt;a class="reference external" href="https://pagure.io/neuro-sig/NeuroFedora/issue/27"&gt;NEURON&lt;/a&gt; also bundles a really old version of the &lt;a class="reference external" href="https://computation.llnl.gov/projects/sundials"&gt;SUNDIALS&lt;/a&gt; libraries, and
-updating the code to use the latest versions is not straightforward. I have
-filed an issue about it &lt;a class="reference external" href="https://github.com/neuronsimulator/nrn/issues/113"&gt;here&lt;/a&gt; now. This is based on
-my initial investigations into building &lt;a class="reference external" href="https://pagure.io/neuro-sig/NeuroFedora/issue/27"&gt;NEURON&lt;/a&gt;. So there's a chance that
-more work will need to be done once these issues are solved.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr class="docutils" /&gt;
-&lt;p&gt;There is a lot of software available in &lt;a class="reference external" href="https://neuro.fedoraproject.org"&gt;NeuroFedora&lt;/a&gt; already. You can see the
-complete list &lt;a class="reference external" href="https://src.fedoraproject.org/group/neuro-sig"&gt;here on Fedora SCM&lt;/a&gt;. Software that is currently
-being worked on is listed &lt;a class="reference external" href="https://pagure.io/neuro-sig/NeuroFedora/issues"&gt;on our Pagure project instance&lt;/a&gt;. If you use software that
-is not on our list, please suggest it to us using the &lt;a class="reference external" href="https://goo.gl/forms/j6AJ82yOh78MPxby1"&gt;suggestion form&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Feedback is always welcome. You can get in touch with us &lt;a class="reference external" href="https://fedoraproject.org/wiki/SIGs/NeuroFedora#Communication_and_getting_help"&gt;here&lt;/a&gt;.&lt;/p&gt;
-&lt;div class="section" id="the-fedora-community-enabling-open-science"&gt;
-&lt;h2&gt;The Fedora community: enabling Open Science&lt;/h2&gt;
-&lt;p&gt;While the &lt;a class="reference external" href="https://neuro.fedoraproject.org"&gt;NeuroFedora&lt;/a&gt; SIG is actively working on these packages, it would not
-be possible without our friends in the &lt;a class="reference external" href="https://getfedora.org"&gt;Fedora&lt;/a&gt; community that have helped with
-the various stages of the package maintenance pipeline.&lt;/p&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://fedoraproject.org/wiki/User:Eclipseo"&gt;eclipseo&lt;/a&gt;, &lt;a class="reference external" href="https://fedoraproject.org/wiki/User:Churchyard"&gt;churchyard&lt;/a&gt;, &lt;a class="reference external" href="https://fedoraproject.org/wiki/User:Blackfile"&gt;blackfile&lt;/a&gt;, &lt;a class="reference external" href="https://fedoraproject.org/wiki/User:Zbyszek"&gt;zbyszek&lt;/a&gt; have reviewed these packages
-before approving them for inclusion in &lt;a class="reference external" href="https://getfedora.org"&gt;Fedora&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;The awesome folks at &lt;a class="reference external" href="https://pagure.io/releng"&gt;releng&lt;/a&gt; have, of course, been super quick with SCM
-requests.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;We're grateful to the various upstreams that we're bothering with issues, and
-everyone in the &lt;a class="reference external" href="https://getfedora.org"&gt;Fedora&lt;/a&gt; community (including people I may have missed) for
-enabling us to further &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Open_science"&gt;Open Science&lt;/a&gt; via &lt;a class="reference external" href="https://getfedora.org"&gt;Fedora&lt;/a&gt;.&lt;/p&gt;
-&lt;/div&gt;
 </content><category term="Research"></category><category term="Community"></category><category term="Computational neuroscience"></category><category term="Free software"></category><category term="NEST"></category><category term="Fedora"></category><category term="NeuroFedora"></category><category term="Planet"></category></entry></feed>

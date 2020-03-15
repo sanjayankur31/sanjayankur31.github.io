@@ -52,12 +52,12 @@
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="gh"&gt;Hello World&lt;/span&gt;
 &lt;span class="gh"&gt;###########&lt;/span&gt;
 
-&lt;span class="nc"&gt;:date:&lt;/span&gt; &lt;span class="nf"&gt;2015-03-02 10:39&lt;/span&gt;
-&lt;span class="nc"&gt;:tags:&lt;/span&gt; &lt;span class="nf"&gt;Pelican, Wordpress&lt;/span&gt;
-&lt;span class="nc"&gt;:category:&lt;/span&gt; &lt;span class="nf"&gt;Tech&lt;/span&gt;
-&lt;span class="nc"&gt;:slug:&lt;/span&gt; &lt;span class="nf"&gt;hello-world&lt;/span&gt;
-&lt;span class="nc"&gt;:author:&lt;/span&gt; &lt;span class="nf"&gt;ankur&lt;/span&gt;
-&lt;span class="nc"&gt;:lang:&lt;/span&gt; &lt;span class="nf"&gt;en&lt;/span&gt;
+&lt;span class="nc"&gt;:date:&lt;/span&gt; 2015-03-02 10:39
+&lt;span class="nc"&gt;:tags:&lt;/span&gt; Pelican, Wordpress
+&lt;span class="nc"&gt;:category:&lt;/span&gt; Tech
+&lt;span class="nc"&gt;:slug:&lt;/span&gt; hello-world
+&lt;span class="nc"&gt;:author:&lt;/span&gt; ankur
+&lt;span class="nc"&gt;:lang:&lt;/span&gt; en
 
 Hello World!
 &lt;/pre&gt;&lt;/div&gt;

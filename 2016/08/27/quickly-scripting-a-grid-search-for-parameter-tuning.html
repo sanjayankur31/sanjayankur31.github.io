@@ -183,9 +183,9 @@ along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.
 
     <span class="k">def</span> <span class="nf">usage</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Print usage.&quot;&quot;&quot;</span>
-        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Usage:&quot;</span><span class="p">,</span> <span class="nb">file</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="p">)</span>
-        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;python3 grid_search.py &lt;branch&gt;&quot;</span><span class="p">,</span> <span class="nb">file</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="p">)</span>
-        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Branch MUST be specified.&quot;</span><span class="p">,</span> <span class="nb">file</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Usage:&quot;</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;python3 grid_search.py &lt;branch&gt;&quot;</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Branch MUST be specified.&quot;</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">setup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">branch</span><span class="p">,</span> <span class="n">range_dict</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Set it up.&quot;&quot;&quot;</span>
@@ -200,8 +200,8 @@ along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.
             <span class="bp">self</span><span class="o">.</span><span class="n">param1_min</span> <span class="o">=</span> <span class="n">range_dict</span><span class="p">[</span><span class="s1">'param1'</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">param1_max</span> <span class="o">=</span> <span class="n">range_dict</span><span class="p">[</span><span class="s1">'param1'</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">param1_increment</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="k">print</span><span class="p">(</span><span class="s2">&quot;param1 not found in dict. Exiting.&quot;</span><span class="p">,</span> <span class="nb">file</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="p">)</span>
-            <span class="k">return</span> <span class="bp">False</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;param1 not found in dict. Exiting.&quot;</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">False</span>
 
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">range_dict</span><span class="p">[</span><span class="s1">'param2'</span><span class="p">])</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">param2_increment</span> <span class="o">=</span> <span class="mf">0.5</span>
@@ -212,8 +212,8 @@ along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.
             <span class="bp">self</span><span class="o">.</span><span class="n">param2_min</span> <span class="o">=</span> <span class="n">range_dict</span><span class="p">[</span><span class="s1">'param2'</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">param2_max</span> <span class="o">=</span> <span class="n">range_dict</span><span class="p">[</span><span class="s1">'param2'</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">param2_increment</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="k">print</span><span class="p">(</span><span class="s2">&quot;param2 not found in dict. Exiting.&quot;</span><span class="p">,</span> <span class="nb">file</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="p">)</span>
-            <span class="k">return</span> <span class="bp">False</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;param2 not found in dict. Exiting.&quot;</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">False</span>
 
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">range_dict</span><span class="p">[</span><span class="s1">'param3'</span><span class="p">])</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">param3_increment</span> <span class="o">=</span> <span class="mf">0.5</span>
@@ -224,15 +224,15 @@ along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.
             <span class="bp">self</span><span class="o">.</span><span class="n">param3_min</span> <span class="o">=</span> <span class="n">range_dict</span><span class="p">[</span><span class="s1">'param3'</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">param3_max</span> <span class="o">=</span> <span class="n">range_dict</span><span class="p">[</span><span class="s1">'param3'</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">param3_increment</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="k">print</span><span class="p">(</span><span class="s2">&quot;param3 not found in dict. Exiting.&quot;</span><span class="p">,</span> <span class="nb">file</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="p">)</span>
-            <span class="k">return</span> <span class="bp">False</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;param3 not found in dict. Exiting.&quot;</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">False</span>
 
-        <span class="k">return</span> <span class="bp">True</span>
+        <span class="k">return</span> <span class="kc">True</span>
 
     <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Run.&quot;&quot;&quot;</span>
         <span class="c1"># checkout the branch</span>
-        <span class="n">git_args</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;checkout&quot;</span><span class="p">,</span> <span class="s2">&quot;-b&quot;</span><span class="p">,</span> <span class="s2">&quot;grid_search-{}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+        <span class="n">git_args</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;checkout&quot;</span><span class="p">,</span> <span class="s2">&quot;-b&quot;</span><span class="p">,</span> <span class="s2">&quot;grid_search-</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
             <span class="nb">str</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">())),</span> <span class="bp">self</span><span class="o">.</span><span class="n">branch</span><span class="p">]</span>
         <span class="n">subprocess</span><span class="o">.</span><span class="n">call</span><span class="p">([</span><span class="s1">'git'</span><span class="p">]</span> <span class="o">+</span> <span class="n">git_args</span><span class="p">)</span>
 
@@ -241,24 +241,24 @@ along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.
                 <span class="k">for</span> <span class="n">param3</span> <span class="ow">in</span> <span class="n">numpy</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">param3_min</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">param3_max</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">param3_increment</span><span class="p">):</span>
 
                     <span class="n">sed_args_param1</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'sed'</span><span class="p">,</span> <span class="s1">'-i'</span><span class="p">,</span>
-                                <span class="s2">&quot;s/param1 = .*$/param1 = {}/&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">param1</span><span class="p">),</span>
+                                <span class="s2">&quot;s/param1 = .*$/param1 = </span><span class="si">{}</span><span class="s2">/&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">param1</span><span class="p">),</span>
                                 <span class="bp">self</span><span class="o">.</span><span class="n">source</span><span class="p">]</span>
                     <span class="n">subprocess</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="n">sed_args_param1</span><span class="p">)</span>
 
                     <span class="n">sed_args_param2</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'sed'</span><span class="p">,</span> <span class="s1">'-i'</span><span class="p">,</span>
-                                <span class="s2">&quot;s/param2 = .*$/param2 = {}/&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">param2</span><span class="p">),</span>
+                                <span class="s2">&quot;s/param2 = .*$/param2 = </span><span class="si">{}</span><span class="s2">/&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">param2</span><span class="p">),</span>
                                 <span class="bp">self</span><span class="o">.</span><span class="n">source</span><span class="p">]</span>
                     <span class="n">subprocess</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="n">sed_args_param2</span><span class="p">)</span>
 
                     <span class="n">sed_args_param3</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'sed'</span><span class="p">,</span> <span class="s1">'-i'</span><span class="p">,</span>
-                                <span class="s2">&quot;s/param3 = .*$/param3 = {}/&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">param3</span><span class="p">),</span>
+                                <span class="s2">&quot;s/param3 = .*$/param3 = </span><span class="si">{}</span><span class="s2">/&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">param3</span><span class="p">),</span>
                                 <span class="bp">self</span><span class="o">.</span><span class="n">source</span><span class="p">]</span>
                     <span class="n">subprocess</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="n">sed_args_param3</span><span class="p">)</span>
 
                     <span class="n">git_args</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;add&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">source</span><span class="p">]</span>
                     <span class="n">subprocess</span><span class="o">.</span><span class="n">call</span><span class="p">([</span><span class="s1">'git'</span><span class="p">]</span> <span class="o">+</span> <span class="n">git_args</span><span class="p">)</span>
 
-                    <span class="n">commit_msg</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;{} {} {} {}&quot;&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                    <span class="n">commit_msg</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span><span class="si">{}</span><span class="s2"> </span><span class="si">{}</span><span class="s2"> </span><span class="si">{}</span><span class="s2"> </span><span class="si">{}</span><span class="s2">&quot;&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
                         <span class="nb">str</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()),</span> <span class="n">param1</span><span class="p">,</span>
                         <span class="n">param2</span><span class="p">,</span> <span class="n">param3</span><span class="p">)</span>
 
@@ -451,16 +451,28 @@ $ <span class="k">for</span> commit in fd6a7fa 33c95be 51f96c1 .. e8c106e eaa734
   </ul>
 <h4><i class="fas fa-tags fa-fw fa-lg"></i> Tags</h4>
 <p class="tag-cloud">
-    <span class="tag-3">
-      <a href="http://ankursinha.in/tag/matlab/">
+    <span class="tag-2">
+      <a href="http://ankursinha.in/tag/programming/">
           <i class="fas fa-tag"></i>
-        Matlab
+        Programming
       </a>
     </span>
     <span class="tag-2">
-      <a href="http://ankursinha.in/tag/computational-neuroscience/">
+      <a href="http://ankursinha.in/tag/nest/">
           <i class="fas fa-tag"></i>
-        Computational neuroscience
+        NEST
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="http://ankursinha.in/tag/irc/">
+          <i class="fas fa-tag"></i>
+        IRC
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="http://ankursinha.in/tag/python/">
+          <i class="fas fa-tag"></i>
+        Python
       </a>
     </span>
     <span class="tag-2">
@@ -470,135 +482,15 @@ $ <span class="k">for</span> commit in fd6a7fa 33c95be 51f96c1 .. e8c106e eaa734
       </a>
     </span>
     <span class="tag-4">
+      <a href="http://ankursinha.in/tag/reproducible-research/">
+          <i class="fas fa-tag"></i>
+        Reproducible research
+      </a>
+    </span>
+    <span class="tag-4">
       <a href="http://ankursinha.in/tag/tex/">
           <i class="fas fa-tag"></i>
         TeX
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="http://ankursinha.in/tag/events/">
-          <i class="fas fa-tag"></i>
-        Events
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="http://ankursinha.in/tag/neurofedora/">
-          <i class="fas fa-tag"></i>
-        NeuroFedora
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="http://ankursinha.in/tag/android/">
-          <i class="fas fa-tag"></i>
-        Android
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="http://ankursinha.in/tag/flatpak/">
-          <i class="fas fa-tag"></i>
-        FlatPak
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="http://ankursinha.in/tag/linux/">
-          <i class="fas fa-tag"></i>
-        Linux
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="http://ankursinha.in/tag/nest/">
-          <i class="fas fa-tag"></i>
-        NEST
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="http://ankursinha.in/tag/bash/">
-          <i class="fas fa-tag"></i>
-        Bash
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="http://ankursinha.in/tag/irc/">
-          <i class="fas fa-tag"></i>
-        IRC
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="http://ankursinha.in/tag/numpy/">
-          <i class="fas fa-tag"></i>
-        Numpy
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="http://ankursinha.in/tag/vim/">
-          <i class="fas fa-tag"></i>
-        Vim
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="http://ankursinha.in/tag/taskwarrior/">
-          <i class="fas fa-tag"></i>
-        Taskwarrior
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="http://ankursinha.in/tag/gnome/">
-          <i class="fas fa-tag"></i>
-        GNOME
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="http://ankursinha.in/tag/programming/">
-          <i class="fas fa-tag"></i>
-        Programming
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="http://ankursinha.in/tag/community/">
-          <i class="fas fa-tag"></i>
-        Community
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="http://ankursinha.in/tag/planet/">
-          <i class="fas fa-tag"></i>
-        Planet
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="http://ankursinha.in/tag/sumatra/">
-          <i class="fas fa-tag"></i>
-        Sumatra
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="http://ankursinha.in/tag/free-software/">
-          <i class="fas fa-tag"></i>
-        Free software
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="http://ankursinha.in/tag/pelican/">
-          <i class="fas fa-tag"></i>
-        Pelican
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="http://ankursinha.in/tag/fedora/">
-          <i class="fas fa-tag"></i>
-        Fedora
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="http://ankursinha.in/tag/robotics/">
-          <i class="fas fa-tag"></i>
-        Robotics
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="http://ankursinha.in/tag/neuron/">
-          <i class="fas fa-tag"></i>
-        Neuron
       </a>
     </span>
     <span class="tag-3">
@@ -608,9 +500,123 @@ $ <span class="k">for</span> commit in fd6a7fa 33c95be 51f96c1 .. e8c106e eaa734
       </a>
     </span>
     <span class="tag-4">
+      <a href="http://ankursinha.in/tag/sumatra/">
+          <i class="fas fa-tag"></i>
+        Sumatra
+      </a>
+    </span>
+    <span class="tag-4">
       <a href="http://ankursinha.in/tag/pandas/">
           <i class="fas fa-tag"></i>
         Pandas
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="http://ankursinha.in/tag/neurofedora/">
+          <i class="fas fa-tag"></i>
+        NeuroFedora
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="http://ankursinha.in/tag/neuron/">
+          <i class="fas fa-tag"></i>
+        Neuron
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="http://ankursinha.in/tag/vim/">
+          <i class="fas fa-tag"></i>
+        Vim
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="http://ankursinha.in/tag/community/">
+          <i class="fas fa-tag"></i>
+        Community
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="http://ankursinha.in/tag/robotics/">
+          <i class="fas fa-tag"></i>
+        Robotics
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="http://ankursinha.in/tag/linux/">
+          <i class="fas fa-tag"></i>
+        Linux
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="http://ankursinha.in/tag/flatpak/">
+          <i class="fas fa-tag"></i>
+        FlatPak
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="http://ankursinha.in/tag/planet/">
+          <i class="fas fa-tag"></i>
+        Planet
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="http://ankursinha.in/tag/gnome/">
+          <i class="fas fa-tag"></i>
+        GNOME
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="http://ankursinha.in/tag/events/">
+          <i class="fas fa-tag"></i>
+        Events
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="http://ankursinha.in/tag/matlab/">
+          <i class="fas fa-tag"></i>
+        Matlab
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="http://ankursinha.in/tag/fedora/">
+          <i class="fas fa-tag"></i>
+        Fedora
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="http://ankursinha.in/tag/pelican/">
+          <i class="fas fa-tag"></i>
+        Pelican
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="http://ankursinha.in/tag/android/">
+          <i class="fas fa-tag"></i>
+        Android
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="http://ankursinha.in/tag/bash/">
+          <i class="fas fa-tag"></i>
+        Bash
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="http://ankursinha.in/tag/taskwarrior/">
+          <i class="fas fa-tag"></i>
+        Taskwarrior
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="http://ankursinha.in/tag/free-software/">
+          <i class="fas fa-tag"></i>
+        Free software
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="http://ankursinha.in/tag/numpy/">
+          <i class="fas fa-tag"></i>
+        Numpy
       </a>
     </span>
     <span class="tag-2">
@@ -619,16 +625,10 @@ $ <span class="k">for</span> commit in fd6a7fa 33c95be 51f96c1 .. e8c106e eaa734
         LaTeX
       </a>
     </span>
-    <span class="tag-3">
-      <a href="http://ankursinha.in/tag/python/">
+    <span class="tag-2">
+      <a href="http://ankursinha.in/tag/computational-neuroscience/">
           <i class="fas fa-tag"></i>
-        Python
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="http://ankursinha.in/tag/reproducible-research/">
-          <i class="fas fa-tag"></i>
-        Reproducible research
+        Computational neuroscience
       </a>
     </span>
 </p>

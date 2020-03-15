@@ -1,5 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>ankursinha.in/blog - Vim</title><link href="http://ankursinha.in/" rel="alternate"></link><link href="http://ankursinha.in/feeds/tags/vim.atom.xml" rel="self"></link><id>http://ankursinha.in/</id><updated>2017-09-19T00:40:41+01:00</updated><subtitle>neuroscience/fedora/musings</subtitle><entry><title>Writing LaTeX well in Vim</title><link href="http://ankursinha.in/2017/09/19/writing-latex-well-in-vim.html" rel="alternate"></link><published>2017-09-19T00:40:41+01:00</published><updated>2017-09-19T00:40:41+01:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2017-09-19:/2017/09/19/writing-latex-well-in-vim.html</id><summary type="html">&lt;p class="first last"&gt;&lt;a class="reference external" href="https://vim.sourceforge.io/"&gt;Vim&lt;/a&gt; is a great text editor and &lt;a class="reference external" href="https://www.latex-project.org/"&gt;LaTeX&lt;/a&gt; is a great document writing system. Since I write a lot of &lt;a class="reference external" href="https://www.latex-project.org/"&gt;LaTeX&lt;/a&gt; for my research, I've been adding various &lt;a class="reference external" href="https://vim.sourceforge.io/"&gt;Vim&lt;/a&gt; plug-ins to make my writing easier over the years. This post documents some of these additions.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>ankursinha.in/blog - Vim</title><link href="http://ankursinha.in/" rel="alternate"></link><link href="http://ankursinha.in/feeds/tags/vim.atom.xml" rel="self"></link><id>http://ankursinha.in/</id><updated>2020-03-15T09:39:20+00:00</updated><subtitle>neuroscience/fedora/musings</subtitle><entry><title>A Vim script function to select signatures in Neomutt</title><link href="http://ankursinha.in/2020/03/15/a-vimscript-function-to-select-signatures-in-neomutt.html" rel="alternate"></link><published>2020-03-15T09:39:20+00:00</published><updated>2020-03-15T09:39:20+00:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2020-03-15:/2020/03/15/a-vimscript-function-to-select-signatures-in-neomutt.html</id><summary type="html">&lt;p class="first last"&gt;I was dabbling in &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Vim_(text_editor)#Vim_script"&gt;Vim script&lt;/a&gt; and wrote myself a simple function to
+select signatures when composing e-mails in &lt;a class="reference external" href="https://neomutt.org/"&gt;Neomutt&lt;/a&gt;.&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;I've been using &lt;a class="reference external" href="https://neomutt.org/"&gt;Neomutt&lt;/a&gt; for a &lt;a class="reference external" href="http://ankursinha.in/2017/12/16/transitioning-to-neomutt-and-friends-for-e-mail.html"&gt;while now&lt;/a&gt;.
+It allows me to stick to the &lt;a class="reference external" href="https://www.byobu.org/"&gt;Byobu&lt;/a&gt; based terminal workflow that I'm used to.
+Most importantly, it lets me use &lt;a class="reference external" href="https://www.vim.org/"&gt;Vim&lt;/a&gt; to write my e-mails, so I don't need to
+really learn another tool now.&lt;/p&gt;
+&lt;p&gt;&lt;a class="reference external" href="https://neomutt.org/"&gt;Neomutt&lt;/a&gt; can be configured to add a signature at the end of the e-mail, and one
+can select a signature depending on various parameters, such as the senders
+address using &lt;a class="reference external" href="https://neomutt.org/man/neomuttrc"&gt;hooks&lt;/a&gt;. However,
+sometimes, one does need to select other signatures.&lt;/p&gt;
+&lt;p&gt;The simple &lt;a class="reference external" href="https://www.vim.org/"&gt;Vim&lt;/a&gt; way, of course, is to simply delete the last few lines, and
+then read in the new signature using &lt;code&gt;:r &amp;lt;filename&amp;gt;&lt;/code&gt;. This takes a few
+more key strokes than one would like (well, than I like) so I thought I'd
+dabble in &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Vim_(text_editor)#Vim_script"&gt;Vim script&lt;/a&gt; a bit and automate it. Here's what I've come up with:&lt;/p&gt;
+&lt;pre class="code vim literal-block"&gt;
+&lt;span class="c"&gt;&amp;quot; A function to load the right signature when I'm using neomutt&lt;/span&gt;
+&lt;span class="k"&gt;function&lt;/span&gt;&lt;span class="p"&gt;!&lt;/span&gt; LoadSignature&lt;span class="p"&gt;(&lt;/span&gt;signature&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="c"&gt;    &amp;quot; Only work for mail files&lt;/span&gt;
+    &lt;span class="k"&gt;let&lt;/span&gt; this_file_type &lt;span class="p"&gt;=&lt;/span&gt; &amp;amp;&lt;span class="k"&gt;filetype&lt;/span&gt;
+    &lt;span class="k"&gt;if&lt;/span&gt; this_file_type &lt;span class="p"&gt;!=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;mail&amp;quot;&lt;/span&gt;
+        echo &lt;span class="s2"&gt;&amp;quot;This is not a mail file! Not running!&amp;quot;&lt;/span&gt;
+    &lt;span class="k"&gt;endif&lt;/span&gt;
+&lt;span class="c"&gt;
+    &amp;quot; Get the current signature's line&lt;/span&gt;
+&lt;span class="c"&gt;    &amp;quot; Go to last line&lt;/span&gt;
+    &lt;span class="k"&gt;let&lt;/span&gt; saved_cursor_position &lt;span class="p"&gt;=&lt;/span&gt; getpos&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'.'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="c"&gt;    &amp;quot; Set cursor to file end and search backwards&lt;/span&gt;
+    &lt;span class="k"&gt;call&lt;/span&gt; cursor&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="m"&gt;99999999999999999999&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="m"&gt;0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="k"&gt;let&lt;/span&gt; &lt;span class="k"&gt;l&lt;/span&gt;:sigstart &lt;span class="p"&gt;=&lt;/span&gt; search&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'-- '&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'b'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="c"&gt;    &amp;quot; Confirm that the line was found&lt;/span&gt;
+    &lt;span class="k"&gt;if&lt;/span&gt; sigstart &lt;span class="p"&gt;==&lt;/span&gt; &lt;span class="m"&gt;0&lt;/span&gt;
+        echo &lt;span class="s2"&gt;&amp;quot;No signatures detected.&amp;quot;&lt;/span&gt;
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="m"&gt;1&lt;/span&gt;
+    &lt;span class="k"&gt;endif&lt;/span&gt;
+&lt;span class="c"&gt;
+    &amp;quot; Check if signature file exists&lt;/span&gt;
+    &lt;span class="k"&gt;let&lt;/span&gt; &lt;span class="k"&gt;l&lt;/span&gt;:sigdir &lt;span class="p"&gt;=&lt;/span&gt; escape&lt;span class="p"&gt;(&lt;/span&gt;expand&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'$HOME'&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="s1"&gt;'\'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; . &lt;span class="s2"&gt;&amp;quot;/Sync/99_private/neomuttdir/&amp;quot;&lt;/span&gt;
+    &lt;span class="k"&gt;let&lt;/span&gt; &lt;span class="k"&gt;l&lt;/span&gt;:sigfile &lt;span class="p"&gt;=&lt;/span&gt; sigdir . &lt;span class="k"&gt;a&lt;/span&gt;:signature . &lt;span class="s2"&gt;&amp;quot;.sig&amp;quot;&lt;/span&gt;
+    &lt;span class="k"&gt;if&lt;/span&gt; filereadable&lt;span class="p"&gt;(&lt;/span&gt;sigfile&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="c"&gt;        &amp;quot; delete the current lines after the &amp;quot;-- &amp;quot; line&lt;/span&gt;
+        &lt;span class="k"&gt;let&lt;/span&gt; &lt;span class="k"&gt;l&lt;/span&gt;:delstart &lt;span class="p"&gt;=&lt;/span&gt; sigstart &lt;span class="p"&gt;+&lt;/span&gt; &lt;span class="m"&gt;1&lt;/span&gt;
+        execute delstart . &lt;span class="s2"&gt;&amp;quot;,$d&amp;quot;&lt;/span&gt;
+&lt;span class="c"&gt;        &amp;quot; Read the new signature&lt;/span&gt;
+        execute sigstart . &lt;span class="s2"&gt;&amp;quot;read &amp;quot;&lt;/span&gt; . sigfile
+&lt;span class="c"&gt;        &amp;quot; Return cursor to wherever it was&lt;/span&gt;
+        &lt;span class="k"&gt;call&lt;/span&gt; setpos&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'.'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; saved_cursor_position&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="k"&gt;else&lt;/span&gt;
+        echo &lt;span class="s2"&gt;&amp;quot;File &amp;quot;&lt;/span&gt; . sigfile . &lt;span class="s2"&gt;&amp;quot; not found!&amp;quot;&lt;/span&gt;
+        echo &lt;span class="s2"&gt;&amp;quot;Available signature files:\n&amp;quot;&lt;/span&gt; . globpath&lt;span class="p"&gt;(&lt;/span&gt;sigdir&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'*.sig'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="k"&gt;endif&lt;/span&gt;
+&lt;span class="k"&gt;endfunction&lt;/span&gt;
+&lt;/pre&gt;
+&lt;p&gt;So, adding this to &lt;code&gt;~/.vimrc&lt;/code&gt; would let one run &lt;code&gt;:call
+LoadSignature('signature')&lt;/code&gt; in &lt;a class="reference external" href="https://www.vim.org/"&gt;Vim&lt;/a&gt; to select a signature. Each signature is a
+different file with a &lt;code&gt;.sig&lt;/code&gt; file extension in the location given by
+&lt;code&gt;sigdir&lt;/code&gt;, and the name of the file is the argument that needs to be given
+to the function. If the signature file cannot be found, it'll list available ones.&lt;/p&gt;
+&lt;p&gt;It's quite simple really, and I'm sure it can be made better, but it works.&lt;/p&gt;
+</content><category term="Tech"></category><category term="Planet"></category><category term="Vim"></category><category term="Neomutt"></category><category term="Fedora"></category></entry><entry><title>Writing LaTeX well in Vim</title><link href="http://ankursinha.in/2017/09/19/writing-latex-well-in-vim.html" rel="alternate"></link><published>2017-09-19T00:40:41+01:00</published><updated>2017-09-19T00:40:41+01:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2017-09-19:/2017/09/19/writing-latex-well-in-vim.html</id><summary type="html">&lt;p class="first last"&gt;&lt;a class="reference external" href="https://vim.sourceforge.io/"&gt;Vim&lt;/a&gt; is a great text editor and &lt;a class="reference external" href="https://www.latex-project.org/"&gt;LaTeX&lt;/a&gt; is a great document writing system. Since I write a lot of &lt;a class="reference external" href="https://www.latex-project.org/"&gt;LaTeX&lt;/a&gt; for my research, I've been adding various &lt;a class="reference external" href="https://vim.sourceforge.io/"&gt;Vim&lt;/a&gt; plug-ins to make my writing easier over the years. This post documents some of these additions.&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;&lt;a class="reference external" href="https://vim.sourceforge.io/"&gt;Vim&lt;/a&gt; is a great text editor if one takes a bit of time to learn how to use it properly. There's quite enough documentation on how to use &lt;a class="reference external" href="https://vim.sourceforge.io/"&gt;Vim&lt;/a&gt; correctly, and efficiently so I shan't cover that here. &lt;code&gt;vimtutor&lt;/code&gt; is an excellent resource to begin at.&lt;/p&gt;
 &lt;p&gt;Similarly, &lt;a class="reference external" href="https://www.latex-project.org/"&gt;LaTeX&lt;/a&gt; is a &lt;a class="reference external" href="https://www.google.co.uk/search?hl=en-GB&amp;amp;q=why+use+latex+for+writing"&gt;brilliant documentation system&lt;/a&gt;, especially for scientific writing if one takes the time to learn it. Unlike the usual Microsoft Word type systems, &lt;a class="reference external" href="https://www.latex-project.org/"&gt;LaTeX&lt;/a&gt; is a set of commands/macros. Once the document is written using these, it must be compiled to produce a PDF document. It may appear daunting at first, but after one is familiar with it, it makes writing a breeze. Now, there are a editors especially designed for &lt;a class="reference external" href="https://www.latex-project.org/"&gt;LaTeX&lt;/a&gt;, but given that I use &lt;a class="reference external" href="https://vim.sourceforge.io/"&gt;Vim&lt;/a&gt; for about all my writing, I use it for &lt;a class="reference external" href="https://www.latex-project.org/"&gt;LaTeX&lt;/a&gt; too.&lt;/p&gt;
 &lt;p&gt;On Fedora, you can install &lt;a class="reference external" href="https://vim.sourceforge.io/"&gt;Vim&lt;/a&gt; using &lt;a class="reference external" href="https://github.com/rpm-software-management/dnf"&gt;DNF&lt;/a&gt;: &lt;code&gt;sudo dnf install vim-enhanced vim-X11&lt;/code&gt;. I install the X11 package too to &lt;a class="reference external" href="http://vim.wikia.com/wiki/Accessing_the_system_clipboard"&gt;use the system clipboard&lt;/a&gt;.&lt;/p&gt;

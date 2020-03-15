@@ -209,21 +209,21 @@ along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.
             <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">input_filename</span><span class="p">)</span> <span class="ow">and</span>
             <span class="n">os</span><span class="o">.</span><span class="n">stat</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">input_filename</span><span class="p">)</span><span class="o">.</span><span class="n">st_size</span> <span class="o">&gt;</span> <span class="mi">0</span>
         <span class="p">):</span>
-            <span class="k">print</span><span class="p">(</span><span class="s2">&quot;File not found. Skipping.&quot;</span><span class="p">,</span> <span class="nb">file</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="p">)</span>
-            <span class="k">return</span> <span class="bp">False</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;File not found. Skipping.&quot;</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">False</span>
 
-        <span class="k">return</span> <span class="bp">True</span>
+        <span class="k">return</span> <span class="kc">True</span>
 
     <span class="k">def</span> <span class="nf">__validate_input</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataframe</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Check to see the input file is a two column file.&quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">2</span><span class="p">:</span>
-            <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Data seems incorrect - should have 2 columns. &quot;</span> <span class="o">+</span>
-                  <span class="s2">&quot;Please check and re-run&quot;</span><span class="p">,</span> <span class="nb">file</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="p">)</span>
-            <span class="k">return</span> <span class="bp">False</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Data seems incorrect - should have 2 columns. &quot;</span> <span class="o">+</span>
+                  <span class="s2">&quot;Please check and re-run&quot;</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">False</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Read &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">dataframe</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">+</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Read &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">dataframe</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">+</span>
                   <span class="s2">&quot; rows.&quot;</span><span class="p">)</span>
-            <span class="k">return</span> <span class="bp">True</span>
+            <span class="k">return</span> <span class="kc">True</span>
 
     <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Do the work.&quot;&quot;&quot;</span>
@@ -236,13 +236,13 @@ along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.
                                      <span class="n">dtype</span><span class="o">=</span><span class="p">{</span><span class="s1">'neuronID'</span><span class="p">:</span> <span class="n">numpy</span><span class="o">.</span><span class="n">uint16</span><span class="p">,</span>
                                             <span class="s1">'spike_time'</span><span class="p">:</span> <span class="nb">float</span><span class="p">},</span>
                                      <span class="n">lineterminator</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span>
-                                     <span class="n">skipinitialspace</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
-                                     <span class="n">header</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+                                     <span class="n">skipinitialspace</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                                     <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                                      <span class="n">chunksize</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">rows</span><span class="p">):</span>
 
             <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">__validate_input</span><span class="p">(</span><span class="n">chunk</span><span class="p">):</span>
-                <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Error in file. Skipping.&quot;</span><span class="p">,</span> <span class="nb">file</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="p">)</span>
-                <span class="k">return</span> <span class="bp">False</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error in file. Skipping.&quot;</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="p">)</span>
+                <span class="k">return</span> <span class="kc">False</span>
 
             <span class="n">spikes</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">chunk</span><span class="o">.</span><span class="n">values</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">])</span>
             <span class="n">times</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">chunk</span><span class="o">.</span><span class="n">values</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">])</span>
@@ -253,10 +253,10 @@ along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.
                 <span class="n">spikes</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">old_spikes</span><span class="p">,</span> <span class="n">spikes</span><span class="p">)</span>
                 <span class="n">times</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">old_times</span><span class="p">,</span> <span class="n">times</span><span class="p">)</span>
 
-            <span class="k">print</span><span class="p">(</span>
-                <span class="s2">&quot;Times from {} to {} being analysed containing {} rows&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+            <span class="nb">print</span><span class="p">(</span>
+                <span class="s2">&quot;Times from </span><span class="si">{}</span><span class="s2"> to </span><span class="si">{}</span><span class="s2"> being analysed containing </span><span class="si">{}</span><span class="s2"> rows&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
                     <span class="n">times</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">times</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="nb">len</span><span class="p">(</span><span class="n">times</span><span class="p">)))</span>
-            <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Current time is {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">current_time</span><span class="p">))</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Current time is </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">current_time</span><span class="p">))</span>
 
             <span class="c1"># Reset chunks</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">left</span> <span class="o">=</span> <span class="mi">0</span>
@@ -270,7 +270,7 @@ along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.
                     <span class="n">times</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">left</span><span class="p">:],</span> <span class="n">current_time</span><span class="p">,</span>
                     <span class="n">side</span><span class="o">=</span><span class="s1">'right'</span><span class="p">)</span>
 
-                <span class="n">statement</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;{}</span><span class="se">\t</span><span class="s2">{}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                <span class="n">statement</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="se">\t</span><span class="si">{}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
                     <span class="n">current_time</span><span class="o">/</span><span class="mf">1000.</span><span class="p">,</span>
                     <span class="p">(</span>
                         <span class="nb">len</span><span class="p">(</span>
@@ -282,7 +282,7 @@ along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.
 
                 <span class="n">current_time</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dt</span>
 
-            <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Printed till {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">current_time</span><span class="p">))</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Printed till </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">current_time</span><span class="p">))</span>
             <span class="n">old_times</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">times</span><span class="p">[(</span><span class="bp">self</span><span class="o">.</span><span class="n">left</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">times</span><span class="p">)):])</span>
             <span class="n">old_spikes</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">spikes</span><span class="p">[(</span><span class="bp">self</span><span class="o">.</span><span class="n">left</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">spikes</span><span class="p">)):])</span>
 
@@ -423,16 +423,28 @@ along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.
   </ul>
 <h4><i class="fas fa-tags fa-fw fa-lg"></i> Tags</h4>
 <p class="tag-cloud">
-    <span class="tag-3">
-      <a href="http://ankursinha.in/tag/matlab/">
+    <span class="tag-2">
+      <a href="http://ankursinha.in/tag/programming/">
           <i class="fas fa-tag"></i>
-        Matlab
+        Programming
       </a>
     </span>
     <span class="tag-2">
-      <a href="http://ankursinha.in/tag/computational-neuroscience/">
+      <a href="http://ankursinha.in/tag/nest/">
           <i class="fas fa-tag"></i>
-        Computational neuroscience
+        NEST
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="http://ankursinha.in/tag/irc/">
+          <i class="fas fa-tag"></i>
+        IRC
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="http://ankursinha.in/tag/python/">
+          <i class="fas fa-tag"></i>
+        Python
       </a>
     </span>
     <span class="tag-2">
@@ -442,135 +454,15 @@ along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.
       </a>
     </span>
     <span class="tag-4">
+      <a href="http://ankursinha.in/tag/reproducible-research/">
+          <i class="fas fa-tag"></i>
+        Reproducible research
+      </a>
+    </span>
+    <span class="tag-4">
       <a href="http://ankursinha.in/tag/tex/">
           <i class="fas fa-tag"></i>
         TeX
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="http://ankursinha.in/tag/events/">
-          <i class="fas fa-tag"></i>
-        Events
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="http://ankursinha.in/tag/neurofedora/">
-          <i class="fas fa-tag"></i>
-        NeuroFedora
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="http://ankursinha.in/tag/android/">
-          <i class="fas fa-tag"></i>
-        Android
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="http://ankursinha.in/tag/flatpak/">
-          <i class="fas fa-tag"></i>
-        FlatPak
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="http://ankursinha.in/tag/linux/">
-          <i class="fas fa-tag"></i>
-        Linux
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="http://ankursinha.in/tag/nest/">
-          <i class="fas fa-tag"></i>
-        NEST
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="http://ankursinha.in/tag/bash/">
-          <i class="fas fa-tag"></i>
-        Bash
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="http://ankursinha.in/tag/irc/">
-          <i class="fas fa-tag"></i>
-        IRC
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="http://ankursinha.in/tag/numpy/">
-          <i class="fas fa-tag"></i>
-        Numpy
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="http://ankursinha.in/tag/vim/">
-          <i class="fas fa-tag"></i>
-        Vim
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="http://ankursinha.in/tag/taskwarrior/">
-          <i class="fas fa-tag"></i>
-        Taskwarrior
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="http://ankursinha.in/tag/gnome/">
-          <i class="fas fa-tag"></i>
-        GNOME
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="http://ankursinha.in/tag/programming/">
-          <i class="fas fa-tag"></i>
-        Programming
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="http://ankursinha.in/tag/community/">
-          <i class="fas fa-tag"></i>
-        Community
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="http://ankursinha.in/tag/planet/">
-          <i class="fas fa-tag"></i>
-        Planet
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="http://ankursinha.in/tag/sumatra/">
-          <i class="fas fa-tag"></i>
-        Sumatra
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="http://ankursinha.in/tag/free-software/">
-          <i class="fas fa-tag"></i>
-        Free software
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="http://ankursinha.in/tag/pelican/">
-          <i class="fas fa-tag"></i>
-        Pelican
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="http://ankursinha.in/tag/fedora/">
-          <i class="fas fa-tag"></i>
-        Fedora
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="http://ankursinha.in/tag/robotics/">
-          <i class="fas fa-tag"></i>
-        Robotics
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="http://ankursinha.in/tag/neuron/">
-          <i class="fas fa-tag"></i>
-        Neuron
       </a>
     </span>
     <span class="tag-3">
@@ -580,9 +472,123 @@ along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.
       </a>
     </span>
     <span class="tag-4">
+      <a href="http://ankursinha.in/tag/sumatra/">
+          <i class="fas fa-tag"></i>
+        Sumatra
+      </a>
+    </span>
+    <span class="tag-4">
       <a href="http://ankursinha.in/tag/pandas/">
           <i class="fas fa-tag"></i>
         Pandas
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="http://ankursinha.in/tag/neurofedora/">
+          <i class="fas fa-tag"></i>
+        NeuroFedora
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="http://ankursinha.in/tag/neuron/">
+          <i class="fas fa-tag"></i>
+        Neuron
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="http://ankursinha.in/tag/vim/">
+          <i class="fas fa-tag"></i>
+        Vim
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="http://ankursinha.in/tag/community/">
+          <i class="fas fa-tag"></i>
+        Community
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="http://ankursinha.in/tag/robotics/">
+          <i class="fas fa-tag"></i>
+        Robotics
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="http://ankursinha.in/tag/linux/">
+          <i class="fas fa-tag"></i>
+        Linux
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="http://ankursinha.in/tag/flatpak/">
+          <i class="fas fa-tag"></i>
+        FlatPak
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="http://ankursinha.in/tag/planet/">
+          <i class="fas fa-tag"></i>
+        Planet
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="http://ankursinha.in/tag/gnome/">
+          <i class="fas fa-tag"></i>
+        GNOME
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="http://ankursinha.in/tag/events/">
+          <i class="fas fa-tag"></i>
+        Events
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="http://ankursinha.in/tag/matlab/">
+          <i class="fas fa-tag"></i>
+        Matlab
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="http://ankursinha.in/tag/fedora/">
+          <i class="fas fa-tag"></i>
+        Fedora
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="http://ankursinha.in/tag/pelican/">
+          <i class="fas fa-tag"></i>
+        Pelican
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="http://ankursinha.in/tag/android/">
+          <i class="fas fa-tag"></i>
+        Android
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="http://ankursinha.in/tag/bash/">
+          <i class="fas fa-tag"></i>
+        Bash
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="http://ankursinha.in/tag/taskwarrior/">
+          <i class="fas fa-tag"></i>
+        Taskwarrior
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="http://ankursinha.in/tag/free-software/">
+          <i class="fas fa-tag"></i>
+        Free software
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="http://ankursinha.in/tag/numpy/">
+          <i class="fas fa-tag"></i>
+        Numpy
       </a>
     </span>
     <span class="tag-2">
@@ -591,16 +597,10 @@ along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.
         LaTeX
       </a>
     </span>
-    <span class="tag-3">
-      <a href="http://ankursinha.in/tag/python/">
+    <span class="tag-2">
+      <a href="http://ankursinha.in/tag/computational-neuroscience/">
           <i class="fas fa-tag"></i>
-        Python
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="http://ankursinha.in/tag/reproducible-research/">
-          <i class="fas fa-tag"></i>
-        Reproducible research
+        Computational neuroscience
       </a>
     </span>
 </p>
