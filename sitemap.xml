@@ -5,21 +5,21 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://ankursinha.in/</loc>
-<lastmod>2020-11-21T18:36:25-00:00</lastmod>
+<lastmod>2021-01-12T20:58:53-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://ankursinha.in/tags.html</loc>
-<lastmod>2020-11-21T18:36:25-00:00</lastmod>
+<lastmod>2021-01-12T20:58:53-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://ankursinha.in/categories.html</loc>
-<lastmod>2020-11-21T18:36:25-00:00</lastmod>
+<lastmod>2021-01-12T20:58:53-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -41,6 +41,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>http://ankursinha.in/pages/04-current-work.html</loc>
 <lastmod>2020-08-14T14:22:17+01:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://ankursinha.in/2021/01/12/restarting-regular-fedora-india-meetings.html</loc>
+<lastmod>2021-01-12T20:27:27+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
@@ -2462,20 +2469,48 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://ankursinha.in/category/tech/</loc>
-<lastmod>2020-03-15T09:39:20-00:01</lastmod>
+<lastmod>2021-01-12T20:27:27-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://ankursinha.in/tag/computational-neuroscience/</loc>
-<lastmod>2020-04-04T10:49:50-00:01</lastmod>
+<loc>http://ankursinha.in/tag/community/</loc>
+<lastmod>2021-01-12T20:27:27-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://ankursinha.in/tag/fedora/</loc>
+<lastmod>2021-01-12T20:27:27-00:01</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://ankursinha.in/tag/irc/</loc>
+<lastmod>2021-01-12T20:27:27-00:01</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://ankursinha.in/tag/matrix/</loc>
+<lastmod>2021-01-12T20:27:27-00:01</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://ankursinha.in/tag/india/</loc>
+<lastmod>2021-01-12T20:27:27-00:01</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://ankursinha.in/tag/computational-neuroscience/</loc>
 <lastmod>2020-04-04T10:49:50-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
@@ -2554,13 +2589,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>http://ankursinha.in/tag/package-maintenance/</loc>
 <lastmod>2019-01-24T11:20:00-00:01</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<loc>http://ankursinha.in/tag/community/</loc>
-<lastmod>2019-01-13T20:55:44-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -2666,20 +2694,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>http://ankursinha.in/tag/android/</loc>
 <lastmod>2018-06-22T23:36:23-00:01</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<loc>http://ankursinha.in/tag/irc/</loc>
-<lastmod>2018-03-24T12:07:07-00:01</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<loc>http://ankursinha.in/tag/matrix/</loc>
-<lastmod>2018-03-24T12:07:07-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -3085,7 +3099,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://ankursinha.in/author/ankur.html</loc>
-<lastmod>2020-04-04T10:49:50-00:01</lastmod>
+<lastmod>2021-01-12T20:27:27-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>

@@ -1,5 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>ankursinha.in/blog - Tech</title><link href="http://ankursinha.in/" rel="alternate"></link><link href="http://ankursinha.in/feeds/categories/tech.atom.xml" rel="self"></link><id>http://ankursinha.in/</id><updated>2020-03-15T09:39:20+00:00</updated><subtitle>neuroscience/fedora/musings</subtitle><entry><title>A Vim script function to select signatures in Neomutt</title><link href="http://ankursinha.in/2020/03/15/a-vimscript-function-to-select-signatures-in-neomutt.html" rel="alternate"></link><published>2020-03-15T09:39:20+00:00</published><updated>2020-03-15T09:39:20+00:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2020-03-15:/2020/03/15/a-vimscript-function-to-select-signatures-in-neomutt.html</id><summary type="html">&lt;p class="first last"&gt;I was dabbling in &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Vim_(text_editor)#Vim_script"&gt;Vim script&lt;/a&gt; and wrote myself a simple function to
+<feed xmlns="http://www.w3.org/2005/Atom"><title>ankursinha.in/blog - Tech</title><link href="http://ankursinha.in/" rel="alternate"></link><link href="http://ankursinha.in/feeds/categories/tech.atom.xml" rel="self"></link><id>http://ankursinha.in/</id><updated>2021-01-12T20:27:27+00:00</updated><subtitle>neuroscience/fedora/musings</subtitle><entry><title>Restarting regular Fedora India meetings</title><link href="http://ankursinha.in/2021/01/12/restarting-regular-fedora-india-meetings.html" rel="alternate"></link><published>2021-01-12T20:27:27+00:00</published><updated>2021-01-12T20:27:27+00:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2021-01-12:/2021/01/12/restarting-regular-fedora-india-meetings.html</id><summary type="html">&lt;p class="first last"&gt;We're restarting regular meetings for the Fedora India community. Come join us!&lt;/p&gt;
+</summary><content type="html">&lt;center&gt;&lt;div class="figure"&gt;
+&lt;a class="reference external image-reference" href="#"&gt;&lt;img alt="Photo by Nikunj Gupta on Unsplash." class="img-responsive" src="http://ankursinha.in/images/20210112.jpg" style="width: 80%;" /&gt;&lt;/a&gt;
+&lt;p class="caption"&gt;Photo by &lt;a class="reference external" href="https://unsplash.com/&amp;#64;mecyborg?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText"&gt;Nikunj Gupta&lt;/a&gt; on &lt;a class="reference external" href="https://unsplash.com/s/photos/india?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText"&gt;Unsplash&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/center&gt;&lt;p&gt;The &lt;a class="reference external" href="https://fedoraproject.org/wiki/India"&gt;Fedora India community&lt;/a&gt; has always been quite an active group of people working in various Fedora teams and Special Interest Groups (SIGs).
+At some point in recent years, people got busy with projects as we tend to do, and we stopped having regular community meetings.
+This is unfortunate, since these meetings keep the community ticking, and provide a platform for new members to join in.&lt;/p&gt;
+&lt;p&gt;Recently, there's been interest in revitalising the Fedora India community.
+We've started to clean up the mailing list, and we'd like to restart regular meetings.
+We had a short first one at the end of 2020 to kick things off.
+You can read the logs &lt;a class="reference external" href="https://meetbot.fedoraproject.org/teams/fedora-india/fedora-india.2020-12-11-10.01.html"&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The next meeting, the first of 2021, will happen soon.
+In the meantime, this is a short notice to make the community aware of these on-goings.
+Please subscribe to the &lt;a class="reference external" href="https://lists.fedoraproject.org/admin/lists/india.lists.fedoraproject.org/"&gt;mailing list&lt;/a&gt; to keep up with the community's activities.
+If it has been a while since you were active there, please feel free to send in a short introduction so newcomers can get to know you.&lt;/p&gt;
+&lt;p&gt;The usual chat channels are also active.
+You can join #fedora-india on the Freenode IRC network &lt;a class="reference external" href="https://webchat.freenode.net/?channels=#fedora-neuro"&gt;here&lt;/a&gt;.
+It is also bridged to the &lt;a class="reference external" href="https://t.me/fedoraindia"&gt;&amp;#64;fedoraindia Telegram super group&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;We hope to see you in the channels!&lt;/p&gt;
+</content><category term="Tech"></category><category term="Community"></category><category term="Fedora"></category><category term="IRC"></category><category term="Matrix"></category><category term="India"></category></entry><entry><title>A Vim script function to select signatures in Neomutt</title><link href="http://ankursinha.in/2020/03/15/a-vimscript-function-to-select-signatures-in-neomutt.html" rel="alternate"></link><published>2020-03-15T09:39:20+00:00</published><updated>2020-03-15T09:39:20+00:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2020-03-15:/2020/03/15/a-vimscript-function-to-select-signatures-in-neomutt.html</id><summary type="html">&lt;p class="first last"&gt;I was dabbling in &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Vim_(text_editor)#Vim_script"&gt;Vim script&lt;/a&gt; and wrote myself a simple function to
 select signatures when composing e-mails in &lt;a class="reference external" href="https://neomutt.org/"&gt;Neomutt&lt;/a&gt;.&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;I've been using &lt;a class="reference external" href="https://neomutt.org/"&gt;Neomutt&lt;/a&gt; for a &lt;a class="reference external" href="http://ankursinha.in/2017/12/16/transitioning-to-neomutt-and-friends-for-e-mail.html"&gt;while now&lt;/a&gt;.
 It allows me to stick to the &lt;a class="reference external" href="https://www.byobu.org/"&gt;Byobu&lt;/a&gt; based terminal workflow that I'm used to.
@@ -1044,64 +1064,4 @@ notmuch&lt;/li&gt;
 &lt;li&gt;&lt;a class="reference external" href="http://jasonwryan.com/blog/2012/05/12/mutt/"&gt;http://jasonwryan.com/blog/2012/05/12/mutt/&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
-</content><category term="Tech"></category><category term="Fedora"></category></entry><entry><title>Fedora Classroom: Git 101: report</title><link href="http://ankursinha.in/2017/10/07/fedora-classroom-git-101-report.html" rel="alternate"></link><published>2017-10-07T14:19:10+01:00</published><updated>2017-10-07T14:19:10+01:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2017-10-07:/2017/10/07/fedora-classroom-git-101-report.html</id><summary type="html">&lt;p class="first last"&gt;I taught a &lt;a class="reference external" href="https://fedoraproject.org/wiki/Classroom"&gt;Fedora Classroom&lt;/a&gt; session the other day - &lt;a class="reference external" href="https://meetbot.fedoraproject.org/fedora-classroom/2017-10-05/fedora-classroom.2017-10-05-14.17.log.html"&gt;Git 101&lt;/a&gt; -
-where I walked through the basics of &lt;a class="reference external" href="https://git-scm.com/"&gt;Git&lt;/a&gt;. This is a quick summary
-of the session.&lt;/p&gt;
-</summary><content type="html">&lt;p&gt;I taught another &lt;a class="reference external" href="https://fedoraproject.org/wiki/Classroom"&gt;Fedora Classroom&lt;/a&gt; this week, on &lt;a class="reference external" href="https://meetbot.fedoraproject.org/fedora-classroom/2017-10-05/fedora-classroom.2017-10-05-14.17.log.html"&gt;Git 101&lt;/a&gt;. I used the &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Internet_Relay_Chat"&gt;IRC&lt;/a&gt;
-again since this session was to be another hands-on walkthrough. I reckon I've
-now learned that hands-on sessions go on longer than initially planned. This
-one lasted about three hours!&lt;/p&gt;
-&lt;div class="section" id="some-metrics"&gt;
-&lt;h2&gt;Some metrics&lt;/h2&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;Length: 3 hours&lt;/li&gt;
-&lt;li&gt;Attendees: ~25 people&lt;/li&gt;
-&lt;li&gt;Sentences spoken: LOTS!&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class="section" id="summary"&gt;
-&lt;h2&gt;Summary&lt;/h2&gt;
-&lt;p&gt;I didn't go much into the theory, and there's a lot of it in &lt;a class="reference external" href="https://git-scm.com/"&gt;Git&lt;/a&gt;. Instead, I
-had made it my goal to walk the attendees through the usual &lt;a class="reference external" href="https://git-scm.com/"&gt;Git&lt;/a&gt; workflow.
-So, that's exactly what we did. We started by setting up an empty repository,
-then added files to it, learned how to see changes and so on. Then, we moved
-on to branching.&lt;/p&gt;
-&lt;p&gt;Once we'd explored the advantages of using branches we started working with
-remotes. Everyone set up repositories on &lt;a class="reference external" href="https://pagure.io"&gt;Pagure&lt;/a&gt; or &lt;a class="reference external" href="https://github.com"&gt;Github&lt;/a&gt;. To end with, I
-got everyone to fork my repository and submit pull requests.&lt;/p&gt;
-&lt;p&gt;I think everyone got the hang of it. There were some good questions, a bit of
-discussion too. I do hope it'll get more people to use &lt;a class="reference external" href="https://git-scm.com/"&gt;Git&lt;/a&gt; and contribute to
-different projects on &lt;a class="reference external" href="https://pagure.io"&gt;Pagure&lt;/a&gt; or &lt;a class="reference external" href="https://github.com"&gt;Github&lt;/a&gt;.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="feedback-is-always-welcome"&gt;
-&lt;h2&gt;Feedback is always welcome&lt;/h2&gt;
-&lt;p&gt;If you had attended the session, or have gone through the logs and have some
-feedback, please get in touch. You can use the Fedora classroom channels:&lt;/p&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;&lt;a class="reference external" href="mailto:classroom&amp;#64;lists.fedoraproject.org"&gt;mailing list&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;#fedora-classroom on Freenode &lt;a class="reference external" href="http://webchat.freenode.net/?channels=%23fedora-classroom"&gt;IRC channel&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;You can even comment on this blog post, and of course, you can give me feedback
-privately. I'm FranciscoD on quite a few Fedora IRC channels, and I can be
-reached via e-mail on my Fedora address at ankursinha AT fedoraproject DOT org.
-All suggestions, comments, criticism is most welcome.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="more-instructors-needed"&gt;
-&lt;h2&gt;More instructors needed!&lt;/h2&gt;
-&lt;p&gt;The classroom sessions are going rather well, but &lt;a class="reference external" href="https://fedoraproject.org/wiki/Classroom#Help_wanted"&gt;we still need more help&lt;/a&gt;. We'd like to cover
-more topics from different areas, not just tech related- everything from
-design, to free software philosophy and community building! If there's anything
-at all you think is worth a classroom session, please get in touch with the
-team on the &lt;a class="reference external" href="mailto:classroom&amp;#64;lists.fedoraproject.org"&gt;Fedora classroom mailing list&lt;/a&gt;. A log of all past sessions -
-whether on &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Internet_Relay_Chat"&gt;IRC&lt;/a&gt; or on a video platform are maintained on the wiki page &lt;a class="reference external" href="https://fedoraproject.org/wiki/Classroom#Previous_Sessions"&gt;here&lt;/a&gt; for everyone to
-peruse at their convenience.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="logs"&gt;
-&lt;h2&gt;Logs&lt;/h2&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://meetbot.fedoraproject.org/fedora-classroom/2017-10-05/fedora-classroom.2017-10-05-14.17.log.html"&gt;HTML logs&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://meetbot.fedoraproject.org/fedora-classroom/2017-10-05/fedora-classroom.2017-10-05-14.17.html"&gt;HTML minutes&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://meetbot.fedoraproject.org/fedora-classroom/2017-10-05/fedora-classroom.2017-10-05-14.17.txt"&gt;Text minutes&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-</content><category term="Tech"></category><category term="Community"></category><category term="Fedora"></category><category term="Git"></category><category term="Planet"></category></entry></feed>
+</content><category term="Tech"></category><category term="Fedora"></category></entry></feed>
