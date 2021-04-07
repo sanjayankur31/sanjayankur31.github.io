@@ -1,0 +1,11 @@
+*.py?
+*.pid
+.ropeproject
+cache
+*.swp
+pelican
+
+tags
+*~
+
+output/

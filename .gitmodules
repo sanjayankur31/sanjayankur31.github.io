@@ -1,0 +1,9 @@
+[submodule "voidy-bootstrap"]
+	path = voidy-bootstrap
+	url = git@github.com:sanjayankur31/voidy-bootstrap.git
+[submodule "pelican-plugins"]
+	path = pelican-plugins
+	url = git@github.com:getpelican/pelican-plugins.git
+[submodule "pelican-plugins-other/pelican-bibtex"]
+	path = pelican-plugins-other/pelican-bibtex
+	url = git@github.com:sanjayankur31/pelican-bibtex.git
