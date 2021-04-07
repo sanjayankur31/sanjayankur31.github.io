@@ -8,6 +8,9 @@ SITETAG = u'neuroscience/fedora/musings'
 TWITTER_USERNAME = 'sanjay_ankur'
 TWITTER_CARD = True
 
+FONT_AWESOME_CDN_LINK = {}
+JAVASCRIPT_URLS = ['https://kit.fontawesome.com/9f8622f8d1.js']
+
 STATIC_PATHS = ['images', 'extras/favicon.ico',
                 'extras/feeds-allow-indexing',
                 'extras/drafts-allow-indexing',
