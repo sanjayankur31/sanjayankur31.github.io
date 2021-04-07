@@ -81,6 +81,15 @@ file an issue on Github `here
 
 -----
 
+INCF/OCNS Software working group
+================================
+
+I am a member of the `INCF/OCNS Software working group <https://ocns.github.io/SoftwareWG/>`__.
+We focus on all things related to the software used in Neuroscience---development, training, dissemination, and so on.
+Please, `join us <https://github.com/OCNS/SoftwareWG/discussions/12>`__.
+
+-----
+
 NeuroFedora: Free Software for Free Neuroscience
 =================================================
 
