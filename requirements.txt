@@ -4,3 +4,4 @@ pelican
 pybtex
 feedgenerator
 Pygments
+ghp-import
