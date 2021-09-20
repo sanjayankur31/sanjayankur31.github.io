@@ -84,6 +84,9 @@ LINKS = (
 
 # Social widget
 SOCIAL = (
+    ('Search (DuckDuckGo)',
+     'https://duckduckgo.com/?q=site%3Aankursinha.in&ia=web',
+     'fas fa-search fa-fw fa-lg'),
     ('Scholar',
      'http://scholar.google.co.in/citations?user=919ScZEAAAAJ&hl=en',
      'fas fa-graduation-cap fa-fw fa-lg'),
