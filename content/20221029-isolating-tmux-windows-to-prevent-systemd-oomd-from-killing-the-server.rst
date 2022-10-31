@@ -1,7 +1,7 @@
 Isolating Tmux windows to prevent systemd-oomd from killing the server
 ######################################################################
 :date: 2022-10-29 13:30:32
-:modified: 2022-10-29 13:30:32
+:modified: 2022-10-31 17:22:54
 :author: ankur
 :category: Tech
 :tags: Linux, Tmux, Byobu, Systemd, Fedora
@@ -63,6 +63,18 @@ To test that this now isolates each window, one can run something like `tail /de
 
 This seems to be working very well for me.
 If you have a better solution, do let me know, though.
+
+
+Edit: a simpler way
+====================
+
+As it happens, there's a much easier way to do this.
+Instead of modifying `~/.bashrc` and then re-binding the `new-window` key, all one needs to do is redefine the `default-command` parameter that Tmux_ uses so that it runs the `systemd-run` command:
+
+.. code:: bash
+
+    # in tmux.conf
+    set-option -g default-command 'systemd-run --user --scope bash'
 
 
 .. _Byobu: https://www.byobu.org/
