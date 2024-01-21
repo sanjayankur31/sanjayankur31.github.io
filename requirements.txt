@@ -5,3 +5,4 @@ pybtex
 feedgenerator
 Pygments
 ghp-import
+setuptools
