@@ -127,6 +127,7 @@ ifdef NAME
 	echo ":summary: " >> $(INPUTDIR)/$(DATEYYMMDD)-$(SLUG).$(EXT)
 	echo ""              >> $(INPUTDIR)/$(DATEYYMMDD)-$(SLUG).$(EXT)
 	echo ""              >> $(INPUTDIR)/$(DATEYYMMDD)-$(SLUG).$(EXT)
+	git add --intent-to-add $(INPUTDIR)/$(DATEYYMMDD)-$(SLUG).$(EXT)
 	${EDITOR} ${INPUTDIR}/$(DATEYYMMDD)-${SLUG}.${EXT}
 else
 	@echo 'Variable NAME is not defined.'
@@ -151,6 +152,7 @@ ifdef NAME
 	echo ":slug: $(SLUG)" >> $(PAGESDIR)/$(SLUG).$(EXT)
 	echo ""              >> $(PAGESDIR)/$(SLUG).$(EXT)
 	echo ""              >> $(PAGESDIR)/$(SLUG).$(EXT)
+	git add --intent-to-add $(PAGESDIR)/$(SLUG).$(EXT)
 	${EDITOR} ${PAGESDIR}/${SLUG}.$(EXT)
 else
 	@echo 'Variable NAME is not defined.'
