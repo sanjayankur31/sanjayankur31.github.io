@@ -49,7 +49,7 @@ THEME = 'voidy-bootstrap'
 
 PLUGIN_PATHS = ['pelican-plugins', 'pelican-plugins-other']
 # RESPONSIVE_IMAGES = False
-PLUGINS = ['post_stats', 'render_math', 'sitemap', 'tag_cloud', 'series',
+PLUGINS = ['pelican.plugins.share_post', 'post_stats', 'render_math', 'sitemap', 'tag_cloud', 'series',
            'pelican-cite', 'pelican-bibtex']
 # 'series', 'pelican-cite', 'pelican-bibtex', 'events']
 
@@ -115,8 +115,6 @@ SOCIAL = (
     #  'fa fa-instagram fa-fw fa-lg'),
     # ('Flickr', 'https://www.flickr.com/people/30402562@N07/',
     #  'fa fa-flickr fa-fw fa-lg'),
-    # ('Google+', 'https://plus.google.com/105107988864522484597/about',
-    #  'fa fa-google-plus-square fa-fw fa-lg'),
     # ('Foursquare', 'https://foursquare.com/sanjay_ankur/',
     #  'fa fa-foursquare fa-fw fa-lg'),
 )
@@ -138,10 +136,10 @@ SITEMAP = {
     }
 }
 
+CUSTOM_ARTICLE_PRECONTENT = 'sharing.html'
 CUSTOM_ARTICLE_FOOTERS = ('sharing.html',)
 CUSTOM_SCRIPTS_ARTICLE = "sharing_scripts.html"
-MATH_JAX = {'tex_extensions': ['color.js', 'mhchem.js']}
-MATH_JAX = {'color': 'blue', 'align': 'left'}
+MATH_JAX = {'tex_extensions': ['color.js', 'mhchem.js'], 'color': 'blue', 'align': 'left'}
 STYLESHEET_FILES = ("use-opensans.css", "voidybootstrap.css", "pygment.css")
 RELATIVE_URLS = False
 CACHE_CONTENT = True
