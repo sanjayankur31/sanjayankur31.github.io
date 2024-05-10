@@ -1,0 +1,506 @@
+Week 19 update
+##############
+:date: 2024-05-10 20:46:51
+:modified: 2024-05-10 20:46:51
+:author: ankur
+:category: Life
+:tags: Fedora, Computational neuroscience, NeuroML, GSoC
+:slug: week-19-update
+:summary: Weekly update for week 19.
+
+I'm trying to get back to blogging, and to make it regular occurrence in my work week, I thought I'd write a weekly work update.
+
+NeuroML related
+---------------
+
+.. figure:: {static}/images/neuroml-logo.png
+    :width: 40 %
+    :align: center
+    :alt: NeuroML is a standard and software ecosystem for biophysically detailed neuronal modelling.
+    :target: {static}/images/neuroml-logo.png
+    :class: text-center img-responsive pagination-centered
+
+    NeuroML_ is a standard and software ecosystem for biophysically detailed neuronal modelling.
+
+
+I work in the field of computational neuroscience and a lot of my work is related to NeuroML_.
+It's a standard for biophysically detailed modelling of neuronal circuits, and is accompanied by a large `ecosystem of software tools <https://docs.neuroml.org/Userdocs/Software/Software.html>`__.
+The general idea behind the standard is the same as with other domains, programming languages, for example.
+The standard allows the community to design their tools around an agreed format/specification.
+So, even though there are number of different simulation engines available to the computational neuroscience research community, they'd use NeuroML_ to create their models and simulate them with whatever simulation engine they need.
+One can learn more about NeuroML_ in our `documentation <https://docs.neuroml.org>`__.
+
+
+.. figure:: {static}/images/20240510-elife.png
+    :width: 80%
+    :align: center
+    :alt: Screenshot of the reviewed print in E-Life.
+    :target: {static}/images/20240510-elife.png
+    :class: text-center img-responsive pagination-centered
+
+    Screenshot of the reviewed print in E-Life. URL: https://doi.org/10.7554/eLife.95135.1
+
+
+This week the first version of our reviewed pre-print was `published in the E-Life journal <https://elifesciences.org/reviewed-preprints/95135v1>`__.
+We need to address the reviewers' comments and submit an updated version.
+A little bit of work to be done on that front.
+
+Biosimulations
+===============
+
+
+.. figure:: {static}/images/20240510-biosimulations.png
+    :width: 80%
+    :align: center
+    :alt: Screenshot of the https://biosimulations.org
+    :target: {static}/images/20240510-biosimulations.png
+    :class: text-center img-responsive pagination-centered
+
+    Screenshot of https://biosimulations.org
+
+
+`biosimulations.org <https://biosimulations.org>`__ is a free platform for sharing and re-using bio-models, simulation results, and result visualisations.
+It supports a wide range of `COMBINE standards <https://co.mbine.org/standards/>`__.
+As part of one of our projects, we're working on improving links between NeuroML_ and other standards, such as `SED-ML <https://sed-ml.org/>`__ and `SBML <https://sbml.org/>`__.
+
+As part of this, we've added functionality in `pyNeuroML <https://github.com/neuroml/pyneuroml/>`__ to:
+
+- convert a NeuroML/LEMS simulation to SED-ML
+- create a `COMBINE simulation archive <https://combinearchive.org/index/>`__ (a zip with metadata)
+- submit this archive to Biosimulations for simulation
+
+We also found a bug in our LEMS to SED-ML conversion code, and `fixed it <https://github.com/NeuroML/org.neuroml.export/pull/115>`__.
+
+
+Annotations
+===========
+
+The COMBINE archive requires a manifest file, which contains a list of files in it with information about their different purposes, and a file containing more metadata about it.
+This is described in the `documentation <https://docs.biosimulations.org/concepts/conventions/simulation-project-metadata/>`__ here.
+
+
+All of this metadata is in `RDF <https://en.wikipedia.org/wiki/Resource_Description_Framework>`__.
+The Biosimulations format is flat, in the sense that they don't use RDF containers and nested elements.
+The `MIRIAM (Minimum Information Required In The Annotation of Models) <https://en.wikipedia.org/wiki/Resource_Description_Framework>`__ based `COMBINE specification <https://github.com/combine-org/combine-specifications>`__, however, does use containers and nesting.
+
+The advantage of a flat structure is that it's easier to parse, since one doesn't have to implement parsing of any nested elements.
+On the other hand, it makes the annotation a little less human readable, because multiple entries of the same tag can be spread out around the document.
+
+Here are examples of both formats.
+The flat Biosimulations format:
+
+.. code:: xml
+
+    <rdf:RDF
+      xmlns:foaf="http://xmlns.com/foaf/0.1/"
+      xmlns:dc="http://purl.org/dc/elements/1.1/"
+      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+      xmlns:dcterms="http://purl.org/dc/terms/"
+      xmlns:scoro="http://purl.org/spar/scoro"
+      xmlns:bqmodel="http://biomodels.net/model-qualifiers/"
+      xmlns:prism="http://prismstandard.org/namespaces/basic/2.0/"
+      xmlns:bqbiol="http://biomodels.net/biology-qualifiers/"
+      xmlns:collex="http://www.collex.org/schema"
+      xmlns:orcid="https://orcid.org/"
+      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    >
+      <rdf:Description rdf:about="http://omex-library.org/ArchiveName.omex/model.nml">
+        <dcterms:abstract>lol, something nice</dcterms:abstract>
+        <dc:description>A tests model</dc:description>
+        <prism:keyword>something</prism:keyword>
+        <prism:keyword>and something</prism:keyword>
+        <collex:thumbnail rdf:resource="http://omex-library.org/ArchiveName.omex/lol.png"/>
+        <bqbiol:hasTaxon>
+          <rdf:Description>
+            <dc:identifier rdf:resource="http://identifiers.org/taxonomy/4896"/>
+            <rdfs:label>Schizosaccharomyces pombe</rdfs:label>
+          </rdf:Description>
+        </bqbiol:hasTaxon>
+        <bqbiol:encodes>
+          <rdf:Description>
+            <dc:identifier rdf:resource="http://identifiers.org/GO:0009653"/>
+            <rdfs:label>anatomical structure morphogenesis</rdfs:label>
+          </rdf:Description>
+        </bqbiol:encodes>
+        <bqbiol:encodes>
+          <rdf:Description>
+            <dc:identifier rdf:resource="http://identifiers.org/kegg:ko04111"/>
+            <rdfs:label>Cell cycle - yeast</rdfs:label>
+          </rdf:Description>
+        </bqbiol:encodes>
+        <dc:source>
+          <rdf:Description>
+            <dc:identifier rdf:resource="https://github.com/lala"/>
+            <rdfs:label>GitHub</rdfs:label>
+          </rdf:Description>
+        </dc:source>
+        <bqmodel:isDerivedFrom>
+          <rdf:Description>
+            <dc:identifier rdf:resource="http://omex-library.org/BioSim0001.omex/model.xml"/>
+            <rdfs:label>model</rdfs:label>
+          </rdf:Description>
+        </bqmodel:isDerivedFrom>
+        <rdfs:seeAlso>
+          <rdf:Description>
+            <dc:identifier rdf:resource="http://link.com"/>
+            <rdfs:label>a link</rdfs:label>
+          </rdf:Description>
+        </rdfs:seeAlso>
+        <dcterms:references>
+          <rdf:Description>
+            <dc:identifier rdf:resource="http://reference.com"/>
+            <rdfs:label>a reference</rdfs:label>
+          </rdf:Description>
+        </dcterms:references>
+        <dc:creator>
+          <rdf:Description>
+            <foaf:name>John Doe</foaf:name>
+            <rdfs:label>John Doe</rdfs:label>
+            <foaf:homepage rdf:resource="https://someurl.com"/>
+            <dc:identifier rdf:resource="https://anotherurl"/>
+            <orcid:id rdf:resource="https://orcid.org/0000-0001-7568-7167"/>
+          </rdf:Description>
+        </dc:creator>
+        <dc:creator>
+          <rdf:Description>
+            <foaf:name>Jane Smith</foaf:name>
+            <rdfs:label>Jane Smith</rdfs:label>
+          </rdf:Description>
+        </dc:creator>
+        <dc:contributor>
+          <rdf:Description>
+            <foaf:name>Jane Doe</foaf:name>
+            <rdfs:label>Jane Doe</rdfs:label>
+          </rdf:Description>
+        </dc:contributor>
+        <dc:contributor>
+          <rdf:Description>
+            <foaf:name>John Smith</foaf:name>
+            <rdfs:label>John Smith</rdfs:label>
+          </rdf:Description>
+        </dc:contributor>
+        <dc:contributor>
+          <rdf:Description>
+            <foaf:name>Jane Smith</foaf:name>
+            <rdfs:label>Jane Smith</rdfs:label>
+          </rdf:Description>
+        </dc:contributor>
+        <dcterms:license>
+          <rdf:Description>
+            <dc:identifier rdf:resource="https://identifiers.org/spdx:CC0"/>
+            <rdfs:label>CC0</rdfs:label>
+          </rdf:Description>
+        </dcterms:license>
+        <scoro:funder>
+          <rdf:Description>
+            <dc:identifier rdf:resource="http://afundingbody.org"/>
+            <rdfs:label>a funding body</rdfs:label>
+          </rdf:Description>
+        </scoro:funder>
+        <dcterms:created>
+          <rdf:Description>
+            <dcterms:W3CDTF>2024-04-18</dcterms:W3CDTF>
+          </rdf:Description>
+        </dcterms:created>
+        <dcterms:modified>
+          <rdf:Description>
+            <dcterms:W3CDTF>2024-04-18</dcterms:W3CDTF>
+            <dcterms:W3CDTF>2024-04-19</dcterms:W3CDTF>
+          </rdf:Description>
+        </dcterms:modified>
+      </rdf:Description>
+    </rdf:RDF>
+
+
+The MIRIAM format:
+
+.. code:: xml
+
+    <rdf:RDF
+      xmlns:foaf="http://xmlns.com/foaf/0.1/"
+      xmlns:dc="http://purl.org/dc/elements/1.1/"
+      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+      xmlns:dcterms="http://purl.org/dc/terms/"
+      xmlns:scoro="http://purl.org/spar/scoro"
+      xmlns:prism="http://prismstandard.org/namespaces/basic/2.0/"
+      xmlns:bqmodel="http://biomodels.net/model-qualifiers/"
+      xmlns:bqbiol="http://biomodels.net/biology-qualifiers/"
+      xmlns:collex="http://www.collex.org/schema"
+      xmlns:orcid="https://orcid.org/"
+    >
+      <rdf:Description rdf:about="http://omex-library.org/ArchiveName.omex/model.nml">
+        <dcterms:abstract>lol, something nice</dcterms:abstract>
+        <dc:description>A tests model</dc:description>
+        <prism:keyword>
+          <rdf:Bag>
+            <rdf:li>something</rdf:li>
+            <rdf:li>and something</rdf:li>
+          </rdf:Bag>
+        </prism:keyword>
+        <collex:thumbnail>
+          <rdf:Bag>
+            <rdf:li rdf:resource="http://omex-library.org/ArchiveName.omex/lol.png"/>
+          </rdf:Bag>
+        </collex:thumbnail>
+        <bqbiol:hasTaxon>
+          <rdf:Bag>
+            <rdf:li rdf:resource="http://identifiers.org/taxonomy/4896"/>
+          </rdf:Bag>
+        </bqbiol:hasTaxon>
+        <bqbiol:encodes>
+          <rdf:Bag>
+            <rdf:li rdf:resource="http://identifiers.org/GO:0009653"/>
+            <rdf:li rdf:resource="http://identifiers.org/kegg:ko04111"/>
+          </rdf:Bag>
+        </bqbiol:encodes>
+        <dc:source>
+          <rdf:Bag>
+            <rdf:li rdf:resource="https://github.com/lala"/>
+          </rdf:Bag>
+        </dc:source>
+        <bqmodel:isDerivedFrom>
+          <rdf:Bag>
+            <rdf:li rdf:resource="http://omex-library.org/BioSim0001.omex/model.xml"/>
+          </rdf:Bag>
+        </bqmodel:isDerivedFrom>
+        <rdfs:seeAlso>
+          <rdf:Bag>
+            <rdf:li rdf:resource="http://link.com"/>
+          </rdf:Bag>
+        </rdfs:seeAlso>
+        <dcterms:references>
+          <rdf:Bag>
+            <rdf:li rdf:resource="http://reference.com"/>
+          </rdf:Bag>
+        </dcterms:references>
+        <dc:creator>
+          <rdf:Bag>
+            <rdf:li rdf:resource="#John_Doe"/>
+            <rdf:li rdf:resource="#Jane_Smith"/>
+          </rdf:Bag>
+        </dc:creator>
+        <dc:contributor>
+          <rdf:Bag>
+            <rdf:li rdf:resource="#Jane_Doe"/>
+            <rdf:li rdf:resource="#John_Smith"/>
+            <rdf:li rdf:resource="#Jane_Smith"/>
+          </rdf:Bag>
+        </dc:contributor>
+        <dcterms:license rdf:resource="https://identifiers.org/spdx:CC0"/>
+        <scoro:funder>
+          <rdf:Bag>
+            <rdf:li rdf:resource="http://afundingbody.org"/>
+          </rdf:Bag>
+        </scoro:funder>
+        <dcterms:created>
+          <rdf:Description>
+            <dcterms:W3CDTF>2024-04-18</dcterms:W3CDTF>
+          </rdf:Description>
+        </dcterms:created>
+        <dcterms:modified>
+          <rdf:Description>
+            <dcterms:W3CDTF>
+              <rdf:Bag>
+                <rdf:li>2024-04-18</rdf:li>
+                <rdf:li>2024-04-19</rdf:li>
+              </rdf:Bag>
+            </dcterms:W3CDTF>
+          </rdf:Description>
+        </dcterms:modified>
+      </rdf:Description>
+      <rdf:Description rdf:about="#John_Doe">
+        <foaf:name>John Doe</foaf:name>
+        <foaf:homepage rdf:resource="https://someurl.com"/>
+        <dc:identifier rdf:resource="https://anotherurl"/>
+        <orcid:id rdf:resource="https://orcid.org/0000-0001-7568-7167"/>
+      </rdf:Description>
+      <rdf:Description rdf:about="#Jane_Doe">
+        <foaf:name>Jane Doe</foaf:name>
+      </rdf:Description>
+      <rdf:Description rdf:about="#John_Smith">
+        <foaf:name>John Smith</foaf:name>
+      </rdf:Description>
+      <rdf:Description rdf:about="#Jane_Smith">
+        <foaf:name>Jane Smith</foaf:name>
+      </rdf:Description>
+    </rdf:RDF>
+
+
+Since we need both formats, I implemented their creation and extraction in pyNeuroML.
+This is in a `pull request <https://github.com/NeuroML/pyNeuroML/pull/354>`__ that we'll test and hopefully release in the next few weeks.
+
+
+Annotations are quite useful, so we're hoping that with these features, more and more NeuroML models will contain annotations that help modellers and experimentalists learn more about the elements that they are using/looking at.
+Provenance information in the annotations will also help link re-usable NeuroML model components together.
+Finally, as the use of annotations increases, one would hope that more and more tools will also start to use them.
+
+Google Summer of Code
+======================
+
+We participate in `Google Summer of Code <https://summerofcode.withgoogle.com>`__ every year under the `INCF <https://incf.org>`__ organisation.
+This year, we've been lucky enough to receive two slots for NeuroML_ related projects.
+
+The first is about implementing an SWC_ to NeuroML_ converter.
+SWC_ is a common plain text format used to store data about neuronal morphology, reconstructed from experiments.
+`Neuromorpho.org <https://neuromorpho.org/>`__ is a database of such reconstructions.
+The primary issue with SWC_ data is that it may not be appropriate for use in models since these reconstructions can miss various parts that modelling does require.
+For example, a common issue is that lots of reconstructions only include the soma of the neuron as a point.
+So, before we use these for modelling, they need to be validated and in a lot of cases, fixed.
+There's more information on this in `the documentation <https://docs.neuroml.org/Userdocs/ImportingMorphologyFiles.html>`__.
+
+So, the converter needs run a battery of tests on the SWC_ file, and it needs to be interactive to give the user options to "fix" the file so that it can be used in models.
+Some code for this already exists, and we're hoping to complete the converter in this round.
+
+
+The second project is about improving our `3D visualisation tool <https://docs.neuroml.org/Userdocs/VisualisingCells.html>`__.
+It uses `vispy <https://vispy.org>`__ and performs pretty well with some heuristics.
+We want to make it more interactive, similar to the visualisation capabilities of the `Open Source Brain <https://v1.opensourcebrain.org>`__ platform
+
+
+Model standardization
+======================
+
+In addition to all the software bits, I'm also working on a standardising a number of models into NeuroML_.
+These were originally implemented in different simulator specific code.
+
+Ray et al
+~~~~~~~~~~
+
+.. figure:: {static}/images/20240511-ggn.png
+    :width: 80%
+    :align: center
+    :alt: Visualisation of the morphology of the Giant GABAergic neuron (GGN) from Ray et al.
+    :target: {static}/images/20240511-ggn.png
+    :class: text-center img-responsive pagination-centered
+
+    Visualisation of the morphology of the Giant GABAergic neuron (GGN) from Ray et al.
+
+
+At the recent `COMBINE HARMONY meeting <https://co.mbine.org/events/>`__, we had started to convert `Ray et al <https://github.com/OpenSourceBrain/262670/pull/7>`__.
+The cell models are done, and the simulation studies are the next ones to work on.
+We've documented this conversion as a `walkthrough in the documentation <https://docs.neuroml.org/Userdocs/Walkthroughs/RayEtAl2020/RayEtAl2020.html>`__ too.
+
+Zang et al
+~~~~~~~~~~~~
+
+.. figure:: {static}/images/20240510-purkinje.png
+    :width: 80%
+    :align: center
+    :alt: Visualisation of the morphology of the Purkinje cell model in Zang et al.
+    :target: {static}/images/20240510-purkinje.png
+    :class: text-center img-responsive pagination-centered
+
+    Visualisation of the morphology of the Purkinje cell model in Zang et al.
+
+
+Another model we're working to convert is the Purkinje cell model from `Zang et al <https://www.cell.com/cell-reports/fulltext/S2211-1247(18)31088-X>`__.
+The morphology (as can be seen in the figure) has been converted, but the biophysics (ion channels) remain.
+
+The biophysics are usually the hardest bits to convert because their representation in the NEURON format (equations and so on) can take various forms, and one has to understand them and mostly manually write the NeuroML version.
+
+
+Fedora related
+--------------
+
+Not a lot new on the Fedora side of things.
+We continue to maintain the `NeuroFedora SIG <https://packager-dashboard.fedoraproject.org/dashboard?groups=neuro-sig>`__ packages.
+We're now up to `> 400 packages <https://src.fedoraproject.org/group/neuro-sig>`__, so just keeping packages up to date is quite a bit of work.
+Luckily we are a team of a few quite active folks.
+We also have `Packit <https://packit.dev/docs/fedora-releases-guide>`__ configured for most of our packages now, and that helps us quite a bit.
+
+
+More folks continue to come into the `Join SIG Matrix channel <https://matrix.to/#/#join:fedoraproject.org>`__, and the people in there continue to help them get started using the `Welcome to Fedora process <https://pagure.io/fedora-join/Welcome-to-Fedora>`__.
+
+
+Package update impact check
+============================
+
+A common task for us package maintainers is to figure out how updating a package may affect others.
+So, we look for packages that depend on it, both at build time and run time.
+:code:`repoquery` and :code:`fedrq` help with this.
+
+I wanted something that would tell me the exact dependencies on the package I'm tinkering with, so I came up with this.
+It seems to work fine:
+
+.. code:: bash
+
+    impact_check () {
+        echo ">> Checking update impact using fedrq for ${branch}"
+        echo ">> The following packages will be affected. Please ensure that they do not break as a result of this update:"
+        ALL_PROVIDES="($(fedrq subpkgs -F provides ${PACKAGE_NAME} | cut -d  "=" -f1 | sed -e 's/\(lib.*.so\).*$/\1/' -e 's/\s*$//' -e 's/(/\\(/g' -e 's/)/\\)/g' | tr '\n' '|'  | sed 's/|$//'))"
+        # echo "${PACKAGE_NAME} provides: "${ALL_PROVIDES}
+        DEPS=( $(fedrq whatrequires-src -b "${branch}" -X "${PACKAGE_NAME}") )
+        for dep in "${DEPS[@]}"
+        do
+            echo "*** ${dep} ***"
+            fedrq pkgs -b "${branch}" -F requires "${dep}" | grep -E "$ALL_PROVIDES"
+            echo
+        done
+    }
+
+
+When run in a package's SCM repository folder, for example gdcm, it'll do:
+
+.. code::
+
+    Working on package gdcm
+    >> Checking update impact using fedrq for rawhide
+    >> The following packages will be affected. Please ensure that they do not break as a result of this update:
+    *** InsightToolkit-4.13.3-15.fc39.i686 ***
+    libgdcmDSED.so.3.0
+    libgdcmMSFF.so.3.0
+    libgdcmDICT.so.3.0
+
+    *** InsightToolkit-4.13.3-15.fc39.src ***
+    gdcm-devel
+
+    *** InsightToolkit-4.13.3-15.fc39.x86_64 ***
+    libgdcmDSED.so.3.0()(64bit)
+    libgdcmMSFF.so.3.0()(64bit)
+    libgdcmDICT.so.3.0()(64bit)
+
+    *** alizams-1.9.9-2.fc41.src ***
+    cmake(gdcm)
+
+    *** dicomanonymizer-1-0.15.20210920gitf076264.fc40.src ***
+    gdcm-devel
+
+    *** dicomanonymizer-1-0.15.20210920gitf076264.fc40.x86_64 ***
+    libgdcmDSED.so.3.0()(64bit)
+    libgdcmMSFF.so.3.0()(64bit)
+    libgdcmDICT.so.3.0()(64bit)
+    libgdcmCommon.so.3.0()(64bit)
+    libgdcmIOD.so.3.0()(64bit)
+
+    *** octave-dicom-0.6.0-2.fc41.src ***
+    gdcm-devel
+
+    *** octave-dicom-0.6.0-2.fc41.x86_64 ***
+    libgdcmDSED.so.3.0()(64bit)
+    libgdcmMSFF.so.3.0()(64bit)
+    libgdcmDICT.so.3.0()(64bit)
+    libgdcmCommon.so.3.0()(64bit)
+    libgdcmIOD.so.3.0()(64bit)
+
+    *** opencv-4.9.0-4.fc41.src ***
+    gdcm-devel
+
+    *** opencv-imgcodecs-4.9.0-4.fc41.i686 ***
+    libgdcmDSED.so.3.0
+    libgdcmMSFF.so.3.0
+
+    *** opencv-imgcodecs-4.9.0-4.fc41.x86_64 ***
+    libgdcmDSED.so.3.0()(64bit)
+    libgdcmMSFF.so.3.0()(64bit)
+
+    *** petpvc-1.2.11-5.fc41.src ***
+    gdcm-devel
+
+
+There's probably a more elegant way to get this info.
+If you know what it is, do please let me know.
+
+
+.. _NeuroML: https://neuroml.org
+.. _SWC: https://www.incf.org/swc
