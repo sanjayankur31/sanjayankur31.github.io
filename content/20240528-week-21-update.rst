@@ -1,0 +1,121 @@
+Week 21 update
+##############
+:date: 2024-05-28 10:38:56
+:modified: 2024-05-28 10:38:56
+:author: ankur
+:category: Life
+:tags: NeuroML, Open Source Brain, Computational Neuroscience, CNS2024Natal, Fedora, Training, Deaf awareness, Sony earbuds, Sony
+:slug: week-21-update
+:summary: Weekly update to week #21
+
+
+NeuroML related
+=================
+
+.. figure:: {static}/images/neuroml-logo.png
+    :width: 40 %
+    :align: center
+    :alt: NeuroML is a standard and software ecosystem for biophysically detailed neuronal modelling.
+    :class: text-center img-responsive pagination-centered
+
+    NeuroML_ is a standard and software ecosystem for biophysically detailed neuronal modelling.
+
+
+More work on on pyNeuroML_.
+
+GSoC
+-----
+
+Our two GSoC candidates continue to make tweaks to their work.
+This is still only the bonding period, so they're already ahead of time.
+The contribution period only started this week, on the 27th.
+
+We also had our weekly meeting where we discussed their tasks and concepts.
+
+Open Source Brain related
+==========================
+
+I finished `integrating Biomodels into OSBv2 <https://github.com/OpenSourceBrain/OSBv2/pull/928>`__.
+Here's a video of what it'll look like, tested out on my local Minikube deployment:
+
+.. raw:: html
+
+    <video controls width="80%" preload="none" poster="{static}/images/20240522-osb-biomodels-pic.png" type="video/webm">
+        <source src="{static}/images/20240522-osb-biomodels.webm" type="video/webm">
+        Your browser does not support the video tag. Download it from `here <{static}/images/20240522-osb-biomodels.webm>`__
+    </video>
+
+
+Other work related bits
+=========================
+
+Trainings
+-----------
+
+I had two trainings to do this week.
+
+The first was "Deaf Awareness: working and communicating well with Deaf people".
+It was very very useful.
+I certainly learned a lot of things that I wasn't aware of, or that I hadn't thought of before.
+
+The other training was related to hiring.
+This one is a compulsory training required for all staff that are going to be on interview panels for new staff.
+It points out various things one should know to ensure the hiring process is carried out fairly and correctly, within the framework of the law.
+It was also very informative, and having an insight into the frameworks that the university implements was very useful too.
+
+Departmental away day
+---------------------
+
+We had our departmental away day on Friday.
+Lots of discussion about our research, our teaching, on how we fit in within the larger picture with the university.
+I spoke to our dean and other principal investigators (PIs) in the department and offered to help on things here and there.
+
+There was a barbecue in the evening with drinks, and a few of us continued to the pub afterwords to keep the discussion going.
+
+
+Fedora related
+===============
+
+More package updates on the Fedora side of things.
+The NeuroFedora SIG will have its meeting next Monday.
+We'll all catch up then to see if there are things that need prioritising.
+
+Other stuff
+=============
+
+I lost my tabs the other day.
+I was tinkering with my `Qutebrowser <https://qutebrowser.org>`__ configuration, and I opened the browser but saved the session and quit it before all the tabs had loaded.
+This meant that the next time I opened it, all the tabs were completely blank.
+Bug?
+Not really---I needed to either have waited for the session to load, or I should've quit without saving a partially loaded session.
+
+The silver lining is that I've closed 100 tabs with research papers that I'd had open for the past year but not managed to read.
+So, a clear up of sorts.
+
+Returned Sony earbuds
+----------------------
+
+I'd bought myself a set of `WF-C700N <https://www.sony.co.uk/headphones/products/wf-c700n>`_ ear buds some time ago.
+I'd seen a few reviews.
+They won the `What Hi-Fi award in 2023 <https://www.whathifi.com/reviews/sony-wf-c700n>`__, so they seemed a good buy.
+
+They're very good sound wise for their price, but unfortunately, they turned out to be very buggy.
+The right ear bud would just not turn on a lot of the time.
+The docs suggested re-initialising them to fix the issue, and while it did fix the issue for a bit, the right earbud would go off again and not turn back on.
+I did this a few times, but it became increasingly annoying.
+Heading out on my commute only to find that the right earbud had stopped working again was really not fun.
+On top of that, I couldn't reliably re-initialise them each time.
+Sometimes the reinitialising process wouldn't work.
+
+A search showed me that lots of users were experiencing this, with multiple `folks on Reddit confirming the issue <https://www.reddit.com/r/SonyHeadphones/comments/16xxpvj/right_earbud_randomly_stops_turning_on_wfc700n/>`__ and suggesting returning the earbuds.
+I persevered and tried various things on my Android phone too, but in the end nothing really fixed the issue.
+So, I've returned them too.
+
+I shelled out a bit more and got the top of the line `WF-1000XM5 <https://www.sony.co.uk/headphones/products/wf-1000xm5>`__ ones now.
+They're double the price, and have much better sound quality and a few more features.
+So far, so good 🤞.
+
+
+.. _NeuroML: https://neuroml.org
+.. _pyNeuroML: https://github.com/NeuroML/pyNeuroML
+.. _OSB: https://www.opensourcebrain.org/
