@@ -4,7 +4,7 @@ Week 22 update
 :modified: 2024-06-03 13:17:41
 :author: ankur
 :category: Life
-:tags: NeuroML, Open Source Brain, Computational Neuroscience, CNS2024Natal, Fedora, Training, Deaf awareness, Sony earbuds, Sony
+:tags: NeuroML, Open Source Brain, Computational Neuroscience, Fedora
 :slug: week-22-update
 :summary: Weekly update to week #22
 
@@ -40,25 +40,73 @@ Updating the standard requires a few steps:
 
 The fall out doesn't seem too bad, and we've fixed the few models that needed fixes.
 
+Toggling build time validation in libNeuroML
+----------------------------------------------
+
+One of the strengths of the NeuroML_ standard is that we have a `schema <https://docs.neuroml.org/Userdocs/Specification.html>`__ that allows the validation of NeuroML_ model descriptions---before the models have been initialised/instantiated/simulated.
+Using our `factory functions <https://libneuroml.readthedocs.io/en/development/userdocs/utils.html#neuroml.utils.component_factory>`__, the model is continuously validated at each construction/build step.
+While this is useful, it can also be a hindrance to users in some cases.
+For example, certain model components, in general usage, will not be valid when initially created.
+A `Network <https://docs.neuroml.org/Userdocs/Schemas/Networks.html#network>`__ component is one such example.
+It must contain at least one `Population <https://docs.neuroml.org/Userdocs/Schemas/Networks.html#population>`__.
+However, in normal usage, one generally creates a network and then adds populations to it.
+So, when the network is initially created, it will be invalid.
+In libNeuroML_, validation errors will throw a :code:`ValueError` immediately to inform the user, and halting the Python script.
+
+There are other such cases too, and we thought this conflicts with our goal of making it easier for users to create NeuroML_ models.
+A middle-ground that `we've come up with <https://github.com/NeuralEnsemble/libNeuroML/pull/190>`__ is the ability to globally toggle the state of build time validation.
+By default, it's enabled, but users may disable it if required---explicitly.
+Additionally, build time validation can also be disabled for the specific call to the factory function using :code:`validate=False`.
+The latter is recommended.
+When build time validation is disabled, it will throw a user warning instead of the :code:`ValueError`.
+
+Completing the spike plotting bits
+-----------------------------------
+
+Aditya `was working <https://github.com/NeuroML/pyNeuroML/issues/303>`__ on refactoring the pyNeuroML_ code that plots spikes from simulation output.
+He completed his PR and `I merged it after making a few tweaks to the tests <https://github.com/NeuroML/pyNeuroML/pull/377>`__.
+One can now easily plot spikes from data files using the :code:`pynml-plotspikes` command, and also using the related functions in the pyNeuroML_ API.
+
+Here's an example of plotting spikes from `Brunel et al (2000) <https://github.com/OpenSourceBrain/Brunel2000/>`__.
+
+.. code:: console
+
+    $ pynml-plotspikes -format t_id *_net.spikes
+
+
+.. figure:: {static}/images/20240603-Brunel2000-spikes.png
+    :width: 100 %
+    :align: center
+    :alt: Raster plot showing spikes from a simulation of `Brunel et al (2000) <https://github.com/OpenSourceBrain/Brunel2000/>`__.
+    :class: text-center img-responsive pagination-centered
+
+    Raster plot showing spikes from a simulation of `Brunel et al (2000) <https://github.com/OpenSourceBrain/Brunel2000/>`__.
+
+
 GSoC
 -----
 
-Our two GSoC candidates continue to make tweaks to their work.
-This is still only the bonding period, so they're already ahead of time.
-The contribution period only started this week, on the 27th.
+We had our first meeting of the contribution period last week.
+Both candidates, Aditya and Ioannis, are already set up and well on their way.
+Ioannis is continuing with the task that he had begun working on during the contribution period already---trying to get an "upright" view of single neurons in our 3D visualiser.
+Aditya has started working on loading SWC files of neuronal reconstructions into an appropriate data structure that will make it easy to query the SWC morphology and validate it, and then eventually convert it into NeuroML.
 
-We also had our weekly meeting where we discussed their tasks and concepts.
 
+Other stuff
+------------
 
+I continued to work on converting the Purkinje cell model from `Zang et al <https://www.cell.com/cell-reports/fulltext/S2211-1247(18)31088-X>`__.
+I now have a `test scripts that plots the various state variables <https://github.com/sanjayankur31/243446/blob/feat/neuroml-conversion/NeuroML2/testks.py>`__ from the ion channels represented using kinetic schemes.
+It adds the ion channel to a single compartmental cell, gives it a constant current to bring the state variables to their steady states, and plots these.
+It does this both for the NEURON_ implementation and the NeuroML_ one so that I can compare the dynamics.
 
 Fedora related
 ===============
 
-More package updates on the Fedora side of things.
-The NeuroFedora SIG will have its meeting next Monday.
-We'll all catch up then to see if there are things that need prioritising.
+Fixes, updates, and bug filing continues in the `NeuroFedora SIG <https://neuro.fedoraproject.org>`__.
+It's ticking along nicely, as it tends to do.
 
 .. _NEURON: https://neuron.yale.edu/neuron/
 .. _NeuroML: https://neuroml.org
 .. _pyNeuroML: https://github.com/NeuroML/pyNeuroML
-.. _OSB: https://www.opensourcebrain.org/
+.. _libNeuroML: https://github.com/NeuralEnsemble/libNeuroML
