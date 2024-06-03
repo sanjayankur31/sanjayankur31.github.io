@@ -1,0 +1,64 @@
+Week 22 update
+##############
+:date: 2024-06-03 13:17:41
+:modified: 2024-06-03 13:17:41
+:author: ankur
+:category: Life
+:tags: NeuroML, Open Source Brain, Computational Neuroscience, CNS2024Natal, Fedora, Training, Deaf awareness, Sony earbuds, Sony
+:slug: week-22-update
+:summary: Weekly update to week #22
+
+Last Monday was the late spring bank holiday, so it was a four day week.
+
+NeuroML related
+=================
+
+.. figure:: {static}/images/neuroml-logo.png
+    :width: 40 %
+    :align: center
+    :alt: NeuroML is a standard and software ecosystem for biophysically detailed neuronal modelling.
+    :class: text-center img-responsive pagination-centered
+
+    NeuroML_ is a standard and software ecosystem for biophysically detailed neuronal modelling.
+
+
+We've made some changes to the `NeuroML standard <https://github.com/NeuroML/NeuroML2/commit/fe3aa27d2ed146938be3efa19dfb15ddd8cc3804>`__ in the last week.
+For neuron models, a few basic properties were optional so far:
+
+- `spiking threshold potential <https://docs.neuroml.org/Userdocs/Schemas/Cells.html#spikethresh>`__
+- `specific capacitance <https://docs.neuroml.org/Userdocs/Schemas/Cells.html#specificcapacitance>`__
+- `initial membrane potential <https://docs.neuroml.org/Userdocs/Schemas/Cells.html#initmembpotential>`__
+
+This is because the NEURON_ simulator, which is sort of the reference simulator for computational neuro-modelling, would use sane defaults if these values were not provided by the user.
+However, since other simulators that `NeuroML supports <https://docs.neuroml.org/Userdocs/Software/SupportingTools.html>`__ may not fill in defaults, we decided that these properties should also be compulsory for the user to provide explicitly.
+
+Updating the standard requires a few steps:
+
+- update the `XSD schema <https://docs.neuroml.org/Userdocs/NeuroMLv2.html>`__
+- regenerate the various APIs, e.g., `libNeuroML <https://github.com/NeuralEnsemble/libNeuroML>`__
+- run tests on all our models to see how many break with this backwards-incompatible change and fix them
+
+The fall out doesn't seem too bad, and we've fixed the few models that needed fixes.
+
+GSoC
+-----
+
+Our two GSoC candidates continue to make tweaks to their work.
+This is still only the bonding period, so they're already ahead of time.
+The contribution period only started this week, on the 27th.
+
+We also had our weekly meeting where we discussed their tasks and concepts.
+
+
+
+Fedora related
+===============
+
+More package updates on the Fedora side of things.
+The NeuroFedora SIG will have its meeting next Monday.
+We'll all catch up then to see if there are things that need prioritising.
+
+.. _NEURON: https://neuron.yale.edu/neuron/
+.. _NeuroML: https://neuroml.org
+.. _pyNeuroML: https://github.com/NeuroML/pyNeuroML
+.. _OSB: https://www.opensourcebrain.org/
