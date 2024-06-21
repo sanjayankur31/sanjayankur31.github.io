@@ -1,0 +1,99 @@
+Week 25 update
+##############
+:date: 2024-06-21 13:16:43
+:modified: 2024-06-21 13:16:43
+:author: ankur
+:category: Life
+:tags: NeuroML, Computational Neuroscience, Fedora, GSoC, UCL, NPP, Biosciences
+:slug: week-25-update
+:summary: Weekly update to week #25
+
+
+NeuroML related
+=================
+
+.. figure:: {static}/images/neuroml-logo.png
+    :width: 40 %
+    :align: center
+    :alt: NeuroML is a standard and software ecosystem for biophysically detailed neuronal modelling.
+    :class: text-center img-responsive pagination-centered
+
+    NeuroML_ is a standard and software ecosystem for biophysically detailed neuronal modelling.
+
+We made new releases of jNeuroML_ and pyNeuroML_.
+The new releases allow users to keep their `morphology <https://docs.neuroml.org/Userdocs/Schemas/Cells.html#morphology>`__ in separate files and "include" these in cell files.
+The use case here is that when investigating neuronal biophysics, it would be useful to not have to repeat the morphology each time the cell is used.
+
+We also updated our `documentation <https://docs.neuroml.org/Userdocs/ImportingMorphologyFiles.html#neuroml2>`__ to note this new feature.
+
+Google Summer of Code
+---------------------
+
+Aditya and Ioannis have both completed their first tasks and their pull requests are ready for review.
+I'll try and review them next week.
+In the meantime, they've got new tasks for next week.
+
+Model conversion
+-----------------
+
+I'm still working on the converting the two remaining Calcium channels in `Zang et al <https://www.cell.com/cell-reports/fulltext/S2211-1247(18)31088-X>`__.
+They're slightly trickier to convert because of the formalism they follow, but I should get there with another few days of work.
+
+
+UCL
+===
+
+The `UCL Neuroscience symposium <https://www.ucl.ac.uk/research/domains/neuroscience/events/neuroscience-symposia>`__ was on Thursday.
+The talks and posters were great and very informative, e.g.:
+
+- on visual processing (using `really cool virtual reality experiments <https://www.nature.com/articles/d41586-019-00791-w>`__)
+- on the role of sleep on synapses numbers
+- Dementia with particular focus on Alzheimer's disease and the role of the `tau protein <https://en.wikipedia.org/wiki/Tau_protein>`__
+
+
+We'd also had a really interesting talk on the `GLP-1 receptor <https://en.wikipedia.org/wiki/Glucagon-like_peptide-1>`__, which is involved in the secretion of insulin for maintenance of blood sugar levels, at our `Neuroscience, Pharmacology, and Physiology (NPP) <https://www.ucl.ac.uk/biosciences/neuroscience-physiology-and-pharmacology>`__ departmental seminar.
+
+I'm also involved with the mentoring programme that the `Division of Biosciences <https://www.ucl.ac.uk/biosciences/>`__ runs for PhD students.
+We had discussed this at the divisional meeting last week, and now we have a few tasks to carry out to improve the programme's reach to more students.
+
+OCNS
+=====
+
+
+.. figure:: {static}/images/2024-cns-2024-banner.png
+    :width: 60 %
+    :align: center
+    :alt: The annual conference of the Organization for Computational Neurosciences will happen in July in Natal, Brazil, this year.
+    :class: text-center img-responsive pagination-centered
+
+    The annual conference of the Organization for Computational Neurosciences will happen in July in Natal, Brazil, this year.
+
+
+I'm organising the career development workshop at the `annual conference <https://www.cnsorg.org/cns-2024-quick>`__ of the Organization for Computational Neuroscience as part of my Board member responsibilities.
+This year, we're hosting a "beyond academia" session where we'll have folks who have worked or are currently working in industry after their doctorates and initial academic positions will speak about their experiences.
+The goal is to discuss careers that academics can take up outside of the traditional academic research domain.
+With help from a number of Board members and others at the lab at UCL, I had a list of people to reach out to.
+We now have a panel of four, so we're on track.
+
+The programme for the conference is also now online on `Sched <https://cns2024.sched.com/>`__, and registration is still open.
+
+I also had a quick meeting with the `OCNS EDI chair <https://www.cnsorg.org/board-of-directors>`__, Eirini Mavristaki, about the mentoring programme that the OCNS is trying to set up for its members.
+Eirini has already got most of it ready, and I'll help with the remaining bits to try and launch it at the conference or soon after.
+
+
+Fedora related
+===============
+
+A few of us contributors met for a catch up last evening.
+We met in Soho, had a few drinks and then had a great meal in Chinatown.
+We organise these on the `Fedora UK matrix channel <https://matrix.to/#/#region-uk:fedoraproject.org>`__, so if you're interested in joining us for the next meetup, please drop in there and let us know.
+
+We had the `NeuroSIG <https://neuro.fedoraproject.org>`__ meeting on Monday.
+We went through our packages and so on.
+They look fine.
+A few are broken after the Python 3.13 mass re-build but as more and more packages are fixed, a lot of our packages should also start to build.
+
+
+.. _NeuroML: https://neuroml.org
+.. _pyNeuroML: https://github.com/NeuroML/pyNeuroML
+.. _jNeuroML: https://github.com/NeuroML/jNeuroML
