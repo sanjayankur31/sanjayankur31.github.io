@@ -24,35 +24,27 @@ NeuroML related
     NeuroML_ is a standard and software ecosystem for biophysically detailed neuronal modelling.
 
 
+We made a few bug fixes to jLEMS_ to ensure that errors relating to dimensions and units do propagate all the way to the top level code and cause the model execution to stop.
+The exceptions were being thrown correctly but they were being printed out to the user as warnings and not being allowed to propagate further.
+
+While tinkering with this, I also found a minor bug in our SBML to LEMS conversion code.
+One of the time constants in the generated LEMS code wasn't given the right dimensions.
+It was a `simple enough fix <https://github.com/NeuroML/org.neuroml.import/pull/24>`__.
 
 GSoC
 -----
 
-Work continues on this front.
-Both Aditya and Ioannis already have pull requests open, so I've been reviewing them and providing feedback.
-We're making sure we follow best practices right from the start---so doc strings, unit tests, type hints are all already in use.
-
-I also added coverage information to our pyNeuroML_ CI.
-It doesn't use a third party service like Coveralls/Codecov/Codespace at the moment.
-It's a `combination of two GitHub actions <https://github.com/NeuroML/pyNeuroML/blob/development/.github/workflows/ci.yml#L56>`__---one summarises the coverage that we generate using pytest-cov, and the other comments on the pull request.
-It works well enough.
-The commenter action replaces to same comment each time too, so it doesn't spam the pull request with repeated comments.
-
-This has pointed out that some of our code needs more testing, so we've put that on our agenda too now.
-
+This is ticking along.
+Aditya and Ioannis are still working on their tasks and pushing to their draft pull requests.
+They should be ready to review next week.
 
 Model conversion
 -----------------
 
-I continued to work on converting the Purkinje cell model from `Zang et al <https://www.cell.com/cell-reports/fulltext/S2211-1247(18)31088-X>`__.
-Using my test script, I've converted another couple of channels.
+I'm still working on the converting the two remaining Calcium channels in `Zang et al <https://www.cell.com/cell-reports/fulltext/S2211-1247(18)31088-X>`__.
+They're slightly trickier to convert because of the formalism they follow, but I should get there with another few days of work.
 
-
-Fedora related
-===============
-
-Fixes, updates, and bug filing continues in the `NeuroFedora SIG <https://neuro.fedoraproject.org>`__.
 
 .. _NeuroML: https://neuroml.org
 .. _pyNeuroML: https://github.com/NeuroML/pyNeuroML
-.. _LEMS: https://docs.neuroml.org/Userdocs/LEMS.html
+.. _jLEMS: https://github.com/LEMS/jLEMS
