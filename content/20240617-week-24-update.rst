@@ -9,9 +9,6 @@ Week 24 update
 :summary: Weekly update to week #24
 
 
-Setting up Vim for multi-repo Java projects
-=============================================
-
 NeuroML related
 =================
 
@@ -44,7 +41,73 @@ Model conversion
 I'm still working on the converting the two remaining Calcium channels in `Zang et al <https://www.cell.com/cell-reports/fulltext/S2211-1247(18)31088-X>`__.
 They're slightly trickier to convert because of the formalism they follow, but I should get there with another few days of work.
 
+Setting up Vim for multi-repo Java projects
+=============================================
+
+Because the NeuroML Java code is broken down into a number of different Java packages (`org.neuroml.import <https://github.com/NeuroML/org.neuroml.import>`__, `org.neuroml.export <https://github.com/NeuroML/org.neuroml.export>`__ and so on), while working on jLEMS_, I had to remind myself how to work on multi-repository/multi-project Java projects in Vim_.
+I use `YouCompleteMe (YCM) <https://github.com/ycm-core/YouCompleteMe>`__ which is quite excellent for completion and code navigation.
+I had to figure out how to configure it to allow me to jump from one Java project to another (like one would do in an Eclipse workspace).
+
+The `documentation <https://github.com/ycm-core/YouCompleteMe?tab=readme-ov-file#java-semantic-completion>`__ didn't really help me, unfortunately.
+It says to use Eclipse_/Maven_/Gradle_ configuration files that `JDT <https://github.com/eclipse/eclipse.jdt.ls>`__ (the engine YCM uses for Java) understands, but doesn't really say much about how to configure these.
+So, were the :code:`pom.xml` files that our projects had enough?
+Didn't look like it---they do have dependency information, but only as packages, not as related source directories.
+So, I wasn't sure how to go about it.
+I tried to copy all my Java repositories into a "top level" (workspace style) folder and configure that as a "multi-project" Java maven package.
+I don't think that quite worked, or perhaps I didn't know how to quite set it up.
+I didn't want to have to create a new project either.
+
+Eventually, I tried an Eclipse :code:`.project` file to the top level directory which tells JDT what project/repository folders are related to each other.
+Again, I wasn't sure how to write this by hand, but turns out a minimal one is quite sufficient.
+
+So, for example, my `NeuroML/software` folder looks like this:
+
+.. code:: console
+
+    AllenInstituteNeuroML/    inspyred/  libNeuroML/          netpyne/         NeuroMLCAP/             OpenCortex/          org.neuroml.model/                  pylems/
+    biosimulations-runutils/  jLEMS/     MDF/                 neuroConstruct/  NeuroMLlite/            org.neuroml1.model/  org.neuroml.model.injectingplugin/  pyNeuroML/
+    eden/                     jNeuroML/  modelspec/           NeuroML2/        neuroml-template-repo/  org.neuroml.export/  osb-model-validation/               pynsgr/
+    generateds-code/          LEMS/      morphology_include/  NeuroML_API/     neurotune/              org.neuroml.import/  pyelectro/
+
+
+The main exporter code is in :code:`org.neuroml.export`, but it references code in :code:`jLEMS` and :code:`org.neuroml.import` and so on.
+Adding a minimal :code:`.project` file to this top level directory was enough:
+
+.. code:: xml
+
+    <?xml version="1.0" encoding="UTF-8"?>
+    <projectDescription>
+            <name>parent-project</name>
+            <comment></comment>
+            <projects>
+            </projects>
+            <buildSpec>
+                    <buildCommand>
+                            <name>org.eclipse.m2e.core.maven2Builder</name>
+                            <arguments>
+                            </arguments>
+                    </buildCommand>
+            </buildSpec>
+            <natures>
+                    <nature>org.eclipse.m2e.core.maven2Nature</nature>
+            </natures>
+            <filteredResources>
+                    <filter>
+                            <id>1718191734481</id>
+                            <name></name>
+                            <type>30</type>
+                            <matcher>
+                                    <id>org.eclipse.core.resources.regexFilterMatcher</id>
+                                    <arguments>node_modules|\.git|__CREATED_BY_JAVA_LANGUAGE_SERVER__</arguments>
+                            </matcher>
+                    </filter>
+            </filteredResources>
+    </projectDescription>
+
 
 .. _NeuroML: https://neuroml.org
-.. _pyNeuroML: https://github.com/NeuroML/pyNeuroML
 .. _jLEMS: https://github.com/LEMS/jLEMS
+.. _Vim: https://vim.org
+.. _Eclipse: https://eclipseide.org/
+.. _Maven: https://maven.apache.org/
+.. _Gradle: https://gradle.org/
