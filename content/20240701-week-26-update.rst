@@ -1,0 +1,117 @@
+Week 26 update
+##############
+:date: 2024-07-01 17:13:10
+:modified: 2024-07-01 17:13:10
+:author: ankur
+:category: Life
+:tags: NeuroML, Computational Neuroscience, Fedora
+:slug: week-26-update
+:summary: Weekly update to week #26
+
+
+NeuroML related
+=================
+
+.. figure:: {static}/images/neuroml-logo.png
+    :width: 40 %
+    :align: center
+    :alt: NeuroML is a standard and software ecosystem for biophysically detailed neuronal modelling.
+    :class: text-center img-responsive pagination-centered
+
+    NeuroML_ is a standard and software ecosystem for biophysically detailed neuronal modelling.
+
+
+Windows issues
+--------------
+
+We have a few interns working on NeuroML_ projects and a few of them that use Windows as their primary operating system have reported issues on installing/using various bits of the NeuroML_ stack.
+Unfortunately, none of us on the NeuroML_ developer team use Windows, so we haven't run into these issues and they're harder for us to fix.
+
+Generally, installing the basic bits of the NeuroML_ stack on Windows is not too hard.
+One needs to have a functioning Java Runtime Environment (JRE) along with a Python installation.
+Both of these aren't very hard to install, since installers for Windows are readily available.
+
+From then on, one only needs to set up a virtual environment and install pyNeuroML_ using pip.
+This pulls in all the Python dependencies, and we also bundle the necessary Java bits with it.
+
+Other optional dependencies, though, can be tricky.
+For example, one can install NEURON_ on Windows using the `installer they provide <https://nrn.readthedocs.io/en/latest/install/install_instructions.html#windows>`__, however, one also needs to have a compiler tool chain to use NEURON_, and that isn't necessarily straightforward.
+I still don't know how this is to be set up correctly.
+
+Next, a few folks have reported issues getting our Vispy_ based visualization code to run on Windows.
+Vispy_ requires a `backend <https://vispy.org/installation.html>`__ to run, like Qt5 or Qt6, so one has to make sure these work on their Windows installs to use Vispy_.
+
+The `Windows Subsystem for Linux <https://learn.microsoft.com/en-us/windows/wsl/>`__ is something lots of Windows users now use.
+It's great for development, but GUI elements don't seem to work on it out of the box (from what I hear).
+
+
+Using SWC morphology files
+---------------------------
+
+.. figure:: {static}/images/20240701-neuromorpho.png
+    :width: 40 %
+    :align: center
+    :alt: Screenshot of NeuroMorpho.org
+    :class: text-center img-responsive pagination-centered
+
+    Screenshot of NeuroMorpho.org
+
+
+`SWC <https://swc-specification.readthedocs.io/en/latest/>`__ is a specification/format used to store reconstructions of biological entities, like neurons.
+It's commonly used in various places like on https://neuromorpho.org, a database of neuronal reconstructions.
+
+A use-case that NeuroML_ needs to support is the use of these reconstructions in models.
+Of course, these reconstructions are not always made for use in models, so they can have various issues that need to first be corrected.
+We have `a page on these in the docs <https://docs.neuroml.org/Userdocs/ImportingMorphologyFiles.html>`__.
+
+A few tools do allow the semi-automated conversion of SWC morphologies to NeuroML.
+`CVApp <https://github.com/NeuroML/Cvapp-NeuroMorpho.org>`__ is one such tool.
+We made some updates/fixes to it this week to ensure it works correctly, and also updated the documentation to add a page dedicated to the `conversion of SWC to NeuroML <https://docs.neuroml.org/Userdocs/Software/Tools/SWC.html>`__.
+
+We also support storing these NeuroML_ morphologies in separate files now, and I `updated pyNeuroML to also visualise these using our Vispy viewer <https://github.com/NeuroML/pyNeuroML/pull/398>`__
+
+Google Summer of Code
+---------------------
+
+I merged Ioannis's `PR <https://github.com/NeuroML/pyNeuroML/pull/379>`__ that included tweaks to our 3D visualiser to make cells look "upright".
+I also made some other tweaks to it to show the X, Y, Z, axes with the plots and improve the camera view.
+Ioannis is now looking into `making our visualisations work in Jupyter notebooks <https://github.com/NeuroML/pyNeuroML/issues/359>`__.
+
+I reviewed Aditya's `PR <https://github.com/NeuroML/pyNeuroML/pull/384>`__ and gave some feedback.
+He's made his changes now, and I've got to do another review, hopefully tomorrow.
+In the meantime, Aditya is playing with CVApp and other tools to gain a better understanding of the SWC to NeuroML conversion process.
+
+Paper review responses
+----------------------
+
+We worked on replying to the reviewers' responses on our `submission to E-Life <https://elifesciences.org/reviewed-preprints/95135>`__.
+We hope to send the updated version back in this week.
+This took quite a while.
+
+
+INCF/OCNS Software Working Group
+================================
+
+I met Adam Tyson of the Sainsbury Wellcome Centre at the `Neuroscience Symposium <https://www.ucl.ac.uk/research/domains/neuroscience/events/neuroscience-symposia>`__ at UCL the other week.
+I'd asked them if they'd do a talk for our `Software Working Group on the software tools their group develops <https://ocns.github.io/SoftwareWG/2024/06/26/wg-meeting-9-july-2024-software-tools-for-systems-neuroscience-adam-tyson-.html>`__.
+They were happy to do one, so I set it up last week.
+
+.. figure:: {static}/images/20240626-neuroinformatics-dev.png
+    :width: 40 %
+    :align: center
+    :alt: The Neuroinformatics Unit at the Sainsbury Wellcome Centre develops software tools for systems neuroscience.
+    :class: text-center img-responsive pagination-centered
+
+    The `Neuroinformatics Unit <https://neuroinformatics.dev>`__ at the Sainsbury Wellcome Centre develops software tools for systems neuroscience.
+
+
+Fedora related
+===============
+
+I merged a few packaging PRs and built packages for the various releases.
+I also made a quick PR to the docs to include information about using `fkinit` when using 2FA---which is much easier than just using `kinit`.
+
+.. _NeuroML: https://neuroml.org
+.. _pyNeuroML: https://github.com/NeuroML/pyNeuroML
+.. _NEURON: https://www.neuron.yale.edu/neuron/
+.. _Vispy: https://vispy.org
