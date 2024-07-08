@@ -1,0 +1,70 @@
+Week 27 update
+##############
+:date: 2024-07-01 17:13:10
+:modified: 2024-07-01 17:13:10
+:author: ankur
+:category: Life
+:tags: NeuroML, Computational Neuroscience, Fedora
+:slug: week-27-update
+:summary: Weekly update to week #27
+
+
+NeuroML related
+=================
+
+.. figure:: {static}/images/neuroml-logo.png
+    :width: 40 %
+    :align: center
+    :alt: NeuroML is a standard and software ecosystem for biophysically detailed neuronal modelling.
+    :class: text-center img-responsive pagination-centered
+
+    NeuroML_ is a standard and software ecosystem for biophysically detailed neuronal modelling.
+
+
+Google Summer of Code
+---------------------
+
+I merged Ioannis's `PR <https://github.com/NeuroML/pyNeuroML/pull/379>`__ that included tweaks to our 3D visualiser to make cells look "upright".
+I also made some other tweaks to it to show the X, Y, Z, axes with the plots and improve the camera view.
+Ioannis is now looking into `making our visualisations work in Jupyter notebooks <https://github.com/NeuroML/pyNeuroML/issues/359>`__.
+
+I reviewed Aditya's `PR <https://github.com/NeuroML/pyNeuroML/pull/384>`__ and gave some feedback.
+He's made his changes now, and I've got to do another review, hopefully tomorrow.
+In the meantime, Aditya is playing with CVApp and other tools to gain a better understanding of the SWC to NeuroML conversion process.
+
+Paper review responses
+----------------------
+
+We worked on replying to the reviewers' responses on our `submission to E-Life <https://elifesciences.org/reviewed-preprints/95135>`__.
+We hope to send the updated version back in this week.
+This took quite a while.
+
+
+INCF/OCNS Software Working Group
+================================
+
+
+The INCF/OCNS Software Working group session is tomorrow:
+
+
+`Software Working Group on the software tools their group develops <https://ocns.github.io/SoftwareWG/2024/06/27/wg-meeting-9-july-2024-software-tools-for-systems-neuroscience-adam-tyson-.html>`__.
+
+.. figure:: {static}/images/20240621-neuroinformatics-dev.png
+    :width: 40 %
+    :align: center
+    :alt: The Neuroinformatics Unit at the Sainsbury Wellcome Centre develops software tools for systems neuroscience.
+    :class: text-center img-responsive pagination-centered
+
+    The `Neuroinformatics Unit <https://neuroinformatics.dev>`__ at the Sainsbury Wellcome Centre develops software tools for systems neuroscience.
+
+
+Fedora related
+===============
+
+I merged a few packaging PRs and built packages for the various releases.
+I also made a quick PR to the docs to include information about using `fkinit` when using 2FA---which is much easier than just using `kinit`.
+
+.. _NeuroML: https://neuroml.org
+.. _pyNeuroML: https://github.com/NeuroML/pyNeuroML
+.. _NEURON: https://www.neuron.yale.edu/neuron/
+.. _Vispy: https://vispy.org
