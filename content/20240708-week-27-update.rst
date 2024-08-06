@@ -1,12 +1,27 @@
-Week 27 update
-##############
-:date: 2024-07-01 17:13:10
-:modified: 2024-07-01 17:13:10
+Week 27--31 update
+###################
+:date: 2024-08-05 10:55:48
+:modified: 2024-08-05 10:55:48
 :author: ankur
 :category: Life
 :tags: NeuroML, Computational Neuroscience, Fedora
-:slug: week-27-update
-:summary: Weekly update to week #27
+:slug: week-27-31-update
+:summary: Weekly update to week #27-#31
+
+It's been a busy month, so here's a combined post on the past four weeks.
+
+Conference: CNS 2024
+====================
+
+The annual conference for computational neuroscience, held by the `Organization for Computational Neurosciences <https://www.cnsorg.org>`__ happens in July every year.
+It alternates between Europe and non-Europe locations to ensure that it's accessible to as much of the research community as possible.
+This year, it was organised in Natal, Brazil.
+
+We had a tutorial on NeuroML_ and a couple of posters accepted at the conference.
+
+I'm also on the `Board of Directors for CNS <https://www.cnsorg.org/board-of-directors>`__.
+As part of my duties, I organised a career development session this year on life "beyond academia" where we had a panel of people who had trained in academia but now had moved on to non-academic careers.
+The idea was to give students and early career researchers (ECRs) some idea of the "black box" that is industry, given that most of us have never worked in industry and therefore don't quite know anything about it at all, which makes it moving from academia to non-academic careers quite a daunting task.
 
 
 NeuroML related
