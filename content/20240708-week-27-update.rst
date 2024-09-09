@@ -1,17 +1,17 @@
-Week 27--31 update
+Week 27--36 update
 ###################
-:date: 2024-08-05 10:55:48
-:modified: 2024-08-05 10:55:48
+:date: 2024-09-06 15:06:07
+:modified: 2024-09-06 15:06:07
 :author: ankur
 :category: Life
 :tags: NeuroML, Computational Neuroscience, Fedora
-:slug: week-27-31-update
-:summary: Weekly update to week #27-#31
+:slug: week-27-36-update
+:summary: Weekly update to week #27-#36
 
-It's been a busy month, so here's a combined post on the past four weeks.
+It's been a busy summer, so here's a consolidated post on what went on.
 
-Conference: CNS 2024
-====================
+Conference: CNS 2024 in July
+============================
 
 The annual conference for computational neuroscience, held by the `Organization for Computational Neurosciences <https://www.cnsorg.org>`__ happens in July every year.
 It alternates between Europe and non-Europe locations to ensure that it's accessible to as much of the research community as possible.
@@ -39,21 +39,68 @@ NeuroML related
 Google Summer of Code
 ---------------------
 
-I merged Ioannis's `PR <https://github.com/NeuroML/pyNeuroML/pull/379>`__ that included tweaks to our 3D visualiser to make cells look "upright".
-I also made some other tweaks to it to show the X, Y, Z, axes with the plots and improve the camera view.
-Ioannis is now looking into `making our visualisations work in Jupyter notebooks <https://github.com/NeuroML/pyNeuroML/issues/359>`__.
+Google Summer of Code finished recently.
+Both Ioannis and Aditya passed their final evaulations, of course.
+They both did great work.
 
-I reviewed Aditya's `PR <https://github.com/NeuroML/pyNeuroML/pull/384>`__ and gave some feedback.
-He's made his changes now, and I've got to do another review, hopefully tomorrow.
-In the meantime, Aditya is playing with CVApp and other tools to gain a better understanding of the SWC to NeuroML conversion process.
+Aditya completed implementing the SWC to NeuroML converter.
+I reviewed his `PR and made some tweaks <https://github.com/NeuroML/pyNeuroML/pull/421>`__ before merging it in.
+The new converter is now part of the recent `PyNeuroML 1.3.9 <https://pypi.org/project/pyNeuroML/1.3.9/>`__ release.
+One can convert morphologies, for example from https://neuromorpho.org, using either the API or the command line tool:
+
+.. code:: console
+
+   pynml-swc2nml <swc file>
+
+
+It runs a number of tests when loading the SWC file, and then validates the NeuroML once generated.
+
+
+Now that we can export SWC files to NeuroML, we also can visualise them.
+We first convert them to NeuroML and use our NeuroML visualisation tools.
+This means that one can now do:
+
+.. code:: console
+
+   pynml-plotmorph -i <swc file>
+
+One limitation to keep in mind with our handling of SWC is that each SWC file must only hold one neuron (cell), since this is what the standard that NeuroMorpho.org follows specifies.
+
+
+Ioannis completed a number of tasks related to the Vispy viewer.
+Initially, our code was using a small number of meshes with many `InstancedMesh <https://vispy.org/api/vispy.scene.visuals.html#vispy.scene.visuals.InstancedMesh>`__ objects because my understanding was that this was the most efficient way of going about it.
+Later though, we realised that instead, we could just use one `Mesh <https://vispy.org/api/vispy.scene.visuals.html#vispy.scene.visuals.Mesh>`__ that included all our individual shapes (spheres and cylinders) and that would be much more performant.
+So, I refactored our `visualization code <https://github.com/NeuroML/pyNeuroML/blob/development/pyneuroml/plot/PlotMorphologyVispy.py>`__ to use a single mesh.
+This really simplified a number of things, including lighting and "picking".
+We can also store the single mesh to a file so that it can be loaded in other analysis tools and visualisers like Paraview.
+It opens up a bunch of possibilities of what we can do with the morphology visualisation.
+
+.. raw:: html
+
+    <video controls width="40%" preload="auto" poster="{static}/images/neuroml-logo.png" type="video/mp4">
+        <source src="{static}/images/20240906-hl23.mp4" type="video/mp4">
+        Your browser does not support the video tag. Download it from `here <{static}/images/20240906-hl23.mp4>`__
+    </video>
+
 
 Paper review responses
 ----------------------
 
-We worked on replying to the reviewers' responses on our `submission to E-Life <https://elifesciences.org/reviewed-preprints/95135>`__.
-We hope to send the updated version back in this week.
-This took quite a while.
+A lot of our time went in responding to reviews for our `submission to E-Life <https://elifesciences.org/reviewed-preprints/95135>`__.
+This is now complete, and our modifications and reviews have been submitted.
+The `pre-print <https://www.biorxiv.org/content/10.1101/2023.12.07.570537v2>`__ has also been updated.
 
+Open Source Brain related
+==========================
+
+End of grant report
+--------------------
+
+We also had the end of grant report to write for our Wellcome grant that finished recently.
+That took a bit of work right after CNS finished.
+That's also done now and submitted.
+
+We're now working on the next steps to secure another grant to keep the project going.
 
 INCF/OCNS Software Working Group
 ================================
