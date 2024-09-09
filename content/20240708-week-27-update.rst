@@ -9,6 +9,7 @@ Week 27--36 update
 :summary: Weekly update to week #27-#36
 
 It's been a busy summer, so here's a consolidated post on what went on.
+I'm sure there's a lot more, but here are the salient points.
 
 Conference: CNS 2024 in July
 ============================
@@ -18,10 +19,21 @@ It alternates between Europe and non-Europe locations to ensure that it's access
 This year, it was organised in Natal, Brazil.
 
 We had a tutorial on NeuroML_ and a couple of posters accepted at the conference.
+We also had a couple of posters accepted.
 
 I'm also on the `Board of Directors for CNS <https://www.cnsorg.org/board-of-directors>`__.
 As part of my duties, I organised a career development session this year on life "beyond academia" where we had a panel of people who had trained in academia but now had moved on to non-academic careers.
-The idea was to give students and early career researchers (ECRs) some idea of the "black box" that is industry, given that most of us have never worked in industry and therefore don't quite know anything about it at all, which makes it moving from academia to non-academic careers quite a daunting task.
+The idea was to give students and early career researchers (ECRs) some idea of the "black box" that is industry, given that most of us have never worked in industry and therefore don't quite know much about it, which makes moving from academia to non-academic careers quite a daunting task.
+
+The conference was great.
+It was nice to see a lot of our colleagues, who we hadn't seen in a while.
+Natal, and Brazil in general, was a brilliant place to go to too.
+We had numerous Caipirinhas, delicious food, and enjoyed the warm weather.
+The days were hectic as always---absorbing information non-stop from 9 o'clock till the end of the day at about six o'clock, but then heading over to the socials and staying out late too.
+
+I had half a day extra or so after the conference, and a few of us drove to Praia de Pipa (Pipa Beach).
+It was absolutely beautiful.
+Since I was flying out in the evening and had already checked out of my hotel, I didn't get into the water, but we paddled around for quite a bit before having a scrumptious sea-food lunch.
 
 
 NeuroML related
@@ -40,8 +52,8 @@ Google Summer of Code
 ---------------------
 
 Google Summer of Code finished recently.
-Both Ioannis and Aditya passed their final evaulations, of course.
-They both did great work.
+Both `Ioannis <https://github.com/lej0hn/GSOC_2024>`__ and `Aditya <https://github.com/AdityaBITMESRA/GSOC2024_INCF>`__ passed their final evaluations, of course.
+They both did great work and we were very lucky to have them.
 
 Aditya completed implementing the SWC to NeuroML converter.
 I reviewed his `PR and made some tweaks <https://github.com/NeuroML/pyNeuroML/pull/421>`__ before merging it in.
@@ -83,35 +95,39 @@ It opens up a bunch of possibilities of what we can do with the morphology visua
     </video>
 
 
+Our viewer can also be used in Jupyter notebooks now, although there's a `bug when trying to use multiple visualisations in the same notebook <https://github.com/vispy/jupyter_rfb/issues/99>`__ that upstream is looking into.
+
+
 Paper review responses
 ----------------------
 
 A lot of our time went in responding to reviews for our `submission to E-Life <https://elifesciences.org/reviewed-preprints/95135>`__.
-This is now complete, and our modifications and reviews have been submitted.
-The `pre-print <https://www.biorxiv.org/content/10.1101/2023.12.07.570537v2>`__ has also been updated.
+As part of the improvements suggested by the reviewers, one was to allow neuronal morphologies to be stored in separate files that could be "included" in other files.
+We added this `functionality <https://docs.neuroml.org/Userdocs/ImportingMorphologyFiles.html#morphologies-can-be-stored-in-external-files>`__ too.
+It had been a long open issue anyway, and this gave us the opportunity to finally implement it.
+It did require quite a few changes in our Java and Python stacks, but it's all complete now, and our modified paper has been re-submitted for review.
+The `pre-print <https://www.biorxiv.org/content/10.1101/2023.12.07.570537v2>`__ has also been updated to the latest version.
 
 Open Source Brain related
 ==========================
 
+The platform is ticking along well.
+
 End of grant report
 --------------------
 
-We also had the end of grant report to write for our Wellcome grant that finished recently.
-That took a bit of work right after CNS finished.
-That's also done now and submitted.
+We had the end of grant report to write for our Wellcome grant that finished recently.
+It was due the day after CNS, so we ended up working on it on the plane home.
 
-We're now working on the next steps to secure another grant to keep the project going.
+We're now working on the next steps and future plans for the project.
 
 INCF/OCNS Software Working Group
 ================================
 
+The working group is ticking along.
+We hosted another session where Adam Tyson spoke to us about the `software tools their group develops <https://ocns.github.io/SoftwareWG/2024/06/26/wg-meeting-9-july-2024-software-tools-for-systems-neuroscience-adam-tyson-.html>`__.
 
-The INCF/OCNS Software Working group session is tomorrow:
-
-
-`Software Working Group on the software tools their group develops <https://ocns.github.io/SoftwareWG/2024/06/27/wg-meeting-9-july-2024-software-tools-for-systems-neuroscience-adam-tyson-.html>`__.
-
-.. figure:: {static}/images/20240621-neuroinformatics-dev.png
+.. figure:: {static}/images/20240626-neuroinformatics-dev.png
     :width: 40 %
     :align: center
     :alt: The Neuroinformatics Unit at the Sainsbury Wellcome Centre develops software tools for systems neuroscience.
@@ -120,13 +136,34 @@ The INCF/OCNS Software Working group session is tomorrow:
     The `Neuroinformatics Unit <https://neuroinformatics.dev>`__ at the Sainsbury Wellcome Centre develops software tools for systems neuroscience.
 
 
+We'll organise more sessions now that the summer holidays are over.
+
 Fedora related
 ===============
 
-I merged a few packaging PRs and built packages for the various releases.
-I also made a quick PR to the docs to include information about using `fkinit` when using 2FA---which is much easier than just using `kinit`.
+
+Lots of package updates and fixes continue both in `NeuroFedora <https://neuro.fedoraproject.org>`__ and outside it.
+I'm making progress on the `Taskwarrior v3 self-contained change <https://fedoraproject.org/wiki/Changes/Taskwarrior3>`__ too.
+A bunch of rust dependencies are required for it, so I'm going through them one by one.
+
+.. code-block:: console
+
+   $ http get https://apps.fedoraproject.org/datagrepper/v2/search end==2024-09-09T00:00:00+00:00 start==2024-06-30T00:00:00+00:00 user==ankursinha
+   ...
+   "total": 4453,
+   ...
+
+
+Some time off and other things
+===============================
+
+I took a few days off here and there to relax too; it wasn't all work.
+Since I'd already been away for the conference, I didn't have another holiday planned this summer, though.
+A few of our friends got married over the summer and we were lucky enough to be there to share their special day with them.
+We were also lucky enough to see Shania Twain and Stevie Nicks perform in London at the British Summertime Festival at Hyde Park.
+Obviously very moving, and great fun.
+
+So, it's been a good couple of months.
+
 
 .. _NeuroML: https://neuroml.org
-.. _pyNeuroML: https://github.com/NeuroML/pyNeuroML
-.. _NEURON: https://www.neuron.yale.edu/neuron/
-.. _Vispy: https://vispy.org
