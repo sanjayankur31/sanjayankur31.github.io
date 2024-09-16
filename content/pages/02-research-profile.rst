@@ -103,7 +103,7 @@ way---via the Fedora_ Linux distribution.
 Resume
 ------
 
-My resume can be found `here`_.
+My resume can be found `here <https://bitbucket.org/sanjay_ankur/resume/raw/master/AnkurSinha-resume.pdf>`__.
 
 Publications
 ------------
@@ -117,6 +117,5 @@ My publications can be seen `on a separate page <03-publications.html>`_.
 .. _Professor Michael Schmuker: https://biomachinelearning.net/
 .. _Bio inspired navigation in a mobile dynamic environment: https://opus.lib.uts.edu.au/research/handle/10453/36990?show=full
 .. _Dr Jack Wang: http://www.uts.edu.au/staff/jianguo.wang
-.. _here: https://ankursinha.in/files/AnkurSinha-resume.pdf
 .. _NeuroFedora: https://neuro.fedoraproject.org
 .. _Fedora: https://getfedora.org
