@@ -101,6 +101,8 @@ SOCIAL = (
      'fas fa-book-reader fa-fw fa-lg'),
     ('Mastodon', 'https://fosstodon.org/@sanjay_ankur',
      'fab fa-mastodon fa-fw fa-lg'),
+    ('BlueSky', 'https://bsky.app/profile/sanjay-ankur.bsky.social',
+     'fab fa-people-arrows fa-fw fa-lg'),
     ('Goodreads', 'https://www.goodreads.com/user/show/32360473-ankur',
      'fab fa-goodreads-g fa-fw fa-lg'),
     ('Twitter', 'https://twitter.com/sanjay_ankur',
