@@ -8,3 +8,4 @@ ghp-import
 setuptools
 # plugins
 pelican-share-post
+pytz
