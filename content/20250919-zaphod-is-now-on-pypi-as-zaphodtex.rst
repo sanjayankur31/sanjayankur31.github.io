@@ -21,7 +21,7 @@ Unfortunately, the name, zaphod, was already taken, so I have published it as :c
 
 So, you can now install it on your system directly using pip or uv:
 
-.. code:: terminal
+.. code:: bash
 
     uv pip install zaphodtex
 
