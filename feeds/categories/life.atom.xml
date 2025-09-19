@@ -1,0 +1,1218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>ankursinha.in/blog - Life</title><link href="https://ankursinha.in/" rel="alternate"/><link href="https://ankursinha.in/feeds/categories/life.atom.xml" rel="self"/><id>https://ankursinha.in/</id><updated>2025-09-12T11:39:55+01:00</updated><subtitle>neuroscience/fedora/musings</subtitle><entry><title>2025: Week --37 update</title><link href="https://ankursinha.in/2025/09/12/2025-week-37-update.html" rel="alternate"/><published>2025-09-12T11:39:55+01:00</published><updated>2025-09-12T11:39:55+01:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2025-09-12:/2025/09/12/2025-week-37-update.html</id><summary type="html">&lt;p class="first last"&gt;Weekly (well, not really) update till week 37 of 2025.&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;The last time I wrote an update was, funnily enough, about a year ago.
+Also week 37.
+Clearly a lot has happened since then, but it won't all fit in this one post.
+I'll limit this post to the higher level details&lt;/p&gt;
+&lt;div class="section" id="job-research"&gt;
+&lt;h2&gt;Job/Research&lt;/h2&gt;
+&lt;p&gt;Work has been extremely busy as always, and also busy enough where my backlog has been growing and growing.
+There is just so much to do.&lt;/p&gt;
+&lt;div class="section" id="modelling"&gt;
+&lt;h3&gt;Modelling&lt;/h3&gt;
+&lt;p&gt;I have been working on a number of computational models.&lt;/p&gt;
+&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/pWhzd2C0Xb0" frameborder="0" allowfullscreen&gt;
+&lt;/iframe&gt;&lt;p&gt;We are close to having the full &lt;a class="reference external" href="https://github.com/sanjayankur31/Human-L2-3-Cortical-Microcircuit/tree/feat/neuroml/"&gt;Human L2-3 Cortical Micro-circuit&lt;/a&gt; converted to &lt;a class="reference external" href="https://docs.neuroml.org"&gt;NeuroML&lt;/a&gt;.
+The cells have all been standardised.
+This includes the ion channels, and the various morphologies and biophysics.
+What remains is replicating the network behaviour.
+This is not the hard bit.
+We have already done all that.&lt;/p&gt;
+&lt;iframe width="560" height="315" src="https://youtube.com/embed/M00brx5-Hi8" frameborder="0" allowfullscreen&gt;
+&lt;/iframe&gt;&lt;p&gt;Another model I have been working on is the Golgi cell network that was previously developed in the lab (&lt;a class="reference external" href="https://doi.org/10.1016/j.neuron.2021.03.027"&gt;https://doi.org/10.1016/j.neuron.2021.03.027&lt;/a&gt;, model: &lt;a class="reference external" href="https://github.com/sanjayankur31/GolgiCellNetwork"&gt;https://github.com/sanjayankur31/GolgiCellNetwork&lt;/a&gt;).
+There are several predictions about how the Granule cells in the Cerebellum function, and the effect of Golgi cell inhibition on them that will be investigated using this model.&lt;/p&gt;
+&lt;p&gt;The Golgi cell network model also led to a &lt;a class="reference external" href="https://github.com/sanjayankur31/neuroml-model-template"&gt;CookieCutter template&lt;/a&gt;, but that merits its own post.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="neuroml"&gt;
+&lt;h3&gt;NeuroML&lt;/h3&gt;
+&lt;div class="figure"&gt;
+&lt;img alt="NeuroML logo" src="https://ankursinha.in/images/neuroml-logo.png" style="width: 30%;" /&gt;
+&lt;/div&gt;
+&lt;div class="figure"&gt;
+&lt;img alt="Screenshot of NeuroML paper in E-life: https://elifesciences.org/articles/95135" src="https://ankursinha.in/images/20250912-neuroml-elife.png" style="width: 50%;" /&gt;
+&lt;/div&gt;
+&lt;p&gt;Since the last update, we have publish a NeuroML paper in E-Life after a few rounds of review (&lt;a class="reference external" href="https://doi.org/10.7554/eLife.95135.3"&gt;https://doi.org/10.7554/eLife.95135.3&lt;/a&gt;).
+This was a great achievement and it did take a lot of work.&lt;/p&gt;
+&lt;p&gt;Other than that, multiple new releases of the &lt;a class="reference external" href="https://docs.neuroml.org"&gt;NeuroML&lt;/a&gt; libraries have been made.
+We continue to maintain them and push out improvements and fixes regularly on PyPi under the &lt;a class="reference external" href="https://docs.neuroml.org"&gt;NeuroML&lt;/a&gt; PyPi organisation: &lt;a class="reference external" href="https://pypi.org/org/neuroml/"&gt;https://pypi.org/org/neuroml/&lt;/a&gt;.&lt;/p&gt;
+&lt;div class="section" id="google-summer-of-code"&gt;
+&lt;h4&gt;Google Summer of Code&lt;/h4&gt;
+&lt;p&gt;We participated in Google Summer of Code (&lt;a class="reference external" href="https://summerofcode.withgoogle.com/"&gt;GSoC&lt;/a&gt;) again this year.
+Our candidate, Hengye, did an excellent job of converting various bits of the Macaque auditory thalamocortical model to NeuroML.
+The conversion also lives on GitHub, under the Open Source Brain organisation: &lt;a class="reference external" href="https://github.com/OpenSourceBrain/Macaque_auditory_thalamocortical_model_data/tree/feat-neuroml-gsoc"&gt;https://github.com/OpenSourceBrain/Macaque_auditory_thalamocortical_model_data/tree/feat-neuroml-gsoc&lt;/a&gt;.
+We are going to continue working on this to standardise the full model.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="open-source-brain"&gt;
+&lt;h3&gt;Open Source Brain&lt;/h3&gt;
+&lt;div class="figure"&gt;
+&lt;img alt="Screenshot of the Open Source Brain website at https://opensourcebrain.org" src="https://ankursinha.in/images/20250912-osbv2.png" style="width: 50%;" /&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;a class="reference external" href="https://opensourcebrain.org"&gt;Open Source Brain&lt;/a&gt; (OSB), an integrated web-platform for neuroscience, continues to tick along.
+We have made a number of maintenance updates and bug fixes.
+A new release is ready to be deployed to production after more testing.&lt;/p&gt;
+&lt;p&gt;We have worked on also integrating the &lt;a class="reference external" href="https://www.ebrains.eu/"&gt;E-BRAINS&lt;/a&gt; models into OSBv2.
+I need to test the &lt;a class="reference external" href="https://github.com/OpenSourceBrain/OSBv2/pull/963"&gt;E-BRAINS adapter&lt;/a&gt; implementation to prepare the PR for merging.
+This was blocked by some access issues, but they have now been ironed out and this can now proceed.&lt;/p&gt;
+&lt;p&gt;A paper on OSB is in the works, and should be published as a pre-print in the next coming months.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="grants-and-funding"&gt;
+&lt;h3&gt;Grants and funding&lt;/h3&gt;
+&lt;p&gt;This has taken a lot of time since the last update.
+We have applied for two &lt;a class="reference external" href="https://wellcome.org/research-funding/schemes/wellcome-discovery-awards"&gt;Wellcome Discovery Awards&lt;/a&gt;, two &lt;a class="reference external" href="https://digitalresearchinfrastructure.grantplatform.com/"&gt;Software Sustainability Institute&lt;/a&gt; grants, and are going to apply for several more.&lt;/p&gt;
+&lt;p&gt;So far, we have not been lucky enough to be accepted even though we were highly rated.
+Each Wellcome grant application takes about a month of dedicated work.
+Further, once triaged and accepted for interview, it is another two weeks of preparation.
+So, it has been a lot of work for no rewards at all.&lt;/p&gt;
+&lt;p&gt;There just seems to be quite a &lt;a class="reference external" href="https://www.dementiaresearcher.nihr.ac.uk/the-grant-funding-lottery/"&gt;limited amount of funding&lt;/a&gt;, and the intense competition for them means that the success rate for most grant applications has dropped.
+So, more time spent on writing grants with fewer rewards.
+It is currently an even tougher time to be a researcher/academic than it already normally is.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="volunteering"&gt;
+&lt;h2&gt;Volunteering&lt;/h2&gt;
+&lt;p&gt;I have managed to find time for volunteering, but with the increased work load, this time has reduced.&lt;/p&gt;
+&lt;div class="section" id="software-carpentries"&gt;
+&lt;h3&gt;Software carpentries&lt;/h3&gt;
+&lt;p&gt;I completed my &lt;a class="reference external" href="https://carpentries.github.io/instructor-training/"&gt;Software Carpentry Instructor Training&lt;/a&gt;, and now am a certified instructor.
+The training was excellent.
+It pointed out lots of good practices for teaching newcomers/novices computational skills.&lt;/p&gt;
+&lt;p&gt;I will probably teach a session or two here at UCL this year and if time permits do a couple of classes for the &lt;a class="reference external" href="https://fedoraproject.org"&gt;Fedora&lt;/a&gt; classrooms.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="fedora"&gt;
+&lt;h3&gt;Fedora&lt;/h3&gt;
+&lt;div class="figure"&gt;
+&lt;img alt="Fedora logo" src="https://ankursinha.in/images/fedora-logo.png" style="width: 30%;" /&gt;
+&lt;/div&gt;
+&lt;p&gt;Package maintenance continues.
+So does the &lt;a class="reference external" href="https://docs.fedoraproject.org/en-US/fedora-join/"&gt;Fedora Join SIG&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;We have shifted how we do things in &lt;a class="reference external" href="https://neuro.fedoraproject.org"&gt;NeuroFedora&lt;/a&gt;.
+We just had too many packages, and it was no longer clear if people were using these.
+So, we are now testing lots of Python packages directly from PyPi instead of packaging them.
+You can read more about this post: &lt;a class="reference external" href="https://neuroblog.fedoraproject.org/2025/08/02/packaging-changes-at-neurofedora.html"&gt;Packaging changes at NeuroFedora&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The Join SIG is doing well.
+Quite a few new people are now helping out with onboarding and the &lt;a class="reference external" href="https://pagure.io/fedora-join/WelcomeToFedora"&gt;Welcome to Fedora&lt;/a&gt; process, which means we have so much more human resource at our disposal.
+There are also more discussions on how we can do better.
+So we expect tweaks and improvements to make the &amp;quot;Welcome to Fedora&amp;quot; process even better.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="ocns"&gt;
+&lt;h3&gt;OCNS&lt;/h3&gt;
+&lt;div class="figure"&gt;
+&lt;img alt="OCNS logo." src="https://ankursinha.in/images/ocns-logo.png" style="width: 50%;" /&gt;
+&lt;/div&gt;
+&lt;p&gt;I remain an elected member of the &lt;a class="reference external" href="https://www.cnsorg.org/board-of-directors"&gt;Board of Directors&lt;/a&gt; for the Organization for Computational Neuroscience.
+I could not get a Schengen visa to attend the annual conference in Florence, though (again).
+That was quite disappointing, but not a lot can be done about it.
+Europe is really popular in the summer, and there just aren't enough appointments for visa applications.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="summary"&gt;
+&lt;h2&gt;Summary&lt;/h2&gt;
+&lt;p&gt;That will do for now.
+There is certainly a lot happening on multiple fronts, and I have been busy---too busy to write blog posts even.
+I am going to try to restart regular blog writing, but that's what I said last year before dropping out.
+So who knows.&lt;/p&gt;
+&lt;/div&gt;
+</content><category term="Life"/><category term="Research"/><category term="Computational Neuroscience"/><category term="Fedora"/><category term="NeuroFedora"/><category term="Funding"/><category term="Grants"/><category term="Academic Life"/><category term="Post-doc career"/></entry><entry><title>Week 27--36 update</title><link href="https://ankursinha.in/2024/09/06/week-27-36-update.html" rel="alternate"/><published>2024-09-06T15:06:07+01:00</published><updated>2024-09-06T15:06:07+01:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2024-09-06:/2024/09/06/week-27-36-update.html</id><summary type="html">&lt;p class="first last"&gt;Weekly update to week #27-#36&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;It's been a busy summer, so here's a consolidated post on what went on.
+I'm sure there's a lot more, but here are the salient points.&lt;/p&gt;
+&lt;div class="section" id="conference-cns-2024-in-july"&gt;
+&lt;h2&gt;Conference: CNS 2024 in July&lt;/h2&gt;
+&lt;p&gt;The annual conference for computational neuroscience, held by the &lt;a class="reference external" href="https://www.cnsorg.org"&gt;Organization for Computational Neurosciences&lt;/a&gt; happens in July every year.
+It alternates between Europe and non-Europe locations to ensure that it's accessible to as much of the research community as possible.
+This year, it was organised in Natal, Brazil.&lt;/p&gt;
+&lt;p&gt;We had a tutorial on &lt;a class="reference external" href="https://neuroml.org"&gt;NeuroML&lt;/a&gt; and a couple of posters accepted at the conference.
+We also had a couple of posters accepted.&lt;/p&gt;
+&lt;p&gt;I'm also on the &lt;a class="reference external" href="https://www.cnsorg.org/board-of-directors"&gt;Board of Directors for CNS&lt;/a&gt;.
+As part of my duties, I organised a career development session this year on life &amp;quot;beyond academia&amp;quot; where we had a panel of people who had trained in academia but now had moved on to non-academic careers.
+The idea was to give students and early career researchers (ECRs) some idea of the &amp;quot;black box&amp;quot; that is industry, given that most of us have never worked in industry and therefore don't quite know much about it, which makes moving from academia to non-academic careers quite a daunting task.&lt;/p&gt;
+&lt;p&gt;The conference was great.
+It was nice to see a lot of our colleagues, who we hadn't seen in a while.
+Natal, and Brazil in general, was a brilliant place to go to too.
+We had numerous Caipirinhas, delicious food, and enjoyed the warm weather.
+The days were hectic as always---absorbing information non-stop from 9 o'clock till the end of the day at about six o'clock, but then heading over to the socials and staying out late too.&lt;/p&gt;
+&lt;p&gt;I had half a day extra or so after the conference, and a few of us drove to Praia de Pipa (Pipa Beach).
+It was absolutely beautiful.
+Since I was flying out in the evening and had already checked out of my hotel, I didn't get into the water, but we paddled around for quite a bit before having a scrumptious sea-food lunch.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="neuroml-related"&gt;
+&lt;h2&gt;NeuroML related&lt;/h2&gt;
+&lt;div class="figure align-center"&gt;
+&lt;img alt="NeuroML is a standard and software ecosystem for biophysically detailed neuronal modelling." class="text-center img-responsive pagination-centered" src="https://ankursinha.in/images/neuroml-logo.png" style="width: 40%;" /&gt;
+&lt;p class="caption"&gt;&lt;a class="reference external" href="https://neuroml.org"&gt;NeuroML&lt;/a&gt; is a standard and software ecosystem for biophysically detailed neuronal modelling.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="google-summer-of-code"&gt;
+&lt;h3&gt;Google Summer of Code&lt;/h3&gt;
+&lt;p&gt;Google Summer of Code finished recently.
+Both &lt;a class="reference external" href="https://github.com/lej0hn/GSOC_2024"&gt;Ioannis&lt;/a&gt; and &lt;a class="reference external" href="https://github.com/AdityaBITMESRA/GSOC2024_INCF"&gt;Aditya&lt;/a&gt; passed their final evaluations, of course.
+They both did great work and we were very lucky to have them.&lt;/p&gt;
+&lt;p&gt;Aditya completed implementing the SWC to NeuroML converter.
+I reviewed his &lt;a class="reference external" href="https://github.com/NeuroML/pyNeuroML/pull/421"&gt;PR and made some tweaks&lt;/a&gt; before merging it in.
+The new converter is now part of the recent &lt;a class="reference external" href="https://pypi.org/project/pyNeuroML/1.3.9/"&gt;PyNeuroML 1.3.9&lt;/a&gt; release.
+One can convert morphologies, for example from &lt;a class="reference external" href="https://neuromorpho.org"&gt;https://neuromorpho.org&lt;/a&gt;, using either the API or the command line tool:&lt;/p&gt;
+&lt;pre class="code console literal-block"&gt;
+&lt;span class="go"&gt;pynml-swc2nml &amp;lt;swc file&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;
+&lt;p&gt;It runs a number of tests when loading the SWC file, and then validates the NeuroML once generated.&lt;/p&gt;
+&lt;p&gt;Now that we can export SWC files to NeuroML, we also can visualise them.
+We first convert them to NeuroML and use our NeuroML visualisation tools.
+This means that one can now do:&lt;/p&gt;
+&lt;pre class="code console literal-block"&gt;
+&lt;span class="go"&gt;pynml-plotmorph -i &amp;lt;swc file&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;
+&lt;p&gt;One limitation to keep in mind with our handling of SWC is that each SWC file must only hold one neuron (cell), since this is what the standard that NeuroMorpho.org follows specifies.&lt;/p&gt;
+&lt;p&gt;Ioannis completed a number of tasks related to the Vispy viewer.
+Initially, our code was using a small number of meshes with many &lt;a class="reference external" href="https://vispy.org/api/vispy.scene.visuals.html#vispy.scene.visuals.InstancedMesh"&gt;InstancedMesh&lt;/a&gt; objects because my understanding was that this was the most efficient way of going about it.
+Later though, we realised that instead, we could just use one &lt;a class="reference external" href="https://vispy.org/api/vispy.scene.visuals.html#vispy.scene.visuals.Mesh"&gt;Mesh&lt;/a&gt; that included all our individual shapes (spheres and cylinders) and that would be much more performant.
+So, I refactored our &lt;a class="reference external" href="https://github.com/NeuroML/pyNeuroML/blob/development/pyneuroml/plot/PlotMorphologyVispy.py"&gt;visualization code&lt;/a&gt; to use a single mesh.
+This really simplified a number of things, including lighting and &amp;quot;picking&amp;quot;.
+We can also store the single mesh to a file so that it can be loaded in other analysis tools and visualisers like Paraview.
+It opens up a bunch of possibilities of what we can do with the morphology visualisation.&lt;/p&gt;
+&lt;video controls width="40%" preload="auto" poster="https://ankursinha.in/images/neuroml-logo.png" type="video/mp4"&gt;
+    &lt;source src="https://ankursinha.in/images/20240906-hl23.mp4" type="video/mp4"&gt;
+    Your browser does not support the video tag. Download it from `here &lt;{static}/images/20240906-hl23.mp4&gt;`__
+&lt;/video&gt;&lt;p&gt;Our viewer can also be used in Jupyter notebooks now, although there's a &lt;a class="reference external" href="https://github.com/vispy/jupyter_rfb/issues/99"&gt;bug when trying to use multiple visualisations in the same notebook&lt;/a&gt; that upstream is looking into.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="paper-review-responses"&gt;
+&lt;h3&gt;Paper review responses&lt;/h3&gt;
+&lt;p&gt;A lot of our time went in responding to reviews for our &lt;a class="reference external" href="https://elifesciences.org/reviewed-preprints/95135"&gt;submission to E-Life&lt;/a&gt;.
+As part of the improvements suggested by the reviewers, one was to allow neuronal morphologies to be stored in separate files that could be &amp;quot;included&amp;quot; in other files.
+We added this &lt;a class="reference external" href="https://docs.neuroml.org/Userdocs/ImportingMorphologyFiles.html#morphologies-can-be-stored-in-external-files"&gt;functionality&lt;/a&gt; too.
+It had been a long open issue anyway, and this gave us the opportunity to finally implement it.
+It did require quite a few changes in our Java and Python stacks, but it's all complete now, and our modified paper has been re-submitted for review.
+The &lt;a class="reference external" href="https://www.biorxiv.org/content/10.1101/2023.12.07.570537v2"&gt;pre-print&lt;/a&gt; has also been updated to the latest version.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="open-source-brain-related"&gt;
+&lt;h2&gt;Open Source Brain related&lt;/h2&gt;
+&lt;p&gt;The platform is ticking along well.&lt;/p&gt;
+&lt;div class="section" id="end-of-grant-report"&gt;
+&lt;h3&gt;End of grant report&lt;/h3&gt;
+&lt;p&gt;We had the end of grant report to write for our Wellcome grant that finished recently.
+It was due the day after CNS, so we ended up working on it on the plane home.&lt;/p&gt;
+&lt;p&gt;We're now working on the next steps and future plans for the project.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="incf-ocns-software-working-group"&gt;
+&lt;h2&gt;INCF/OCNS Software Working Group&lt;/h2&gt;
+&lt;p&gt;The working group is ticking along.
+We hosted another session where Adam Tyson spoke to us about the &lt;a class="reference external" href="https://ocns.github.io/SoftwareWG/2024/06/26/wg-meeting-9-july-2024-software-tools-for-systems-neuroscience-adam-tyson-.html"&gt;software tools their group develops&lt;/a&gt;.&lt;/p&gt;
+&lt;div class="figure align-center"&gt;
+&lt;img alt="The Neuroinformatics Unit at the Sainsbury Wellcome Centre develops software tools for systems neuroscience." class="text-center img-responsive pagination-centered" src="https://ankursinha.in/images/20240626-neuroinformatics-dev.png" style="width: 40%;" /&gt;
+&lt;p class="caption"&gt;The &lt;a class="reference external" href="https://neuroinformatics.dev"&gt;Neuroinformatics Unit&lt;/a&gt; at the Sainsbury Wellcome Centre develops software tools for systems neuroscience.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;We'll organise more sessions now that the summer holidays are over.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="fedora-related"&gt;
+&lt;h2&gt;Fedora related&lt;/h2&gt;
+&lt;p&gt;Lots of package updates and fixes continue both in &lt;a class="reference external" href="https://neuro.fedoraproject.org"&gt;NeuroFedora&lt;/a&gt; and outside it.
+I'm making progress on the &lt;a class="reference external" href="https://fedoraproject.org/wiki/Changes/Taskwarrior3"&gt;Taskwarrior v3 self-contained change&lt;/a&gt; too.
+A bunch of rust dependencies are required for it, so I'm going through them one by one.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="gp"&gt;$ &lt;/span&gt;http&lt;span class="w"&gt; &lt;/span&gt;get&lt;span class="w"&gt; &lt;/span&gt;https://apps.fedoraproject.org/datagrepper/v2/search&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;end&lt;/span&gt;&lt;span class="o"&gt;==&lt;/span&gt;&lt;span class="m"&gt;2024&lt;/span&gt;-09-09T00:00:00+00:00&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;start&lt;/span&gt;&lt;span class="o"&gt;==&lt;/span&gt;&lt;span class="m"&gt;2024&lt;/span&gt;-06-30T00:00:00+00:00&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;user&lt;/span&gt;&lt;span class="o"&gt;==&lt;/span&gt;ankursinha
+&lt;span class="go"&gt;...&lt;/span&gt;
+&lt;span class="go"&gt;&amp;quot;total&amp;quot;: 4453,&lt;/span&gt;
+&lt;span class="go"&gt;...&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="some-time-off-and-other-things"&gt;
+&lt;h2&gt;Some time off and other things&lt;/h2&gt;
+&lt;p&gt;I took a few days off here and there to relax too; it wasn't all work.
+Since I'd already been away for the conference, I didn't have another holiday planned this summer, though.
+A few of our friends got married over the summer and we were lucky enough to be there to share their special day with them.
+We were also lucky enough to see Shania Twain and Stevie Nicks perform in London at the British Summertime Festival at Hyde Park.
+Obviously very moving, and great fun.&lt;/p&gt;
+&lt;p&gt;So, it's been a good couple of months.&lt;/p&gt;
+&lt;/div&gt;
+</content><category term="Life"/><category term="NeuroML"/><category term="Computational Neuroscience"/><category term="Fedora"/></entry><entry><title>Week 26 update</title><link href="https://ankursinha.in/2024/07/01/week-26-update.html" rel="alternate"/><published>2024-07-01T17:13:10+01:00</published><updated>2024-07-01T17:13:10+01:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2024-07-01:/2024/07/01/week-26-update.html</id><summary type="html">&lt;p class="first last"&gt;Weekly update to week #26&lt;/p&gt;
+</summary><content type="html">&lt;div class="section" id="neuroml-related"&gt;
+&lt;h2&gt;NeuroML related&lt;/h2&gt;
+&lt;div class="figure align-center"&gt;
+&lt;img alt="NeuroML is a standard and software ecosystem for biophysically detailed neuronal modelling." class="text-center img-responsive pagination-centered" src="https://ankursinha.in/images/neuroml-logo.png" style="width: 40%;" /&gt;
+&lt;p class="caption"&gt;&lt;a class="reference external" href="https://neuroml.org"&gt;NeuroML&lt;/a&gt; is a standard and software ecosystem for biophysically detailed neuronal modelling.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="windows-issues"&gt;
+&lt;h3&gt;Windows issues&lt;/h3&gt;
+&lt;p&gt;We have a few interns working on &lt;a class="reference external" href="https://neuroml.org"&gt;NeuroML&lt;/a&gt; projects and a few of them that use Windows as their primary operating system have reported issues on installing/using various bits of the &lt;a class="reference external" href="https://neuroml.org"&gt;NeuroML&lt;/a&gt; stack.
+Unfortunately, none of us on the &lt;a class="reference external" href="https://neuroml.org"&gt;NeuroML&lt;/a&gt; developer team use Windows, so we haven't run into these issues and they're harder for us to fix.&lt;/p&gt;
+&lt;p&gt;Generally, installing the basic bits of the &lt;a class="reference external" href="https://neuroml.org"&gt;NeuroML&lt;/a&gt; stack on Windows is not too hard.
+One needs to have a functioning Java Runtime Environment (JRE) along with a Python installation.
+Both of these aren't very hard to install, since installers for Windows are readily available.&lt;/p&gt;
+&lt;p&gt;From then on, one only needs to set up a virtual environment and install &lt;a class="reference external" href="https://github.com/NeuroML/pyNeuroML"&gt;pyNeuroML&lt;/a&gt; using pip.
+This pulls in all the Python dependencies, and we also bundle the necessary Java bits with it.&lt;/p&gt;
+&lt;p&gt;Other optional dependencies, though, can be tricky.
+For example, one can install &lt;a class="reference external" href="https://www.neuron.yale.edu/neuron/"&gt;NEURON&lt;/a&gt; on Windows using the &lt;a class="reference external" href="https://nrn.readthedocs.io/en/latest/install/install_instructions.html#windows"&gt;installer they provide&lt;/a&gt;, however, one also needs to have a compiler tool chain to use &lt;a class="reference external" href="https://www.neuron.yale.edu/neuron/"&gt;NEURON&lt;/a&gt;, and that isn't necessarily straightforward.
+I still don't know how this is to be set up correctly.&lt;/p&gt;
+&lt;p&gt;Next, a few folks have reported issues getting our &lt;a class="reference external" href="https://vispy.org"&gt;Vispy&lt;/a&gt; based visualization code to run on Windows.
+&lt;a class="reference external" href="https://vispy.org"&gt;Vispy&lt;/a&gt; requires a &lt;a class="reference external" href="https://vispy.org/installation.html"&gt;backend&lt;/a&gt; to run, like Qt5 or Qt6, so one has to make sure these work on their Windows installs to use &lt;a class="reference external" href="https://vispy.org"&gt;Vispy&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The &lt;a class="reference external" href="https://learn.microsoft.com/en-us/windows/wsl/"&gt;Windows Subsystem for Linux&lt;/a&gt; is something lots of Windows users now use.
+It's great for development, but GUI elements don't seem to work on it out of the box (from what I hear).&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="using-swc-morphology-files"&gt;
+&lt;h3&gt;Using SWC morphology files&lt;/h3&gt;
+&lt;div class="figure align-center"&gt;
+&lt;img alt="Screenshot of NeuroMorpho.org" class="text-center img-responsive pagination-centered" src="https://ankursinha.in/images/20240701-neuromorpho.png" style="width: 40%;" /&gt;
+&lt;p class="caption"&gt;Screenshot of NeuroMorpho.org&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;a class="reference external" href="https://swc-specification.readthedocs.io/en/latest/"&gt;SWC&lt;/a&gt; is a specification/format used to store reconstructions of biological entities, like neurons.
+It's commonly used in various places like on &lt;a class="reference external" href="https://neuromorpho.org"&gt;https://neuromorpho.org&lt;/a&gt;, a database of neuronal reconstructions.&lt;/p&gt;
+&lt;p&gt;A use-case that &lt;a class="reference external" href="https://neuroml.org"&gt;NeuroML&lt;/a&gt; needs to support is the use of these reconstructions in models.
+Of course, these reconstructions are not always made for use in models, so they can have various issues that need to first be corrected.
+We have &lt;a class="reference external" href="https://docs.neuroml.org/Userdocs/ImportingMorphologyFiles.html"&gt;a page on these in the docs&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;A few tools do allow the semi-automated conversion of SWC morphologies to NeuroML.
+&lt;a class="reference external" href="https://github.com/NeuroML/Cvapp-NeuroMorpho.org"&gt;CVApp&lt;/a&gt; is one such tool.
+We made some updates/fixes to it this week to ensure it works correctly, and also updated the documentation to add a page dedicated to the &lt;a class="reference external" href="https://docs.neuroml.org/Userdocs/Software/Tools/SWC.html"&gt;conversion of SWC to NeuroML&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;We also support storing these &lt;a class="reference external" href="https://neuroml.org"&gt;NeuroML&lt;/a&gt; morphologies in separate files now, and I &lt;a class="reference external" href="https://github.com/NeuroML/pyNeuroML/pull/398"&gt;updated pyNeuroML to also visualise these using our Vispy viewer&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="google-summer-of-code"&gt;
+&lt;h3&gt;Google Summer of Code&lt;/h3&gt;
+&lt;p&gt;I merged Ioannis's &lt;a class="reference external" href="https://github.com/NeuroML/pyNeuroML/pull/379"&gt;PR&lt;/a&gt; that included tweaks to our 3D visualiser to make cells look &amp;quot;upright&amp;quot;.
+I also made some other tweaks to it to show the X, Y, Z, axes with the plots and improve the camera view.
+Ioannis is now looking into &lt;a class="reference external" href="https://github.com/NeuroML/pyNeuroML/issues/359"&gt;making our visualisations work in Jupyter notebooks&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;I reviewed Aditya's &lt;a class="reference external" href="https://github.com/NeuroML/pyNeuroML/pull/384"&gt;PR&lt;/a&gt; and gave some feedback.
+He's made his changes now, and I've got to do another review, hopefully tomorrow.
+In the meantime, Aditya is playing with CVApp and other tools to gain a better understanding of the SWC to NeuroML conversion process.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="paper-review-responses"&gt;
+&lt;h3&gt;Paper review responses&lt;/h3&gt;
+&lt;p&gt;We worked on replying to the reviewers' responses on our &lt;a class="reference external" href="https://elifesciences.org/reviewed-preprints/95135"&gt;submission to E-Life&lt;/a&gt;.
+We hope to send the updated version back in this week.
+This took quite a while.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="incf-ocns-software-working-group"&gt;
+&lt;h2&gt;INCF/OCNS Software Working Group&lt;/h2&gt;
+&lt;p&gt;I met Adam Tyson of the Sainsbury Wellcome Centre at the &lt;a class="reference external" href="https://www.ucl.ac.uk/research/domains/neuroscience/events/neuroscience-symposia"&gt;Neuroscience Symposium&lt;/a&gt; at UCL the other week.
+I'd asked them if they'd do a talk for our &lt;a class="reference external" href="https://ocns.github.io/SoftwareWG/2024/06/26/wg-meeting-9-july-2024-software-tools-for-systems-neuroscience-adam-tyson-.html"&gt;Software Working Group on the software tools their group develops&lt;/a&gt;.
+They were happy to do one, so I set it up last week.&lt;/p&gt;
+&lt;div class="figure align-center"&gt;
+&lt;img alt="The Neuroinformatics Unit at the Sainsbury Wellcome Centre develops software tools for systems neuroscience." class="text-center img-responsive pagination-centered" src="https://ankursinha.in/images/20240626-neuroinformatics-dev.png" style="width: 40%;" /&gt;
+&lt;p class="caption"&gt;The &lt;a class="reference external" href="https://neuroinformatics.dev"&gt;Neuroinformatics Unit&lt;/a&gt; at the Sainsbury Wellcome Centre develops software tools for systems neuroscience.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="fedora-related"&gt;
+&lt;h2&gt;Fedora related&lt;/h2&gt;
+&lt;p&gt;I merged a few packaging PRs and built packages for the various releases.
+I also made a quick PR to the docs to include information about using &lt;cite&gt;fkinit&lt;/cite&gt; when using 2FA---which is much easier than just using &lt;cite&gt;kinit&lt;/cite&gt;.&lt;/p&gt;
+&lt;/div&gt;
+</content><category term="Life"/><category term="NeuroML"/><category term="Computational Neuroscience"/><category term="Fedora"/></entry><entry><title>Week 25 update</title><link href="https://ankursinha.in/2024/06/21/week-25-update.html" rel="alternate"/><published>2024-06-21T13:16:43+01:00</published><updated>2024-06-21T13:16:43+01:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2024-06-21:/2024/06/21/week-25-update.html</id><summary type="html">&lt;p class="first last"&gt;Weekly update to week #25&lt;/p&gt;
+</summary><content type="html">&lt;div class="section" id="neuroml-related"&gt;
+&lt;h2&gt;NeuroML related&lt;/h2&gt;
+&lt;div class="figure align-center"&gt;
+&lt;img alt="NeuroML is a standard and software ecosystem for biophysically detailed neuronal modelling." class="text-center img-responsive pagination-centered" src="https://ankursinha.in/images/neuroml-logo.png" style="width: 40%;" /&gt;
+&lt;p class="caption"&gt;&lt;a class="reference external" href="https://neuroml.org"&gt;NeuroML&lt;/a&gt; is a standard and software ecosystem for biophysically detailed neuronal modelling.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;We made new releases of &lt;a class="reference external" href="https://github.com/NeuroML/jNeuroML"&gt;jNeuroML&lt;/a&gt; and &lt;a class="reference external" href="https://github.com/NeuroML/pyNeuroML"&gt;pyNeuroML&lt;/a&gt;.
+The new releases allow users to keep their &lt;a class="reference external" href="https://docs.neuroml.org/Userdocs/Schemas/Cells.html#morphology"&gt;morphology&lt;/a&gt; in separate files and &amp;quot;include&amp;quot; these in cell files.
+The use case here is that when investigating neuronal biophysics, it would be useful to not have to repeat the morphology each time the cell is used.&lt;/p&gt;
+&lt;p&gt;We also updated our &lt;a class="reference external" href="https://docs.neuroml.org/Userdocs/ImportingMorphologyFiles.html#neuroml2"&gt;documentation&lt;/a&gt; to note this new feature.&lt;/p&gt;
+&lt;div class="section" id="google-summer-of-code"&gt;
+&lt;h3&gt;Google Summer of Code&lt;/h3&gt;
+&lt;p&gt;Aditya and Ioannis have both completed their first tasks and their pull requests are ready for review.
+I'll try and review them next week.
+In the meantime, they've got new tasks for next week.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="model-conversion"&gt;
+&lt;h3&gt;Model conversion&lt;/h3&gt;
+&lt;p&gt;I'm still working on the converting the two remaining Calcium channels in &lt;a class="reference external" href="https://www.cell.com/cell-reports/fulltext/S2211-1247(18)31088-X"&gt;Zang et al&lt;/a&gt;.
+They're slightly trickier to convert because of the formalism they follow, but I should get there with another few days of work.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="ucl"&gt;
+&lt;h2&gt;UCL&lt;/h2&gt;
+&lt;p&gt;The &lt;a class="reference external" href="https://www.ucl.ac.uk/research/domains/neuroscience/events/neuroscience-symposia"&gt;UCL Neuroscience symposium&lt;/a&gt; was on Thursday.
+The talks and posters were great and very informative, e.g.:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;on visual processing (using &lt;a class="reference external" href="https://www.nature.com/articles/d41586-019-00791-w"&gt;really cool virtual reality experiments&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;on the role of sleep on synapses numbers&lt;/li&gt;
+&lt;li&gt;Dementia with particular focus on Alzheimer's disease and the role of the &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Tau_protein"&gt;tau protein&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;We'd also had a really interesting talk on the &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Glucagon-like_peptide-1"&gt;GLP-1 receptor&lt;/a&gt;, which is involved in the secretion of insulin for maintenance of blood sugar levels, at our &lt;a class="reference external" href="https://www.ucl.ac.uk/biosciences/neuroscience-physiology-and-pharmacology"&gt;Neuroscience, Pharmacology, and Physiology (NPP)&lt;/a&gt; departmental seminar.&lt;/p&gt;
+&lt;p&gt;I'm also involved with the mentoring programme that the &lt;a class="reference external" href="https://www.ucl.ac.uk/biosciences/"&gt;Division of Biosciences&lt;/a&gt; runs for PhD students.
+We had discussed this at the divisional meeting last week, and now we have a few tasks to carry out to improve the programme's reach to more students.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="ocns"&gt;
+&lt;h2&gt;OCNS&lt;/h2&gt;
+&lt;div class="figure align-center"&gt;
+&lt;img alt="The annual conference of the Organization for Computational Neurosciences will happen in July in Natal, Brazil, this year." class="text-center img-responsive pagination-centered" src="https://ankursinha.in/images/2024-cns-2024-banner.png" style="width: 60%;" /&gt;
+&lt;p class="caption"&gt;The annual conference of the Organization for Computational Neurosciences will happen in July in Natal, Brazil, this year.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;I'm organising the career development workshop at the &lt;a class="reference external" href="https://www.cnsorg.org/cns-2024-quick"&gt;annual conference&lt;/a&gt; of the Organization for Computational Neuroscience as part of my Board member responsibilities.
+This year, we're hosting a &amp;quot;beyond academia&amp;quot; session where we'll have folks who have worked or are currently working in industry after their doctorates and initial academic positions will speak about their experiences.
+The goal is to discuss careers that academics can take up outside of the traditional academic research domain.
+With help from a number of Board members and others at the lab at UCL, I had a list of people to reach out to.
+We now have a panel of four, so we're on track.&lt;/p&gt;
+&lt;p&gt;The programme for the conference is also now online on &lt;a class="reference external" href="https://cns2024.sched.com/"&gt;Sched&lt;/a&gt;, and registration is still open.&lt;/p&gt;
+&lt;p&gt;I also had a quick meeting with the &lt;a class="reference external" href="https://www.cnsorg.org/board-of-directors"&gt;OCNS EDI chair&lt;/a&gt;, Eirini Mavristaki, about the mentoring programme that the OCNS is trying to set up for its members.
+Eirini has already got most of it ready, and I'll help with the remaining bits to try and launch it at the conference or soon after.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="fedora-related"&gt;
+&lt;h2&gt;Fedora related&lt;/h2&gt;
+&lt;p&gt;A few of us contributors met for a catch up last evening.
+We met in Soho, had a few drinks and then had a great meal in Chinatown.
+We organise these on the &lt;a class="reference external" href="https://matrix.to/#/#region-uk:fedoraproject.org"&gt;Fedora UK matrix channel&lt;/a&gt;, so if you're interested in joining us for the next meetup, please drop in there and let us know.&lt;/p&gt;
+&lt;p&gt;We had the &lt;a class="reference external" href="https://neuro.fedoraproject.org"&gt;NeuroSIG&lt;/a&gt; meeting on Monday.
+We went through our packages and so on.
+They look fine.
+A few are broken after the Python 3.13 mass re-build but as more and more packages are fixed, a lot of our packages should also start to build.&lt;/p&gt;
+&lt;/div&gt;
+</content><category term="Life"/><category term="NeuroML"/><category term="Computational Neuroscience"/><category term="Fedora"/><category term="GSoC"/><category term="UCL"/><category term="NPP"/><category term="Biosciences"/></entry><entry><title>Week 24 update</title><link href="https://ankursinha.in/2024/06/17/week-24-update.html" rel="alternate"/><published>2024-06-17T12:37:22+01:00</published><updated>2024-06-17T12:37:22+01:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2024-06-17:/2024/06/17/week-24-update.html</id><summary type="html">&lt;p class="first last"&gt;Weekly update to week #24&lt;/p&gt;
+</summary><content type="html">&lt;div class="section" id="neuroml-related"&gt;
+&lt;h2&gt;NeuroML related&lt;/h2&gt;
+&lt;div class="figure align-center"&gt;
+&lt;img alt="NeuroML is a standard and software ecosystem for biophysically detailed neuronal modelling." class="text-center img-responsive pagination-centered" src="https://ankursinha.in/images/neuroml-logo.png" style="width: 40%;" /&gt;
+&lt;p class="caption"&gt;&lt;a class="reference external" href="https://neuroml.org"&gt;NeuroML&lt;/a&gt; is a standard and software ecosystem for biophysically detailed neuronal modelling.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;We made a few bug fixes to &lt;a class="reference external" href="https://github.com/LEMS/jLEMS"&gt;jLEMS&lt;/a&gt; to ensure that errors relating to dimensions and units do propagate all the way to the top level code and cause the model execution to stop.
+The exceptions were being thrown correctly but they were being printed out to the user as warnings and not being allowed to propagate further.&lt;/p&gt;
+&lt;p&gt;While tinkering with this, I also found a minor bug in our SBML to LEMS conversion code.
+One of the time constants in the generated LEMS code wasn't given the right dimensions.
+It was a &lt;a class="reference external" href="https://github.com/NeuroML/org.neuroml.import/pull/24"&gt;simple enough fix&lt;/a&gt;.&lt;/p&gt;
+&lt;div class="section" id="gsoc"&gt;
+&lt;h3&gt;GSoC&lt;/h3&gt;
+&lt;p&gt;This is ticking along.
+Aditya and Ioannis are still working on their tasks and pushing to their draft pull requests.
+They should be ready to review next week.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="model-conversion"&gt;
+&lt;h3&gt;Model conversion&lt;/h3&gt;
+&lt;p&gt;I'm still working on the converting the two remaining Calcium channels in &lt;a class="reference external" href="https://www.cell.com/cell-reports/fulltext/S2211-1247(18)31088-X"&gt;Zang et al&lt;/a&gt;.
+They're slightly trickier to convert because of the formalism they follow, but I should get there with another few days of work.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="setting-up-vim-for-multi-repo-java-projects"&gt;
+&lt;h2&gt;Setting up Vim for multi-repo Java projects&lt;/h2&gt;
+&lt;p&gt;Because the NeuroML Java code is broken down into a number of different Java packages (&lt;a class="reference external" href="https://github.com/NeuroML/org.neuroml.import"&gt;org.neuroml.import&lt;/a&gt;, &lt;a class="reference external" href="https://github.com/NeuroML/org.neuroml.export"&gt;org.neuroml.export&lt;/a&gt; and so on), while working on &lt;a class="reference external" href="https://github.com/LEMS/jLEMS"&gt;jLEMS&lt;/a&gt;, I had to remind myself how to work on multi-repository/multi-project Java projects in &lt;a class="reference external" href="https://vim.org"&gt;Vim&lt;/a&gt;.
+I use &lt;a class="reference external" href="https://github.com/ycm-core/YouCompleteMe"&gt;YouCompleteMe (YCM)&lt;/a&gt; which is quite excellent for completion and code navigation.
+I had to figure out how to configure it to allow me to jump from one Java project to another (like one would do in an Eclipse workspace).&lt;/p&gt;
+&lt;p&gt;The &lt;a class="reference external" href="https://github.com/ycm-core/YouCompleteMe?tab=readme-ov-file#java-semantic-completion"&gt;documentation&lt;/a&gt; didn't really help me, unfortunately.
+It says to use &lt;a class="reference external" href="https://eclipseide.org/"&gt;Eclipse&lt;/a&gt;/&lt;a class="reference external" href="https://maven.apache.org/"&gt;Maven&lt;/a&gt;/&lt;a class="reference external" href="https://gradle.org/"&gt;Gradle&lt;/a&gt; configuration files that &lt;a class="reference external" href="https://github.com/eclipse/eclipse.jdt.ls"&gt;JDT&lt;/a&gt; (the engine YCM uses for Java) understands, but doesn't really say much about how to configure these.
+So, were the &lt;code&gt;pom.xml&lt;/code&gt; files that our projects had enough?
+Didn't look like it---they do have dependency information, but only as packages, not as related source directories.
+So, I wasn't sure how to go about it.
+I tried to copy all my Java repositories into a &amp;quot;top level&amp;quot; (workspace style) folder and configure that as a &amp;quot;multi-project&amp;quot; Java maven package.
+I don't think that quite worked, or perhaps I didn't know how to quite set it up.
+I didn't want to have to create a new project either.&lt;/p&gt;
+&lt;p&gt;Eventually, I tried an Eclipse &lt;code&gt;.project&lt;/code&gt; file to the top level directory which tells JDT what project/repository folders are related to each other.
+Again, I wasn't sure how to write this by hand, but turns out a minimal one is quite sufficient.&lt;/p&gt;
+&lt;p&gt;So, for example, my &lt;cite&gt;NeuroML/software&lt;/cite&gt; folder looks like this:&lt;/p&gt;
+&lt;pre class="code console literal-block"&gt;
+&lt;span class="go"&gt;AllenInstituteNeuroML/    inspyred/  libNeuroML/          netpyne/         NeuroMLCAP/             OpenCortex/          org.neuroml.model/                  pylems/
+biosimulations-runutils/  jLEMS/     MDF/                 neuroConstruct/  NeuroMLlite/            org.neuroml1.model/  org.neuroml.model.injectingplugin/  pyNeuroML/
+eden/                     jNeuroML/  modelspec/           NeuroML2/        neuroml-template-repo/  org.neuroml.export/  osb-model-validation/               pynsgr/
+generateds-code/          LEMS/      morphology_include/  NeuroML_API/     neurotune/              org.neuroml.import/  pyelectro/&lt;/span&gt;
+&lt;/pre&gt;
+&lt;p&gt;The main exporter code is in &lt;code&gt;org.neuroml.export&lt;/code&gt;, but it references code in &lt;code&gt;jLEMS&lt;/code&gt; and &lt;code&gt;org.neuroml.import&lt;/code&gt; and so on.
+Adding a minimal &lt;code&gt;.project&lt;/code&gt; file to this top level directory was enough:&lt;/p&gt;
+&lt;pre class="code xml literal-block"&gt;
+&lt;span class="cp"&gt;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot;?&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;projectDescription&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+        &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;name&amp;gt;&lt;/span&gt;parent-project&lt;span class="nt"&gt;&amp;lt;/name&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+        &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;comment&amp;gt;&amp;lt;/comment&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+        &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;projects&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+        &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;/projects&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+        &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;buildSpec&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+                &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;buildCommand&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+                        &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;name&amp;gt;&lt;/span&gt;org.eclipse.m2e.core.maven2Builder&lt;span class="nt"&gt;&amp;lt;/name&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+                        &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;arguments&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+                        &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;/arguments&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+                &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;/buildCommand&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+        &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;/buildSpec&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+        &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;natures&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+                &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;nature&amp;gt;&lt;/span&gt;org.eclipse.m2e.core.maven2Nature&lt;span class="nt"&gt;&amp;lt;/nature&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+        &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;/natures&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+        &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;filteredResources&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+                &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;filter&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+                        &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;id&amp;gt;&lt;/span&gt;1718191734481&lt;span class="nt"&gt;&amp;lt;/id&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+                        &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;name&amp;gt;&amp;lt;/name&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+                        &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;type&amp;gt;&lt;/span&gt;30&lt;span class="nt"&gt;&amp;lt;/type&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+                        &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;matcher&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+                                &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;id&amp;gt;&lt;/span&gt;org.eclipse.core.resources.regexFilterMatcher&lt;span class="nt"&gt;&amp;lt;/id&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+                                &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;arguments&amp;gt;&lt;/span&gt;node_modules|\.git|__CREATED_BY_JAVA_LANGUAGE_SERVER__&lt;span class="nt"&gt;&amp;lt;/arguments&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+                        &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;/matcher&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+                &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;/filter&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+        &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;/filteredResources&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;/projectDescription&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;
+&lt;/div&gt;
+</content><category term="Life"/><category term="NeuroML"/><category term="Computational Neuroscience"/><category term="Fedora"/><category term="GSoC"/><category term="GitHub"/><category term="Vim"/><category term="Java"/></entry><entry><title>Week 23 update</title><link href="https://ankursinha.in/2024/06/11/week-23-update.html" rel="alternate"/><published>2024-06-11T11:24:46+01:00</published><updated>2024-06-11T11:24:46+01:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2024-06-11:/2024/06/11/week-23-update.html</id><summary type="html">&lt;p class="first last"&gt;Weekly update to week #23&lt;/p&gt;
+</summary><content type="html">&lt;div class="section" id="internet-woes"&gt;
+&lt;h2&gt;Internet woes&lt;/h2&gt;
+&lt;p&gt;Our internet connection went down last week, and was supposed to by Tuesday.
+They said it was an issue at the &amp;quot;exchange&amp;quot; and that they didn't need to access our home to fix it.
+Get to Monday, and I get a call from the engineer at work saying it was issue with the local fibre cabinet and that they need to tinker with our connection to the router to figure out what had gone wrong.
+So, I dropped everything and rushed home (as you do, if you want internet access at home).
+It took them an hour or so, but they did manage to fix it.
+So we're back online.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="neuroml-related"&gt;
+&lt;h2&gt;NeuroML related&lt;/h2&gt;
+&lt;div class="figure align-center"&gt;
+&lt;img alt="NeuroML is a standard and software ecosystem for biophysically detailed neuronal modelling." class="text-center img-responsive pagination-centered" src="https://ankursinha.in/images/neuroml-logo.png" style="width: 40%;" /&gt;
+&lt;p class="caption"&gt;&lt;a class="reference external" href="https://neuroml.org"&gt;NeuroML&lt;/a&gt; is a standard and software ecosystem for biophysically detailed neuronal modelling.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="gsoc"&gt;
+&lt;h3&gt;GSoC&lt;/h3&gt;
+&lt;p&gt;Work continues on this front.
+Both Aditya and Ioannis already have pull requests open, so I've been reviewing them and providing feedback.
+We're making sure we follow best practices right from the start---so doc strings, unit tests, type hints are all already in use.&lt;/p&gt;
+&lt;p&gt;I also added coverage information to our &lt;a class="reference external" href="https://github.com/NeuroML/pyNeuroML"&gt;pyNeuroML&lt;/a&gt; CI.
+It doesn't use a third party service like Coveralls/Codecov/Codespace at the moment.
+It's a &lt;a class="reference external" href="https://github.com/NeuroML/pyNeuroML/blob/development/.github/workflows/ci.yml#L56"&gt;combination of two GitHub actions&lt;/a&gt;---one summarises the coverage that we generate using pytest-cov, and the other comments on the pull request.
+It works well enough.
+The commenter action replaces to same comment each time too, so it doesn't spam the pull request with repeated comments.&lt;/p&gt;
+&lt;p&gt;This has pointed out that some of our code needs more testing, so we've put that on our agenda too now.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="model-conversion"&gt;
+&lt;h3&gt;Model conversion&lt;/h3&gt;
+&lt;p&gt;I continued to work on converting the Purkinje cell model from &lt;a class="reference external" href="https://www.cell.com/cell-reports/fulltext/S2211-1247(18)31088-X"&gt;Zang et al&lt;/a&gt;.
+Using my test script, I've converted another couple of channels.
+While converting the &amp;quot;Large conductance Ca2+ activated K+ channel&amp;quot; (&lt;a class="reference external" href="https://github.com/sanjayankur31/243446/blob/feat/neuroml-conversion/NeuroML2/mod/mslo.mod"&gt;mslo.mod&lt;/a&gt;), I was reminded of this excellent features of &lt;a class="reference external" href="https://docs.neuroml.org/Userdocs/LEMS.html"&gt;LEMS&lt;/a&gt;:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;LEMS is unit and dimension aware: one does not have to worry about units while writing equations, one can use whatever units one wishes and &lt;a class="reference external" href="https://docs.neuroml.org/Userdocs/LEMS.html"&gt;LEMS&lt;/a&gt; will convert them to the right multipliers depending on the dimensions.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;So, for example, even if a model component provides the temperature value in degrees C, &lt;a class="reference external" href="https://docs.neuroml.org/Userdocs/LEMS.html"&gt;LEMS&lt;/a&gt; will convert this into Kelvin when it's being used somewhere.
+Here's how it needs to be explicitly converted in the mod file:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+alpha = exp(Qo*FARADAY*v/R/(273.15 + celsius))
+&lt;/pre&gt;
+&lt;p&gt;Here's how the corresponding LEMS looks:&lt;/p&gt;
+&lt;pre class="code xml literal-block"&gt;
+&lt;span class="nt"&gt;&amp;lt;DerivedVariable&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;name=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;alpha_beta&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;dimension=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;none&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;value=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;exp((Qo_Qc * Faraday * v/R) / EXP_TEMP_CELSIUS)&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;/&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;
+&lt;p&gt;(The variable names have been tweaked so that the same derived variable can also be used for other calculations that follow the same formalism)&lt;/p&gt;
+&lt;p&gt;Here are the plots for the kinetic state variables for the NEURON and NeuroML conversions for a simple protocol where we:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;create a simple single compartmental cell, with only a soma&lt;/li&gt;
+&lt;li&gt;add the ion channel to it&lt;/li&gt;
+&lt;li&gt;add the minimal biophysics&lt;/li&gt;
+&lt;li&gt;use a &amp;quot;Calcium clamp&amp;quot; to set the intra- and extra-cellular calcium concentrations to some values for a part of the simulation&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;We then record all the states and plot them to see how our conversion went.
+You'll see that they match almost exactly, which is always a good sign.&lt;/p&gt;
+&lt;div class="figure align-center"&gt;
+&lt;img alt="Values of kinetic state variables from a test simulation of the original implementation in NEURON." class="text-center img-responsive pagination-centered" src="https://ankursinha.in/images/20240612143718_test_mslo_states_NEURON.png" style="width: 60%;" /&gt;
+&lt;p class="caption"&gt;Values of kinetic state variables from a test simulation of the original implementation in NEURON.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="figure align-center"&gt;
+&lt;img alt="Values of kinetic state variables from a test simulation of the NeuroML conversion." class="text-center img-responsive pagination-centered" src="https://ankursinha.in/images/20240612143718_test_kmslo_states_NML.png" style="width: 60%;" /&gt;
+&lt;p class="caption"&gt;Values of kinetic state variables from a test simulation of the NeuroML conversion.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;There are two more channels left to convert.
+These are of a third type---they use the &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Goldman%E2%80%93Hodgkin%E2%80%93Katz_flux_equation"&gt;&amp;quot;GHK&amp;quot; (Goldman-Hodgkin-Katz) equation&lt;/a&gt;.
+I'll work on converting them next.
+Then, we need to place these on the cell morphology to verify that the NEURON implementation and our standardised &lt;a class="reference external" href="https://neuroml.org"&gt;NeuroML&lt;/a&gt; implementation show the same dynamics.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="fedora-related"&gt;
+&lt;h2&gt;Fedora related&lt;/h2&gt;
+&lt;p&gt;Fixes, updates, and bug filing continues in the &lt;a class="reference external" href="https://neuro.fedoraproject.org"&gt;NeuroFedora SIG&lt;/a&gt;.
+The internet chaos coincided with our NeuroSIG meeting time though, so I had to cancel that this week.
+We will meet again in two weeks.&lt;/p&gt;
+&lt;/div&gt;
+</content><category term="Life"/><category term="NeuroML"/><category term="Open Source Brain"/><category term="Computational Neuroscience"/><category term="Fedora"/></entry><entry><title>Week 22 update</title><link href="https://ankursinha.in/2024/06/03/week-22-update.html" rel="alternate"/><published>2024-06-03T13:17:41+01:00</published><updated>2024-06-03T13:17:41+01:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2024-06-03:/2024/06/03/week-22-update.html</id><summary type="html">&lt;p class="first last"&gt;Weekly update to week #22&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;Last Monday was the late spring bank holiday, so it was a four day week.&lt;/p&gt;
+&lt;div class="section" id="neuroml-related"&gt;
+&lt;h2&gt;NeuroML related&lt;/h2&gt;
+&lt;div class="figure align-center"&gt;
+&lt;img alt="NeuroML is a standard and software ecosystem for biophysically detailed neuronal modelling." class="text-center img-responsive pagination-centered" src="https://ankursinha.in/images/neuroml-logo.png" style="width: 40%;" /&gt;
+&lt;p class="caption"&gt;&lt;a class="reference external" href="https://neuroml.org"&gt;NeuroML&lt;/a&gt; is a standard and software ecosystem for biophysically detailed neuronal modelling.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;We've made some changes to the &lt;a class="reference external" href="https://github.com/NeuroML/NeuroML2/commit/fe3aa27d2ed146938be3efa19dfb15ddd8cc3804"&gt;NeuroML standard&lt;/a&gt; in the last week.
+For neuron models, a few basic properties were optional so far:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://docs.neuroml.org/Userdocs/Schemas/Cells.html#spikethresh"&gt;spiking threshold potential&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://docs.neuroml.org/Userdocs/Schemas/Cells.html#specificcapacitance"&gt;specific capacitance&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://docs.neuroml.org/Userdocs/Schemas/Cells.html#initmembpotential"&gt;initial membrane potential&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This is because the &lt;a class="reference external" href="https://neuron.yale.edu/neuron/"&gt;NEURON&lt;/a&gt; simulator, which is sort of the reference simulator for computational neuro-modelling, would use sane defaults if these values were not provided by the user.
+However, since other simulators that &lt;a class="reference external" href="https://docs.neuroml.org/Userdocs/Software/SupportingTools.html"&gt;NeuroML supports&lt;/a&gt; may not fill in defaults, we decided that these properties should also be compulsory for the user to provide explicitly.&lt;/p&gt;
+&lt;p&gt;Updating the standard requires a few steps:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;update the &lt;a class="reference external" href="https://docs.neuroml.org/Userdocs/NeuroMLv2.html"&gt;XSD schema&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;regenerate the various APIs, e.g., &lt;a class="reference external" href="https://github.com/NeuralEnsemble/libNeuroML"&gt;libNeuroML&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;run tests on all our models to see how many break with this backwards-incompatible change and fix them&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The fall out doesn't seem too bad, and we've fixed the few models that needed fixes.&lt;/p&gt;
+&lt;div class="section" id="toggling-build-time-validation-in-libneuroml"&gt;
+&lt;h3&gt;Toggling build time validation in libNeuroML&lt;/h3&gt;
+&lt;p&gt;One of the strengths of the &lt;a class="reference external" href="https://neuroml.org"&gt;NeuroML&lt;/a&gt; standard is that we have a &lt;a class="reference external" href="https://docs.neuroml.org/Userdocs/Specification.html"&gt;schema&lt;/a&gt; that allows the validation of &lt;a class="reference external" href="https://neuroml.org"&gt;NeuroML&lt;/a&gt; model descriptions---before the models have been initialised/instantiated/simulated.
+Using our &lt;a class="reference external" href="https://libneuroml.readthedocs.io/en/development/userdocs/utils.html#neuroml.utils.component_factory"&gt;factory functions&lt;/a&gt;, the model is continuously validated at each construction/build step.
+While this is useful, it can also be a hindrance to users in some cases.
+For example, certain model components, in general usage, will not be valid when initially created.
+A &lt;a class="reference external" href="https://docs.neuroml.org/Userdocs/Schemas/Networks.html#network"&gt;Network&lt;/a&gt; component is one such example.
+It must contain at least one &lt;a class="reference external" href="https://docs.neuroml.org/Userdocs/Schemas/Networks.html#population"&gt;Population&lt;/a&gt;.
+However, in normal usage, one generally creates a network and then adds populations to it.
+So, when the network is initially created, it will be invalid.
+In &lt;a class="reference external" href="https://github.com/NeuralEnsemble/libNeuroML"&gt;libNeuroML&lt;/a&gt;, validation errors will throw a &lt;code&gt;ValueError&lt;/code&gt; immediately to inform the user, and halting the Python script.&lt;/p&gt;
+&lt;p&gt;There are other such cases too, and we thought this conflicts with our goal of making it easier for users to create &lt;a class="reference external" href="https://neuroml.org"&gt;NeuroML&lt;/a&gt; models.
+A middle-ground that &lt;a class="reference external" href="https://github.com/NeuralEnsemble/libNeuroML/pull/190"&gt;we've come up with&lt;/a&gt; is the ability to globally toggle the state of build time validation.
+By default, it's enabled, but users may disable it if required---explicitly.
+Additionally, build time validation can also be disabled for the specific call to the factory function using &lt;code&gt;validate=False&lt;/code&gt;.
+The latter is recommended.
+When build time validation is disabled, it will throw a user warning instead of the &lt;code&gt;ValueError&lt;/code&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="completing-the-spike-plotting-bits"&gt;
+&lt;h3&gt;Completing the spike plotting bits&lt;/h3&gt;
+&lt;p&gt;Aditya &lt;a class="reference external" href="https://github.com/NeuroML/pyNeuroML/issues/303"&gt;was working&lt;/a&gt; on refactoring the &lt;a class="reference external" href="https://github.com/NeuroML/pyNeuroML"&gt;pyNeuroML&lt;/a&gt; code that plots spikes from simulation output.
+He completed his PR and &lt;a class="reference external" href="https://github.com/NeuroML/pyNeuroML/pull/377"&gt;I merged it after making a few tweaks to the tests&lt;/a&gt;.
+One can now easily plot spikes from data files using the &lt;code&gt;pynml-plotspikes&lt;/code&gt; command, and also using the related functions in the &lt;a class="reference external" href="https://github.com/NeuroML/pyNeuroML"&gt;pyNeuroML&lt;/a&gt; API.&lt;/p&gt;
+&lt;p&gt;Here's an example of plotting spikes from &lt;a class="reference external" href="https://github.com/OpenSourceBrain/Brunel2000/"&gt;Brunel et al (2000)&lt;/a&gt;.&lt;/p&gt;
+&lt;pre class="code console literal-block"&gt;
+&lt;span class="gp"&gt;$ &lt;/span&gt;pynml-plotspikes&lt;span class="w"&gt; &lt;/span&gt;-format&lt;span class="w"&gt; &lt;/span&gt;t_id&lt;span class="w"&gt; &lt;/span&gt;*_net.spikes
+&lt;/pre&gt;
+&lt;div class="figure align-center"&gt;
+&lt;img alt="Raster plot showing spikes from a simulation of `Brunel et al (2000) &amp;lt;https://github.com/OpenSourceBrain/Brunel2000/&amp;gt;`__." class="text-center img-responsive pagination-centered" src="https://ankursinha.in/images/20240603-Brunel2000-spikes.png" style="width: 100%;" /&gt;
+&lt;p class="caption"&gt;Raster plot showing spikes from a simulation of &lt;a class="reference external" href="https://github.com/OpenSourceBrain/Brunel2000/"&gt;Brunel et al (2000)&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="gsoc"&gt;
+&lt;h3&gt;GSoC&lt;/h3&gt;
+&lt;p&gt;We had our first meeting of the contribution period last week.
+Both candidates, Aditya and Ioannis, are already set up and well on their way.
+Ioannis is continuing with the task that he had begun working on during the contribution period already---trying to get an &amp;quot;upright&amp;quot; view of single neurons in our 3D visualiser.
+Aditya has started working on loading SWC files of neuronal reconstructions into an appropriate data structure that will make it easy to query the SWC morphology and validate it, and then eventually convert it into NeuroML.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="other-stuff"&gt;
+&lt;h3&gt;Other stuff&lt;/h3&gt;
+&lt;p&gt;I continued to work on converting the Purkinje cell model from &lt;a class="reference external" href="https://www.cell.com/cell-reports/fulltext/S2211-1247(18)31088-X"&gt;Zang et al&lt;/a&gt;.
+I now have a &lt;a class="reference external" href="https://github.com/sanjayankur31/243446/blob/feat/neuroml-conversion/NeuroML2/testks.py"&gt;test scripts that plots the various state variables&lt;/a&gt; from the ion channels represented using kinetic schemes.
+It adds the ion channel to a single compartmental cell, gives it a constant current to bring the state variables to their steady states, and plots these.
+It does this both for the &lt;a class="reference external" href="https://neuron.yale.edu/neuron/"&gt;NEURON&lt;/a&gt; implementation and the &lt;a class="reference external" href="https://neuroml.org"&gt;NeuroML&lt;/a&gt; one so that I can compare the dynamics.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="fedora-related"&gt;
+&lt;h2&gt;Fedora related&lt;/h2&gt;
+&lt;p&gt;Fixes, updates, and bug filing continues in the &lt;a class="reference external" href="https://neuro.fedoraproject.org"&gt;NeuroFedora SIG&lt;/a&gt;.
+It's ticking along nicely, as it tends to do.&lt;/p&gt;
+&lt;/div&gt;
+</content><category term="Life"/><category term="NeuroML"/><category term="Open Source Brain"/><category term="Computational Neuroscience"/><category term="Fedora"/></entry><entry><title>Week 21 update</title><link href="https://ankursinha.in/2024/05/28/week-21-update.html" rel="alternate"/><published>2024-05-28T10:38:56+01:00</published><updated>2024-05-28T10:38:56+01:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2024-05-28:/2024/05/28/week-21-update.html</id><summary type="html">&lt;p class="first last"&gt;Weekly update to week #21&lt;/p&gt;
+</summary><content type="html">&lt;div class="section" id="neuroml-related"&gt;
+&lt;h2&gt;NeuroML related&lt;/h2&gt;
+&lt;div class="figure align-center"&gt;
+&lt;img alt="NeuroML is a standard and software ecosystem for biophysically detailed neuronal modelling." class="text-center img-responsive pagination-centered" src="https://ankursinha.in/images/neuroml-logo.png" style="width: 40%;" /&gt;
+&lt;p class="caption"&gt;&lt;a class="reference external" href="https://neuroml.org"&gt;NeuroML&lt;/a&gt; is a standard and software ecosystem for biophysically detailed neuronal modelling.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;More work on on &lt;a class="reference external" href="https://github.com/NeuroML/pyNeuroML"&gt;pyNeuroML&lt;/a&gt;.&lt;/p&gt;
+&lt;div class="section" id="gsoc"&gt;
+&lt;h3&gt;GSoC&lt;/h3&gt;
+&lt;p&gt;Our two GSoC candidates continue to make tweaks to their work.
+This is still only the bonding period, so they're already ahead of time.
+The contribution period only started this week, on the 27th.&lt;/p&gt;
+&lt;p&gt;We also had our weekly meeting where we discussed their tasks and concepts.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="open-source-brain-related"&gt;
+&lt;h2&gt;Open Source Brain related&lt;/h2&gt;
+&lt;p&gt;I finished &lt;a class="reference external" href="https://github.com/OpenSourceBrain/OSBv2/pull/928"&gt;integrating Biomodels into OSBv2&lt;/a&gt;.
+Here's a video of what it'll look like, tested out on my local Minikube deployment:&lt;/p&gt;
+&lt;video controls width="80%" preload="none" poster="https://ankursinha.in/images/20240522-osb-biomodels-pic.png" type="video/webm"&gt;
+    &lt;source src="https://ankursinha.in/images/20240522-osb-biomodels.webm" type="video/webm"&gt;
+    Your browser does not support the video tag. Download it from `here &lt;{static}/images/20240522-osb-biomodels.webm&gt;`__
+&lt;/video&gt;&lt;/div&gt;
+&lt;div class="section" id="other-work-related-bits"&gt;
+&lt;h2&gt;Other work related bits&lt;/h2&gt;
+&lt;div class="section" id="trainings"&gt;
+&lt;h3&gt;Trainings&lt;/h3&gt;
+&lt;p&gt;I had two trainings to do this week.&lt;/p&gt;
+&lt;p&gt;The first was &amp;quot;Deaf Awareness: working and communicating well with Deaf people&amp;quot;.
+It was very very useful.
+I certainly learned a lot of things that I wasn't aware of, or that I hadn't thought of before.&lt;/p&gt;
+&lt;p&gt;The other training was related to hiring.
+This one is a compulsory training required for all staff that are going to be on interview panels for new staff.
+It points out various things one should know to ensure the hiring process is carried out fairly and correctly, within the framework of the law.
+It was also very informative, and having an insight into the frameworks that the university implements was very useful too.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="departmental-away-day"&gt;
+&lt;h3&gt;Departmental away day&lt;/h3&gt;
+&lt;p&gt;We had our departmental away day on Friday.
+Lots of discussion about our research, our teaching, on how we fit in within the larger picture with the university.
+I spoke to our dean and other principal investigators (PIs) in the department and offered to help on things here and there.&lt;/p&gt;
+&lt;p&gt;There was a barbecue in the evening with drinks, and a few of us continued to the pub afterwords to keep the discussion going.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="fedora-related"&gt;
+&lt;h2&gt;Fedora related&lt;/h2&gt;
+&lt;p&gt;More package updates on the Fedora side of things.
+The NeuroFedora SIG will have its meeting next Monday.
+We'll all catch up then to see if there are things that need prioritising.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="other-stuff"&gt;
+&lt;h2&gt;Other stuff&lt;/h2&gt;
+&lt;p&gt;I lost my tabs the other day.
+I was tinkering with my &lt;a class="reference external" href="https://qutebrowser.org"&gt;Qutebrowser&lt;/a&gt; configuration, and I opened the browser but saved the session and quit it before all the tabs had loaded.
+This meant that the next time I opened it, all the tabs were completely blank.
+Bug?
+Not really---I needed to either have waited for the session to load, or I should've quit without saving a partially loaded session.&lt;/p&gt;
+&lt;p&gt;The silver lining is that I've closed 100 tabs with research papers that I'd had open for the past year but not managed to read.
+So, a clear up of sorts.&lt;/p&gt;
+&lt;div class="section" id="returned-sony-earbuds"&gt;
+&lt;h3&gt;Returned Sony earbuds&lt;/h3&gt;
+&lt;p&gt;I'd bought myself a set of &lt;a class="reference external" href="https://www.sony.co.uk/headphones/products/wf-c700n"&gt;WF-C700N&lt;/a&gt; ear buds some time ago.
+I'd seen a few reviews.
+They won the &lt;a class="reference external" href="https://www.whathifi.com/reviews/sony-wf-c700n"&gt;What Hi-Fi award in 2023&lt;/a&gt;, so they seemed a good buy.&lt;/p&gt;
+&lt;p&gt;They're very good sound wise for their price, but unfortunately, they turned out to be very buggy.
+The right ear bud would just not turn on a lot of the time.
+The docs suggested re-initialising them to fix the issue, and while it did fix the issue for a bit, the right earbud would go off again and not turn back on.
+I did this a few times, but it became increasingly annoying.
+Heading out on my commute only to find that the right earbud had stopped working again was really not fun.
+On top of that, I couldn't reliably re-initialise them each time.
+Sometimes the reinitialising process wouldn't work.&lt;/p&gt;
+&lt;p&gt;A search showed me that lots of users were experiencing this, with multiple &lt;a class="reference external" href="https://www.reddit.com/r/SonyHeadphones/comments/16xxpvj/right_earbud_randomly_stops_turning_on_wfc700n/"&gt;folks on Reddit confirming the issue&lt;/a&gt; and suggesting returning the earbuds.
+I persevered and tried various things on my Android phone too, but in the end nothing really fixed the issue.
+So, I've returned them too.&lt;/p&gt;
+&lt;p&gt;I shelled out a bit more and got the top of the line &lt;a class="reference external" href="https://www.sony.co.uk/headphones/products/wf-1000xm5"&gt;WF-1000XM5&lt;/a&gt; ones now.
+They're double the price, and have much better sound quality and a few more features.
+So far, so good 🤞.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</content><category term="Life"/><category term="NeuroML"/><category term="Open Source Brain"/><category term="Computational Neuroscience"/><category term="CNS2024Natal"/><category term="Fedora"/><category term="Training"/><category term="Deaf awareness"/><category term="Sony earbuds"/><category term="Sony"/></entry><entry><title>Week 20 update</title><link href="https://ankursinha.in/2024/05/20/week-20-update.html" rel="alternate"/><published>2024-05-20T11:47:32+01:00</published><updated>2024-05-20T11:47:32+01:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2024-05-20:/2024/05/20/week-20-update.html</id><summary type="html">&lt;p class="first last"&gt;Weekly update for week #20.&lt;/p&gt;
+</summary><content type="html">&lt;div class="section" id="neuroml-related"&gt;
+&lt;h2&gt;NeuroML related&lt;/h2&gt;
+&lt;div class="figure align-center"&gt;
+&lt;img alt="NeuroML is a standard and software ecosystem for biophysically detailed neuronal modelling." class="text-center img-responsive pagination-centered" src="https://ankursinha.in/images/neuroml-logo.png" style="width: 40%;" /&gt;
+&lt;p class="caption"&gt;&lt;a class="reference external" href="https://neuroml.org"&gt;NeuroML&lt;/a&gt; is a standard and software ecosystem for biophysically detailed neuronal modelling.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Work continues on &lt;a class="reference external" href="https://github.com/NeuroML/pyNeuroML"&gt;pyNeuroML&lt;/a&gt;.&lt;/p&gt;
+&lt;div class="section" id="animations-and-saving-them"&gt;
+&lt;h3&gt;Animations, and saving them&lt;/h3&gt;
+&lt;p&gt;&lt;a class="reference external" href="https://github.com/NeuroML/pyNeuroML/pull/348"&gt;YBCS improved our plotting code to allow creation and saving of animations&lt;/a&gt;, using &lt;a class="reference external" href="https://matplotlib.org/stable/users/explain/animations/animations.html"&gt;Matplotlib&lt;/a&gt;. This is useful for analysis, and also for dissemination.&lt;/p&gt;
+&lt;p&gt;So, for instance, one can generate this animation from our &lt;a class="reference external" href="https://docs.neuroml.org/Userdocs/SingleNeuronExample.html#"&gt;single izhikevich neuron documentation example&lt;/a&gt;:&lt;/p&gt;
+&lt;div class="figure align-center"&gt;
+&lt;img alt="An animated GIF showing the membrane potential of a regular spiking Izhikevich neuron." class="img-responsive" src="https://ankursinha.in/images/20240520-izhikevich-animation-loop.gif" style="width: 40%;" /&gt;
+&lt;p class="caption"&gt;An animated GIF showing the membrane potential of a regular spiking Izhikevich neuron.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Here's an example script that reads in the data generated by our example and saves the animation in a GIF file:&lt;/p&gt;
+&lt;pre class="code python literal-block"&gt;
+&lt;span class="ch"&gt;#!/usr/bin/env python3&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;pyneuroml.plot&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;generate_plot&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;pyneuroml.runners&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;reload_saved_data&lt;/span&gt;&lt;span class="w"&gt;
+
+&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;reload_saved_data&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;./LEMS_example-single-izhikevich2007cell-sim.xml&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="n"&gt;generate_plot&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;'t'&lt;/span&gt;&lt;span class="p"&gt;]],&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;'IzhPop0[0]/v'&lt;/span&gt;&lt;span class="p"&gt;]],&lt;/span&gt; &lt;span class="n"&gt;animate&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="kc"&gt;True&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;              &lt;span class="n"&gt;save_figure_to&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;izhikevich.gif&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;title&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Membrane potential&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;
+&lt;p&gt;Generating the animation doesn't take so much time, but saving it does.
+From what I've managed to find (for example, on &lt;a class="reference external" href="https://github.com/matplotlib/matplotlib/issues/13561/"&gt;this ticket&lt;/a&gt;), saving of the animation relies on piping it to external tools (&amp;quot;animation writers&amp;quot;), and that bit seems to take time.
+We use a &lt;a class="reference external" href="https://progressbar-2.readthedocs.io/en/latest/"&gt;progressbar&lt;/a&gt; to provide some feedback to the user, so they have some idea of how long to expect it to take.&lt;/p&gt;
+&lt;pre class="code console literal-block"&gt;
+&lt;span class="go"&gt;python test-animate.py
+pyNeuroML &amp;gt;&amp;gt;&amp;gt; INFO - Generating plot: Membrane potential
+pyNeuroML &amp;gt;&amp;gt;&amp;gt; INFO - Saving animation of 5000ms to izhikevich.gif using pillow
+pyNeuroML &amp;gt;&amp;gt;&amp;gt; INFO - This could take a while..
+10000 of 10000|#######################################################################################################################################|Elapsed Time: 0:03:29
+pyNeuroML &amp;gt;&amp;gt;&amp;gt; INFO - Saved animation to izhikevich.gif
+pyNeuroML &amp;gt;&amp;gt;&amp;gt; INFO - Closing plot&lt;/span&gt;
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div class="section" id="using-vispy-visualisations-in-jupyter-notebooks"&gt;
+&lt;h3&gt;Using Vispy visualisations in Jupyter notebooks&lt;/h3&gt;
+&lt;p&gt;&lt;a class="reference external" href="https://vispy.org"&gt;Vispy&lt;/a&gt; visualisations can also work in Jupyter notebooks using &lt;a class="reference external" href="https://github.com/vispy/jupyter_rfb"&gt;jupyter_rfb&lt;/a&gt;.
+It'll be very good for us to make this work for our visualisations too, so that users can view their cells and networks in 3D in their notebooks.
+I tinkered with it a bit but could not get jupyter_rfb to work for me.
+I filed a &lt;a class="reference external" href="https://github.com/vispy/jupyter_rfb/issues/89"&gt;bug&lt;/a&gt; upstream, and it was quickly fixed.
+I now need to continue playing with it to see what changes, if any, we need to make to our code to make our visualisations work.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="google-summer-of-code"&gt;
+&lt;h3&gt;Google Summer of Code&lt;/h3&gt;
+&lt;p&gt;We had our first meeting with our two GSoC interns.
+It's still only the community bonding period, so they're just tinkering with the code and reading the documentation to get a feel for how things work.
+They've both already been working on pull requests, so they're already ahead of time.&lt;/p&gt;
+&lt;p&gt;It was really good to have a chat with them.
+We talked about what they hope to get out of the internship and so on, so that we can tweak the tasks to ensure that the internship benefits them.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="model-standardization"&gt;
+&lt;h3&gt;Model standardization&lt;/h3&gt;
+&lt;p&gt;I continued to work on converting the Purkinje cell model from &lt;a class="reference external" href="https://www.cell.com/cell-reports/fulltext/S2211-1247(18)31088-X"&gt;Zang et al&lt;/a&gt;.
+I'm still working on the biophysics.
+There are a few ion channels where the dynamics are described in &lt;a class="reference external" href="https://docs.neuroml.org/Userdocs/Schemas/Channels.html#schema-gateks"&gt;kinetic state&lt;/a&gt; formalism that one has to convert manually.
+Analysing these to verify that they've been converted correctly is hard too, because unlike ion channels that follow the standard Hodgkin-Huxley formalism, the gates in the Kinetic State ion channels don't have their steady state and decay time constants directly available.
+So, we're going to have to simulate a passive cell with a single Kinetic State ion channel, both for the original NEURON implementation of the ion channel and for our NeuroML conversion, and then we'll compare the various generated biophysics (and iteratively tweak our conversion until they match).&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="open-source-brain"&gt;
+&lt;h2&gt;Open Source Brain&lt;/h2&gt;
+&lt;p&gt;Open Source Brain (&lt;a class="reference external" href="https://www.opensourcebrain.org/"&gt;OSB&lt;/a&gt;) is a web platform for neuroscientists.
+&lt;a class="reference external" href="https://v1.opensourcebrain.org"&gt;Version 1&lt;/a&gt; was focussed on the sharing and archival of biophysically detailed models, standardised in &lt;a class="reference external" href="https://neuroml.org"&gt;NeuroML&lt;/a&gt;.
+There are a number of published models on the platform that one can visualise and study there already:&lt;/p&gt;
+&lt;div class="figure align-center"&gt;
+&lt;img alt="A screenshot of Open Source Brain version 1." class="text-center img-responsive pagination-centered" src="https://ankursinha.in/images/20240520-osbv1.png" style="width: 80%;" /&gt;
+&lt;p class="caption"&gt;A screenshot of Open Source Brain version 1.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;The newer version, &lt;a class="reference external" href="https://v2.opensourcebrain.org"&gt;version 2&lt;/a&gt; takes it a step further.
+Its goal is to be a cloud based integrated research environment where people can store their data and their code in &amp;quot;workspaces&amp;quot;, and work in the cloud, requesting as many resources as they need.
+This means that people no longer have to set up their own computers/lab servers---the platform will provide the computing infrastructure and the required tools in a web browser.
+OSBv2 also indexes a number of data sources to make it easier for researchers to find data and models, such as:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://www.dandiarchive.org"&gt;DANDI archive&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://modeldb.science"&gt;Model-DB&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="figure align-center"&gt;
+&lt;img alt="A screenshot of Open Source Brain version 2." class="text-center img-responsive pagination-centered" src="https://ankursinha.in/images/20240520-osbv2.png" style="width: 80%;" /&gt;
+&lt;p class="caption"&gt;A screenshot of Open Source Brain version 2.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;OSBv2 also integrates a number of web applications for users:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;NetPyNE-UI: an interface for the popular &lt;a class="reference external" href="https://netpyne.org"&gt;NetPyNE&lt;/a&gt; model building library&lt;/li&gt;
+&lt;li&gt;NWB Explorer: an interface for visualising &lt;a class="reference external" href="https://nwb.org"&gt;Neurodata Without Borders (NWB)&lt;/a&gt; files&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://jupyter.org"&gt;Jupyter Lab&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;We're working on integrating &lt;a class="reference external" href="https://biosimulations.org"&gt;biosimulations.org&lt;/a&gt; as another data source now.
+This requires adding an adapter to the back end that understands the biosimulations.org API so that it can use it to pull information from there to index.
+An initial version has already been implemented.
+We now need to test it.&lt;/p&gt;
+&lt;div class="section" id="osbv2-dev-environment"&gt;
+&lt;h3&gt;OSBv2: dev environment&lt;/h3&gt;
+&lt;p&gt;Since OSBv2 is cloud based (currently deployed on Google Cloud), it makes use of containers and &lt;a class="reference external" href="https://kubernetes.io/"&gt;Kubernetes&lt;/a&gt; (our software partners, &lt;a class="reference external" href="https://metacell.us"&gt;MetaCell&lt;/a&gt; manage our infrastructure and a majority of the development/maintenance of &lt;a class="reference external" href="https://www.opensourcebrain.org/"&gt;OSB&lt;/a&gt;).
+The complete platform is also broken down into a number of services.
+To test changes and develop, therefore, one has to run a local deployment.
+We've documented the steps in our &lt;a class="reference external" href="https://github.com/OpenSourceBrain/OSBv2/blob/master/README.md"&gt;readme&lt;/a&gt;, and I've got &lt;a class="reference external" href="https://github.com/sanjayankur31/100_dotfiles/blob/main/bin/deploy-osbv2.sh"&gt;a script&lt;/a&gt; to automate the various steps.&lt;/p&gt;
+&lt;p&gt;Of course, it's never that simple.
+While my script had worked the last time I had tinkered with OSBv2, it didn't work last week and I spent hours trying to figure out why.
+I need to continue with that this week too.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="software-working-group"&gt;
+&lt;h2&gt;Software Working Group&lt;/h2&gt;
+&lt;p&gt;The &lt;a class="reference external" href="https://ocns.github.io/SoftwareWG/index.html"&gt;Software Working Group&lt;/a&gt; is an open community working group about all things software.
+It's shared by the &lt;a class="reference external" href="https://incf.org"&gt;International Neuroinformatics Co-ordinating Facility&lt;/a&gt; and the &lt;a class="reference external" href="https://www.cnsorg.org"&gt;Organization for Computational Neuroscience&lt;/a&gt;.
+The idea is simply to have a community for exchange of ideas related to research/neuroscience software development.
+The working group is based on GitHub, and open to anyone at all.&lt;/p&gt;
+&lt;p&gt;Last week, we had &lt;a class="reference external" href="https://ocns.github.io/SoftwareWG/2024/05/07/wg-meeting-14-may-2024-spikeinterface-pierre-yger-.html"&gt;a session on SpikeInterface where Pierre Yger presented the tool to the community&lt;/a&gt;.
+It was recorded, and the recordings should be on the &lt;a class="reference external" href="https://www.youtube.com/&amp;#64;IncfOrg_INCF"&gt;INCF YouTube channel&lt;/a&gt; soon.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="fedora"&gt;
+&lt;h2&gt;Fedora&lt;/h2&gt;
+&lt;p&gt;I worked on a few &lt;a class="reference external" href="https://packager-dashboard.fedoraproject.org/dashboard?groups=neuro-sig"&gt;Neuro SIG&lt;/a&gt; packages--updates, Fails to Build From Source (FTBFS) issues, and so on.
+Not much to report in detail here.&lt;/p&gt;
+&lt;/div&gt;
+</content><category term="Life"/><category term="Computational Neuroscience"/><category term="Fedora"/><category term="NeuroML"/><category term="Open Source Brain"/><category term="GSoC"/><category term="Outreachy"/></entry><entry><title>Week 19 update</title><link href="https://ankursinha.in/2024/05/10/week-19-update.html" rel="alternate"/><published>2024-05-10T20:46:51+01:00</published><updated>2024-05-10T20:46:51+01:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2024-05-10:/2024/05/10/week-19-update.html</id><summary type="html">&lt;p class="first last"&gt;Weekly update for week 19.&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;I'm trying to get back to blogging, and to make it regular occurrence in my work week, I thought I'd write a weekly work update.&lt;/p&gt;
+&lt;div class="section" id="neuroml-related"&gt;
+&lt;h2&gt;NeuroML related&lt;/h2&gt;
+&lt;div class="figure align-center"&gt;
+&lt;a class="reference external image-reference" href="https://ankursinha.in/images/neuroml-logo.png"&gt;
+&lt;img alt="NeuroML is a standard and software ecosystem for biophysically detailed neuronal modelling." class="text-center img-responsive pagination-centered" src="https://ankursinha.in/images/neuroml-logo.png" style="width: 40%;" /&gt;
+&lt;/a&gt;
+&lt;p class="caption"&gt;&lt;a class="reference external" href="https://neuroml.org"&gt;NeuroML&lt;/a&gt; is a standard and software ecosystem for biophysically detailed neuronal modelling.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;I work in the field of computational neuroscience and a lot of my work is related to &lt;a class="reference external" href="https://neuroml.org"&gt;NeuroML&lt;/a&gt;.
+It's a standard for biophysically detailed modelling of neuronal circuits, and is accompanied by a large &lt;a class="reference external" href="https://docs.neuroml.org/Userdocs/Software/Software.html"&gt;ecosystem of software tools&lt;/a&gt;.
+The general idea behind the standard is the same as with other domains, programming languages, for example.
+The standard allows the community to design their tools around an agreed format/specification.
+So, even though there are number of different simulation engines available to the computational neuroscience research community, they'd use &lt;a class="reference external" href="https://neuroml.org"&gt;NeuroML&lt;/a&gt; to create their models and simulate them with whatever simulation engine they need.
+One can learn more about &lt;a class="reference external" href="https://neuroml.org"&gt;NeuroML&lt;/a&gt; in our &lt;a class="reference external" href="https://docs.neuroml.org"&gt;documentation&lt;/a&gt;.&lt;/p&gt;
+&lt;div class="figure align-center"&gt;
+&lt;a class="reference external image-reference" href="https://ankursinha.in/images/20240510-elife.png"&gt;
+&lt;img alt="Screenshot of the reviewed print in E-Life." class="text-center img-responsive pagination-centered" src="https://ankursinha.in/images/20240510-elife.png" style="width: 80%;" /&gt;
+&lt;/a&gt;
+&lt;p class="caption"&gt;Screenshot of the reviewed print in E-Life. URL: &lt;a class="reference external" href="https://doi.org/10.7554/eLife.95135.1"&gt;https://doi.org/10.7554/eLife.95135.1&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;This week the first version of our reviewed pre-print was &lt;a class="reference external" href="https://elifesciences.org/reviewed-preprints/95135v1"&gt;published in the E-Life journal&lt;/a&gt;.
+We need to address the reviewers' comments and submit an updated version.
+A little bit of work to be done on that front.&lt;/p&gt;
+&lt;div class="section" id="biosimulations"&gt;
+&lt;h3&gt;Biosimulations&lt;/h3&gt;
+&lt;div class="figure align-center"&gt;
+&lt;a class="reference external image-reference" href="https://ankursinha.in/images/20240510-biosimulations.png"&gt;
+&lt;img alt="Screenshot of the https://biosimulations.org" class="text-center img-responsive pagination-centered" src="https://ankursinha.in/images/20240510-biosimulations.png" style="width: 80%;" /&gt;
+&lt;/a&gt;
+&lt;p class="caption"&gt;Screenshot of &lt;a class="reference external" href="https://biosimulations.org"&gt;https://biosimulations.org&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;a class="reference external" href="https://biosimulations.org"&gt;biosimulations.org&lt;/a&gt; is a free platform for sharing and re-using bio-models, simulation results, and result visualisations.
+It supports a wide range of &lt;a class="reference external" href="https://co.mbine.org/standards/"&gt;COMBINE standards&lt;/a&gt;.
+As part of one of our projects, we're working on improving links between &lt;a class="reference external" href="https://neuroml.org"&gt;NeuroML&lt;/a&gt; and other standards, such as &lt;a class="reference external" href="https://sed-ml.org/"&gt;SED-ML&lt;/a&gt; and &lt;a class="reference external" href="https://sbml.org/"&gt;SBML&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;As part of this, we've added functionality in &lt;a class="reference external" href="https://github.com/neuroml/pyneuroml/"&gt;pyNeuroML&lt;/a&gt; to:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;convert a NeuroML/LEMS simulation to SED-ML&lt;/li&gt;
+&lt;li&gt;create a &lt;a class="reference external" href="https://combinearchive.org/index/"&gt;COMBINE simulation archive&lt;/a&gt; (a zip with metadata)&lt;/li&gt;
+&lt;li&gt;submit this archive to Biosimulations for simulation&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;We also found a bug in our LEMS to SED-ML conversion code, and &lt;a class="reference external" href="https://github.com/NeuroML/org.neuroml.export/pull/115"&gt;fixed it&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="annotations"&gt;
+&lt;h3&gt;Annotations&lt;/h3&gt;
+&lt;p&gt;The COMBINE archive requires a manifest file, which contains a list of files in it with information about their different purposes, and a file containing more metadata about it.
+This is described in the &lt;a class="reference external" href="https://docs.biosimulations.org/concepts/conventions/simulation-project-metadata/"&gt;documentation&lt;/a&gt; here.&lt;/p&gt;
+&lt;p&gt;All of this metadata is in &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Resource_Description_Framework"&gt;RDF&lt;/a&gt;.
+The Biosimulations format is flat, in the sense that they don't use RDF containers and nested elements.
+The &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Resource_Description_Framework"&gt;MIRIAM (Minimum Information Required In The Annotation of Models)&lt;/a&gt; based &lt;a class="reference external" href="https://github.com/combine-org/combine-specifications"&gt;COMBINE specification&lt;/a&gt;, however, does use containers and nesting.&lt;/p&gt;
+&lt;p&gt;The advantage of a flat structure is that it's easier to parse, since one doesn't have to implement parsing of any nested elements.
+On the other hand, it makes the annotation a little less human readable, because multiple entries of the same tag can be spread out around the document.&lt;/p&gt;
+&lt;p&gt;Here are examples of both formats.
+The flat Biosimulations format:&lt;/p&gt;
+&lt;pre class="code xml literal-block"&gt;
+&lt;span class="nt"&gt;&amp;lt;rdf:RDF&lt;/span&gt;&lt;span class="w"&gt;
+  &lt;/span&gt;&lt;span class="na"&gt;xmlns:foaf=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;http://xmlns.com/foaf/0.1/&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+  &lt;/span&gt;&lt;span class="na"&gt;xmlns:dc=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;http://purl.org/dc/elements/1.1/&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+  &lt;/span&gt;&lt;span class="na"&gt;xmlns:rdfs=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;http://www.w3.org/2000/01/rdf-schema#&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+  &lt;/span&gt;&lt;span class="na"&gt;xmlns:dcterms=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;http://purl.org/dc/terms/&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+  &lt;/span&gt;&lt;span class="na"&gt;xmlns:scoro=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;http://purl.org/spar/scoro&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+  &lt;/span&gt;&lt;span class="na"&gt;xmlns:bqmodel=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;http://biomodels.net/model-qualifiers/&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+  &lt;/span&gt;&lt;span class="na"&gt;xmlns:prism=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;http://prismstandard.org/namespaces/basic/2.0/&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+  &lt;/span&gt;&lt;span class="na"&gt;xmlns:bqbiol=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;http://biomodels.net/biology-qualifiers/&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+  &lt;/span&gt;&lt;span class="na"&gt;xmlns:collex=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;http://www.collex.org/schema&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+  &lt;/span&gt;&lt;span class="na"&gt;xmlns:orcid=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;https://orcid.org/&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+  &lt;/span&gt;&lt;span class="na"&gt;xmlns:rdf=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;http://www.w3.org/1999/02/22-rdf-syntax-ns#&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+  &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;rdf:Description&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;rdf:about=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;http://omex-library.org/ArchiveName.omex/model.nml&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;dcterms:abstract&amp;gt;&lt;/span&gt;lol,&lt;span class="w"&gt; &lt;/span&gt;something&lt;span class="w"&gt; &lt;/span&gt;nice&lt;span class="nt"&gt;&amp;lt;/dcterms:abstract&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;dc:description&amp;gt;&lt;/span&gt;A&lt;span class="w"&gt; &lt;/span&gt;tests&lt;span class="w"&gt; &lt;/span&gt;model&lt;span class="nt"&gt;&amp;lt;/dc:description&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;prism:keyword&amp;gt;&lt;/span&gt;something&lt;span class="nt"&gt;&amp;lt;/prism:keyword&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;prism:keyword&amp;gt;&lt;/span&gt;and&lt;span class="w"&gt; &lt;/span&gt;something&lt;span class="nt"&gt;&amp;lt;/prism:keyword&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;collex:thumbnail&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;rdf:resource=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;http://omex-library.org/ArchiveName.omex/lol.png&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;/&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;bqbiol:hasTaxon&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+      &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;rdf:Description&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+        &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;dc:identifier&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;rdf:resource=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;http://identifiers.org/taxonomy/4896&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;/&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+        &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;rdfs:label&amp;gt;&lt;/span&gt;Schizosaccharomyces&lt;span class="w"&gt; &lt;/span&gt;pombe&lt;span class="nt"&gt;&amp;lt;/rdfs:label&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+      &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;/rdf:Description&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;/bqbiol:hasTaxon&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;bqbiol:encodes&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+      &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;rdf:Description&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+        &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;dc:identifier&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;rdf:resource=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;http://identifiers.org/GO:0009653&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;/&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+        &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;rdfs:label&amp;gt;&lt;/span&gt;anatomical&lt;span class="w"&gt; &lt;/span&gt;structure&lt;span class="w"&gt; &lt;/span&gt;morphogenesis&lt;span class="nt"&gt;&amp;lt;/rdfs:label&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+      &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;/rdf:Description&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;/bqbiol:encodes&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;bqbiol:encodes&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+      &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;rdf:Description&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+        &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;dc:identifier&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;rdf:resource=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;http://identifiers.org/kegg:ko04111&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;/&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+        &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;rdfs:label&amp;gt;&lt;/span&gt;Cell&lt;span class="w"&gt; &lt;/span&gt;cycle&lt;span class="w"&gt; &lt;/span&gt;-&lt;span class="w"&gt; &lt;/span&gt;yeast&lt;span class="nt"&gt;&amp;lt;/rdfs:label&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+      &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;/rdf:Description&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;/bqbiol:encodes&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;dc:source&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+      &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;rdf:Description&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+        &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;dc:identifier&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;rdf:resource=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;https://github.com/lala&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;/&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+        &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;rdfs:label&amp;gt;&lt;/span&gt;GitHub&lt;span class="nt"&gt;&amp;lt;/rdfs:label&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+      &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;/rdf:Description&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;/dc:source&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;bqmodel:isDerivedFrom&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+      &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;rdf:Description&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+        &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;dc:identifier&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;rdf:resource=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;http://omex-library.org/BioSim0001.omex/model.xml&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;/&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+        &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;rdfs:label&amp;gt;&lt;/span&gt;model&lt;span class="nt"&gt;&amp;lt;/rdfs:label&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+      &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;/rdf:Description&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;/bqmodel:isDerivedFrom&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;rdfs:seeAlso&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+      &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;rdf:Description&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+        &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;dc:identifier&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;rdf:resource=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;http://link.com&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;/&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+        &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;rdfs:label&amp;gt;&lt;/span&gt;a&lt;span class="w"&gt; &lt;/span&gt;link&lt;span class="nt"&gt;&amp;lt;/rdfs:label&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+      &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;/rdf:Description&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;/rdfs:seeAlso&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;dcterms:references&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+      &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;rdf:Description&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+        &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;dc:identifier&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;rdf:resource=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;http://reference.com&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;/&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+        &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;rdfs:label&amp;gt;&lt;/span&gt;a&lt;span class="w"&gt; &lt;/span&gt;reference&lt;span class="nt"&gt;&amp;lt;/rdfs:label&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+      &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;/rdf:Description&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;/dcterms:references&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;dc:creator&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+      &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;rdf:Description&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+        &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;foaf:name&amp;gt;&lt;/span&gt;John&lt;span class="w"&gt; &lt;/span&gt;Doe&lt;span class="nt"&gt;&amp;lt;/foaf:name&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+        &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;rdfs:label&amp;gt;&lt;/span&gt;John&lt;span class="w"&gt; &lt;/span&gt;Doe&lt;span class="nt"&gt;&amp;lt;/rdfs:label&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+        &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;foaf:homepage&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;rdf:resource=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;https://someurl.com&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;/&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+        &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;dc:identifier&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;rdf:resource=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;https://anotherurl&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;/&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+        &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;orcid:id&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;rdf:resource=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;https://orcid.org/0000-0001-7568-7167&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;/&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+      &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;/rdf:Description&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;/dc:creator&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;dc:creator&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+      &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;rdf:Description&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+        &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;foaf:name&amp;gt;&lt;/span&gt;Jane&lt;span class="w"&gt; &lt;/span&gt;Smith&lt;span class="nt"&gt;&amp;lt;/foaf:name&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+        &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;rdfs:label&amp;gt;&lt;/span&gt;Jane&lt;span class="w"&gt; &lt;/span&gt;Smith&lt;span class="nt"&gt;&amp;lt;/rdfs:label&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+      &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;/rdf:Description&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;/dc:creator&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;dc:contributor&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+      &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;rdf:Description&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+        &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;foaf:name&amp;gt;&lt;/span&gt;Jane&lt;span class="w"&gt; &lt;/span&gt;Doe&lt;span class="nt"&gt;&amp;lt;/foaf:name&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+        &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;rdfs:label&amp;gt;&lt;/span&gt;Jane&lt;span class="w"&gt; &lt;/span&gt;Doe&lt;span class="nt"&gt;&amp;lt;/rdfs:label&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+      &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;/rdf:Description&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;/dc:contributor&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;dc:contributor&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+      &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;rdf:Description&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+        &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;foaf:name&amp;gt;&lt;/span&gt;John&lt;span class="w"&gt; &lt;/span&gt;Smith&lt;span class="nt"&gt;&amp;lt;/foaf:name&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+        &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;rdfs:label&amp;gt;&lt;/span&gt;John&lt;span class="w"&gt; &lt;/span&gt;Smith&lt;span class="nt"&gt;&amp;lt;/rdfs:label&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+      &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;/rdf:Description&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;/dc:contributor&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;dc:contributor&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+      &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;rdf:Description&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+        &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;foaf:name&amp;gt;&lt;/span&gt;Jane&lt;span class="w"&gt; &lt;/span&gt;Smith&lt;span class="nt"&gt;&amp;lt;/foaf:name&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+        &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;rdfs:label&amp;gt;&lt;/span&gt;Jane&lt;span class="w"&gt; &lt;/span&gt;Smith&lt;span class="nt"&gt;&amp;lt;/rdfs:label&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+      &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;/rdf:Description&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;/dc:contributor&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;dcterms:license&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+      &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;rdf:Description&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+        &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;dc:identifier&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;rdf:resource=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;https://identifiers.org/spdx:CC0&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;/&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+        &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;rdfs:label&amp;gt;&lt;/span&gt;CC0&lt;span class="nt"&gt;&amp;lt;/rdfs:label&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+      &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;/rdf:Description&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;/dcterms:license&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;scoro:funder&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+      &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;rdf:Description&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+        &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;dc:identifier&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;rdf:resource=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;http://afundingbody.org&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;/&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+        &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;rdfs:label&amp;gt;&lt;/span&gt;a&lt;span class="w"&gt; &lt;/span&gt;funding&lt;span class="w"&gt; &lt;/span&gt;body&lt;span class="nt"&gt;&amp;lt;/rdfs:label&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+      &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;/rdf:Description&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;/scoro:funder&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;dcterms:created&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+      &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;rdf:Description&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+        &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;dcterms:W3CDTF&amp;gt;&lt;/span&gt;2024-04-18&lt;span class="nt"&gt;&amp;lt;/dcterms:W3CDTF&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+      &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;/rdf:Description&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;/dcterms:created&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;dcterms:modified&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+      &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;rdf:Description&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+        &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;dcterms:W3CDTF&amp;gt;&lt;/span&gt;2024-04-18&lt;span class="nt"&gt;&amp;lt;/dcterms:W3CDTF&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+        &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;dcterms:W3CDTF&amp;gt;&lt;/span&gt;2024-04-19&lt;span class="nt"&gt;&amp;lt;/dcterms:W3CDTF&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+      &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;/rdf:Description&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;/dcterms:modified&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+  &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;/rdf:Description&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;/rdf:RDF&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;
+&lt;p&gt;The MIRIAM format:&lt;/p&gt;
+&lt;pre class="code xml literal-block"&gt;
+&lt;span class="nt"&gt;&amp;lt;rdf:RDF&lt;/span&gt;&lt;span class="w"&gt;
+  &lt;/span&gt;&lt;span class="na"&gt;xmlns:foaf=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;http://xmlns.com/foaf/0.1/&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+  &lt;/span&gt;&lt;span class="na"&gt;xmlns:dc=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;http://purl.org/dc/elements/1.1/&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+  &lt;/span&gt;&lt;span class="na"&gt;xmlns:rdf=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;http://www.w3.org/1999/02/22-rdf-syntax-ns#&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+  &lt;/span&gt;&lt;span class="na"&gt;xmlns:rdfs=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;http://www.w3.org/2000/01/rdf-schema#&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+  &lt;/span&gt;&lt;span class="na"&gt;xmlns:dcterms=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;http://purl.org/dc/terms/&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+  &lt;/span&gt;&lt;span class="na"&gt;xmlns:scoro=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;http://purl.org/spar/scoro&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+  &lt;/span&gt;&lt;span class="na"&gt;xmlns:prism=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;http://prismstandard.org/namespaces/basic/2.0/&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+  &lt;/span&gt;&lt;span class="na"&gt;xmlns:bqmodel=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;http://biomodels.net/model-qualifiers/&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+  &lt;/span&gt;&lt;span class="na"&gt;xmlns:bqbiol=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;http://biomodels.net/biology-qualifiers/&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+  &lt;/span&gt;&lt;span class="na"&gt;xmlns:collex=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;http://www.collex.org/schema&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+  &lt;/span&gt;&lt;span class="na"&gt;xmlns:orcid=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;https://orcid.org/&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+  &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;rdf:Description&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;rdf:about=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;http://omex-library.org/ArchiveName.omex/model.nml&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;dcterms:abstract&amp;gt;&lt;/span&gt;lol,&lt;span class="w"&gt; &lt;/span&gt;something&lt;span class="w"&gt; &lt;/span&gt;nice&lt;span class="nt"&gt;&amp;lt;/dcterms:abstract&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;dc:description&amp;gt;&lt;/span&gt;A&lt;span class="w"&gt; &lt;/span&gt;tests&lt;span class="w"&gt; &lt;/span&gt;model&lt;span class="nt"&gt;&amp;lt;/dc:description&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;prism:keyword&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+      &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;rdf:Bag&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+        &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;rdf:li&amp;gt;&lt;/span&gt;something&lt;span class="nt"&gt;&amp;lt;/rdf:li&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+        &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;rdf:li&amp;gt;&lt;/span&gt;and&lt;span class="w"&gt; &lt;/span&gt;something&lt;span class="nt"&gt;&amp;lt;/rdf:li&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+      &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;/rdf:Bag&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;/prism:keyword&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;collex:thumbnail&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+      &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;rdf:Bag&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+        &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;rdf:li&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;rdf:resource=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;http://omex-library.org/ArchiveName.omex/lol.png&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;/&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+      &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;/rdf:Bag&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;/collex:thumbnail&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;bqbiol:hasTaxon&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+      &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;rdf:Bag&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+        &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;rdf:li&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;rdf:resource=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;http://identifiers.org/taxonomy/4896&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;/&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+      &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;/rdf:Bag&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;/bqbiol:hasTaxon&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;bqbiol:encodes&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+      &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;rdf:Bag&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+        &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;rdf:li&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;rdf:resource=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;http://identifiers.org/GO:0009653&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;/&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+        &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;rdf:li&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;rdf:resource=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;http://identifiers.org/kegg:ko04111&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;/&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+      &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;/rdf:Bag&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;/bqbiol:encodes&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;dc:source&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+      &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;rdf:Bag&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+        &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;rdf:li&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;rdf:resource=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;https://github.com/lala&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;/&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+      &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;/rdf:Bag&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;/dc:source&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;bqmodel:isDerivedFrom&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+      &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;rdf:Bag&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+        &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;rdf:li&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;rdf:resource=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;http://omex-library.org/BioSim0001.omex/model.xml&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;/&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+      &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;/rdf:Bag&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;/bqmodel:isDerivedFrom&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;rdfs:seeAlso&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+      &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;rdf:Bag&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+        &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;rdf:li&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;rdf:resource=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;http://link.com&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;/&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+      &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;/rdf:Bag&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;/rdfs:seeAlso&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;dcterms:references&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+      &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;rdf:Bag&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+        &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;rdf:li&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;rdf:resource=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;http://reference.com&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;/&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+      &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;/rdf:Bag&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;/dcterms:references&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;dc:creator&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+      &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;rdf:Bag&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+        &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;rdf:li&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;rdf:resource=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;#John_Doe&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;/&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+        &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;rdf:li&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;rdf:resource=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;#Jane_Smith&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;/&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+      &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;/rdf:Bag&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;/dc:creator&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;dc:contributor&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+      &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;rdf:Bag&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+        &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;rdf:li&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;rdf:resource=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;#Jane_Doe&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;/&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+        &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;rdf:li&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;rdf:resource=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;#John_Smith&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;/&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+        &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;rdf:li&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;rdf:resource=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;#Jane_Smith&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;/&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+      &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;/rdf:Bag&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;/dc:contributor&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;dcterms:license&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;rdf:resource=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;https://identifiers.org/spdx:CC0&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;/&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;scoro:funder&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+      &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;rdf:Bag&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+        &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;rdf:li&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;rdf:resource=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;http://afundingbody.org&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;/&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+      &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;/rdf:Bag&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;/scoro:funder&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;dcterms:created&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+      &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;rdf:Description&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+        &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;dcterms:W3CDTF&amp;gt;&lt;/span&gt;2024-04-18&lt;span class="nt"&gt;&amp;lt;/dcterms:W3CDTF&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+      &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;/rdf:Description&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;/dcterms:created&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;dcterms:modified&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+      &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;rdf:Description&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+        &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;dcterms:W3CDTF&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+          &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;rdf:Bag&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+            &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;rdf:li&amp;gt;&lt;/span&gt;2024-04-18&lt;span class="nt"&gt;&amp;lt;/rdf:li&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+            &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;rdf:li&amp;gt;&lt;/span&gt;2024-04-19&lt;span class="nt"&gt;&amp;lt;/rdf:li&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+          &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;/rdf:Bag&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+        &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;/dcterms:W3CDTF&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+      &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;/rdf:Description&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;/dcterms:modified&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+  &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;/rdf:Description&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+  &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;rdf:Description&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;rdf:about=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;#John_Doe&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;foaf:name&amp;gt;&lt;/span&gt;John&lt;span class="w"&gt; &lt;/span&gt;Doe&lt;span class="nt"&gt;&amp;lt;/foaf:name&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;foaf:homepage&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;rdf:resource=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;https://someurl.com&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;/&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;dc:identifier&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;rdf:resource=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;https://anotherurl&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;/&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;orcid:id&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;rdf:resource=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;https://orcid.org/0000-0001-7568-7167&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;/&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+  &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;/rdf:Description&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+  &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;rdf:Description&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;rdf:about=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;#Jane_Doe&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;foaf:name&amp;gt;&lt;/span&gt;Jane&lt;span class="w"&gt; &lt;/span&gt;Doe&lt;span class="nt"&gt;&amp;lt;/foaf:name&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+  &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;/rdf:Description&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+  &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;rdf:Description&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;rdf:about=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;#John_Smith&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;foaf:name&amp;gt;&lt;/span&gt;John&lt;span class="w"&gt; &lt;/span&gt;Smith&lt;span class="nt"&gt;&amp;lt;/foaf:name&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+  &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;/rdf:Description&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+  &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;rdf:Description&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;rdf:about=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;#Jane_Smith&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;foaf:name&amp;gt;&lt;/span&gt;Jane&lt;span class="w"&gt; &lt;/span&gt;Smith&lt;span class="nt"&gt;&amp;lt;/foaf:name&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+  &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;/rdf:Description&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;/rdf:RDF&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;
+&lt;p&gt;Since we need both formats, I implemented their creation and extraction in pyNeuroML.
+This is in a &lt;a class="reference external" href="https://github.com/NeuroML/pyNeuroML/pull/354"&gt;pull request&lt;/a&gt; that we'll test and hopefully release in the next few weeks.&lt;/p&gt;
+&lt;p&gt;Annotations are quite useful, so we're hoping that with these features, more and more NeuroML models will contain annotations that help modellers and experimentalists learn more about the elements that they are using/looking at.
+Provenance information in the annotations will also help link re-usable NeuroML model components together.
+Finally, as the use of annotations increases, one would hope that more and more tools will also start to use them.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="google-summer-of-code"&gt;
+&lt;h3&gt;Google Summer of Code&lt;/h3&gt;
+&lt;p&gt;We participate in &lt;a class="reference external" href="https://summerofcode.withgoogle.com"&gt;Google Summer of Code&lt;/a&gt; every year under the &lt;a class="reference external" href="https://incf.org"&gt;INCF&lt;/a&gt; organisation.
+This year, we've been lucky enough to receive two slots for &lt;a class="reference external" href="https://neuroml.org"&gt;NeuroML&lt;/a&gt; related projects.&lt;/p&gt;
+&lt;p&gt;The first is about implementing an &lt;a class="reference external" href="https://www.incf.org/swc"&gt;SWC&lt;/a&gt; to &lt;a class="reference external" href="https://neuroml.org"&gt;NeuroML&lt;/a&gt; converter.
+&lt;a class="reference external" href="https://www.incf.org/swc"&gt;SWC&lt;/a&gt; is a common plain text format used to store data about neuronal morphology, reconstructed from experiments.
+&lt;a class="reference external" href="https://neuromorpho.org/"&gt;Neuromorpho.org&lt;/a&gt; is a database of such reconstructions.
+The primary issue with &lt;a class="reference external" href="https://www.incf.org/swc"&gt;SWC&lt;/a&gt; data is that it may not be appropriate for use in models since these reconstructions can miss various parts that modelling does require.
+For example, a common issue is that lots of reconstructions only include the soma of the neuron as a point.
+So, before we use these for modelling, they need to be validated and in a lot of cases, fixed.
+There's more information on this in &lt;a class="reference external" href="https://docs.neuroml.org/Userdocs/ImportingMorphologyFiles.html"&gt;the documentation&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;So, the converter needs run a battery of tests on the &lt;a class="reference external" href="https://www.incf.org/swc"&gt;SWC&lt;/a&gt; file, and it needs to be interactive to give the user options to &amp;quot;fix&amp;quot; the file so that it can be used in models.
+Some code for this already exists, and we're hoping to complete the converter in this round.&lt;/p&gt;
+&lt;p&gt;The second project is about improving our &lt;a class="reference external" href="https://docs.neuroml.org/Userdocs/VisualisingCells.html"&gt;3D visualisation tool&lt;/a&gt;.
+It uses &lt;a class="reference external" href="https://vispy.org"&gt;vispy&lt;/a&gt; and performs pretty well with some heuristics.
+We want to make it more interactive, similar to the visualisation capabilities of the &lt;a class="reference external" href="https://v1.opensourcebrain.org"&gt;Open Source Brain&lt;/a&gt; platform&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="model-standardization"&gt;
+&lt;h3&gt;Model standardization&lt;/h3&gt;
+&lt;p&gt;In addition to all the software bits, I'm also working on a standardising a number of models into &lt;a class="reference external" href="https://neuroml.org"&gt;NeuroML&lt;/a&gt;.
+These were originally implemented in different simulator specific code.&lt;/p&gt;
+&lt;div class="section" id="ray-et-al"&gt;
+&lt;h4&gt;Ray et al&lt;/h4&gt;
+&lt;div class="figure align-center"&gt;
+&lt;a class="reference external image-reference" href="https://ankursinha.in/images/20240511-ggn.png"&gt;
+&lt;img alt="Visualisation of the morphology of the Giant GABAergic neuron (GGN) from Ray et al." class="text-center img-responsive pagination-centered" src="https://ankursinha.in/images/20240511-ggn.png" style="width: 80%;" /&gt;
+&lt;/a&gt;
+&lt;p class="caption"&gt;Visualisation of the morphology of the Giant GABAergic neuron (GGN) from Ray et al.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;At the recent &lt;a class="reference external" href="https://co.mbine.org/events/"&gt;COMBINE HARMONY meeting&lt;/a&gt;, we had started to convert &lt;a class="reference external" href="https://github.com/OpenSourceBrain/262670/pull/7"&gt;Ray et al&lt;/a&gt;.
+The cell models are done, and the simulation studies are the next ones to work on.
+We've documented this conversion as a &lt;a class="reference external" href="https://docs.neuroml.org/Userdocs/Walkthroughs/RayEtAl2020/RayEtAl2020.html"&gt;walkthrough in the documentation&lt;/a&gt; too.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="zang-et-al"&gt;
+&lt;h4&gt;Zang et al&lt;/h4&gt;
+&lt;div class="figure align-center"&gt;
+&lt;a class="reference external image-reference" href="https://ankursinha.in/images/20240510-purkinje.png"&gt;
+&lt;img alt="Visualisation of the morphology of the Purkinje cell model in Zang et al." class="text-center img-responsive pagination-centered" src="https://ankursinha.in/images/20240510-purkinje.png" style="width: 80%;" /&gt;
+&lt;/a&gt;
+&lt;p class="caption"&gt;Visualisation of the morphology of the Purkinje cell model in Zang et al.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Another model we're working to convert is the Purkinje cell model from &lt;a class="reference external" href="https://www.cell.com/cell-reports/fulltext/S2211-1247(18)31088-X"&gt;Zang et al&lt;/a&gt;.
+The morphology (as can be seen in the figure) has been converted, but the biophysics (ion channels) remain.&lt;/p&gt;
+&lt;p&gt;The biophysics are usually the hardest bits to convert because their representation in the NEURON format (equations and so on) can take various forms, and one has to understand them and mostly manually write the NeuroML version.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="fedora-related"&gt;
+&lt;h2&gt;Fedora related&lt;/h2&gt;
+&lt;p&gt;Not a lot new on the Fedora side of things.
+We continue to maintain the &lt;a class="reference external" href="https://packager-dashboard.fedoraproject.org/dashboard?groups=neuro-sig"&gt;NeuroFedora SIG&lt;/a&gt; packages.
+We're now up to &lt;a class="reference external" href="https://src.fedoraproject.org/group/neuro-sig"&gt;&amp;gt; 400 packages&lt;/a&gt;, so just keeping packages up to date is quite a bit of work.
+Luckily we are a team of a few quite active folks.
+We also have &lt;a class="reference external" href="https://packit.dev/docs/fedora-releases-guide"&gt;Packit&lt;/a&gt; configured for most of our packages now, and that helps us quite a bit.&lt;/p&gt;
+&lt;p&gt;More folks continue to come into the &lt;a class="reference external" href="https://matrix.to/#/#join:fedoraproject.org"&gt;Join SIG Matrix channel&lt;/a&gt;, and the people in there continue to help them get started using the &lt;a class="reference external" href="https://pagure.io/fedora-join/Welcome-to-Fedora"&gt;Welcome to Fedora process&lt;/a&gt;.&lt;/p&gt;
+&lt;div class="section" id="package-update-impact-check"&gt;
+&lt;h3&gt;Package update impact check&lt;/h3&gt;
+&lt;p&gt;A common task for us package maintainers is to figure out how updating a package may affect others.
+So, we look for packages that depend on it, both at build time and run time.
+&lt;code&gt;repoquery&lt;/code&gt; and &lt;code&gt;fedrq&lt;/code&gt; help with this.&lt;/p&gt;
+&lt;p&gt;I wanted something that would tell me the exact dependencies on the package I'm tinkering with, so I came up with this.
+It seems to work fine:&lt;/p&gt;
+&lt;pre class="code bash literal-block"&gt;
+impact_check&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;{&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&amp;gt;&amp;gt; Checking update impact using fedrq for &lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;branch&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&amp;gt;&amp;gt; The following packages will be affected. Please ensure that they do not break as a result of this update:&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nv"&gt;ALL_PROVIDES&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;(&lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;fedrq&lt;span class="w"&gt; &lt;/span&gt;subpkgs&lt;span class="w"&gt; &lt;/span&gt;-F&lt;span class="w"&gt; &lt;/span&gt;provides&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;PACKAGE_NAME&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;cut&lt;span class="w"&gt; &lt;/span&gt;-d&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;=&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-f1&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;sed&lt;span class="w"&gt; &lt;/span&gt;-e&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;'s/\(lib.*.so\).*$/\1/'&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-e&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;'s/\s*$//'&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-e&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;'s/(/\\(/g'&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-e&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;'s/)/\\)/g'&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;tr&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;'\n'&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;'|'&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;sed&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;'s/|$//'&lt;/span&gt;&lt;span class="k"&gt;)&lt;/span&gt;&lt;span class="s2"&gt;)&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="c1"&gt;# echo &amp;quot;${PACKAGE_NAME} provides: &amp;quot;${ALL_PROVIDES}
+&lt;/span&gt;&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nv"&gt;DEPS&lt;/span&gt;&lt;span class="o"&gt;=(&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;fedrq&lt;span class="w"&gt; &lt;/span&gt;whatrequires-src&lt;span class="w"&gt; &lt;/span&gt;-b&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;branch&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-X&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;PACKAGE_NAME&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="k"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="k"&gt;for&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;dep&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;in&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;DEPS&lt;/span&gt;&lt;span class="p"&gt;[&amp;#64;]&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="k"&gt;do&lt;/span&gt;&lt;span class="w"&gt;
+        &lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;*** &lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;dep&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt; ***&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+        &lt;/span&gt;fedrq&lt;span class="w"&gt; &lt;/span&gt;pkgs&lt;span class="w"&gt; &lt;/span&gt;-b&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;branch&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-F&lt;span class="w"&gt; &lt;/span&gt;requires&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;dep&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;grep&lt;span class="w"&gt; &lt;/span&gt;-E&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$ALL_PROVIDES&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+        &lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="k"&gt;done&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="o"&gt;}&lt;/span&gt;
+&lt;/pre&gt;
+&lt;p&gt;When run in a package's SCM repository folder, for example gdcm, it'll do:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+Working on package gdcm
+&amp;gt;&amp;gt; Checking update impact using fedrq for rawhide
+&amp;gt;&amp;gt; The following packages will be affected. Please ensure that they do not break as a result of this update:
+*** InsightToolkit-4.13.3-15.fc39.i686 ***
+libgdcmDSED.so.3.0
+libgdcmMSFF.so.3.0
+libgdcmDICT.so.3.0
+
+*** InsightToolkit-4.13.3-15.fc39.src ***
+gdcm-devel
+
+*** InsightToolkit-4.13.3-15.fc39.x86_64 ***
+libgdcmDSED.so.3.0()(64bit)
+libgdcmMSFF.so.3.0()(64bit)
+libgdcmDICT.so.3.0()(64bit)
+
+*** alizams-1.9.9-2.fc41.src ***
+cmake(gdcm)
+
+*** dicomanonymizer-1-0.15.20210920gitf076264.fc40.src ***
+gdcm-devel
+
+*** dicomanonymizer-1-0.15.20210920gitf076264.fc40.x86_64 ***
+libgdcmDSED.so.3.0()(64bit)
+libgdcmMSFF.so.3.0()(64bit)
+libgdcmDICT.so.3.0()(64bit)
+libgdcmCommon.so.3.0()(64bit)
+libgdcmIOD.so.3.0()(64bit)
+
+*** octave-dicom-0.6.0-2.fc41.src ***
+gdcm-devel
+
+*** octave-dicom-0.6.0-2.fc41.x86_64 ***
+libgdcmDSED.so.3.0()(64bit)
+libgdcmMSFF.so.3.0()(64bit)
+libgdcmDICT.so.3.0()(64bit)
+libgdcmCommon.so.3.0()(64bit)
+libgdcmIOD.so.3.0()(64bit)
+
+*** opencv-4.9.0-4.fc41.src ***
+gdcm-devel
+
+*** opencv-imgcodecs-4.9.0-4.fc41.i686 ***
+libgdcmDSED.so.3.0
+libgdcmMSFF.so.3.0
+
+*** opencv-imgcodecs-4.9.0-4.fc41.x86_64 ***
+libgdcmDSED.so.3.0()(64bit)
+libgdcmMSFF.so.3.0()(64bit)
+
+*** petpvc-1.2.11-5.fc41.src ***
+gdcm-devel
+&lt;/pre&gt;
+&lt;p&gt;There's probably a more elegant way to get this info.
+If you know what it is, do please let me know.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</content><category term="Life"/><category term="Fedora"/><category term="Computational neuroscience"/><category term="NeuroML"/><category term="GSoC"/></entry></feed>

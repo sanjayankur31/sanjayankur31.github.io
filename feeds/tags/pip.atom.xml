@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>ankursinha.in/blog - Pip</title><link href="https://ankursinha.in/" rel="alternate"/><link href="https://ankursinha.in/feeds/tags/pip.atom.xml" rel="self"/><id>https://ankursinha.in/</id><updated>2025-09-10T17:04:09+01:00</updated><subtitle>neuroscience/fedora/musings</subtitle><entry><title>Bash functions for working with UV</title><link href="https://ankursinha.in/2025/09/10/bash-functions-for-working-with-uv.html" rel="alternate"/><published>2025-09-10T17:04:09+01:00</published><updated>2025-09-10T17:04:09+01:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2025-09-10:/2025/09/10/bash-functions-for-working-with-uv.html</id><summary type="html">&lt;p class="first last"&gt;I wrote up a few bash functions to make working with &lt;a class="reference external" href="https://github.com/astral-sh/uv/"&gt;uv&lt;/a&gt; slightly quicker.&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;I finally made the switch from &lt;a class="reference external" href="https://pypi.org/project/pip/"&gt;pip&lt;/a&gt; to &lt;a class="reference external" href="https://github.com/astral-sh/uv/"&gt;uv&lt;/a&gt; recently.
+&lt;a class="reference external" href="https://github.com/astral-sh/uv/"&gt;uv&lt;/a&gt; is much quicker that &lt;a class="reference external" href="https://pypi.org/project/pip/"&gt;pip&lt;/a&gt;.
+I won't go into how/why here, but I will link you to &lt;a class="reference external" href="https://youtu.be/gSKTfG1GXYQ?si=7RWGTdRZdinvZP2X"&gt;this video that explains it&lt;/a&gt;.
+When working with packages such as &lt;a class="reference external" href="https://docs.neuroml.org/Userdocs/Software/pyNeuroML.html"&gt;PyNeuroML&lt;/a&gt; that have quite a few dependencies, the speed up begins to matter, especially when one is developing and may create and remove virtual environments quite often.&lt;/p&gt;
+&lt;p&gt;I used to use &lt;a class="reference external" href="https://github.com/pew-org/pew/issues"&gt;Pew&lt;/a&gt; to manage my Python virtual environments.
+It is a great tool.
+Unfortunately, &lt;a class="reference external" href="https://github.com/pew-org/pew/issues/218"&gt;it isn't quite maintained any more&lt;/a&gt;, and that means support for things like &lt;a class="reference external" href="https://github.com/astral-sh/uv/"&gt;uv&lt;/a&gt; are probably not going to happen soon.&lt;/p&gt;
+&lt;p&gt;I went looking for a similar wrapper around &lt;a class="reference external" href="https://github.com/astral-sh/uv/"&gt;uv&lt;/a&gt; and there are some, but they're simple enough where I thought writing my own bash functions/aliases is probably preferable.
+So, here's what I've added to my &lt;cite&gt;bashrc&lt;/cite&gt;.
+They are a number of functions/aliases to:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;list virtual environments&lt;/li&gt;
+&lt;li&gt;create a new virtual environment using &lt;a class="reference external" href="https://github.com/astral-sh/uv/"&gt;uv&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;activate virtual environments&lt;/li&gt;
+&lt;li&gt;remove virtual environments&lt;/li&gt;
+&lt;li&gt;install packages using &lt;a class="reference external" href="https://github.com/astral-sh/uv/"&gt;uv&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;A simple bash shell completion function is also setup.
+The listing and removal functions aren't really &lt;a class="reference external" href="https://github.com/astral-sh/uv/"&gt;uv&lt;/a&gt; specific here, but I prefix them with &lt;code&gt;uv&lt;/code&gt; for consistency.&lt;/p&gt;
+&lt;p&gt;(I don't use another shell, so please adapt these to whatever you use):&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# uv helpers&lt;/span&gt;
+&lt;span class="nb"&gt;export&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;VIRTUAL_ENV_HOME&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$HOME&lt;/span&gt;&lt;span class="s2"&gt;/.virtualenvs/&amp;quot;&lt;/span&gt;
+uvnew&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;{&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nb"&gt;command&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-v&lt;span class="w"&gt; &lt;/span&gt;uv&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;2&lt;/span&gt;&amp;gt;&lt;span class="p"&gt;&amp;amp;&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&amp;gt;&lt;span class="w"&gt; &lt;/span&gt;/dev/null
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;then&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="nb"&gt;pushd&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;$VIRTUAL_ENV_HOME&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;uv&lt;span class="w"&gt; &lt;/span&gt;venv&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$@&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nb"&gt;popd&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;else&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;uv not installed&amp;quot;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;fi&lt;/span&gt;
+&lt;span class="o"&gt;}&lt;/span&gt;
+uvls&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;{&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;ls&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;$VIRTUAL_ENV_HOME&lt;/span&gt;
+&lt;span class="o"&gt;}&lt;/span&gt;
+uvrm&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;{&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nv"&gt;venv_name&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$1&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nb"&gt;read&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-p&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Delete env \&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$venv_name&lt;/span&gt;&lt;span class="s2"&gt;\&amp;quot;? Are you sure? (Yy)&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-n&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-r
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="c1"&gt;# (optional) move to a new line&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="c1"&gt;# input is stored in REPLY if no var is given to read&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;[[&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;$REPLY&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;~&lt;span class="w"&gt; &lt;/span&gt;^&lt;span class="o"&gt;[&lt;/span&gt;Yy&lt;span class="o"&gt;]&lt;/span&gt;$&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;]]&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;then&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Removing &lt;/span&gt;&lt;span class="nv"&gt;$VIRTUAL_ENV_HOME&lt;/span&gt;&lt;span class="s2"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;$venv_name&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;rm&lt;span class="w"&gt; &lt;/span&gt;-rf&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;$VIRTUAL_ENV_HOME&lt;/span&gt;/&lt;span class="nv"&gt;$venv_name&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;fi&lt;/span&gt;
+&lt;span class="o"&gt;}&lt;/span&gt;
+_venv_completions&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;{&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nb"&gt;local&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;cur
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nv"&gt;cur&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;COMP_WORDS&lt;/span&gt;&lt;span class="p"&gt;[COMP_CWORD]&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nb"&gt;pushd&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;$VIRTUAL_ENV_HOME&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;2&lt;/span&gt;&amp;gt;&lt;span class="p"&gt;&amp;amp;&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&amp;gt;/dev/null
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="nv"&gt;COMPREPLY&lt;/span&gt;&lt;span class="o"&gt;=(&lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;&lt;span class="nb"&gt;compgen&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-o&lt;span class="w"&gt; &lt;/span&gt;dirnames&lt;span class="w"&gt; &lt;/span&gt;--&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$cur&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="k"&gt;)&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nb"&gt;popd&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&amp;gt;/dev/null&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;2&lt;/span&gt;&amp;gt;&lt;span class="p"&gt;&amp;amp;&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;
+&lt;span class="o"&gt;}&lt;/span&gt;
+uvactivate&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;{&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nv"&gt;venv_name&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$1&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-e&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$VIRTUAL_ENV_HOME&lt;/span&gt;&lt;span class="s2"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;$venv_name&lt;/span&gt;&lt;span class="s2"&gt;/bin/activate&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;then&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="nb"&gt;source&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$VIRTUAL_ENV_HOME&lt;/span&gt;&lt;span class="s2"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;$venv_name&lt;/span&gt;&lt;span class="s2"&gt;/bin/activate&amp;quot;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;else&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Could not find activation script&amp;quot;&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Available venvs are&amp;quot;&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;uvls
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;fi&lt;/span&gt;
+&lt;span class="o"&gt;}&lt;/span&gt;
+&lt;span class="nb"&gt;complete&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-F&lt;span class="w"&gt; &lt;/span&gt;_venv_completions&lt;span class="w"&gt; &lt;/span&gt;uvactivate
+&lt;span class="nb"&gt;complete&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-F&lt;span class="w"&gt; &lt;/span&gt;_venv_completions&lt;span class="w"&gt; &lt;/span&gt;uvrm
+
+&lt;span class="nb"&gt;alias&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;uvpip&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;uv pip&amp;quot;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;On Fedora, &lt;a class="reference external" href="https://github.com/astral-sh/uv/"&gt;uv&lt;/a&gt; is in the repositories, so it can be installed with:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo&lt;span class="w"&gt; &lt;/span&gt;dnf&lt;span class="w"&gt; &lt;/span&gt;install&lt;span class="w"&gt; &lt;/span&gt;uv
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;If you have your own wrappers for working with &lt;code&gt;uv&lt;/code&gt; that are better than these simple bits, please drop me a word.&lt;/p&gt;
+</content><category term="Tech"/><category term="Python"/><category term="Bash"/><category term="UV"/><category term="Pip"/><category term="Fedora"/><category term="Pew"/></entry></feed>

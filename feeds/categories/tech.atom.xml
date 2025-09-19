@@ -1,0 +1,654 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>ankursinha.in/blog - Tech</title><link href="https://ankursinha.in/" rel="alternate"/><link href="https://ankursinha.in/feeds/categories/tech.atom.xml" rel="self"/><id>https://ankursinha.in/</id><updated>2025-09-10T17:04:09+01:00</updated><subtitle>neuroscience/fedora/musings</subtitle><entry><title>Bash functions for working with UV</title><link href="https://ankursinha.in/2025/09/10/bash-functions-for-working-with-uv.html" rel="alternate"/><published>2025-09-10T17:04:09+01:00</published><updated>2025-09-10T17:04:09+01:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2025-09-10:/2025/09/10/bash-functions-for-working-with-uv.html</id><summary type="html">&lt;p class="first last"&gt;I wrote up a few bash functions to make working with &lt;a class="reference external" href="https://github.com/astral-sh/uv/"&gt;uv&lt;/a&gt; slightly quicker.&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;I finally made the switch from &lt;a class="reference external" href="https://pypi.org/project/pip/"&gt;pip&lt;/a&gt; to &lt;a class="reference external" href="https://github.com/astral-sh/uv/"&gt;uv&lt;/a&gt; recently.
+&lt;a class="reference external" href="https://github.com/astral-sh/uv/"&gt;uv&lt;/a&gt; is much quicker that &lt;a class="reference external" href="https://pypi.org/project/pip/"&gt;pip&lt;/a&gt;.
+I won't go into how/why here, but I will link you to &lt;a class="reference external" href="https://youtu.be/gSKTfG1GXYQ?si=7RWGTdRZdinvZP2X"&gt;this video that explains it&lt;/a&gt;.
+When working with packages such as &lt;a class="reference external" href="https://docs.neuroml.org/Userdocs/Software/pyNeuroML.html"&gt;PyNeuroML&lt;/a&gt; that have quite a few dependencies, the speed up begins to matter, especially when one is developing and may create and remove virtual environments quite often.&lt;/p&gt;
+&lt;p&gt;I used to use &lt;a class="reference external" href="https://github.com/pew-org/pew/issues"&gt;Pew&lt;/a&gt; to manage my Python virtual environments.
+It is a great tool.
+Unfortunately, &lt;a class="reference external" href="https://github.com/pew-org/pew/issues/218"&gt;it isn't quite maintained any more&lt;/a&gt;, and that means support for things like &lt;a class="reference external" href="https://github.com/astral-sh/uv/"&gt;uv&lt;/a&gt; are probably not going to happen soon.&lt;/p&gt;
+&lt;p&gt;I went looking for a similar wrapper around &lt;a class="reference external" href="https://github.com/astral-sh/uv/"&gt;uv&lt;/a&gt; and there are some, but they're simple enough where I thought writing my own bash functions/aliases is probably preferable.
+So, here's what I've added to my &lt;cite&gt;bashrc&lt;/cite&gt;.
+They are a number of functions/aliases to:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;list virtual environments&lt;/li&gt;
+&lt;li&gt;create a new virtual environment using &lt;a class="reference external" href="https://github.com/astral-sh/uv/"&gt;uv&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;activate virtual environments&lt;/li&gt;
+&lt;li&gt;remove virtual environments&lt;/li&gt;
+&lt;li&gt;install packages using &lt;a class="reference external" href="https://github.com/astral-sh/uv/"&gt;uv&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;A simple bash shell completion function is also setup.
+The listing and removal functions aren't really &lt;a class="reference external" href="https://github.com/astral-sh/uv/"&gt;uv&lt;/a&gt; specific here, but I prefix them with &lt;code&gt;uv&lt;/code&gt; for consistency.&lt;/p&gt;
+&lt;p&gt;(I don't use another shell, so please adapt these to whatever you use):&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# uv helpers&lt;/span&gt;
+&lt;span class="nb"&gt;export&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;VIRTUAL_ENV_HOME&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$HOME&lt;/span&gt;&lt;span class="s2"&gt;/.virtualenvs/&amp;quot;&lt;/span&gt;
+uvnew&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;{&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nb"&gt;command&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-v&lt;span class="w"&gt; &lt;/span&gt;uv&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;2&lt;/span&gt;&amp;gt;&lt;span class="p"&gt;&amp;amp;&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&amp;gt;&lt;span class="w"&gt; &lt;/span&gt;/dev/null
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;then&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="nb"&gt;pushd&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;$VIRTUAL_ENV_HOME&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;uv&lt;span class="w"&gt; &lt;/span&gt;venv&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$@&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nb"&gt;popd&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;else&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;uv not installed&amp;quot;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;fi&lt;/span&gt;
+&lt;span class="o"&gt;}&lt;/span&gt;
+uvls&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;{&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;ls&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;$VIRTUAL_ENV_HOME&lt;/span&gt;
+&lt;span class="o"&gt;}&lt;/span&gt;
+uvrm&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;{&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nv"&gt;venv_name&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$1&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nb"&gt;read&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-p&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Delete env \&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$venv_name&lt;/span&gt;&lt;span class="s2"&gt;\&amp;quot;? Are you sure? (Yy)&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-n&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-r
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="c1"&gt;# (optional) move to a new line&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="c1"&gt;# input is stored in REPLY if no var is given to read&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;[[&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;$REPLY&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;~&lt;span class="w"&gt; &lt;/span&gt;^&lt;span class="o"&gt;[&lt;/span&gt;Yy&lt;span class="o"&gt;]&lt;/span&gt;$&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;]]&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;then&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Removing &lt;/span&gt;&lt;span class="nv"&gt;$VIRTUAL_ENV_HOME&lt;/span&gt;&lt;span class="s2"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;$venv_name&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;rm&lt;span class="w"&gt; &lt;/span&gt;-rf&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;$VIRTUAL_ENV_HOME&lt;/span&gt;/&lt;span class="nv"&gt;$venv_name&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;fi&lt;/span&gt;
+&lt;span class="o"&gt;}&lt;/span&gt;
+_venv_completions&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;{&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nb"&gt;local&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;cur
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nv"&gt;cur&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;COMP_WORDS&lt;/span&gt;&lt;span class="p"&gt;[COMP_CWORD]&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nb"&gt;pushd&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;$VIRTUAL_ENV_HOME&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;2&lt;/span&gt;&amp;gt;&lt;span class="p"&gt;&amp;amp;&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&amp;gt;/dev/null
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="nv"&gt;COMPREPLY&lt;/span&gt;&lt;span class="o"&gt;=(&lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;&lt;span class="nb"&gt;compgen&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-o&lt;span class="w"&gt; &lt;/span&gt;dirnames&lt;span class="w"&gt; &lt;/span&gt;--&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$cur&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="k"&gt;)&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nb"&gt;popd&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&amp;gt;/dev/null&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;2&lt;/span&gt;&amp;gt;&lt;span class="p"&gt;&amp;amp;&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;
+&lt;span class="o"&gt;}&lt;/span&gt;
+uvactivate&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;{&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nv"&gt;venv_name&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$1&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-e&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$VIRTUAL_ENV_HOME&lt;/span&gt;&lt;span class="s2"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;$venv_name&lt;/span&gt;&lt;span class="s2"&gt;/bin/activate&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;then&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="nb"&gt;source&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$VIRTUAL_ENV_HOME&lt;/span&gt;&lt;span class="s2"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;$venv_name&lt;/span&gt;&lt;span class="s2"&gt;/bin/activate&amp;quot;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;else&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Could not find activation script&amp;quot;&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Available venvs are&amp;quot;&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;uvls
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;fi&lt;/span&gt;
+&lt;span class="o"&gt;}&lt;/span&gt;
+&lt;span class="nb"&gt;complete&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-F&lt;span class="w"&gt; &lt;/span&gt;_venv_completions&lt;span class="w"&gt; &lt;/span&gt;uvactivate
+&lt;span class="nb"&gt;complete&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-F&lt;span class="w"&gt; &lt;/span&gt;_venv_completions&lt;span class="w"&gt; &lt;/span&gt;uvrm
+
+&lt;span class="nb"&gt;alias&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;uvpip&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;uv pip&amp;quot;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;On Fedora, &lt;a class="reference external" href="https://github.com/astral-sh/uv/"&gt;uv&lt;/a&gt; is in the repositories, so it can be installed with:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo&lt;span class="w"&gt; &lt;/span&gt;dnf&lt;span class="w"&gt; &lt;/span&gt;install&lt;span class="w"&gt; &lt;/span&gt;uv
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;If you have your own wrappers for working with &lt;code&gt;uv&lt;/code&gt; that are better than these simple bits, please drop me a word.&lt;/p&gt;
+</content><category term="Tech"/><category term="Python"/><category term="Bash"/><category term="UV"/><category term="Pip"/><category term="Fedora"/><category term="Pew"/></entry><entry><title>Splitting Taskwarrior tasks to sub-tasks</title><link href="https://ankursinha.in/2025/07/05/splitting-taskwarrior-tasks-to-sub-tasks.html" rel="alternate"/><published>2025-07-05T13:11:35+01:00</published><updated>2025-07-08T12:36:09+01:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2025-07-05:/2025/07/05/splitting-taskwarrior-tasks-to-sub-tasks.html</id><summary type="html">&lt;p class="first last"&gt;A quick script to split Taskwarrior tasks in to sub-tasks.&lt;/p&gt;
+</summary><content type="html">&lt;center&gt;&lt;a class="reference external image-reference" href="https://taskwarrior.org"&gt;
+&lt;img alt="Logo for Taskwarrior" src="https://ankursinha.in/images/20250705-tw.png" style="height: 150.0px;" /&gt;
+&lt;/a&gt;
+&lt;/center&gt;&lt;p&gt;A feature that I often miss in &lt;a class="reference external" href="https://taskwarrior.org/"&gt;Taskwarrior&lt;/a&gt; (which I use for managing my tasks in a &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Getting_Things_Done"&gt;Getting Things Done&lt;/a&gt; method) is the ability to split tasks into sub-tasks.&lt;/p&gt;
+&lt;p&gt;A common use case, for example, is when I add a research paper that I want to read to my task list.
+It's usually added as &amp;quot;Read &amp;lt;title of research paper&amp;gt;&amp;quot;, with the URL or the file path as an annotation.
+However, when I do get down to read it, I want to break it down into smaller, manageable tasks that I can do over a few days such as &amp;quot;Read introduction&amp;quot;, &amp;quot;Read results&amp;quot;.
+This applies for lots of other tasks too, which turn into projects with sub-tasks when I finally do get down to working on them.&lt;/p&gt;
+&lt;p&gt;The way to do it is to create new tasks for each of these, and then replace the original task with them.
+It is also a workflow that cab be easily scripted so that one doesn't have to manually create the tasks and copy over annotations and so on.&lt;/p&gt;
+&lt;p&gt;Here is a script I wrote:&lt;/p&gt;
+&lt;pre class="code python literal-block"&gt;
+&lt;span class="ch"&gt;#!/usr/bin/env python3&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="sd"&gt;&amp;quot;&amp;quot;&amp;quot;
+Split a taskwarrior task into sub-tasks
+
+File: task-split.py
+
+Copyright 2025 Ankur Sinha
+Author: Ankur Sinha &amp;lt;sanjay DOT ankur AT gmail DOT com&amp;gt;
+&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+
+
+&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;typing&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;typer&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;subprocess&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;json&lt;/span&gt;&lt;span class="w"&gt;
+
+
+&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;logging&lt;/span&gt;&lt;span class="w"&gt;
+
+
+&lt;/span&gt;&lt;span class="n"&gt;logging&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;basicConfig&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;level&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;logging&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;NOTSET&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="n"&gt;logger&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;logging&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;getLogger&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;task-split&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="n"&gt;logger&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;setLevel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;logging&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;INFO&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="n"&gt;logger&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;propagate&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kc"&gt;False&lt;/span&gt;&lt;span class="w"&gt;
+
+&lt;/span&gt;&lt;span class="n"&gt;formatter&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;logging&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Formatter&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="si"&gt;%(name)s&lt;/span&gt;&lt;span class="s2"&gt; (&lt;/span&gt;&lt;span class="si"&gt;%(levelname)s&lt;/span&gt;&lt;span class="s2"&gt;): &lt;/span&gt;&lt;span class="si"&gt;%(message)s&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="n"&gt;handler&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;logging&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;StreamHandler&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="n"&gt;handler&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;setLevel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;logging&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;INFO&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="n"&gt;handler&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;setFormatter&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;formatter&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+
+&lt;/span&gt;&lt;span class="n"&gt;logger&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;addHandler&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;handler&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+
+
+&lt;/span&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;split&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;src_task&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;new_project&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;sub_tasks&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;typing&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;List&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;          &lt;span class="n"&gt;dry_run&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="nb"&gt;bool&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kc"&gt;True&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;-&amp;gt;&lt;/span&gt; &lt;span class="kc"&gt;None&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="sd"&gt;&amp;quot;&amp;quot;&amp;quot;Split task into new sub-tasks
+
+    For each provided sub_tasks string, a new task is created using the string
+    as description in the provided new_project. Annotations from the provided
+    src_task are copied over and the src_task is removed.
+
+    If dry_run is enabled (default), the src_task will be obtained but not
+    processed.
+
+    :param src_task: id of task to split
+    :type src_task: int
+    :param sub_tasks: list of sub-tasks to create
+    :type sub_tasks: list(str)
+    :returns: None
+
+    &amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;    &lt;span class="c1"&gt;# Always get info on the task&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;    &lt;span class="n"&gt;ret&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kc"&gt;None&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;    &lt;span class="n"&gt;get_task_command&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="sa"&gt;f&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;task &lt;/span&gt;&lt;span class="si"&gt;{&lt;/span&gt;&lt;span class="n"&gt;src_task&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt; export&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;    &lt;span class="n"&gt;logger&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;info&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;get_task_command&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;    &lt;span class="n"&gt;ret&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;subprocess&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;run&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;get_task_command&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;split&lt;/span&gt;&lt;span class="p"&gt;(),&lt;/span&gt; &lt;span class="n"&gt;stdout&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;subprocess&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;PIPE&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;stderr&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;subprocess&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;PIPE&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+
+&lt;/span&gt;    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;ret&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;returncode&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;        &lt;span class="n"&gt;task_stdout&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;ret&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;stdout&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;decode&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;encoding&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;utf-8&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;        &lt;span class="n"&gt;task_json&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;json&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;loads&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;task_stdout&lt;/span&gt;&lt;span class="p"&gt;)[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;        &lt;span class="n"&gt;logger&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;info&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;task_json&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;        &lt;span class="n"&gt;tags&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;task_json&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'tags'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="p"&gt;[])&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;        &lt;span class="n"&gt;priority&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;task_json&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'priority'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'L'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;        &lt;span class="n"&gt;due&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;task_json&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'due'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'eod'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;        &lt;span class="n"&gt;estimate&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;task_json&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'estimate'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'1h'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;        &lt;span class="n"&gt;impact&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;task_json&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'impact'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'L'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;        &lt;span class="n"&gt;annotations&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;task_json&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'annotations'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="p"&gt;[])&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;        &lt;span class="n"&gt;description&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;task_json&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'description'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;        &lt;span class="n"&gt;uuid&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;task_json&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'uuid'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+
+&lt;/span&gt;        &lt;span class="c1"&gt;# clear ret for future dry runs&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;        &lt;span class="n"&gt;ret&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kc"&gt;None&lt;/span&gt;&lt;span class="w"&gt;
+
+&lt;/span&gt;        &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;sub_task&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;sub_tasks&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;            &lt;span class="n"&gt;new_task_command&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="sa"&gt;f&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;task add project:&lt;/span&gt;&lt;span class="si"&gt;{&lt;/span&gt;&lt;span class="n"&gt;new_project&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt; tags:&lt;/span&gt;&lt;span class="si"&gt;{&lt;/span&gt;&lt;span class="s1"&gt;','&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;join&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;tags&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt; priority:&lt;/span&gt;&lt;span class="si"&gt;{&lt;/span&gt;&lt;span class="n"&gt;priority&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt; due:&lt;/span&gt;&lt;span class="si"&gt;{&lt;/span&gt;&lt;span class="n"&gt;due&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt; impact:&lt;/span&gt;&lt;span class="si"&gt;{&lt;/span&gt;&lt;span class="n"&gt;impact&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt; estimate:&lt;/span&gt;&lt;span class="si"&gt;{&lt;/span&gt;&lt;span class="n"&gt;estimate&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt; '&lt;/span&gt;&lt;span class="si"&gt;{&lt;/span&gt;&lt;span class="n"&gt;sub_task&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;'&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;            &lt;span class="n"&gt;logger&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;info&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;new_task_command&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+
+&lt;/span&gt;            &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="ow"&gt;not&lt;/span&gt; &lt;span class="n"&gt;dry_run&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;                &lt;span class="n"&gt;ret&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;subprocess&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;run&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;new_task_command&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;split&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;&lt;span class="w"&gt;
+
+&lt;/span&gt;            &lt;span class="n"&gt;annotate_task_command&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="sa"&gt;f&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;task +LATEST annotate '&lt;/span&gt;&lt;span class="si"&gt;{&lt;/span&gt;&lt;span class="n"&gt;description&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;'&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;            &lt;span class="n"&gt;logger&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;info&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;annotate_task_command&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;            &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="ow"&gt;not&lt;/span&gt; &lt;span class="n"&gt;dry_run&lt;/span&gt; &lt;span class="ow"&gt;and&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ret&lt;/span&gt; &lt;span class="ow"&gt;is&lt;/span&gt; &lt;span class="ow"&gt;not&lt;/span&gt; &lt;span class="kc"&gt;None&lt;/span&gt; &lt;span class="ow"&gt;and&lt;/span&gt; &lt;span class="n"&gt;ret&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;returncode&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;                &lt;span class="n"&gt;ret&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;subprocess&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;run&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;annotate_task_command&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;split&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;&lt;span class="w"&gt;
+
+&lt;/span&gt;            &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;annotation&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;annotations&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;                &lt;span class="n"&gt;annotation_description&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;annotation&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;'description'&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;                &lt;span class="n"&gt;annotate_task_command&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="sa"&gt;f&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;task +LATEST annotate '&lt;/span&gt;&lt;span class="si"&gt;{&lt;/span&gt;&lt;span class="n"&gt;annotation_description&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;'&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;                &lt;span class="n"&gt;logger&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;info&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;annotate_task_command&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;                &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="ow"&gt;not&lt;/span&gt; &lt;span class="n"&gt;dry_run&lt;/span&gt; &lt;span class="ow"&gt;and&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ret&lt;/span&gt; &lt;span class="ow"&gt;is&lt;/span&gt; &lt;span class="ow"&gt;not&lt;/span&gt; &lt;span class="kc"&gt;None&lt;/span&gt; &lt;span class="ow"&gt;and&lt;/span&gt; &lt;span class="n"&gt;ret&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;returncode&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;                    &lt;span class="n"&gt;ret&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;subprocess&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;run&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;annotate_task_command&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;split&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;&lt;span class="w"&gt;
+
+&lt;/span&gt;        &lt;span class="n"&gt;mark_original_as_done_command&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="sa"&gt;f&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;task uuid:&lt;/span&gt;&lt;span class="si"&gt;{&lt;/span&gt;&lt;span class="n"&gt;uuid&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt; done&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;        &lt;span class="n"&gt;logger&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;info&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;mark_original_as_done_command&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;        &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="ow"&gt;not&lt;/span&gt; &lt;span class="n"&gt;dry_run&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;            &lt;span class="n"&gt;ret&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;subprocess&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;run&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;mark_original_as_done_command&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;split&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;&lt;span class="w"&gt;
+
+
+&lt;/span&gt;&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="vm"&gt;__name__&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;__main__&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;    &lt;span class="n"&gt;typer&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;run&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;split&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;
+&lt;p&gt;It uses &lt;a class="reference external" href="https://typer.tiangolo.com/"&gt;typer&lt;/a&gt; to provide command line features:&lt;/p&gt;
+&lt;pre class="code bash literal-block"&gt;
+task-split&lt;span class="w"&gt; &lt;/span&gt;--help&lt;span class="w"&gt;
+
+&lt;/span&gt;Usage:&lt;span class="w"&gt; &lt;/span&gt;task-split&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;OPTIONS&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;SRC_TASK&lt;span class="w"&gt; &lt;/span&gt;NEW_PROJECT&lt;span class="w"&gt; &lt;/span&gt;SUB_TASKS...&lt;span class="w"&gt;
+
+&lt;/span&gt;Split&lt;span class="w"&gt; &lt;/span&gt;task&lt;span class="w"&gt; &lt;/span&gt;into&lt;span class="w"&gt; &lt;/span&gt;new&lt;span class="w"&gt; &lt;/span&gt;sub-tasks&lt;span class="w"&gt;
+
+&lt;/span&gt;Arguments&lt;span class="w"&gt;
+&lt;/span&gt;*&lt;span class="w"&gt;    &lt;/span&gt;src_task&lt;span class="w"&gt;         &lt;/span&gt;INTEGER&lt;span class="w"&gt;       &lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;default:&lt;span class="w"&gt; &lt;/span&gt;None&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;*&lt;span class="w"&gt;    &lt;/span&gt;new_project&lt;span class="w"&gt;      &lt;/span&gt;TEXT&lt;span class="w"&gt;          &lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;default:&lt;span class="w"&gt; &lt;/span&gt;None&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;*&lt;span class="w"&gt;    &lt;/span&gt;sub_tasks&lt;span class="w"&gt;        &lt;/span&gt;SUB_TASKS...&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;default:&lt;span class="w"&gt; &lt;/span&gt;None&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt;
+
+&lt;/span&gt;Options&lt;span class="w"&gt;
+&lt;/span&gt;--dry-run&lt;span class="w"&gt;    &lt;/span&gt;--no-dry-run&lt;span class="w"&gt;      &lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;default:&lt;span class="w"&gt; &lt;/span&gt;dry-run&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;--help&lt;span class="w"&gt;                         &lt;/span&gt;Show&lt;span class="w"&gt; &lt;/span&gt;this&lt;span class="w"&gt; &lt;/span&gt;message&lt;span class="w"&gt; &lt;/span&gt;and&lt;span class="w"&gt; &lt;/span&gt;exit.
+&lt;/pre&gt;
+&lt;p&gt;So, if one has a task &amp;quot;Put up shelves&amp;quot; with ID 800, it can now be broken into a number of smaller tasks:&lt;/p&gt;
+&lt;pre class="code bash literal-block"&gt;
+task-split&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;800&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;personal.shelves&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Buy shelves&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Buy drill&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Buy tools&amp;quot;&lt;/span&gt;
+&lt;/pre&gt;
+&lt;p&gt;This will add the new tasks to the &amp;quot;personal.shelves&amp;quot; topic, and copy over meta-data from the original task, such as annotations, priority, due date and other user defined attributes.
+It runs in &amp;quot;dry-run&amp;quot; mode by default to give me a chance to double-check the commands/tasks.
+To carry out the operations, pass the &lt;code&gt;--no-dry-run&lt;/code&gt; flag to the script too.&lt;/p&gt;
+&lt;p&gt;The script is heavily based on my personal workflow, but can easily be tweaked.
+It lives &lt;a class="reference external" href="https://github.com/sanjayankur31/100_dotfiles/blob/main/bin/task-split"&gt;here on GitHub&lt;/a&gt; and you are welcome to modify it to suit your own workflow.&lt;/p&gt;
+&lt;p&gt;Please remember to make it executable and put it in your PATH to be able to run the command on your terminal, and do remember to install typer.
+On Fedora, this would be &lt;code&gt;sudo dnf install python3-typer&lt;/code&gt;.&lt;/p&gt;
+</content><category term="Tech"/><category term="Taskwarrior"/><category term="Productivity"/><category term="Python"/></entry><entry><title>Accessing UCL VPN using OpenConnect on Linux systems</title><link href="https://ankursinha.in/2024/11/25/accessing-ucl-vpn-using-openconnect-on-linux-systems.html" rel="alternate"/><published>2024-11-25T14:49:25+00:00</published><updated>2024-11-25T14:49:25+00:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2024-11-25:/2024/11/25/accessing-ucl-vpn-using-openconnect-on-linux-systems.html</id><summary type="html">&lt;p class="first last"&gt;A quick note on accessing UCL VPN using OpenConnect on Linux systems.&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;I needed to use the &lt;a class="reference external" href="https://www.ucl.ac.uk/isd/services/get-connected/ucl-virtual-private-network-vpn"&gt;UCL VPN&lt;/a&gt; again, on my Fedora/Linux machine.
+Linux isn't really supported by the university infrastructure, but there are &lt;a class="reference external" href="https://blogs.ucl.ac.uk/dh/2015/09/18/tutorial-ucl-vpn-linux/"&gt;instructions that others have come up with&lt;/a&gt; and they had worked for me the last time I'd needed VPN access.
+Unfortunately, that was a few years ago, and things have changed a little since then.
+Notably, UCL has introduced two factor authentication (2FA).&lt;/p&gt;
+&lt;p&gt;I had to look around a little but I did manage to get it to work again using NetworkManager.
+I thought I'd write it up quickly so everyone that needs it, including future me, have a quick reference to look at.&lt;/p&gt;
+&lt;p&gt;This is on Fedora 41 with the following OpenConnect packages:&lt;/p&gt;
+&lt;pre class="code bash literal-block"&gt;
+$&lt;span class="w"&gt; &lt;/span&gt;rpm&lt;span class="w"&gt; &lt;/span&gt;-qa&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="se"&gt;\*&lt;/span&gt;openconnect&lt;span class="se"&gt;\*&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;openconnect-9.12-6.fc41.x86_64&lt;span class="w"&gt;
+&lt;/span&gt;NetworkManager-openconnect-1.2.10-6.fc41.x86_64&lt;span class="w"&gt;
+&lt;/span&gt;NetworkManager-openconnect-gnome-1.2.10-6.fc41.x86_64
+&lt;/pre&gt;
+&lt;p&gt;In NetworkManager one needs to create a new VPN connection with the following settings:&lt;/p&gt;
+&lt;div class="figure align-center"&gt;
+&lt;a class="reference external image-reference" href="https://ankursinha.in/images/neuroml-logo.png"&gt;
+&lt;img alt="Screenshot of settings in Network Manager for setting up a VPN connection to UCL VPN using Open Connect (settings are listed below)" class="text-center img-responsive pagination-centered" src="https://ankursinha.in/images/20241125-openconnect-nm.png" style="width: 80%;" /&gt;
+&lt;/a&gt;
+&lt;/div&gt;
+&lt;p&gt;Here are the settings in a list too:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;VPN Protocol: Cisco AnyConnect or OpenConnect&lt;/li&gt;
+&lt;li&gt;Gateway: vpn.ucl.ac.uk&lt;/li&gt;
+&lt;li&gt;User Agent: AnyConnect&lt;/li&gt;
+&lt;li&gt;CA Certificate: &amp;lt;None&amp;gt;&lt;/li&gt;
+&lt;li&gt;Proxy: &amp;lt;leave blank&amp;gt;&lt;/li&gt;
+&lt;li&gt;Allow security scanner trojan (CSD): Yes (checked)&lt;/li&gt;
+&lt;li&gt;Trojan (CSD) wrapper script: &lt;code&gt;/usr/libexec/openconnect/csd-post.sh&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Reported OS: Windows 10 (I didn't try another)&lt;/li&gt;
+&lt;li&gt;Machine certificate: &amp;lt;None&amp;gt;&lt;/li&gt;
+&lt;li&gt;Machine private key: &amp;lt;will be greyed out&amp;gt;&lt;/li&gt;
+&lt;li&gt;User certification: &amp;lt;None&amp;gt;&lt;/li&gt;
+&lt;li&gt;User private key: &amp;lt;will be greyed out&amp;gt;&lt;/li&gt;
+&lt;li&gt;Use FSID for key passphrase: No (unchecked)&lt;/li&gt;
+&lt;li&gt;Prevent user from manually accepting invalid credentials: No (unchecked)&lt;/li&gt;
+&lt;li&gt;Token mode: TOTP - manually entered&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This is similar to what had worked before.
+What changed:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;It didn't work without setting the User Agent to &amp;quot;AnyConnect&amp;quot;&lt;/li&gt;
+&lt;li&gt;I set the token mode to &amp;quot;TOTP - manually entered&amp;quot;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This opens up a web login page where one can enter their credentials.&lt;/p&gt;
+</content><category term="Tech"/><category term="UCL"/><category term="VPN"/><category term="AnyConnect"/><category term="OpenConnect"/><category term="Linux"/><category term="Fedora"/></entry><entry><title>Vit aliases to view tasks over different periods</title><link href="https://ankursinha.in/2023/12/02/vit-aliases-to-view-tasks-over-different-periods.html" rel="alternate"/><published>2023-12-02T18:11:47+00:00</published><updated>2023-12-02T18:11:47+00:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2023-12-02:/2023/12/02/vit-aliases-to-view-tasks-over-different-periods.html</id><summary type="html">&lt;p class="first last"&gt;A few Vit aliases I use to get an overview of my tasks over different periods of time&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;I use &lt;a class="reference external" href="https://github.com/vit-project/vit"&gt;Vit&lt;/a&gt; as a terminal interface to view my &lt;a class="reference external" href="https://taskwarrior.org/"&gt;Taskwarrior&lt;/a&gt; tasks.
+In a terminal, that's just running the &lt;code&gt;vit&lt;/code&gt; command.
+Sometimes, one doesn't want to look at the full list, though.
+I usually have a few &amp;quot;views&amp;quot; of my tasks which give me a better idea of my work load.
+I add them to my &lt;code&gt;~/.bashrc&lt;/code&gt; so they're available as commands.
+Here they are.
+They're very simple, and should be modified to suit one's workflow:&lt;/p&gt;
+&lt;pre class="code bash literal-block"&gt;
+&lt;span class="c1"&gt;# filters common to all functions
+&lt;/span&gt;&lt;span class="nv"&gt;TASK_FILTERS&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="c1"&gt;# all tasks
+&lt;/span&gt;vit-tl&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="o"&gt;{&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;vit&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;TASK_FILTERS&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="o"&gt;}&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="c1"&gt;# tasks due before the end of the day
+&lt;/span&gt;vit-tl-today&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;{&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;vit&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;TASK_FILTERS&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;'due.by:eod'&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="o"&gt;}&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="c1"&gt;# tasks due before the end of the week
+&lt;/span&gt;vit-tl-this-week&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;{&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;vit&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;TASK_FILTERS&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;'due.by:eow'&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="o"&gt;}&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="c1"&gt;# tasks due before the end of the month
+&lt;/span&gt;vit-tl-this-month&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;{&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;vit&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;TASK_FILTERS&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;'due.by:eom'&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="o"&gt;}&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="c1"&gt;# tasks due in a week
+&lt;/span&gt;vit-tl-in-a-week&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;{&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;vit&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;TASK_FILTERS&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;'due.by:1w'&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="o"&gt;}&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="c1"&gt;# tasks due in a month
+&lt;/span&gt;vit-tl-in-a-month&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;{&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;vit&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;TASK_FILTERS&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;'due.by:1m'&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="o"&gt;}&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="c1"&gt;# tasks due in six months
+&lt;/span&gt;vit-tl-in-six-months&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;{&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;vit&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;TASK_FILTERS&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;'due.by:6m'&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="o"&gt;}&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="c1"&gt;# tasks due in a year
+&lt;/span&gt;vit-tl-in-a-year&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;{&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;vit&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;TASK_FILTERS&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;'due.by:1y'&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="o"&gt;}&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="c1"&gt;# next N tasks (2 by default)
+&lt;/span&gt;vit-next&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;{&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Active tasks:&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;task&lt;span class="w"&gt; &lt;/span&gt;active&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Next &lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;1&lt;/span&gt;&lt;span class="k"&gt;:-&lt;/span&gt;&lt;span class="nv"&gt;2&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt; tasks:&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;task&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;TASK_FILTERS&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;limit:&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;1&lt;/span&gt;&lt;span class="k"&gt;:-&lt;/span&gt;&lt;span class="nv"&gt;2&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="o"&gt;}&lt;/span&gt;
+&lt;/pre&gt;
+</content><category term="Tech"/><category term="Vit"/><category term="taskwarrior"/><category term="time-management"/><category term="task-management"/><category term="Fedora"/></entry><entry><title>Isolating Tmux windows to prevent systemd-oomd from killing the server</title><link href="https://ankursinha.in/2022/10/29/isolating-tmux-windows-to-prevent-systemd-oomd-from-killing-the-server.html" rel="alternate"/><published>2022-10-29T13:30:32+01:00</published><updated>2022-10-31T17:22:54+00:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2022-10-29:/2022/10/29/isolating-tmux-windows-to-prevent-systemd-oomd-from-killing-the-server.html</id><summary type="html">&lt;p class="first last"&gt;This post documents how one can isolate different &lt;a class="reference external" href="https://github.com/tmux/tmux/wiki"&gt;Tmux&lt;/a&gt; windows to prevent one of them getting killed by &lt;a class="reference external" href="https://www.freedesktop.org/software/systemd/man/systemd-oomd.html"&gt;systemd-oomd&lt;/a&gt; from causing the whole Tmux server (and all sessions!) to also be killed.&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;I run a number of &lt;a class="reference external" href="https://github.com/tmux/tmux/wiki"&gt;Tmux&lt;/a&gt; sessions, one for each project or context, (via &lt;a class="reference external" href="https://www.byobu.org/"&gt;Byobu&lt;/a&gt;) to do my work on a daily basis.
+&lt;a class="reference external" href="https://github.com/tmux/tmux/wiki"&gt;Tmux&lt;/a&gt; uses a client-server architecture, so there's a &lt;a class="reference external" href="https://github.com/tmux/tmux/wiki"&gt;Tmux&lt;/a&gt; server running that all of these sessions connect to.
+Some time ago, I began noticing that all my &lt;a class="reference external" href="https://github.com/tmux/tmux/wiki"&gt;Tmux&lt;/a&gt; sessions were being killed while I worked.
+I knew this wasn't a random occurrence.
+A look at the logs told me that &lt;a class="reference external" href="https://www.freedesktop.org/software/systemd/man/systemd-oomd.html"&gt;systemd-oomd&lt;/a&gt; was killing my &lt;a class="reference external" href="https://github.com/tmux/tmux/wiki"&gt;Tmux&lt;/a&gt; server, and all my sessions and their windows with it---all my vim sessions, all of it.&lt;/p&gt;
+&lt;p&gt;This, of course, is far from ideal.
+What's happening here is that one of the processes occupying a &lt;a class="reference external" href="https://github.com/tmux/tmux/wiki"&gt;Tmux&lt;/a&gt; window consumes lots of CPU/memory and &lt;a class="reference external" href="https://www.freedesktop.org/software/systemd/man/systemd-oomd.html"&gt;systemd-oomd&lt;/a&gt; needs to kill it.
+However, &lt;a class="reference external" href="https://www.freedesktop.org/software/systemd/man/systemd-oomd.html"&gt;systemd-oomd&lt;/a&gt; does not work on a per-process level.
+It works on a cgroup level.
+So, it kills the whole cgroup, taking the &lt;a class="reference external" href="https://github.com/tmux/tmux/wiki"&gt;Tmux&lt;/a&gt; server down.&lt;/p&gt;
+&lt;p&gt;I've been looking at ways of preventing this from happening.
+One option is to &lt;a class="reference external" href="https://fedoraproject.org/wiki/User:Tuju/Disable_systemd-oomd"&gt;disable systemd-oomd&lt;/a&gt; completely.
+I think I've been fine before these OOM tools came along, but I do see the advantages of having them.
+So I'd rather keep them around and configure them if possible.&lt;/p&gt;
+&lt;p&gt;The other, perhaps simpler, option is to somehow isolate each of my &lt;a class="reference external" href="https://github.com/tmux/tmux/wiki"&gt;Tmux&lt;/a&gt; windows so that they're all killed independently without affecting each other.
+I looked into this latter option first.
+After some &lt;a class="reference external" href="https://ask.fedoraproject.org/t/how-would-one-create-new-tmux-servers-each-isolated-in-a-separate-slice-so-that-if-systemd-oomd-kills-one-the-other-tmux-servers-keep-living/27891/2"&gt;discussion on Ask Fedora&lt;/a&gt;, I came up with a solution: run every &lt;a class="reference external" href="https://github.com/tmux/tmux/wiki"&gt;Tmux&lt;/a&gt; window in isolation using &lt;cite&gt;systemd-run&lt;/cite&gt;.&lt;/p&gt;
+&lt;p&gt;So, when we start a new &lt;a class="reference external" href="https://github.com/tmux/tmux/wiki"&gt;Tmux&lt;/a&gt; session, we want to start our first window using &lt;cite&gt;systemd-run&lt;/cite&gt;.
+Easiest to do this using a bash function that one can put in their &lt;cite&gt;~/.bashrc&lt;/cite&gt; file:&lt;/p&gt;
+&lt;pre class="code bash literal-block"&gt;
+&lt;span class="c1"&gt;# create new session, and ensure first window runs in a separate systemd
+# scope
+&lt;/span&gt;byobu-new-session&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="o"&gt;{&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;byobu&lt;span class="w"&gt; &lt;/span&gt;new&lt;span class="w"&gt; &lt;/span&gt;-s&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;$1&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;systemd-run&lt;span class="w"&gt; &lt;/span&gt;--user&lt;span class="w"&gt; &lt;/span&gt;--scope&lt;span class="w"&gt; &lt;/span&gt;bash&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="o"&gt;}&lt;/span&gt;
+&lt;/pre&gt;
+&lt;p&gt;Next, to open a new window in an existing session using &lt;cite&gt;systemd-run&lt;/cite&gt;, we can use the &lt;cite&gt;new window&lt;/cite&gt; &lt;a class="reference external" href="https://github.com/tmux/tmux/wiki"&gt;Tmux&lt;/a&gt; command:&lt;/p&gt;
+&lt;pre class="code bash literal-block"&gt;
+new-window&lt;span class="w"&gt; &lt;/span&gt;systemd-run&lt;span class="w"&gt; &lt;/span&gt;--user&lt;span class="w"&gt; &lt;/span&gt;--scope&lt;span class="w"&gt; &lt;/span&gt;bash
+&lt;/pre&gt;
+&lt;p&gt;This can be bound to a keyboard shortcut:&lt;/p&gt;
+&lt;pre class="code bash literal-block"&gt;
+bind-key&lt;span class="w"&gt; &lt;/span&gt;c&lt;span class="w"&gt; &lt;/span&gt;new-window&lt;span class="w"&gt; &lt;/span&gt;systemd-run&lt;span class="w"&gt; &lt;/span&gt;--user&lt;span class="w"&gt; &lt;/span&gt;--scope&lt;span class="w"&gt; &lt;/span&gt;bash
+&lt;/pre&gt;
+&lt;p&gt;That's it.
+Using &lt;cite&gt;systemd-cgls&lt;/cite&gt; one can see that each new &lt;a class="reference external" href="https://github.com/tmux/tmux/wiki"&gt;Tmux&lt;/a&gt; window starts in a new systemd scope.
+To test that this now isolates each window, one can run something like &lt;cite&gt;tail /dev/zero&lt;/cite&gt; to cause it to get killed by &lt;a class="reference external" href="https://www.freedesktop.org/software/systemd/man/systemd-oomd.html"&gt;systemd-oomd&lt;/a&gt; while leaving other windows, sessions, and the server untouched.&lt;/p&gt;
+&lt;p&gt;This seems to be working very well for me.
+If you have a better solution, do let me know, though.&lt;/p&gt;
+&lt;div class="section" id="edit-a-simpler-way"&gt;
+&lt;h2&gt;Edit: a simpler way&lt;/h2&gt;
+&lt;p&gt;As it happens, there's a much easier way to do this.
+Instead of modifying &lt;cite&gt;~/.bashrc&lt;/cite&gt; and then re-binding the &lt;cite&gt;new-window&lt;/cite&gt; key, all one needs to do is redefine the &lt;cite&gt;default-command&lt;/cite&gt; parameter that &lt;a class="reference external" href="https://github.com/tmux/tmux/wiki"&gt;Tmux&lt;/a&gt; uses so that it runs the &lt;cite&gt;systemd-run&lt;/cite&gt; command:&lt;/p&gt;
+&lt;pre class="code bash literal-block"&gt;
+&lt;span class="c1"&gt;# in tmux.conf
+&lt;/span&gt;set-option&lt;span class="w"&gt; &lt;/span&gt;-g&lt;span class="w"&gt; &lt;/span&gt;default-command&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;'systemd-run --user --scope bash'&lt;/span&gt;
+&lt;/pre&gt;
+&lt;/div&gt;
+</content><category term="Tech"/><category term="Linux"/><category term="Tmux"/><category term="Byobu"/><category term="Systemd"/><category term="Fedora"/></entry><entry><title>Restarting regular Fedora India meetings</title><link href="https://ankursinha.in/2021/01/12/restarting-regular-fedora-india-meetings.html" rel="alternate"/><published>2021-01-12T20:27:27+00:00</published><updated>2021-01-12T20:27:27+00:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2021-01-12:/2021/01/12/restarting-regular-fedora-india-meetings.html</id><summary type="html">&lt;p class="first last"&gt;We're restarting regular meetings for the Fedora India community. Come join us!&lt;/p&gt;
+</summary><content type="html">&lt;center&gt;&lt;div class="figure"&gt;
+&lt;a class="reference external image-reference" href="#"&gt;
+&lt;img alt="Photo by Nikunj Gupta on Unsplash." class="img-responsive" src="https://ankursinha.in/images/20210112.jpg" style="width: 80%;" /&gt;
+&lt;/a&gt;
+&lt;p class="caption"&gt;Photo by &lt;a class="reference external" href="https://unsplash.com/&amp;#64;mecyborg?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText"&gt;Nikunj Gupta&lt;/a&gt; on &lt;a class="reference external" href="https://unsplash.com/s/photos/india?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText"&gt;Unsplash&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/center&gt;&lt;p&gt;The &lt;a class="reference external" href="https://fedoraproject.org/wiki/India"&gt;Fedora India community&lt;/a&gt; has always been quite an active group of people working in various Fedora teams and Special Interest Groups (SIGs).
+At some point in recent years, people got busy with projects as we tend to do, and we stopped having regular community meetings.
+This is unfortunate, since these meetings keep the community ticking, and provide a platform for new members to join in.&lt;/p&gt;
+&lt;p&gt;Recently, there's been interest in revitalising the Fedora India community.
+We've started to clean up the mailing list, and we'd like to restart regular meetings.
+We had a short first one at the end of 2020 to kick things off.
+You can read the logs &lt;a class="reference external" href="https://meetbot.fedoraproject.org/teams/fedora-india/fedora-india.2020-12-11-10.01.html"&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The next meeting, the first of 2021, will happen soon.
+In the meantime, this is a short notice to make the community aware of these on-goings.
+Please subscribe to the &lt;a class="reference external" href="https://lists.fedoraproject.org/admin/lists/india.lists.fedoraproject.org/"&gt;mailing list&lt;/a&gt; to keep up with the community's activities.
+If it has been a while since you were active there, please feel free to send in a short introduction so newcomers can get to know you.&lt;/p&gt;
+&lt;p&gt;The usual chat channels are also active.
+You can join #fedora-india on the Freenode IRC network &lt;a class="reference external" href="https://webchat.freenode.net/?channels=#fedora-neuro"&gt;here&lt;/a&gt;.
+It is also bridged to the &lt;a class="reference external" href="https://t.me/fedoraindia"&gt;&amp;#64;fedoraindia Telegram super group&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;We hope to see you in the channels!&lt;/p&gt;
+</content><category term="Tech"/><category term="Community"/><category term="Fedora"/><category term="IRC"/><category term="Matrix"/><category term="India"/></entry><entry><title>A Vim script function to select signatures in Neomutt</title><link href="https://ankursinha.in/2020/03/15/a-vimscript-function-to-select-signatures-in-neomutt.html" rel="alternate"/><published>2020-03-15T09:39:20+00:00</published><updated>2020-03-15T09:39:20+00:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2020-03-15:/2020/03/15/a-vimscript-function-to-select-signatures-in-neomutt.html</id><summary type="html">&lt;p class="first last"&gt;I was dabbling in &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Vim_(text_editor)#Vim_script"&gt;Vim script&lt;/a&gt; and wrote myself a simple function to
+select signatures when composing e-mails in &lt;a class="reference external" href="https://neomutt.org/"&gt;Neomutt&lt;/a&gt;.&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;I've been using &lt;a class="reference external" href="https://neomutt.org/"&gt;Neomutt&lt;/a&gt; for a &lt;a class="reference external" href="https://ankursinha.in/2017/12/16/transitioning-to-neomutt-and-friends-for-e-mail.html"&gt;while now&lt;/a&gt;.
+It allows me to stick to the &lt;a class="reference external" href="https://www.byobu.org/"&gt;Byobu&lt;/a&gt; based terminal workflow that I'm used to.
+Most importantly, it lets me use &lt;a class="reference external" href="https://www.vim.org/"&gt;Vim&lt;/a&gt; to write my e-mails, so I don't need to
+really learn another tool now.&lt;/p&gt;
+&lt;p&gt;&lt;a class="reference external" href="https://neomutt.org/"&gt;Neomutt&lt;/a&gt; can be configured to add a signature at the end of the e-mail, and one
+can select a signature depending on various parameters, such as the senders
+address using &lt;a class="reference external" href="https://neomutt.org/man/neomuttrc"&gt;hooks&lt;/a&gt;. However,
+sometimes, one does need to select other signatures.&lt;/p&gt;
+&lt;p&gt;The simple &lt;a class="reference external" href="https://www.vim.org/"&gt;Vim&lt;/a&gt; way, of course, is to simply delete the last few lines, and
+then read in the new signature using &lt;code&gt;:r &amp;lt;filename&amp;gt;&lt;/code&gt;. This takes a few
+more key strokes than one would like (well, than I like) so I thought I'd
+dabble in &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Vim_(text_editor)#Vim_script"&gt;Vim script&lt;/a&gt; a bit and automate it. Here's what I've come up with:&lt;/p&gt;
+&lt;pre class="code vim literal-block"&gt;
+&lt;span class="c"&gt;&amp;quot; A function to load the right signature when I'm using neomutt&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="k"&gt;function&lt;/span&gt;&lt;span class="p"&gt;!&lt;/span&gt; LoadSignature&lt;span class="p"&gt;(&lt;/span&gt;signature&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="c"&gt;    &amp;quot; Only work for mail files&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;    &lt;span class="k"&gt;let&lt;/span&gt; this_file_type &lt;span class="p"&gt;=&lt;/span&gt; &amp;amp;&lt;span class="k"&gt;filetype&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;    &lt;span class="k"&gt;if&lt;/span&gt; this_file_type &lt;span class="p"&gt;!=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;mail&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;        echo &lt;span class="s2"&gt;&amp;quot;This is not a mail file! Not running!&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;    &lt;span class="k"&gt;endif&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="c"&gt;
+    &amp;quot; Get the current signature's line&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="c"&gt;    &amp;quot; Go to last line&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;    &lt;span class="k"&gt;let&lt;/span&gt; saved_cursor_position &lt;span class="p"&gt;=&lt;/span&gt; getpos&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'.'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="c"&gt;    &amp;quot; Set cursor to file end and search backwards&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;    &lt;span class="k"&gt;call&lt;/span&gt; cursor&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="m"&gt;99999999999999999999&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="m"&gt;0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;    &lt;span class="k"&gt;let&lt;/span&gt; &lt;span class="k"&gt;l&lt;/span&gt;:sigstart &lt;span class="p"&gt;=&lt;/span&gt; search&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'-- '&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'b'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="c"&gt;    &amp;quot; Confirm that the line was found&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;    &lt;span class="k"&gt;if&lt;/span&gt; sigstart &lt;span class="p"&gt;==&lt;/span&gt; &lt;span class="m"&gt;0&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;        echo &lt;span class="s2"&gt;&amp;quot;No signatures detected.&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;    &lt;span class="k"&gt;endif&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="c"&gt;
+    &amp;quot; Check if signature file exists&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;    &lt;span class="k"&gt;let&lt;/span&gt; &lt;span class="k"&gt;l&lt;/span&gt;:sigdir &lt;span class="p"&gt;=&lt;/span&gt; escape&lt;span class="p"&gt;(&lt;/span&gt;expand&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'$HOME'&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="s1"&gt;'\'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; . &lt;span class="s2"&gt;&amp;quot;/Sync/99_private/neomuttdir/&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;    &lt;span class="k"&gt;let&lt;/span&gt; &lt;span class="k"&gt;l&lt;/span&gt;:sigfile &lt;span class="p"&gt;=&lt;/span&gt; sigdir . &lt;span class="k"&gt;a&lt;/span&gt;:signature . &lt;span class="s2"&gt;&amp;quot;.sig&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;    &lt;span class="k"&gt;if&lt;/span&gt; filereadable&lt;span class="p"&gt;(&lt;/span&gt;sigfile&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="c"&gt;        &amp;quot; delete the current lines after the &amp;quot;-- &amp;quot; line&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;        &lt;span class="k"&gt;let&lt;/span&gt; &lt;span class="k"&gt;l&lt;/span&gt;:delstart &lt;span class="p"&gt;=&lt;/span&gt; sigstart &lt;span class="p"&gt;+&lt;/span&gt; &lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;        execute delstart . &lt;span class="s2"&gt;&amp;quot;,$d&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="c"&gt;        &amp;quot; Read the new signature&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;        execute sigstart . &lt;span class="s2"&gt;&amp;quot;read &amp;quot;&lt;/span&gt; . sigfile&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="c"&gt;        &amp;quot; Return cursor to wherever it was&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;        &lt;span class="k"&gt;call&lt;/span&gt; setpos&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'.'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; saved_cursor_position&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;    &lt;span class="k"&gt;else&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;        echo &lt;span class="s2"&gt;&amp;quot;File &amp;quot;&lt;/span&gt; . sigfile . &lt;span class="s2"&gt;&amp;quot; not found!&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;        echo &lt;span class="s2"&gt;&amp;quot;Available signature files:\n&amp;quot;&lt;/span&gt; . globpath&lt;span class="p"&gt;(&lt;/span&gt;sigdir&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'*.sig'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;    &lt;span class="k"&gt;endif&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="k"&gt;endfunction&lt;/span&gt;
+&lt;/pre&gt;
+&lt;p&gt;So, adding this to &lt;code&gt;~/.vimrc&lt;/code&gt; would let one run &lt;code&gt;:call
+LoadSignature('signature')&lt;/code&gt; in &lt;a class="reference external" href="https://www.vim.org/"&gt;Vim&lt;/a&gt; to select a signature. Each signature is a
+different file with a &lt;code&gt;.sig&lt;/code&gt; file extension in the location given by
+&lt;code&gt;sigdir&lt;/code&gt;, and the name of the file is the argument that needs to be given
+to the function. If the signature file cannot be found, it'll list available ones.&lt;/p&gt;
+&lt;p&gt;It's quite simple really, and I'm sure it can be made better, but it works.&lt;/p&gt;
+</content><category term="Tech"/><category term="Planet"/><category term="Vim"/><category term="Neomutt"/><category term="Fedora"/></entry><entry><title>Useful DuckDuckGo bangs</title><link href="https://ankursinha.in/2019/01/27/useful-duckduckgo-bangs.html" rel="alternate"/><published>2019-01-27T15:11:35+00:00</published><updated>2019-01-27T15:11:35+00:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2019-01-27:/2019/01/27/useful-duckduckgo-bangs.html</id><summary type="html">&lt;p class="first last"&gt;I switched to &lt;a class="reference external" href="https://duckduckgo.com"&gt;DuckDuckGo&lt;/a&gt; some time ago, and I've not had to look
+back. In this post, I document some of the &lt;a class="reference external" href="https://duckduckgo.com/bang"&gt;&amp;quot;bangs&amp;quot;&lt;/a&gt; I find useful.&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;If you haven't moved to &lt;a class="reference external" href="https://duckduckgo.com"&gt;DuckDuckGo&lt;/a&gt; yet, &lt;a class="reference external" href="https://www.quora.com/Why-should-I-use-DuckDuckGo-instead-of-Google/answer/Gabriel-Weinberg?share=9560e87d&amp;amp;srid=pJKz"&gt;here's&lt;/a&gt;
+why you should consider it. I moved to it a while back, and I've not looked
+back since. In this post, I document some of the &lt;a class="reference external" href="https://duckduckgo.com/bang"&gt;&amp;quot;bangs&amp;quot;&lt;/a&gt; that I use which make &lt;a class="reference external" href="https://duckduckgo.com"&gt;DuckDuckGo&lt;/a&gt; even nicer
+to use!&lt;/p&gt;
+&lt;p&gt;A &lt;a class="reference external" href="https://duckduckgo.com/bang"&gt;&amp;quot;bang&amp;quot;&lt;/a&gt; is a search shortcut, like ones you
+can set up in Firefox and Chrome. Instead of navigating to the website to use
+their search box, bangs allow you to search via &lt;a class="reference external" href="https://duckduckgo.com"&gt;DuckDuckGo&lt;/a&gt;, and it redirects
+you to the search results on the website. So, apart from the obvious privacy
+advantage: &lt;a class="reference external" href="https://duckduckgo.com"&gt;DuckDuckGo&lt;/a&gt; uses the website search, not you, it also means you can
+search a plethora of websites right from &lt;a class="reference external" href="https://duckduckgo.com"&gt;DuckDuckGo&lt;/a&gt;. If you are used to using
+the Firefox search bar, for example, this becomes really handy.&lt;/p&gt;
+&lt;div class="section" id="general-bangs"&gt;
+&lt;h2&gt;General bangs&lt;/h2&gt;
+&lt;img alt="GIF showing the use of DuckDuckGo bangs to search Wikipedia." class="img-responsive" src="https://ankursinha.in/images/20190127-duckduckgo-wikipedia.gif" style="width: 60%;" /&gt;
+&lt;p&gt;I use a number of general bangs:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;code&gt;!bang&lt;/code&gt; to search for bangs.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;!w&lt;/code&gt; to search Wikipedia&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;!g&lt;/code&gt; to use Google when I must.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;!gmaps&lt;/code&gt; to search Google Maps.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;!openstreetmap&lt;/code&gt; to search Open Street Maps.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;!youtube&lt;/code&gt; to search Youtube.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;!bbcw&lt;/code&gt; to search BBC weather.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;!goodreads&lt;/code&gt; to search Goodreads.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;!ox&lt;/code&gt; to search the Oxford dictionary.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;!sauk&lt;/code&gt; to search Amazon UK (smile.amazon.uk).&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;!github&lt;/code&gt; to search Github.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;!ctan&lt;/code&gt; to search CTAN.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;!pypi&lt;/code&gt; to search PyPi.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;!man&lt;/code&gt; to search man pages.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;A few academic ones I use often are:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;code&gt;!gsc&lt;/code&gt; to search Google Scholar.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;!arxiv&lt;/code&gt; to search ArXiv.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;!pubmed&lt;/code&gt; to search PubMed&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="section" id="fedora-related-bangs"&gt;
+&lt;h2&gt;Fedora related bangs&lt;/h2&gt;
+&lt;p&gt;Now, here's where bangs get even more useful! Fedora related bangs!  You can
+use &lt;code&gt;!bang Fedora&lt;/code&gt; to see them all, but I list the ones that are
+available now here for you (and me):&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;code&gt;!fedora&lt;/code&gt; or &lt;code&gt;!fedorawiki&lt;/code&gt; to search the wiki.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;!kojipkg&lt;/code&gt; to search Koji for a package.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;!fedpack&lt;/code&gt; to search the Fedora packages app.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;!fedoramagazine&lt;/code&gt; to search the Fedora Magazine.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;!askfedora&lt;/code&gt; to search Ask Fedora.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;!copr&lt;/code&gt; to search COPR.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;!rhbugs&lt;/code&gt; or &lt;code&gt;!rhbz&lt;/code&gt; to search Redhat Bugzilla.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;img alt="GIF showing the use of DuckDuckGo bangs to search the Fedora packages application." class="img-responsive" src="https://ankursinha.in/images/20190127-duckduckgo-fedora.gif" style="width: 60%;" /&gt;
+&lt;p&gt;If you do use the quick search boxes that most browsers now provide, this makes
+things so much easier. You needn't even use the drop down to select a search.
+You just keep using &lt;a class="reference external" href="https://duckduckgo.com"&gt;DuckDuckGo&lt;/a&gt;. I use &lt;a class="reference external" href="https://www.qutebrowser.org/"&gt;Qutebrowser&lt;/a&gt; for example, where I use the command window
+to do all my navigating. This is how quick it is (Capital O to open a new-tab,
+and then &lt;code&gt;!fedpack nest&lt;/code&gt; to search the Fedora packages application for
+NEST, since &lt;a class="reference external" href="https://duckduckgo.com"&gt;DuckDuckGo&lt;/a&gt; is set as my default search service):&lt;/p&gt;
+&lt;img alt="GIF showing the use of DuckDuckGo bangs from Qutebrowser." class="img-responsive" src="https://ankursinha.in/images/20190127-duckduckgo-qutebrowser.gif" style="width: 60%;" /&gt;
+&lt;p&gt;So, there are lots of bangs. Use &lt;a class="reference external" href="https://duckduckgo.com"&gt;DuckDuckGo&lt;/a&gt;, use bangs, profit!
+Happy ducking!&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="addendum"&gt;
+&lt;h2&gt;Addendum&lt;/h2&gt;
+&lt;p&gt;There is, of course, a lmddgtfy service. Try: &lt;code&gt;!lmddgtfy lmddgtfy&lt;/code&gt;.
+&lt;a class="reference external" href="https://duckduckgo.com"&gt;DuckDuckGo&lt;/a&gt; also provides an &lt;a class="reference external" href="https://play.google.com/store/apps/details?id=com.duckduckgo.mobile.android"&gt;App for Android&lt;/a&gt;,
+and a widget that helps you search without having to open the browser first.&lt;/p&gt;
+&lt;p&gt;Bangs can be &lt;a class="reference external" href="https://duckduckgo.com/newbang"&gt;suggested&lt;/a&gt;, so please do
+suggest new bangs for other services that you use frequently.&lt;/p&gt;
+&lt;/div&gt;
+</content><category term="Tech"/><category term="DuckDuckGo"/><category term="Searching"/><category term="Fedora"/></entry><entry><title>New maintainers needed for these packages</title><link href="https://ankursinha.in/2019/01/24/new-maintainers-needed-for-these-packages.html" rel="alternate"/><published>2019-01-24T11:20:00+00:00</published><updated>2019-01-24T11:20:00+00:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2019-01-24:/2019/01/24/new-maintainers-needed-for-these-packages.html</id><summary type="html">&lt;p class="first last"&gt;I am looking to pass on Fedora packages that I no longer use to new maintainers.&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;I've recently realised that I am now busy enough to need to prioritise what
+tasks I undertake. Apart from my research work (PhD and related activities),
+I'd like to focus my time on &lt;a class="reference external" href="https://neuro.fedoraproject.org"&gt;NeuroFedora&lt;/a&gt;.
+Therefore, I'm giving up a lot of the packages that I've accrued over the years
+but no longer use. If any of these interest you, please take them from me.
+Otherwise, I will orphan them at the end of the month.&lt;/p&gt;
+&lt;p&gt;I am quite happy to mentor contributors who are not yet packagers to help them
+learn the necessary skills. You can become a package maintainer by helping to
+co-maintain packages, as documented &lt;a class="reference external" href="https://fedoraproject.org/wiki/How_to_get_sponsored_into_the_packager_group#Become_a_co-maintainer"&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;I have already &lt;a class="reference external" href="https://lists.fedoraproject.org/archives/list/devel&amp;#64;lists.fedoraproject.org/thread/VDK46C23DKBCOHYO3EOCSLRJF2UUPDFK/"&gt;e-mailed the devel mailing list&lt;/a&gt;,
+but also post here to ensure sufficient visibility of the note.&lt;/p&gt;
+&lt;div class="section" id="orphaned-inactive-upstreams-or-retired-due-to-broken-deps"&gt;
+&lt;h2&gt;Orphaned (inactive upstreams or retired due to broken deps)&lt;/h2&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;albumart: was retired, now orphaned&lt;/li&gt;
+&lt;li&gt;gtg: inactive upstream&lt;/li&gt;
+&lt;li&gt;labyrinth: inactive upstream&lt;/li&gt;
+&lt;li&gt;memaker: inactive upstream&lt;/li&gt;
+&lt;li&gt;pyode: dead package, py3ode is available but needs packaging&lt;/li&gt;
+&lt;li&gt;python-inlinestyler: retired, now orphaned&lt;/li&gt;
+&lt;li&gt;scout: inactive upstream&lt;/li&gt;
+&lt;li&gt;toothchart: inactive upstream&lt;/li&gt;
+&lt;li&gt;xword: inactive upstream&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="section" id="looking-for-new-co-maintainers"&gt;
+&lt;h2&gt;Looking for new (co)-maintainers:&lt;/h2&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;axel: Light command line download accelerator&lt;/li&gt;
+&lt;li&gt;bibus: The bibus rpms&lt;/li&gt;
+&lt;li&gt;blobby: The blobby rpms&lt;/li&gt;
+&lt;li&gt;dcm4che-test: The dcm4che-test rpms&lt;/li&gt;
+&lt;li&gt;gitg: The gitg rpms&lt;/li&gt;
+&lt;li&gt;gnote: A note taking application for Gnome&lt;/li&gt;
+&lt;li&gt;gnumed: The GNUmed electronic medical record client&lt;/li&gt;
+&lt;li&gt;gtg: Getting Things GNOME!&lt;/li&gt;
+&lt;li&gt;hamster-time-tracker: A GTK3 time tracker&lt;/li&gt;
+&lt;li&gt;jigdo: The jigdo rpms&lt;/li&gt;
+&lt;li&gt;kapow: The kapow rpms&lt;/li&gt;
+&lt;li&gt;libgexiv2 A GObject wrapper around the Exiv2 photo metadata library&lt;/li&gt;
+&lt;li&gt;lifeograph: The lifeograph rpms&lt;/li&gt;
+&lt;li&gt;lingot: LINGOT Is Not a Guitar-Only Tuner&lt;/li&gt;
+&lt;li&gt;mrpt: The mrpt rpms&lt;/li&gt;
+&lt;li&gt;nautilus-pastebin: The nautilus-pastebin rpms&lt;/li&gt;
+&lt;li&gt;nut-nutrition: The nut-nutrition rpms&lt;/li&gt;
+&lt;li&gt;openarena: The openarena rpms&lt;/li&gt;
+&lt;li&gt;openmolar: The openmolar rpms&lt;/li&gt;
+&lt;li&gt;OSGi-bundle-ant-task: The OSGi-bundle-ant-task rpms&lt;/li&gt;
+&lt;li&gt;Panini: Visual tool for creating perspective views from panoramic and wide angle photographs&lt;/li&gt;
+&lt;li&gt;prepaid-manager-applet: The prepaid-manager-applet rpms&lt;/li&gt;
+&lt;li&gt;pystache: The pystache rpms&lt;/li&gt;
+&lt;li&gt;python-baker: The python-baker rpms&lt;/li&gt;
+&lt;li&gt;python-django-post_office: The python-django-post_office rpms&lt;/li&gt;
+&lt;li&gt;python-django-stopforumspam&lt;/li&gt;
+&lt;li&gt;python-uri-templates: The python-uri-templates rpms&lt;/li&gt;
+&lt;li&gt;rssdler: RSS Broadcatcher for podcasts, videocasts, and torrent feeds&lt;/li&gt;
+&lt;li&gt;tagtool: The tagtool rpms&lt;/li&gt;
+&lt;li&gt;trash-cli: Command line interface to the freedesktop.org trashcan&lt;/li&gt;
+&lt;li&gt;xmedcon: The xmedcon rpms&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+</content><category term="Tech"/><category term="Fedora"/><category term="RPM"/><category term="Package maintenance"/></entry><entry><title>Using the Connfa open source conference management software set: the CMS</title><link href="https://ankursinha.in/2018/06/22/using-the-connfa-open-source-conference-management-software-set-the-cms.html" rel="alternate"/><published>2018-06-22T23:36:23+01:00</published><updated>2018-06-22T23:36:23+01:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2018-06-22:/2018/06/22/using-the-connfa-open-source-conference-management-software-set-the-cms.html</id><summary type="html">&lt;p class="first last"&gt;The &lt;a class="reference external" href="http://connfa.com/"&gt;Connfa&lt;/a&gt; open source suite looks like a great set of tools
+for conference management. It consists of a web application, a
+central CMS integration server, and mobile applications for both
+Android and iOS. I was looking at how one could use the mobile
+applications. The mobile applications get their data from the
+integration server, which provides an API. So, I looked at how to set
+it up and document my findings in this post.&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;The &lt;a class="reference external" href="http://connfa.com/"&gt;Connfa&lt;/a&gt; open source suite looks like a great set of tools for conference
+management. It consists of a web application, a central CMS integration server,
+and mobile applications for both Android and iOS. I was looking at how one
+could use the mobile applications. The mobile applications get their data from
+the integration server, which provides an API. So, I looked at how to set it up
+and document my findings in this post.&lt;/p&gt;
+&lt;p&gt;The &lt;a class="reference external" href="http://connfa.com/"&gt;Connfa&lt;/a&gt; CMS server is a php application that uses a MySQL database.  To
+begin with, the documentation here is quite good:
+&lt;a class="reference external" href="http://connfa.com/documentation/"&gt;http://connfa.com/documentation/&lt;/a&gt;.  However, as is usually seen, it takes a
+few tweaks to deploy it.  These steps are therefore, Fedora 28 specific.&lt;/p&gt;
+&lt;p&gt;On Fedora, one needs to use php71 from remi's repository:
+&lt;a class="reference external" href="https://blog.remirepo.net/pages/Config-en"&gt;https://blog.remirepo.net/pages/Config-en&lt;/a&gt;&lt;/p&gt;
+&lt;pre class="code bash literal-block"&gt;
+sudo&lt;span class="w"&gt; &lt;/span&gt;dnf&lt;span class="w"&gt; &lt;/span&gt;install&lt;span class="w"&gt; &lt;/span&gt;php71&lt;span class="w"&gt; &lt;/span&gt;composer&lt;span class="w"&gt; &lt;/span&gt;php71-php-mysqlnd&lt;span class="w"&gt; &lt;/span&gt;mariadb&lt;span class="w"&gt; &lt;/span&gt;httpd&lt;span class="w"&gt; &lt;/span&gt;mariadb-server&lt;span class="w"&gt; &lt;/span&gt;php71-php-xml&lt;span class="w"&gt;
+&lt;/span&gt;sudo&lt;span class="w"&gt; &lt;/span&gt;systemctl&lt;span class="w"&gt; &lt;/span&gt;start&lt;span class="w"&gt; &lt;/span&gt;php71-php-fpm&lt;span class="w"&gt;
+&lt;/span&gt;sudo&lt;span class="w"&gt; &lt;/span&gt;systemctl&lt;span class="w"&gt; &lt;/span&gt;start&lt;span class="w"&gt; &lt;/span&gt;httpd&lt;span class="w"&gt;
+&lt;/span&gt;sudo&lt;span class="w"&gt; &lt;/span&gt;systemctl&lt;span class="w"&gt; &lt;/span&gt;start&lt;span class="w"&gt; &lt;/span&gt;mysqld&lt;span class="w"&gt;
+&lt;/span&gt;module&lt;span class="w"&gt; &lt;/span&gt;load&lt;span class="w"&gt; &lt;/span&gt;php71&lt;span class="w"&gt;
+&lt;/span&gt;php&lt;span class="w"&gt; &lt;/span&gt;--version
+&lt;/pre&gt;
+&lt;p&gt;This is because the tool doesn't work with the latest version of php that's in
+Fedora 28. The tool also has a bug or two, so I used this fork that appears to
+have a bugfix:&lt;/p&gt;
+&lt;p&gt;&lt;a class="reference external" href="https://github.com/d-i-t-a/connfa-integration-server/tree/develop"&gt;https://github.com/d-i-t-a/connfa-integration-server/tree/develop&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Then, one must set up &lt;a class="reference external" href="https://mariadb.org/"&gt;Mariadb&lt;/a&gt; as explained here:
+&lt;a class="reference external" href="https://fedoraproject.org/wiki/MariaDB"&gt;https://fedoraproject.org/wiki/MariaDB&lt;/a&gt;. Note that &lt;a class="reference external" href="https://mariadb.org/"&gt;Mariadb&lt;/a&gt; is an Open source
+MySQL implementation.&lt;/p&gt;
+&lt;p&gt;One must also create a database as explained in the wiki page, and a user that
+connfa can use, which must match the values in the &lt;code&gt;env&lt;/code&gt; file.&lt;/p&gt;
+&lt;p&gt;On Fedora, I enabled the &lt;code&gt;UserDir&lt;/code&gt; httpd extension, and placed the
+connfa-integration-server in &lt;code&gt;~/public_html/&lt;/code&gt;, since I didn't want to
+work as root in &lt;code&gt;/var/www/html&lt;/code&gt; all the time. &lt;code&gt;httpd&lt;/code&gt; will needs to
+be started and enabled:&lt;/p&gt;
+&lt;pre class="code bash literal-block"&gt;
+sudo&lt;span class="w"&gt; &lt;/span&gt;systemctl&lt;span class="w"&gt; &lt;/span&gt;start&lt;span class="w"&gt; &lt;/span&gt;httpd&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;sudo&lt;span class="w"&gt; &lt;/span&gt;systemctl&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nb"&gt;enable&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;httpd
+&lt;/pre&gt;
+&lt;p&gt;On Fedora, Selinux must be asked to allow access to UserDirs:&lt;/p&gt;
+&lt;pre class="code bash literal-block"&gt;
+sudo&lt;span class="w"&gt; &lt;/span&gt;setsebool&lt;span class="w"&gt; &lt;/span&gt;-P&lt;span class="w"&gt; &lt;/span&gt;httpd_read_user_content&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;sudo&lt;span class="w"&gt; &lt;/span&gt;setsebool&lt;span class="w"&gt; &lt;/span&gt;-P&lt;span class="w"&gt; &lt;/span&gt;httpd_unified&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;sudo&lt;span class="w"&gt; &lt;/span&gt;setsebool&lt;span class="w"&gt; &lt;/span&gt;-P&lt;span class="w"&gt; &lt;/span&gt;httpd_can_network_connect_db&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;sudo&lt;span class="w"&gt; &lt;/span&gt;setsebool&lt;span class="w"&gt; &lt;/span&gt;-P&lt;span class="w"&gt; &lt;/span&gt;httpd_can_network_connect&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;
+&lt;/pre&gt;
+&lt;p&gt;One can follow the steps from here next:
+&lt;a class="reference external" href="http://connfa.com/integration-server/server-requirements"&gt;http://connfa.com/integration-server/server-requirements&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;I also run &lt;code&gt;composer update&lt;/code&gt; to update the php bits.&lt;/p&gt;
+&lt;p&gt;Then, update the env file and so on as explained here:
+&lt;a class="reference external" href="http://connfa.com/integration-server/install/"&gt;http://connfa.com/integration-server/install/&lt;/a&gt;&lt;/p&gt;
+&lt;pre class="code bash literal-block"&gt;
+php&lt;span class="w"&gt; &lt;/span&gt;artisan&lt;span class="w"&gt; &lt;/span&gt;key:generate&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c1"&gt;#sets the keys in the env file
+&lt;/span&gt;php&lt;span class="w"&gt; &lt;/span&gt;artisan&lt;span class="w"&gt; &lt;/span&gt;password:change&lt;span class="w"&gt; &lt;/span&gt;--name&lt;span class="o"&gt;=&lt;/span&gt;admin&lt;span class="w"&gt; &lt;/span&gt;--password&lt;span class="o"&gt;=&lt;/span&gt;connfa18
+&lt;/pre&gt;
+&lt;p&gt;The site should be accessible at &lt;a class="reference external" href="http://localhost"&gt;http://localhost&lt;/a&gt;/~&amp;lt;username&amp;gt;/public/login/
+The username is &lt;code&gt;admin&amp;#64;test.com&lt;/code&gt; here.&lt;/p&gt;
+&lt;p&gt;The API is accessible at:
+&lt;a class="reference external" href="http://localhost"&gt;http://localhost&lt;/a&gt;/~&amp;lt;username&amp;gt;/public/api/v2/cns-2018/checkUpdates&lt;/p&gt;
+&lt;p&gt;I did have quite a few issues with permissions, but then I'm neither a web
+developer nor a server administrator, so my skills in the department are rather
+limited.&lt;/p&gt;
+&lt;p&gt;I'll look at the Android application next, and hopefully, I'll be able to sync
+it up with the CMS server.&lt;/p&gt;
+</content><category term="Tech"/><category term="Community"/><category term="Conference"/><category term="Android"/><category term="Fedora"/></entry></feed>

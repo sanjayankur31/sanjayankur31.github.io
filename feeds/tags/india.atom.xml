@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>ankursinha.in/blog - India</title><link href="https://ankursinha.in/" rel="alternate"/><link href="https://ankursinha.in/feeds/tags/india.atom.xml" rel="self"/><id>https://ankursinha.in/</id><updated>2021-01-12T20:27:27+00:00</updated><subtitle>neuroscience/fedora/musings</subtitle><entry><title>Restarting regular Fedora India meetings</title><link href="https://ankursinha.in/2021/01/12/restarting-regular-fedora-india-meetings.html" rel="alternate"/><published>2021-01-12T20:27:27+00:00</published><updated>2021-01-12T20:27:27+00:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2021-01-12:/2021/01/12/restarting-regular-fedora-india-meetings.html</id><summary type="html">&lt;p class="first last"&gt;We're restarting regular meetings for the Fedora India community. Come join us!&lt;/p&gt;
+</summary><content type="html">&lt;center&gt;&lt;div class="figure"&gt;
+&lt;a class="reference external image-reference" href="#"&gt;
+&lt;img alt="Photo by Nikunj Gupta on Unsplash." class="img-responsive" src="https://ankursinha.in/images/20210112.jpg" style="width: 80%;" /&gt;
+&lt;/a&gt;
+&lt;p class="caption"&gt;Photo by &lt;a class="reference external" href="https://unsplash.com/&amp;#64;mecyborg?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText"&gt;Nikunj Gupta&lt;/a&gt; on &lt;a class="reference external" href="https://unsplash.com/s/photos/india?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText"&gt;Unsplash&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/center&gt;&lt;p&gt;The &lt;a class="reference external" href="https://fedoraproject.org/wiki/India"&gt;Fedora India community&lt;/a&gt; has always been quite an active group of people working in various Fedora teams and Special Interest Groups (SIGs).
+At some point in recent years, people got busy with projects as we tend to do, and we stopped having regular community meetings.
+This is unfortunate, since these meetings keep the community ticking, and provide a platform for new members to join in.&lt;/p&gt;
+&lt;p&gt;Recently, there's been interest in revitalising the Fedora India community.
+We've started to clean up the mailing list, and we'd like to restart regular meetings.
+We had a short first one at the end of 2020 to kick things off.
+You can read the logs &lt;a class="reference external" href="https://meetbot.fedoraproject.org/teams/fedora-india/fedora-india.2020-12-11-10.01.html"&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The next meeting, the first of 2021, will happen soon.
+In the meantime, this is a short notice to make the community aware of these on-goings.
+Please subscribe to the &lt;a class="reference external" href="https://lists.fedoraproject.org/admin/lists/india.lists.fedoraproject.org/"&gt;mailing list&lt;/a&gt; to keep up with the community's activities.
+If it has been a while since you were active there, please feel free to send in a short introduction so newcomers can get to know you.&lt;/p&gt;
+&lt;p&gt;The usual chat channels are also active.
+You can join #fedora-india on the Freenode IRC network &lt;a class="reference external" href="https://webchat.freenode.net/?channels=#fedora-neuro"&gt;here&lt;/a&gt;.
+It is also bridged to the &lt;a class="reference external" href="https://t.me/fedoraindia"&gt;&amp;#64;fedoraindia Telegram super group&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;We hope to see you in the channels!&lt;/p&gt;
+</content><category term="Tech"/><category term="Community"/><category term="Fedora"/><category term="IRC"/><category term="Matrix"/><category term="India"/></entry></feed>
