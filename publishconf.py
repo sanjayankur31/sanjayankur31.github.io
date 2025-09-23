@@ -26,4 +26,14 @@ FEED_MAX_ITEMS = 10
 DELETE_OUTPUT_DIRECTORY = False
 
 DISQUS_SITENAME = u'ankursinha'
-GOOGLE_ANALYTICS = "UA-60261100-1"
+ANALYTICS = """
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MCTH8VNYDK"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-MCTH8VNYDK');
+    </script>
+"""
