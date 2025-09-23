@@ -1,0 +1,176 @@
+2025: Week --37 update
+######################
+:date: 2025-09-12 11:39:55
+:modified: 2025-09-12 11:39:55
+:author: ankur
+:category: Life
+:tags: Research, Computational Neuroscience, Fedora, NeuroFedora, Funding, Grants, Academic Life, Post-doc career
+:slug: 2025-week-37-update
+:summary: Weekly (well, not really) update till week 37 of 2025.
+
+The last time I wrote an update was, funnily enough, about a year ago.
+Also week 37.
+Clearly a lot has happened since then, but it won't all fit in this one post.
+I'll limit this post to the higher level details
+
+Job/Research
+=============
+
+Work has been extremely busy as always, and also busy enough where my backlog has been growing and growing.
+There is just so much to do.
+
+Modelling
+---------
+
+I have been working on a number of computational models.
+
+
+.. raw:: html
+
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/pWhzd2C0Xb0" frameborder="0" allowfullscreen>
+    </iframe>
+
+
+We are close to having the full `Human L2-3 Cortical Micro-circuit <https://github.com/sanjayankur31/Human-L2-3-Cortical-Microcircuit/tree/feat/neuroml/>`__ converted to NeuroML_.
+The cells have all been standardised.
+This includes the ion channels, and the various morphologies and biophysics.
+What remains is replicating the network behaviour.
+This is not the hard bit.
+We have already done all that.
+
+.. raw:: html
+
+    <iframe width="560" height="315" src="https://youtube.com/embed/M00brx5-Hi8" frameborder="0" allowfullscreen>
+    </iframe>
+
+
+Another model I have been working on is the Golgi cell network that was previously developed in the lab (https://doi.org/10.1016/j.neuron.2021.03.027, model: https://github.com/sanjayankur31/GolgiCellNetwork).
+There are several predictions about how the Granule cells in the Cerebellum function, and the effect of Golgi cell inhibition on them that will be investigated using this model.
+
+
+The Golgi cell network model also led to a `CookieCutter template <https://github.com/sanjayankur31/neuroml-model-template>`__, but that merits its own post.
+
+
+NeuroML
+-------
+
+.. figure:: {static}/images/neuroml-logo.png
+    :width: 30%
+    :alt: NeuroML logo
+
+
+.. figure:: {static}/images/20250912-neuroml-elife.png
+    :width: 50%
+    :alt: Screenshot of NeuroML paper in E-life: https://elifesciences.org/articles/95135
+
+
+Since the last update, we have publish a NeuroML paper in E-Life after a few rounds of review (https://doi.org/10.7554/eLife.95135.3).
+This was a great achievement and it did take a lot of work.
+
+Other than that, multiple new releases of the NeuroML_ libraries have been made.
+We continue to maintain them and push out improvements and fixes regularly on PyPi under the NeuroML_ PyPi organisation: https://pypi.org/org/neuroml/.
+
+Google Summer of Code
+~~~~~~~~~~~~~~~~~~~~~~
+
+We participated in Google Summer of Code (GSoC_) again this year.
+Our candidate, Hengye, did an excellent job of converting various bits of the Macaque auditory thalamocortical model to NeuroML.
+The conversion also lives on GitHub, under the Open Source Brain organisation: https://github.com/OpenSourceBrain/Macaque_auditory_thalamocortical_model_data/tree/feat-neuroml-gsoc.
+We are going to continue working on this to standardise the full model.
+
+
+Open Source Brain
+------------------
+
+.. figure:: {static}/images/20250912-osbv2.png
+    :width: 50%
+    :alt: Screenshot of the Open Source Brain website at https://opensourcebrain.org
+
+`Open Source Brain`_ (OSB), an integrated web-platform for neuroscience, continues to tick along.
+We have made a number of maintenance updates and bug fixes.
+A new release is ready to be deployed to production after more testing.
+
+We have worked on also integrating the `E-BRAINS <https://www.ebrains.eu/>`__ models into OSBv2.
+I need to test the `E-BRAINS adapter <https://github.com/OpenSourceBrain/OSBv2/pull/963>`__ implementation to prepare the PR for merging.
+This was blocked by some access issues, but they have now been ironed out and this can now proceed.
+
+A paper on OSB is in the works, and should be published as a pre-print in the next coming months.
+
+
+Grants and funding
+------------------
+
+This has taken a lot of time since the last update.
+We have applied for two `Wellcome Discovery Awards <https://wellcome.org/research-funding/schemes/wellcome-discovery-awards>`__, two `Software Sustainability Institute <https://digitalresearchinfrastructure.grantplatform.com/>`__ grants, and are going to apply for several more.
+
+So far, we have not been lucky enough to be accepted even though we were highly rated.
+Each Wellcome grant application takes about a month of dedicated work.
+Further, once triaged and accepted for interview, it is another two weeks of preparation.
+So, it has been a lot of work for no rewards at all.
+
+There just seems to be quite a `limited amount of funding <https://www.dementiaresearcher.nihr.ac.uk/the-grant-funding-lottery/>`__, and the intense competition for them means that the success rate for most grant applications has dropped.
+So, more time spent on writing grants with fewer rewards.
+It is currently an even tougher time to be a researcher/academic than it already normally is.
+
+Volunteering
+============
+
+I have managed to find time for volunteering, but with the increased work load, this time has reduced.
+
+Software carpentries
+--------------------
+
+I completed my `Software Carpentry Instructor Training <https://carpentries.github.io/instructor-training/>`__, and now am a certified instructor.
+The training was excellent.
+It pointed out lots of good practices for teaching newcomers/novices computational skills.
+
+I will probably teach a session or two here at UCL this year and if time permits do a couple of classes for the Fedora_ classrooms.
+
+
+Fedora
+------
+
+.. figure:: {static}/images/fedora-logo.png
+    :width: 30%
+    :alt: Fedora logo
+
+
+Package maintenance continues.
+So does the `Fedora Join SIG <https://docs.fedoraproject.org/en-US/fedora-join/>`__.
+
+We have shifted how we do things in `NeuroFedora <https://neuro.fedoraproject.org>`__.
+We just had too many packages, and it was no longer clear if people were using these.
+So, we are now testing lots of Python packages directly from PyPi instead of packaging them.
+You can read more about this post: `Packaging changes at NeuroFedora <https://neuroblog.fedoraproject.org/2025/08/02/packaging-changes-at-neurofedora.html>`__.
+
+The Join SIG is doing well.
+Quite a few new people are now helping out with onboarding and the `Welcome to Fedora <https://pagure.io/fedora-join/WelcomeToFedora>`__ process, which means we have so much more human resource at our disposal.
+There are also more discussions on how we can do better.
+So we expect tweaks and improvements to make the "Welcome to Fedora" process even better.
+
+OCNS
+----
+
+.. figure:: {static}/images/ocns-logo.png
+    :width: 50%
+    :alt: OCNS logo.
+
+I remain an elected member of the `Board of Directors <https://www.cnsorg.org/board-of-directors>`__ for the Organization for Computational Neuroscience.
+I could not get a Schengen visa to attend the annual conference in Florence, though (again).
+That was quite disappointing, but not a lot can be done about it.
+Europe is really popular in the summer, and there just aren't enough appointments for visa applications.
+
+Summary
+=======
+
+
+That will do for now.
+There is certainly a lot happening on multiple fronts, and I have been busy---too busy to write blog posts even.
+I am going to try to restart regular blog writing, but that's what I said last year before dropping out.
+So who knows.
+
+
+.. _NeuroML: https://docs.neuroml.org
+.. _GSoC: https://summerofcode.withgoogle.com/
+.. _Open Source Brain: https://opensourcebrain.org
+.. _Fedora: https://fedoraproject.org

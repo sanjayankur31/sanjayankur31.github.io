@@ -1,7 +1,7 @@
 Splitting Taskwarrior tasks to sub-tasks
 ########################################
 :date: 2025-07-05 13:11:35
-:modified: 2025-07-05 13:11:35
+:modified: 2025-07-08 12:36:09
 :author: ankur
 :category: Tech
 :tags: Taskwarrior, Productivity, Python
@@ -37,7 +37,6 @@ It is also a workflow that cab be easily scripted so that one doesn't have to ma
 Here is a script I wrote:
 
 .. code:: python
-
 
     #!/usr/bin/env python3
     """
@@ -91,6 +90,7 @@ Here is a script I wrote:
 
         """
         # Always get info on the task
+        ret = None
         get_task_command = f"task {src_task} export"
         logger.info(get_task_command)
         ret = subprocess.run(get_task_command.split(), stdout=subprocess.PIPE, stderr=subprocess.PIPE)
@@ -100,30 +100,35 @@ Here is a script I wrote:
             task_json = (json.loads(task_stdout)[0])
             logger.info(task_json)
             tags = task_json.get('tags', [])
-            priority = task_json.get('priority')
-            due = task_json.get('due')
-            estimate = task_json.get('estimate')
-            impact = task_json.get('impact')
+            priority = task_json.get('priority', 'L')
+            due = task_json.get('due', 'eod')
+            estimate = task_json.get('estimate', '1h')
+            impact = task_json.get('impact', 'L')
             annotations = task_json.get('annotations', [])
             description = task_json.get('description')
             uuid = task_json.get('uuid')
 
+            # clear ret for future dry runs
+            ret = None
+
             for sub_task in sub_tasks:
                 new_task_command = f"task add project:{new_project} tags:{','.join(tags)} priority:{priority} due:{due} impact:{impact} estimate:{estimate} '{sub_task}'"
                 logger.info(new_task_command)
+
                 if not dry_run:
                     ret = subprocess.run(new_task_command.split())
-                    if dry_run or ret.returncode:
-                        annotate_task_command = f"task +LATEST annotate '{description}'"
-                        logger.info(annotate_task_command)
-                        if not dry_run:
-                            ret = subprocess.run(annotate_task_command.split())
-                            for annotation in annotations:
-                                annotation_description = annotation['description']
-                                annotate_task_command = f"task +LATEST annotate '{annotation_description}'"
-                                logger.info(annotate_task_command)
-                                if not dry_run:
-                                    ret = subprocess.run(annotate_task_command.split())
+
+                annotate_task_command = f"task +LATEST annotate '{description}'"
+                logger.info(annotate_task_command)
+                if not dry_run and (ret is not None and ret.returncode == 0):
+                    ret = subprocess.run(annotate_task_command.split())
+
+                for annotation in annotations:
+                    annotation_description = annotation['description']
+                    annotate_task_command = f"task +LATEST annotate '{annotation_description}'"
+                    logger.info(annotate_task_command)
+                    if not dry_run and (ret is not None and ret.returncode == 0):
+                        ret = subprocess.run(annotate_task_command.split())
 
             mark_original_as_done_command = f"task uuid:{uuid} done"
             logger.info(mark_original_as_done_command)

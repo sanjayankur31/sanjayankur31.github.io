@@ -68,18 +68,10 @@ LINKS = (
     ('OCNS', 'https://ocns.memberclicks.net/'),
     ('INCF/OCNS Software WG',
      'https://ocns.github.io/SoftwareWG/'),
-    ('TeX Users Group',
-     'http://tug.org/'),
-    ('Comp Neuro on the Web',
-     'http://home.earthlink.net/~perlewitz/index.html'),
     ('Neuroscience feeds',
      'https://neuroblog.fedoraproject.org/planet-neuroscience/'),
     ('Neuroscientists feeds',
      'https://neuroblog.fedoraproject.org/planet-neuroscientists/'),
-    ('My neuroscience list on Twitter',
-     'https://twitter.com/sanjay_ankur/lists/neuroscience'),
-    ('Open Neuroscience',
-     'https://open-neuroscience.com/'),
 )
 
 # Social widget
@@ -102,15 +94,17 @@ SOCIAL = (
     ('Mastodon', 'https://fosstodon.org/@sanjay_ankur',
      'fab fa-mastodon fa-fw fa-lg'),
     ('BlueSky', 'https://bsky.app/profile/sanjay-ankur.bsky.social',
-     'fab fa-people-arrows fa-fw fa-lg'),
+     'fas fa-people-arrows fa-fw fa-lg'),
     ('Goodreads', 'https://www.goodreads.com/user/show/32360473-ankur',
      'fab fa-goodreads-g fa-fw fa-lg'),
-    ('Twitter', 'https://twitter.com/sanjay_ankur',
+    ('X', 'https://twitter.com/sanjay_ankur',
      'fab fa-twitter fa-fw fa-lg'),
-    ('NeuroTree', 'https://neurotree.org/neurotree/tree.php?pid=96687',
-     'fas fa-brain fa-fw fa-lg'),
-    ('Last.fm', 'http://www.last.fm/user/sanjay_ankur',
-     'fab fa-lastfm fa-fw fa-lg'),
+    ('Buy me a coffee!', 'https://coff.ee/sanjayankuu',
+     'fas fa-mug-hot fa-fw fa-lg'),
+    # ('NeuroTree', 'https://neurotree.org/neurotree/tree.php?pid=96687',
+    #  'fas fa-brain fa-fw fa-lg'),
+    # ('Last.fm', 'http://www.last.fm/user/sanjay_ankur',
+    #  'fab fa-lastfm fa-fw fa-lg'),
     #  ('Facebook', 'http://www.facebook.com/sanjay.ankur',
     #  'fa fa-facebook-square fa-fw fa-lg'),
     #  ('Instagram', 'https://instagram.com/sanjay.ankur/',
@@ -138,7 +132,7 @@ SITEMAP = {
     }
 }
 
-CUSTOM_ARTICLE_PRECONTENT = 'sharing.html'
+CUSTOM_ARTICLE_PRECONTENT = ('article_precontent.html')
 CUSTOM_ARTICLE_FOOTERS = ('sharing.html',)
 CUSTOM_SCRIPTS_ARTICLE = "sharing_scripts.html"
 MATH_JAX = {'tex_extensions': ['color.js', 'mhchem.js'], 'color': 'blue', 'align': 'left'}
