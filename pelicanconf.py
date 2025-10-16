@@ -79,7 +79,7 @@ SOCIAL = (
     ('Search (DuckDuckGo)',
      'https://duckduckgo.com/?q=site%3Aankursinha.in&ia=web',
      'fas fa-search fa-fw fa-lg'),
-    ('LinkedIn', 'https://www.linkedin.com/in/ankur-sinha-802ab375/',
+    ('LinkedIn', 'www.linkedin.com/in/ankur-sinha-phd',
      'fa fa-linkedin-square fa-fw fa-lg'),
     ('GitHub', 'http://github.com/sanjayankur31',
      'fab fa-github fa-fw fa-lg'),
