@@ -12,7 +12,7 @@ Research
 
 My research work focusses on:
 
-- development of the `Open Source Brain <https://opensourcebrain.org>`__ platform
+- development of the `NeuroML standard for computational neuroscience <https://neuroml.org>`__, the `Open Source Brain <https://opensourcebrain.org>`__ platform
   and related neuroscience tooling,
 - corticocerebellar processing,
 - various forms of plasticity: homeostatic, structural, synaptic
