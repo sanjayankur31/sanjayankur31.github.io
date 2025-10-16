@@ -15,6 +15,10 @@ By profession, I am a `computational neuroscientist <02-research-profile.html>`_
 I can be reached at :code:`ankursinha AT fedoraproject DOT org` or via one of
 the various social media platforms linked to in the right hand side bar.
 
+If you need to send me encrypted e-mail or verify my signed commits, my public GPG key is below:
+
+:code:`7DD7 6D02 61CF 75A1 25B2 D811 F3AE ED56 E629 112D`
+
 Cheerio!
 
 
