@@ -114,17 +114,23 @@ Fedora Linux
 
 https://fedoraproject.org
 
+- **Tools/technologies**: Python, C/C++, Rust, RPM, Koji, Bash, Discourse, IRC, Matrix
 
-- I maintain >300 packages for the Fedora Linux distribution. I am also a sponsor to the package maintainers team, and have "proven packager" access to all community packages.
-- I am a core member of the `NeuroFedora`_ team. Our goal is to provide a large set of neuroscience software to users in an easy, ready to use way---via the Fedora_ Linux distribution.
-- I am also a core member of the `Fedora Join SIG`_ that helps to onboard new community members.
+
+I maintain >300 packages for the Fedora Linux distribution. I am also a sponsor to the package maintainers team, and have "proven packager" access to all community packages.
+
+I am a core member of the `NeuroFedora`_ team. Our goal is to provide a large set of neuroscience software to users in an easy, ready to use way---via the Fedora_ Linux distribution.
+
+I am also a core member of the `Fedora Join SIG`_ that helps to onboard new community members.
 
 ------
 
 Others
 ~~~~~~
 
-I contribute to a number of other neuroscience and Open Source software projects that can be seen on my `GitHub profile <https://github.com/sanjayankur31>`__.
+- I am a trained `Software Carpentry instructor <https://software-carpentry.org/>`__
+
+I also contribute to a number of other neuroscience and Open Source software projects that can be seen on my `GitHub profile <https://github.com/sanjayankur31>`__.
 
 
 .. _NeuroFedora: https://neuro.fedoraproject.org
