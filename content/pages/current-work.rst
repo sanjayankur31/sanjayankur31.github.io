@@ -1,46 +1,133 @@
-Current work
-############
+Current Projects
+#################
 :date: 2020-08-14 14:22:17
+:modified: 2025-10-17 23:06:31
 :author: ankur
 :slug: 04-current-work
 
-This is what I'm working on now. Unfortunately, one can only take on so much at
-once.
+Research & development
+-----------------------
 
-Research
---------
+Investigation of cortico-cerebellar loops
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-My research work focusses on:
+https://github.com/sanjayankur31/GolgiCellNetwork
 
-- development of the `NeuroML standard for computational neuroscience <https://neuroml.org>`__, the `Open Source Brain <https://opensourcebrain.org>`__ platform
-  and related neuroscience tooling,
-- corticocerebellar processing,
-- various forms of plasticity: homeostatic, structural, synaptic
-- associative memory
+This involves developing biophysically detailed models of components of the cortico-cerebellar loop to investigate their functions and mechanisms.
+
+- **Status**: active development
+- **Tools**: NeuroML, Python, NEURON, NetPyNE
+
+-----
+
+Standardisation of Human L2/3 cortical model
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+https://github.com/sanjayankur31/Human-L2-3-Cortical-Microcircuit
+
+- **Status**: model conversion complete, network validation in progress
+- **Tools/technologies**: NeuroML, Python, NetPyNE
+
+This involves standardising the published Human L2-3 cortical microcircuit model to NeuroML_ for community use:
+
+- ion channels
+- neuronal morphologies
+- synaptic mechanisms
+
+-----
+
+NeuroML
+~~~~~~~~
+
+**2020** **-**
+
+https://docs.neuroml.org, https://github.com/NeuroML
+
+NeuroML is an international, collaborative initiative that maintains an ecosystem of tools for biophysically detailed/realistic neuronal modelling.
+The ecosystem consists of:
+
+- a simulator independent specification (standard)
+- core tools for reading/writing NeuroML (APIs), and running simulations using different simulation engines
+- an extended ecosystem of software tools that are compliant with the standard
+
+I have served as an elected `editor <https://docs.neuroml.org/NeuroMLOrg/Board.html>`__ (core maintainer) of the NeuroML standard and software stack since 2022.
+This includes:
+
+- maintaining the standard
+- maintaining the core APIs and software tools
+- maintaining/adding support for simulation engines, collaboratively with the help of the maintainers of these engines
+- undertake outreach, dissemination, and training activities
+
+LLM/AI assistance
+====================
+
+We are currently exploring methods by which we can leverage LLMs/AI tools to accelerate the building, fitting, simulation, and analysis of NeuroML models, especially to make modelling more accessible to the non-technical/non-computational neuroscience research community.
+
+- **Status**: prototyping, grant applications pending
+- **Tools/technologies**: Python, Langchain_, RAG systems
+
+-----
+
+Open Source Brain
+~~~~~~~~~~~~~~~~~~
+
+**2020** **-**
+
+http://www.opensourcebrain.org/, https://github.com/OpenSourceBrain/OSBv2
+
+- **Status**: stable
+- **Tools/technologies**: Python, Javascript, React/Redux, OpenAPI, Kubernetes, Docker, Google Cloud Platform
+
+Open Source Brain is a cloud based integrated research platform for collaborative data analysis and computational modelling.
+
+I am a core team member that maintains the platform and manages its development.
+
+-----
 
 
-Open Neuroscience and Free Software
-------------------------------------
+Community & leadership
+-----------------------
 
-In my role as a volunteer at the `Fedora project`_, I am currently involved in:
 
-- helping in building and maintaining `NeuroFedora`_ . It aims to provide
-  neuroscience software in Fedora to make it a ready to use platform for
-  neuroscientists.
-- helping with the `Fedora Join SIG`_ that aims to make it easier for new
-  people to join the community.
+OCNS
+~~~~~
 
-Help wanted
------------
+**2019 - 2021, 2023 -**
 
-- `NeuroFedora`_ is looking for contributors. It needs more people that
-  can build and maintain rpm packages for Fedora.
-- The `Fedora Classrooms`_ need more instructors. If you'd like to teach a
-  session, please get in touch.
+https://www.cnsorg.org
 
-If you can help, please get in touch.
+I am an elected member of the `Board of Directors for Organisation for Computational Neuroscience (OCNS) <https://www.cnsorg.org/board-of-directors>`__.
+I was previously the "webmaster", in-charge of the website and infrastructure.
 
-.. _Fedora project: https://fedoraproject.org/wiki/User:Ankursinha
-.. _Fedora Join SIG: https://fedoraproject.org/wiki/SIGs/Join
-.. _Fedora Classrooms: https://fedoraproject.org/wiki/Classroom
+I am now in-charge of the OCNS `newsletter <https://www.cnsorg.org/newsletter>`__.
+
+
+I also co-chair the `INCF/OCNS Software working group <https://ocns.github.io/SoftwareWG/>`__.
+We focus on all things related to the software used in Neuroscience---development, training and dissemination.
+
+-----
+
+Fedora Linux
+~~~~~~~~~~~~~
+
+**2008 -**
+
+https://fedoraproject.org
+
+
+- I maintain >300 packages for the Fedora Linux distribution. I am also a sponsor to the package maintainers team, and have "proven packager" access to all community packages.
+- I am a core member of the `NeuroFedora`_ team. Our goal is to provide a large set of neuroscience software to users in an easy, ready to use way---via the Fedora_ Linux distribution.
+- I am also a core member of the `Fedora Join SIG`_ that helps to onboard new community members.
+
+------
+
+Others
+~~~~~~
+
+I contribute to a number of other neuroscience and Open Source software projects that can be seen on my `GitHub profile <https://github.com/sanjayankur31>`__.
+
+
 .. _NeuroFedora: https://neuro.fedoraproject.org
+.. _Fedora: https://getfedora.org
+.. _Fedora Join SIG: https://fedoraproject.org/wiki/SIGs/Join
+.. _Langchain: https://docs.langchain.com/oss/python/langchain/overview
