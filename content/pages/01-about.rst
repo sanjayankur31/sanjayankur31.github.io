@@ -32,16 +32,8 @@ Research Fellow at the Silver Lab at UCL
 (March 2020 - )
 
 I am currently a research fellow at the `Silver Lab <https://silverlab.org>`__ at `University College London <https://ucl.ac.uk>`__.
-Apart from the research projects that are ongoing at the research group, I also focus on the development of the `Open Source Brain <https://opensourcebrain.org>`__ platform, `NeuroML <https://docs.neuroml.org>`__ and associated technologies.
+Apart from the computational modelling research projects that are ongoing at the research group, I also focus on the development of the `Open Source Brain <https://opensourcebrain.org>`__ platform, `NeuroML <https://docs.neuroml.org>`__ and associated technologies.
 
-
-Visiting Lecturer at the University of Hertfordshire
-====================================================
-
-(2014 - 2020)
-
-I was a visiting lecturer at the School of Engineering, Computer Science, Physics, Astronomy, and Mathematics at UH.
-I taught on modules related to computing, and supervised undergraduate and post-graduate projects.
 
 -----
 

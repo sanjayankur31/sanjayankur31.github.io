@@ -5,6 +5,10 @@ Current Projects
 :author: ankur
 :slug: 04-current-work
 
+
+I am a post-doctoral Research Fellow at the `Silver Lab <https://silverlab.org>`__ at `University College London <https://ucl.ac.uk>`__ working on computational modelling projects.
+My work focuses on building tools and standards for biophysically detailed computational modelling in neuroscience and am actively involved in several open source communities.
+
 Research & development
 -----------------------
 
@@ -63,7 +67,7 @@ LLM/AI assistance
 
 We are currently exploring methods by which we can leverage LLMs/AI tools to accelerate the building, fitting, simulation, and analysis of NeuroML models, especially to make modelling more accessible to the non-technical/non-computational neuroscience research community.
 
-- **Status**: prototyping, grant applications pending
+- **Status**: prototyping
 - **Tools/technologies**: Python, Langchain_, RAG systems
 
 -----

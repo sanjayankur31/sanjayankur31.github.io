@@ -11,6 +11,14 @@ Research & development
 
 - structural plasticity
 
+Visiting Lecturer at the University of Hertfordshire
+====================================================
+
+(2014 - 2020)
+
+I was a visiting lecturer at the School of Engineering, Computer Science, Physics, Astronomy, and Mathematics at UH.
+I taught on modules related to computing, and supervised undergraduate and post-graduate projects.
+
 
 Community & leadership
 -----------------------
