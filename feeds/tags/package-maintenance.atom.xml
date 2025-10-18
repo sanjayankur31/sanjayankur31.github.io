@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>ankursinha.in/blog - Package maintenance</title><link href="https://ankursinha.in/" rel="alternate"/><link href="https://ankursinha.in/feeds/tags/package-maintenance.atom.xml" rel="self"/><id>https://ankursinha.in/</id><updated>2019-01-24T11:20:00+00:00</updated><subtitle>neuroscience/fedora/musings</subtitle><entry><title>New maintainers needed for these packages</title><link href="https://ankursinha.in/2019/01/24/new-maintainers-needed-for-these-packages.html" rel="alternate"/><published>2019-01-24T11:20:00+00:00</published><updated>2019-01-24T11:20:00+00:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2019-01-24:/2019/01/24/new-maintainers-needed-for-these-packages.html</id><summary type="html">&lt;p class="first last"&gt;I am looking to pass on Fedora packages that I no longer use to new maintainers.&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;I've recently realised that I am now busy enough to need to prioritise what
+tasks I undertake. Apart from my research work (PhD and related activities),
+I'd like to focus my time on &lt;a class="reference external" href="https://neuro.fedoraproject.org"&gt;NeuroFedora&lt;/a&gt;.
+Therefore, I'm giving up a lot of the packages that I've accrued over the years
+but no longer use. If any of these interest you, please take them from me.
+Otherwise, I will orphan them at the end of the month.&lt;/p&gt;
+&lt;p&gt;I am quite happy to mentor contributors who are not yet packagers to help them
+learn the necessary skills. You can become a package maintainer by helping to
+co-maintain packages, as documented &lt;a class="reference external" href="https://fedoraproject.org/wiki/How_to_get_sponsored_into_the_packager_group#Become_a_co-maintainer"&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;I have already &lt;a class="reference external" href="https://lists.fedoraproject.org/archives/list/devel&amp;#64;lists.fedoraproject.org/thread/VDK46C23DKBCOHYO3EOCSLRJF2UUPDFK/"&gt;e-mailed the devel mailing list&lt;/a&gt;,
+but also post here to ensure sufficient visibility of the note.&lt;/p&gt;
+&lt;div class="section" id="orphaned-inactive-upstreams-or-retired-due-to-broken-deps"&gt;
+&lt;h2&gt;Orphaned (inactive upstreams or retired due to broken deps)&lt;/h2&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;albumart: was retired, now orphaned&lt;/li&gt;
+&lt;li&gt;gtg: inactive upstream&lt;/li&gt;
+&lt;li&gt;labyrinth: inactive upstream&lt;/li&gt;
+&lt;li&gt;memaker: inactive upstream&lt;/li&gt;
+&lt;li&gt;pyode: dead package, py3ode is available but needs packaging&lt;/li&gt;
+&lt;li&gt;python-inlinestyler: retired, now orphaned&lt;/li&gt;
+&lt;li&gt;scout: inactive upstream&lt;/li&gt;
+&lt;li&gt;toothchart: inactive upstream&lt;/li&gt;
+&lt;li&gt;xword: inactive upstream&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="section" id="looking-for-new-co-maintainers"&gt;
+&lt;h2&gt;Looking for new (co)-maintainers:&lt;/h2&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;axel: Light command line download accelerator&lt;/li&gt;
+&lt;li&gt;bibus: The bibus rpms&lt;/li&gt;
+&lt;li&gt;blobby: The blobby rpms&lt;/li&gt;
+&lt;li&gt;dcm4che-test: The dcm4che-test rpms&lt;/li&gt;
+&lt;li&gt;gitg: The gitg rpms&lt;/li&gt;
+&lt;li&gt;gnote: A note taking application for Gnome&lt;/li&gt;
+&lt;li&gt;gnumed: The GNUmed electronic medical record client&lt;/li&gt;
+&lt;li&gt;gtg: Getting Things GNOME!&lt;/li&gt;
+&lt;li&gt;hamster-time-tracker: A GTK3 time tracker&lt;/li&gt;
+&lt;li&gt;jigdo: The jigdo rpms&lt;/li&gt;
+&lt;li&gt;kapow: The kapow rpms&lt;/li&gt;
+&lt;li&gt;libgexiv2 A GObject wrapper around the Exiv2 photo metadata library&lt;/li&gt;
+&lt;li&gt;lifeograph: The lifeograph rpms&lt;/li&gt;
+&lt;li&gt;lingot: LINGOT Is Not a Guitar-Only Tuner&lt;/li&gt;
+&lt;li&gt;mrpt: The mrpt rpms&lt;/li&gt;
+&lt;li&gt;nautilus-pastebin: The nautilus-pastebin rpms&lt;/li&gt;
+&lt;li&gt;nut-nutrition: The nut-nutrition rpms&lt;/li&gt;
+&lt;li&gt;openarena: The openarena rpms&lt;/li&gt;
+&lt;li&gt;openmolar: The openmolar rpms&lt;/li&gt;
+&lt;li&gt;OSGi-bundle-ant-task: The OSGi-bundle-ant-task rpms&lt;/li&gt;
+&lt;li&gt;Panini: Visual tool for creating perspective views from panoramic and wide angle photographs&lt;/li&gt;
+&lt;li&gt;prepaid-manager-applet: The prepaid-manager-applet rpms&lt;/li&gt;
+&lt;li&gt;pystache: The pystache rpms&lt;/li&gt;
+&lt;li&gt;python-baker: The python-baker rpms&lt;/li&gt;
+&lt;li&gt;python-django-post_office: The python-django-post_office rpms&lt;/li&gt;
+&lt;li&gt;python-django-stopforumspam&lt;/li&gt;
+&lt;li&gt;python-uri-templates: The python-uri-templates rpms&lt;/li&gt;
+&lt;li&gt;rssdler: RSS Broadcatcher for podcasts, videocasts, and torrent feeds&lt;/li&gt;
+&lt;li&gt;tagtool: The tagtool rpms&lt;/li&gt;
+&lt;li&gt;trash-cli: Command line interface to the freedesktop.org trashcan&lt;/li&gt;
+&lt;li&gt;xmedcon: The xmedcon rpms&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+</content><category term="Tech"/><category term="Fedora"/><category term="RPM"/><category term="Package maintenance"/></entry></feed>

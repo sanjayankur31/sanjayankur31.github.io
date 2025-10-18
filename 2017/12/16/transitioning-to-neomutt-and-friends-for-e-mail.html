@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="Ankur Sinha" />
+    <meta name="generator" content="Pelican (VoidyBootstrap theme)" />
+    <meta name="twitter:card" content="summary"> 
+    <meta name="twitter:title" content="Transitioning to Neomutt and friends for e-mail">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:site" content="@sanjay_ankur">
+    <meta name="twitter:creator" content="@sanjay_ankur">
+    <meta name="twitter:domain" content="https://ankursinha.in">
+
+    <title>Transitioning to Neomutt and friends for e-mail - ankursinha.in/blog</title>
+
+   
+        <link rel="stylesheet"
+              href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+              integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+              crossorigin="anonymous" />
+
+
+
+
+
+      <link rel="stylesheet" href="https://ankursinha.in/theme/css/use-opensans.css" />
+      <link rel="stylesheet" href="https://ankursinha.in/theme/css/voidybootstrap.css" />
+      <link rel="stylesheet" href="https://ankursinha.in/theme/css/pygment.css" />
+
+    <link rel="shortcut icon" href="https://ankursinha.in/favicon.ico" />
+        <link href="https://ankursinha.in/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="ankursinha.in/blog Atom Feed" />
+        <link href="https://ankursinha.in/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="ankursinha.in/blog RSS Feed" />
+  
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MCTH8VNYDK"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-MCTH8VNYDK');
+    </script>
+
+  </head>
+
+  <body>
+   
+    <nav class="navbar navbar-default">
+      <div class="container">
+	   <div class="navbar-header">
+		<button type="button" class="navbar-toggle" 
+				data-toggle="collapse" data-target="#main-navbar-collapse">
+		  <span class="sr-only">Toggle navigation</span>
+		  <span class="icon-bar"></span>
+		  <span class="icon-bar"></span>
+		  <span class="icon-bar"></span>
+		</button>
+		<a class="navbar-brand" href="https://ankursinha.in/" rel="home">
+          <i class="fas fa-home fa-fw fa-lg"> </i> </a>
+       </div>
+
+      <div class="collapse navbar-collapse" id="main-navbar-collapse">
+        <ul class="nav navbar-nav">
+              <li>
+                <a href="https://ankursinha.in/pages/01-about.html">About Me</a>
+              </li>
+              <li>
+                <a href="https://ankursinha.in/pages/04-current-work.html">Current Projects</a>
+              </li>
+            <li class="divider"></li>
+            <li class="">
+              <a href="https://ankursinha.in/pages/03-publications.html">Publications</a>
+            </li>
+            <li class="">
+              <a href="https://ankursinha.in/pages/archives.html">Archives</a>
+            </li>
+          <li class="divider"></li>
+            <li><a href="https://ankursinha.in/feeds/all.atom.xml" 
+                   type="application/atom+xml" rel="alternate">
+                <i class="fas fa-rss fa-fw fa-lg"></i> </a></li>
+        </ul> <!-- /nav -->
+      </div> <!-- /navbar-collapse -->
+	  </div> <!-- /container -->
+    </nav> <!-- /navbar -->
+
+	<div class="jumbotron" id="overview">
+	  <div class="container">
+		<h1><a href="https://ankursinha.in/">ankursinha.in/blog</a></h1>
+		<p class="lead">neuroscience/fedora/musings</p>
+	  </div>
+	</div>
+
+    <div class="container" id="main-container">
+      <div class="row">
+        <div class="col-md-9" id="content">
+<article itemscope="itemscope" itemtype="http://schema.org/BlogPosting">
+  <header class="article-header">
+<abbr class="article-header-date">
+  Sat 16 December 2017
+</abbr> <h1>
+  <a href="https://ankursinha.in/2017/12/16/transitioning-to-neomutt-and-friends-for-e-mail.html" rel="bookmark"
+     title="Permalink to Transitioning to Neomutt and friends for e-mail">
+    Transitioning to Neomutt and friends for e-mail
+  </a>
+</h1><div class="article-header-info">
+  <p>
+      Posted by <a href="https://ankursinha.in/author/ankur.html">ankur</a>
+    in 
+    <a href="https://ankursinha.in/category/tech/">
+      Tech</a>
+(2559 words, approximately a 11 minute read)
+  </p>
+</div> <!-- /.article-header-info -->  </header>
+  <div class="content-body" itemprop="text articleBody">
+
+<p>
+    <ul class="list-inline">
+      <li class="list-inline-item">
+        <i class="fas fa-tags"></i>
+          <a href="https://ankursinha.in/tag/fedora/">#Fedora</a>      </li>
+    </ul>
+</p>
+
+
+  <div>  <!-- Social media sharing buttons -->
+  <hr />
+    <ul class="list-inline">
+      <li class="list-inline-item text-muted" title="Share"><i class="fas fa-share-alt" title="Share this post"></i> Share this post:</li>
+      <li class="list-inline-item"><a class="fab fa-mastodon" href="https://toot.kytta.dev/?text=Transitioning%20to%20Neomutt%20and%20friends%20for%20e-mail%0D%0Ahttps%3A//ankursinha.in/2017/12/16/transitioning-to-neomutt-and-friends-for-e-mail.html%0D%0A%23Fedora" target="_blank" title="Share on mastodon"></a></li>
+      <li class="list-inline-item"><a class="fab fa-twitter" href="https://twitter.com/intent/tweet?text=Transitioning%20to%20Neomutt%20and%20friends%20for%20e-mail&url=https%3A//ankursinha.in/2017/12/16/transitioning-to-neomutt-and-friends-for-e-mail.html&via=sanjay_ankur&hashtags=fedora" target="_blank" title="Share on Twitter"></a></li>
+      <li class="list-inline-item"><a class="fab fa-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3A//ankursinha.in/2017/12/16/transitioning-to-neomutt-and-friends-for-e-mail.html" target="_blank" title="Share on Facebook"></a></li>
+      <li class="list-inline-item"><a class="fab fa-reddit" href="https://www.reddit.com/submit?url=https%3A//ankursinha.in/2017/12/16/transitioning-to-neomutt-and-friends-for-e-mail.html&title=Transitioning%20to%20Neomutt%20and%20friends%20for%20e-mail" target="_blank" title="Share on Reddit"></a></li>
+      <li class="list-inline-item"><a class="fab fa-linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A//ankursinha.in/2017/12/16/transitioning-to-neomutt-and-friends-for-e-mail.html&title=Transitioning%20to%20Neomutt%20and%20friends%20for%20e-mail&summary=I%20finally%20took%20some%20time%20out%20to%20set%20up%20neomutt%20and%20related%20tools%0Athat%20let%20me%20access%20my%20e-mail%20in%20a%20terminal.%20This%20post%20documents%20how%20I%0Awent%20about%20it.&source=https%3A//ankursinha.in/2017/12/16/transitioning-to-neomutt-and-friends-for-e-mail.html" target="_blank" title="Share via LinkedIn<"></a></li>
+      <li class="list-inline-item"><a class="fas fa-mail-bulk" href="mailto:?subject=Transitioning%20to%20Neomutt%20and%20friends%20for%20e-mail&amp;body=https%3A//ankursinha.in/2017/12/16/transitioning-to-neomutt-and-friends-for-e-mail.html" target="_blank" title="Share via E-mail"></a></li>
+    </ul>
+  <hr />
+  </div> <!-- /Social media sharing buttons -->	<p>I'm constantly seeking out applications that provide <a class="reference external" href="https://vim.org">Vim</a> like keyboard
+bindings---it ensures that I have one set of keys that does the same thing
+everywhere, and so, it saves me from having to:</p>
+<ul class="simple">
+<li>remember different hot keys for different applications</li>
+<li>leave the <a class="reference external" href="https://en.wikipedia.org/wiki/Touch_typing">home row</a> to use the mouse/touchpad (Yeh, the home row is a
+thing!)</li>
+</ul>
+<p>So, I now use the excellent <a class="reference external" href="http://byobu.co/">byobu</a> where I run:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/arybczak/ncmpcpp">ncmpcpp</a> for music: it provides <a class="reference external" href="https://vim.org">Vim</a> like key bindings.</li>
+<li><a class="reference external" href="https://vifm.info">Vifm</a> for file management, although, a command line is usually sufficient.</li>
+<li><a class="reference external" href="https://github.com/scottkosty/vit">Vit</a> as a <a class="reference external" href="https://taskwarrior.org">Taskwarrior</a> terminal based front-end, which, yep, provides <a class="reference external" href="https://vim.org">Vim</a>
+like key-bindings.</li>
+<li><a class="reference external" href="https://weechat.org">Weechat</a> for IRC which also has <a class="reference external" href="https://github.com/GermainZ/weechat-vimode">Vim bindings</a>.</li>
+</ul>
+<p><a class="reference external" href="https://vim.org">Vim</a> has an in-built file browser, and one can use other plug-ins such as
+NerdTree for more advanced tasks. I even have a <a class="reference external" href="https://taskwarrior.org">Taskwarrior</a> plug-in for Vim
+that let's me quickly look up my tasks while writing code and the sort.</p>
+<p>For other uses where the terminal is insufficient, I've found:</p>
+<ul class="simple">
+<li><a class="reference external" href="http://karlch.github.io/vimiv/">Vimiv</a> for viewing images</li>
+<li><a class="reference external" href="http://www.qutebrowser.org/">Qutebrowser</a> as a full featured browser. One can also use add-ons to
+Firefox/Chrome, but I've quite fallen for <a class="reference external" href="http://www.qutebrowser.org/">Qutebrowser</a>.</li>
+<li><a class="reference external" href="https://pwmt.org/projects/zathura/">Zathura</a> for viewing various document types.</li>
+</ul>
+<p>I rarely use LibreOffice---I mostly stick to LaTeX, and <a class="reference external" href="https://vim.org">Vim</a> deals with it
+rather well.</p>
+<p>In all of the above mentioned applications, <code>hjkl</code> moves about, other hot
+keys such as <code>G</code> and <code>gg</code>, and so on work too, and they even have a
+command mode that can be accessed using <code>:</code> as in <a class="reference external" href="https://vim.org">Vim</a>. So, I don't have
+to think of the shortcuts now---it's all muscle memory!</p>
+<p><a class="reference external" href="https://wiki.gnome.org/Apps/Evolution">Evolution</a>, being a modern GUI productivity tool, does not have a method to
+navigate around only using a keyboard, and this got me to look for an e-mail
+client that provided <a class="reference external" href="https://vim.org">Vim</a> like bindings. The answer I found was the rather well
+known <a class="reference external" href="http://www.mutt.org/">mutt</a> terminal client. I'd been thinking of giving it a go for a while
+now---more than a year. However, as I document later in this post, setting up
+<a class="reference external" href="http://www.mutt.org/">mutt</a> isn't as trivial as setting up <a class="reference external" href="https://wiki.gnome.org/Apps/Evolution">Evolution</a> where one simply uses Gnome
+Online Accounts and can get up and running in a few minutes.</p>
+<p>At no point will I suggest that anyone migrate to such a terminal oriented
+setup. This is tailored to my personal, rather Vim-y needs. One should use
+whatever tools fit their personal tastes. We needn't spend time on &quot;But, I
+prefer this, and it's better!&quot; themed conversations.</p>
+<p>Please note that everything that is documented here is for an up to date
+<a class="reference external" href="http://getfedora.org">Fedora</a> 27 system. Most steps should be general enough to work on other
+distributions. One will have to go find the right packages, though. I followed
+<a class="reference external" href="https://hobo.house/2015/09/09/take-control-of-your-email-with-mutt-offlineimap-notmuch/">this guide</a>
+as the main source of information, and the looked around when I needed some
+more info. I've collected a list of links at the bottom of this post.</p>
+<div class="section" id="e-mail-the-details">
+<h2>E-mail: the details</h2>
+<p>When a majority of us use e-mail, we simply interact with a client. These
+clients: <a class="reference external" href="https://wiki.gnome.org/Apps/Evolution">Evolution</a>/<a class="reference external" href="https://www.mozilla.org/en-GB/thunderbird/">Thunderbird</a>/Outlook or the web applications that we access,
+keep the nitty-gritty details away from end users. The <a class="reference external" href="https://en.wikipedia.org/wiki/Email#Operation_overview">wikipedia article</a> on e-mail explains
+the process quite well:</p>
+<ul class="simple">
+<li>An MUA (mail user agent) is the client that we use to read/write email.</li>
+<li>The MUA interacts with an MSA (mail submission agent) to send e-mail, or an
+MDA (mail delivery agent) to receive e-mail to and fro a mailbox.</li>
+</ul>
+<p><a class="reference external" href="http://www.mutt.org/">mutt</a> is an MUA, so we need to set up the other bits for it to be able to
+interact with an MSA and an MDA, and that's why it is a little more work than
+setting up <a class="reference external" href="https://wiki.gnome.org/Apps/Evolution">Evolution</a> and so on where the tool takes care of setting up the
+whole chain.</p>
+</div>
+<div class="section" id="fetch-e-mail-with-offlineimap">
+<h2>Fetch e-mail with Offlineimap</h2>
+<p>There are a few tools that fetch e-mail. <a class="reference external" href="http://www.offlineimap.org/">Offlineimap</a> seemed to be widely used,
+so I settled for it as well. On <a class="reference external" href="http://getfedora.org">Fedora</a>, one can use DNF:</p>
+<pre class="code bash literal-block">
+sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>offlineimap
+</pre>
+<p>One must then set up their accounts with credentials and the sort. An example
+config file is provided with the package at
+<code>/usr/share/doc/offlineimap/offlineimap.conf</code></p>
+<p>The config format is quite self explanatory. Here's an example:</p>
+<pre class="code ini literal-block">
+<span class="k">[general]</span><span class="w">
+</span><span class="na">accounts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">account1</span><span class="w">
+
+</span><span class="k">[Account account1]</span><span class="w">
+</span><span class="na">localrepository</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">account1-local</span><span class="w">
+</span><span class="na">remoterepository</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">account1-remote</span><span class="w">
+</span><span class="na">status_backend</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">sqlite</span><span class="w">
+</span><span class="na">postsynchook</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">notmuch new</span><span class="w">
+
+</span><span class="k">[Repository account1-remote]</span><span class="w">
+</span><span class="na">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">IMAP</span><span class="w">
+</span><span class="na">remotehost</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">mailhost.com</span><span class="w">
+</span><span class="na">remoteport</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">587</span><span class="w">
+</span><span class="na">remoteuser</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">username&#64;mailhost.com</span><span class="w">
+</span><span class="na">remotepass</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">password</span><span class="w">
+</span><span class="na">ssl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">no</span><span class="w">
+</span><span class="na">folderfilter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">lambda foldername: foldername in ['INBOX', 'Sent', 'Spam', 'Trash', 'Drafts']</span><span class="w">
+</span><span class="na">createfolders</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">False</span><span class="w">
+</span><span class="na">maxconnections</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">2</span><span class="w">
+
+</span><span class="k">[Repository account1-local]</span><span class="w">
+</span><span class="na">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Maildir</span><span class="w">
+</span><span class="na">localfolders</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">~/Mail</span><span class="w">
+</span><span class="na">restoreatime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">no</span>
+</pre>
+<p>There's a &quot;general&quot; section where one defines what accounts are to be used. One
+can also define global options that will apply to all accounts here.</p>
+<p>For each account, one then sets up the main configurations, and then set up the
+remote and local repositories. There are other advanced options that one can
+use too. The <code>folderfilter</code>, for example, is a python statement that lets
+one select what folders on the remote should by synced. More in the offlineimap
+documentation.</p>
+<p>The <code>postsynchook</code> bit lets one run a command after <a class="reference external" href="http://www.offlineimap.org/">Offlineimap</a> has
+finished syncing. Here, it calls <code>notmuch</code> to update its database. More on
+<a class="reference external" href="https://notmuchmail.org/">notmuch</a> later.</p>
+<p>Once configured, one can run <a class="reference external" href="http://www.offlineimap.org/">Offlineimap</a> to fetch one's mail. The first sync
+will take quite a while, but subsequent syncs will be much quicker.</p>
+<pre class="code bash literal-block">
+offlineimap
+</pre>
+<p>I set up a <a class="reference external" href="https://en.wikipedia.org/wiki/Cron">cronjob</a> to sync my e-mail regularly. Most users also use a script
+that kills previously running <a class="reference external" href="http://www.offlineimap.org/">Offlineimap</a> instances that may have hung, so a
+script like this may be more useful:</p>
+<pre class="code bash literal-block">
+check<span class="w"> </span><span class="o">()</span><span class="w">
+</span><span class="o">{</span><span class="w">
+    </span><span class="k">while</span><span class="w"> </span>pkill<span class="w"> </span>offlineimap<span class="w">
+    </span><span class="k">do</span><span class="w">
+        </span>sleep<span class="w"> </span><span class="m">2</span><span class="w">
+    </span><span class="k">done</span><span class="w">
+</span><span class="o">}</span><span class="w">
+
+</span>quick<span class="w"> </span><span class="o">()</span><span class="w">
+</span><span class="o">{</span><span class="w">
+    </span>offlineimap<span class="w"> </span>-u<span class="w"> </span>quiet<span class="w"> </span>-q<span class="w"> </span>-s<span class="w">
+</span><span class="o">}</span><span class="w">
+
+</span>full<span class="w"> </span><span class="o">()</span><span class="w">
+</span><span class="o">{</span><span class="w">
+    </span>offlineimap<span class="w"> </span>-u<span class="w"> </span>quiet<span class="w"> </span>-s<span class="w">
+</span><span class="o">}</span><span class="w">
+
+</span><span class="c1"># parse options
+</span><span class="k">while</span><span class="w"> </span><span class="nb">getopts</span><span class="w"> </span><span class="s2">&quot;qf&quot;</span><span class="w"> </span>OPTION<span class="w">
+</span><span class="k">do</span><span class="w">
+    </span><span class="k">case</span><span class="w"> </span><span class="nv">$OPTION</span><span class="w"> </span><span class="k">in</span><span class="w">
+        </span>q<span class="o">)</span><span class="w">
+            </span>check<span class="w">
+            </span>quick<span class="w">
+            </span><span class="nb">exit</span><span class="w"> </span><span class="m">0</span><span class="w">
+            </span><span class="p">;;</span><span class="w">
+        </span>f<span class="o">)</span><span class="w">
+            </span>check<span class="w">
+            </span>full<span class="w">
+            </span><span class="nb">exit</span><span class="w"> </span><span class="m">0</span><span class="w">
+            </span><span class="p">;;</span><span class="w">
+        </span>?<span class="o">)</span><span class="w">
+            </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Nothing to do.&quot;</span><span class="w">
+            </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span><span class="w">
+            </span><span class="p">;;</span><span class="w">
+    </span><span class="k">esac</span><span class="w">
+</span><span class="k">done</span>
+</pre>
+<p>My crontab then looks like this:</p>
+<pre class="code bash literal-block">
+*/20<span class="w"> </span>*<span class="w"> </span>*<span class="w"> </span>*<span class="w"> </span>*<span class="w"> </span>/home/asinha/bin/fetch-mail.sh<span class="w"> </span>-q<span class="w">
+</span><span class="m">10</span><span class="w"> </span>*/8<span class="w"> </span>*<span class="w"> </span>*<span class="w"> </span>*<span class="w"> </span>/home/asinha/bin/fetch-mail.sh<span class="w"> </span>-f
+</pre>
+<p>So, every 20 minutes, I do a quick sync, and once every 8 hours, I do a full
+sync.</p>
+</div>
+<div class="section" id="sending-e-mail-with-msmtp">
+<h2>Sending e-mail with msmtp</h2>
+<p>Now that we can fetch our e-mail, we look at sending e-mail. <a class="reference external" href="https://en.wikipedia.org/wiki/Sendmail">sendmail</a> is quite
+a well known client, but the setup is a bit cludgy for me. <a class="reference external" href="http://msmtp.sourceforge.net/">msmtp</a> was
+recommended by quite a few users. On <a class="reference external" href="http://getfedora.org">Fedora</a>, one can install it using DNF:</p>
+<pre class="code bash literal-block">
+sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>msmtp
+</pre>
+<p>The configuration for <a class="reference external" href="http://msmtp.sourceforge.net/">msmtp</a> is quite simple too. The package provides two
+example configuration files:</p>
+<pre class="code bash literal-block">
+/usr/share/doc/msmtp/msmtprc-system.example<span class="w">
+</span>/usr/share/doc/msmtp/msmtprc-user.example
+</pre>
+<p>Here's an example:</p>
+<pre class="code ini literal-block">
+<span class="na">defaults</span><span class="w">
+</span><span class="na">protocol smtp</span><span class="w">
+</span><span class="na">auth on</span><span class="w">
+</span><span class="na">tls on</span><span class="w">
+</span><span class="na">tls_trust_file /etc/ssl/certs/ca-bundle.crt</span><span class="w">
+</span><span class="na">syslog LOG_USER</span><span class="w">
+</span><span class="na">logfile ~/.msmtp.log</span><span class="w">
+</span><span class="na">timeout 60</span><span class="w">
+
+</span><span class="na">account account1</span><span class="w">
+</span><span class="na">host smtp.hostname.com</span><span class="w">
+</span><span class="na">port 587</span><span class="w">
+</span><span class="na">domain hostname.com</span><span class="w">
+</span><span class="na">from something&#64;hostname.com</span><span class="w">
+</span><span class="na">user username&#64;hostname.com</span><span class="w">
+</span><span class="na">password password</span><span class="w">
+
+</span><span class="na">account account2</span><span class="w">
+</span><span class="na">host smtp.anotherhostname.com</span><span class="w">
+</span><span class="na">port 587</span><span class="w">
+</span><span class="na">domain anotherhostname.com</span><span class="w">
+</span><span class="na">from something&#64;anotherhostname.com</span><span class="w">
+</span><span class="na">user username&#64;anotherhostname.com</span><span class="w">
+</span><span class="na">password password</span>
+</pre>
+<p>It has a default section where options common to all accounts can be set up.
+here it does to usual setup regarding TLS, and so on.</p>
+<p>A separate section for each account then holds the credentials. One can then
+send e-mail from the command line:</p>
+<pre class="code bash literal-block">
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Subject: Test&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>msmtp<span class="w"> </span>-a<span class="w"> </span>account1<span class="w"> </span>someone&#64;anotherhost.com
+</pre>
+</div>
+<div class="section" id="setting-up-the-mua-neo-mutt">
+<h2>Setting up the MUA: (neo)mutt</h2>
+<p>The two MTAs are now set up, and we can fetch and send mail. We can now link
+these up to our MUA, <a class="reference external" href="http://www.mutt.org/">mutt</a>. Instead of <a class="reference external" href="http://www.mutt.org/">mutt</a>, I use <a class="reference external" href="https://www.neomutt.org">neomutt</a> which is <a class="reference external" href="http://www.mutt.org/">mutt</a> with
+additional patches and features. It isn't in the Fedora repos yet, but there's a
+<a class="reference external" href="https://copr.fedorainfracloud.org/">COPR</a> repository set up for users:</p>
+<pre class="code bash literal-block">
+sudo<span class="w"> </span>dnf<span class="w"> </span>copr<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>flatcap/neomutt<span class="w">
+</span>sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>neomutt
+</pre>
+<p>The <a class="reference external" href="https://www.neomutt.org">neomutt</a> configuration is based on the <a class="reference external" href="http://www.mutt.org/">mutt</a> bits, and it's rather
+extensive. The package provides an example that I use as a starting point:</p>
+<pre class="code bash literal-block">
+/usr/share/doc/offlineimap/offlineimap.conf
+</pre>
+<p>The important bits are here:</p>
+<pre class="code ini literal-block">
+<span class="na">mailboxes</span><span class="w"> </span><span class="o">=</span><span class="s">&quot;account1&quot;</span><span class="w">
+</span><span class="na">mailboxes `find ~/Mail/account1/* -maxdepth 0 -type d | grep -v &quot;tmp\|new\|cur&quot; | sed 's|/home/asinha/Mail/|</span><span class="o">=</span><span class="s">\&quot;|g' | sed 's|$|\&quot;|g' | tr '\n' ' '`</span><span class="w">
+</span><span class="na">set from</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;user&#64;hostname.com&quot;</span><span class="w">
+</span><span class="na">set use_from</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;yes&quot;</span><span class="w">
+</span><span class="na">set reply_to</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;yes&quot;</span><span class="w">
+</span><span class="na">set sendmail</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;msmtp -a account1&quot;</span><span class="w">
+</span><span class="na">set sendmail_wait</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">0</span><span class="w">
+</span><span class="na">set mbox</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;+account1/INBOX&quot;</span><span class="w">
+</span><span class="na">set postponed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;+account1/Drafts&quot;</span><span class="w">
+</span><span class="na">set record</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;+account1/Sent&quot;</span>
+</pre>
+<p>The <code>mailboxes</code> list what folders the sidebar in <a class="reference external" href="https://www.neomutt.org">neomutt</a>. These are what
+we've set up offlineimap to fetch for us. Similarly, the <code>sendmail</code>
+setting tells neomutt to use <code>msmtp</code> to send e-mail.</p>
+<p>If it all went well, running <code>neomutt</code> should bring up a window like the
+figure below:</p>
+<div class="figure align-center">
+<a class="reference external image-reference" href="https://ankursinha.in/images/20171215-neomutt.png">
+<img alt="A screenshot of Neomutt in action" src="https://ankursinha.in/images/20171215-neomutt.png" style="height: 480.0px;" />
+</a>
+</div>
+<p>On the left, there's the sidebar where all folders are listed. These can be
+configured using <code>mailboxes</code> as <a class="reference external" href="https://www.neomutt.org/feature/sidebar-intro">explained in the documentation here</a>. On the right hand side, the
+various e-mails are listed on top in the <code>index</code>, and a particular e-mail
+is visible in the <code>pager</code> view. As can be seen, the index view also shows
+threads! (This is running in <code>byobu</code>, by the way, which shows the other
+information in the bottom information bar.) More on all of this in the
+documentation, of course.</p>
+</div>
+<div class="section" id="searching-e-mail-with-notmuch">
+<h2>Searching e-mail with notmuch</h2>
+<p>We have our e-mail set up, but we at the moment, it has a very basic search
+feature that <a class="reference external" href="http://www.mutt.org/">mutt</a> provides. <a class="reference external" href="https://notmuchmail.org/">notmuch</a>, which thinks &quot;not much mail&quot; of your
+massive e-mail collection helps here. <a class="reference external" href="https://notmuchmail.org/">notmuch</a> is called after each Offlineimap
+sync above, in the <code>postsynchook</code>. Then, using simple keyboard shortcuts,
+one can use <a class="reference external" href="https://notmuchmail.org/">notmuch</a> search their whole e-mail database. <a class="reference external" href="https://notmuchmail.org/">notmuch</a> has quite a
+few advanced features, like searching as threads, and searching e-mail
+addresses, and the sort. <a class="reference external" href="https://notmuchmail.org/">notmuch</a> comes with the handy <code>notmuch-config</code>
+which makes configuration trivial. Here's an example below:</p>
+<pre class="code bash literal-block">
+$<span class="w"> </span>notmuch<span class="w"> </span>address<span class="w"> </span>from:*lists.fedoraproject.org<span class="w">
+</span>classroom-request&#64;lists.fedoraproject.org<span class="w">
+</span>freemedia-owner&#64;lists.fedoraproject.org<span class="w">
+</span>fedora-join-bounces&#64;lists.fedoraproject.org<span class="w">
+</span>fedora-join-owner&#64;lists.fedoraproject.org<span class="w">
+</span>cwg-request&#64;lists.fedoraproject.org<span class="w">
+</span>cwg-private-request&#64;lists.fedoraproject.org
+</pre>
+<p>The same can be used within <a class="reference external" href="https://www.neomutt.org">neomutt</a> with a few simple hotkeys:</p>
+<pre class="code literal-block">
+macro index &lt;F8&gt; \
+&quot;&lt;enter-command&gt;set my_old_pipe_decode=\$pipe_decode my_old_wait_key=\$wait_key nopipe_decode nowait_key&lt;enter&gt;\
+&lt;shell-escape&gt;notmuch-mutt -r --prompt search&lt;enter&gt;\
+&lt;change-folder-readonly&gt;`echo ${XDG_CACHE_HOME:-$HOME/.cache}/notmuch/mutt/results`&lt;enter&gt;\
+&lt;enter-command&gt;set pipe_decode=\$my_old_pipe_decode wait_key=\$my_old_wait_key&lt;enter&gt;&quot; \
+ &quot;notmuch: search mail&quot;
+
+macro index &lt;F9&gt; \
+&quot;&lt;enter-command&gt;set my_old_pipe_decode=\$pipe_decode my_old_wait_key=\$wait_key nopipe_decode nowait_key&lt;enter&gt;\
+&lt;pipe-message&gt;notmuch-mutt -r thread&lt;enter&gt;\
+&lt;change-folder-readonly&gt;`echo ${XDG_CACHE_HOME:-$HOME/.cache}/notmuch/mutt/results`&lt;enter&gt;\
+&lt;enter-command&gt;set pipe_decode=\$my_old_pipe_decode wait_key=\$my_old_wait_key&lt;enter&gt;&quot; \
+ &quot;notmuch: reconstruct thread&quot;
+
+macro index &lt;F6&gt; \
+&quot;&lt;enter-command&gt;set my_old_pipe_decode=\$pipe_decode my_old_wait_key=\$wait_key nopipe_decode nowait_key&lt;enter&gt;\
+&lt;pipe-message&gt;notmuch-mutt tag -- -inbox&lt;enter&gt;\
+&lt;enter-command&gt;set pipe_decode=\$my_old_pipe_decode wait_key=\$my_old_wait_key&lt;enter&gt;&quot; \
+ &quot;notmuch: remove message from inbox&quot;
+</pre>
+<p>The three commands in a <code>neomuttrc</code> file will respectively:</p>
+<ul class="simple">
+<li>bind F8 to open a <a class="reference external" href="https://www.neomutt.org">neomutt</a> search</li>
+<li>bind F9 to find a whole thread based the currently selected e-mail. This
+includes all folders.</li>
+<li>binds F6 to untag an e-mail (more on <a class="reference external" href="https://notmuchmail.org/">notmuch</a> tagging in the docs)</li>
+</ul>
+</div>
+<div class="section" id="other-tweaks">
+<h2>Other tweaks</h2>
+<p>The aforementioned bits cover most of the main functions that one would need
+with e-mail. Here are some more tips that I found helpful.</p>
+<p>I have not yet set up a command line address book client. There seem to be a
+few that sync with Gmail and other providers and can be used with <a class="reference external" href="http://www.mutt.org/">mutt</a>, but I
+don't need them yet.  <a class="reference external" href="https://notmuchmail.org/">notmuch</a> provides sufficient completion for the time
+being, and when I begin to use newer addresses that are not already in my
+mailbox, I shall look at address book clients. For those that are interested,
+these are what I've found:</p>
+<ul class="simple">
+<li><a class="reference external" href="http://abook.sourceforge.net/">abook</a></li>
+<li><a class="reference external" href="https://gitlab.com/goobook/goobook">gobook</a></li>
+</ul>
+<div class="section" id="storing-passwords-using-pass">
+<h3>Storing passwords using pass</h3>
+<p>Storing passwords as plain text is a terrible idea. Instead most use password
+managers. <a class="reference external" href="https://www.passwordstore.org/">pass</a> is an excellent command line password manager that uses <a class="reference external" href="https://www.gnupg.org/">GPG</a>
+to encrypt password files. It even integrates with <a class="reference external" href="https://git-scm.com/">Git</a> so that a central
+repository can hold the encrypted files, and can be cloned to various systems.</p>
+<p>Both <a class="reference external" href="http://www.offlineimap.org/">Offlineimap</a> and <a class="reference external" href="http://msmtp.sourceforge.net/">msmtp</a> permit a user to store passwords in a tool and then
+run a command to extract it. In the <code>offlineimaprc</code>, for example, one can
+use:</p>
+<pre class="code ini literal-block">
+<span class="na">remotepasseval</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">get_pass(&quot;E-mail&quot;)</span>
+</pre>
+<p>to fetch passwords from pass. Here <code>get_pass</code> is a python function that
+does the dirty work:</p>
+<pre class="code python literal-block">
+<span class="k">def</span> <span class="nf">get_pass</span><span class="p">(</span><span class="n">account</span><span class="p">):</span><span class="w">
+</span>        <span class="k">return</span> <span class="p">(</span><span class="n">check_output</span><span class="p">(</span><span class="s2">&quot;pass &quot;</span> <span class="o">+</span> <span class="n">account</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">splitlines</span><span class="p">()[</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
+</pre>
+<p>Similarly, <a class="reference external" href="http://msmtp.sourceforge.net/">msmtp</a> lets one use a shell command to get a password:</p>
+<pre class="code ini literal-block">
+<span class="na">passwordeval pass E-mail</span>
+</pre>
+<p>where the <code>E-mail</code> file is associated with the password for a certain account using pass.</p>
+</div>
+<div class="section" id="multiple-accounts">
+<h3>Multiple accounts</h3>
+<p>Both <a class="reference external" href="http://www.offlineimap.org/">Offlineimap</a> and <a class="reference external" href="http://msmtp.sourceforge.net/">msmtp</a> can handle multiple accounts. <a class="reference external" href="https://www.neomutt.org">neomutt</a> can too,
+but to set sane defaults each time one switches mailboxes, a bit of trickery is
+required. The <a class="reference external" href="https://gist.github.com/miguelmota/9456162">gist here</a> shows
+what's needed. Essentially, using a <code>folder-hook</code>, one updates the
+required configurations (signature, from address, sent mail folder, draft
+folder) when one switches to a folder associated with a different account. I
+use four accounts in <a class="reference external" href="https://www.neomutt.org">neomutt</a> currently. It works rather well. The snippet
+below is what I have in my <a class="reference external" href="https://www.neomutt.org">neomutt</a> configuration file. It sets up host3 as the
+default account, and each time I change to a different host folder, the
+folder-hook updates some configurations. Here, I have different files for each
+host.</p>
+<pre class="code ini literal-block">
+<span class="c1"># Hooks for multi-setup</span><span class="w">
+</span><span class="c1"># default</span><span class="w">
+</span><span class="na">set folder</span><span class="w"> </span><span class="o">=</span><span class="s">&quot;~/Mail&quot;</span><span class="w">
+</span><span class="na">set spoolfile</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;+host3/INBOX&quot;</span><span class="w">
+</span><span class="na">source ~/Documents/100_dotfiles/mail/host1.neomuttrc</span><span class="w">
+</span><span class="na">source ~/Documents/100_dotfiles/mail/host4.neomuttrc</span><span class="w">
+</span><span class="na">source ~/Documents/100_dotfiles/mail/host2.neomuttrc</span><span class="w">
+</span><span class="na">source ~/Documents/100_dotfiles/mail/host3.neomuttrc</span><span class="w">
+
+</span><span class="c1"># folder hook</span><span class="w">
+</span><span class="na">folder-hook host4/* source ~/Documents/100_dotfiles/mail/host4.neomuttrc</span><span class="w">
+</span><span class="na">folder-hook host1/* source ~/Documents/100_dotfiles/mail/host1.neomuttrc</span><span class="w">
+</span><span class="na">folder-hook host2/* source ~/Documents/100_dotfiles/mail/host2.neomuttrc</span><span class="w">
+</span><span class="na">folder-hook host3/* source ~/Documents/100_dotfiles/mail/host3.neomuttrc</span>
+</pre>
+</div>
+<div class="section" id="gpg-signing">
+<h3>GPG signing</h3>
+<p>I sign my e-mails with <a class="reference external" href="https://keys.fedoraproject.org/pks/lookup?search=0xE629112D&amp;op=vindex">my GPG key</a>.
+<a class="reference external" href="https://www.neomutt.org">neomutt</a> supports this via a few configuration options:</p>
+<pre class="code ini literal-block">
+<span class="na">set pgp_sign_as</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">0xE629112D</span><span class="w">
+</span><span class="na">set crypt_autosign</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;yes&quot;</span><span class="w">
+</span><span class="na">set crypt_verify_sig</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;yes&quot;</span><span class="w">
+</span><span class="na">set crypt_replysign</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;yes&quot;</span>
+</pre>
+<p>E-mails will be signed when they're going out, and when a signed e-mail comes
+in, <a class="reference external" href="https://www.neomutt.org">neomutt</a> will verify the signature if the key is available and so on. If
+you're not using GPG keys, this <a class="reference external" href="https://fedoraproject.org/wiki/Creating_GPG_Keys">guide on the Fedora wiki</a> is a great guide for
+beginners.</p>
+</div>
+<div class="section" id="viewing-html-mail-and-attachments">
+<h3>Viewing HTML mail and attachments</h3>
+<p>Even though I send all my e-mail as plain text, I do receive lots of HTML mail.
+<a class="reference external" href="https://www.neomutt.org">neomutt</a> can be set up to automatically view HTML e-mail. It does so by using a
+tool such as <code>w3m</code> to strip the e-mail of HTML tags and show the text.
+The screenshot below shows an example HTML from Quora.</p>
+<div class="figure align-center">
+<a class="reference external image-reference" href="https://ankursinha.in/images/20171215-neomutt-html.png">
+<img alt="A screenshot of Neomutt showing HTML e-mail." src="https://ankursinha.in/images/20171215-neomutt-html.png" style="height: 480.0px;" />
+</a>
+</div>
+<p>A simple configuration line tells <a class="reference external" href="https://www.neomutt.org">neomutt</a> what to do:</p>
+<pre class="code ini literal-block">
+<span class="na">auto_view text/html</span>
+</pre>
+<p><a class="reference external" href="https://www.neomutt.org">neomutt</a> uses information from <code>mailcap</code> to do this. For those that are
+unaware of what <code>mailcap</code> is, like I was, <a class="reference external" href="https://linux.die.net/man/4/mailcap">here's the manual page</a>.</p>
+<p>The configuration file for <code>mailcap</code> is <code>~/.mailcaprc</code>. Mine looks
+like this:</p>
+<pre class="code literal-block">
+audio/*; /usr/bin/xdg-open %s ; copiousoutput
+
+image/*; /usr/bin/xdg-open %s ; copiousoutput
+
+application/msword; /usr/bin/xdg-open %s ; copiousoutput
+application/pdf; /usr/bin/xdg-open %s ; copiousoutput
+application/postscript ; /usr/bin/xdg-open %s ; copiousoutput
+
+text/html; qutebrowser %s &amp;&amp; sleep 5 ; test=test -n &quot;$DISPLAY&quot;;
+nametemplate=%s.html; needsterminal
+# text/html; lynx -dump %s ; copiousoutput; nametemplate=%s.html
+text/html; w3m -I %{charset} -T text/html ; copiousoutput; nametemplate=%s.html
+</pre>
+<p>One can use either <code>lynx</code> or <code>w3m</code>. I tried both and settled for
+<code>w3m</code>. <a class="reference external" href="http://getfedora.org">Fedora</a> systems have a default <code>mailcaprc</code> file at
+<code>/etc/mailcap</code> which I adapted from. The <code>copiousoutput</code> option
+tells <a class="reference external" href="https://www.neomutt.org">neomutt</a> not to quickly delete the temporary file.</p>
+<p>For cases where HTML e-mails also contain images, one can simply open the HTML
+e-mail in a browser. The HTML e-mails are present as attachements to the e-mail
+message. Pressing <code>v</code> on an e-mail message shows the attachement menu.
+The screenshot below shows the attachment menu for the same e-mail as above.
+Hitting enter opens up the HTML attached version in the browser I've set up in
+my <code>mailcap</code> above, <code>qutebrowser</code>.</p>
+<div class="figure align-center">
+<a class="reference external image-reference" href="https://ankursinha.in/images/20171215-neomutt-attachments.png">
+<img alt="A screenshot of Neomutt showing e-mail attachments." src="https://ankursinha.in/images/20171215-neomutt-attachments.png" style="height: 480.0px;" />
+</a>
+</div>
+<p>Note: all attachments can be viewed like this.</p>
+</div>
+<div class="section" id="viewing-links-with-urlview">
+<h3>Viewing links with urlview</h3>
+<p>Since I use <a class="reference external" href="http://byobu.co/">byobu</a>, which is based on either <a class="reference external" href="https://github.com/tmux/tmux/wiki">tmux</a> or <a class="reference external" href="https://www.gnu.org/software/screen/">screen</a>, I can copy and
+paste any text in the terminal using their buffers. <a class="reference external" href="https://www.neomutt.org">neomutt</a> provides an easier
+way, though, using <a class="reference external" href="https://github.com/sigpipe/urlview">urlview</a>. So, binding ctrl-b to <a class="reference external" href="https://github.com/sigpipe/urlview">urlview</a> will put the e-mail
+through <a class="reference external" href="https://github.com/sigpipe/urlview">urlview</a> to show a menu of all URLs in it. One can then pick what URL
+to open, as the screenshot below shows:</p>
+<pre class="code literal-block">
+# urlview bits
+macro index \cb | urlview\n
+macro pager \cb | urlview\n
+</pre>
+<div class="figure align-center">
+<a class="reference external image-reference" href="https://ankursinha.in/images/20171215-neomutt-urlview.png">
+<img alt="A screenshot of Neomutt with urlview." src="https://ankursinha.in/images/20171215-neomutt-urlview.png" style="height: 480.0px;" />
+</a>
+</div>
+</div>
+</div>
+<div class="section" id="right-then-let-s-stick-to-the-home-row">
+<h2>Right then, let's stick to the home row!</h2>
+<p>This post turned out to be a lot lengthier than I'd expected. There's always so
+much tweaking one can do. I hope this helps somewhat. It isn't complete by a
+far stretch, but it should include enough hints and links to enable a reader to
+Google up and figure things out. Read the docs, read the manuals---it's all in
+there.</p>
+<p>Happy e-mailing!</p>
+</div>
+<div class="section" id="incomplete-list-of-references">
+<h2>Incomplete list of references</h2>
+<p>Here are most of the links I looked at, in no particular order:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://hobo.house/2015/09/09/take-control-of-your-email-with-mutt-offlineimap-notmuch/">https://hobo.house/2015/09/09/take-control-of-your-email-with-mutt-offlineimap-notmuch/</a></li>
+<li><a class="reference external" href="https://github.com/sadsfae/misc-dotfiles/blob/master/muttrc-gpg.txt">https://github.com/sadsfae/misc-dotfiles/blob/master/muttrc-gpg.txt</a></li>
+<li><a class="reference external" href="http://upsilon.cc/~zack/blog/posts/2011/01/how_to_use_Notmuch_with_Mutt/">http://upsilon.cc/~zack/blog/posts/2011/01/how_to_use_Notmuch_with_Mutt/</a></li>
+<li><a class="reference external" href="https://notmuchmail.org/">https://notmuchmail.org/</a></li>
+<li><a class="reference external" href="https://git.notmuchmail.org/git/notmuch/blob/HEAD:/vim/README">https://git.notmuchmail.org/git/notmuch/blob/HEAD:/vim/README</a></li>
+<li><a class="reference external" href="https://www.neomutt.org/guide/optionalfeatures">https://www.neomutt.org/guide/optionalfeatures</a></li>
+<li><a class="reference external" href="https://wiki.archlinux.org/index.php/OfflineIMAP#Using_pass">https://wiki.archlinux.org/index.php/OfflineIMAP#Using_pass</a></li>
+<li><a class="reference external" href="http://www.df7cb.de/blog/2010/Using_multiple_IMAP_accounts_with_Mutt.html">http://www.df7cb.de/blog/2010/Using_multiple_IMAP_accounts_with_Mutt.html</a></li>
+<li><a class="reference external" href="https://github.com/OfflineIMAP/offlineimap/blob/master/offlineimap.conf">https://github.com/OfflineIMAP/offlineimap/blob/master/offlineimap.conf</a></li>
+<li><a class="reference external" href="https://wiki.archlinux.org/index.php/OfflineIMAP">https://wiki.archlinux.org/index.php/OfflineIMAP</a></li>
+<li><a class="reference external" href="http://www.offlineimap.org/doc/use_cases.html">http://www.offlineimap.org/doc/use_cases.html</a></li>
+<li><a class="reference external" href="https://sparkslinux.wordpress.com/2014/01/30/configuring-offlineimap-to-validate-ssltls-certificates/">https://sparkslinux.wordpress.com/2014/01/30/configuring-offlineimap-to-validate-ssltls-certificates/</a></li>
+<li><a class="reference external" href="http://stevelosh.com/blog/2012/10/the-homely-mutt/#why-local-email">http://stevelosh.com/blog/2012/10/the-homely-mutt/#why-local-email</a></li>
+<li><a class="reference external" href="https://raisedfist.net/2017-05-02/muttupdated/">https://raisedfist.net/2017-05-02/muttupdated/</a></li>
+<li><a class="reference external" href="https://stackoverflow.com/questions/18765928/mutt-send-signature-hook">https://stackoverflow.com/questions/18765928/mutt-send-signature-hook</a></li>
+<li><a class="reference external" href="https://notmuchmail.org/vimtips/">https://notmuchmail.org/vimtips/</a></li>
+<li><a class="reference external" href="https://www.neomutt.org/guide/configuration.html#my-hdr">https://www.neomutt.org/guide/configuration.html#my-hdr</a></li>
+<li><a class="reference external" href="https://www.neomutt.org/guide/advancedusage.html">https://www.neomutt.org/guide/advancedusage.html</a></li>
+<li><a class="reference external" href="https://github.com/neomutt/neomutt/issues/629">https://github.com/neomutt/neomutt/issues/629</a> - address completion using
+notmuch</li>
+<li><a class="reference external" href="http://jasonwryan.com/blog/2012/05/12/mutt/">http://jasonwryan.com/blog/2012/05/12/mutt/</a></li>
+</ul>
+</div>
+
+  </div>
+  
+  <div>  <!-- Social media sharing buttons -->
+  <hr />
+    <ul class="list-inline">
+      <li class="list-inline-item text-muted" title="Share"><i class="fas fa-share-alt" title="Share this post"></i> Share this post:</li>
+      <li class="list-inline-item"><a class="fab fa-mastodon" href="https://toot.kytta.dev/?text=Transitioning%20to%20Neomutt%20and%20friends%20for%20e-mail%0D%0Ahttps%3A//ankursinha.in/2017/12/16/transitioning-to-neomutt-and-friends-for-e-mail.html%0D%0A%23Fedora" target="_blank" title="Share on mastodon"></a></li>
+      <li class="list-inline-item"><a class="fab fa-twitter" href="https://twitter.com/intent/tweet?text=Transitioning%20to%20Neomutt%20and%20friends%20for%20e-mail&url=https%3A//ankursinha.in/2017/12/16/transitioning-to-neomutt-and-friends-for-e-mail.html&via=sanjay_ankur&hashtags=fedora" target="_blank" title="Share on Twitter"></a></li>
+      <li class="list-inline-item"><a class="fab fa-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3A//ankursinha.in/2017/12/16/transitioning-to-neomutt-and-friends-for-e-mail.html" target="_blank" title="Share on Facebook"></a></li>
+      <li class="list-inline-item"><a class="fab fa-reddit" href="https://www.reddit.com/submit?url=https%3A//ankursinha.in/2017/12/16/transitioning-to-neomutt-and-friends-for-e-mail.html&title=Transitioning%20to%20Neomutt%20and%20friends%20for%20e-mail" target="_blank" title="Share on Reddit"></a></li>
+      <li class="list-inline-item"><a class="fab fa-linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A//ankursinha.in/2017/12/16/transitioning-to-neomutt-and-friends-for-e-mail.html&title=Transitioning%20to%20Neomutt%20and%20friends%20for%20e-mail&summary=I%20finally%20took%20some%20time%20out%20to%20set%20up%20neomutt%20and%20related%20tools%0Athat%20let%20me%20access%20my%20e-mail%20in%20a%20terminal.%20This%20post%20documents%20how%20I%0Awent%20about%20it.&source=https%3A//ankursinha.in/2017/12/16/transitioning-to-neomutt-and-friends-for-e-mail.html" target="_blank" title="Share via LinkedIn<"></a></li>
+      <li class="list-inline-item"><a class="fas fa-mail-bulk" href="mailto:?subject=Transitioning%20to%20Neomutt%20and%20friends%20for%20e-mail&amp;body=https%3A//ankursinha.in/2017/12/16/transitioning-to-neomutt-and-friends-for-e-mail.html" target="_blank" title="Share via E-mail"></a></li>
+    </ul>
+  <hr />
+  </div> <!-- /Social media sharing buttons -->
+  <div class="comments">
+	<h2>Comments</h2>
+	<div id="disqus_thread"></div>
+	<script type="text/javascript">
+				   (function() {
+						var dsq = document.createElement('script');
+						dsq.type = 'text/javascript'; dsq.async = true;
+						dsq.src = '//ankursinha.disqus.com/embed.js';
+						(document.getElementsByTagName('head')[0] ||
+						 document.getElementsByTagName('body')[0]).appendChild(dsq);
+				  })();
+	</script>
+  </div>
+</article>
+        </div><!-- /content -->
+
+        <div class="col-md-3 sidebar-nav" id="sidebar">
+
+<div class="row">
+
+<div class="col-xs-6 col-md-12">
+<h4><i class="fas fa-comment fa-fw fa-lg"></i> Social</h4>
+<ul class="list-unstyled social-links">
+    <li><a rel="me" href="https://duckduckgo.com/?q=site%3Aankursinha.in&ia=web" target="_blank">
+	  <i class="fas fa-search fa-fw fa-lg" title="Search (DuckDuckGo)"></i>
+		Search (DuckDuckGo)
+	</a></li>
+    <li><a rel="me" href="www.linkedin.com/in/ankur-sinha-phd" target="_blank">
+	  <i class="fa fa-linkedin-square fa-fw fa-lg" title="LinkedIn"></i>
+		LinkedIn
+	</a></li>
+    <li><a rel="me" href="http://github.com/sanjayankur31" target="_blank">
+	  <i class="fab fa-github fa-fw fa-lg" title="GitHub"></i>
+		GitHub
+	</a></li>
+    <li><a rel="me" href=" https://orcid.org/0000-0001-7568-7167" target="_blank">
+	  <i class="fas fa-flask fa-fw fa-lg" title="Orcid"></i>
+		Orcid
+	</a></li>
+    <li><a rel="me" href="http://scholar.google.co.in/citations?user=919ScZEAAAAJ&hl=en" target="_blank">
+	  <i class="fas fa-graduation-cap fa-fw fa-lg" title="Scholar"></i>
+		Scholar
+	</a></li>
+    <li><a rel="me" href="https://fedoraproject.org/wiki/User:Ankursinha" target="_blank">
+	  <i class="fab fa-fedora fa-fw fa-lg" title="Fedora"></i>
+		Fedora
+	</a></li>
+    <li><a rel="me" href="https://ramblingreaders.org/user/sanjay_ankur" target="_blank">
+	  <i class="fas fa-book-reader fa-fw fa-lg" title="BookWyrm"></i>
+		BookWyrm
+	</a></li>
+    <li><a rel="me" href="https://fosstodon.org/@sanjay_ankur" target="_blank">
+	  <i class="fab fa-mastodon fa-fw fa-lg" title="Mastodon"></i>
+		Mastodon
+	</a></li>
+    <li><a rel="me" href="https://bsky.app/profile/sanjay-ankur.bsky.social" target="_blank">
+	  <i class="fas fa-people-arrows fa-fw fa-lg" title="BlueSky"></i>
+		BlueSky
+	</a></li>
+    <li><a rel="me" href="https://www.goodreads.com/user/show/32360473-ankur" target="_blank">
+	  <i class="fab fa-goodreads-g fa-fw fa-lg" title="Goodreads"></i>
+		Goodreads
+	</a></li>
+    <li><a rel="me" href="https://twitter.com/sanjay_ankur" target="_blank">
+	  <i class="fab fa-twitter fa-fw fa-lg" title="X"></i>
+		X
+	</a></li>
+    <li><a rel="me" href="https://coff.ee/sanjayankuu" target="_blank">
+	  <i class="fas fa-mug-hot fa-fw fa-lg" title="Buy me a coffee!"></i>
+		Buy me a coffee!
+	</a></li>
+</ul>
+</div>
+
+<div class="col-xs-6 col-md-12">
+<h4><i class="fas fa-folder fa-fw fa-lg"></i> Categories</h4>
+<ul class="list-unstyled category-links">
+  <li><a href="https://ankursinha.in/category/life/" >
+    <i class="fas fa-folder-open fa-fw fa-lg"></i> Life</a></li>
+  <li><a href="https://ankursinha.in/category/other/" >
+    <i class="fas fa-folder-open fa-fw fa-lg"></i> Other</a></li>
+  <li><a href="https://ankursinha.in/category/research/" >
+    <i class="fas fa-folder-open fa-fw fa-lg"></i> Research</a></li>
+  <li><a href="https://ankursinha.in/category/tech/" >
+    <i class="fas fa-folder-open fa-fw fa-lg"></i> Tech</a></li>
+</ul>
+</div>
+
+</div> <!-- /row -->
+
+  <h4><i class="fas fa-link fa-fw fa-lg"></i> Links</h4>
+  <ul class="list-unstyled category-links">
+    <li><a href="https://neuro.fedoraproject.org" >
+      <i class="fas fa-external-link-square-alt fa-fw fa-lg"></i> NeuroFedora</a></li>
+    <li><a href="http://fedoraproject.org" >
+      <i class="fas fa-external-link-square-alt fa-fw fa-lg"></i> Fedora Linux</a></li>
+    <li><a href="https://ocns.github.io/SoftwareWG/" >
+      <i class="fas fa-external-link-square-alt fa-fw fa-lg"></i> INCF/OCNS Software WG</a></li>
+    <li><a href="https://neuroblog.fedoraproject.org/planet-neuroscience/" >
+      <i class="fas fa-external-link-square-alt fa-fw fa-lg"></i> Neuroscience feeds</a></li>
+    <li><a href="https://neuroblog.fedoraproject.org/planet-neuroscientists/" >
+      <i class="fas fa-external-link-square-alt fa-fw fa-lg"></i> Neuroscientists feeds</a></li>
+  </ul>
+<h4><i class="fas fa-tags fa-fw fa-lg"></i> Tags</h4>
+<p class="tag-cloud">
+    <span class="tag-2">
+      <a href="https://ankursinha.in/tag/neurofedora/">
+          <i class="fas fa-tag"></i>
+        NeuroFedora
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="https://ankursinha.in/tag/vim/">
+          <i class="fas fa-tag"></i>
+        Vim
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="https://ankursinha.in/tag/open-source-brain/">
+          <i class="fas fa-tag"></i>
+        Open Source Brain
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="https://ankursinha.in/tag/zaphod/">
+          <i class="fas fa-tag"></i>
+        Zaphod
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="https://ankursinha.in/tag/social/">
+          <i class="fas fa-tag"></i>
+        Social
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="https://ankursinha.in/tag/pelican/">
+          <i class="fas fa-tag"></i>
+        Pelican
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="https://ankursinha.in/tag/neuroml/">
+          <i class="fas fa-tag"></i>
+        NeuroML
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="https://ankursinha.in/tag/flatpak/">
+          <i class="fas fa-tag"></i>
+        FlatPak
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="https://ankursinha.in/tag/irc/">
+          <i class="fas fa-tag"></i>
+        IRC
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="https://ankursinha.in/tag/neuron/">
+          <i class="fas fa-tag"></i>
+        Neuron
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="https://ankursinha.in/tag/community/">
+          <i class="fas fa-tag"></i>
+        Community
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="https://ankursinha.in/tag/computational-neuroscience/">
+          <i class="fas fa-tag"></i>
+        Computational Neuroscience
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="https://ankursinha.in/tag/python/">
+          <i class="fas fa-tag"></i>
+        Python
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="https://ankursinha.in/tag/gnome/">
+          <i class="fas fa-tag"></i>
+        GNOME
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="https://ankursinha.in/tag/git/">
+          <i class="fas fa-tag"></i>
+        Git
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="https://ankursinha.in/tag/github/">
+          <i class="fas fa-tag"></i>
+        GitHub
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="https://ankursinha.in/tag/ucl/">
+          <i class="fas fa-tag"></i>
+        UCL
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="https://ankursinha.in/tag/bash/">
+          <i class="fas fa-tag"></i>
+        Bash
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="https://ankursinha.in/tag/fedora/">
+          <i class="fas fa-tag"></i>
+        Fedora
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="https://ankursinha.in/tag/latex/">
+          <i class="fas fa-tag"></i>
+        LaTeX
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="https://ankursinha.in/tag/matlab/">
+          <i class="fas fa-tag"></i>
+        Matlab
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="https://ankursinha.in/tag/nest/">
+          <i class="fas fa-tag"></i>
+        NEST
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="https://ankursinha.in/tag/linux/">
+          <i class="fas fa-tag"></i>
+        Linux
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="https://ankursinha.in/tag/taskwarrior/">
+          <i class="fas fa-tag"></i>
+        Taskwarrior
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="https://ankursinha.in/tag/free-software/">
+          <i class="fas fa-tag"></i>
+        Free software
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="https://ankursinha.in/tag/gsoc/">
+          <i class="fas fa-tag"></i>
+        GSoC
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="https://ankursinha.in/tag/planet/">
+          <i class="fas fa-tag"></i>
+        Planet
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="https://ankursinha.in/tag/robotics/">
+          <i class="fas fa-tag"></i>
+        Robotics
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="https://ankursinha.in/tag/programming/">
+          <i class="fas fa-tag"></i>
+        Programming
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="https://ankursinha.in/tag/events/">
+          <i class="fas fa-tag"></i>
+        Events
+      </a>
+    </span>
+</p>
+<h4><i class="fas fa-rss fa-fw fa-lg"></i> Feeds</h4>
+<ul class="list-unstyled">
+    <li><a href="https://ankursinha.in/feeds/all.atom.xml" 
+		   type="application/atom+xml" rel="alternate">
+		<i class="fas fa-rss-square fa-fw fa-lg"></i> Atom Feed</a></li>
+    <li><a href="https://ankursinha.in/feeds/all.rss.xml" 
+		   type="application/rss+xml" rel="alternate">
+		<i class="fas fa-rss-square fa-fw fa-lg"></i> RSS feed</a></li>
+</ul>
+
+<hr />
+
+        </div><!--/sidebar -->
+      </div><!--/row-->
+    </div><!--/.container /#main-container -->
+
+    <footer id="site-footer">
+ 
+      <address id="site-colophon">
+        <p class="text-center text-muted">
+        <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br /><a href="http://ankursinha.in/" target="_blank" xmlns:dct="http://purl.org/dc/terms/" property="dct:title">ankursinha.in</a> by <a xmlns:cc="http://creativecommons.org/ns#" href="https://ankursinha.in/pages/01-about.html" property="cc:attributionName" rel="cc:attributionURL" target="_blank">Ankur Sinha</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Attribution 4.0 International License</a>.<br />
+        Site built using <a href="http://getpelican.com/" target="_blank">Pelican</a>
+        &nbsp;&bull;&nbsp; Theme based on
+        <a href="http://www.voidynullness.net/page/voidy-bootstrap-pelican-theme/"
+           target="_blank">VoidyBootstrap</a> by 
+        <a href="http://voidynullness.net"
+           target="_blank">RKI</a>  
+        </p>
+      </address><!-- /colophon  -->
+    </footer>
+
+<!-- DISQUS script for displaying comment count -->
+<script type="text/javascript">
+    var disqus_shortname = 'ankursinha';
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+
+    <!-- javascript -->
+   
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+    <script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+
+	<script src="https://kit.fontawesome.com/9f8622f8d1.js"></script>
+
+<!-- Facebook -->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+</script>
+
+<!-- Twitter -->
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+<!-- Google+ -->
+<!-- Synchronous 
+<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+-->
+<!-- Asynchronous -->
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/platform.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>  </body>
+</html>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>ankursinha.in/blog - Neuroscience</title><link href="https://ankursinha.in/" rel="alternate"/><link href="https://ankursinha.in/feeds/tags/neuroscience.atom.xml" rel="self"/><id>https://ankursinha.in/</id><updated>2025-09-23T10:44:04+01:00</updated><subtitle>neuroscience/fedora/musings</subtitle><entry><title>A Cookiecutter template to quickstart NeuroML modelling projects</title><link href="https://ankursinha.in/2025/09/23/a-cookiecutter-template-to-quickstart-neuroml-modelling-projects.html" rel="alternate"/><published>2025-09-23T10:44:04+01:00</published><updated>2025-09-23T10:44:04+01:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2025-09-23:/2025/09/23/a-cookiecutter-template-to-quickstart-neuroml-modelling-projects.html</id><summary type="html">&lt;p class="first last"&gt;I created a &lt;a class="reference external" href="https://cookiecutter.readthedocs.io/en/stable/"&gt;Cookiecutter&lt;/a&gt; project template that incorporates recommended modelling and coding practices to accelerate setting up a &lt;a class="reference external" href="https://docs.neuroml.org"&gt;NeuroML&lt;/a&gt; modelling project.&lt;/p&gt;
+</summary><content type="html">&lt;center&gt;&lt;a class="reference external image-reference" href="#"&gt;
+&lt;img alt="Cookiecutter and NeuroML project logos" src="https://ankursinha.in/images/20250923-neuroml-cookiecutter.png" style="height: 180.0px;" /&gt;
+&lt;/a&gt;
+&lt;/center&gt;&lt;p&gt;Creating new modelling projects, like other programming projects, include a number of repeated steps.
+When using the &lt;a class="reference external" href="https://docs.neuroml.org"&gt;NeuroML&lt;/a&gt; standard, one would use the &lt;a class="reference external" href="https://libneuroml.readthedocs.io/en/development/userdocs/"&gt;libNeuroML API&lt;/a&gt; to:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;create a new NeuroMLDocument (top level container class that includes all NeuroML components)&lt;/li&gt;
+&lt;li&gt;create a network&lt;/li&gt;
+&lt;li&gt;create populations&lt;/li&gt;
+&lt;li&gt;add cells&lt;/li&gt;
+&lt;li&gt;add connections&lt;/li&gt;
+&lt;li&gt;add stimuli&lt;/li&gt;
+&lt;li&gt;record various quantities (membrane potentials, for example)&lt;/li&gt;
+&lt;li&gt;create a &lt;a class="reference external" href="https://docs.neuroml.org/Userdocs/NeuroMLv2AndLEMS.html"&gt;LEMS&lt;/a&gt; simulation&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;One also needs to, among other steps, at least:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;install the NeuroML python packages: &lt;a class="reference external" href="https://docs.neuroml.org/Userdocs/Software/pyNeuroML.html"&gt;pyNeuroML&lt;/a&gt; pulls in most of them&lt;/li&gt;
+&lt;li&gt;select the simulation engine, and install the &lt;a class="reference external" href="https://docs.neuroml.org/Userdocs/Software/pyNeuroML.html"&gt;pyNeuroML&lt;/a&gt; extra to pull that in&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This is sufficient to create and simulate a model.
+Most people would tend to stop here, because this is really all they need to run their simulations and carry out their research.
+This is fine, but it misses out on recommended/best practices which make the modelling project:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;easier to manage and collaborate on&lt;/li&gt;
+&lt;li&gt;ready for sharing/reuse from the beginning (instead of people &amp;quot;cleaning up&amp;quot; their code in a panic when they need to share it as part of a publication)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;So, for &lt;a class="reference external" href="https://docs.neuroml.org"&gt;NeuroML&lt;/a&gt; projects, I created a &lt;a class="reference external" href="https://cookiecutter.readthedocs.io/en/stable/"&gt;Cookiecutter&lt;/a&gt; template that generates all of this boilerplate code, and implements a number of general and &lt;a class="reference external" href="https://docs.neuroml.org"&gt;NeuroML&lt;/a&gt; related best practices:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;adds a license&lt;/li&gt;
+&lt;li&gt;creates a clean directory structure that separates code from data, model code from analysis code, and model/simulation parameters from the model generation logic&lt;/li&gt;
+&lt;li&gt;creates a template Python script to create and simulate the model&lt;/li&gt;
+&lt;li&gt;adds &lt;a class="reference external" href="https://typer.tiangolo.com/"&gt;Typer&lt;/a&gt; based command line support in the script&lt;/li&gt;
+&lt;li&gt;sets up the project as a Git repository&lt;/li&gt;
+&lt;li&gt;adds requirements.txt files, linters, pre-commit hooks, and so on---things that we commonly use in software development&lt;/li&gt;
+&lt;li&gt;adds continuous validation of the model using the &lt;a class="reference external" href="https://github.com/OpenSourceBrain/osb-model-validation"&gt;OSB Model Validation framework&lt;/a&gt; as a GitHub Action (model validation is another strength of &lt;a class="reference external" href="https://docs.neuroml.org"&gt;NeuroML&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;enables the use of &lt;a class="reference external" href="https://git-annex.branchable.com/"&gt;git-annex&lt;/a&gt; to manage data in a separate repository&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Here is what the directory structure looks like.
+The &lt;code&gt;{{ cookiecutter.__project_slug }}&lt;/code&gt; and similar bits get renamed by &lt;a class="reference external" href="https://cookiecutter.readthedocs.io/en/stable/"&gt;Cookiecutter&lt;/a&gt; to create the required files/folders:&lt;/p&gt;
+&lt;pre class="code bash literal-block"&gt;
+$&lt;span class="w"&gt; &lt;/span&gt;tree&lt;span class="w"&gt; &lt;/span&gt;-a&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="se"&gt;\{\{\ &lt;/span&gt;cookiecutter.__project_slug&lt;span class="se"&gt;\ \}\}&lt;/span&gt;/&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="o"&gt;{{&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;cookiecutter.__project_slug&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;}}&lt;/span&gt;/&lt;span class="w"&gt;
+&lt;/span&gt;├--&lt;span class="w"&gt; &lt;/span&gt;code&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;├--&lt;span class="w"&gt; &lt;/span&gt;analysis&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;└--&lt;span class="w"&gt; &lt;/span&gt;Readme.md&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;├--&lt;span class="w"&gt; &lt;/span&gt;.flake8&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;├--&lt;span class="w"&gt; &lt;/span&gt;model&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;├--&lt;span class="w"&gt; &lt;/span&gt;cells&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;└--&lt;span class="w"&gt; &lt;/span&gt;.test.validate.omt&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;├--&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;{{&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;cookiecutter.__project_slug_nospace&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;}}&lt;/span&gt;.py&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;├--&lt;span class="w"&gt; &lt;/span&gt;inputs&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;└--&lt;span class="w"&gt; &lt;/span&gt;.test.validate.omt&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;├--&lt;span class="w"&gt; &lt;/span&gt;parameters&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;├--&lt;span class="w"&gt; &lt;/span&gt;general.json&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;└--&lt;span class="w"&gt; &lt;/span&gt;model.json&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;├--&lt;span class="w"&gt; &lt;/span&gt;Readme.md&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;└--&lt;span class="w"&gt; &lt;/span&gt;synapses&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt;       &lt;/span&gt;└--&lt;span class="w"&gt; &lt;/span&gt;.test.validate.omt&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;├--&lt;span class="w"&gt; &lt;/span&gt;.pre-commit-config.yaml&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;├--&lt;span class="w"&gt; &lt;/span&gt;requirements-dev.txt&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;└--&lt;span class="w"&gt; &lt;/span&gt;requirements.txt&lt;span class="w"&gt;
+&lt;/span&gt;├--&lt;span class="w"&gt; &lt;/span&gt;data&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;└--&lt;span class="w"&gt; &lt;/span&gt;Readme.md&lt;span class="w"&gt;
+&lt;/span&gt;├--&lt;span class="w"&gt; &lt;/span&gt;.github&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;└--&lt;span class="w"&gt; &lt;/span&gt;workflows&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt;       &lt;/span&gt;└--&lt;span class="w"&gt; &lt;/span&gt;omv-ci.yml&lt;span class="w"&gt;
+&lt;/span&gt;├--&lt;span class="w"&gt; &lt;/span&gt;LICENSE&lt;span class="w"&gt;
+&lt;/span&gt;└--&lt;span class="w"&gt; &lt;/span&gt;Readme.md
+&lt;/pre&gt;
+&lt;p&gt;Here is a video that illustrates creation of an example project using the template.
+One can install &lt;a class="reference external" href="https://cookiecutter.readthedocs.io/en/stable/"&gt;Cookiecutter&lt;/a&gt; in a virtual environment using &lt;code&gt;pip&lt;/code&gt; or &lt;code&gt;uv&lt;/code&gt; from PyPi, and run this command to get the template and interactively create a new project:&lt;/p&gt;
+&lt;pre class="code bash literal-block"&gt;
+$&lt;span class="w"&gt; &lt;/span&gt;cookiecutter&lt;span class="w"&gt; &lt;/span&gt;gh:sanjayankur31/neuroml-model-template
+&lt;/pre&gt;
+&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/8t1S4M0T_HY" frameborder="0" allowfullscreen&gt;
+&lt;/iframe&gt;&lt;p&gt;I am using the template myself, so I have tested the template, and there is CI in the repository to make sure it functions correctly with the default set up.
+I expect it will evolve further as others use it and provide more ideas/feedback on additional features that may be useful to include.&lt;/p&gt;
+&lt;p&gt;So, please, give it a go, and let me know what you think.&lt;/p&gt;
+</content><category term="Research"/><category term="NeuroML"/><category term="Cookiecutter"/><category term="Neuroscience"/><category term="Computational Neuroscience"/><category term="Pre-commit"/><category term="Python"/><category term="libNeuroML"/><category term="PyNeuroML"/><category term="GitHub"/><category term="Git"/></entry></feed>

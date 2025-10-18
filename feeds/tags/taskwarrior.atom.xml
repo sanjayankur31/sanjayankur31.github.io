@@ -1,0 +1,712 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>ankursinha.in/blog - Taskwarrior</title><link href="https://ankursinha.in/" rel="alternate"/><link href="https://ankursinha.in/feeds/tags/taskwarrior.atom.xml" rel="self"/><id>https://ankursinha.in/</id><updated>2025-07-08T12:36:09+01:00</updated><subtitle>neuroscience/fedora/musings</subtitle><entry><title>Splitting Taskwarrior tasks to sub-tasks</title><link href="https://ankursinha.in/2025/07/05/splitting-taskwarrior-tasks-to-sub-tasks.html" rel="alternate"/><published>2025-07-05T13:11:35+01:00</published><updated>2025-07-08T12:36:09+01:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2025-07-05:/2025/07/05/splitting-taskwarrior-tasks-to-sub-tasks.html</id><summary type="html">&lt;p class="first last"&gt;A quick script to split Taskwarrior tasks in to sub-tasks.&lt;/p&gt;
+</summary><content type="html">&lt;center&gt;&lt;a class="reference external image-reference" href="https://taskwarrior.org"&gt;
+&lt;img alt="Logo for Taskwarrior" src="https://ankursinha.in/images/20250705-tw.png" style="height: 150.0px;" /&gt;
+&lt;/a&gt;
+&lt;/center&gt;&lt;p&gt;A feature that I often miss in &lt;a class="reference external" href="https://taskwarrior.org/"&gt;Taskwarrior&lt;/a&gt; (which I use for managing my tasks in a &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Getting_Things_Done"&gt;Getting Things Done&lt;/a&gt; method) is the ability to split tasks into sub-tasks.&lt;/p&gt;
+&lt;p&gt;A common use case, for example, is when I add a research paper that I want to read to my task list.
+It's usually added as &amp;quot;Read &amp;lt;title of research paper&amp;gt;&amp;quot;, with the URL or the file path as an annotation.
+However, when I do get down to read it, I want to break it down into smaller, manageable tasks that I can do over a few days such as &amp;quot;Read introduction&amp;quot;, &amp;quot;Read results&amp;quot;.
+This applies for lots of other tasks too, which turn into projects with sub-tasks when I finally do get down to working on them.&lt;/p&gt;
+&lt;p&gt;The way to do it is to create new tasks for each of these, and then replace the original task with them.
+It is also a workflow that cab be easily scripted so that one doesn't have to manually create the tasks and copy over annotations and so on.&lt;/p&gt;
+&lt;p&gt;Here is a script I wrote:&lt;/p&gt;
+&lt;pre class="code python literal-block"&gt;
+&lt;span class="ch"&gt;#!/usr/bin/env python3&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="sd"&gt;&amp;quot;&amp;quot;&amp;quot;
+Split a taskwarrior task into sub-tasks
+
+File: task-split.py
+
+Copyright 2025 Ankur Sinha
+Author: Ankur Sinha &amp;lt;sanjay DOT ankur AT gmail DOT com&amp;gt;
+&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+
+
+&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;typing&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;typer&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;subprocess&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;json&lt;/span&gt;&lt;span class="w"&gt;
+
+
+&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;logging&lt;/span&gt;&lt;span class="w"&gt;
+
+
+&lt;/span&gt;&lt;span class="n"&gt;logging&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;basicConfig&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;level&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;logging&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;NOTSET&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="n"&gt;logger&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;logging&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;getLogger&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;task-split&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="n"&gt;logger&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;setLevel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;logging&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;INFO&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="n"&gt;logger&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;propagate&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kc"&gt;False&lt;/span&gt;&lt;span class="w"&gt;
+
+&lt;/span&gt;&lt;span class="n"&gt;formatter&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;logging&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Formatter&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="si"&gt;%(name)s&lt;/span&gt;&lt;span class="s2"&gt; (&lt;/span&gt;&lt;span class="si"&gt;%(levelname)s&lt;/span&gt;&lt;span class="s2"&gt;): &lt;/span&gt;&lt;span class="si"&gt;%(message)s&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="n"&gt;handler&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;logging&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;StreamHandler&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="n"&gt;handler&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;setLevel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;logging&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;INFO&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="n"&gt;handler&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;setFormatter&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;formatter&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+
+&lt;/span&gt;&lt;span class="n"&gt;logger&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;addHandler&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;handler&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+
+
+&lt;/span&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;split&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;src_task&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;new_project&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;sub_tasks&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;typing&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;List&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;          &lt;span class="n"&gt;dry_run&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="nb"&gt;bool&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kc"&gt;True&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;-&amp;gt;&lt;/span&gt; &lt;span class="kc"&gt;None&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="sd"&gt;&amp;quot;&amp;quot;&amp;quot;Split task into new sub-tasks
+
+    For each provided sub_tasks string, a new task is created using the string
+    as description in the provided new_project. Annotations from the provided
+    src_task are copied over and the src_task is removed.
+
+    If dry_run is enabled (default), the src_task will be obtained but not
+    processed.
+
+    :param src_task: id of task to split
+    :type src_task: int
+    :param sub_tasks: list of sub-tasks to create
+    :type sub_tasks: list(str)
+    :returns: None
+
+    &amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;    &lt;span class="c1"&gt;# Always get info on the task&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;    &lt;span class="n"&gt;ret&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kc"&gt;None&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;    &lt;span class="n"&gt;get_task_command&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="sa"&gt;f&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;task &lt;/span&gt;&lt;span class="si"&gt;{&lt;/span&gt;&lt;span class="n"&gt;src_task&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt; export&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;    &lt;span class="n"&gt;logger&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;info&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;get_task_command&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;    &lt;span class="n"&gt;ret&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;subprocess&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;run&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;get_task_command&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;split&lt;/span&gt;&lt;span class="p"&gt;(),&lt;/span&gt; &lt;span class="n"&gt;stdout&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;subprocess&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;PIPE&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;stderr&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;subprocess&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;PIPE&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+
+&lt;/span&gt;    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;ret&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;returncode&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;        &lt;span class="n"&gt;task_stdout&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;ret&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;stdout&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;decode&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;encoding&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;utf-8&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;        &lt;span class="n"&gt;task_json&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;json&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;loads&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;task_stdout&lt;/span&gt;&lt;span class="p"&gt;)[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;        &lt;span class="n"&gt;logger&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;info&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;task_json&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;        &lt;span class="n"&gt;tags&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;task_json&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'tags'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="p"&gt;[])&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;        &lt;span class="n"&gt;priority&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;task_json&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'priority'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'L'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;        &lt;span class="n"&gt;due&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;task_json&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'due'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'eod'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;        &lt;span class="n"&gt;estimate&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;task_json&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'estimate'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'1h'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;        &lt;span class="n"&gt;impact&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;task_json&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'impact'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'L'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;        &lt;span class="n"&gt;annotations&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;task_json&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'annotations'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="p"&gt;[])&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;        &lt;span class="n"&gt;description&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;task_json&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'description'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;        &lt;span class="n"&gt;uuid&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;task_json&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'uuid'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+
+&lt;/span&gt;        &lt;span class="c1"&gt;# clear ret for future dry runs&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;        &lt;span class="n"&gt;ret&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kc"&gt;None&lt;/span&gt;&lt;span class="w"&gt;
+
+&lt;/span&gt;        &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;sub_task&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;sub_tasks&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;            &lt;span class="n"&gt;new_task_command&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="sa"&gt;f&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;task add project:&lt;/span&gt;&lt;span class="si"&gt;{&lt;/span&gt;&lt;span class="n"&gt;new_project&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt; tags:&lt;/span&gt;&lt;span class="si"&gt;{&lt;/span&gt;&lt;span class="s1"&gt;','&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;join&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;tags&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt; priority:&lt;/span&gt;&lt;span class="si"&gt;{&lt;/span&gt;&lt;span class="n"&gt;priority&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt; due:&lt;/span&gt;&lt;span class="si"&gt;{&lt;/span&gt;&lt;span class="n"&gt;due&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt; impact:&lt;/span&gt;&lt;span class="si"&gt;{&lt;/span&gt;&lt;span class="n"&gt;impact&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt; estimate:&lt;/span&gt;&lt;span class="si"&gt;{&lt;/span&gt;&lt;span class="n"&gt;estimate&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt; '&lt;/span&gt;&lt;span class="si"&gt;{&lt;/span&gt;&lt;span class="n"&gt;sub_task&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;'&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;            &lt;span class="n"&gt;logger&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;info&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;new_task_command&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+
+&lt;/span&gt;            &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="ow"&gt;not&lt;/span&gt; &lt;span class="n"&gt;dry_run&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;                &lt;span class="n"&gt;ret&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;subprocess&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;run&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;new_task_command&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;split&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;&lt;span class="w"&gt;
+
+&lt;/span&gt;            &lt;span class="n"&gt;annotate_task_command&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="sa"&gt;f&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;task +LATEST annotate '&lt;/span&gt;&lt;span class="si"&gt;{&lt;/span&gt;&lt;span class="n"&gt;description&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;'&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;            &lt;span class="n"&gt;logger&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;info&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;annotate_task_command&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;            &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="ow"&gt;not&lt;/span&gt; &lt;span class="n"&gt;dry_run&lt;/span&gt; &lt;span class="ow"&gt;and&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ret&lt;/span&gt; &lt;span class="ow"&gt;is&lt;/span&gt; &lt;span class="ow"&gt;not&lt;/span&gt; &lt;span class="kc"&gt;None&lt;/span&gt; &lt;span class="ow"&gt;and&lt;/span&gt; &lt;span class="n"&gt;ret&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;returncode&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;                &lt;span class="n"&gt;ret&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;subprocess&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;run&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;annotate_task_command&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;split&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;&lt;span class="w"&gt;
+
+&lt;/span&gt;            &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;annotation&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;annotations&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;                &lt;span class="n"&gt;annotation_description&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;annotation&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;'description'&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;                &lt;span class="n"&gt;annotate_task_command&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="sa"&gt;f&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;task +LATEST annotate '&lt;/span&gt;&lt;span class="si"&gt;{&lt;/span&gt;&lt;span class="n"&gt;annotation_description&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;'&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;                &lt;span class="n"&gt;logger&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;info&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;annotate_task_command&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;                &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="ow"&gt;not&lt;/span&gt; &lt;span class="n"&gt;dry_run&lt;/span&gt; &lt;span class="ow"&gt;and&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ret&lt;/span&gt; &lt;span class="ow"&gt;is&lt;/span&gt; &lt;span class="ow"&gt;not&lt;/span&gt; &lt;span class="kc"&gt;None&lt;/span&gt; &lt;span class="ow"&gt;and&lt;/span&gt; &lt;span class="n"&gt;ret&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;returncode&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;                    &lt;span class="n"&gt;ret&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;subprocess&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;run&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;annotate_task_command&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;split&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;&lt;span class="w"&gt;
+
+&lt;/span&gt;        &lt;span class="n"&gt;mark_original_as_done_command&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="sa"&gt;f&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;task uuid:&lt;/span&gt;&lt;span class="si"&gt;{&lt;/span&gt;&lt;span class="n"&gt;uuid&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt; done&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;        &lt;span class="n"&gt;logger&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;info&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;mark_original_as_done_command&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;        &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="ow"&gt;not&lt;/span&gt; &lt;span class="n"&gt;dry_run&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;            &lt;span class="n"&gt;ret&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;subprocess&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;run&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;mark_original_as_done_command&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;split&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;&lt;span class="w"&gt;
+
+
+&lt;/span&gt;&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="vm"&gt;__name__&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;__main__&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;    &lt;span class="n"&gt;typer&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;run&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;split&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;
+&lt;p&gt;It uses &lt;a class="reference external" href="https://typer.tiangolo.com/"&gt;typer&lt;/a&gt; to provide command line features:&lt;/p&gt;
+&lt;pre class="code bash literal-block"&gt;
+task-split&lt;span class="w"&gt; &lt;/span&gt;--help&lt;span class="w"&gt;
+
+&lt;/span&gt;Usage:&lt;span class="w"&gt; &lt;/span&gt;task-split&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;OPTIONS&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;SRC_TASK&lt;span class="w"&gt; &lt;/span&gt;NEW_PROJECT&lt;span class="w"&gt; &lt;/span&gt;SUB_TASKS...&lt;span class="w"&gt;
+
+&lt;/span&gt;Split&lt;span class="w"&gt; &lt;/span&gt;task&lt;span class="w"&gt; &lt;/span&gt;into&lt;span class="w"&gt; &lt;/span&gt;new&lt;span class="w"&gt; &lt;/span&gt;sub-tasks&lt;span class="w"&gt;
+
+&lt;/span&gt;Arguments&lt;span class="w"&gt;
+&lt;/span&gt;*&lt;span class="w"&gt;    &lt;/span&gt;src_task&lt;span class="w"&gt;         &lt;/span&gt;INTEGER&lt;span class="w"&gt;       &lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;default:&lt;span class="w"&gt; &lt;/span&gt;None&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;*&lt;span class="w"&gt;    &lt;/span&gt;new_project&lt;span class="w"&gt;      &lt;/span&gt;TEXT&lt;span class="w"&gt;          &lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;default:&lt;span class="w"&gt; &lt;/span&gt;None&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;*&lt;span class="w"&gt;    &lt;/span&gt;sub_tasks&lt;span class="w"&gt;        &lt;/span&gt;SUB_TASKS...&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;default:&lt;span class="w"&gt; &lt;/span&gt;None&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt;
+
+&lt;/span&gt;Options&lt;span class="w"&gt;
+&lt;/span&gt;--dry-run&lt;span class="w"&gt;    &lt;/span&gt;--no-dry-run&lt;span class="w"&gt;      &lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;default:&lt;span class="w"&gt; &lt;/span&gt;dry-run&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;--help&lt;span class="w"&gt;                         &lt;/span&gt;Show&lt;span class="w"&gt; &lt;/span&gt;this&lt;span class="w"&gt; &lt;/span&gt;message&lt;span class="w"&gt; &lt;/span&gt;and&lt;span class="w"&gt; &lt;/span&gt;exit.
+&lt;/pre&gt;
+&lt;p&gt;So, if one has a task &amp;quot;Put up shelves&amp;quot; with ID 800, it can now be broken into a number of smaller tasks:&lt;/p&gt;
+&lt;pre class="code bash literal-block"&gt;
+task-split&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;800&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;personal.shelves&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Buy shelves&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Buy drill&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Buy tools&amp;quot;&lt;/span&gt;
+&lt;/pre&gt;
+&lt;p&gt;This will add the new tasks to the &amp;quot;personal.shelves&amp;quot; topic, and copy over meta-data from the original task, such as annotations, priority, due date and other user defined attributes.
+It runs in &amp;quot;dry-run&amp;quot; mode by default to give me a chance to double-check the commands/tasks.
+To carry out the operations, pass the &lt;code&gt;--no-dry-run&lt;/code&gt; flag to the script too.&lt;/p&gt;
+&lt;p&gt;The script is heavily based on my personal workflow, but can easily be tweaked.
+It lives &lt;a class="reference external" href="https://github.com/sanjayankur31/100_dotfiles/blob/main/bin/task-split"&gt;here on GitHub&lt;/a&gt; and you are welcome to modify it to suit your own workflow.&lt;/p&gt;
+&lt;p&gt;Please remember to make it executable and put it in your PATH to be able to run the command on your terminal, and do remember to install typer.
+On Fedora, this would be &lt;code&gt;sudo dnf install python3-typer&lt;/code&gt;.&lt;/p&gt;
+</content><category term="Tech"/><category term="Taskwarrior"/><category term="Productivity"/><category term="Python"/></entry><entry><title>Vit aliases to view tasks over different periods</title><link href="https://ankursinha.in/2023/12/02/vit-aliases-to-view-tasks-over-different-periods.html" rel="alternate"/><published>2023-12-02T18:11:47+00:00</published><updated>2023-12-02T18:11:47+00:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2023-12-02:/2023/12/02/vit-aliases-to-view-tasks-over-different-periods.html</id><summary type="html">&lt;p class="first last"&gt;A few Vit aliases I use to get an overview of my tasks over different periods of time&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;I use &lt;a class="reference external" href="https://github.com/vit-project/vit"&gt;Vit&lt;/a&gt; as a terminal interface to view my &lt;a class="reference external" href="https://taskwarrior.org/"&gt;Taskwarrior&lt;/a&gt; tasks.
+In a terminal, that's just running the &lt;code&gt;vit&lt;/code&gt; command.
+Sometimes, one doesn't want to look at the full list, though.
+I usually have a few &amp;quot;views&amp;quot; of my tasks which give me a better idea of my work load.
+I add them to my &lt;code&gt;~/.bashrc&lt;/code&gt; so they're available as commands.
+Here they are.
+They're very simple, and should be modified to suit one's workflow:&lt;/p&gt;
+&lt;pre class="code bash literal-block"&gt;
+&lt;span class="c1"&gt;# filters common to all functions
+&lt;/span&gt;&lt;span class="nv"&gt;TASK_FILTERS&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="c1"&gt;# all tasks
+&lt;/span&gt;vit-tl&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="o"&gt;{&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;vit&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;TASK_FILTERS&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="o"&gt;}&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="c1"&gt;# tasks due before the end of the day
+&lt;/span&gt;vit-tl-today&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;{&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;vit&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;TASK_FILTERS&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;'due.by:eod'&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="o"&gt;}&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="c1"&gt;# tasks due before the end of the week
+&lt;/span&gt;vit-tl-this-week&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;{&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;vit&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;TASK_FILTERS&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;'due.by:eow'&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="o"&gt;}&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="c1"&gt;# tasks due before the end of the month
+&lt;/span&gt;vit-tl-this-month&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;{&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;vit&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;TASK_FILTERS&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;'due.by:eom'&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="o"&gt;}&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="c1"&gt;# tasks due in a week
+&lt;/span&gt;vit-tl-in-a-week&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;{&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;vit&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;TASK_FILTERS&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;'due.by:1w'&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="o"&gt;}&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="c1"&gt;# tasks due in a month
+&lt;/span&gt;vit-tl-in-a-month&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;{&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;vit&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;TASK_FILTERS&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;'due.by:1m'&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="o"&gt;}&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="c1"&gt;# tasks due in six months
+&lt;/span&gt;vit-tl-in-six-months&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;{&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;vit&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;TASK_FILTERS&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;'due.by:6m'&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="o"&gt;}&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="c1"&gt;# tasks due in a year
+&lt;/span&gt;vit-tl-in-a-year&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;{&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;vit&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;TASK_FILTERS&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;'due.by:1y'&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="o"&gt;}&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="c1"&gt;# next N tasks (2 by default)
+&lt;/span&gt;vit-next&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;{&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Active tasks:&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;task&lt;span class="w"&gt; &lt;/span&gt;active&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Next &lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;1&lt;/span&gt;&lt;span class="k"&gt;:-&lt;/span&gt;&lt;span class="nv"&gt;2&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt; tasks:&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;task&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;TASK_FILTERS&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;limit:&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;1&lt;/span&gt;&lt;span class="k"&gt;:-&lt;/span&gt;&lt;span class="nv"&gt;2&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="o"&gt;}&lt;/span&gt;
+&lt;/pre&gt;
+</content><category term="Tech"/><category term="Vit"/><category term="taskwarrior"/><category term="time-management"/><category term="task-management"/><category term="Fedora"/></entry><entry><title>Managing tasks, time, and making sure one takes a break: Integrating Taskwarrior, Timewarrior, and Gnome Pomodoro</title><link href="https://ankursinha.in/2017/12/25/managing-tasks-time-and-making-sure-one-takes-a-break-integrating-taskwarrior-timewarrior-and-gnome-pomodoro.html" rel="alternate"/><published>2017-12-25T01:16:02+00:00</published><updated>2017-12-25T01:16:02+00:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2017-12-25:/2017/12/25/managing-tasks-time-and-making-sure-one-takes-a-break-integrating-taskwarrior-timewarrior-and-gnome-pomodoro.html</id><summary type="html">&lt;p class="first last"&gt;As the amount of work increases, it becomes ever so more important to
+manage time and work in an efficient way. So, there's &lt;a class="reference external" href="https://taskwarrior.org/"&gt;Taskwarrior&lt;/a&gt;
+for managing tasks, &lt;a class="reference external" href="https://timewarrior.net/"&gt;Timewarrior&lt;/a&gt; for tracking them, and &lt;a class="reference external" href="http://gnomepomodoro.org/"&gt;Gnome
+Pomodoro&lt;/a&gt; for making sure one takes regular breaks and doesn't let
+the long hours affect their health in a bad way.&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;With the new year, come resolutions. On many a list will there be a
+determination to do better in the coming year, to be more organised, more
+efficient, more productive.&lt;/p&gt;
+&lt;p&gt;I'm quite organised myself. I have lists, calendars, reminders, budgets, and
+all of that. Being a FOSS person, my first thought, inevitably, is to see if
+there's a piece of software that would aid me.&lt;/p&gt;
+&lt;p&gt;This post documents how one can get &lt;a class="reference external" href="https://taskwarrior.org/"&gt;Taskwarrior&lt;/a&gt;, &lt;a class="reference external" href="https://timewarrior.net/"&gt;Timewarrior&lt;/a&gt;, and &lt;a class="reference external" href="http://gnomepomodoro.org/"&gt;Gnome
+Pomodoro&lt;/a&gt; to work together to manage tasks, track them, and break those long
+hours into smaller bits with regular breaks.&lt;/p&gt;
+&lt;div class="section" id="taskwarrior-helps-manage-tasks"&gt;
+&lt;h2&gt;Taskwarrior helps manage tasks&lt;/h2&gt;
+&lt;p&gt;For managing tasks, there's the rather excellent &lt;a class="reference external" href="https://taskwarrior.org/"&gt;Taskwarrior&lt;/a&gt;. It's command
+line, and there are various user interfaces that have been developed for it
+too. (&lt;a class="reference external" href="https://tasktools.org/projects/vit.html"&gt;Vit&lt;/a&gt; is one that provides a terminal interface with &lt;a class="reference external" href="https://vim.org"&gt;Vim&lt;/a&gt; like
+keybindings, and there's a &lt;a class="reference external" href="https://github.com/blindFS/vim-taskwarrior"&gt;Vim plugin&lt;/a&gt; too.) One can even set up a
+&lt;a class="reference external" href="https://taskwarrior.org/"&gt;Taskwarrior&lt;/a&gt; server to sync the data between different machines. There are a
+few hosted services that give free &lt;a class="reference external" href="https://taskwarrior.org/"&gt;Taskwarrior&lt;/a&gt; server accounts too. Perhaps
+the best bit, is excellent documentation.  &lt;a class="reference external" href="https://taskwarrior.org/"&gt;Taskwarrior&lt;/a&gt; really does make it
+easy to &lt;a class="reference external" href="https://taskwarrior.org/news/news.20150627.html"&gt;get things done&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="timewarrior-tracks-time-spent-on-tasks"&gt;
+&lt;h2&gt;Timewarrior tracks time spent on tasks&lt;/h2&gt;
+&lt;p&gt;&lt;a class="reference external" href="https://taskwarrior.org/"&gt;Taskwarrior&lt;/a&gt; is not meant to be a time tracker, and upstream says so quite
+plainly. In fact, upstream went ahead and wrote &lt;a class="reference external" href="https://timewarrior.net/"&gt;Timewarrior&lt;/a&gt; for that purpose
+entirely. Like &lt;a class="reference external" href="https://taskwarrior.org/"&gt;Taskwarrior&lt;/a&gt;, &lt;a class="reference external" href="https://timewarrior.net/"&gt;Timewarrior&lt;/a&gt; is also a command line tool.&lt;/p&gt;
+&lt;p&gt;Integrating the two is quite easy, using a &lt;a class="reference external" href="https://taskwarrior.org/"&gt;Taskwarrior&lt;/a&gt; hook, as &lt;a class="reference external" href="https://taskwarrior.org/docs/timewarrior/taskwarrior.html"&gt;documented
+here&lt;/a&gt;. Each time
+a task is started, or stopped in &lt;a class="reference external" href="https://taskwarrior.org/"&gt;Taskwarrior&lt;/a&gt;, the hook calls &lt;a class="reference external" href="https://timewarrior.net/"&gt;Timewarrior&lt;/a&gt; to
+start or stop tracking the task too.&lt;/p&gt;
+&lt;p&gt;Note: to ensure that this hook is run before the &lt;a class="reference external" href="http://gnomepomodoro.org/"&gt;Gnome Pomodoro&lt;/a&gt; hook that we
+set up in the next section, please save the hook file as
+&lt;code&gt;~/.task/hooks/on-modify.00-timewarrior&lt;/code&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="gnome-pomodoro-reminds-us-to-take-regular-breaks"&gt;
+&lt;h2&gt;Gnome Pomodoro reminds us to take regular breaks&lt;/h2&gt;
+&lt;p&gt;So, one can manage tasks, and track the time spent working on them, and that's
+great. It was sufficient for me for quite a while, before I realised that I was
+spending too much time at my desk. What made it worse was the realisation that
+for us white collar professionals, a majority of our lives will be spent at a
+desk typing away on a computer. There's enough research to show that spending
+all those long hours working in a seated position is bad for one's health.&lt;/p&gt;
+&lt;p&gt;So, I went looking for the changes I should make to my work regime, and ran
+into the &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Pomodoro_Technique"&gt;Pomodoro&lt;/a&gt; technique. The idea is to take short breaks at regular
+intervals. One can use these to get up and walk around a bit, get them 10,000
+steps! There are plenty of tools that implement the &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Pomodoro_Technique"&gt;Pomodoro&lt;/a&gt; technique. A
+simple timer works too. The one I settled on is &lt;a class="reference external" href="http://gnomepomodoro.org/"&gt;Gnome Pomodoro&lt;/a&gt; which
+integrates really well with Gnome Shell. Every 25 minutes, it'll remind the
+user to take a 5 minute break.&lt;/p&gt;
+&lt;p&gt;Now, let us integrate &lt;a class="reference external" href="http://gnomepomodoro.org/"&gt;Gnome Pomodoro&lt;/a&gt; with both &lt;a class="reference external" href="https://taskwarrior.org/"&gt;Taskwarrior&lt;/a&gt; and &lt;a class="reference external" href="https://timewarrior.net/"&gt;Timewarrior&lt;/a&gt;:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;When a task is started using &lt;code&gt;task &amp;lt;filter&amp;gt; start&lt;/code&gt;, &lt;a class="reference external" href="https://taskwarrior.org/"&gt;Taskwarrior&lt;/a&gt;
+already begins to track it using the hook, and a Pomodoro should also be
+started.&lt;/li&gt;
+&lt;li&gt;When a Pomodoro is over and &lt;a class="reference external" href="http://gnomepomodoro.org/"&gt;Gnome Pomodoro&lt;/a&gt; notifies of a break,
+&lt;a class="reference external" href="https://timewarrior.net/"&gt;Timewarrior&lt;/a&gt; should be paused too.&lt;/li&gt;
+&lt;li&gt;When the break is over, and another Pomodoro starts, &lt;a class="reference external" href="https://timewarrior.net/"&gt;Timewarrior&lt;/a&gt; should
+resume tracking the task.&lt;/li&gt;
+&lt;li&gt;When a task is stopped, &lt;a class="reference external" href="https://taskwarrior.org/"&gt;Taskwarrior&lt;/a&gt; will stop tracking it via the hook
+already, and the Pomodoro should be stopped as well.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This is a very simple set up. A task must be started using &lt;a class="reference external" href="https://taskwarrior.org/"&gt;Taskwarrior&lt;/a&gt; here,
+and each time &lt;a class="reference external" href="http://gnomepomodoro.org/"&gt;Gnome Pomodoro&lt;/a&gt; pauses and resumes from breaks, the same task
+will be resumed unless it was stopped and another started.&lt;/p&gt;
+&lt;p&gt;It turned out to be quite easy because of how well these three tools have been
+designed. Here's a &lt;a class="reference external" href="https://taskwarrior.org/"&gt;Taskwarrior&lt;/a&gt; hook for &lt;a class="reference external" href="http://gnomepomodoro.org/"&gt;Gnome Pomodoro&lt;/a&gt; similar to the one
+for &lt;a class="reference external" href="https://timewarrior.net/"&gt;Timewarrior&lt;/a&gt;:&lt;/p&gt;
+&lt;pre class="code python literal-block"&gt;
+&lt;span class="ch"&gt;#!/usr/bin/env python2&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="c1"&gt;# API is here: https://taskwarrior.org/docs/hooks.html&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="c1"&gt;# To be saved at ~/.task/hooks/on-modify.01-gnome-pomodoro to ensure it is&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="c1"&gt;# run after the timewarrior hook, which should be saved as&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="c1"&gt;# ~/.task/hooks/on-modify.00-timewarrior&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="c1"&gt;# Otherwise, this is run before which then runs the Gnome-Pomodoro actions&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="c1"&gt;# things get quite messy!&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;json&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;os&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;sys&lt;/span&gt;&lt;span class="w"&gt;
+
+&lt;/span&gt;&lt;span class="c1"&gt;# Make no changes to the task, simply observe.&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="n"&gt;old&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;json&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;loads&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;sys&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;stdin&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;readline&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="n"&gt;new&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;json&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;loads&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;sys&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;stdin&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;readline&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;json&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;dumps&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;new&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;&lt;span class="w"&gt;
+
+&lt;/span&gt;&lt;span class="c1"&gt;# Start pomodoro when task is started&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="s1"&gt;'start'&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;new&lt;/span&gt; &lt;span class="ow"&gt;and&lt;/span&gt; &lt;span class="s1"&gt;'start'&lt;/span&gt; &lt;span class="ow"&gt;not&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;old&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;    &lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;system&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'gnome-pomodoro --start'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="c1"&gt;# Stop pomodoro when a task is stopped&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="k"&gt;elif&lt;/span&gt; &lt;span class="s1"&gt;'start'&lt;/span&gt; &lt;span class="ow"&gt;not&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;new&lt;/span&gt; &lt;span class="ow"&gt;and&lt;/span&gt; &lt;span class="s1"&gt;'start'&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;old&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;    &lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;system&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'gnome-pomodoro --stop'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;
+&lt;p&gt;It's called when a task is modified. It checks the old and new states. If a
+task is started, it starts &lt;code&gt;gnome-pomodoro&lt;/code&gt;, and when it's stopped, it
+stops it. This is one direction.&lt;/p&gt;
+&lt;p&gt;The other direction requires some tinkering with &lt;a class="reference external" href="http://gnomepomodoro.org/"&gt;Gnome Pomodoro&lt;/a&gt; to set up
+custom scripts. In the preferences, one must enable the &amp;quot;Custom actions&amp;quot;
+plugin:&lt;/p&gt;
+&lt;div class="figure align-center"&gt;
+&lt;a class="reference external image-reference" href="https://ankursinha.in/images/20171225-gnome-pomodoro-plugins.png"&gt;
+&lt;img alt="A screenshot showing the plugin preferences in Gnome Pomodoro." src="https://ankursinha.in/images/20171225-gnome-pomodoro-plugins.png" style="height: 300.0px;" /&gt;
+&lt;/a&gt;
+&lt;/div&gt;
+&lt;p&gt;Then, a &amp;quot;Custom Actions&amp;quot; entry will be added to the preferences. We need to add
+two of them. The first, resumes &lt;a class="reference external" href="https://timewarrior.net/"&gt;Timewarrior&lt;/a&gt; tracking when the Pomodoro
+resumes:&lt;/p&gt;
+&lt;div class="figure align-center"&gt;
+&lt;a class="reference external image-reference" href="https://ankursinha.in/images/20171225-gnome-pomodoro-action-resume-timew.png"&gt;
+&lt;img alt="A screenshot showing custom action that will resume timew after a break." src="https://ankursinha.in/images/20171225-gnome-pomodoro-action-resume-timew.png" style="height: 300.0px;" /&gt;
+&lt;/a&gt;
+&lt;/div&gt;
+&lt;p&gt;Similarly, the second stops &lt;a class="reference external" href="https://timewarrior.net/"&gt;Timewarrior&lt;/a&gt; when a break begins, or the user
+pauses the &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Pomodoro_Technique"&gt;Pomodoro&lt;/a&gt;:&lt;/p&gt;
+&lt;div class="figure align-center"&gt;
+&lt;a class="reference external image-reference" href="https://ankursinha.in/images/20171225-gnome-pomodoro-action-stop-timew.png"&gt;
+&lt;img alt="A screenshot showing custom action that will stop timew at the start of a break." src="https://ankursinha.in/images/20171225-gnome-pomodoro-action-stop-timew.png" style="height: 300.0px;" /&gt;
+&lt;/a&gt;
+&lt;/div&gt;
+&lt;p&gt;(If no tasks are active, &lt;a class="reference external" href="https://timewarrior.net/"&gt;Timewarrior&lt;/a&gt; doesn't do anything, so that case does
+not need to be handled separately.)&lt;/p&gt;
+&lt;p&gt;There are certain &lt;a class="reference external" href="https://github.com/codito/gnome-pomodoro/issues/275#issuecomment-282494447"&gt;limitations to what commands can go in there&lt;/a&gt;,
+so I've used a shell script to implement the required logic:&lt;/p&gt;
+&lt;pre class="code bash literal-block"&gt;
+&lt;span class="ch"&gt;#!/bin/bash
+&lt;/span&gt;&lt;span class="c1"&gt;# save as ~/bin/track-timew.sh
+# note that ~/bin/ must be in PATH
+&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;resume&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="o"&gt;{&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;timew&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;||&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;timew&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;continue&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="o"&gt;}&lt;/span&gt;&lt;span class="w"&gt;
+
+&lt;/span&gt;pause&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="o"&gt;{&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;timew&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;timew&lt;span class="w"&gt; &lt;/span&gt;stop&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="o"&gt;}&lt;/span&gt;&lt;span class="w"&gt;
+
+&lt;/span&gt;clean&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="o"&gt;{&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="c1"&gt;# sed only does greedy regex so it's slightly complicated
+&lt;/span&gt;&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="c1"&gt;# could use perl to make this a lot simpler because perl does non
+&lt;/span&gt;&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="c1"&gt;# greedy too.
+&lt;/span&gt;&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;for&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;entry&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;in&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;timew&lt;span class="w"&gt; &lt;/span&gt;summary&lt;span class="w"&gt; &lt;/span&gt;:ids&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;grep&lt;span class="w"&gt; &lt;/span&gt;-o&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;'&amp;#64;.*'&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;sed&lt;span class="w"&gt; &lt;/span&gt;-E&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;'s/(^&amp;#64;[[:digit:]]+[[:space:]]+)/\1 |/'&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;sed&lt;span class="w"&gt; &lt;/span&gt;-E&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;'s/([[:digit:]]+:[[:digit:]]+:[[:digit:]]+ )/| \1/'&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;sed&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;'s/|.*|//'&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;sed&lt;span class="w"&gt; &lt;/span&gt;-E&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;'s/[[:space:]]{2,}/ /'&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;cut&lt;span class="w"&gt; &lt;/span&gt;-d&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;' '&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-f&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;,4&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;grep&lt;span class="w"&gt; &lt;/span&gt;-E&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;'0:0[01]:..'&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;cut&lt;span class="w"&gt; &lt;/span&gt;-d&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;' '&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-f&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;tr&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;'\n'&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;' '&lt;/span&gt;&lt;span class="k"&gt;)&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;do&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;timew&lt;span class="w"&gt; &lt;/span&gt;delete&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$entry&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;done&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="o"&gt;}&lt;/span&gt;&lt;span class="w"&gt;
+
+&lt;/span&gt;usage&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="o"&gt;{&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$0&lt;/span&gt;&lt;span class="s2"&gt;: wrapper script around timewarrior to carry out common tasks&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;For use with Gnome-Pomodoro's action plugin&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Usage: &lt;/span&gt;&lt;span class="nv"&gt;$0&lt;/span&gt;&lt;span class="s2"&gt; &amp;lt;option&amp;gt;&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;OPTIONS:&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;-r    resume tracking of most recently tracked task&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;-p    pause tracking&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;-c    clean up short tasks (less than 2 minutes long)&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="o"&gt;}&lt;/span&gt;&lt;span class="w"&gt;
+
+&lt;/span&gt;&lt;span class="c1"&gt;# check for options
+&lt;/span&gt;&lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$#&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-eq&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;then&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;usage&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nb"&gt;exit&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="k"&gt;fi&lt;/span&gt;&lt;span class="w"&gt;
+
+&lt;/span&gt;&lt;span class="c1"&gt;# parse options
+&lt;/span&gt;&lt;span class="k"&gt;while&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nb"&gt;getopts&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;rpch&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;OPTION&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="k"&gt;do&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="k"&gt;case&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;$OPTION&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;in&lt;/span&gt;&lt;span class="w"&gt;
+        &lt;/span&gt;r&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+            &lt;/span&gt;resume&lt;span class="w"&gt;
+            &lt;/span&gt;&lt;span class="nb"&gt;exit&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt;&lt;span class="w"&gt;
+            &lt;/span&gt;&lt;span class="p"&gt;;;&lt;/span&gt;&lt;span class="w"&gt;
+        &lt;/span&gt;p&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+            &lt;/span&gt;pause&lt;span class="w"&gt;
+            &lt;/span&gt;&lt;span class="nb"&gt;exit&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt;&lt;span class="w"&gt;
+            &lt;/span&gt;&lt;span class="p"&gt;;;&lt;/span&gt;&lt;span class="w"&gt;
+        &lt;/span&gt;c&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+            &lt;/span&gt;clean&lt;span class="w"&gt;
+            &lt;/span&gt;&lt;span class="nb"&gt;exit&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt;&lt;span class="w"&gt;
+            &lt;/span&gt;&lt;span class="p"&gt;;;&lt;/span&gt;&lt;span class="w"&gt;
+        &lt;/span&gt;h&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+            &lt;/span&gt;usage&lt;span class="w"&gt;
+            &lt;/span&gt;&lt;span class="nb"&gt;exit&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="w"&gt;
+            &lt;/span&gt;&lt;span class="p"&gt;;;&lt;/span&gt;&lt;span class="w"&gt;
+        &lt;/span&gt;?&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+            &lt;/span&gt;usage&lt;span class="w"&gt;
+            &lt;/span&gt;&lt;span class="nb"&gt;exit&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="w"&gt;
+            &lt;/span&gt;&lt;span class="p"&gt;;;&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="k"&gt;esac&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="k"&gt;done&lt;/span&gt;
+&lt;/pre&gt;
+&lt;p&gt;The script is quite simple, and I hope, self-explanatory too. I'll leave
+interpretation of the &lt;code&gt;clean&lt;/code&gt; function to the reader ;)&lt;/p&gt;
+&lt;p&gt;That's all there is to it. There must be other ways of doing the same thing,
+possibly with different tools too, but this system required least changes to my
+current workflow. Do remember that these tools can only aid us. It is us that
+need to show that bit of discipline to follow the plan through. I hope some
+will find it helpful, and may the new year be healthier and more productive for
+us all! :)&lt;/p&gt;
+&lt;/div&gt;
+</content><category term="Tech"/><category term="Bash"/><category term="Fedora"/><category term="Timewarrior"/><category term="Taskwarrior"/><category term="Pomodoro"/><category term="Gnome-Pomodoro"/><category term="Time management"/></entry><entry><title>Taskwarrior, Taskwarrior-server and Mirakel - syncing and carrying your taskslist with you</title><link href="https://ankursinha.in/2014/07/31/taskwarrior-taskwarrior-server-and-mirakel-syncing-and-carrying-your-taskslist-with-you.html" rel="alternate"/><published>2014-07-31T05:02:00+01:00</published><updated>2014-07-31T05:02:00+01:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2014-07-31:/2014/07/31/taskwarrior-taskwarrior-server-and-mirakel-syncing-and-carrying-your-taskslist-with-you.html</id><summary type="html">&lt;p class="first last"&gt;A great way to always have your task list on hand.&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;I'd &lt;a class="reference external" href="http://ankursinha.in/blog/2014/04/09/managing-tasks-and-generating-timesheets-using-taskwarrior.html"&gt;documented using task warrior to manage your tasks recently&lt;/a&gt;. I'd
+only just mentioned &lt;strong&gt;task server&lt;/strong&gt; in that post. I hadn't had the time
+to set it up. The effect of this was that all my tasks were only on my
+laptop and couldn't I access them when I wasn't at it. The simple
+solution was to use an android client that would sync with taskwarrior -
+like &lt;a class="reference external" href="http://mirakel.azapps.de/index.html"&gt;Mirakel&lt;/a&gt;. In this post, I document setting up the task server and
+then Mirakel. The previous post already documents how one needs to setup
+and use task. You can use &lt;tt class="docutils literal"&gt;vit&lt;/tt&gt; which is an excellent front end to
+task. It's &lt;a class="reference external" href="https://admin.fedoraproject.org/pkgdb/package/vit/"&gt;available&lt;/a&gt; in the Fedora repositories for Fedora 20+:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo&lt;span class="w"&gt; &lt;/span&gt;yum&lt;span class="w"&gt; &lt;/span&gt;install&lt;span class="w"&gt; &lt;/span&gt;vit
+&lt;/pre&gt;&lt;/div&gt;
+&lt;div class="figure align-center"&gt;
+&lt;a class="reference external image-reference" href="https://ankursinha.in/images/vit-screenshot.png"&gt;
+&lt;img alt="vit screenshot" src="https://ankursinha.in/images/vit-screenshot.png" style="height: 200.0px;" /&gt;
+&lt;/a&gt;
+&lt;p class="caption"&gt;A vit screenshot.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="task-warrior-server"&gt;
+&lt;h2&gt;Task warrior server&lt;/h2&gt;
+&lt;p&gt;There's already a &lt;a class="reference external" href="https://bugzilla.redhat.com/show_bug.cgi?id=1066573"&gt;review request&lt;/a&gt; put up for this. Threebean's working
+on it. It should be available in the Fedora repositories shortly.
+There's a &lt;a class="reference external" href="http://copr.fedoraproject.org/coprs/ralph/taskd/"&gt;copr repo here&lt;/a&gt;, but it doesn't look in sync with the review
+at the moment. I've run a scratch build and put up the rpms &lt;a class="reference external" href="https://ankursinha.fedorapeople.org/taskd/"&gt;here&lt;/a&gt;. You
+can just grab them and install them locally for the time being. Once
+you've installed the package, the instructions to set up the server are
+quite straightforward:&lt;/p&gt;
+&lt;div class="section" id="generate-your-keys"&gt;
+&lt;h3&gt;Generate your keys&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$&lt;span class="w"&gt; &lt;/span&gt;sudo&lt;span class="w"&gt; &lt;/span&gt;-u&lt;span class="w"&gt; &lt;/span&gt;taskd&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c1"&gt;#or su - taskd -&amp;gt; as taskd user&lt;/span&gt;
+$&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nb"&gt;cd&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;/etc/pki/taskd&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c1"&gt;#this is where the scripts are placed&lt;/span&gt;
+$&lt;span class="w"&gt; &lt;/span&gt;./generate&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c1"&gt;#this will generate a couple of new files&lt;/span&gt;
+$&lt;span class="w"&gt; &lt;/span&gt;ls&lt;span class="w"&gt; &lt;/span&gt;-l&lt;span class="w"&gt; &lt;/span&gt;/etc/pki/taskd/
+total&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;60&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-rw-------.&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;taskd&lt;span class="w"&gt; &lt;/span&gt;taskd&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;1476&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;Jul&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;31&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;12&lt;/span&gt;:00
+ankur_sinha.cert.pem&lt;span class="w"&gt; &lt;/span&gt;-rw-------.&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;taskd&lt;span class="w"&gt; &lt;/span&gt;taskd&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;6799&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;Jul&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;31&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;12&lt;/span&gt;:00
+ankur_sinha.key.pem&lt;span class="w"&gt; &lt;/span&gt;-rw-------.&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;taskd&lt;span class="w"&gt; &lt;/span&gt;taskd&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;1489&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;Jul&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;31&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;11&lt;/span&gt;:57
+ca.cert.pem&lt;span class="w"&gt; &lt;/span&gt;-rw-------.&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;taskd&lt;span class="w"&gt; &lt;/span&gt;taskd&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;6789&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;Jul&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;31&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;11&lt;/span&gt;:57
+ca.key.pem&lt;span class="w"&gt; &lt;/span&gt;-rwxr-xr-x.&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;root&lt;span class="w"&gt;  &lt;/span&gt;root&lt;span class="w"&gt;   &lt;/span&gt;&lt;span class="m"&gt;666&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;Jan&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;16&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="m"&gt;2014&lt;/span&gt;
+generate&lt;span class="w"&gt; &lt;/span&gt;-rwxr-xr-x.&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;root&lt;span class="w"&gt;  &lt;/span&gt;root&lt;span class="w"&gt;   &lt;/span&gt;&lt;span class="m"&gt;647&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;Jan&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;16&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="m"&gt;2014&lt;/span&gt;
+generate.ca&lt;span class="w"&gt; &lt;/span&gt;-rwxr-xr-x.&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;root&lt;span class="w"&gt;  &lt;/span&gt;root&lt;span class="w"&gt;   &lt;/span&gt;&lt;span class="m"&gt;787&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;Jan&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;16&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="m"&gt;2014&lt;/span&gt;
+generate.client&lt;span class="w"&gt; &lt;/span&gt;-rwxr-xr-x.&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;root&lt;span class="w"&gt;  &lt;/span&gt;root&lt;span class="w"&gt;   &lt;/span&gt;&lt;span class="m"&gt;878&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;Jan&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;16&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="m"&gt;2014&lt;/span&gt;
+generate.crl&lt;span class="w"&gt; &lt;/span&gt;-rwxr-xr-x.&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;root&lt;span class="w"&gt;  &lt;/span&gt;root&lt;span class="w"&gt;   &lt;/span&gt;&lt;span class="m"&gt;792&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;Jan&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;16&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="m"&gt;2014&lt;/span&gt;
+generate.server&lt;span class="w"&gt; &lt;/span&gt;-rw-------.&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;taskd&lt;span class="w"&gt; &lt;/span&gt;taskd&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;1521&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;Jul&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;31&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;11&lt;/span&gt;:57
+server.cert.pem&lt;span class="w"&gt; &lt;/span&gt;-rw-------.&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;taskd&lt;span class="w"&gt; &lt;/span&gt;taskd&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="m"&gt;808&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;Jul&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;31&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;11&lt;/span&gt;:57
+server.crl.pem&lt;span class="w"&gt; &lt;/span&gt;-rw-------.&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;taskd&lt;span class="w"&gt; &lt;/span&gt;taskd&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;6796&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;Jul&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;31&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;11&lt;/span&gt;:57
+server.key.pem
+&lt;span class="o"&gt;[&lt;/span&gt;asinha@ankur-laptop&lt;span class="w"&gt;  &lt;/span&gt;~&lt;span class="o"&gt;]&lt;/span&gt;$
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;When you run the &lt;tt class="docutils literal"&gt;generate&lt;/tt&gt; script, it'll generate a
+&lt;tt class="docutils literal"&gt;client.cert.pem&lt;/tt&gt; and &lt;tt class="docutils literal"&gt;client.key.pm&lt;/tt&gt;. I've renamed them to match
+the user that I'll create in the next section.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$&lt;span class="w"&gt; &lt;/span&gt;mv&lt;span class="w"&gt; &lt;/span&gt;client.cert.pem&lt;span class="w"&gt; &lt;/span&gt;ankur_sinha.cert.pem&lt;span class="w"&gt; &lt;/span&gt;$&lt;span class="w"&gt; &lt;/span&gt;mv&lt;span class="w"&gt; &lt;/span&gt;client.key.pem&lt;span class="w"&gt; &lt;/span&gt;ankur_sinha.key.pem
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="set-up-a-user"&gt;
+&lt;h3&gt;Set up a user&lt;/h3&gt;
+&lt;p&gt;Choose your username and organization. For example, I picked &amp;quot;Ankur
+Sinha&amp;quot; as my username and &amp;quot;Personal&amp;quot; as the organization.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;taskd&lt;span class="w"&gt; &lt;/span&gt;add&lt;span class="w"&gt; &lt;/span&gt;org&lt;span class="w"&gt; &lt;/span&gt;ORGNAME&lt;span class="w"&gt; &lt;/span&gt;--data&lt;span class="w"&gt; &lt;/span&gt;/var/lib/taskd&lt;span class="w"&gt; &lt;/span&gt;taskd&lt;span class="w"&gt; &lt;/span&gt;add&lt;span class="w"&gt; &lt;/span&gt;user&lt;span class="w"&gt; &lt;/span&gt;ORGNAME&lt;span class="w"&gt; &lt;/span&gt;USERNAME&lt;span class="w"&gt; &lt;/span&gt;--data&lt;span class="w"&gt; &lt;/span&gt;/var/lib/taskd
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;This will generate a &lt;strong&gt;unique key&lt;/strong&gt; for your user. Please note it
+down. It is required when you setup your client to sync with the task
+server. You can have multiple users set up. Each will be given a unique
+key.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="start-taskd"&gt;
+&lt;h3&gt;Start taskd&lt;/h3&gt;
+&lt;p&gt;It should be as simple as:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo&lt;span class="w"&gt; &lt;/span&gt;systemctl&lt;span class="w"&gt; &lt;/span&gt;start&lt;span class="w"&gt; &lt;/span&gt;taskd.service
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;If this doesn't work, for some reason, try this:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo&lt;span class="w"&gt; &lt;/span&gt;taskd&lt;span class="w"&gt; &lt;/span&gt;server&lt;span class="w"&gt; &lt;/span&gt;--data&lt;span class="w"&gt; &lt;/span&gt;/var/lib/taskd&lt;span class="w"&gt; &lt;/span&gt;--daemon
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="set-up-your-client"&gt;
+&lt;h2&gt;Set up your client&lt;/h2&gt;
+&lt;p&gt;You need to copy the client keys to your client's configuration
+directory. For example, if you're using the client and server on the
+same machine, you need to copy the client certs to ~/.task. In my case,
+to set up the task client I did:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$&lt;span class="w"&gt; &lt;/span&gt;sudo&lt;span class="w"&gt; &lt;/span&gt;-i&lt;span class="w"&gt; &lt;/span&gt;$&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nb"&gt;cd&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;/etc/pki/taskd
+$&lt;span class="w"&gt; &lt;/span&gt;cp&lt;span class="w"&gt; &lt;/span&gt;ankur_sinha*pem&lt;span class="w"&gt; &lt;/span&gt;~asinha/.task&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c1"&gt;#client keys&lt;/span&gt;
+$&lt;span class="w"&gt; &lt;/span&gt;cp&lt;span class="w"&gt; &lt;/span&gt;ca.cert.pem&lt;span class="w"&gt; &lt;/span&gt;~asinha/.task&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c1"&gt;#signing certificate&lt;/span&gt;
+$&lt;span class="w"&gt; &lt;/span&gt;chown&lt;span class="w"&gt; &lt;/span&gt;asinha:asinha&lt;span class="w"&gt; &lt;/span&gt;~/asinha/.task/*.pem&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c1"&gt;#make sure the permissions are limited to your user only&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;div class="section" id="configuring-task"&gt;
+&lt;h3&gt;Configuring task&lt;/h3&gt;
+&lt;p&gt;You need to configure your client to use the credentials that you
+created, and to point it to your server. You can either modify
+&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;~/.taskrc&lt;/span&gt;&lt;/tt&gt; by hand, or use the &lt;tt class="docutils literal"&gt;task config&lt;/tt&gt; command - they both do
+the same thing. To edit it by hand, I did:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;taskd.server&lt;span class="o"&gt;=&lt;/span&gt;localhost:6544&lt;span class="w"&gt; &lt;/span&gt;taskd.credentials&lt;span class="o"&gt;=&lt;/span&gt;Personal/Ankur&lt;span class="w"&gt; &lt;/span&gt;Sinha/my-long-key
+
+taskd.certificate&lt;span class="o"&gt;=&lt;/span&gt;/home/asinha/.task/ankur&lt;span class="se"&gt;\_&lt;/span&gt;sinha.cert.pem
+taskd.key&lt;span class="o"&gt;=&lt;/span&gt;/home/asinha/.task/ankur&lt;span class="se"&gt;\_&lt;/span&gt;sinha.key.pem
+taskd.ca&lt;span class="o"&gt;=&lt;/span&gt;/home/asinha/.task/ca.cert.pem
+taskd.trust&lt;span class="o"&gt;=&lt;/span&gt;yes
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;If I'd used the &lt;tt class="docutils literal"&gt;task config&lt;/tt&gt; command, it'd be this:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$&lt;span class="w"&gt; &lt;/span&gt;task&lt;span class="w"&gt; &lt;/span&gt;config&lt;span class="w"&gt; &lt;/span&gt;taskd.certificate&lt;span class="w"&gt; &lt;/span&gt;~/.task/ankur_sinha.cert.pem
+$&lt;span class="w"&gt; &lt;/span&gt;task&lt;span class="w"&gt; &lt;/span&gt;config&lt;span class="w"&gt; &lt;/span&gt;taskd.key&lt;span class="w"&gt;         &lt;/span&gt;~/.task/ankur_sinha.key.pem
+$&lt;span class="w"&gt; &lt;/span&gt;task&lt;span class="w"&gt; &lt;/span&gt;config&lt;span class="w"&gt; &lt;/span&gt;taskd.ca&lt;span class="w"&gt;          &lt;/span&gt;~/.task/ca.cert.pem
+$&lt;span class="w"&gt; &lt;/span&gt;task&lt;span class="w"&gt; &lt;/span&gt;config&lt;span class="w"&gt; &lt;/span&gt;taskd.server&lt;span class="w"&gt;      &lt;/span&gt;localhost:6544&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c1"&gt;#on Fedora, we use 6544 for taskd&lt;/span&gt;
+$&lt;span class="w"&gt; &lt;/span&gt;task&lt;span class="w"&gt; &lt;/span&gt;config&lt;span class="w"&gt; &lt;/span&gt;taskd.credentials&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Personal/Ankur Sinha/my-long-key&amp;#39;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="sync-up"&gt;
+&lt;h3&gt;Sync up!&lt;/h3&gt;
+&lt;p&gt;That's all the setup you need. Now, you run your first sync:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$&lt;span class="w"&gt; &lt;/span&gt;task&lt;span class="w"&gt; &lt;/span&gt;sync&lt;span class="w"&gt; &lt;/span&gt;init
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;In the future, you just need to run:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$&lt;span class="w"&gt; &lt;/span&gt;task&lt;span class="w"&gt; &lt;/span&gt;sync
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;All of this is well documented at the taskwarrior website here:
+&lt;a class="reference external" href="http://taskwarrior.org/docs/server_setup.html"&gt;http://taskwarrior.org/docs/server_setup.html&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="setting-up-mirakel"&gt;
+&lt;h2&gt;Setting up Mirakel&lt;/h2&gt;
+&lt;p&gt;Mirakel is quite easy to setup too. You can use the same credentials
+for the user you created to get Mirakel to sync with your task server.
+There's one main difference - instead of placing your certificate files
+in a folder, you need to quote the keys in the file itself. For example,
+my Mirakel configuration file looks like this:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;username:&lt;span class="w"&gt; &lt;/span&gt;Ankur&lt;span class="w"&gt; &lt;/span&gt;Sinha&lt;span class="w"&gt; &lt;/span&gt;org:&lt;span class="w"&gt; &lt;/span&gt;Personal&lt;span class="w"&gt; &lt;/span&gt;user&lt;span class="w"&gt; &lt;/span&gt;key:&lt;span class="w"&gt; &lt;/span&gt;my-long-key&lt;span class="w"&gt; &lt;/span&gt;server&lt;span class="w"&gt; &lt;/span&gt;:&lt;span class="w"&gt; &lt;/span&gt;your-servers-hostname:6544
+
+Client.cert:
+-----BEGIN&lt;span class="w"&gt; &lt;/span&gt;CERTIFICATE-----
+&lt;span class="c1"&gt;# PLACE contents of ~/.task/ankur\_sinha.cert.pem here&lt;/span&gt;
+-----END&lt;span class="w"&gt; &lt;/span&gt;CERTIFICATE-----
+
+Client.key:
+-----BEGIN&lt;span class="w"&gt; &lt;/span&gt;RSA&lt;span class="w"&gt; &lt;/span&gt;PRIVATE&lt;span class="w"&gt; &lt;/span&gt;KEY-----
+&lt;span class="c1"&gt;# PLACE KEY FROM ~/.task/ankur\_sinha.key.pem here&lt;/span&gt;
+-----END&lt;span class="w"&gt; &lt;/span&gt;RSA&lt;span class="w"&gt; &lt;/span&gt;PRIVATE&lt;span class="w"&gt; &lt;/span&gt;KEY-----
+
+ca.cert:
+-----BEGIN&lt;span class="w"&gt; &lt;/span&gt;CERTIFICATE-----
+&lt;span class="c1"&gt;# PLACE CONTENTS OF ~/.task/ca.cert.pem here&lt;/span&gt;
+-----END&lt;span class="w"&gt; &lt;/span&gt;CERTIFICATE-----
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Once your configuration file is ready, place it on your android
+device and add a new Mirakel user using this file:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;Menu&lt;span class="w"&gt; &lt;/span&gt;&amp;gt;&lt;span class="w"&gt; &lt;/span&gt;Settings&lt;span class="w"&gt; &lt;/span&gt;&amp;gt;&lt;span class="w"&gt; &lt;/span&gt;Sync&lt;span class="w"&gt; &lt;/span&gt;&amp;gt;&lt;span class="w"&gt; &lt;/span&gt;Add&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;button&lt;span class="w"&gt; &lt;/span&gt;on&lt;span class="w"&gt; &lt;/span&gt;top&lt;span class="w"&gt; &lt;/span&gt;right&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&amp;gt;&lt;span class="w"&gt; &lt;/span&gt;Taskwarrior&lt;span class="w"&gt; &lt;/span&gt;&amp;gt;&lt;span class="w"&gt; &lt;/span&gt;Select&lt;span class="w"&gt; &lt;/span&gt;config&lt;span class="w"&gt; &lt;/span&gt;file.
+&lt;/pre&gt;&lt;/div&gt;
+&lt;div class="figure align-center"&gt;
+&lt;a class="reference external image-reference" href="https://ankursinha.in/images/2014-07-31-04.39.19.png"&gt;
+&lt;img alt="Mirakel screenshot" src="https://ankursinha.in/images/2014-07-31-04.39.19.png" style="height: 200.0px;" /&gt;
+&lt;/a&gt;
+&lt;p class="caption"&gt;Mirakel screenshot&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;It'll add a new user. You can then play around with the settings and set
+up your sync frequency etc. These steps are quite clearly documented
+here: &lt;a class="reference external" href="http://mirakel.azapps.de/taskwarrior.html"&gt;http://mirakel.azapps.de/taskwarrior.html&lt;/a&gt;. However, they're not
+tailored to use the Fedora rpms, which is why I thought it'd be good to
+write up fresh instructions.&lt;/p&gt;
+&lt;p&gt;Now, you have Mirakel up and running:&lt;/p&gt;
+&lt;div class="figure align-center"&gt;
+&lt;a class="reference external image-reference" href="https://ankursinha.in/images/2014-07-31-04.53.57.png"&gt;
+&lt;img alt="Mirakel screenshot 2" src="https://ankursinha.in/images/2014-07-31-04.53.57.png" style="height: 200.0px;" /&gt;
+&lt;/a&gt;
+&lt;p class="caption"&gt;Mirakel screenshot 2&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="a-couple-of-things-to-keep-in-mind"&gt;
+&lt;h2&gt;A couple of things to keep in mind&lt;/h2&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Your credentials need to be correct&lt;/li&gt;
+&lt;li&gt;Your server should be reachable. This implies that the network should
+be functional, and the port should be open in the firewall. Please
+note that you may have to specify the zone if you're using firewalld.&lt;/li&gt;
+&lt;li&gt;Check &lt;tt class="docutils literal"&gt;/var/lib/taskd/config&lt;/tt&gt; to see if Mirakel has permissions to
+sync. It isn't in the access list by default.&lt;/li&gt;
+&lt;li&gt;The sync is two way. You can add tasks on your phone and they'll be
+listed in task on your laptop after you sync them all up.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;If you run into trouble, check &lt;tt class="docutils literal"&gt;/var/log/taskd.log&lt;/tt&gt; to start with. It
+logs accesses, syncs and errors too.&lt;/p&gt;
+&lt;p&gt;EDIT: Updated generation portion.&lt;/p&gt;
+&lt;/div&gt;
+</content><category term="Tech"/><category term="Fedora"/><category term="Taskwarrior"/></entry><entry><title>Managing tasks and generating timesheets using taskwarrior</title><link href="https://ankursinha.in/2014/04/09/managing-tasks-and-generating-timesheets-using-taskwarrior.html" rel="alternate"/><published>2014-04-09T09:41:00+01:00</published><updated>2014-04-09T09:41:00+01:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2014-04-09:/2014/04/09/managing-tasks-and-generating-timesheets-using-taskwarrior.html</id><summary type="html">&lt;p class="first last"&gt;Taskwarrior is a great utility that helps you manage your tasks.&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;A while back, I &lt;a class="reference external" href="http://ankursinha.in/blog/2013/12/16/time-and-task-tracking.html"&gt;had blogged on how one can use gtg and
+hamster-time-tracker to manage their tasks&lt;/a&gt;, and track them. Now, I
+personally prefer the terminal. A few days ago, I was talking to
+&lt;a class="reference external" href="https://fedoraproject.org/wiki/User:Ralph"&gt;threebean&lt;/a&gt; and he pointed me to his &lt;a class="reference external" href="http://threebean.org/timesheets/latest.html"&gt;time sheet&lt;/a&gt;. Helpful as always,
+threebean told me how he'd generated the time sheet. I document the
+steps here for any one else that's interested in doing the same.&lt;/p&gt;
+&lt;div class="section" id="what-you-need"&gt;
+&lt;h2&gt;What you need&lt;/h2&gt;
+&lt;pre class="literal-block"&gt;
+$ sudo dnf install ansi2html task #use yum if you prefer
+&lt;/pre&gt;
+&lt;p&gt;This will provide you with the &lt;strong&gt;task&lt;/strong&gt; command. Read the quick tutorial
+on using it &lt;a class="reference external" href="http://taskwarrior.org/docs/"&gt;here&lt;/a&gt;. As usual, RTFM at `` $ man task``.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="generating-time-sheets"&gt;
+&lt;h2&gt;Generating time sheets&lt;/h2&gt;
+&lt;p&gt;Then, you need two shell scripts. The first, generates your time sheet
+from &lt;strong&gt;task&lt;/strong&gt;:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+#!/bin/bash
+# File : timesheet.sh
+#
+# This generates timesheet data for my fedora tasks only
+
+source /home/&amp;lt;USER&amp;gt;/.bashrc
+
+phrase=&amp;quot;1-weeks-ago&amp;quot;
+#fmt=&amp;quot;%m/%d/%Y&amp;quot;
+fmt=&amp;quot;%Y-%m-%d&amp;quot;
+start=$(date +$fmt -d $phrase)
+end=$(date +$fmt)
+filter=&amp;quot;project.is:fedora&amp;quot;
+
+echo &amp;quot; (generated at $(date))&amp;quot;
+echo
+echo &amp;quot; -- Tasks completed from $start to $end (back $phrase) -- &amp;quot;
+/usr/bin/task work_report $filter end.after:$start
+
+echo
+echo &amp;quot; -- Upcoming tasks -- &amp;quot;
+/usr/bin/task next $filter
+
+echo
+echo &amp;quot; -- Blocked tasks -- &amp;quot;
+/usr/bin/task blocked $filter
+
+echo
+echo &amp;quot; -- Blocking tasks -- &amp;quot;
+/usr/bin/task blocking $filter
+
+echo
+echo &amp;quot; -- Summary -- &amp;quot;
+/usr/bin/task summary $filter
+
+echo
+echo &amp;quot; -- History -- &amp;quot;
+/usr/bin/task history $filter
+/usr/bin/task ghistory $filter
+/usr/bin/task burndown.daily
+/usr/bin/task burndown
+&lt;/pre&gt;
+&lt;p&gt;The second just converts it into an html file that you can host. This
+one looks like this:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+# File : make-report.sh
+#
+# Generates reports from my task data
+#
+
+#!/bin/bash
+
+today=$(date +%Y-%m-%d)
+/home/&amp;lt;USER&amp;gt;/bin/timesheet.sh | ansi2html &amp;gt; /tmp/timesheet-fedora.html
+/home/&amp;lt;USER&amp;gt;/bin/timesheet-all.sh | ansi2html &amp;gt; /tmp/timesheet-all.html
+cp /tmp/timesheet-fedora.html ~/timesheets/$today.html
+cp /tmp/timesheet-fedora.html ~/timesheets/latest.html
+
+cp /tmp/timesheet-all.html ~/timesheets/$today-all.html
+cp /tmp/timesheet-all.html ~/timesheets/latest-all.html
+
+scp -i /home/&amp;lt;USER&amp;gt;/.ssh/id_fedora_rsa /tmp/timesheet-fedora.html &amp;lt;FAS USER&amp;gt;&amp;#64;fedorapeople.org:./public_html/timesheets/$today.html
+scp -i /home/&amp;lt;USER&amp;gt;/.ssh/id_fedora_rsa /tmp/timesheet-fedora.html &amp;lt;FAS USER&amp;gt;&amp;#64;fedorapeople.org:./public_html/timesheets/latest.html
+rm /tmp/timesheet*.html
+&lt;/pre&gt;
+&lt;p&gt;This will generate a pretty time sheet for you, like the one threebean
+hosts, or &lt;a class="reference external" href="http://ankursinha.fedorapeople.org/timesheets/latest.html"&gt;the one I host&lt;/a&gt;. Taskwarrior is quite the same as gtg. I've
+moved to it because I prefer using the terminal as much as possible, and
+it lets me create sheets where I can keep an eye on my tasks. Yes, I'll
+continue to maintain gtg in Fedora. Don't worry ;)&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="customizing-your-time-sheet"&gt;
+&lt;h2&gt;Customizing your time sheet&lt;/h2&gt;
+&lt;p&gt;You can customize your time sheets and other options by creating a
+&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;~/.taskrc&lt;/span&gt;&lt;/tt&gt; file. More themes are available in
+&lt;tt class="docutils literal"&gt;/usr/share/doc/task/rc/&lt;/tt&gt;&lt;/p&gt;
+&lt;p&gt;My .taskrc looks like this:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+# Files
+data.location=/home/asinha/.task
+
+_forcecolor=yes
+defaultwidth=160
+
+include /usr/share/doc/task/rc/dark-blue-256.theme
+
+report.work_report.description=now
+report.work_report.columns=priority,project,description,end,entry,entry.age
+report.work_report.labels=priority,project,description,completed,entered on,age
+report.work_report.sort=project+,end-
+report.work_report.filter=status:completed
+journal.time=on
+&lt;/pre&gt;
+&lt;p&gt;Play around with it. There's quite a bit you can do.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="some-more-taskserver"&gt;
+&lt;h2&gt;Some more: taskserver&lt;/h2&gt;
+&lt;p&gt;I haven't tried this out myself. I don't need it yet. However, you can
+run a taskserver on your host and log tasks from anywhere over the
+internet. Documentation can be found
+&lt;a class="reference external" href="http://taskwarrior.org/docs/server_setup.html"&gt;here&lt;/a&gt;. If you do
+figure it out, please write a blog post documenting it for Fedora.
+&lt;a class="reference external" href="https://bugzilla.redhat.com/show_bug.cgi?id=1066573"&gt;threebean's working on the taskd&lt;/a&gt; package already.&lt;/p&gt;
+&lt;p&gt;Cheers!&lt;/p&gt;
+&lt;/div&gt;
+</content><category term="Tech"/><category term="Fedora"/><category term="Taskwarrior"/></entry></feed>

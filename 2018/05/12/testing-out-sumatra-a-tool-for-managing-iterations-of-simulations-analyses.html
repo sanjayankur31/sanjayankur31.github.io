@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="Ankur Sinha" />
+    <meta name="generator" content="Pelican (VoidyBootstrap theme)" />
+    <meta name="twitter:card" content="summary"> 
+    <meta name="twitter:title" content="Testing out Sumatra: a tool for managing iterations of simulations/analyses">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:site" content="@sanjay_ankur">
+    <meta name="twitter:creator" content="@sanjay_ankur">
+    <meta name="twitter:domain" content="https://ankursinha.in">
+
+    <title>Testing out Sumatra: a tool for managing iterations of simulations/analyses - ankursinha.in/blog</title>
+
+   
+        <link rel="stylesheet"
+              href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+              integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+              crossorigin="anonymous" />
+
+
+
+
+
+      <link rel="stylesheet" href="https://ankursinha.in/theme/css/use-opensans.css" />
+      <link rel="stylesheet" href="https://ankursinha.in/theme/css/voidybootstrap.css" />
+      <link rel="stylesheet" href="https://ankursinha.in/theme/css/pygment.css" />
+
+    <link rel="shortcut icon" href="https://ankursinha.in/favicon.ico" />
+        <link href="https://ankursinha.in/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="ankursinha.in/blog Atom Feed" />
+        <link href="https://ankursinha.in/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="ankursinha.in/blog RSS Feed" />
+  
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MCTH8VNYDK"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-MCTH8VNYDK');
+    </script>
+
+  </head>
+
+  <body>
+   
+    <nav class="navbar navbar-default">
+      <div class="container">
+	   <div class="navbar-header">
+		<button type="button" class="navbar-toggle" 
+				data-toggle="collapse" data-target="#main-navbar-collapse">
+		  <span class="sr-only">Toggle navigation</span>
+		  <span class="icon-bar"></span>
+		  <span class="icon-bar"></span>
+		  <span class="icon-bar"></span>
+		</button>
+		<a class="navbar-brand" href="https://ankursinha.in/" rel="home">
+          <i class="fas fa-home fa-fw fa-lg"> </i> </a>
+       </div>
+
+      <div class="collapse navbar-collapse" id="main-navbar-collapse">
+        <ul class="nav navbar-nav">
+              <li>
+                <a href="https://ankursinha.in/pages/01-about.html">About Me</a>
+              </li>
+              <li>
+                <a href="https://ankursinha.in/pages/04-current-work.html">Current Projects</a>
+              </li>
+            <li class="divider"></li>
+            <li class="">
+              <a href="https://ankursinha.in/pages/03-publications.html">Publications</a>
+            </li>
+            <li class="">
+              <a href="https://ankursinha.in/pages/archives.html">Archives</a>
+            </li>
+          <li class="divider"></li>
+            <li><a href="https://ankursinha.in/feeds/all.atom.xml" 
+                   type="application/atom+xml" rel="alternate">
+                <i class="fas fa-rss fa-fw fa-lg"></i> </a></li>
+        </ul> <!-- /nav -->
+      </div> <!-- /navbar-collapse -->
+	  </div> <!-- /container -->
+    </nav> <!-- /navbar -->
+
+	<div class="jumbotron" id="overview">
+	  <div class="container">
+		<h1><a href="https://ankursinha.in/">ankursinha.in/blog</a></h1>
+		<p class="lead">neuroscience/fedora/musings</p>
+	  </div>
+	</div>
+
+    <div class="container" id="main-container">
+      <div class="row">
+        <div class="col-md-9" id="content">
+<article itemscope="itemscope" itemtype="http://schema.org/BlogPosting">
+  <header class="article-header">
+<abbr class="article-header-date">
+  Sat 12 May 2018
+</abbr> <h1>
+  <a href="https://ankursinha.in/2018/05/12/testing-out-sumatra-a-tool-for-managing-iterations-of-simulations-analyses.html" rel="bookmark"
+     title="Permalink to Testing out Sumatra: a tool for managing iterations of simulations/analyses">
+    Testing out Sumatra: a tool for managing iterations of simulations/analyses
+  </a>
+</h1><div class="article-header-info">
+  <p>
+      Posted by <a href="https://ankursinha.in/author/ankur.html">ankur</a>
+    in 
+    <a href="https://ankursinha.in/category/research/">
+      Research</a>
+(1787 words, approximately a 8 minute read)
+  </p>
+</div> <!-- /.article-header-info -->  </header>
+  <div class="content-body" itemprop="text articleBody">
+
+<p>
+    <ul class="list-inline">
+      <li class="list-inline-item">
+        <i class="fas fa-tags"></i>
+          <a href="https://ankursinha.in/tag/python/">#Python</a>,           <a href="https://ankursinha.in/tag/reproducible-research/">#Reproducible research</a>,           <a href="https://ankursinha.in/tag/computational-neuroscience/">#Computational neuroscience</a>,           <a href="https://ankursinha.in/tag/sumatra/">#Sumatra</a>,           <a href="https://ankursinha.in/tag/fedora/">#Fedora</a>,           <a href="https://ankursinha.in/tag/planet/">#Planet</a>      </li>
+    </ul>
+</p>
+
+
+  <div>  <!-- Social media sharing buttons -->
+  <hr />
+    <ul class="list-inline">
+      <li class="list-inline-item text-muted" title="Share"><i class="fas fa-share-alt" title="Share this post"></i> Share this post:</li>
+      <li class="list-inline-item"><a class="fab fa-mastodon" href="https://toot.kytta.dev/?text=Testing%20out%20Sumatra%3A%20a%20tool%20for%20managing%20iterations%20of%20simulations/analyses%0D%0Ahttps%3A//ankursinha.in/2018/05/12/testing-out-sumatra-a-tool-for-managing-iterations-of-simulations-analyses.html%0D%0A%23Python %23Reproducibleresearch %23Computationalneuroscience %23Sumatra %23Fedora %23Planet" target="_blank" title="Share on mastodon"></a></li>
+      <li class="list-inline-item"><a class="fab fa-twitter" href="https://twitter.com/intent/tweet?text=Testing%20out%20Sumatra%3A%20a%20tool%20for%20managing%20iterations%20of%20simulations/analyses&url=https%3A//ankursinha.in/2018/05/12/testing-out-sumatra-a-tool-for-managing-iterations-of-simulations-analyses.html&via=sanjay_ankur&hashtags=python,reproducible-research,computational-neuroscience,sumatra,fedora,planet" target="_blank" title="Share on Twitter"></a></li>
+      <li class="list-inline-item"><a class="fab fa-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3A//ankursinha.in/2018/05/12/testing-out-sumatra-a-tool-for-managing-iterations-of-simulations-analyses.html" target="_blank" title="Share on Facebook"></a></li>
+      <li class="list-inline-item"><a class="fab fa-reddit" href="https://www.reddit.com/submit?url=https%3A//ankursinha.in/2018/05/12/testing-out-sumatra-a-tool-for-managing-iterations-of-simulations-analyses.html&title=Testing%20out%20Sumatra%3A%20a%20tool%20for%20managing%20iterations%20of%20simulations/analyses" target="_blank" title="Share on Reddit"></a></li>
+      <li class="list-inline-item"><a class="fab fa-linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A//ankursinha.in/2018/05/12/testing-out-sumatra-a-tool-for-managing-iterations-of-simulations-analyses.html&title=Testing%20out%20Sumatra%3A%20a%20tool%20for%20managing%20iterations%20of%20simulations/analyses&summary=When%20working%20on%20projects%20that%20require%20multiple%20iterations%20of%0Asimulations%20and/or%20analyses%2C%20it%27s%20really%20quite%20hard%20to%20keep%20track%20of%0Athe%20changes%20one%20makes%20and%20how%20the%20results%20vary.%20Sumatra%20is%20a%20tool%0Athat%20is%20developed%20to%20help%20researchers%20manage%20such%20projects.&source=https%3A//ankursinha.in/2018/05/12/testing-out-sumatra-a-tool-for-managing-iterations-of-simulations-analyses.html" target="_blank" title="Share via LinkedIn<"></a></li>
+      <li class="list-inline-item"><a class="fas fa-mail-bulk" href="mailto:?subject=Testing%20out%20Sumatra%3A%20a%20tool%20for%20managing%20iterations%20of%20simulations/analyses&amp;body=https%3A//ankursinha.in/2018/05/12/testing-out-sumatra-a-tool-for-managing-iterations-of-simulations-analyses.html" target="_blank" title="Share via E-mail"></a></li>
+    </ul>
+  <hr />
+  </div> <!-- /Social media sharing buttons -->	<p>In the ~4 years that I've spent on my PhD now, I've run hundreds, nay,
+thousands of simulations. Research work is incredibly iterative. I (and I
+assume others too) make small changes to their methods and then study how these
+changes produce different results, and this cycle continues until a
+proposed hypothesis has either been accepted or refuted (or a completely new
+insight gained, which happens quite often too!).</p>
+<div class="section" id="folders-and-dropbox-please-no">
+<h2>Folders, and Dropbox? Please, no.</h2>
+<p>Keeping track of all these iterations is quite a task. I've seen multiple
+methods that people use to do this. A popular method is to make a different
+folder for each different version of code, and then use something like Dropbox
+to store them all.</p>
+<p>Since I come from a computing background, I firmly believe that this is not a
+good way of going about it. It may work for folks---people I know and work with
+use this method---but it is simply a bad way of going about it. This <a class="reference external" href="http://phdcomics.com/">PhDComic</a>
+does a rather good job of showing an example situation. Sure, this is about a
+document, but when source code is kept in different folders, a similar
+situation arises. You get the idea.</p>
+<a class="reference external image-reference" href="http://phdcomics.com/comics/archive.php?comicid=1531">
+<img alt="PhDComic!" class="text-center img-responsive pagination-centered" src="http://www.phdcomics.com/comics/archive/phd101212s.gif" style="width: 80%;" />
+</a>
+</div>
+<div class="section" id="version-control-yes">
+<h2>Version control, YES!</h2>
+<p>If there weren't tools designed to track and manage such projects, one could
+still argue for using such methods, but the truth is that there is a plethora
+of <a class="reference external" href="https://en.wikipedia.org/wiki/List_of_version_control_software">version control tools</a> available
+under <a class="reference external" href="https://www.gnu.org/philosophy/free-sw.en.html">Free/Open Source</a> licenses. Not only do these tools manage projects,
+they also make collaborating over source code simple.</p>
+<p>All my simulation code, for example, lives in a <a class="reference external" href="https://git-scm.com/">Git</a> repository (which will be
+made available under a <a class="reference external" href="https://www.gnu.org/philosophy/free-sw.en.html">Free/Open source</a> license as soon as my paper goes out
+to ensure that others can read, verify, and build on it). The support scripts
+that I use to set up simulations and then analyse the data they produce already
+live <a class="reference external" href="https://github.com/sanjayankur31/Sinha2016-scripts">here on GitHub</a>,
+for example. Please go ahead and use them if they fit your purpose.</p>
+<p>I have different <a class="reference external" href="https://git-scm.com/">Git</a> branches for different features that I add to the
+simulations---the different hypothesis that I'm testing out. I also keep a
+rather meticulous record of everything I do in a research journal in <a class="reference external" href="https://www.latex-project.org/">LaTeX</a> that
+also lives in a <a class="reference external" href="https://git-scm.com/">Git</a> repository, and uses <a class="reference external" href="https://github.com/sanjayankur31/calliope">Calliope</a> (a simple helper script to
+manage various journaling tasks). Everything goes in here---graphs, images,
+sometimes patches and source code even, and the deductions and other
+comments/thoughts too.</p>
+<p>My rather simple system is as follows:</p>
+<ul class="simple">
+<li>Each new feature/hypothesis gets its own <a class="reference external" href="https://git-scm.com/">Git</a> branch.</li>
+<li>Each version of its implementation, therefore, gets its own unique <a class="reference external" href="https://github.com/sanjayankur31/Sinha2016-scripts/blob/master/runners/stri-cluster/start-nest-job.sh#L93">commit</a>
+(a snapshot of code that <a class="reference external" href="https://git-scm.com/">Git</a> saves for the user with a unique identifier and
+a complete record of the changes that were made to the project, when they
+were made and so on.)</li>
+<li>For each run of a snapshot, the generated data is stored in a folder that is
+named <a class="reference external" href="https://github.com/sanjayankur31/Sinha2016-scripts/blob/master/runners/stri-cluster/start-nest-job.sh#L27">YYYYMMDDHHMM (Year, month, day, time)</a>,
+which, unless you figure out how to go back in time, is also unique.</li>
+<li>The commit hash + YYYYMMDD become a unique identifier for each code snapshot
+and the results that it generated.</li>
+<li>A new chapter in my research journal holds a summary of the simulation, and
+all the analysis that I do. I even name the chapter &quot;git-hash/YYYYMMDDHHMM&quot;.</li>
+</ul>
+<a class="reference external image-reference" href="https://xkcd.com/1597/">
+<img alt="XKCD on Git." class="text-center img-responsive pagination-centered" src="https://imgs.xkcd.com/comics/git.png" style="width: 50%;" />
+</a>
+<p>I know that learning a version control system has a steep initial curve, but I
+really do think that this is one tool that is well worth the time.</p>
+<p>Using a version control system has many advantages, some of which are:</p>
+<ul class="simple">
+<li>It lets you keep the full history of your source code, and go back to any
+previous version.</li>
+<li>You know exactly what you changed between two snapshots.</li>
+<li>If multiple people work on the code, everyone knows exactly who authored
+what.</li>
+<li>These tools make changing code, trying out things, and so on, very very easy.
+Try something out in a different branch, if it worked, yay, keep the branch
+running; maybe even merge it to the main branch? If it didn't make a note,
+delete the branch, and move on!</li>
+<li>With services like <a class="reference external" href="https://github.com">GitHub</a>, <a class="reference external" href="https://bitbucket.org">BitBucket</a>, and <a class="reference external" href="https://gitlab.com">GitLab</a>, collaboration becomes
+really easy.</li>
+<li>Ah, and note, that every collaborator has a copy of the source code, so it
+has been backed up too! Even if you work alone, there's always another copy
+on <a class="reference external" href="https://github.com">GitHub</a> (or whatever service you use).</li>
+</ul>
+<p>Here's a quick beginners guide to using <a class="reference external" href="https://git-scm.com/">Git</a> and <a class="reference external" href="https://github.com">GitHub</a>:
+<a class="reference external" href="http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004668">http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004668</a>
+There are many more all over the WWW, of course. <a class="reference external" href="https://duckduckgo.com">Duckduckgo</a> is your friend.
+(<a class="reference external" href="http://qr.ae/TU1wA9">Why Duckduckgo and not Google?</a>)</p>
+</div>
+<div class="section" id="what-s-sumatra-about-then">
+<h2>What's Sumatra about, then?</h2>
+<a class="reference external image-reference" href="http://neuralensemble.org/static/photos/sumatra_logo.png">
+<img alt="Sumatra: a tool to manage and track simulation runs." class="text-center img-responsive pagination-centered" src="http://neuralensemble.org/static/photos/sumatra_logo.png" style="width: 30%;" />
+</a>
+<p>I've been meaning to try <a class="reference external" href="http://neuralensemble.org/sumatra/">Sumatra</a> out for a while now. What <a class="reference external" href="http://neuralensemble.org/sumatra/">Sumatra</a> does is
+sort of bring the functions of all my scripts together into one well-designed
+tool.  <a class="reference external" href="http://neuralensemble.org/sumatra/">Sumatra</a> can do the running bit, then save the generated data in a
+unique location, and it even lets users add comments about the simulation.
+<a class="reference external" href="http://neuralensemble.org/sumatra/">Sumatra</a> even has a web based front end for those that would prefer a graphical
+interface instead of the command line.  Lastly, <a class="reference external" href="http://neuralensemble.org/sumatra/">Sumatra</a> is written in <a class="reference external" href="https://python.org">Python</a>,
+so it works on pretty much all systems. Note that <a class="reference external" href="http://neuralensemble.org/sumatra/">Sumatra</a> forces the use of a
+version control system (from what I've seen yet).</p>
+<div class="section" id="a-quick-walk-through">
+<h3>A quick walk-through</h3>
+<p>The <a class="reference external" href="http://sumatra.readthedocs.io/en/0.7.4/index.html">documentation</a>
+contains all of this already, but I'll show the steps here too. I used a <a class="reference external" href="https://github.com/sanjayankur31/sumatra-nest-cluster-test">dummy
+repository</a> to
+test it out.</p>
+<p>Installing <a class="reference external" href="http://neuralensemble.org/sumatra/">Sumatra</a> is as easy as a <a class="reference external" href="https://docs.python.org/3/installing/index.html">pip</a> command. I would suggest setting up a
+<a class="reference external" href="https://docs.python.org/3/library/venv.html">virtual-environment</a>, though:</p>
+<pre class="code literal-block">
+python3 -m venv --system-site-packages sumatra-virtual
+</pre>
+<p>We then activate the virtual-environment, and install <a class="reference external" href="http://neuralensemble.org/sumatra/">Sumatra</a>:</p>
+<pre class="code literal-block">
+source sumatra-virtual/bin/activate
+pip install sumatra
+</pre>
+<p>Once it finishes installing, simply mark a version controlled source
+repository as managed by <a class="reference external" href="http://neuralensemble.org/sumatra/">Sumatra</a>:</p>
+<pre class="code literal-block">
+cd my-awesome-project
+smt init my-awesome-project
+</pre>
+<p>Then, one can see the information that <a class="reference external" href="http://neuralensemble.org/sumatra/">Sumatra</a> has on the project, for
+example:</p>
+<pre class="code literal-block">
+smt info
+Project name        : test-repo
+Default executable  : Python (version: 3.6.5) at /home/asinha/dump/sumatra-virt/bin/python3
+Default repository  : GitRepository at /home/asinha/Documents/02_Code/00_repos/00_mine/sumatra-nest-cluster-test (upstream: git&#64;github.com:sanjayankur31/sumatra-nest-cluster-test.git)
+Default main file   : test.py
+Default launch mode : serial
+Data store (output) : /home/asinha/Documents/02_Code/00_repos/00_mine/sumatra-nest-cluster-test/Data
+.          (input)  : /
+Record store        : Django (/home/asinha/Documents/02_Code/00_repos/00_mine/sumatra-nest-cluster-test/.smt/records)
+Code change policy  : error
+Append label to     : None
+Label generator     : timestamp
+Timestamp format    : %Y%m%d-%H%M%S
+Plug-ins            : []
+Sumatra version     : 0.7.4
+</pre>
+<p>My test script only prints a short message. Here's how one would run it using
+<a class="reference external" href="http://neuralensemble.org/sumatra/">Sumatra</a>:</p>
+<pre class="code literal-block">
+# so that we don't have to specify this for each run
+smt configure --executable=python3 --main=test.py
+
+smt run
+Hello Sumatra World!
+Record label for this run: '20180512-200859'
+No data produced.
+</pre>
+<p>One can now see all the runs of this simulation that have been made!</p>
+<pre class="code literal-block">
+smt list --long
+--------------------------------------------------------------------------------
+Label            : 20180512-200859
+Timestamp        : 2018-05-12 20:08:59.761849
+Reason           :
+Outcome          :
+Duration         : 0.050611019134521484
+Repository       : GitRepository at /home/asinha/Documents/02_Code/00_repos/00_mine/sumatra-nest-
+                 : cluster-test (upstream: git&#64;github.com:sanjayankur31/sumatra-nest-cluster-
+                 : test.git)
+Main_File        : test.py
+Version          : 6f4e1bf05f223a0100ca6f843c11ef4fd70490f3
+Script_Arguments :
+Executable       : Python (version: 3.6.5) at /home/asinha/dump/sumatra-virt/bin/python3
+Parameters       :
+Input_Data       : []
+Launch_Mode      : serial
+Output_Data      : []
+User             : Ankur Sinha (Ankur Sinha Gmail) &lt;sanjay.ankur&#64;gmail.com&gt;
+Tags             :
+Repeats          : None
+--------------------------------------------------------------------------------
+Label            : 20180512-181422
+Timestamp        : 2018-05-12 18:14:22.668655
+Reason           :
+Outcome          : Well that worked
+Duration         : 0.05211901664733887
+Repository       : GitRepository at /home/asinha/Documents/02_Code/00_repos/00_mine/sumatra-nest-
+                 : cluster-test (upstream: git&#64;github.com:sanjayankur31/sumatra-nest-cluster-
+                 : test.git)
+Main_File        : test.py
+Version          : 4f151a368b1fee1fa8f21026c3b6d2c6b2531da8
+Script_Arguments :
+Executable       : Python (version: 3.6.5) at /home/asinha/dump/sumatra-virt/bin/python3
+Parameters       :
+Input_Data       : []
+Launch_Mode      : serial
+Output_Data      : []
+User             : Ankur Sinha (Ankur Sinha Gmail) &lt;sanjay.ankur&#64;gmail.com&gt;
+Tags             :
+Repeats          : None
+</pre>
+<p>There's a lot more that can be done, of course. I'll quickly show the GUI
+version here.</p>
+<p>One can run the webversion using:</p>
+<pre class="code literal-block">
+smtweb -p 8001 #whatever port number one wants to use
+</pre>
+<p>Then, it'll open up in your default web-browser at <a class="reference external" href="http://127.0.0.1:8001/">http://127.0.0.1:8001/</a>.</p>
+<a class="reference external image-reference" href="https://ankursinha.in/images/20180512-sumatra1.png">
+<img alt="Sumatra initial interface." class="text-center img-responsive pagination-centered" src="https://ankursinha.in/images/20180512-sumatra1.png" style="width: 80%;" />
+</a>
+<p>For each project, one can see the various runs, with all the associated
+information too.</p>
+<a class="reference external image-reference" href="https://ankursinha.in/images/20180512-sumatra2.png">
+<img alt="Records for a project in Sumatra" class="text-center img-responsive pagination-centered" src="https://ankursinha.in/images/20180512-sumatra2.png" style="width: 80%;" />
+</a>
+<p>One can then add more information about a run. <a class="reference external" href="http://neuralensemble.org/sumatra/">Sumatra</a> already stores lots of
+important information as the image shows:</p>
+<a class="reference external image-reference" href="https://ankursinha.in/images/20180512-sumatra3.png">
+<img alt="More information on each record in Sumatra" class="text-center img-responsive pagination-centered" src="https://ankursinha.in/images/20180512-sumatra3.png" style="width: 80%;" />
+</a>
+<p>Pretty neat, huh?</p>
+<p>I run my simulations on a cluster, and so have my own system to submit jobs to
+the queue system. <a class="reference external" href="http://neuralensemble.org/sumatra/">Sumatra</a> can run jobs in parallel on a cluster, but I've
+still got to check if it also integrates with the queue system that our cluster
+runs. Luckily, <a class="reference external" href="http://neuralensemble.org/sumatra/">Sumatra</a> also provides an API, so I should be able to write a
+few <a class="reference external" href="https://python.org">Python</a> scripts to handle that bit too. It's on my TODO list now.</p>
+</div>
+</div>
+<div class="section" id="please-use-version-control-and-a-sumatra-style-record-keeper">
+<h2>Please use version control and a Sumatra style record keeper</h2>
+<p>I haven't found another tool that does what <a class="reference external" href="http://neuralensemble.org/sumatra/">Sumatra</a> does yet. Maybe Jupyter
+notebooks would come close, but one would have to add some sort of wrapper
+around them to keep proper records. It'll probably be similar to my current
+system.</p>
+<p>In summary, please use version control, and use a record keeper to manage and
+track simulations. Not only does it make it easier for you, the researcher, it
+also makes it easier for others to replicate the simulation since the record
+keeper provides all the information required to re-run the simulation.</p>
+</div>
+<div class="section" id="free-open-source-software-promotes-open-science">
+<h2>Free/Open source software promotes Open Science</h2>
+<video controls width="640" height="390" poster="//static.fsf.org/nosvn/FSF30-video/fsf30-poster.png">
+<source src="//static.fsf.org/nosvn/FSF30-video/FSF_30_720p.webm" type="video/webm">
+<track kind="subtitles" label="English" srclang="en" src="//static.fsf.org/nosvn/FSF30-video/captions/FSF_30_720p.en.vtt" default="default" />
+<track kind="subtitles" label="Spanish" srclang="es" src="//static.fsf.org/nosvn/FSF30-video/captions/FSF_30_es.vtt" />
+<track kind="subtitles" label="French" srclang="fr" src="//static.fsf.org/nosvn/FSF30-video/captions/FSF_30_720p.fr.vtt" />
+<track kind="subtitles" label="German" srclang="en" src="//static.fsf.org/nosvn/FSF30-video/captions/FSF_30_720p.de.vtt" />
+<track kind="subtitles" label="русский" srclang="ru" src="//static.fsf.org/nosvn/FSF30-video/captions/FSF_30_720p.ru.vtt" />
+<track kind="subtitles" label="italiano" srclang="it" src="//static.fsf.org/nosvn/FSF30-video/captions/FSF_30_720p.it.vtt" />
+<track kind="subtitles" label="português" srclang="pt" src="//static.fsf.org/nosvn/FSF30-video/captions/FSF_30_720p.pt.vtt" />
+<track kind="subtitles" label="српски" srclang="sr" src="//static.fsf.org/nosvn/FSF30-video/captions/FSF_30_720p.sr.vtt" />
+<track kind="subtitles" label="fārsi" srclang="fa" src="//static.fsf.org/nosvn/FSF30-video/captions/FSF_30_720p.fa.vtt" />
+<track kind="subtitles" label="nederlands" srclang="nl" src="//static.fsf.org/nosvn/FSF30-video/captions/FSF_30_720p.nl.vtt" />
+<track kind="subtitles" label="magyar" srclang="hu" src="//static.fsf.org/nosvn/FSF30-video/captions/FSF_30_720p.hu.vtt" />
+<track kind="subtitles" label="svenska" srclang="se" src="//static.fsf.org/nosvn/FSF30-video/captions/FSF_30_720p.se.vtt" />
+<track kind="subtitles" label="română" srclang="ro" src="//static.fsf.org/nosvn/FSF30-video/captions/FSF_30_720p.ro.vtt" />
+<track kind="subtitles" label="lietuvių" srclang="lt" src="//static.fsf.org/nosvn/FSF30-video/captions/FSF_30_720p.lt.vtt" />
+<track kind="subtitles" label="hebrew" srclang="lt" src="//static.fsf.org/nosvn/FSF30-video/captions/FSF_30_720p.he.vtt" />
+<track kind="subtitles" label="português do Brasil" srclang="pt-br" src="//static.fsf.org/nosvn/FSF30-video/captions/FSF_30_720p.pt-br.vtt" />
+<track kind="subtitles" label="chinese" srclang="lt" src="//static.fsf.org/nosvn/FSF30-video/captions/FSF_30_720p.zh-cn.vtt" />
+<p><a href="https://www.fsf.org/blogs/community/user-liberation-watch-and-share-our-new-video">
+User liberation video at the Free Software Foundation.
+</a></p>
+</video><p>(The original video is at the <a class="reference external" href="https://www.fsf.org/blogs/community/user-liberation-watch-and-share-our-new-video">Free Software Foundation's website</a>.)</p>
+<p>As a concluding plea, I request everyone to please use <a class="reference external" href="https://www.gnu.org/philosophy/free-sw.en.html">Free/Open source</a>
+software for all research. Not only are these available free of cost, they
+provide everyone with the right to read, validate, study, copy, share, and
+modify the software. One can learn so much from reading how research tools are
+built. One can be absolutely sure of their results if they can see the code
+that carries out the analysis. One can build on others' work if the source is
+available for all to use and change. How easy does replication become when the
+source and all related resources are given out for all to use?</p>
+<p>Do not use Microsoft Word, for example. Not everyone, even today, has access
+to Microsoft software. Should researchers be required to buy a Microsoft
+license to be able to collaborate with us? The tools are here to enable
+science, not hamper it.  Proprietary software and formats do not enable
+science, they restrict it to those that can pay for such software. This is not
+a restriction we should endorse in any way.</p>
+<p>Yes, I know that sometimes there aren't <a class="reference external" href="https://www.gnu.org/philosophy/free-sw.en.html">Free/Open source</a> software
+alternatives that carry the same set of features, but a little bit of extra
+work, for me, is an investment towards Open Science. Instead of Word, as an
+example, use <a class="reference external" href="https://www.libreoffice.org/">Libreoffice</a>, or <a class="reference external" href="https://www.latex-project.org/">LaTeX</a>. Use <a class="reference external" href="http://opendocumentformat.org/">Open formats</a>. There will be bugs, but until we report
+them, they will not be fixed. Until these <a class="reference external" href="https://www.gnu.org/philosophy/free-sw.en.html">Free/Open source</a> tools replace
+restricted software as the standard for science, they will only have small
+communities around them that build and maintain them.</p>
+<p>Open Science is a necessity.  Researchers from the neuroscience community
+recently signed <a class="reference external" href="http://opensourceforneuroscience.org/">this letter</a>
+committing to the use of <a class="reference external" href="https://www.gnu.org/philosophy/free-sw.en.html">Free/Open source</a> software for their research. There
+are similar initiatives in other fields too, and of course, one must be aware
+of the Open Access movement etc.</p>
+<p>I've made this plea in the context of science, but the video should also show
+you how in everyday life, it is important to use <a class="reference external" href="https://www.gnu.org/philosophy/free-sw.en.html">Free/Open source</a> resources.
+Please use <a class="reference external" href="https://www.gnu.org/philosophy/free-sw.en.html">Free/Open source</a> resources, as much as possible.</p>
+<!-- _ -->
+</div>
+
+  </div>
+  
+  <div>  <!-- Social media sharing buttons -->
+  <hr />
+    <ul class="list-inline">
+      <li class="list-inline-item text-muted" title="Share"><i class="fas fa-share-alt" title="Share this post"></i> Share this post:</li>
+      <li class="list-inline-item"><a class="fab fa-mastodon" href="https://toot.kytta.dev/?text=Testing%20out%20Sumatra%3A%20a%20tool%20for%20managing%20iterations%20of%20simulations/analyses%0D%0Ahttps%3A//ankursinha.in/2018/05/12/testing-out-sumatra-a-tool-for-managing-iterations-of-simulations-analyses.html%0D%0A%23Python %23Reproducibleresearch %23Computationalneuroscience %23Sumatra %23Fedora %23Planet" target="_blank" title="Share on mastodon"></a></li>
+      <li class="list-inline-item"><a class="fab fa-twitter" href="https://twitter.com/intent/tweet?text=Testing%20out%20Sumatra%3A%20a%20tool%20for%20managing%20iterations%20of%20simulations/analyses&url=https%3A//ankursinha.in/2018/05/12/testing-out-sumatra-a-tool-for-managing-iterations-of-simulations-analyses.html&via=sanjay_ankur&hashtags=python,reproducible-research,computational-neuroscience,sumatra,fedora,planet" target="_blank" title="Share on Twitter"></a></li>
+      <li class="list-inline-item"><a class="fab fa-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3A//ankursinha.in/2018/05/12/testing-out-sumatra-a-tool-for-managing-iterations-of-simulations-analyses.html" target="_blank" title="Share on Facebook"></a></li>
+      <li class="list-inline-item"><a class="fab fa-reddit" href="https://www.reddit.com/submit?url=https%3A//ankursinha.in/2018/05/12/testing-out-sumatra-a-tool-for-managing-iterations-of-simulations-analyses.html&title=Testing%20out%20Sumatra%3A%20a%20tool%20for%20managing%20iterations%20of%20simulations/analyses" target="_blank" title="Share on Reddit"></a></li>
+      <li class="list-inline-item"><a class="fab fa-linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A//ankursinha.in/2018/05/12/testing-out-sumatra-a-tool-for-managing-iterations-of-simulations-analyses.html&title=Testing%20out%20Sumatra%3A%20a%20tool%20for%20managing%20iterations%20of%20simulations/analyses&summary=When%20working%20on%20projects%20that%20require%20multiple%20iterations%20of%0Asimulations%20and/or%20analyses%2C%20it%27s%20really%20quite%20hard%20to%20keep%20track%20of%0Athe%20changes%20one%20makes%20and%20how%20the%20results%20vary.%20Sumatra%20is%20a%20tool%0Athat%20is%20developed%20to%20help%20researchers%20manage%20such%20projects.&source=https%3A//ankursinha.in/2018/05/12/testing-out-sumatra-a-tool-for-managing-iterations-of-simulations-analyses.html" target="_blank" title="Share via LinkedIn<"></a></li>
+      <li class="list-inline-item"><a class="fas fa-mail-bulk" href="mailto:?subject=Testing%20out%20Sumatra%3A%20a%20tool%20for%20managing%20iterations%20of%20simulations/analyses&amp;body=https%3A//ankursinha.in/2018/05/12/testing-out-sumatra-a-tool-for-managing-iterations-of-simulations-analyses.html" target="_blank" title="Share via E-mail"></a></li>
+    </ul>
+  <hr />
+  </div> <!-- /Social media sharing buttons -->
+  <div class="comments">
+	<h2>Comments</h2>
+	<div id="disqus_thread"></div>
+	<script type="text/javascript">
+				   (function() {
+						var dsq = document.createElement('script');
+						dsq.type = 'text/javascript'; dsq.async = true;
+						dsq.src = '//ankursinha.disqus.com/embed.js';
+						(document.getElementsByTagName('head')[0] ||
+						 document.getElementsByTagName('body')[0]).appendChild(dsq);
+				  })();
+	</script>
+  </div>
+</article>
+        </div><!-- /content -->
+
+        <div class="col-md-3 sidebar-nav" id="sidebar">
+
+<div class="row">
+
+<div class="col-xs-6 col-md-12">
+<h4><i class="fas fa-comment fa-fw fa-lg"></i> Social</h4>
+<ul class="list-unstyled social-links">
+    <li><a rel="me" href="https://duckduckgo.com/?q=site%3Aankursinha.in&ia=web" target="_blank">
+	  <i class="fas fa-search fa-fw fa-lg" title="Search (DuckDuckGo)"></i>
+		Search (DuckDuckGo)
+	</a></li>
+    <li><a rel="me" href="www.linkedin.com/in/ankur-sinha-phd" target="_blank">
+	  <i class="fa fa-linkedin-square fa-fw fa-lg" title="LinkedIn"></i>
+		LinkedIn
+	</a></li>
+    <li><a rel="me" href="http://github.com/sanjayankur31" target="_blank">
+	  <i class="fab fa-github fa-fw fa-lg" title="GitHub"></i>
+		GitHub
+	</a></li>
+    <li><a rel="me" href=" https://orcid.org/0000-0001-7568-7167" target="_blank">
+	  <i class="fas fa-flask fa-fw fa-lg" title="Orcid"></i>
+		Orcid
+	</a></li>
+    <li><a rel="me" href="http://scholar.google.co.in/citations?user=919ScZEAAAAJ&hl=en" target="_blank">
+	  <i class="fas fa-graduation-cap fa-fw fa-lg" title="Scholar"></i>
+		Scholar
+	</a></li>
+    <li><a rel="me" href="https://fedoraproject.org/wiki/User:Ankursinha" target="_blank">
+	  <i class="fab fa-fedora fa-fw fa-lg" title="Fedora"></i>
+		Fedora
+	</a></li>
+    <li><a rel="me" href="https://ramblingreaders.org/user/sanjay_ankur" target="_blank">
+	  <i class="fas fa-book-reader fa-fw fa-lg" title="BookWyrm"></i>
+		BookWyrm
+	</a></li>
+    <li><a rel="me" href="https://fosstodon.org/@sanjay_ankur" target="_blank">
+	  <i class="fab fa-mastodon fa-fw fa-lg" title="Mastodon"></i>
+		Mastodon
+	</a></li>
+    <li><a rel="me" href="https://bsky.app/profile/sanjay-ankur.bsky.social" target="_blank">
+	  <i class="fas fa-people-arrows fa-fw fa-lg" title="BlueSky"></i>
+		BlueSky
+	</a></li>
+    <li><a rel="me" href="https://www.goodreads.com/user/show/32360473-ankur" target="_blank">
+	  <i class="fab fa-goodreads-g fa-fw fa-lg" title="Goodreads"></i>
+		Goodreads
+	</a></li>
+    <li><a rel="me" href="https://twitter.com/sanjay_ankur" target="_blank">
+	  <i class="fab fa-twitter fa-fw fa-lg" title="X"></i>
+		X
+	</a></li>
+    <li><a rel="me" href="https://coff.ee/sanjayankuu" target="_blank">
+	  <i class="fas fa-mug-hot fa-fw fa-lg" title="Buy me a coffee!"></i>
+		Buy me a coffee!
+	</a></li>
+</ul>
+</div>
+
+<div class="col-xs-6 col-md-12">
+<h4><i class="fas fa-folder fa-fw fa-lg"></i> Categories</h4>
+<ul class="list-unstyled category-links">
+  <li><a href="https://ankursinha.in/category/life/" >
+    <i class="fas fa-folder-open fa-fw fa-lg"></i> Life</a></li>
+  <li><a href="https://ankursinha.in/category/other/" >
+    <i class="fas fa-folder-open fa-fw fa-lg"></i> Other</a></li>
+  <li><a href="https://ankursinha.in/category/research/" >
+    <i class="fas fa-folder-open fa-fw fa-lg"></i> Research</a></li>
+  <li><a href="https://ankursinha.in/category/tech/" >
+    <i class="fas fa-folder-open fa-fw fa-lg"></i> Tech</a></li>
+</ul>
+</div>
+
+</div> <!-- /row -->
+
+  <h4><i class="fas fa-link fa-fw fa-lg"></i> Links</h4>
+  <ul class="list-unstyled category-links">
+    <li><a href="https://neuro.fedoraproject.org" >
+      <i class="fas fa-external-link-square-alt fa-fw fa-lg"></i> NeuroFedora</a></li>
+    <li><a href="http://fedoraproject.org" >
+      <i class="fas fa-external-link-square-alt fa-fw fa-lg"></i> Fedora Linux</a></li>
+    <li><a href="https://ocns.github.io/SoftwareWG/" >
+      <i class="fas fa-external-link-square-alt fa-fw fa-lg"></i> INCF/OCNS Software WG</a></li>
+    <li><a href="https://neuroblog.fedoraproject.org/planet-neuroscience/" >
+      <i class="fas fa-external-link-square-alt fa-fw fa-lg"></i> Neuroscience feeds</a></li>
+    <li><a href="https://neuroblog.fedoraproject.org/planet-neuroscientists/" >
+      <i class="fas fa-external-link-square-alt fa-fw fa-lg"></i> Neuroscientists feeds</a></li>
+  </ul>
+<h4><i class="fas fa-tags fa-fw fa-lg"></i> Tags</h4>
+<p class="tag-cloud">
+    <span class="tag-2">
+      <a href="https://ankursinha.in/tag/neurofedora/">
+          <i class="fas fa-tag"></i>
+        NeuroFedora
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="https://ankursinha.in/tag/vim/">
+          <i class="fas fa-tag"></i>
+        Vim
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="https://ankursinha.in/tag/open-source-brain/">
+          <i class="fas fa-tag"></i>
+        Open Source Brain
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="https://ankursinha.in/tag/zaphod/">
+          <i class="fas fa-tag"></i>
+        Zaphod
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="https://ankursinha.in/tag/social/">
+          <i class="fas fa-tag"></i>
+        Social
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="https://ankursinha.in/tag/pelican/">
+          <i class="fas fa-tag"></i>
+        Pelican
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="https://ankursinha.in/tag/neuroml/">
+          <i class="fas fa-tag"></i>
+        NeuroML
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="https://ankursinha.in/tag/flatpak/">
+          <i class="fas fa-tag"></i>
+        FlatPak
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="https://ankursinha.in/tag/irc/">
+          <i class="fas fa-tag"></i>
+        IRC
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="https://ankursinha.in/tag/neuron/">
+          <i class="fas fa-tag"></i>
+        Neuron
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="https://ankursinha.in/tag/community/">
+          <i class="fas fa-tag"></i>
+        Community
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="https://ankursinha.in/tag/computational-neuroscience/">
+          <i class="fas fa-tag"></i>
+        Computational Neuroscience
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="https://ankursinha.in/tag/python/">
+          <i class="fas fa-tag"></i>
+        Python
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="https://ankursinha.in/tag/gnome/">
+          <i class="fas fa-tag"></i>
+        GNOME
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="https://ankursinha.in/tag/git/">
+          <i class="fas fa-tag"></i>
+        Git
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="https://ankursinha.in/tag/github/">
+          <i class="fas fa-tag"></i>
+        GitHub
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="https://ankursinha.in/tag/ucl/">
+          <i class="fas fa-tag"></i>
+        UCL
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="https://ankursinha.in/tag/bash/">
+          <i class="fas fa-tag"></i>
+        Bash
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="https://ankursinha.in/tag/fedora/">
+          <i class="fas fa-tag"></i>
+        Fedora
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="https://ankursinha.in/tag/latex/">
+          <i class="fas fa-tag"></i>
+        LaTeX
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="https://ankursinha.in/tag/matlab/">
+          <i class="fas fa-tag"></i>
+        Matlab
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="https://ankursinha.in/tag/nest/">
+          <i class="fas fa-tag"></i>
+        NEST
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="https://ankursinha.in/tag/linux/">
+          <i class="fas fa-tag"></i>
+        Linux
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="https://ankursinha.in/tag/taskwarrior/">
+          <i class="fas fa-tag"></i>
+        Taskwarrior
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="https://ankursinha.in/tag/free-software/">
+          <i class="fas fa-tag"></i>
+        Free software
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="https://ankursinha.in/tag/gsoc/">
+          <i class="fas fa-tag"></i>
+        GSoC
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="https://ankursinha.in/tag/planet/">
+          <i class="fas fa-tag"></i>
+        Planet
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="https://ankursinha.in/tag/robotics/">
+          <i class="fas fa-tag"></i>
+        Robotics
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="https://ankursinha.in/tag/programming/">
+          <i class="fas fa-tag"></i>
+        Programming
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="https://ankursinha.in/tag/events/">
+          <i class="fas fa-tag"></i>
+        Events
+      </a>
+    </span>
+</p>
+<h4><i class="fas fa-rss fa-fw fa-lg"></i> Feeds</h4>
+<ul class="list-unstyled">
+    <li><a href="https://ankursinha.in/feeds/all.atom.xml" 
+		   type="application/atom+xml" rel="alternate">
+		<i class="fas fa-rss-square fa-fw fa-lg"></i> Atom Feed</a></li>
+    <li><a href="https://ankursinha.in/feeds/all.rss.xml" 
+		   type="application/rss+xml" rel="alternate">
+		<i class="fas fa-rss-square fa-fw fa-lg"></i> RSS feed</a></li>
+</ul>
+
+<hr />
+
+        </div><!--/sidebar -->
+      </div><!--/row-->
+    </div><!--/.container /#main-container -->
+
+    <footer id="site-footer">
+ 
+      <address id="site-colophon">
+        <p class="text-center text-muted">
+        <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br /><a href="http://ankursinha.in/" target="_blank" xmlns:dct="http://purl.org/dc/terms/" property="dct:title">ankursinha.in</a> by <a xmlns:cc="http://creativecommons.org/ns#" href="https://ankursinha.in/pages/01-about.html" property="cc:attributionName" rel="cc:attributionURL" target="_blank">Ankur Sinha</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Attribution 4.0 International License</a>.<br />
+        Site built using <a href="http://getpelican.com/" target="_blank">Pelican</a>
+        &nbsp;&bull;&nbsp; Theme based on
+        <a href="http://www.voidynullness.net/page/voidy-bootstrap-pelican-theme/"
+           target="_blank">VoidyBootstrap</a> by 
+        <a href="http://voidynullness.net"
+           target="_blank">RKI</a>  
+        </p>
+      </address><!-- /colophon  -->
+    </footer>
+
+<!-- DISQUS script for displaying comment count -->
+<script type="text/javascript">
+    var disqus_shortname = 'ankursinha';
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+
+    <!-- javascript -->
+   
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+    <script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+
+	<script src="https://kit.fontawesome.com/9f8622f8d1.js"></script>
+
+<!-- Facebook -->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+</script>
+
+<!-- Twitter -->
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+<!-- Google+ -->
+<!-- Synchronous 
+<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+-->
+<!-- Asynchronous -->
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/platform.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>  </body>
+</html>

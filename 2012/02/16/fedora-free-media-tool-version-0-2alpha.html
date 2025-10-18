@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="Ankur Sinha" />
+    <meta name="generator" content="Pelican (VoidyBootstrap theme)" />
+    <meta name="twitter:card" content="summary"> 
+    <meta name="twitter:title" content="Fedora free-media-tool version 0.2alpha">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:site" content="@sanjay_ankur">
+    <meta name="twitter:creator" content="@sanjay_ankur">
+    <meta name="twitter:domain" content="https://ankursinha.in">
+
+    <title>Fedora free-media-tool version 0.2alpha - ankursinha.in/blog</title>
+
+   
+        <link rel="stylesheet"
+              href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+              integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+              crossorigin="anonymous" />
+
+
+
+
+
+      <link rel="stylesheet" href="https://ankursinha.in/theme/css/use-opensans.css" />
+      <link rel="stylesheet" href="https://ankursinha.in/theme/css/voidybootstrap.css" />
+      <link rel="stylesheet" href="https://ankursinha.in/theme/css/pygment.css" />
+
+    <link rel="shortcut icon" href="https://ankursinha.in/favicon.ico" />
+        <link href="https://ankursinha.in/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="ankursinha.in/blog Atom Feed" />
+        <link href="https://ankursinha.in/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="ankursinha.in/blog RSS Feed" />
+  
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MCTH8VNYDK"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-MCTH8VNYDK');
+    </script>
+
+  </head>
+
+  <body>
+   
+    <nav class="navbar navbar-default">
+      <div class="container">
+	   <div class="navbar-header">
+		<button type="button" class="navbar-toggle" 
+				data-toggle="collapse" data-target="#main-navbar-collapse">
+		  <span class="sr-only">Toggle navigation</span>
+		  <span class="icon-bar"></span>
+		  <span class="icon-bar"></span>
+		  <span class="icon-bar"></span>
+		</button>
+		<a class="navbar-brand" href="https://ankursinha.in/" rel="home">
+          <i class="fas fa-home fa-fw fa-lg"> </i> </a>
+       </div>
+
+      <div class="collapse navbar-collapse" id="main-navbar-collapse">
+        <ul class="nav navbar-nav">
+              <li>
+                <a href="https://ankursinha.in/pages/01-about.html">About Me</a>
+              </li>
+              <li>
+                <a href="https://ankursinha.in/pages/04-current-work.html">Current Projects</a>
+              </li>
+            <li class="divider"></li>
+            <li class="">
+              <a href="https://ankursinha.in/pages/03-publications.html">Publications</a>
+            </li>
+            <li class="">
+              <a href="https://ankursinha.in/pages/archives.html">Archives</a>
+            </li>
+          <li class="divider"></li>
+            <li><a href="https://ankursinha.in/feeds/all.atom.xml" 
+                   type="application/atom+xml" rel="alternate">
+                <i class="fas fa-rss fa-fw fa-lg"></i> </a></li>
+        </ul> <!-- /nav -->
+      </div> <!-- /navbar-collapse -->
+	  </div> <!-- /container -->
+    </nav> <!-- /navbar -->
+
+	<div class="jumbotron" id="overview">
+	  <div class="container">
+		<h1><a href="https://ankursinha.in/">ankursinha.in/blog</a></h1>
+		<p class="lead">neuroscience/fedora/musings</p>
+	  </div>
+	</div>
+
+    <div class="container" id="main-container">
+      <div class="row">
+        <div class="col-md-9" id="content">
+<article itemscope="itemscope" itemtype="http://schema.org/BlogPosting">
+  <header class="article-header">
+<abbr class="article-header-date">
+  Thu 16 February 2012
+</abbr> <h1>
+  <a href="https://ankursinha.in/2012/02/16/fedora-free-media-tool-version-0-2alpha.html" rel="bookmark"
+     title="Permalink to Fedora free-media-tool version 0.2alpha">
+    Fedora free-media-tool version 0.2alpha
+  </a>
+</h1><div class="article-header-info">
+  <p>
+      Posted by <a href="https://ankursinha.in/author/ankur.html">ankur</a>
+    in 
+    <a href="https://ankursinha.in/category/tech/">
+      Tech</a>
+(1046 words, approximately a 5 minute read)
+  </p>
+</div> <!-- /.article-header-info -->  </header>
+  <div class="content-body" itemprop="text articleBody">
+
+<p>
+    <ul class="list-inline">
+      <li class="list-inline-item">
+        <i class="fas fa-tags"></i>
+          <a href="https://ankursinha.in/tag/fedora/">#Fedora</a>      </li>
+    </ul>
+</p>
+
+
+  <div>  <!-- Social media sharing buttons -->
+  <hr />
+    <ul class="list-inline">
+      <li class="list-inline-item text-muted" title="Share"><i class="fas fa-share-alt" title="Share this post"></i> Share this post:</li>
+      <li class="list-inline-item"><a class="fab fa-mastodon" href="https://toot.kytta.dev/?text=Fedora%20free-media-tool%20version%200.2alpha%0D%0Ahttps%3A//ankursinha.in/2012/02/16/fedora-free-media-tool-version-0-2alpha.html%0D%0A%23Fedora" target="_blank" title="Share on mastodon"></a></li>
+      <li class="list-inline-item"><a class="fab fa-twitter" href="https://twitter.com/intent/tweet?text=Fedora%20free-media-tool%20version%200.2alpha&url=https%3A//ankursinha.in/2012/02/16/fedora-free-media-tool-version-0-2alpha.html&via=sanjay_ankur&hashtags=fedora" target="_blank" title="Share on Twitter"></a></li>
+      <li class="list-inline-item"><a class="fab fa-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3A//ankursinha.in/2012/02/16/fedora-free-media-tool-version-0-2alpha.html" target="_blank" title="Share on Facebook"></a></li>
+      <li class="list-inline-item"><a class="fab fa-reddit" href="https://www.reddit.com/submit?url=https%3A//ankursinha.in/2012/02/16/fedora-free-media-tool-version-0-2alpha.html&title=Fedora%20free-media-tool%20version%200.2alpha" target="_blank" title="Share on Reddit"></a></li>
+      <li class="list-inline-item"><a class="fab fa-linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A//ankursinha.in/2012/02/16/fedora-free-media-tool-version-0-2alpha.html&title=Fedora%20free-media-tool%20version%200.2alpha&summary=I%27ve%20managed%20to%20get%20most%20of%20the%20functionality%20coded%20up.%20Here%27s%20what%0Affmtool%20-h%20looks%20like%20now%20%28on%20my%20system%29%3A%0A%5Bankur%40ankur%20~%5D%24%20ffmtool%20-h%0A%5B%2B%5D%20Parsing%20available%20options%20from%20config%20file%3A%20/home/ankur/.config/fedora-free-media-tool/config.cfg%0AUsage%3A%20ffmt%20%5BOptions%5D%20%5Bargs%5D...%0AA%20tool%20to%20assist%20Fedora%20free-media%20contributors.%0AWithout%20options%2C%20it%20%E2%80%A6&source=https%3A//ankursinha.in/2012/02/16/fedora-free-media-tool-version-0-2alpha.html" target="_blank" title="Share via LinkedIn<"></a></li>
+      <li class="list-inline-item"><a class="fas fa-mail-bulk" href="mailto:?subject=Fedora%20free-media-tool%20version%200.2alpha&amp;body=https%3A//ankursinha.in/2012/02/16/fedora-free-media-tool-version-0-2alpha.html" target="_blank" title="Share via E-mail"></a></li>
+    </ul>
+  <hr />
+  </div> <!-- /Social media sharing buttons -->	<p>I've managed to get most of the functionality coded up. Here's what
+ffmtool -h looks like now (on my system):</p>
+<div class="highlight"><pre><span></span><span class="o">[</span>ankur@ankur<span class="w"> </span>~<span class="o">]</span>$<span class="w"> </span>ffmtool<span class="w"> </span>-h
+<span class="o">[</span>+<span class="o">]</span><span class="w"> </span>Parsing<span class="w"> </span>available<span class="w"> </span>options<span class="w"> </span>from<span class="w"> </span>config<span class="w"> </span>file:<span class="w"> </span>/home/ankur/.config/fedora-free-media-tool/config.cfg
+Usage:<span class="w"> </span>ffmt<span class="w"> </span><span class="o">[</span>Options<span class="o">]</span><span class="w"> </span><span class="o">[</span>args<span class="o">]</span>...
+A<span class="w"> </span>tool<span class="w"> </span>to<span class="w"> </span>assist<span class="w"> </span>Fedora<span class="w"> </span>free-media<span class="w"> </span>contributors.
+Without<span class="w"> </span>options,<span class="w"> </span>it<span class="w"> </span>prints<span class="w"> </span>pending<span class="w"> </span>envelopes<span class="w"> </span>to<span class="w"> </span>the<span class="w"> </span>current<span class="w"> </span>directory<span class="w"> </span>using<span class="w"> </span>default<span class="w"> </span>values<span class="w"> </span>of<span class="w"> </span>input<span class="w"> </span>and<span class="w"> </span>database<span class="w"> </span>files.
+
+Options:
+<span class="w">  </span>-h<span class="w"> </span><span class="o">[</span><span class="w"> </span>--help<span class="w"> </span><span class="o">]</span><span class="w">                         </span>Print<span class="w"> </span>this<span class="w"> </span>usage<span class="w"> </span>message.
+<span class="w">  </span>-c<span class="w"> </span><span class="o">[</span><span class="w"> </span>--config-file<span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">[=</span>arg<span class="o">(=</span>/home/ankur/.config/fedora-free-media-tool/config.cfg<span class="o">)]</span>
+<span class="w">                                        </span>Configuration<span class="w"> </span>file
+
+<span class="w">  </span>-d<span class="w"> </span><span class="o">[</span><span class="w"> </span>--database<span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">[=</span>arg<span class="o">(=</span>/home/ankur/.local/share/fedora-free-media-tool/free-media-database.db<span class="o">)]</span>
+<span class="w">                                        </span>Complete<span class="w"> </span>output<span class="w"> </span>file<span class="w"> </span>path
+
+<span class="w">  </span>-x<span class="w"> </span><span class="o">[</span><span class="w"> </span>--fas-username<span class="w"> </span><span class="o">]</span><span class="w"> </span>arg<span class="w">             </span>FAS<span class="w"> </span>Username.<span class="w"> </span>Password<span class="w"> </span>will<span class="w"> </span>be<span class="w"> </span>asked<span class="w"> </span><span class="k">if</span>
+<span class="w">                                        </span>required.
+<span class="w">                                        </span>No<span class="w"> </span><span class="nb">command</span><span class="w"> </span>line<span class="w"> </span>option<span class="w"> </span>is<span class="w"> </span>provided<span class="w"> </span>to
+<span class="w">                                        </span>enter<span class="w"> </span>password<span class="w"> </span>to<span class="w"> </span>avoid<span class="w"> </span>entering<span class="w"> </span>of
+<span class="w">                                        </span>password<span class="w"> </span><span class="k">in</span><span class="w"> </span>plaintext<span class="w"> </span>on<span class="w"> </span>the<span class="w"> </span>terminal.
+<span class="w">                                        </span>Use<span class="w"> </span>with<span class="w"> </span>-u
+
+<span class="w">  </span>-i<span class="w"> </span><span class="o">[</span><span class="w"> </span>--import<span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">[=</span>arg<span class="o">(=</span>/home/ankur/.local/share/fedora-free-media-tool/report.csv<span class="o">)]</span>
+<span class="w">                                        </span>Import<span class="w"> </span>data
+<span class="w">                                        </span>Optional<span class="w"> </span>argument:<span class="w"> </span>Complete<span class="w"> </span>input<span class="w"> </span>file
+<span class="w">                                        </span>path
+
+<span class="w">  </span>-r<span class="w"> </span><span class="o">[</span><span class="w"> </span>--resolve<span class="w"> </span><span class="o">]</span><span class="w"> </span>arg<span class="w">                  </span>Change<span class="w"> </span>status<span class="w"> </span>of<span class="w"> </span>provided<span class="w"> </span>ticket
+<span class="w">                                        </span>numbers<span class="w"> </span>to<span class="w"> </span>RESOLVED
+<span class="w">                                        </span><span class="o">(</span>default:<span class="w"> </span><span class="m">0</span><span class="w"> </span>meaning<span class="w"> </span>all<span class="w"> </span>new<span class="w"> </span>tickets<span class="o">)</span>
+
+<span class="w">  </span>-e<span class="w"> </span><span class="o">[</span><span class="w"> </span>--reset<span class="w"> </span><span class="o">]</span><span class="w"> </span>arg<span class="w">                    </span>Change<span class="w"> </span>status<span class="w"> </span>of<span class="w"> </span>provided<span class="w"> </span>ticket
+<span class="w">                                        </span>numbers<span class="w"> </span>to<span class="w"> </span>PENDING
+<span class="w">                                        </span><span class="o">(</span>default:<span class="w"> </span><span class="m">0</span><span class="w"> </span>meaning<span class="w"> </span>all<span class="w"> </span>fixed<span class="w"> </span>tickets<span class="o">)</span>
+
+<span class="w">  </span>-A<span class="w"> </span><span class="o">[</span><span class="w"> </span>--assign-to-lc<span class="w"> </span><span class="o">]</span><span class="w"> </span>arg<span class="w">             </span>Assign<span class="w"> </span>these<span class="w"> </span>tickets<span class="w"> </span>to<span class="w"> </span>a<span class="w"> </span>Local<span class="w"> </span>Contact
+<span class="w">                                        </span><span class="o">(</span>default:<span class="w"> </span><span class="m">0</span><span class="w"> </span>meaning<span class="w"> </span>all<span class="o">)</span>
+
+<span class="w">  </span>-f<span class="w"> </span><span class="o">[</span><span class="w"> </span>--force<span class="w"> </span><span class="o">]</span><span class="w"> </span>arg<span class="w">                    </span>Force<span class="w"> </span>import<span class="w"> </span>even<span class="w"> </span><span class="k">if</span><span class="w"> </span>the<span class="w"> </span>ticket<span class="w"> </span>exists
+<span class="w">                                        </span><span class="k">in</span><span class="w"> </span>database
+
+<span class="w">  </span>-a<span class="w"> </span><span class="o">[</span><span class="w"> </span>--add-new<span class="w"> </span><span class="o">]</span><span class="w"> </span>arg<span class="w">                  </span>Manually<span class="w"> </span>add<span class="w"> </span>a<span class="w"> </span>new<span class="w"> </span>entry:<span class="w"> </span>unimplemented
+
+<span class="w">  </span>-m<span class="w"> </span><span class="o">[</span><span class="w"> </span>--modify<span class="w"> </span><span class="o">]</span><span class="w"> </span>arg<span class="w">                   </span>Modify<span class="w"> </span>the<span class="w"> </span>address<span class="w"> </span><span class="k">in</span><span class="w"> </span>a<span class="w"> </span>ticket<span class="w"> </span>entry.
+<span class="w">                                        </span>Generally<span class="w"> </span>required<span class="w"> </span>when<span class="w"> </span>the<span class="w"> </span>address<span class="w"> </span>is
+<span class="w">                                        </span>malformed<span class="w"> </span>and<span class="w"> </span>the<span class="w"> </span>splitter<span class="w"> </span>can<span class="err">&#39;</span>t<span class="w"> </span>handle
+<span class="w">                                        </span>it.
+<span class="w">                                        </span>arg:<span class="w"> </span>Ticket<span class="w"> </span>number
+
+<span class="w">  </span>-o<span class="w"> </span><span class="o">[</span><span class="w"> </span>--output-dir<span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">[=</span>arg<span class="o">(=</span>./<span class="o">)]</span><span class="w">       </span>Directory<span class="w"> </span>to<span class="w"> </span>put<span class="w"> </span>the<span class="w"> </span>printed<span class="w"> </span>envelopes
+
+<span class="w">  </span>-P<span class="w"> </span><span class="o">[</span><span class="w"> </span>--print-ticket-info<span class="w"> </span><span class="o">]</span><span class="w"> </span>arg<span class="w">        </span>Print<span class="w"> </span>ticket<span class="w"> </span>info<span class="w"> </span><span class="k">for</span><span class="w"> </span>any<span class="w"> </span>one<span class="w"> </span>ticket
+<span class="w">                                        </span>number
+
+<span class="w">  </span>-p<span class="w"> </span><span class="o">[</span><span class="w"> </span>--print<span class="w"> </span><span class="o">]</span><span class="w"> </span>arg<span class="w">                    </span>List<span class="w"> </span>of<span class="w"> </span>ticket<span class="w"> </span>numbers<span class="w"> </span>to<span class="w"> </span>print
+<span class="w">                                        </span>envelopes<span class="w"> </span><span class="k">for</span>
+<span class="w">                                        </span><span class="o">(</span>default:<span class="w"> </span><span class="m">0</span><span class="w"> </span>meaning<span class="w"> </span>all<span class="w"> </span>new<span class="w"> </span>tickets<span class="o">)</span>
+
+<span class="w">  </span>-l<span class="w"> </span><span class="o">[</span><span class="w"> </span>--list<span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">[=</span>arg<span class="o">(=</span>all<span class="o">)]</span><span class="w">            </span>List<span class="w"> </span>records<span class="w"> </span><span class="k">in</span><span class="w"> </span>database
+<span class="w">                                        </span>all,pending,complete,local-contact
+
+<span class="w">  </span>-L<span class="w"> </span><span class="o">[</span><span class="w"> </span>--list-long<span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">[=</span>arg<span class="o">(=</span>all<span class="o">)]</span><span class="w">       </span>List<span class="w"> </span>records<span class="w"> </span>with<span class="w"> </span>description
+<span class="w">                                        </span>all,pending,complete,local-contact
+
+<span class="w">  </span>-u<span class="w"> </span><span class="o">[</span><span class="w"> </span>--update<span class="w"> </span><span class="o">]</span><span class="w"> </span>arg<span class="w">                   </span>Download<span class="w"> </span>latest<span class="w"> </span>report<span class="w"> </span>from<span class="w"> </span>the<span class="w"> </span>trac
+<span class="w">                                        </span>and<span class="w"> </span>update<span class="w"> </span>the<span class="w"> </span>database
+<span class="w">                                        </span>This<span class="w"> </span>automatically<span class="w"> </span>stores<span class="w"> </span>the
+<span class="w">                                        </span>information<span class="w"> </span><span class="k">in</span><span class="w"> </span>default<span class="w"> </span>database
+<span class="w">                                        </span>directory
+
+<span class="w">  </span>-v<span class="w"> </span><span class="o">[</span><span class="w"> </span>--v-level<span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">[=</span>arg<span class="o">(=</span><span class="m">0</span><span class="o">)]</span><span class="w">           </span>Debug<span class="w"> </span>level:<span class="w"> </span><span class="m">1</span>,2,3
+
+<span class="w">  </span>-n<span class="w"> </span><span class="o">[</span><span class="w"> </span>--sender-name<span class="w"> </span><span class="o">]</span><span class="w"> </span>arg<span class="w">              </span>Senders<span class="w"> </span>name
+
+<span class="w">  </span>-s<span class="w"> </span><span class="o">[</span><span class="w"> </span>--sender-add<span class="w"> </span><span class="o">]</span><span class="w"> </span>arg<span class="w">               </span>Senders<span class="w"> </span>address
+<span class="w">                                        </span>Use<span class="w"> </span>%<span class="w"> </span>as<span class="w"> </span>a<span class="w"> </span>line<span class="w"> </span>limiter
+
+<span class="w">  </span>-t<span class="w"> </span><span class="o">[</span><span class="w"> </span>--template<span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">[=</span>arg<span class="o">(=</span>/usr/share/fedora-free-media-tool/free-media-mailer.png<span class="o">)]</span>
+<span class="w">                                        </span>Location<span class="w"> </span>of<span class="w"> </span>envelope<span class="w"> </span>template
+
+<span class="w">  </span>-V<span class="w"> </span><span class="o">[</span><span class="w"> </span>--version<span class="w"> </span><span class="o">]</span><span class="w"> </span>arg<span class="w">                  </span>Package<span class="w"> </span>information:<span class="w"> </span>version<span class="w"> </span>etc.
+
+<span class="o">[</span>ankur@ankur<span class="w"> </span>~<span class="o">]</span>$
+</pre></div>
+<p>Not bad eh? It's probably going to have quite a few bugs yet. I haven't
+managed to test it out thouroughly yet. You can help ;)</p>
+<div class="section" id="installation">
+<h2>Installation:</h2>
+<p>If you're on an x86_64, you're in luck! <a class="reference external" href="http://ankursinha.fedorapeople.org/fedora-free-media-tool/fedora-free-media-tool-0.2-1.fc16.x86_64.rpm">Use this rpm</a>.</p>
+<p>I haven't been able to build an rpm for i386 systems yet because of
+<a class="reference external" href="https://bugzilla.redhat.com/show_bug.cgi?id=788639">this bug in curlpp.</a></p>
+<p>On a fedora system, you'll need the following packages:</p>
+<pre class="literal-block">
+yum install sqlite-devel ImageMagick-c++-devel curlpp-devel boost-devel
+</pre>
+<p>Download the <a class="reference external" href="http://ankursinha.fedorapeople.org/fedora-free-media-tool/fedora-free-media-tool-0.2alpha.tar.gz">source here</a></p>
+<p>Untar it anywhere, and then, the usual autotool steps</p>
+<pre class="literal-block">
+./configure --datadir=/usr/share
+#datadir needs to be defined
+#this is where the envelope template is kept
+
+make
+make install # as root
+</pre>
+<p>That's all!</p>
+</div>
+<div class="section" id="example-usage">
+<h2>Example usage:</h2>
+<pre class="literal-block">
+[ankur&#64;ankur SPECS]$ ffmtool -u
+[+] Parsing available options from config file: /home/ankur/.config/fedora-free-media-tool/config.cfg
+[+] /home/ankur/.config/fedora-free-media-tool/ already exists. Continuing..
+[+] /home/ankur/.local/share/fedora-free-media-tool/ already exists. Continuing..
+Username: ankursinha
+Password:
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:--  0:00:03 --:--:--     0
+100  5815  100  5815    0     0   3152      0  0:00:01  0:00:01 --:--:--  6889
+[+] Datafile set to: /home/ankur/.local/share/fedora-free-media-tool/report.csv
+[+] Databasefile set to: /home/ankur/.local/share/fedora-free-media-tool/free-media-database.db
+[+] Database already exists. Continuing..
+[X] File format should be:
+1.1st line is a header
+2.One record per line (including address)
+3.Please ensure description consists only of address (personal message from requestor if any should be removed)
+4.Each new address line begins with a &quot;,[[BR]]&quot;
+[X] Example:
+[X] Number of lines in file without header is 27 while number of records found is 19
+[X] The difference suggests that some records are malformed. Please correct the records and use the -i option to import to database
+</pre>
+<p>Here, the file we downloaded was &quot;malformed&quot;, because the ticket
+submitter didn't punctuate his address properly (or added a comment).
+Once you've gotten rid of the extra stuff from the data file:</p>
+<pre class="literal-block">
+[ankur&#64;ankur fedora-free-media-tool]$ ffmtool -i
+[+] Parsing available options from config file: /home/ankur/.config/fedora-free-media-tool/config.cfg
+[+] /home/ankur/.config/fedora-free-media-tool/ already exists. Continuing..
+[+] /home/ankur/.local/share/fedora-free-media-tool/ already exists. Continuing..
+[+] Datafile set to: /home/ankur/.local/share/fedora-free-media-tool/report.csv
+[+] Databasefile set to: /home/ankur/.local/share/fedora-free-media-tool/free-media-database.db
+[+] Database already exists. Continuing..
+[+] File seems well formatted. Proceeding to import.
+Entered worker import function..
+[+] Ticket 7353 already exists in table, skipping.
+[+] Ticket 7710 already exists in table, skipping.
+[+] Ticket 7816 already exists in table, skipping.
+[+] Ticket 7823 already exists in table, skipping.
+[+] Ticket 7835 already exists in table, skipping.
+[+] Ticket 7842 already exists in table, skipping.
+[+] Ticket 7855 already exists in table, skipping.
+[+] Ticket 7863 already exists in table, skipping.
+[+] Ticket 7896 already exists in table, skipping.
+[+] Ticket 7907 already exists in table, skipping.
+[+] Ticket 7916 already exists in table, skipping.
+[+] Ticket 7938 already exists in table, skipping.
+[+] Ticket 7945 already exists in table, skipping.
+[+] Ticket 7948 already exists in table, skipping.
+[+] Ticket 7949 imported to the database.
+[+] 15 records successfully imported into database.
+[ankur&#64;ankur fedora-free-media-tool]$
+</pre>
+<p>You can use the various options to look/modify ticket entries in the
+database. All this stuff will be on your local copy only. I don't see a
+reason to update the trac info yet. The best part is, you can print your
+fedora free-media envelopes using this tool:</p>
+<div class="highlight"><pre><span></span><span class="o">[</span>ankur@ankur<span class="w"> </span>fedora-free-media-tool<span class="o">]</span>$<span class="w"> </span>ffmtool<span class="w"> </span>-l
+<span class="o">[</span>+<span class="o">]</span><span class="w"> </span>Parsing<span class="w"> </span>available<span class="w"> </span>options<span class="w"> </span>from<span class="w"> </span>config<span class="w"> </span>file:<span class="w"> </span>/home/ankur/.config/fedora-free-media-tool/config.cfg
+<span class="o">[</span>+<span class="o">]</span><span class="w"> </span>/home/ankur/.config/fedora-free-media-tool/<span class="w"> </span>already<span class="w"> </span>exists.<span class="w"> </span>Continuing..
+<span class="o">[</span>+<span class="o">]</span><span class="w"> </span>/home/ankur/.local/share/fedora-free-media-tool/<span class="w"> </span>already<span class="w"> </span>exists.<span class="w"> </span>Continuing..
+All<span class="w"> </span>tickets<span class="w"> </span><span class="k">in</span><span class="w"> </span>data<span class="w"> </span>base<span class="w"> </span><span class="o">(</span>ticket<span class="w"> </span>numbers<span class="w"> </span>only<span class="o">)</span>:<span class="w"> </span><span class="m">19</span>
+<span class="c1">#7353</span>
+<span class="c1">#7710</span>
+<span class="c1">#7816</span>
+<span class="c1">#7823</span>
+<span class="c1">#7835</span>
+<span class="c1">#7842</span>
+<span class="c1">#7855</span>
+<span class="c1">#7863</span>
+<span class="c1">#7884</span>
+<span class="c1">#7895</span>
+<span class="c1">#7896</span>
+<span class="c1">#7907</span>
+<span class="c1">#7916</span>
+<span class="c1">#7921</span>
+<span class="c1">#7922</span>
+<span class="c1">#7938</span>
+<span class="c1">#7945</span>
+<span class="c1">#7948</span>
+<span class="c1">#7949</span>
+<span class="o">[</span>ankur@ankur<span class="w"> </span>fedora-free-media-tool<span class="o">]</span>$<span class="w"> </span>ffmtool<span class="w"> </span>-p<span class="w"> </span><span class="m">7949</span><span class="w"> </span><span class="m">7948</span><span class="w"> </span><span class="m">7945</span>
+<span class="o">[</span>+<span class="o">]</span><span class="w"> </span>Parsing<span class="w"> </span>available<span class="w"> </span>options<span class="w"> </span>from<span class="w"> </span>config<span class="w"> </span>file:<span class="w"> </span>/home/ankur/.config/fedora-free-media-tool/config.cfg
+<span class="o">[</span>+<span class="o">]</span><span class="w"> </span>/home/ankur/.config/fedora-free-media-tool/<span class="w"> </span>already<span class="w"> </span>exists.<span class="w"> </span>Continuing..
+<span class="o">[</span>+<span class="o">]</span><span class="w"> </span>/home/ankur/.local/share/fedora-free-media-tool/<span class="w"> </span>already<span class="w"> </span>exists.<span class="w"> </span>Continuing..
+<span class="o">[</span>+<span class="o">]</span><span class="w"> </span>Printed<span class="w"> </span>envelope<span class="w"> </span><span class="k">for</span><span class="w"> </span>ticket<span class="w"> </span>number<span class="w"> </span><span class="m">7949</span><span class="w"> </span>to<span class="w"> </span>./free-mediaEnvelope7949.png.
+<span class="o">[</span>+<span class="o">]</span><span class="w"> </span>Printed<span class="w"> </span>envelope<span class="w"> </span><span class="k">for</span><span class="w"> </span>ticket<span class="w"> </span>number<span class="w"> </span><span class="m">7948</span><span class="w"> </span>to<span class="w"> </span>./free-mediaEnvelope7948.png.
+<span class="o">[</span>+<span class="o">]</span><span class="w"> </span>Printed<span class="w"> </span>envelope<span class="w"> </span><span class="k">for</span><span class="w"> </span>ticket<span class="w"> </span>number<span class="w"> </span><span class="m">7945</span><span class="w"> </span>to<span class="w"> </span>./free-mediaEnvelope7945.png.
+<span class="o">[</span>+<span class="o">]</span><span class="w"> </span>Datafile<span class="w"> </span><span class="nb">set</span><span class="w"> </span>to:<span class="w"> </span>/home/ankur/.local/share/fedora-free-media-tool/report.csv
+<span class="o">[</span>+<span class="o">]</span><span class="w"> </span>Databasefile<span class="w"> </span><span class="nb">set</span><span class="w"> </span>to:<span class="w"> </span>/home/ankur/.local/share/fedora-free-media-tool/free-media-database.db
+<span class="o">[</span>+<span class="o">]</span><span class="w"> </span>Database<span class="w"> </span>already<span class="w"> </span>exists.<span class="w"> </span>Continuing..
+Marked<span class="w"> </span>ticket<span class="w"> </span><span class="c1">#7949</span>
+Marked<span class="w"> </span>ticket<span class="w"> </span><span class="c1">#7948</span>
+Marked<span class="w"> </span>ticket<span class="w"> </span><span class="c1">#7945</span>
+<span class="o">[</span>ankur@ankur<span class="w"> </span>fedora-free-media-tool<span class="o">]</span>$<span class="w"> </span>ls<span class="w"> </span>*.png
+free-mediaEnvelope7945.png<span class="w">  </span>free-mediaEnvelope7948.png<span class="w">  </span>free-mediaEnvelope7949.png
+<span class="o">[</span>ankur@ankur<span class="w"> </span>fedora-free-media-tool<span class="o">]</span>$
+</pre></div>
+<div class="line-block">
+<div class="line">This is what the envelope would look like:</div>
+<div class="line-block">
+<div class="line"><a class="reference external image-reference" href="http://ankursinha.in/wp/wp-content/uploads/2012/02/free-mediaenvelope7949.png"><img alt="example generated envelope" src="http://ankursinha.in/wp/wp-content/uploads/2012/02/free-mediaenvelope7949.png?w=212" /></a></div>
+</div>
+</div>
+<p>You can print all the envelopes at one go, or print them one at a time.</p>
+<p>Since I'm using boost::program_options to take arguments, all the
+arguments can be specified in the config file. I've also <a class="reference external" href="http://ankursinha.fedorapeople.org/fedora-free-media-tool/config.cfg">put up an
+example config file</a> that you can refer.</p>
+<p>As always, feed back is welcome. You're welcome to review my code and
+point out improvements! This was supposed to be a practice project after
+all. You're most welcome to submit patches too! The <a class="reference external" href="https://gitorious.org/fedora-free-media-tool">git repository is
+hosted on gitorious.</a></p>
+<p>Phew! Long post, probably the longest I've ever written. Cheers!</p>
+</div>
+
+  </div>
+  
+  <div>  <!-- Social media sharing buttons -->
+  <hr />
+    <ul class="list-inline">
+      <li class="list-inline-item text-muted" title="Share"><i class="fas fa-share-alt" title="Share this post"></i> Share this post:</li>
+      <li class="list-inline-item"><a class="fab fa-mastodon" href="https://toot.kytta.dev/?text=Fedora%20free-media-tool%20version%200.2alpha%0D%0Ahttps%3A//ankursinha.in/2012/02/16/fedora-free-media-tool-version-0-2alpha.html%0D%0A%23Fedora" target="_blank" title="Share on mastodon"></a></li>
+      <li class="list-inline-item"><a class="fab fa-twitter" href="https://twitter.com/intent/tweet?text=Fedora%20free-media-tool%20version%200.2alpha&url=https%3A//ankursinha.in/2012/02/16/fedora-free-media-tool-version-0-2alpha.html&via=sanjay_ankur&hashtags=fedora" target="_blank" title="Share on Twitter"></a></li>
+      <li class="list-inline-item"><a class="fab fa-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3A//ankursinha.in/2012/02/16/fedora-free-media-tool-version-0-2alpha.html" target="_blank" title="Share on Facebook"></a></li>
+      <li class="list-inline-item"><a class="fab fa-reddit" href="https://www.reddit.com/submit?url=https%3A//ankursinha.in/2012/02/16/fedora-free-media-tool-version-0-2alpha.html&title=Fedora%20free-media-tool%20version%200.2alpha" target="_blank" title="Share on Reddit"></a></li>
+      <li class="list-inline-item"><a class="fab fa-linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A//ankursinha.in/2012/02/16/fedora-free-media-tool-version-0-2alpha.html&title=Fedora%20free-media-tool%20version%200.2alpha&summary=I%27ve%20managed%20to%20get%20most%20of%20the%20functionality%20coded%20up.%20Here%27s%20what%0Affmtool%20-h%20looks%20like%20now%20%28on%20my%20system%29%3A%0A%5Bankur%40ankur%20~%5D%24%20ffmtool%20-h%0A%5B%2B%5D%20Parsing%20available%20options%20from%20config%20file%3A%20/home/ankur/.config/fedora-free-media-tool/config.cfg%0AUsage%3A%20ffmt%20%5BOptions%5D%20%5Bargs%5D...%0AA%20tool%20to%20assist%20Fedora%20free-media%20contributors.%0AWithout%20options%2C%20it%20%E2%80%A6&source=https%3A//ankursinha.in/2012/02/16/fedora-free-media-tool-version-0-2alpha.html" target="_blank" title="Share via LinkedIn<"></a></li>
+      <li class="list-inline-item"><a class="fas fa-mail-bulk" href="mailto:?subject=Fedora%20free-media-tool%20version%200.2alpha&amp;body=https%3A//ankursinha.in/2012/02/16/fedora-free-media-tool-version-0-2alpha.html" target="_blank" title="Share via E-mail"></a></li>
+    </ul>
+  <hr />
+  </div> <!-- /Social media sharing buttons -->
+  <div class="comments">
+	<h2>Comments</h2>
+	<div id="disqus_thread"></div>
+	<script type="text/javascript">
+				   (function() {
+						var dsq = document.createElement('script');
+						dsq.type = 'text/javascript'; dsq.async = true;
+						dsq.src = '//ankursinha.disqus.com/embed.js';
+						(document.getElementsByTagName('head')[0] ||
+						 document.getElementsByTagName('body')[0]).appendChild(dsq);
+				  })();
+	</script>
+  </div>
+</article>
+        </div><!-- /content -->
+
+        <div class="col-md-3 sidebar-nav" id="sidebar">
+
+<div class="row">
+
+<div class="col-xs-6 col-md-12">
+<h4><i class="fas fa-comment fa-fw fa-lg"></i> Social</h4>
+<ul class="list-unstyled social-links">
+    <li><a rel="me" href="https://duckduckgo.com/?q=site%3Aankursinha.in&ia=web" target="_blank">
+	  <i class="fas fa-search fa-fw fa-lg" title="Search (DuckDuckGo)"></i>
+		Search (DuckDuckGo)
+	</a></li>
+    <li><a rel="me" href="www.linkedin.com/in/ankur-sinha-phd" target="_blank">
+	  <i class="fa fa-linkedin-square fa-fw fa-lg" title="LinkedIn"></i>
+		LinkedIn
+	</a></li>
+    <li><a rel="me" href="http://github.com/sanjayankur31" target="_blank">
+	  <i class="fab fa-github fa-fw fa-lg" title="GitHub"></i>
+		GitHub
+	</a></li>
+    <li><a rel="me" href=" https://orcid.org/0000-0001-7568-7167" target="_blank">
+	  <i class="fas fa-flask fa-fw fa-lg" title="Orcid"></i>
+		Orcid
+	</a></li>
+    <li><a rel="me" href="http://scholar.google.co.in/citations?user=919ScZEAAAAJ&hl=en" target="_blank">
+	  <i class="fas fa-graduation-cap fa-fw fa-lg" title="Scholar"></i>
+		Scholar
+	</a></li>
+    <li><a rel="me" href="https://fedoraproject.org/wiki/User:Ankursinha" target="_blank">
+	  <i class="fab fa-fedora fa-fw fa-lg" title="Fedora"></i>
+		Fedora
+	</a></li>
+    <li><a rel="me" href="https://ramblingreaders.org/user/sanjay_ankur" target="_blank">
+	  <i class="fas fa-book-reader fa-fw fa-lg" title="BookWyrm"></i>
+		BookWyrm
+	</a></li>
+    <li><a rel="me" href="https://fosstodon.org/@sanjay_ankur" target="_blank">
+	  <i class="fab fa-mastodon fa-fw fa-lg" title="Mastodon"></i>
+		Mastodon
+	</a></li>
+    <li><a rel="me" href="https://bsky.app/profile/sanjay-ankur.bsky.social" target="_blank">
+	  <i class="fas fa-people-arrows fa-fw fa-lg" title="BlueSky"></i>
+		BlueSky
+	</a></li>
+    <li><a rel="me" href="https://www.goodreads.com/user/show/32360473-ankur" target="_blank">
+	  <i class="fab fa-goodreads-g fa-fw fa-lg" title="Goodreads"></i>
+		Goodreads
+	</a></li>
+    <li><a rel="me" href="https://twitter.com/sanjay_ankur" target="_blank">
+	  <i class="fab fa-twitter fa-fw fa-lg" title="X"></i>
+		X
+	</a></li>
+    <li><a rel="me" href="https://coff.ee/sanjayankuu" target="_blank">
+	  <i class="fas fa-mug-hot fa-fw fa-lg" title="Buy me a coffee!"></i>
+		Buy me a coffee!
+	</a></li>
+</ul>
+</div>
+
+<div class="col-xs-6 col-md-12">
+<h4><i class="fas fa-folder fa-fw fa-lg"></i> Categories</h4>
+<ul class="list-unstyled category-links">
+  <li><a href="https://ankursinha.in/category/life/" >
+    <i class="fas fa-folder-open fa-fw fa-lg"></i> Life</a></li>
+  <li><a href="https://ankursinha.in/category/other/" >
+    <i class="fas fa-folder-open fa-fw fa-lg"></i> Other</a></li>
+  <li><a href="https://ankursinha.in/category/research/" >
+    <i class="fas fa-folder-open fa-fw fa-lg"></i> Research</a></li>
+  <li><a href="https://ankursinha.in/category/tech/" >
+    <i class="fas fa-folder-open fa-fw fa-lg"></i> Tech</a></li>
+</ul>
+</div>
+
+</div> <!-- /row -->
+
+  <h4><i class="fas fa-link fa-fw fa-lg"></i> Links</h4>
+  <ul class="list-unstyled category-links">
+    <li><a href="https://neuro.fedoraproject.org" >
+      <i class="fas fa-external-link-square-alt fa-fw fa-lg"></i> NeuroFedora</a></li>
+    <li><a href="http://fedoraproject.org" >
+      <i class="fas fa-external-link-square-alt fa-fw fa-lg"></i> Fedora Linux</a></li>
+    <li><a href="https://ocns.github.io/SoftwareWG/" >
+      <i class="fas fa-external-link-square-alt fa-fw fa-lg"></i> INCF/OCNS Software WG</a></li>
+    <li><a href="https://neuroblog.fedoraproject.org/planet-neuroscience/" >
+      <i class="fas fa-external-link-square-alt fa-fw fa-lg"></i> Neuroscience feeds</a></li>
+    <li><a href="https://neuroblog.fedoraproject.org/planet-neuroscientists/" >
+      <i class="fas fa-external-link-square-alt fa-fw fa-lg"></i> Neuroscientists feeds</a></li>
+  </ul>
+<h4><i class="fas fa-tags fa-fw fa-lg"></i> Tags</h4>
+<p class="tag-cloud">
+    <span class="tag-2">
+      <a href="https://ankursinha.in/tag/neurofedora/">
+          <i class="fas fa-tag"></i>
+        NeuroFedora
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="https://ankursinha.in/tag/vim/">
+          <i class="fas fa-tag"></i>
+        Vim
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="https://ankursinha.in/tag/open-source-brain/">
+          <i class="fas fa-tag"></i>
+        Open Source Brain
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="https://ankursinha.in/tag/zaphod/">
+          <i class="fas fa-tag"></i>
+        Zaphod
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="https://ankursinha.in/tag/social/">
+          <i class="fas fa-tag"></i>
+        Social
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="https://ankursinha.in/tag/pelican/">
+          <i class="fas fa-tag"></i>
+        Pelican
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="https://ankursinha.in/tag/neuroml/">
+          <i class="fas fa-tag"></i>
+        NeuroML
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="https://ankursinha.in/tag/flatpak/">
+          <i class="fas fa-tag"></i>
+        FlatPak
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="https://ankursinha.in/tag/irc/">
+          <i class="fas fa-tag"></i>
+        IRC
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="https://ankursinha.in/tag/neuron/">
+          <i class="fas fa-tag"></i>
+        Neuron
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="https://ankursinha.in/tag/community/">
+          <i class="fas fa-tag"></i>
+        Community
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="https://ankursinha.in/tag/computational-neuroscience/">
+          <i class="fas fa-tag"></i>
+        Computational Neuroscience
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="https://ankursinha.in/tag/python/">
+          <i class="fas fa-tag"></i>
+        Python
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="https://ankursinha.in/tag/gnome/">
+          <i class="fas fa-tag"></i>
+        GNOME
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="https://ankursinha.in/tag/git/">
+          <i class="fas fa-tag"></i>
+        Git
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="https://ankursinha.in/tag/github/">
+          <i class="fas fa-tag"></i>
+        GitHub
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="https://ankursinha.in/tag/ucl/">
+          <i class="fas fa-tag"></i>
+        UCL
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="https://ankursinha.in/tag/bash/">
+          <i class="fas fa-tag"></i>
+        Bash
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="https://ankursinha.in/tag/fedora/">
+          <i class="fas fa-tag"></i>
+        Fedora
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="https://ankursinha.in/tag/latex/">
+          <i class="fas fa-tag"></i>
+        LaTeX
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="https://ankursinha.in/tag/matlab/">
+          <i class="fas fa-tag"></i>
+        Matlab
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="https://ankursinha.in/tag/nest/">
+          <i class="fas fa-tag"></i>
+        NEST
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="https://ankursinha.in/tag/linux/">
+          <i class="fas fa-tag"></i>
+        Linux
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="https://ankursinha.in/tag/taskwarrior/">
+          <i class="fas fa-tag"></i>
+        Taskwarrior
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="https://ankursinha.in/tag/free-software/">
+          <i class="fas fa-tag"></i>
+        Free software
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="https://ankursinha.in/tag/gsoc/">
+          <i class="fas fa-tag"></i>
+        GSoC
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="https://ankursinha.in/tag/planet/">
+          <i class="fas fa-tag"></i>
+        Planet
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="https://ankursinha.in/tag/robotics/">
+          <i class="fas fa-tag"></i>
+        Robotics
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="https://ankursinha.in/tag/programming/">
+          <i class="fas fa-tag"></i>
+        Programming
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="https://ankursinha.in/tag/events/">
+          <i class="fas fa-tag"></i>
+        Events
+      </a>
+    </span>
+</p>
+<h4><i class="fas fa-rss fa-fw fa-lg"></i> Feeds</h4>
+<ul class="list-unstyled">
+    <li><a href="https://ankursinha.in/feeds/all.atom.xml" 
+		   type="application/atom+xml" rel="alternate">
+		<i class="fas fa-rss-square fa-fw fa-lg"></i> Atom Feed</a></li>
+    <li><a href="https://ankursinha.in/feeds/all.rss.xml" 
+		   type="application/rss+xml" rel="alternate">
+		<i class="fas fa-rss-square fa-fw fa-lg"></i> RSS feed</a></li>
+</ul>
+
+<hr />
+
+        </div><!--/sidebar -->
+      </div><!--/row-->
+    </div><!--/.container /#main-container -->
+
+    <footer id="site-footer">
+ 
+      <address id="site-colophon">
+        <p class="text-center text-muted">
+        <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br /><a href="http://ankursinha.in/" target="_blank" xmlns:dct="http://purl.org/dc/terms/" property="dct:title">ankursinha.in</a> by <a xmlns:cc="http://creativecommons.org/ns#" href="https://ankursinha.in/pages/01-about.html" property="cc:attributionName" rel="cc:attributionURL" target="_blank">Ankur Sinha</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Attribution 4.0 International License</a>.<br />
+        Site built using <a href="http://getpelican.com/" target="_blank">Pelican</a>
+        &nbsp;&bull;&nbsp; Theme based on
+        <a href="http://www.voidynullness.net/page/voidy-bootstrap-pelican-theme/"
+           target="_blank">VoidyBootstrap</a> by 
+        <a href="http://voidynullness.net"
+           target="_blank">RKI</a>  
+        </p>
+      </address><!-- /colophon  -->
+    </footer>
+
+<!-- DISQUS script for displaying comment count -->
+<script type="text/javascript">
+    var disqus_shortname = 'ankursinha';
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+
+    <!-- javascript -->
+   
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+    <script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+
+	<script src="https://kit.fontawesome.com/9f8622f8d1.js"></script>
+
+<!-- Facebook -->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+</script>
+
+<!-- Twitter -->
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+<!-- Google+ -->
+<!-- Synchronous 
+<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+-->
+<!-- Asynchronous -->
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/platform.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>  </body>
+</html>

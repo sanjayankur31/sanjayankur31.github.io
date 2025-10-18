@@ -1,0 +1,791 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>ankursinha.in/blog</title><link href="https://ankursinha.in/" rel="alternate"/><link href="https://ankursinha.in/feeds/all-en.atom.xml" rel="self"/><id>https://ankursinha.in/</id><updated>2025-09-23T10:44:04+01:00</updated><subtitle>neuroscience/fedora/musings</subtitle><entry><title>A Cookiecutter template to quickstart NeuroML modelling projects</title><link href="https://ankursinha.in/2025/09/23/a-cookiecutter-template-to-quickstart-neuroml-modelling-projects.html" rel="alternate"/><published>2025-09-23T10:44:04+01:00</published><updated>2025-09-23T10:44:04+01:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2025-09-23:/2025/09/23/a-cookiecutter-template-to-quickstart-neuroml-modelling-projects.html</id><summary type="html">&lt;p class="first last"&gt;I created a &lt;a class="reference external" href="https://cookiecutter.readthedocs.io/en/stable/"&gt;Cookiecutter&lt;/a&gt; project template that incorporates recommended modelling and coding practices to accelerate setting up a &lt;a class="reference external" href="https://docs.neuroml.org"&gt;NeuroML&lt;/a&gt; modelling project.&lt;/p&gt;
+</summary><content type="html">&lt;center&gt;&lt;a class="reference external image-reference" href="#"&gt;
+&lt;img alt="Cookiecutter and NeuroML project logos" src="https://ankursinha.in/images/20250923-neuroml-cookiecutter.png" style="height: 180.0px;" /&gt;
+&lt;/a&gt;
+&lt;/center&gt;&lt;p&gt;Creating new modelling projects, like other programming projects, include a number of repeated steps.
+When using the &lt;a class="reference external" href="https://docs.neuroml.org"&gt;NeuroML&lt;/a&gt; standard, one would use the &lt;a class="reference external" href="https://libneuroml.readthedocs.io/en/development/userdocs/"&gt;libNeuroML API&lt;/a&gt; to:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;create a new NeuroMLDocument (top level container class that includes all NeuroML components)&lt;/li&gt;
+&lt;li&gt;create a network&lt;/li&gt;
+&lt;li&gt;create populations&lt;/li&gt;
+&lt;li&gt;add cells&lt;/li&gt;
+&lt;li&gt;add connections&lt;/li&gt;
+&lt;li&gt;add stimuli&lt;/li&gt;
+&lt;li&gt;record various quantities (membrane potentials, for example)&lt;/li&gt;
+&lt;li&gt;create a &lt;a class="reference external" href="https://docs.neuroml.org/Userdocs/NeuroMLv2AndLEMS.html"&gt;LEMS&lt;/a&gt; simulation&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;One also needs to, among other steps, at least:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;install the NeuroML python packages: &lt;a class="reference external" href="https://docs.neuroml.org/Userdocs/Software/pyNeuroML.html"&gt;pyNeuroML&lt;/a&gt; pulls in most of them&lt;/li&gt;
+&lt;li&gt;select the simulation engine, and install the &lt;a class="reference external" href="https://docs.neuroml.org/Userdocs/Software/pyNeuroML.html"&gt;pyNeuroML&lt;/a&gt; extra to pull that in&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This is sufficient to create and simulate a model.
+Most people would tend to stop here, because this is really all they need to run their simulations and carry out their research.
+This is fine, but it misses out on recommended/best practices which make the modelling project:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;easier to manage and collaborate on&lt;/li&gt;
+&lt;li&gt;ready for sharing/reuse from the beginning (instead of people &amp;quot;cleaning up&amp;quot; their code in a panic when they need to share it as part of a publication)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;So, for &lt;a class="reference external" href="https://docs.neuroml.org"&gt;NeuroML&lt;/a&gt; projects, I created a &lt;a class="reference external" href="https://cookiecutter.readthedocs.io/en/stable/"&gt;Cookiecutter&lt;/a&gt; template that generates all of this boilerplate code, and implements a number of general and &lt;a class="reference external" href="https://docs.neuroml.org"&gt;NeuroML&lt;/a&gt; related best practices:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;adds a license&lt;/li&gt;
+&lt;li&gt;creates a clean directory structure that separates code from data, model code from analysis code, and model/simulation parameters from the model generation logic&lt;/li&gt;
+&lt;li&gt;creates a template Python script to create and simulate the model&lt;/li&gt;
+&lt;li&gt;adds &lt;a class="reference external" href="https://typer.tiangolo.com/"&gt;Typer&lt;/a&gt; based command line support in the script&lt;/li&gt;
+&lt;li&gt;sets up the project as a Git repository&lt;/li&gt;
+&lt;li&gt;adds requirements.txt files, linters, pre-commit hooks, and so on---things that we commonly use in software development&lt;/li&gt;
+&lt;li&gt;adds continuous validation of the model using the &lt;a class="reference external" href="https://github.com/OpenSourceBrain/osb-model-validation"&gt;OSB Model Validation framework&lt;/a&gt; as a GitHub Action (model validation is another strength of &lt;a class="reference external" href="https://docs.neuroml.org"&gt;NeuroML&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;enables the use of &lt;a class="reference external" href="https://git-annex.branchable.com/"&gt;git-annex&lt;/a&gt; to manage data in a separate repository&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Here is what the directory structure looks like.
+The &lt;code&gt;{{ cookiecutter.__project_slug }}&lt;/code&gt; and similar bits get renamed by &lt;a class="reference external" href="https://cookiecutter.readthedocs.io/en/stable/"&gt;Cookiecutter&lt;/a&gt; to create the required files/folders:&lt;/p&gt;
+&lt;pre class="code bash literal-block"&gt;
+$&lt;span class="w"&gt; &lt;/span&gt;tree&lt;span class="w"&gt; &lt;/span&gt;-a&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="se"&gt;\{\{\ &lt;/span&gt;cookiecutter.__project_slug&lt;span class="se"&gt;\ \}\}&lt;/span&gt;/&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="o"&gt;{{&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;cookiecutter.__project_slug&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;}}&lt;/span&gt;/&lt;span class="w"&gt;
+&lt;/span&gt;├--&lt;span class="w"&gt; &lt;/span&gt;code&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;├--&lt;span class="w"&gt; &lt;/span&gt;analysis&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;└--&lt;span class="w"&gt; &lt;/span&gt;Readme.md&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;├--&lt;span class="w"&gt; &lt;/span&gt;.flake8&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;├--&lt;span class="w"&gt; &lt;/span&gt;model&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;├--&lt;span class="w"&gt; &lt;/span&gt;cells&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;└--&lt;span class="w"&gt; &lt;/span&gt;.test.validate.omt&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;├--&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;{{&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;cookiecutter.__project_slug_nospace&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;}}&lt;/span&gt;.py&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;├--&lt;span class="w"&gt; &lt;/span&gt;inputs&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;└--&lt;span class="w"&gt; &lt;/span&gt;.test.validate.omt&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;├--&lt;span class="w"&gt; &lt;/span&gt;parameters&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;├--&lt;span class="w"&gt; &lt;/span&gt;general.json&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;└--&lt;span class="w"&gt; &lt;/span&gt;model.json&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;├--&lt;span class="w"&gt; &lt;/span&gt;Readme.md&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;└--&lt;span class="w"&gt; &lt;/span&gt;synapses&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt;       &lt;/span&gt;└--&lt;span class="w"&gt; &lt;/span&gt;.test.validate.omt&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;├--&lt;span class="w"&gt; &lt;/span&gt;.pre-commit-config.yaml&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;├--&lt;span class="w"&gt; &lt;/span&gt;requirements-dev.txt&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;└--&lt;span class="w"&gt; &lt;/span&gt;requirements.txt&lt;span class="w"&gt;
+&lt;/span&gt;├--&lt;span class="w"&gt; &lt;/span&gt;data&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;└--&lt;span class="w"&gt; &lt;/span&gt;Readme.md&lt;span class="w"&gt;
+&lt;/span&gt;├--&lt;span class="w"&gt; &lt;/span&gt;.github&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;└--&lt;span class="w"&gt; &lt;/span&gt;workflows&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt;       &lt;/span&gt;└--&lt;span class="w"&gt; &lt;/span&gt;omv-ci.yml&lt;span class="w"&gt;
+&lt;/span&gt;├--&lt;span class="w"&gt; &lt;/span&gt;LICENSE&lt;span class="w"&gt;
+&lt;/span&gt;└--&lt;span class="w"&gt; &lt;/span&gt;Readme.md
+&lt;/pre&gt;
+&lt;p&gt;Here is a video that illustrates creation of an example project using the template.
+One can install &lt;a class="reference external" href="https://cookiecutter.readthedocs.io/en/stable/"&gt;Cookiecutter&lt;/a&gt; in a virtual environment using &lt;code&gt;pip&lt;/code&gt; or &lt;code&gt;uv&lt;/code&gt; from PyPi, and run this command to get the template and interactively create a new project:&lt;/p&gt;
+&lt;pre class="code bash literal-block"&gt;
+$&lt;span class="w"&gt; &lt;/span&gt;cookiecutter&lt;span class="w"&gt; &lt;/span&gt;gh:sanjayankur31/neuroml-model-template
+&lt;/pre&gt;
+&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/8t1S4M0T_HY" frameborder="0" allowfullscreen&gt;
+&lt;/iframe&gt;&lt;p&gt;I am using the template myself, so I have tested the template, and there is CI in the repository to make sure it functions correctly with the default set up.
+I expect it will evolve further as others use it and provide more ideas/feedback on additional features that may be useful to include.&lt;/p&gt;
+&lt;p&gt;So, please, give it a go, and let me know what you think.&lt;/p&gt;
+</content><category term="Research"/><category term="NeuroML"/><category term="Cookiecutter"/><category term="Neuroscience"/><category term="Computational Neuroscience"/><category term="Pre-commit"/><category term="Python"/><category term="libNeuroML"/><category term="PyNeuroML"/><category term="GitHub"/><category term="Git"/></entry><entry><title>Zaphod is now on PyPi as zaphodtex</title><link href="https://ankursinha.in/2025/09/19/zaphod-is-now-on-pypi-as-zaphodtex.html" rel="alternate"/><published>2025-09-19T14:31:15+01:00</published><updated>2025-09-19T14:31:15+01:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2025-09-19:/2025/09/19/zaphod-is-now-on-pypi-as-zaphodtex.html</id><summary type="html">&lt;p class="first last"&gt;&lt;a class="reference external" href="https://github.com/sanjayankur31/zaphod"&gt;Zaphod&lt;/a&gt; is now installable from PyPi as &lt;tt class="docutils literal"&gt;zaphodtex&lt;/tt&gt;&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;A quick announcement post.&lt;/p&gt;
+&lt;p&gt;I had written &lt;a class="reference external" href="https://github.com/sanjayankur31/zaphod"&gt;Zaphod&lt;/a&gt; several years ago.
+It is a python wrapper around &lt;a class="reference external" href="https://github.com/ftilmann/latexdiff"&gt;LaTeXdiff&lt;/a&gt; that enables a Git workflow for generating diffs in &lt;a class="reference external" href="https://www.latex-project.org/"&gt;LaTeX&lt;/a&gt; documents.
+A demonstration is in the initial &lt;a class="reference external" href="https://ankursinha.in/2016/02/13/zaphod-a-latex-change-tracking-tool.html"&gt;announcement post&lt;/a&gt;.
+It lets you generate a diff, and it also lets you pick and choose what bits from the diff you want to incorporate.
+It does all of this using Git, so no work is every lost, and everything can be undone (or redone).&lt;/p&gt;
+&lt;p&gt;I finally got around to publishing it on PyPi &lt;a class="reference external" href="https://pypi.org/project/zaphodtex"&gt;as a package&lt;/a&gt;.
+Unfortunately, the name, zaphod, was already taken, so I have published it as &lt;code&gt;zaphodtex&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;So, you can now install it on your system directly using pip or uv:&lt;/p&gt;
+&lt;pre class="code bash literal-block"&gt;
+uv&lt;span class="w"&gt; &lt;/span&gt;pip&lt;span class="w"&gt; &lt;/span&gt;install&lt;span class="w"&gt; &lt;/span&gt;zaphodtex
+&lt;/pre&gt;
+&lt;p&gt;It will also make it easier for people to use it in their projects, on GitHub Actions and so on.&lt;/p&gt;
+</content><category term="Research"/><category term="LaTeX"/><category term="Git"/><category term="Fedora"/><category term="Zaphod"/></entry><entry><title>2025: Week --37 update</title><link href="https://ankursinha.in/2025/09/12/2025-week-37-update.html" rel="alternate"/><published>2025-09-12T11:39:55+01:00</published><updated>2025-09-12T11:39:55+01:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2025-09-12:/2025/09/12/2025-week-37-update.html</id><summary type="html">&lt;p class="first last"&gt;Weekly (well, not really) update till week 37 of 2025.&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;The last time I wrote an update was, funnily enough, about a year ago.
+Also week 37.
+Clearly a lot has happened since then, but it won't all fit in this one post.
+I'll limit this post to the higher level details&lt;/p&gt;
+&lt;div class="section" id="job-research"&gt;
+&lt;h2&gt;Job/Research&lt;/h2&gt;
+&lt;p&gt;Work has been extremely busy as always, and also busy enough where my backlog has been growing and growing.
+There is just so much to do.&lt;/p&gt;
+&lt;div class="section" id="modelling"&gt;
+&lt;h3&gt;Modelling&lt;/h3&gt;
+&lt;p&gt;I have been working on a number of computational models.&lt;/p&gt;
+&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/pWhzd2C0Xb0" frameborder="0" allowfullscreen&gt;
+&lt;/iframe&gt;&lt;p&gt;We are close to having the full &lt;a class="reference external" href="https://github.com/sanjayankur31/Human-L2-3-Cortical-Microcircuit/tree/feat/neuroml/"&gt;Human L2-3 Cortical Micro-circuit&lt;/a&gt; converted to &lt;a class="reference external" href="https://docs.neuroml.org"&gt;NeuroML&lt;/a&gt;.
+The cells have all been standardised.
+This includes the ion channels, and the various morphologies and biophysics.
+What remains is replicating the network behaviour.
+This is not the hard bit.
+We have already done all that.&lt;/p&gt;
+&lt;iframe width="560" height="315" src="https://youtube.com/embed/M00brx5-Hi8" frameborder="0" allowfullscreen&gt;
+&lt;/iframe&gt;&lt;p&gt;Another model I have been working on is the Golgi cell network that was previously developed in the lab (&lt;a class="reference external" href="https://doi.org/10.1016/j.neuron.2021.03.027"&gt;https://doi.org/10.1016/j.neuron.2021.03.027&lt;/a&gt;, model: &lt;a class="reference external" href="https://github.com/sanjayankur31/GolgiCellNetwork"&gt;https://github.com/sanjayankur31/GolgiCellNetwork&lt;/a&gt;).
+There are several predictions about how the Granule cells in the Cerebellum function, and the effect of Golgi cell inhibition on them that will be investigated using this model.&lt;/p&gt;
+&lt;p&gt;The Golgi cell network model also led to a &lt;a class="reference external" href="https://github.com/sanjayankur31/neuroml-model-template"&gt;CookieCutter template&lt;/a&gt;, but that merits its own post.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="neuroml"&gt;
+&lt;h3&gt;NeuroML&lt;/h3&gt;
+&lt;div class="figure"&gt;
+&lt;img alt="NeuroML logo" src="https://ankursinha.in/images/neuroml-logo.png" style="width: 30%;" /&gt;
+&lt;/div&gt;
+&lt;div class="figure"&gt;
+&lt;img alt="Screenshot of NeuroML paper in E-life: https://elifesciences.org/articles/95135" src="https://ankursinha.in/images/20250912-neuroml-elife.png" style="width: 50%;" /&gt;
+&lt;/div&gt;
+&lt;p&gt;Since the last update, we have publish a NeuroML paper in E-Life after a few rounds of review (&lt;a class="reference external" href="https://doi.org/10.7554/eLife.95135.3"&gt;https://doi.org/10.7554/eLife.95135.3&lt;/a&gt;).
+This was a great achievement and it did take a lot of work.&lt;/p&gt;
+&lt;p&gt;Other than that, multiple new releases of the &lt;a class="reference external" href="https://docs.neuroml.org"&gt;NeuroML&lt;/a&gt; libraries have been made.
+We continue to maintain them and push out improvements and fixes regularly on PyPi under the &lt;a class="reference external" href="https://docs.neuroml.org"&gt;NeuroML&lt;/a&gt; PyPi organisation: &lt;a class="reference external" href="https://pypi.org/org/neuroml/"&gt;https://pypi.org/org/neuroml/&lt;/a&gt;.&lt;/p&gt;
+&lt;div class="section" id="google-summer-of-code"&gt;
+&lt;h4&gt;Google Summer of Code&lt;/h4&gt;
+&lt;p&gt;We participated in Google Summer of Code (&lt;a class="reference external" href="https://summerofcode.withgoogle.com/"&gt;GSoC&lt;/a&gt;) again this year.
+Our candidate, Hengye, did an excellent job of converting various bits of the Macaque auditory thalamocortical model to NeuroML.
+The conversion also lives on GitHub, under the Open Source Brain organisation: &lt;a class="reference external" href="https://github.com/OpenSourceBrain/Macaque_auditory_thalamocortical_model_data/tree/feat-neuroml-gsoc"&gt;https://github.com/OpenSourceBrain/Macaque_auditory_thalamocortical_model_data/tree/feat-neuroml-gsoc&lt;/a&gt;.
+We are going to continue working on this to standardise the full model.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="open-source-brain"&gt;
+&lt;h3&gt;Open Source Brain&lt;/h3&gt;
+&lt;div class="figure"&gt;
+&lt;img alt="Screenshot of the Open Source Brain website at https://opensourcebrain.org" src="https://ankursinha.in/images/20250912-osbv2.png" style="width: 50%;" /&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;a class="reference external" href="https://opensourcebrain.org"&gt;Open Source Brain&lt;/a&gt; (OSB), an integrated web-platform for neuroscience, continues to tick along.
+We have made a number of maintenance updates and bug fixes.
+A new release is ready to be deployed to production after more testing.&lt;/p&gt;
+&lt;p&gt;We have worked on also integrating the &lt;a class="reference external" href="https://www.ebrains.eu/"&gt;E-BRAINS&lt;/a&gt; models into OSBv2.
+I need to test the &lt;a class="reference external" href="https://github.com/OpenSourceBrain/OSBv2/pull/963"&gt;E-BRAINS adapter&lt;/a&gt; implementation to prepare the PR for merging.
+This was blocked by some access issues, but they have now been ironed out and this can now proceed.&lt;/p&gt;
+&lt;p&gt;A paper on OSB is in the works, and should be published as a pre-print in the next coming months.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="grants-and-funding"&gt;
+&lt;h3&gt;Grants and funding&lt;/h3&gt;
+&lt;p&gt;This has taken a lot of time since the last update.
+We have applied for two &lt;a class="reference external" href="https://wellcome.org/research-funding/schemes/wellcome-discovery-awards"&gt;Wellcome Discovery Awards&lt;/a&gt;, two &lt;a class="reference external" href="https://digitalresearchinfrastructure.grantplatform.com/"&gt;Software Sustainability Institute&lt;/a&gt; grants, and are going to apply for several more.&lt;/p&gt;
+&lt;p&gt;So far, we have not been lucky enough to be accepted even though we were highly rated.
+Each Wellcome grant application takes about a month of dedicated work.
+Further, once triaged and accepted for interview, it is another two weeks of preparation.
+So, it has been a lot of work for no rewards at all.&lt;/p&gt;
+&lt;p&gt;There just seems to be quite a &lt;a class="reference external" href="https://www.dementiaresearcher.nihr.ac.uk/the-grant-funding-lottery/"&gt;limited amount of funding&lt;/a&gt;, and the intense competition for them means that the success rate for most grant applications has dropped.
+So, more time spent on writing grants with fewer rewards.
+It is currently an even tougher time to be a researcher/academic than it already normally is.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="volunteering"&gt;
+&lt;h2&gt;Volunteering&lt;/h2&gt;
+&lt;p&gt;I have managed to find time for volunteering, but with the increased work load, this time has reduced.&lt;/p&gt;
+&lt;div class="section" id="software-carpentries"&gt;
+&lt;h3&gt;Software carpentries&lt;/h3&gt;
+&lt;p&gt;I completed my &lt;a class="reference external" href="https://carpentries.github.io/instructor-training/"&gt;Software Carpentry Instructor Training&lt;/a&gt;, and now am a certified instructor.
+The training was excellent.
+It pointed out lots of good practices for teaching newcomers/novices computational skills.&lt;/p&gt;
+&lt;p&gt;I will probably teach a session or two here at UCL this year and if time permits do a couple of classes for the &lt;a class="reference external" href="https://fedoraproject.org"&gt;Fedora&lt;/a&gt; classrooms.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="fedora"&gt;
+&lt;h3&gt;Fedora&lt;/h3&gt;
+&lt;div class="figure"&gt;
+&lt;img alt="Fedora logo" src="https://ankursinha.in/images/fedora-logo.png" style="width: 30%;" /&gt;
+&lt;/div&gt;
+&lt;p&gt;Package maintenance continues.
+So does the &lt;a class="reference external" href="https://docs.fedoraproject.org/en-US/fedora-join/"&gt;Fedora Join SIG&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;We have shifted how we do things in &lt;a class="reference external" href="https://neuro.fedoraproject.org"&gt;NeuroFedora&lt;/a&gt;.
+We just had too many packages, and it was no longer clear if people were using these.
+So, we are now testing lots of Python packages directly from PyPi instead of packaging them.
+You can read more about this post: &lt;a class="reference external" href="https://neuroblog.fedoraproject.org/2025/08/02/packaging-changes-at-neurofedora.html"&gt;Packaging changes at NeuroFedora&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The Join SIG is doing well.
+Quite a few new people are now helping out with onboarding and the &lt;a class="reference external" href="https://pagure.io/fedora-join/WelcomeToFedora"&gt;Welcome to Fedora&lt;/a&gt; process, which means we have so much more human resource at our disposal.
+There are also more discussions on how we can do better.
+So we expect tweaks and improvements to make the &amp;quot;Welcome to Fedora&amp;quot; process even better.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="ocns"&gt;
+&lt;h3&gt;OCNS&lt;/h3&gt;
+&lt;div class="figure"&gt;
+&lt;img alt="OCNS logo." src="https://ankursinha.in/images/ocns-logo.png" style="width: 50%;" /&gt;
+&lt;/div&gt;
+&lt;p&gt;I remain an elected member of the &lt;a class="reference external" href="https://www.cnsorg.org/board-of-directors"&gt;Board of Directors&lt;/a&gt; for the Organization for Computational Neuroscience.
+I could not get a Schengen visa to attend the annual conference in Florence, though (again).
+That was quite disappointing, but not a lot can be done about it.
+Europe is really popular in the summer, and there just aren't enough appointments for visa applications.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="summary"&gt;
+&lt;h2&gt;Summary&lt;/h2&gt;
+&lt;p&gt;That will do for now.
+There is certainly a lot happening on multiple fronts, and I have been busy---too busy to write blog posts even.
+I am going to try to restart regular blog writing, but that's what I said last year before dropping out.
+So who knows.&lt;/p&gt;
+&lt;/div&gt;
+</content><category term="Life"/><category term="Research"/><category term="Computational Neuroscience"/><category term="Fedora"/><category term="NeuroFedora"/><category term="Funding"/><category term="Grants"/><category term="Academic Life"/><category term="Post-doc career"/></entry><entry><title>Bash functions for working with UV</title><link href="https://ankursinha.in/2025/09/10/bash-functions-for-working-with-uv.html" rel="alternate"/><published>2025-09-10T17:04:09+01:00</published><updated>2025-09-10T17:04:09+01:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2025-09-10:/2025/09/10/bash-functions-for-working-with-uv.html</id><summary type="html">&lt;p class="first last"&gt;I wrote up a few bash functions to make working with &lt;a class="reference external" href="https://github.com/astral-sh/uv/"&gt;uv&lt;/a&gt; slightly quicker.&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;I finally made the switch from &lt;a class="reference external" href="https://pypi.org/project/pip/"&gt;pip&lt;/a&gt; to &lt;a class="reference external" href="https://github.com/astral-sh/uv/"&gt;uv&lt;/a&gt; recently.
+&lt;a class="reference external" href="https://github.com/astral-sh/uv/"&gt;uv&lt;/a&gt; is much quicker that &lt;a class="reference external" href="https://pypi.org/project/pip/"&gt;pip&lt;/a&gt;.
+I won't go into how/why here, but I will link you to &lt;a class="reference external" href="https://youtu.be/gSKTfG1GXYQ?si=7RWGTdRZdinvZP2X"&gt;this video that explains it&lt;/a&gt;.
+When working with packages such as &lt;a class="reference external" href="https://docs.neuroml.org/Userdocs/Software/pyNeuroML.html"&gt;PyNeuroML&lt;/a&gt; that have quite a few dependencies, the speed up begins to matter, especially when one is developing and may create and remove virtual environments quite often.&lt;/p&gt;
+&lt;p&gt;I used to use &lt;a class="reference external" href="https://github.com/pew-org/pew/issues"&gt;Pew&lt;/a&gt; to manage my Python virtual environments.
+It is a great tool.
+Unfortunately, &lt;a class="reference external" href="https://github.com/pew-org/pew/issues/218"&gt;it isn't quite maintained any more&lt;/a&gt;, and that means support for things like &lt;a class="reference external" href="https://github.com/astral-sh/uv/"&gt;uv&lt;/a&gt; are probably not going to happen soon.&lt;/p&gt;
+&lt;p&gt;I went looking for a similar wrapper around &lt;a class="reference external" href="https://github.com/astral-sh/uv/"&gt;uv&lt;/a&gt; and there are some, but they're simple enough where I thought writing my own bash functions/aliases is probably preferable.
+So, here's what I've added to my &lt;cite&gt;bashrc&lt;/cite&gt;.
+They are a number of functions/aliases to:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;list virtual environments&lt;/li&gt;
+&lt;li&gt;create a new virtual environment using &lt;a class="reference external" href="https://github.com/astral-sh/uv/"&gt;uv&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;activate virtual environments&lt;/li&gt;
+&lt;li&gt;remove virtual environments&lt;/li&gt;
+&lt;li&gt;install packages using &lt;a class="reference external" href="https://github.com/astral-sh/uv/"&gt;uv&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;A simple bash shell completion function is also setup.
+The listing and removal functions aren't really &lt;a class="reference external" href="https://github.com/astral-sh/uv/"&gt;uv&lt;/a&gt; specific here, but I prefix them with &lt;code&gt;uv&lt;/code&gt; for consistency.&lt;/p&gt;
+&lt;p&gt;(I don't use another shell, so please adapt these to whatever you use):&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# uv helpers&lt;/span&gt;
+&lt;span class="nb"&gt;export&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;VIRTUAL_ENV_HOME&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$HOME&lt;/span&gt;&lt;span class="s2"&gt;/.virtualenvs/&amp;quot;&lt;/span&gt;
+uvnew&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;{&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nb"&gt;command&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-v&lt;span class="w"&gt; &lt;/span&gt;uv&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;2&lt;/span&gt;&amp;gt;&lt;span class="p"&gt;&amp;amp;&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&amp;gt;&lt;span class="w"&gt; &lt;/span&gt;/dev/null
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;then&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="nb"&gt;pushd&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;$VIRTUAL_ENV_HOME&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;uv&lt;span class="w"&gt; &lt;/span&gt;venv&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$@&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nb"&gt;popd&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;else&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;uv not installed&amp;quot;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;fi&lt;/span&gt;
+&lt;span class="o"&gt;}&lt;/span&gt;
+uvls&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;{&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;ls&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;$VIRTUAL_ENV_HOME&lt;/span&gt;
+&lt;span class="o"&gt;}&lt;/span&gt;
+uvrm&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;{&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nv"&gt;venv_name&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$1&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nb"&gt;read&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-p&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Delete env \&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$venv_name&lt;/span&gt;&lt;span class="s2"&gt;\&amp;quot;? Are you sure? (Yy)&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-n&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-r
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="c1"&gt;# (optional) move to a new line&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="c1"&gt;# input is stored in REPLY if no var is given to read&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;[[&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;$REPLY&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;~&lt;span class="w"&gt; &lt;/span&gt;^&lt;span class="o"&gt;[&lt;/span&gt;Yy&lt;span class="o"&gt;]&lt;/span&gt;$&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;]]&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;then&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Removing &lt;/span&gt;&lt;span class="nv"&gt;$VIRTUAL_ENV_HOME&lt;/span&gt;&lt;span class="s2"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;$venv_name&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;rm&lt;span class="w"&gt; &lt;/span&gt;-rf&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;$VIRTUAL_ENV_HOME&lt;/span&gt;/&lt;span class="nv"&gt;$venv_name&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;fi&lt;/span&gt;
+&lt;span class="o"&gt;}&lt;/span&gt;
+_venv_completions&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;{&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nb"&gt;local&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;cur
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nv"&gt;cur&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;COMP_WORDS&lt;/span&gt;&lt;span class="p"&gt;[COMP_CWORD]&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nb"&gt;pushd&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;$VIRTUAL_ENV_HOME&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;2&lt;/span&gt;&amp;gt;&lt;span class="p"&gt;&amp;amp;&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&amp;gt;/dev/null
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="nv"&gt;COMPREPLY&lt;/span&gt;&lt;span class="o"&gt;=(&lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;&lt;span class="nb"&gt;compgen&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-o&lt;span class="w"&gt; &lt;/span&gt;dirnames&lt;span class="w"&gt; &lt;/span&gt;--&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$cur&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="k"&gt;)&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nb"&gt;popd&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&amp;gt;/dev/null&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;2&lt;/span&gt;&amp;gt;&lt;span class="p"&gt;&amp;amp;&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;
+&lt;span class="o"&gt;}&lt;/span&gt;
+uvactivate&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;{&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nv"&gt;venv_name&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$1&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-e&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$VIRTUAL_ENV_HOME&lt;/span&gt;&lt;span class="s2"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;$venv_name&lt;/span&gt;&lt;span class="s2"&gt;/bin/activate&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;then&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="nb"&gt;source&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$VIRTUAL_ENV_HOME&lt;/span&gt;&lt;span class="s2"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;$venv_name&lt;/span&gt;&lt;span class="s2"&gt;/bin/activate&amp;quot;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;else&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Could not find activation script&amp;quot;&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Available venvs are&amp;quot;&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;uvls
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;fi&lt;/span&gt;
+&lt;span class="o"&gt;}&lt;/span&gt;
+&lt;span class="nb"&gt;complete&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-F&lt;span class="w"&gt; &lt;/span&gt;_venv_completions&lt;span class="w"&gt; &lt;/span&gt;uvactivate
+&lt;span class="nb"&gt;complete&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-F&lt;span class="w"&gt; &lt;/span&gt;_venv_completions&lt;span class="w"&gt; &lt;/span&gt;uvrm
+
+&lt;span class="nb"&gt;alias&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;uvpip&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;uv pip&amp;quot;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;On Fedora, &lt;a class="reference external" href="https://github.com/astral-sh/uv/"&gt;uv&lt;/a&gt; is in the repositories, so it can be installed with:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo&lt;span class="w"&gt; &lt;/span&gt;dnf&lt;span class="w"&gt; &lt;/span&gt;install&lt;span class="w"&gt; &lt;/span&gt;uv
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;If you have your own wrappers for working with &lt;code&gt;uv&lt;/code&gt; that are better than these simple bits, please drop me a word.&lt;/p&gt;
+</content><category term="Tech"/><category term="Python"/><category term="Bash"/><category term="UV"/><category term="Pip"/><category term="Fedora"/><category term="Pew"/></entry><entry><title>Splitting Taskwarrior tasks to sub-tasks</title><link href="https://ankursinha.in/2025/07/05/splitting-taskwarrior-tasks-to-sub-tasks.html" rel="alternate"/><published>2025-07-05T13:11:35+01:00</published><updated>2025-07-08T12:36:09+01:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2025-07-05:/2025/07/05/splitting-taskwarrior-tasks-to-sub-tasks.html</id><summary type="html">&lt;p class="first last"&gt;A quick script to split Taskwarrior tasks in to sub-tasks.&lt;/p&gt;
+</summary><content type="html">&lt;center&gt;&lt;a class="reference external image-reference" href="https://taskwarrior.org"&gt;
+&lt;img alt="Logo for Taskwarrior" src="https://ankursinha.in/images/20250705-tw.png" style="height: 150.0px;" /&gt;
+&lt;/a&gt;
+&lt;/center&gt;&lt;p&gt;A feature that I often miss in &lt;a class="reference external" href="https://taskwarrior.org/"&gt;Taskwarrior&lt;/a&gt; (which I use for managing my tasks in a &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Getting_Things_Done"&gt;Getting Things Done&lt;/a&gt; method) is the ability to split tasks into sub-tasks.&lt;/p&gt;
+&lt;p&gt;A common use case, for example, is when I add a research paper that I want to read to my task list.
+It's usually added as &amp;quot;Read &amp;lt;title of research paper&amp;gt;&amp;quot;, with the URL or the file path as an annotation.
+However, when I do get down to read it, I want to break it down into smaller, manageable tasks that I can do over a few days such as &amp;quot;Read introduction&amp;quot;, &amp;quot;Read results&amp;quot;.
+This applies for lots of other tasks too, which turn into projects with sub-tasks when I finally do get down to working on them.&lt;/p&gt;
+&lt;p&gt;The way to do it is to create new tasks for each of these, and then replace the original task with them.
+It is also a workflow that cab be easily scripted so that one doesn't have to manually create the tasks and copy over annotations and so on.&lt;/p&gt;
+&lt;p&gt;Here is a script I wrote:&lt;/p&gt;
+&lt;pre class="code python literal-block"&gt;
+&lt;span class="ch"&gt;#!/usr/bin/env python3&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="sd"&gt;&amp;quot;&amp;quot;&amp;quot;
+Split a taskwarrior task into sub-tasks
+
+File: task-split.py
+
+Copyright 2025 Ankur Sinha
+Author: Ankur Sinha &amp;lt;sanjay DOT ankur AT gmail DOT com&amp;gt;
+&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+
+
+&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;typing&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;typer&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;subprocess&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;json&lt;/span&gt;&lt;span class="w"&gt;
+
+
+&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;logging&lt;/span&gt;&lt;span class="w"&gt;
+
+
+&lt;/span&gt;&lt;span class="n"&gt;logging&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;basicConfig&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;level&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;logging&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;NOTSET&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="n"&gt;logger&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;logging&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;getLogger&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;task-split&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="n"&gt;logger&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;setLevel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;logging&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;INFO&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="n"&gt;logger&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;propagate&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kc"&gt;False&lt;/span&gt;&lt;span class="w"&gt;
+
+&lt;/span&gt;&lt;span class="n"&gt;formatter&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;logging&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Formatter&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="si"&gt;%(name)s&lt;/span&gt;&lt;span class="s2"&gt; (&lt;/span&gt;&lt;span class="si"&gt;%(levelname)s&lt;/span&gt;&lt;span class="s2"&gt;): &lt;/span&gt;&lt;span class="si"&gt;%(message)s&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="n"&gt;handler&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;logging&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;StreamHandler&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="n"&gt;handler&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;setLevel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;logging&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;INFO&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="n"&gt;handler&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;setFormatter&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;formatter&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+
+&lt;/span&gt;&lt;span class="n"&gt;logger&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;addHandler&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;handler&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+
+
+&lt;/span&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;split&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;src_task&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;new_project&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;sub_tasks&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;typing&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;List&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;          &lt;span class="n"&gt;dry_run&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="nb"&gt;bool&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kc"&gt;True&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;-&amp;gt;&lt;/span&gt; &lt;span class="kc"&gt;None&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="sd"&gt;&amp;quot;&amp;quot;&amp;quot;Split task into new sub-tasks
+
+    For each provided sub_tasks string, a new task is created using the string
+    as description in the provided new_project. Annotations from the provided
+    src_task are copied over and the src_task is removed.
+
+    If dry_run is enabled (default), the src_task will be obtained but not
+    processed.
+
+    :param src_task: id of task to split
+    :type src_task: int
+    :param sub_tasks: list of sub-tasks to create
+    :type sub_tasks: list(str)
+    :returns: None
+
+    &amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;    &lt;span class="c1"&gt;# Always get info on the task&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;    &lt;span class="n"&gt;ret&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kc"&gt;None&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;    &lt;span class="n"&gt;get_task_command&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="sa"&gt;f&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;task &lt;/span&gt;&lt;span class="si"&gt;{&lt;/span&gt;&lt;span class="n"&gt;src_task&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt; export&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;    &lt;span class="n"&gt;logger&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;info&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;get_task_command&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;    &lt;span class="n"&gt;ret&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;subprocess&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;run&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;get_task_command&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;split&lt;/span&gt;&lt;span class="p"&gt;(),&lt;/span&gt; &lt;span class="n"&gt;stdout&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;subprocess&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;PIPE&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;stderr&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;subprocess&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;PIPE&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+
+&lt;/span&gt;    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;ret&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;returncode&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;        &lt;span class="n"&gt;task_stdout&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;ret&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;stdout&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;decode&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;encoding&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;utf-8&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;        &lt;span class="n"&gt;task_json&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;json&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;loads&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;task_stdout&lt;/span&gt;&lt;span class="p"&gt;)[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;        &lt;span class="n"&gt;logger&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;info&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;task_json&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;        &lt;span class="n"&gt;tags&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;task_json&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'tags'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="p"&gt;[])&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;        &lt;span class="n"&gt;priority&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;task_json&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'priority'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'L'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;        &lt;span class="n"&gt;due&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;task_json&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'due'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'eod'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;        &lt;span class="n"&gt;estimate&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;task_json&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'estimate'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'1h'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;        &lt;span class="n"&gt;impact&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;task_json&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'impact'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'L'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;        &lt;span class="n"&gt;annotations&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;task_json&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'annotations'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="p"&gt;[])&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;        &lt;span class="n"&gt;description&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;task_json&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'description'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;        &lt;span class="n"&gt;uuid&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;task_json&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'uuid'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+
+&lt;/span&gt;        &lt;span class="c1"&gt;# clear ret for future dry runs&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;        &lt;span class="n"&gt;ret&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kc"&gt;None&lt;/span&gt;&lt;span class="w"&gt;
+
+&lt;/span&gt;        &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;sub_task&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;sub_tasks&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;            &lt;span class="n"&gt;new_task_command&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="sa"&gt;f&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;task add project:&lt;/span&gt;&lt;span class="si"&gt;{&lt;/span&gt;&lt;span class="n"&gt;new_project&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt; tags:&lt;/span&gt;&lt;span class="si"&gt;{&lt;/span&gt;&lt;span class="s1"&gt;','&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;join&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;tags&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt; priority:&lt;/span&gt;&lt;span class="si"&gt;{&lt;/span&gt;&lt;span class="n"&gt;priority&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt; due:&lt;/span&gt;&lt;span class="si"&gt;{&lt;/span&gt;&lt;span class="n"&gt;due&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt; impact:&lt;/span&gt;&lt;span class="si"&gt;{&lt;/span&gt;&lt;span class="n"&gt;impact&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt; estimate:&lt;/span&gt;&lt;span class="si"&gt;{&lt;/span&gt;&lt;span class="n"&gt;estimate&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt; '&lt;/span&gt;&lt;span class="si"&gt;{&lt;/span&gt;&lt;span class="n"&gt;sub_task&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;'&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;            &lt;span class="n"&gt;logger&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;info&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;new_task_command&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+
+&lt;/span&gt;            &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="ow"&gt;not&lt;/span&gt; &lt;span class="n"&gt;dry_run&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;                &lt;span class="n"&gt;ret&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;subprocess&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;run&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;new_task_command&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;split&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;&lt;span class="w"&gt;
+
+&lt;/span&gt;            &lt;span class="n"&gt;annotate_task_command&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="sa"&gt;f&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;task +LATEST annotate '&lt;/span&gt;&lt;span class="si"&gt;{&lt;/span&gt;&lt;span class="n"&gt;description&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;'&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;            &lt;span class="n"&gt;logger&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;info&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;annotate_task_command&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;            &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="ow"&gt;not&lt;/span&gt; &lt;span class="n"&gt;dry_run&lt;/span&gt; &lt;span class="ow"&gt;and&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ret&lt;/span&gt; &lt;span class="ow"&gt;is&lt;/span&gt; &lt;span class="ow"&gt;not&lt;/span&gt; &lt;span class="kc"&gt;None&lt;/span&gt; &lt;span class="ow"&gt;and&lt;/span&gt; &lt;span class="n"&gt;ret&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;returncode&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;                &lt;span class="n"&gt;ret&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;subprocess&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;run&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;annotate_task_command&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;split&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;&lt;span class="w"&gt;
+
+&lt;/span&gt;            &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;annotation&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;annotations&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;                &lt;span class="n"&gt;annotation_description&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;annotation&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;'description'&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;                &lt;span class="n"&gt;annotate_task_command&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="sa"&gt;f&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;task +LATEST annotate '&lt;/span&gt;&lt;span class="si"&gt;{&lt;/span&gt;&lt;span class="n"&gt;annotation_description&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;'&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;                &lt;span class="n"&gt;logger&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;info&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;annotate_task_command&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;                &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="ow"&gt;not&lt;/span&gt; &lt;span class="n"&gt;dry_run&lt;/span&gt; &lt;span class="ow"&gt;and&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ret&lt;/span&gt; &lt;span class="ow"&gt;is&lt;/span&gt; &lt;span class="ow"&gt;not&lt;/span&gt; &lt;span class="kc"&gt;None&lt;/span&gt; &lt;span class="ow"&gt;and&lt;/span&gt; &lt;span class="n"&gt;ret&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;returncode&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;                    &lt;span class="n"&gt;ret&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;subprocess&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;run&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;annotate_task_command&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;split&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;&lt;span class="w"&gt;
+
+&lt;/span&gt;        &lt;span class="n"&gt;mark_original_as_done_command&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="sa"&gt;f&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;task uuid:&lt;/span&gt;&lt;span class="si"&gt;{&lt;/span&gt;&lt;span class="n"&gt;uuid&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt; done&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;        &lt;span class="n"&gt;logger&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;info&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;mark_original_as_done_command&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;        &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="ow"&gt;not&lt;/span&gt; &lt;span class="n"&gt;dry_run&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;            &lt;span class="n"&gt;ret&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;subprocess&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;run&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;mark_original_as_done_command&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;split&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;&lt;span class="w"&gt;
+
+
+&lt;/span&gt;&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="vm"&gt;__name__&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;__main__&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;    &lt;span class="n"&gt;typer&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;run&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;split&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;
+&lt;p&gt;It uses &lt;a class="reference external" href="https://typer.tiangolo.com/"&gt;typer&lt;/a&gt; to provide command line features:&lt;/p&gt;
+&lt;pre class="code bash literal-block"&gt;
+task-split&lt;span class="w"&gt; &lt;/span&gt;--help&lt;span class="w"&gt;
+
+&lt;/span&gt;Usage:&lt;span class="w"&gt; &lt;/span&gt;task-split&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;OPTIONS&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;SRC_TASK&lt;span class="w"&gt; &lt;/span&gt;NEW_PROJECT&lt;span class="w"&gt; &lt;/span&gt;SUB_TASKS...&lt;span class="w"&gt;
+
+&lt;/span&gt;Split&lt;span class="w"&gt; &lt;/span&gt;task&lt;span class="w"&gt; &lt;/span&gt;into&lt;span class="w"&gt; &lt;/span&gt;new&lt;span class="w"&gt; &lt;/span&gt;sub-tasks&lt;span class="w"&gt;
+
+&lt;/span&gt;Arguments&lt;span class="w"&gt;
+&lt;/span&gt;*&lt;span class="w"&gt;    &lt;/span&gt;src_task&lt;span class="w"&gt;         &lt;/span&gt;INTEGER&lt;span class="w"&gt;       &lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;default:&lt;span class="w"&gt; &lt;/span&gt;None&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;*&lt;span class="w"&gt;    &lt;/span&gt;new_project&lt;span class="w"&gt;      &lt;/span&gt;TEXT&lt;span class="w"&gt;          &lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;default:&lt;span class="w"&gt; &lt;/span&gt;None&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;*&lt;span class="w"&gt;    &lt;/span&gt;sub_tasks&lt;span class="w"&gt;        &lt;/span&gt;SUB_TASKS...&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;default:&lt;span class="w"&gt; &lt;/span&gt;None&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt;
+
+&lt;/span&gt;Options&lt;span class="w"&gt;
+&lt;/span&gt;--dry-run&lt;span class="w"&gt;    &lt;/span&gt;--no-dry-run&lt;span class="w"&gt;      &lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;default:&lt;span class="w"&gt; &lt;/span&gt;dry-run&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;--help&lt;span class="w"&gt;                         &lt;/span&gt;Show&lt;span class="w"&gt; &lt;/span&gt;this&lt;span class="w"&gt; &lt;/span&gt;message&lt;span class="w"&gt; &lt;/span&gt;and&lt;span class="w"&gt; &lt;/span&gt;exit.
+&lt;/pre&gt;
+&lt;p&gt;So, if one has a task &amp;quot;Put up shelves&amp;quot; with ID 800, it can now be broken into a number of smaller tasks:&lt;/p&gt;
+&lt;pre class="code bash literal-block"&gt;
+task-split&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;800&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;personal.shelves&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Buy shelves&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Buy drill&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Buy tools&amp;quot;&lt;/span&gt;
+&lt;/pre&gt;
+&lt;p&gt;This will add the new tasks to the &amp;quot;personal.shelves&amp;quot; topic, and copy over meta-data from the original task, such as annotations, priority, due date and other user defined attributes.
+It runs in &amp;quot;dry-run&amp;quot; mode by default to give me a chance to double-check the commands/tasks.
+To carry out the operations, pass the &lt;code&gt;--no-dry-run&lt;/code&gt; flag to the script too.&lt;/p&gt;
+&lt;p&gt;The script is heavily based on my personal workflow, but can easily be tweaked.
+It lives &lt;a class="reference external" href="https://github.com/sanjayankur31/100_dotfiles/blob/main/bin/task-split"&gt;here on GitHub&lt;/a&gt; and you are welcome to modify it to suit your own workflow.&lt;/p&gt;
+&lt;p&gt;Please remember to make it executable and put it in your PATH to be able to run the command on your terminal, and do remember to install typer.
+On Fedora, this would be &lt;code&gt;sudo dnf install python3-typer&lt;/code&gt;.&lt;/p&gt;
+</content><category term="Tech"/><category term="Taskwarrior"/><category term="Productivity"/><category term="Python"/></entry><entry><title>Accessing UCL VPN using OpenConnect on Linux systems</title><link href="https://ankursinha.in/2024/11/25/accessing-ucl-vpn-using-openconnect-on-linux-systems.html" rel="alternate"/><published>2024-11-25T14:49:25+00:00</published><updated>2024-11-25T14:49:25+00:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2024-11-25:/2024/11/25/accessing-ucl-vpn-using-openconnect-on-linux-systems.html</id><summary type="html">&lt;p class="first last"&gt;A quick note on accessing UCL VPN using OpenConnect on Linux systems.&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;I needed to use the &lt;a class="reference external" href="https://www.ucl.ac.uk/isd/services/get-connected/ucl-virtual-private-network-vpn"&gt;UCL VPN&lt;/a&gt; again, on my Fedora/Linux machine.
+Linux isn't really supported by the university infrastructure, but there are &lt;a class="reference external" href="https://blogs.ucl.ac.uk/dh/2015/09/18/tutorial-ucl-vpn-linux/"&gt;instructions that others have come up with&lt;/a&gt; and they had worked for me the last time I'd needed VPN access.
+Unfortunately, that was a few years ago, and things have changed a little since then.
+Notably, UCL has introduced two factor authentication (2FA).&lt;/p&gt;
+&lt;p&gt;I had to look around a little but I did manage to get it to work again using NetworkManager.
+I thought I'd write it up quickly so everyone that needs it, including future me, have a quick reference to look at.&lt;/p&gt;
+&lt;p&gt;This is on Fedora 41 with the following OpenConnect packages:&lt;/p&gt;
+&lt;pre class="code bash literal-block"&gt;
+$&lt;span class="w"&gt; &lt;/span&gt;rpm&lt;span class="w"&gt; &lt;/span&gt;-qa&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="se"&gt;\*&lt;/span&gt;openconnect&lt;span class="se"&gt;\*&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;openconnect-9.12-6.fc41.x86_64&lt;span class="w"&gt;
+&lt;/span&gt;NetworkManager-openconnect-1.2.10-6.fc41.x86_64&lt;span class="w"&gt;
+&lt;/span&gt;NetworkManager-openconnect-gnome-1.2.10-6.fc41.x86_64
+&lt;/pre&gt;
+&lt;p&gt;In NetworkManager one needs to create a new VPN connection with the following settings:&lt;/p&gt;
+&lt;div class="figure align-center"&gt;
+&lt;a class="reference external image-reference" href="https://ankursinha.in/images/neuroml-logo.png"&gt;
+&lt;img alt="Screenshot of settings in Network Manager for setting up a VPN connection to UCL VPN using Open Connect (settings are listed below)" class="text-center img-responsive pagination-centered" src="https://ankursinha.in/images/20241125-openconnect-nm.png" style="width: 80%;" /&gt;
+&lt;/a&gt;
+&lt;/div&gt;
+&lt;p&gt;Here are the settings in a list too:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;VPN Protocol: Cisco AnyConnect or OpenConnect&lt;/li&gt;
+&lt;li&gt;Gateway: vpn.ucl.ac.uk&lt;/li&gt;
+&lt;li&gt;User Agent: AnyConnect&lt;/li&gt;
+&lt;li&gt;CA Certificate: &amp;lt;None&amp;gt;&lt;/li&gt;
+&lt;li&gt;Proxy: &amp;lt;leave blank&amp;gt;&lt;/li&gt;
+&lt;li&gt;Allow security scanner trojan (CSD): Yes (checked)&lt;/li&gt;
+&lt;li&gt;Trojan (CSD) wrapper script: &lt;code&gt;/usr/libexec/openconnect/csd-post.sh&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Reported OS: Windows 10 (I didn't try another)&lt;/li&gt;
+&lt;li&gt;Machine certificate: &amp;lt;None&amp;gt;&lt;/li&gt;
+&lt;li&gt;Machine private key: &amp;lt;will be greyed out&amp;gt;&lt;/li&gt;
+&lt;li&gt;User certification: &amp;lt;None&amp;gt;&lt;/li&gt;
+&lt;li&gt;User private key: &amp;lt;will be greyed out&amp;gt;&lt;/li&gt;
+&lt;li&gt;Use FSID for key passphrase: No (unchecked)&lt;/li&gt;
+&lt;li&gt;Prevent user from manually accepting invalid credentials: No (unchecked)&lt;/li&gt;
+&lt;li&gt;Token mode: TOTP - manually entered&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This is similar to what had worked before.
+What changed:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;It didn't work without setting the User Agent to &amp;quot;AnyConnect&amp;quot;&lt;/li&gt;
+&lt;li&gt;I set the token mode to &amp;quot;TOTP - manually entered&amp;quot;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This opens up a web login page where one can enter their credentials.&lt;/p&gt;
+</content><category term="Tech"/><category term="UCL"/><category term="VPN"/><category term="AnyConnect"/><category term="OpenConnect"/><category term="Linux"/><category term="Fedora"/></entry><entry><title>Week 27--36 update</title><link href="https://ankursinha.in/2024/09/06/week-27-36-update.html" rel="alternate"/><published>2024-09-06T15:06:07+01:00</published><updated>2024-09-06T15:06:07+01:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2024-09-06:/2024/09/06/week-27-36-update.html</id><summary type="html">&lt;p class="first last"&gt;Weekly update to week #27-#36&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;It's been a busy summer, so here's a consolidated post on what went on.
+I'm sure there's a lot more, but here are the salient points.&lt;/p&gt;
+&lt;div class="section" id="conference-cns-2024-in-july"&gt;
+&lt;h2&gt;Conference: CNS 2024 in July&lt;/h2&gt;
+&lt;p&gt;The annual conference for computational neuroscience, held by the &lt;a class="reference external" href="https://www.cnsorg.org"&gt;Organization for Computational Neurosciences&lt;/a&gt; happens in July every year.
+It alternates between Europe and non-Europe locations to ensure that it's accessible to as much of the research community as possible.
+This year, it was organised in Natal, Brazil.&lt;/p&gt;
+&lt;p&gt;We had a tutorial on &lt;a class="reference external" href="https://neuroml.org"&gt;NeuroML&lt;/a&gt; and a couple of posters accepted at the conference.
+We also had a couple of posters accepted.&lt;/p&gt;
+&lt;p&gt;I'm also on the &lt;a class="reference external" href="https://www.cnsorg.org/board-of-directors"&gt;Board of Directors for CNS&lt;/a&gt;.
+As part of my duties, I organised a career development session this year on life &amp;quot;beyond academia&amp;quot; where we had a panel of people who had trained in academia but now had moved on to non-academic careers.
+The idea was to give students and early career researchers (ECRs) some idea of the &amp;quot;black box&amp;quot; that is industry, given that most of us have never worked in industry and therefore don't quite know much about it, which makes moving from academia to non-academic careers quite a daunting task.&lt;/p&gt;
+&lt;p&gt;The conference was great.
+It was nice to see a lot of our colleagues, who we hadn't seen in a while.
+Natal, and Brazil in general, was a brilliant place to go to too.
+We had numerous Caipirinhas, delicious food, and enjoyed the warm weather.
+The days were hectic as always---absorbing information non-stop from 9 o'clock till the end of the day at about six o'clock, but then heading over to the socials and staying out late too.&lt;/p&gt;
+&lt;p&gt;I had half a day extra or so after the conference, and a few of us drove to Praia de Pipa (Pipa Beach).
+It was absolutely beautiful.
+Since I was flying out in the evening and had already checked out of my hotel, I didn't get into the water, but we paddled around for quite a bit before having a scrumptious sea-food lunch.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="neuroml-related"&gt;
+&lt;h2&gt;NeuroML related&lt;/h2&gt;
+&lt;div class="figure align-center"&gt;
+&lt;img alt="NeuroML is a standard and software ecosystem for biophysically detailed neuronal modelling." class="text-center img-responsive pagination-centered" src="https://ankursinha.in/images/neuroml-logo.png" style="width: 40%;" /&gt;
+&lt;p class="caption"&gt;&lt;a class="reference external" href="https://neuroml.org"&gt;NeuroML&lt;/a&gt; is a standard and software ecosystem for biophysically detailed neuronal modelling.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="google-summer-of-code"&gt;
+&lt;h3&gt;Google Summer of Code&lt;/h3&gt;
+&lt;p&gt;Google Summer of Code finished recently.
+Both &lt;a class="reference external" href="https://github.com/lej0hn/GSOC_2024"&gt;Ioannis&lt;/a&gt; and &lt;a class="reference external" href="https://github.com/AdityaBITMESRA/GSOC2024_INCF"&gt;Aditya&lt;/a&gt; passed their final evaluations, of course.
+They both did great work and we were very lucky to have them.&lt;/p&gt;
+&lt;p&gt;Aditya completed implementing the SWC to NeuroML converter.
+I reviewed his &lt;a class="reference external" href="https://github.com/NeuroML/pyNeuroML/pull/421"&gt;PR and made some tweaks&lt;/a&gt; before merging it in.
+The new converter is now part of the recent &lt;a class="reference external" href="https://pypi.org/project/pyNeuroML/1.3.9/"&gt;PyNeuroML 1.3.9&lt;/a&gt; release.
+One can convert morphologies, for example from &lt;a class="reference external" href="https://neuromorpho.org"&gt;https://neuromorpho.org&lt;/a&gt;, using either the API or the command line tool:&lt;/p&gt;
+&lt;pre class="code console literal-block"&gt;
+&lt;span class="go"&gt;pynml-swc2nml &amp;lt;swc file&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;
+&lt;p&gt;It runs a number of tests when loading the SWC file, and then validates the NeuroML once generated.&lt;/p&gt;
+&lt;p&gt;Now that we can export SWC files to NeuroML, we also can visualise them.
+We first convert them to NeuroML and use our NeuroML visualisation tools.
+This means that one can now do:&lt;/p&gt;
+&lt;pre class="code console literal-block"&gt;
+&lt;span class="go"&gt;pynml-plotmorph -i &amp;lt;swc file&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;
+&lt;p&gt;One limitation to keep in mind with our handling of SWC is that each SWC file must only hold one neuron (cell), since this is what the standard that NeuroMorpho.org follows specifies.&lt;/p&gt;
+&lt;p&gt;Ioannis completed a number of tasks related to the Vispy viewer.
+Initially, our code was using a small number of meshes with many &lt;a class="reference external" href="https://vispy.org/api/vispy.scene.visuals.html#vispy.scene.visuals.InstancedMesh"&gt;InstancedMesh&lt;/a&gt; objects because my understanding was that this was the most efficient way of going about it.
+Later though, we realised that instead, we could just use one &lt;a class="reference external" href="https://vispy.org/api/vispy.scene.visuals.html#vispy.scene.visuals.Mesh"&gt;Mesh&lt;/a&gt; that included all our individual shapes (spheres and cylinders) and that would be much more performant.
+So, I refactored our &lt;a class="reference external" href="https://github.com/NeuroML/pyNeuroML/blob/development/pyneuroml/plot/PlotMorphologyVispy.py"&gt;visualization code&lt;/a&gt; to use a single mesh.
+This really simplified a number of things, including lighting and &amp;quot;picking&amp;quot;.
+We can also store the single mesh to a file so that it can be loaded in other analysis tools and visualisers like Paraview.
+It opens up a bunch of possibilities of what we can do with the morphology visualisation.&lt;/p&gt;
+&lt;video controls width="40%" preload="auto" poster="https://ankursinha.in/images/neuroml-logo.png" type="video/mp4"&gt;
+    &lt;source src="https://ankursinha.in/images/20240906-hl23.mp4" type="video/mp4"&gt;
+    Your browser does not support the video tag. Download it from `here &lt;{static}/images/20240906-hl23.mp4&gt;`__
+&lt;/video&gt;&lt;p&gt;Our viewer can also be used in Jupyter notebooks now, although there's a &lt;a class="reference external" href="https://github.com/vispy/jupyter_rfb/issues/99"&gt;bug when trying to use multiple visualisations in the same notebook&lt;/a&gt; that upstream is looking into.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="paper-review-responses"&gt;
+&lt;h3&gt;Paper review responses&lt;/h3&gt;
+&lt;p&gt;A lot of our time went in responding to reviews for our &lt;a class="reference external" href="https://elifesciences.org/reviewed-preprints/95135"&gt;submission to E-Life&lt;/a&gt;.
+As part of the improvements suggested by the reviewers, one was to allow neuronal morphologies to be stored in separate files that could be &amp;quot;included&amp;quot; in other files.
+We added this &lt;a class="reference external" href="https://docs.neuroml.org/Userdocs/ImportingMorphologyFiles.html#morphologies-can-be-stored-in-external-files"&gt;functionality&lt;/a&gt; too.
+It had been a long open issue anyway, and this gave us the opportunity to finally implement it.
+It did require quite a few changes in our Java and Python stacks, but it's all complete now, and our modified paper has been re-submitted for review.
+The &lt;a class="reference external" href="https://www.biorxiv.org/content/10.1101/2023.12.07.570537v2"&gt;pre-print&lt;/a&gt; has also been updated to the latest version.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="open-source-brain-related"&gt;
+&lt;h2&gt;Open Source Brain related&lt;/h2&gt;
+&lt;p&gt;The platform is ticking along well.&lt;/p&gt;
+&lt;div class="section" id="end-of-grant-report"&gt;
+&lt;h3&gt;End of grant report&lt;/h3&gt;
+&lt;p&gt;We had the end of grant report to write for our Wellcome grant that finished recently.
+It was due the day after CNS, so we ended up working on it on the plane home.&lt;/p&gt;
+&lt;p&gt;We're now working on the next steps and future plans for the project.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="incf-ocns-software-working-group"&gt;
+&lt;h2&gt;INCF/OCNS Software Working Group&lt;/h2&gt;
+&lt;p&gt;The working group is ticking along.
+We hosted another session where Adam Tyson spoke to us about the &lt;a class="reference external" href="https://ocns.github.io/SoftwareWG/2024/06/26/wg-meeting-9-july-2024-software-tools-for-systems-neuroscience-adam-tyson-.html"&gt;software tools their group develops&lt;/a&gt;.&lt;/p&gt;
+&lt;div class="figure align-center"&gt;
+&lt;img alt="The Neuroinformatics Unit at the Sainsbury Wellcome Centre develops software tools for systems neuroscience." class="text-center img-responsive pagination-centered" src="https://ankursinha.in/images/20240626-neuroinformatics-dev.png" style="width: 40%;" /&gt;
+&lt;p class="caption"&gt;The &lt;a class="reference external" href="https://neuroinformatics.dev"&gt;Neuroinformatics Unit&lt;/a&gt; at the Sainsbury Wellcome Centre develops software tools for systems neuroscience.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;We'll organise more sessions now that the summer holidays are over.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="fedora-related"&gt;
+&lt;h2&gt;Fedora related&lt;/h2&gt;
+&lt;p&gt;Lots of package updates and fixes continue both in &lt;a class="reference external" href="https://neuro.fedoraproject.org"&gt;NeuroFedora&lt;/a&gt; and outside it.
+I'm making progress on the &lt;a class="reference external" href="https://fedoraproject.org/wiki/Changes/Taskwarrior3"&gt;Taskwarrior v3 self-contained change&lt;/a&gt; too.
+A bunch of rust dependencies are required for it, so I'm going through them one by one.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="gp"&gt;$ &lt;/span&gt;http&lt;span class="w"&gt; &lt;/span&gt;get&lt;span class="w"&gt; &lt;/span&gt;https://apps.fedoraproject.org/datagrepper/v2/search&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;end&lt;/span&gt;&lt;span class="o"&gt;==&lt;/span&gt;&lt;span class="m"&gt;2024&lt;/span&gt;-09-09T00:00:00+00:00&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;start&lt;/span&gt;&lt;span class="o"&gt;==&lt;/span&gt;&lt;span class="m"&gt;2024&lt;/span&gt;-06-30T00:00:00+00:00&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;user&lt;/span&gt;&lt;span class="o"&gt;==&lt;/span&gt;ankursinha
+&lt;span class="go"&gt;...&lt;/span&gt;
+&lt;span class="go"&gt;&amp;quot;total&amp;quot;: 4453,&lt;/span&gt;
+&lt;span class="go"&gt;...&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="some-time-off-and-other-things"&gt;
+&lt;h2&gt;Some time off and other things&lt;/h2&gt;
+&lt;p&gt;I took a few days off here and there to relax too; it wasn't all work.
+Since I'd already been away for the conference, I didn't have another holiday planned this summer, though.
+A few of our friends got married over the summer and we were lucky enough to be there to share their special day with them.
+We were also lucky enough to see Shania Twain and Stevie Nicks perform in London at the British Summertime Festival at Hyde Park.
+Obviously very moving, and great fun.&lt;/p&gt;
+&lt;p&gt;So, it's been a good couple of months.&lt;/p&gt;
+&lt;/div&gt;
+</content><category term="Life"/><category term="NeuroML"/><category term="Computational Neuroscience"/><category term="Fedora"/></entry><entry><title>Week 26 update</title><link href="https://ankursinha.in/2024/07/01/week-26-update.html" rel="alternate"/><published>2024-07-01T17:13:10+01:00</published><updated>2024-07-01T17:13:10+01:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2024-07-01:/2024/07/01/week-26-update.html</id><summary type="html">&lt;p class="first last"&gt;Weekly update to week #26&lt;/p&gt;
+</summary><content type="html">&lt;div class="section" id="neuroml-related"&gt;
+&lt;h2&gt;NeuroML related&lt;/h2&gt;
+&lt;div class="figure align-center"&gt;
+&lt;img alt="NeuroML is a standard and software ecosystem for biophysically detailed neuronal modelling." class="text-center img-responsive pagination-centered" src="https://ankursinha.in/images/neuroml-logo.png" style="width: 40%;" /&gt;
+&lt;p class="caption"&gt;&lt;a class="reference external" href="https://neuroml.org"&gt;NeuroML&lt;/a&gt; is a standard and software ecosystem for biophysically detailed neuronal modelling.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="windows-issues"&gt;
+&lt;h3&gt;Windows issues&lt;/h3&gt;
+&lt;p&gt;We have a few interns working on &lt;a class="reference external" href="https://neuroml.org"&gt;NeuroML&lt;/a&gt; projects and a few of them that use Windows as their primary operating system have reported issues on installing/using various bits of the &lt;a class="reference external" href="https://neuroml.org"&gt;NeuroML&lt;/a&gt; stack.
+Unfortunately, none of us on the &lt;a class="reference external" href="https://neuroml.org"&gt;NeuroML&lt;/a&gt; developer team use Windows, so we haven't run into these issues and they're harder for us to fix.&lt;/p&gt;
+&lt;p&gt;Generally, installing the basic bits of the &lt;a class="reference external" href="https://neuroml.org"&gt;NeuroML&lt;/a&gt; stack on Windows is not too hard.
+One needs to have a functioning Java Runtime Environment (JRE) along with a Python installation.
+Both of these aren't very hard to install, since installers for Windows are readily available.&lt;/p&gt;
+&lt;p&gt;From then on, one only needs to set up a virtual environment and install &lt;a class="reference external" href="https://github.com/NeuroML/pyNeuroML"&gt;pyNeuroML&lt;/a&gt; using pip.
+This pulls in all the Python dependencies, and we also bundle the necessary Java bits with it.&lt;/p&gt;
+&lt;p&gt;Other optional dependencies, though, can be tricky.
+For example, one can install &lt;a class="reference external" href="https://www.neuron.yale.edu/neuron/"&gt;NEURON&lt;/a&gt; on Windows using the &lt;a class="reference external" href="https://nrn.readthedocs.io/en/latest/install/install_instructions.html#windows"&gt;installer they provide&lt;/a&gt;, however, one also needs to have a compiler tool chain to use &lt;a class="reference external" href="https://www.neuron.yale.edu/neuron/"&gt;NEURON&lt;/a&gt;, and that isn't necessarily straightforward.
+I still don't know how this is to be set up correctly.&lt;/p&gt;
+&lt;p&gt;Next, a few folks have reported issues getting our &lt;a class="reference external" href="https://vispy.org"&gt;Vispy&lt;/a&gt; based visualization code to run on Windows.
+&lt;a class="reference external" href="https://vispy.org"&gt;Vispy&lt;/a&gt; requires a &lt;a class="reference external" href="https://vispy.org/installation.html"&gt;backend&lt;/a&gt; to run, like Qt5 or Qt6, so one has to make sure these work on their Windows installs to use &lt;a class="reference external" href="https://vispy.org"&gt;Vispy&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The &lt;a class="reference external" href="https://learn.microsoft.com/en-us/windows/wsl/"&gt;Windows Subsystem for Linux&lt;/a&gt; is something lots of Windows users now use.
+It's great for development, but GUI elements don't seem to work on it out of the box (from what I hear).&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="using-swc-morphology-files"&gt;
+&lt;h3&gt;Using SWC morphology files&lt;/h3&gt;
+&lt;div class="figure align-center"&gt;
+&lt;img alt="Screenshot of NeuroMorpho.org" class="text-center img-responsive pagination-centered" src="https://ankursinha.in/images/20240701-neuromorpho.png" style="width: 40%;" /&gt;
+&lt;p class="caption"&gt;Screenshot of NeuroMorpho.org&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;a class="reference external" href="https://swc-specification.readthedocs.io/en/latest/"&gt;SWC&lt;/a&gt; is a specification/format used to store reconstructions of biological entities, like neurons.
+It's commonly used in various places like on &lt;a class="reference external" href="https://neuromorpho.org"&gt;https://neuromorpho.org&lt;/a&gt;, a database of neuronal reconstructions.&lt;/p&gt;
+&lt;p&gt;A use-case that &lt;a class="reference external" href="https://neuroml.org"&gt;NeuroML&lt;/a&gt; needs to support is the use of these reconstructions in models.
+Of course, these reconstructions are not always made for use in models, so they can have various issues that need to first be corrected.
+We have &lt;a class="reference external" href="https://docs.neuroml.org/Userdocs/ImportingMorphologyFiles.html"&gt;a page on these in the docs&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;A few tools do allow the semi-automated conversion of SWC morphologies to NeuroML.
+&lt;a class="reference external" href="https://github.com/NeuroML/Cvapp-NeuroMorpho.org"&gt;CVApp&lt;/a&gt; is one such tool.
+We made some updates/fixes to it this week to ensure it works correctly, and also updated the documentation to add a page dedicated to the &lt;a class="reference external" href="https://docs.neuroml.org/Userdocs/Software/Tools/SWC.html"&gt;conversion of SWC to NeuroML&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;We also support storing these &lt;a class="reference external" href="https://neuroml.org"&gt;NeuroML&lt;/a&gt; morphologies in separate files now, and I &lt;a class="reference external" href="https://github.com/NeuroML/pyNeuroML/pull/398"&gt;updated pyNeuroML to also visualise these using our Vispy viewer&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="google-summer-of-code"&gt;
+&lt;h3&gt;Google Summer of Code&lt;/h3&gt;
+&lt;p&gt;I merged Ioannis's &lt;a class="reference external" href="https://github.com/NeuroML/pyNeuroML/pull/379"&gt;PR&lt;/a&gt; that included tweaks to our 3D visualiser to make cells look &amp;quot;upright&amp;quot;.
+I also made some other tweaks to it to show the X, Y, Z, axes with the plots and improve the camera view.
+Ioannis is now looking into &lt;a class="reference external" href="https://github.com/NeuroML/pyNeuroML/issues/359"&gt;making our visualisations work in Jupyter notebooks&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;I reviewed Aditya's &lt;a class="reference external" href="https://github.com/NeuroML/pyNeuroML/pull/384"&gt;PR&lt;/a&gt; and gave some feedback.
+He's made his changes now, and I've got to do another review, hopefully tomorrow.
+In the meantime, Aditya is playing with CVApp and other tools to gain a better understanding of the SWC to NeuroML conversion process.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="paper-review-responses"&gt;
+&lt;h3&gt;Paper review responses&lt;/h3&gt;
+&lt;p&gt;We worked on replying to the reviewers' responses on our &lt;a class="reference external" href="https://elifesciences.org/reviewed-preprints/95135"&gt;submission to E-Life&lt;/a&gt;.
+We hope to send the updated version back in this week.
+This took quite a while.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="incf-ocns-software-working-group"&gt;
+&lt;h2&gt;INCF/OCNS Software Working Group&lt;/h2&gt;
+&lt;p&gt;I met Adam Tyson of the Sainsbury Wellcome Centre at the &lt;a class="reference external" href="https://www.ucl.ac.uk/research/domains/neuroscience/events/neuroscience-symposia"&gt;Neuroscience Symposium&lt;/a&gt; at UCL the other week.
+I'd asked them if they'd do a talk for our &lt;a class="reference external" href="https://ocns.github.io/SoftwareWG/2024/06/26/wg-meeting-9-july-2024-software-tools-for-systems-neuroscience-adam-tyson-.html"&gt;Software Working Group on the software tools their group develops&lt;/a&gt;.
+They were happy to do one, so I set it up last week.&lt;/p&gt;
+&lt;div class="figure align-center"&gt;
+&lt;img alt="The Neuroinformatics Unit at the Sainsbury Wellcome Centre develops software tools for systems neuroscience." class="text-center img-responsive pagination-centered" src="https://ankursinha.in/images/20240626-neuroinformatics-dev.png" style="width: 40%;" /&gt;
+&lt;p class="caption"&gt;The &lt;a class="reference external" href="https://neuroinformatics.dev"&gt;Neuroinformatics Unit&lt;/a&gt; at the Sainsbury Wellcome Centre develops software tools for systems neuroscience.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="fedora-related"&gt;
+&lt;h2&gt;Fedora related&lt;/h2&gt;
+&lt;p&gt;I merged a few packaging PRs and built packages for the various releases.
+I also made a quick PR to the docs to include information about using &lt;cite&gt;fkinit&lt;/cite&gt; when using 2FA---which is much easier than just using &lt;cite&gt;kinit&lt;/cite&gt;.&lt;/p&gt;
+&lt;/div&gt;
+</content><category term="Life"/><category term="NeuroML"/><category term="Computational Neuroscience"/><category term="Fedora"/></entry><entry><title>Week 25 update</title><link href="https://ankursinha.in/2024/06/21/week-25-update.html" rel="alternate"/><published>2024-06-21T13:16:43+01:00</published><updated>2024-06-21T13:16:43+01:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2024-06-21:/2024/06/21/week-25-update.html</id><summary type="html">&lt;p class="first last"&gt;Weekly update to week #25&lt;/p&gt;
+</summary><content type="html">&lt;div class="section" id="neuroml-related"&gt;
+&lt;h2&gt;NeuroML related&lt;/h2&gt;
+&lt;div class="figure align-center"&gt;
+&lt;img alt="NeuroML is a standard and software ecosystem for biophysically detailed neuronal modelling." class="text-center img-responsive pagination-centered" src="https://ankursinha.in/images/neuroml-logo.png" style="width: 40%;" /&gt;
+&lt;p class="caption"&gt;&lt;a class="reference external" href="https://neuroml.org"&gt;NeuroML&lt;/a&gt; is a standard and software ecosystem for biophysically detailed neuronal modelling.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;We made new releases of &lt;a class="reference external" href="https://github.com/NeuroML/jNeuroML"&gt;jNeuroML&lt;/a&gt; and &lt;a class="reference external" href="https://github.com/NeuroML/pyNeuroML"&gt;pyNeuroML&lt;/a&gt;.
+The new releases allow users to keep their &lt;a class="reference external" href="https://docs.neuroml.org/Userdocs/Schemas/Cells.html#morphology"&gt;morphology&lt;/a&gt; in separate files and &amp;quot;include&amp;quot; these in cell files.
+The use case here is that when investigating neuronal biophysics, it would be useful to not have to repeat the morphology each time the cell is used.&lt;/p&gt;
+&lt;p&gt;We also updated our &lt;a class="reference external" href="https://docs.neuroml.org/Userdocs/ImportingMorphologyFiles.html#neuroml2"&gt;documentation&lt;/a&gt; to note this new feature.&lt;/p&gt;
+&lt;div class="section" id="google-summer-of-code"&gt;
+&lt;h3&gt;Google Summer of Code&lt;/h3&gt;
+&lt;p&gt;Aditya and Ioannis have both completed their first tasks and their pull requests are ready for review.
+I'll try and review them next week.
+In the meantime, they've got new tasks for next week.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="model-conversion"&gt;
+&lt;h3&gt;Model conversion&lt;/h3&gt;
+&lt;p&gt;I'm still working on the converting the two remaining Calcium channels in &lt;a class="reference external" href="https://www.cell.com/cell-reports/fulltext/S2211-1247(18)31088-X"&gt;Zang et al&lt;/a&gt;.
+They're slightly trickier to convert because of the formalism they follow, but I should get there with another few days of work.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="ucl"&gt;
+&lt;h2&gt;UCL&lt;/h2&gt;
+&lt;p&gt;The &lt;a class="reference external" href="https://www.ucl.ac.uk/research/domains/neuroscience/events/neuroscience-symposia"&gt;UCL Neuroscience symposium&lt;/a&gt; was on Thursday.
+The talks and posters were great and very informative, e.g.:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;on visual processing (using &lt;a class="reference external" href="https://www.nature.com/articles/d41586-019-00791-w"&gt;really cool virtual reality experiments&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;on the role of sleep on synapses numbers&lt;/li&gt;
+&lt;li&gt;Dementia with particular focus on Alzheimer's disease and the role of the &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Tau_protein"&gt;tau protein&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;We'd also had a really interesting talk on the &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Glucagon-like_peptide-1"&gt;GLP-1 receptor&lt;/a&gt;, which is involved in the secretion of insulin for maintenance of blood sugar levels, at our &lt;a class="reference external" href="https://www.ucl.ac.uk/biosciences/neuroscience-physiology-and-pharmacology"&gt;Neuroscience, Pharmacology, and Physiology (NPP)&lt;/a&gt; departmental seminar.&lt;/p&gt;
+&lt;p&gt;I'm also involved with the mentoring programme that the &lt;a class="reference external" href="https://www.ucl.ac.uk/biosciences/"&gt;Division of Biosciences&lt;/a&gt; runs for PhD students.
+We had discussed this at the divisional meeting last week, and now we have a few tasks to carry out to improve the programme's reach to more students.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="ocns"&gt;
+&lt;h2&gt;OCNS&lt;/h2&gt;
+&lt;div class="figure align-center"&gt;
+&lt;img alt="The annual conference of the Organization for Computational Neurosciences will happen in July in Natal, Brazil, this year." class="text-center img-responsive pagination-centered" src="https://ankursinha.in/images/2024-cns-2024-banner.png" style="width: 60%;" /&gt;
+&lt;p class="caption"&gt;The annual conference of the Organization for Computational Neurosciences will happen in July in Natal, Brazil, this year.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;I'm organising the career development workshop at the &lt;a class="reference external" href="https://www.cnsorg.org/cns-2024-quick"&gt;annual conference&lt;/a&gt; of the Organization for Computational Neuroscience as part of my Board member responsibilities.
+This year, we're hosting a &amp;quot;beyond academia&amp;quot; session where we'll have folks who have worked or are currently working in industry after their doctorates and initial academic positions will speak about their experiences.
+The goal is to discuss careers that academics can take up outside of the traditional academic research domain.
+With help from a number of Board members and others at the lab at UCL, I had a list of people to reach out to.
+We now have a panel of four, so we're on track.&lt;/p&gt;
+&lt;p&gt;The programme for the conference is also now online on &lt;a class="reference external" href="https://cns2024.sched.com/"&gt;Sched&lt;/a&gt;, and registration is still open.&lt;/p&gt;
+&lt;p&gt;I also had a quick meeting with the &lt;a class="reference external" href="https://www.cnsorg.org/board-of-directors"&gt;OCNS EDI chair&lt;/a&gt;, Eirini Mavristaki, about the mentoring programme that the OCNS is trying to set up for its members.
+Eirini has already got most of it ready, and I'll help with the remaining bits to try and launch it at the conference or soon after.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="fedora-related"&gt;
+&lt;h2&gt;Fedora related&lt;/h2&gt;
+&lt;p&gt;A few of us contributors met for a catch up last evening.
+We met in Soho, had a few drinks and then had a great meal in Chinatown.
+We organise these on the &lt;a class="reference external" href="https://matrix.to/#/#region-uk:fedoraproject.org"&gt;Fedora UK matrix channel&lt;/a&gt;, so if you're interested in joining us for the next meetup, please drop in there and let us know.&lt;/p&gt;
+&lt;p&gt;We had the &lt;a class="reference external" href="https://neuro.fedoraproject.org"&gt;NeuroSIG&lt;/a&gt; meeting on Monday.
+We went through our packages and so on.
+They look fine.
+A few are broken after the Python 3.13 mass re-build but as more and more packages are fixed, a lot of our packages should also start to build.&lt;/p&gt;
+&lt;/div&gt;
+</content><category term="Life"/><category term="NeuroML"/><category term="Computational Neuroscience"/><category term="Fedora"/><category term="GSoC"/><category term="UCL"/><category term="NPP"/><category term="Biosciences"/></entry><entry><title>Week 24 update</title><link href="https://ankursinha.in/2024/06/17/week-24-update.html" rel="alternate"/><published>2024-06-17T12:37:22+01:00</published><updated>2024-06-17T12:37:22+01:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2024-06-17:/2024/06/17/week-24-update.html</id><summary type="html">&lt;p class="first last"&gt;Weekly update to week #24&lt;/p&gt;
+</summary><content type="html">&lt;div class="section" id="neuroml-related"&gt;
+&lt;h2&gt;NeuroML related&lt;/h2&gt;
+&lt;div class="figure align-center"&gt;
+&lt;img alt="NeuroML is a standard and software ecosystem for biophysically detailed neuronal modelling." class="text-center img-responsive pagination-centered" src="https://ankursinha.in/images/neuroml-logo.png" style="width: 40%;" /&gt;
+&lt;p class="caption"&gt;&lt;a class="reference external" href="https://neuroml.org"&gt;NeuroML&lt;/a&gt; is a standard and software ecosystem for biophysically detailed neuronal modelling.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;We made a few bug fixes to &lt;a class="reference external" href="https://github.com/LEMS/jLEMS"&gt;jLEMS&lt;/a&gt; to ensure that errors relating to dimensions and units do propagate all the way to the top level code and cause the model execution to stop.
+The exceptions were being thrown correctly but they were being printed out to the user as warnings and not being allowed to propagate further.&lt;/p&gt;
+&lt;p&gt;While tinkering with this, I also found a minor bug in our SBML to LEMS conversion code.
+One of the time constants in the generated LEMS code wasn't given the right dimensions.
+It was a &lt;a class="reference external" href="https://github.com/NeuroML/org.neuroml.import/pull/24"&gt;simple enough fix&lt;/a&gt;.&lt;/p&gt;
+&lt;div class="section" id="gsoc"&gt;
+&lt;h3&gt;GSoC&lt;/h3&gt;
+&lt;p&gt;This is ticking along.
+Aditya and Ioannis are still working on their tasks and pushing to their draft pull requests.
+They should be ready to review next week.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="model-conversion"&gt;
+&lt;h3&gt;Model conversion&lt;/h3&gt;
+&lt;p&gt;I'm still working on the converting the two remaining Calcium channels in &lt;a class="reference external" href="https://www.cell.com/cell-reports/fulltext/S2211-1247(18)31088-X"&gt;Zang et al&lt;/a&gt;.
+They're slightly trickier to convert because of the formalism they follow, but I should get there with another few days of work.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="setting-up-vim-for-multi-repo-java-projects"&gt;
+&lt;h2&gt;Setting up Vim for multi-repo Java projects&lt;/h2&gt;
+&lt;p&gt;Because the NeuroML Java code is broken down into a number of different Java packages (&lt;a class="reference external" href="https://github.com/NeuroML/org.neuroml.import"&gt;org.neuroml.import&lt;/a&gt;, &lt;a class="reference external" href="https://github.com/NeuroML/org.neuroml.export"&gt;org.neuroml.export&lt;/a&gt; and so on), while working on &lt;a class="reference external" href="https://github.com/LEMS/jLEMS"&gt;jLEMS&lt;/a&gt;, I had to remind myself how to work on multi-repository/multi-project Java projects in &lt;a class="reference external" href="https://vim.org"&gt;Vim&lt;/a&gt;.
+I use &lt;a class="reference external" href="https://github.com/ycm-core/YouCompleteMe"&gt;YouCompleteMe (YCM)&lt;/a&gt; which is quite excellent for completion and code navigation.
+I had to figure out how to configure it to allow me to jump from one Java project to another (like one would do in an Eclipse workspace).&lt;/p&gt;
+&lt;p&gt;The &lt;a class="reference external" href="https://github.com/ycm-core/YouCompleteMe?tab=readme-ov-file#java-semantic-completion"&gt;documentation&lt;/a&gt; didn't really help me, unfortunately.
+It says to use &lt;a class="reference external" href="https://eclipseide.org/"&gt;Eclipse&lt;/a&gt;/&lt;a class="reference external" href="https://maven.apache.org/"&gt;Maven&lt;/a&gt;/&lt;a class="reference external" href="https://gradle.org/"&gt;Gradle&lt;/a&gt; configuration files that &lt;a class="reference external" href="https://github.com/eclipse/eclipse.jdt.ls"&gt;JDT&lt;/a&gt; (the engine YCM uses for Java) understands, but doesn't really say much about how to configure these.
+So, were the &lt;code&gt;pom.xml&lt;/code&gt; files that our projects had enough?
+Didn't look like it---they do have dependency information, but only as packages, not as related source directories.
+So, I wasn't sure how to go about it.
+I tried to copy all my Java repositories into a &amp;quot;top level&amp;quot; (workspace style) folder and configure that as a &amp;quot;multi-project&amp;quot; Java maven package.
+I don't think that quite worked, or perhaps I didn't know how to quite set it up.
+I didn't want to have to create a new project either.&lt;/p&gt;
+&lt;p&gt;Eventually, I tried an Eclipse &lt;code&gt;.project&lt;/code&gt; file to the top level directory which tells JDT what project/repository folders are related to each other.
+Again, I wasn't sure how to write this by hand, but turns out a minimal one is quite sufficient.&lt;/p&gt;
+&lt;p&gt;So, for example, my &lt;cite&gt;NeuroML/software&lt;/cite&gt; folder looks like this:&lt;/p&gt;
+&lt;pre class="code console literal-block"&gt;
+&lt;span class="go"&gt;AllenInstituteNeuroML/    inspyred/  libNeuroML/          netpyne/         NeuroMLCAP/             OpenCortex/          org.neuroml.model/                  pylems/
+biosimulations-runutils/  jLEMS/     MDF/                 neuroConstruct/  NeuroMLlite/            org.neuroml1.model/  org.neuroml.model.injectingplugin/  pyNeuroML/
+eden/                     jNeuroML/  modelspec/           NeuroML2/        neuroml-template-repo/  org.neuroml.export/  osb-model-validation/               pynsgr/
+generateds-code/          LEMS/      morphology_include/  NeuroML_API/     neurotune/              org.neuroml.import/  pyelectro/&lt;/span&gt;
+&lt;/pre&gt;
+&lt;p&gt;The main exporter code is in &lt;code&gt;org.neuroml.export&lt;/code&gt;, but it references code in &lt;code&gt;jLEMS&lt;/code&gt; and &lt;code&gt;org.neuroml.import&lt;/code&gt; and so on.
+Adding a minimal &lt;code&gt;.project&lt;/code&gt; file to this top level directory was enough:&lt;/p&gt;
+&lt;pre class="code xml literal-block"&gt;
+&lt;span class="cp"&gt;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot;?&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;projectDescription&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+        &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;name&amp;gt;&lt;/span&gt;parent-project&lt;span class="nt"&gt;&amp;lt;/name&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+        &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;comment&amp;gt;&amp;lt;/comment&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+        &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;projects&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+        &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;/projects&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+        &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;buildSpec&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+                &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;buildCommand&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+                        &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;name&amp;gt;&lt;/span&gt;org.eclipse.m2e.core.maven2Builder&lt;span class="nt"&gt;&amp;lt;/name&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+                        &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;arguments&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+                        &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;/arguments&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+                &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;/buildCommand&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+        &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;/buildSpec&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+        &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;natures&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+                &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;nature&amp;gt;&lt;/span&gt;org.eclipse.m2e.core.maven2Nature&lt;span class="nt"&gt;&amp;lt;/nature&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+        &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;/natures&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+        &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;filteredResources&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+                &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;filter&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+                        &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;id&amp;gt;&lt;/span&gt;1718191734481&lt;span class="nt"&gt;&amp;lt;/id&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+                        &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;name&amp;gt;&amp;lt;/name&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+                        &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;type&amp;gt;&lt;/span&gt;30&lt;span class="nt"&gt;&amp;lt;/type&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+                        &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;matcher&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+                                &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;id&amp;gt;&lt;/span&gt;org.eclipse.core.resources.regexFilterMatcher&lt;span class="nt"&gt;&amp;lt;/id&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+                                &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;arguments&amp;gt;&lt;/span&gt;node_modules|\.git|__CREATED_BY_JAVA_LANGUAGE_SERVER__&lt;span class="nt"&gt;&amp;lt;/arguments&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+                        &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;/matcher&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+                &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;/filter&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+        &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;/filteredResources&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;/projectDescription&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;
+&lt;/div&gt;
+</content><category term="Life"/><category term="NeuroML"/><category term="Computational Neuroscience"/><category term="Fedora"/><category term="GSoC"/><category term="GitHub"/><category term="Vim"/><category term="Java"/></entry></feed>

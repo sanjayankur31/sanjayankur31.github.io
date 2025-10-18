@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="Ankur Sinha" />
+    <meta name="generator" content="Pelican (VoidyBootstrap theme)" />
+    <meta name="twitter:card" content="summary"> 
+    <meta name="twitter:title" content="Bringing together Gitter, IRC, and Slack channels in one place on Riot">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:site" content="@sanjay_ankur">
+    <meta name="twitter:creator" content="@sanjay_ankur">
+    <meta name="twitter:domain" content="https://ankursinha.in">
+
+    <title>Bringing together Gitter, IRC, and Slack channels in one place on Riot - ankursinha.in/blog</title>
+
+   
+        <link rel="stylesheet"
+              href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+              integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+              crossorigin="anonymous" />
+
+
+
+
+
+      <link rel="stylesheet" href="https://ankursinha.in/theme/css/use-opensans.css" />
+      <link rel="stylesheet" href="https://ankursinha.in/theme/css/voidybootstrap.css" />
+      <link rel="stylesheet" href="https://ankursinha.in/theme/css/pygment.css" />
+
+    <link rel="shortcut icon" href="https://ankursinha.in/favicon.ico" />
+        <link href="https://ankursinha.in/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="ankursinha.in/blog Atom Feed" />
+        <link href="https://ankursinha.in/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="ankursinha.in/blog RSS Feed" />
+  
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MCTH8VNYDK"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-MCTH8VNYDK');
+    </script>
+
+  </head>
+
+  <body>
+   
+    <nav class="navbar navbar-default">
+      <div class="container">
+	   <div class="navbar-header">
+		<button type="button" class="navbar-toggle" 
+				data-toggle="collapse" data-target="#main-navbar-collapse">
+		  <span class="sr-only">Toggle navigation</span>
+		  <span class="icon-bar"></span>
+		  <span class="icon-bar"></span>
+		  <span class="icon-bar"></span>
+		</button>
+		<a class="navbar-brand" href="https://ankursinha.in/" rel="home">
+          <i class="fas fa-home fa-fw fa-lg"> </i> </a>
+       </div>
+
+      <div class="collapse navbar-collapse" id="main-navbar-collapse">
+        <ul class="nav navbar-nav">
+              <li>
+                <a href="https://ankursinha.in/pages/01-about.html">About Me</a>
+              </li>
+              <li>
+                <a href="https://ankursinha.in/pages/04-current-work.html">Current Projects</a>
+              </li>
+            <li class="divider"></li>
+            <li class="">
+              <a href="https://ankursinha.in/pages/03-publications.html">Publications</a>
+            </li>
+            <li class="">
+              <a href="https://ankursinha.in/pages/archives.html">Archives</a>
+            </li>
+          <li class="divider"></li>
+            <li><a href="https://ankursinha.in/feeds/all.atom.xml" 
+                   type="application/atom+xml" rel="alternate">
+                <i class="fas fa-rss fa-fw fa-lg"></i> </a></li>
+        </ul> <!-- /nav -->
+      </div> <!-- /navbar-collapse -->
+	  </div> <!-- /container -->
+    </nav> <!-- /navbar -->
+
+	<div class="jumbotron" id="overview">
+	  <div class="container">
+		<h1><a href="https://ankursinha.in/">ankursinha.in/blog</a></h1>
+		<p class="lead">neuroscience/fedora/musings</p>
+	  </div>
+	</div>
+
+    <div class="container" id="main-container">
+      <div class="row">
+        <div class="col-md-9" id="content">
+<article itemscope="itemscope" itemtype="http://schema.org/BlogPosting">
+  <header class="article-header">
+<abbr class="article-header-date">
+  Wed 12 July 2017
+</abbr> <h1>
+  <a href="https://ankursinha.in/2017/07/12/bringing-together-gitter-irc-and-slack-channels-in-one-place-on-riot.html" rel="bookmark"
+     title="Permalink to Bringing together Gitter, IRC, and Slack channels in one place on Riot">
+    Bringing together Gitter, IRC, and Slack channels in one place on Riot
+  </a>
+</h1><div class="article-header-info">
+  <p>
+      Posted by <a href="https://ankursinha.in/author/ankur.html">ankur</a>
+    in 
+    <a href="https://ankursinha.in/category/tech/">
+      Tech</a>
+(454 words, approximately a 2 minute read)
+  </p>
+</div> <!-- /.article-header-info -->  </header>
+  <div class="content-body" itemprop="text articleBody">
+
+<p>
+    <ul class="list-inline">
+      <li class="list-inline-item">
+        <i class="fas fa-tags"></i>
+          <a href="https://ankursinha.in/tag/community/">#Community</a>,           <a href="https://ankursinha.in/tag/computational-neuroscience/">#Computational neuroscience</a>,           <a href="https://ankursinha.in/tag/fedora/">#Fedora</a>,           <a href="https://ankursinha.in/tag/flatpak/">#FlatPak</a>,           <a href="https://ankursinha.in/tag/free-software/">#Free software</a>,           <a href="https://ankursinha.in/tag/gitter/">#Gitter</a>,           <a href="https://ankursinha.in/tag/linux/">#Linux</a>,           <a href="https://ankursinha.in/tag/planet/">#Planet</a>      </li>
+    </ul>
+</p>
+
+
+  <div>  <!-- Social media sharing buttons -->
+  <hr />
+    <ul class="list-inline">
+      <li class="list-inline-item text-muted" title="Share"><i class="fas fa-share-alt" title="Share this post"></i> Share this post:</li>
+      <li class="list-inline-item"><a class="fab fa-mastodon" href="https://toot.kytta.dev/?text=Bringing%20together%20Gitter%2C%20IRC%2C%20and%20Slack%20channels%20in%20one%20place%20on%20Riot%0D%0Ahttps%3A//ankursinha.in/2017/07/12/bringing-together-gitter-irc-and-slack-channels-in-one-place-on-riot.html%0D%0A%23Community %23Computationalneuroscience %23Fedora %23FlatPak %23Freesoftware %23Gitter %23Linux %23Planet" target="_blank" title="Share on mastodon"></a></li>
+      <li class="list-inline-item"><a class="fab fa-twitter" href="https://twitter.com/intent/tweet?text=Bringing%20together%20Gitter%2C%20IRC%2C%20and%20Slack%20channels%20in%20one%20place%20on%20Riot&url=https%3A//ankursinha.in/2017/07/12/bringing-together-gitter-irc-and-slack-channels-in-one-place-on-riot.html&via=sanjay_ankur&hashtags=community,computational-neuroscience,fedora,flatpak,free-software,gitter,linux,planet" target="_blank" title="Share on Twitter"></a></li>
+      <li class="list-inline-item"><a class="fab fa-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3A//ankursinha.in/2017/07/12/bringing-together-gitter-irc-and-slack-channels-in-one-place-on-riot.html" target="_blank" title="Share on Facebook"></a></li>
+      <li class="list-inline-item"><a class="fab fa-reddit" href="https://www.reddit.com/submit?url=https%3A//ankursinha.in/2017/07/12/bringing-together-gitter-irc-and-slack-channels-in-one-place-on-riot.html&title=Bringing%20together%20Gitter%2C%20IRC%2C%20and%20Slack%20channels%20in%20one%20place%20on%20Riot" target="_blank" title="Share on Reddit"></a></li>
+      <li class="list-inline-item"><a class="fab fa-linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A//ankursinha.in/2017/07/12/bringing-together-gitter-irc-and-slack-channels-in-one-place-on-riot.html&title=Bringing%20together%20Gitter%2C%20IRC%2C%20and%20Slack%20channels%20in%20one%20place%20on%20Riot&summary=Different%20teams%20use%20different%20platforms%20to%20communicate%20within%20themselves.%20When%20teams%20on%20different%20communication%20platforms%20want%20to%20collaborate%2C%20though%20-%20there%27s%20a%20bit%20of%20an%20issue.%20In%20this%20post%2C%20I%20document%20how%20one%20can%20setup%20channels%20on%20various%20platforms%20%28Slack%2C%20IRC%2C%20Gitter%29%20and%20bring%20them%20all%20together%20on%20Riot.&source=https%3A//ankursinha.in/2017/07/12/bringing-together-gitter-irc-and-slack-channels-in-one-place-on-riot.html" target="_blank" title="Share via LinkedIn<"></a></li>
+      <li class="list-inline-item"><a class="fas fa-mail-bulk" href="mailto:?subject=Bringing%20together%20Gitter%2C%20IRC%2C%20and%20Slack%20channels%20in%20one%20place%20on%20Riot&amp;body=https%3A//ankursinha.in/2017/07/12/bringing-together-gitter-irc-and-slack-channels-in-one-place-on-riot.html" target="_blank" title="Share via E-mail"></a></li>
+    </ul>
+  <hr />
+  </div> <!-- /Social media sharing buttons -->	<div class="section" id="let-s-not-let-our-choice-of-platform-limit-us">
+<h2>Let's not let our choice of platform limit us</h2>
+<p>There are usually multiple platforms that provide similar functions. For instance, one can pick between <a class="reference external" href="https://github.com">Github</a>, <a class="reference external" href="https://gitlab.com">GitLab</a>, and <a class="reference external" href="https://bitbucket.com">BitBucket</a> for collaborative development interfaces, and one certainly should have the freedom to do so. Similarly, one can use different operating systems, web browsers, phones, etc etc etc. But, one must remember is that for a lot of us, these are simply means to an end - not the end themselves. They are tools that facilitate the completion of our goals. Different individuals or teams preferring different platforms should not hamper collaboration under any circumstances.</p>
+<p>When it comes to communcation, different teams use different platforms. Some prefer e-mails - either private or using a mailing list. E-mails work well, but they're often overkill for simpler tasks. They're also not the best mode for quick collaborative development. This is where real-time chat comes in. Most open source communities maintain both mailing lists and chat infrastructure.</p>
+<p>When it comes to chat platforms too, there are multiple options. <a class="reference external" href="https://en.wikipedia.org/wiki/Internet_Relay_Chat">IRC</a>, <a class="reference external" href="https://gitter.im">Gitter</a>, and <a class="reference external" href="https://riot.im">Riot</a> are designed to handle large communities and are therefore, usually preferred by open source communities. <a class="reference external" href="https://slack.com">Slack</a> seems to be preferred by smaller teams. There are others - <a class="reference external" href="https://mattermost.com">Mattermost</a>, for example, but I haven't much experience with them.</p>
+<p>Often, I've found people wary of hopping on to a different platform simply because it's too much work to set up yet another client that one must then also monitor. While this is understandable, it then has what I consider quite a major downside - limited communication amongst groups that are on different platforms. Fortunately, most platforms support bridges which lets the user connect them with other platforms.</p>
+</div>
+<div class="section" id="riot-bringing-it-all-together-in-once-place">
+<h2>Riot - bringing it all together in once place</h2>
+<center><a class="reference external image-reference" href="https://ankursinha.in/images/20170628-riot.png">
+<img alt="Using riot to access IRC, Slack, and Gitter" class="text-center img-responsive pagination-centered" src="https://ankursinha.in/images/20170628-riot.png" style="width: 70%;" />
+</a>
+</center><p><a class="reference external" href="https://riot.im">Riot</a> is an Open source platform that uses the <a class="reference external" href="https://matrix.org/">Matrix</a> protocol. It's similar to <a class="reference external" href="https://en.wikipedia.org/wiki/Internet_Relay_Chat">IRC</a>, but it's a lot more usable. and what is better, one can integrate <a class="reference external" href="https://en.wikipedia.org/wiki/Internet_Relay_Chat">IRC</a>, <a class="reference external" href="https://slack.com">Slack</a>, and <a class="reference external" href="https://gitter.im">Gitter</a> into <a class="reference external" href="https://riot.im">Riot</a> - so one can interact with users over all these platforms in one place. For example, the image below shows <a class="reference external" href="https://riot.im/app/#/room/%23neuroscience-central-lobby:matrix.org">Neuroscience-central/Lobby</a> room  that I've set up on <a class="reference external" href="https://riot.im">Riot</a>. But, I've also gone ahead and connected this room to the <a class="reference external" href="https://gitter.im/neuroscience-central/Lobby">Neuroscience-central/Lobby room on Gitter</a>, and to the <a class="reference external" href="https://webchat.freenode.net/?channels=#neuroscience-central-lobby">#neuroscience-central-lobby channel on IRC</a>. So, everyone on any of these platforms can communicate with each other.</p>
+<center><a class="reference external image-reference" href="https://ankursinha.in/images/20170628-riot-gitter.png">
+<img alt="Neuroscience-Central/Lobby on Riot integrated with the same room on Gitter." class="text-center img-responsive pagination-centered" src="https://ankursinha.in/images/20170628-riot-gitter.png" style="width: 70%;" />
+</a>
+</center><p>Setting up the integrations is rather easy too. One needs to go to the integrations tab and set them up.</p>
+<center><a class="reference external image-reference" href="https://ankursinha.in/images/20170628-riot-integrations.png">
+<img alt="Integrations on Riot" class="text-center img-responsive pagination-centered" src="https://ankursinha.in/images/20170628-riot-integrations.png" style="width: 70%;" />
+</a>
+</center><p>There are <a class="reference external" href="https://riot.im/desktop.html">desktop clients</a> available for <a class="reference external" href="https://riot.im">Riot</a> too. (<a class="reference external" href="https://copr.fedorainfracloud.org/coprs/taw/Riot/">Here's a COPR for Fedora</a>). <a class="reference external" href="https://opensource.com/article/17/5/introducing-riot-IRC">Here's a great post on opensource.com</a> discussing <a class="reference external" href="https://riot.im">Riot</a>.</p>
+<p>So, if you're an admin looking to set up a new chat channel - consider setting up on different platforms and integrating them with <a class="reference external" href="https://riot.im">Riot</a> - it'll make things a lot easier for your users.</p>
+</div>
+
+  </div>
+  
+  <div>  <!-- Social media sharing buttons -->
+  <hr />
+    <ul class="list-inline">
+      <li class="list-inline-item text-muted" title="Share"><i class="fas fa-share-alt" title="Share this post"></i> Share this post:</li>
+      <li class="list-inline-item"><a class="fab fa-mastodon" href="https://toot.kytta.dev/?text=Bringing%20together%20Gitter%2C%20IRC%2C%20and%20Slack%20channels%20in%20one%20place%20on%20Riot%0D%0Ahttps%3A//ankursinha.in/2017/07/12/bringing-together-gitter-irc-and-slack-channels-in-one-place-on-riot.html%0D%0A%23Community %23Computationalneuroscience %23Fedora %23FlatPak %23Freesoftware %23Gitter %23Linux %23Planet" target="_blank" title="Share on mastodon"></a></li>
+      <li class="list-inline-item"><a class="fab fa-twitter" href="https://twitter.com/intent/tweet?text=Bringing%20together%20Gitter%2C%20IRC%2C%20and%20Slack%20channels%20in%20one%20place%20on%20Riot&url=https%3A//ankursinha.in/2017/07/12/bringing-together-gitter-irc-and-slack-channels-in-one-place-on-riot.html&via=sanjay_ankur&hashtags=community,computational-neuroscience,fedora,flatpak,free-software,gitter,linux,planet" target="_blank" title="Share on Twitter"></a></li>
+      <li class="list-inline-item"><a class="fab fa-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3A//ankursinha.in/2017/07/12/bringing-together-gitter-irc-and-slack-channels-in-one-place-on-riot.html" target="_blank" title="Share on Facebook"></a></li>
+      <li class="list-inline-item"><a class="fab fa-reddit" href="https://www.reddit.com/submit?url=https%3A//ankursinha.in/2017/07/12/bringing-together-gitter-irc-and-slack-channels-in-one-place-on-riot.html&title=Bringing%20together%20Gitter%2C%20IRC%2C%20and%20Slack%20channels%20in%20one%20place%20on%20Riot" target="_blank" title="Share on Reddit"></a></li>
+      <li class="list-inline-item"><a class="fab fa-linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A//ankursinha.in/2017/07/12/bringing-together-gitter-irc-and-slack-channels-in-one-place-on-riot.html&title=Bringing%20together%20Gitter%2C%20IRC%2C%20and%20Slack%20channels%20in%20one%20place%20on%20Riot&summary=Different%20teams%20use%20different%20platforms%20to%20communicate%20within%20themselves.%20When%20teams%20on%20different%20communication%20platforms%20want%20to%20collaborate%2C%20though%20-%20there%27s%20a%20bit%20of%20an%20issue.%20In%20this%20post%2C%20I%20document%20how%20one%20can%20setup%20channels%20on%20various%20platforms%20%28Slack%2C%20IRC%2C%20Gitter%29%20and%20bring%20them%20all%20together%20on%20Riot.&source=https%3A//ankursinha.in/2017/07/12/bringing-together-gitter-irc-and-slack-channels-in-one-place-on-riot.html" target="_blank" title="Share via LinkedIn<"></a></li>
+      <li class="list-inline-item"><a class="fas fa-mail-bulk" href="mailto:?subject=Bringing%20together%20Gitter%2C%20IRC%2C%20and%20Slack%20channels%20in%20one%20place%20on%20Riot&amp;body=https%3A//ankursinha.in/2017/07/12/bringing-together-gitter-irc-and-slack-channels-in-one-place-on-riot.html" target="_blank" title="Share via E-mail"></a></li>
+    </ul>
+  <hr />
+  </div> <!-- /Social media sharing buttons -->
+  <div class="comments">
+	<h2>Comments</h2>
+	<div id="disqus_thread"></div>
+	<script type="text/javascript">
+				   (function() {
+						var dsq = document.createElement('script');
+						dsq.type = 'text/javascript'; dsq.async = true;
+						dsq.src = '//ankursinha.disqus.com/embed.js';
+						(document.getElementsByTagName('head')[0] ||
+						 document.getElementsByTagName('body')[0]).appendChild(dsq);
+				  })();
+	</script>
+  </div>
+</article>
+        </div><!-- /content -->
+
+        <div class="col-md-3 sidebar-nav" id="sidebar">
+
+<div class="row">
+
+<div class="col-xs-6 col-md-12">
+<h4><i class="fas fa-comment fa-fw fa-lg"></i> Social</h4>
+<ul class="list-unstyled social-links">
+    <li><a rel="me" href="https://duckduckgo.com/?q=site%3Aankursinha.in&ia=web" target="_blank">
+	  <i class="fas fa-search fa-fw fa-lg" title="Search (DuckDuckGo)"></i>
+		Search (DuckDuckGo)
+	</a></li>
+    <li><a rel="me" href="www.linkedin.com/in/ankur-sinha-phd" target="_blank">
+	  <i class="fa fa-linkedin-square fa-fw fa-lg" title="LinkedIn"></i>
+		LinkedIn
+	</a></li>
+    <li><a rel="me" href="http://github.com/sanjayankur31" target="_blank">
+	  <i class="fab fa-github fa-fw fa-lg" title="GitHub"></i>
+		GitHub
+	</a></li>
+    <li><a rel="me" href=" https://orcid.org/0000-0001-7568-7167" target="_blank">
+	  <i class="fas fa-flask fa-fw fa-lg" title="Orcid"></i>
+		Orcid
+	</a></li>
+    <li><a rel="me" href="http://scholar.google.co.in/citations?user=919ScZEAAAAJ&hl=en" target="_blank">
+	  <i class="fas fa-graduation-cap fa-fw fa-lg" title="Scholar"></i>
+		Scholar
+	</a></li>
+    <li><a rel="me" href="https://fedoraproject.org/wiki/User:Ankursinha" target="_blank">
+	  <i class="fab fa-fedora fa-fw fa-lg" title="Fedora"></i>
+		Fedora
+	</a></li>
+    <li><a rel="me" href="https://ramblingreaders.org/user/sanjay_ankur" target="_blank">
+	  <i class="fas fa-book-reader fa-fw fa-lg" title="BookWyrm"></i>
+		BookWyrm
+	</a></li>
+    <li><a rel="me" href="https://fosstodon.org/@sanjay_ankur" target="_blank">
+	  <i class="fab fa-mastodon fa-fw fa-lg" title="Mastodon"></i>
+		Mastodon
+	</a></li>
+    <li><a rel="me" href="https://bsky.app/profile/sanjay-ankur.bsky.social" target="_blank">
+	  <i class="fas fa-people-arrows fa-fw fa-lg" title="BlueSky"></i>
+		BlueSky
+	</a></li>
+    <li><a rel="me" href="https://www.goodreads.com/user/show/32360473-ankur" target="_blank">
+	  <i class="fab fa-goodreads-g fa-fw fa-lg" title="Goodreads"></i>
+		Goodreads
+	</a></li>
+    <li><a rel="me" href="https://twitter.com/sanjay_ankur" target="_blank">
+	  <i class="fab fa-twitter fa-fw fa-lg" title="X"></i>
+		X
+	</a></li>
+    <li><a rel="me" href="https://coff.ee/sanjayankuu" target="_blank">
+	  <i class="fas fa-mug-hot fa-fw fa-lg" title="Buy me a coffee!"></i>
+		Buy me a coffee!
+	</a></li>
+</ul>
+</div>
+
+<div class="col-xs-6 col-md-12">
+<h4><i class="fas fa-folder fa-fw fa-lg"></i> Categories</h4>
+<ul class="list-unstyled category-links">
+  <li><a href="https://ankursinha.in/category/life/" >
+    <i class="fas fa-folder-open fa-fw fa-lg"></i> Life</a></li>
+  <li><a href="https://ankursinha.in/category/other/" >
+    <i class="fas fa-folder-open fa-fw fa-lg"></i> Other</a></li>
+  <li><a href="https://ankursinha.in/category/research/" >
+    <i class="fas fa-folder-open fa-fw fa-lg"></i> Research</a></li>
+  <li><a href="https://ankursinha.in/category/tech/" >
+    <i class="fas fa-folder-open fa-fw fa-lg"></i> Tech</a></li>
+</ul>
+</div>
+
+</div> <!-- /row -->
+
+  <h4><i class="fas fa-link fa-fw fa-lg"></i> Links</h4>
+  <ul class="list-unstyled category-links">
+    <li><a href="https://neuro.fedoraproject.org" >
+      <i class="fas fa-external-link-square-alt fa-fw fa-lg"></i> NeuroFedora</a></li>
+    <li><a href="http://fedoraproject.org" >
+      <i class="fas fa-external-link-square-alt fa-fw fa-lg"></i> Fedora Linux</a></li>
+    <li><a href="https://ocns.github.io/SoftwareWG/" >
+      <i class="fas fa-external-link-square-alt fa-fw fa-lg"></i> INCF/OCNS Software WG</a></li>
+    <li><a href="https://neuroblog.fedoraproject.org/planet-neuroscience/" >
+      <i class="fas fa-external-link-square-alt fa-fw fa-lg"></i> Neuroscience feeds</a></li>
+    <li><a href="https://neuroblog.fedoraproject.org/planet-neuroscientists/" >
+      <i class="fas fa-external-link-square-alt fa-fw fa-lg"></i> Neuroscientists feeds</a></li>
+  </ul>
+<h4><i class="fas fa-tags fa-fw fa-lg"></i> Tags</h4>
+<p class="tag-cloud">
+    <span class="tag-2">
+      <a href="https://ankursinha.in/tag/neurofedora/">
+          <i class="fas fa-tag"></i>
+        NeuroFedora
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="https://ankursinha.in/tag/vim/">
+          <i class="fas fa-tag"></i>
+        Vim
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="https://ankursinha.in/tag/open-source-brain/">
+          <i class="fas fa-tag"></i>
+        Open Source Brain
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="https://ankursinha.in/tag/zaphod/">
+          <i class="fas fa-tag"></i>
+        Zaphod
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="https://ankursinha.in/tag/social/">
+          <i class="fas fa-tag"></i>
+        Social
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="https://ankursinha.in/tag/pelican/">
+          <i class="fas fa-tag"></i>
+        Pelican
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="https://ankursinha.in/tag/neuroml/">
+          <i class="fas fa-tag"></i>
+        NeuroML
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="https://ankursinha.in/tag/flatpak/">
+          <i class="fas fa-tag"></i>
+        FlatPak
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="https://ankursinha.in/tag/irc/">
+          <i class="fas fa-tag"></i>
+        IRC
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="https://ankursinha.in/tag/neuron/">
+          <i class="fas fa-tag"></i>
+        Neuron
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="https://ankursinha.in/tag/community/">
+          <i class="fas fa-tag"></i>
+        Community
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="https://ankursinha.in/tag/computational-neuroscience/">
+          <i class="fas fa-tag"></i>
+        Computational Neuroscience
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="https://ankursinha.in/tag/python/">
+          <i class="fas fa-tag"></i>
+        Python
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="https://ankursinha.in/tag/gnome/">
+          <i class="fas fa-tag"></i>
+        GNOME
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="https://ankursinha.in/tag/git/">
+          <i class="fas fa-tag"></i>
+        Git
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="https://ankursinha.in/tag/github/">
+          <i class="fas fa-tag"></i>
+        GitHub
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="https://ankursinha.in/tag/ucl/">
+          <i class="fas fa-tag"></i>
+        UCL
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="https://ankursinha.in/tag/bash/">
+          <i class="fas fa-tag"></i>
+        Bash
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="https://ankursinha.in/tag/fedora/">
+          <i class="fas fa-tag"></i>
+        Fedora
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="https://ankursinha.in/tag/latex/">
+          <i class="fas fa-tag"></i>
+        LaTeX
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="https://ankursinha.in/tag/matlab/">
+          <i class="fas fa-tag"></i>
+        Matlab
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="https://ankursinha.in/tag/nest/">
+          <i class="fas fa-tag"></i>
+        NEST
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="https://ankursinha.in/tag/linux/">
+          <i class="fas fa-tag"></i>
+        Linux
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="https://ankursinha.in/tag/taskwarrior/">
+          <i class="fas fa-tag"></i>
+        Taskwarrior
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="https://ankursinha.in/tag/free-software/">
+          <i class="fas fa-tag"></i>
+        Free software
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="https://ankursinha.in/tag/gsoc/">
+          <i class="fas fa-tag"></i>
+        GSoC
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="https://ankursinha.in/tag/planet/">
+          <i class="fas fa-tag"></i>
+        Planet
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="https://ankursinha.in/tag/robotics/">
+          <i class="fas fa-tag"></i>
+        Robotics
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="https://ankursinha.in/tag/programming/">
+          <i class="fas fa-tag"></i>
+        Programming
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="https://ankursinha.in/tag/events/">
+          <i class="fas fa-tag"></i>
+        Events
+      </a>
+    </span>
+</p>
+<h4><i class="fas fa-rss fa-fw fa-lg"></i> Feeds</h4>
+<ul class="list-unstyled">
+    <li><a href="https://ankursinha.in/feeds/all.atom.xml" 
+		   type="application/atom+xml" rel="alternate">
+		<i class="fas fa-rss-square fa-fw fa-lg"></i> Atom Feed</a></li>
+    <li><a href="https://ankursinha.in/feeds/all.rss.xml" 
+		   type="application/rss+xml" rel="alternate">
+		<i class="fas fa-rss-square fa-fw fa-lg"></i> RSS feed</a></li>
+</ul>
+
+<hr />
+
+        </div><!--/sidebar -->
+      </div><!--/row-->
+    </div><!--/.container /#main-container -->
+
+    <footer id="site-footer">
+ 
+      <address id="site-colophon">
+        <p class="text-center text-muted">
+        <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br /><a href="http://ankursinha.in/" target="_blank" xmlns:dct="http://purl.org/dc/terms/" property="dct:title">ankursinha.in</a> by <a xmlns:cc="http://creativecommons.org/ns#" href="https://ankursinha.in/pages/01-about.html" property="cc:attributionName" rel="cc:attributionURL" target="_blank">Ankur Sinha</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Attribution 4.0 International License</a>.<br />
+        Site built using <a href="http://getpelican.com/" target="_blank">Pelican</a>
+        &nbsp;&bull;&nbsp; Theme based on
+        <a href="http://www.voidynullness.net/page/voidy-bootstrap-pelican-theme/"
+           target="_blank">VoidyBootstrap</a> by 
+        <a href="http://voidynullness.net"
+           target="_blank">RKI</a>  
+        </p>
+      </address><!-- /colophon  -->
+    </footer>
+
+<!-- DISQUS script for displaying comment count -->
+<script type="text/javascript">
+    var disqus_shortname = 'ankursinha';
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+
+    <!-- javascript -->
+   
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+    <script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+
+	<script src="https://kit.fontawesome.com/9f8622f8d1.js"></script>
+
+<!-- Facebook -->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+</script>
+
+<!-- Twitter -->
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+<!-- Google+ -->
+<!-- Synchronous 
+<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+-->
+<!-- Asynchronous -->
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/platform.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>  </body>
+</html>

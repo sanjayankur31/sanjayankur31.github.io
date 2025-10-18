@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>ankursinha.in/blog - Systemd</title><link href="https://ankursinha.in/" rel="alternate"/><link href="https://ankursinha.in/feeds/tags/systemd.atom.xml" rel="self"/><id>https://ankursinha.in/</id><updated>2022-10-31T17:22:54+00:00</updated><subtitle>neuroscience/fedora/musings</subtitle><entry><title>Isolating Tmux windows to prevent systemd-oomd from killing the server</title><link href="https://ankursinha.in/2022/10/29/isolating-tmux-windows-to-prevent-systemd-oomd-from-killing-the-server.html" rel="alternate"/><published>2022-10-29T13:30:32+01:00</published><updated>2022-10-31T17:22:54+00:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2022-10-29:/2022/10/29/isolating-tmux-windows-to-prevent-systemd-oomd-from-killing-the-server.html</id><summary type="html">&lt;p class="first last"&gt;This post documents how one can isolate different &lt;a class="reference external" href="https://github.com/tmux/tmux/wiki"&gt;Tmux&lt;/a&gt; windows to prevent one of them getting killed by &lt;a class="reference external" href="https://www.freedesktop.org/software/systemd/man/systemd-oomd.html"&gt;systemd-oomd&lt;/a&gt; from causing the whole Tmux server (and all sessions!) to also be killed.&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;I run a number of &lt;a class="reference external" href="https://github.com/tmux/tmux/wiki"&gt;Tmux&lt;/a&gt; sessions, one for each project or context, (via &lt;a class="reference external" href="https://www.byobu.org/"&gt;Byobu&lt;/a&gt;) to do my work on a daily basis.
+&lt;a class="reference external" href="https://github.com/tmux/tmux/wiki"&gt;Tmux&lt;/a&gt; uses a client-server architecture, so there's a &lt;a class="reference external" href="https://github.com/tmux/tmux/wiki"&gt;Tmux&lt;/a&gt; server running that all of these sessions connect to.
+Some time ago, I began noticing that all my &lt;a class="reference external" href="https://github.com/tmux/tmux/wiki"&gt;Tmux&lt;/a&gt; sessions were being killed while I worked.
+I knew this wasn't a random occurrence.
+A look at the logs told me that &lt;a class="reference external" href="https://www.freedesktop.org/software/systemd/man/systemd-oomd.html"&gt;systemd-oomd&lt;/a&gt; was killing my &lt;a class="reference external" href="https://github.com/tmux/tmux/wiki"&gt;Tmux&lt;/a&gt; server, and all my sessions and their windows with it---all my vim sessions, all of it.&lt;/p&gt;
+&lt;p&gt;This, of course, is far from ideal.
+What's happening here is that one of the processes occupying a &lt;a class="reference external" href="https://github.com/tmux/tmux/wiki"&gt;Tmux&lt;/a&gt; window consumes lots of CPU/memory and &lt;a class="reference external" href="https://www.freedesktop.org/software/systemd/man/systemd-oomd.html"&gt;systemd-oomd&lt;/a&gt; needs to kill it.
+However, &lt;a class="reference external" href="https://www.freedesktop.org/software/systemd/man/systemd-oomd.html"&gt;systemd-oomd&lt;/a&gt; does not work on a per-process level.
+It works on a cgroup level.
+So, it kills the whole cgroup, taking the &lt;a class="reference external" href="https://github.com/tmux/tmux/wiki"&gt;Tmux&lt;/a&gt; server down.&lt;/p&gt;
+&lt;p&gt;I've been looking at ways of preventing this from happening.
+One option is to &lt;a class="reference external" href="https://fedoraproject.org/wiki/User:Tuju/Disable_systemd-oomd"&gt;disable systemd-oomd&lt;/a&gt; completely.
+I think I've been fine before these OOM tools came along, but I do see the advantages of having them.
+So I'd rather keep them around and configure them if possible.&lt;/p&gt;
+&lt;p&gt;The other, perhaps simpler, option is to somehow isolate each of my &lt;a class="reference external" href="https://github.com/tmux/tmux/wiki"&gt;Tmux&lt;/a&gt; windows so that they're all killed independently without affecting each other.
+I looked into this latter option first.
+After some &lt;a class="reference external" href="https://ask.fedoraproject.org/t/how-would-one-create-new-tmux-servers-each-isolated-in-a-separate-slice-so-that-if-systemd-oomd-kills-one-the-other-tmux-servers-keep-living/27891/2"&gt;discussion on Ask Fedora&lt;/a&gt;, I came up with a solution: run every &lt;a class="reference external" href="https://github.com/tmux/tmux/wiki"&gt;Tmux&lt;/a&gt; window in isolation using &lt;cite&gt;systemd-run&lt;/cite&gt;.&lt;/p&gt;
+&lt;p&gt;So, when we start a new &lt;a class="reference external" href="https://github.com/tmux/tmux/wiki"&gt;Tmux&lt;/a&gt; session, we want to start our first window using &lt;cite&gt;systemd-run&lt;/cite&gt;.
+Easiest to do this using a bash function that one can put in their &lt;cite&gt;~/.bashrc&lt;/cite&gt; file:&lt;/p&gt;
+&lt;pre class="code bash literal-block"&gt;
+&lt;span class="c1"&gt;# create new session, and ensure first window runs in a separate systemd
+# scope
+&lt;/span&gt;byobu-new-session&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="o"&gt;{&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;byobu&lt;span class="w"&gt; &lt;/span&gt;new&lt;span class="w"&gt; &lt;/span&gt;-s&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;$1&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;systemd-run&lt;span class="w"&gt; &lt;/span&gt;--user&lt;span class="w"&gt; &lt;/span&gt;--scope&lt;span class="w"&gt; &lt;/span&gt;bash&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="o"&gt;}&lt;/span&gt;
+&lt;/pre&gt;
+&lt;p&gt;Next, to open a new window in an existing session using &lt;cite&gt;systemd-run&lt;/cite&gt;, we can use the &lt;cite&gt;new window&lt;/cite&gt; &lt;a class="reference external" href="https://github.com/tmux/tmux/wiki"&gt;Tmux&lt;/a&gt; command:&lt;/p&gt;
+&lt;pre class="code bash literal-block"&gt;
+new-window&lt;span class="w"&gt; &lt;/span&gt;systemd-run&lt;span class="w"&gt; &lt;/span&gt;--user&lt;span class="w"&gt; &lt;/span&gt;--scope&lt;span class="w"&gt; &lt;/span&gt;bash
+&lt;/pre&gt;
+&lt;p&gt;This can be bound to a keyboard shortcut:&lt;/p&gt;
+&lt;pre class="code bash literal-block"&gt;
+bind-key&lt;span class="w"&gt; &lt;/span&gt;c&lt;span class="w"&gt; &lt;/span&gt;new-window&lt;span class="w"&gt; &lt;/span&gt;systemd-run&lt;span class="w"&gt; &lt;/span&gt;--user&lt;span class="w"&gt; &lt;/span&gt;--scope&lt;span class="w"&gt; &lt;/span&gt;bash
+&lt;/pre&gt;
+&lt;p&gt;That's it.
+Using &lt;cite&gt;systemd-cgls&lt;/cite&gt; one can see that each new &lt;a class="reference external" href="https://github.com/tmux/tmux/wiki"&gt;Tmux&lt;/a&gt; window starts in a new systemd scope.
+To test that this now isolates each window, one can run something like &lt;cite&gt;tail /dev/zero&lt;/cite&gt; to cause it to get killed by &lt;a class="reference external" href="https://www.freedesktop.org/software/systemd/man/systemd-oomd.html"&gt;systemd-oomd&lt;/a&gt; while leaving other windows, sessions, and the server untouched.&lt;/p&gt;
+&lt;p&gt;This seems to be working very well for me.
+If you have a better solution, do let me know, though.&lt;/p&gt;
+&lt;div class="section" id="edit-a-simpler-way"&gt;
+&lt;h2&gt;Edit: a simpler way&lt;/h2&gt;
+&lt;p&gt;As it happens, there's a much easier way to do this.
+Instead of modifying &lt;cite&gt;~/.bashrc&lt;/cite&gt; and then re-binding the &lt;cite&gt;new-window&lt;/cite&gt; key, all one needs to do is redefine the &lt;cite&gt;default-command&lt;/cite&gt; parameter that &lt;a class="reference external" href="https://github.com/tmux/tmux/wiki"&gt;Tmux&lt;/a&gt; uses so that it runs the &lt;cite&gt;systemd-run&lt;/cite&gt; command:&lt;/p&gt;
+&lt;pre class="code bash literal-block"&gt;
+&lt;span class="c1"&gt;# in tmux.conf
+&lt;/span&gt;set-option&lt;span class="w"&gt; &lt;/span&gt;-g&lt;span class="w"&gt; &lt;/span&gt;default-command&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;'systemd-run --user --scope bash'&lt;/span&gt;
+&lt;/pre&gt;
+&lt;/div&gt;
+</content><category term="Tech"/><category term="Linux"/><category term="Tmux"/><category term="Byobu"/><category term="Systemd"/><category term="Fedora"/></entry></feed>

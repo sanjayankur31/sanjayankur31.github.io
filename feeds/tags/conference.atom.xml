@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>ankursinha.in/blog - Conference</title><link href="https://ankursinha.in/" rel="alternate"/><link href="https://ankursinha.in/feeds/tags/conference.atom.xml" rel="self"/><id>https://ankursinha.in/</id><updated>2018-06-22T23:36:23+01:00</updated><subtitle>neuroscience/fedora/musings</subtitle><entry><title>Using the Connfa open source conference management software set: the CMS</title><link href="https://ankursinha.in/2018/06/22/using-the-connfa-open-source-conference-management-software-set-the-cms.html" rel="alternate"/><published>2018-06-22T23:36:23+01:00</published><updated>2018-06-22T23:36:23+01:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2018-06-22:/2018/06/22/using-the-connfa-open-source-conference-management-software-set-the-cms.html</id><summary type="html">&lt;p class="first last"&gt;The &lt;a class="reference external" href="http://connfa.com/"&gt;Connfa&lt;/a&gt; open source suite looks like a great set of tools
+for conference management. It consists of a web application, a
+central CMS integration server, and mobile applications for both
+Android and iOS. I was looking at how one could use the mobile
+applications. The mobile applications get their data from the
+integration server, which provides an API. So, I looked at how to set
+it up and document my findings in this post.&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;The &lt;a class="reference external" href="http://connfa.com/"&gt;Connfa&lt;/a&gt; open source suite looks like a great set of tools for conference
+management. It consists of a web application, a central CMS integration server,
+and mobile applications for both Android and iOS. I was looking at how one
+could use the mobile applications. The mobile applications get their data from
+the integration server, which provides an API. So, I looked at how to set it up
+and document my findings in this post.&lt;/p&gt;
+&lt;p&gt;The &lt;a class="reference external" href="http://connfa.com/"&gt;Connfa&lt;/a&gt; CMS server is a php application that uses a MySQL database.  To
+begin with, the documentation here is quite good:
+&lt;a class="reference external" href="http://connfa.com/documentation/"&gt;http://connfa.com/documentation/&lt;/a&gt;.  However, as is usually seen, it takes a
+few tweaks to deploy it.  These steps are therefore, Fedora 28 specific.&lt;/p&gt;
+&lt;p&gt;On Fedora, one needs to use php71 from remi's repository:
+&lt;a class="reference external" href="https://blog.remirepo.net/pages/Config-en"&gt;https://blog.remirepo.net/pages/Config-en&lt;/a&gt;&lt;/p&gt;
+&lt;pre class="code bash literal-block"&gt;
+sudo&lt;span class="w"&gt; &lt;/span&gt;dnf&lt;span class="w"&gt; &lt;/span&gt;install&lt;span class="w"&gt; &lt;/span&gt;php71&lt;span class="w"&gt; &lt;/span&gt;composer&lt;span class="w"&gt; &lt;/span&gt;php71-php-mysqlnd&lt;span class="w"&gt; &lt;/span&gt;mariadb&lt;span class="w"&gt; &lt;/span&gt;httpd&lt;span class="w"&gt; &lt;/span&gt;mariadb-server&lt;span class="w"&gt; &lt;/span&gt;php71-php-xml&lt;span class="w"&gt;
+&lt;/span&gt;sudo&lt;span class="w"&gt; &lt;/span&gt;systemctl&lt;span class="w"&gt; &lt;/span&gt;start&lt;span class="w"&gt; &lt;/span&gt;php71-php-fpm&lt;span class="w"&gt;
+&lt;/span&gt;sudo&lt;span class="w"&gt; &lt;/span&gt;systemctl&lt;span class="w"&gt; &lt;/span&gt;start&lt;span class="w"&gt; &lt;/span&gt;httpd&lt;span class="w"&gt;
+&lt;/span&gt;sudo&lt;span class="w"&gt; &lt;/span&gt;systemctl&lt;span class="w"&gt; &lt;/span&gt;start&lt;span class="w"&gt; &lt;/span&gt;mysqld&lt;span class="w"&gt;
+&lt;/span&gt;module&lt;span class="w"&gt; &lt;/span&gt;load&lt;span class="w"&gt; &lt;/span&gt;php71&lt;span class="w"&gt;
+&lt;/span&gt;php&lt;span class="w"&gt; &lt;/span&gt;--version
+&lt;/pre&gt;
+&lt;p&gt;This is because the tool doesn't work with the latest version of php that's in
+Fedora 28. The tool also has a bug or two, so I used this fork that appears to
+have a bugfix:&lt;/p&gt;
+&lt;p&gt;&lt;a class="reference external" href="https://github.com/d-i-t-a/connfa-integration-server/tree/develop"&gt;https://github.com/d-i-t-a/connfa-integration-server/tree/develop&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Then, one must set up &lt;a class="reference external" href="https://mariadb.org/"&gt;Mariadb&lt;/a&gt; as explained here:
+&lt;a class="reference external" href="https://fedoraproject.org/wiki/MariaDB"&gt;https://fedoraproject.org/wiki/MariaDB&lt;/a&gt;. Note that &lt;a class="reference external" href="https://mariadb.org/"&gt;Mariadb&lt;/a&gt; is an Open source
+MySQL implementation.&lt;/p&gt;
+&lt;p&gt;One must also create a database as explained in the wiki page, and a user that
+connfa can use, which must match the values in the &lt;code&gt;env&lt;/code&gt; file.&lt;/p&gt;
+&lt;p&gt;On Fedora, I enabled the &lt;code&gt;UserDir&lt;/code&gt; httpd extension, and placed the
+connfa-integration-server in &lt;code&gt;~/public_html/&lt;/code&gt;, since I didn't want to
+work as root in &lt;code&gt;/var/www/html&lt;/code&gt; all the time. &lt;code&gt;httpd&lt;/code&gt; will needs to
+be started and enabled:&lt;/p&gt;
+&lt;pre class="code bash literal-block"&gt;
+sudo&lt;span class="w"&gt; &lt;/span&gt;systemctl&lt;span class="w"&gt; &lt;/span&gt;start&lt;span class="w"&gt; &lt;/span&gt;httpd&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;sudo&lt;span class="w"&gt; &lt;/span&gt;systemctl&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nb"&gt;enable&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;httpd
+&lt;/pre&gt;
+&lt;p&gt;On Fedora, Selinux must be asked to allow access to UserDirs:&lt;/p&gt;
+&lt;pre class="code bash literal-block"&gt;
+sudo&lt;span class="w"&gt; &lt;/span&gt;setsebool&lt;span class="w"&gt; &lt;/span&gt;-P&lt;span class="w"&gt; &lt;/span&gt;httpd_read_user_content&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;sudo&lt;span class="w"&gt; &lt;/span&gt;setsebool&lt;span class="w"&gt; &lt;/span&gt;-P&lt;span class="w"&gt; &lt;/span&gt;httpd_unified&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;sudo&lt;span class="w"&gt; &lt;/span&gt;setsebool&lt;span class="w"&gt; &lt;/span&gt;-P&lt;span class="w"&gt; &lt;/span&gt;httpd_can_network_connect_db&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;sudo&lt;span class="w"&gt; &lt;/span&gt;setsebool&lt;span class="w"&gt; &lt;/span&gt;-P&lt;span class="w"&gt; &lt;/span&gt;httpd_can_network_connect&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;
+&lt;/pre&gt;
+&lt;p&gt;One can follow the steps from here next:
+&lt;a class="reference external" href="http://connfa.com/integration-server/server-requirements"&gt;http://connfa.com/integration-server/server-requirements&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;I also run &lt;code&gt;composer update&lt;/code&gt; to update the php bits.&lt;/p&gt;
+&lt;p&gt;Then, update the env file and so on as explained here:
+&lt;a class="reference external" href="http://connfa.com/integration-server/install/"&gt;http://connfa.com/integration-server/install/&lt;/a&gt;&lt;/p&gt;
+&lt;pre class="code bash literal-block"&gt;
+php&lt;span class="w"&gt; &lt;/span&gt;artisan&lt;span class="w"&gt; &lt;/span&gt;key:generate&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c1"&gt;#sets the keys in the env file
+&lt;/span&gt;php&lt;span class="w"&gt; &lt;/span&gt;artisan&lt;span class="w"&gt; &lt;/span&gt;password:change&lt;span class="w"&gt; &lt;/span&gt;--name&lt;span class="o"&gt;=&lt;/span&gt;admin&lt;span class="w"&gt; &lt;/span&gt;--password&lt;span class="o"&gt;=&lt;/span&gt;connfa18
+&lt;/pre&gt;
+&lt;p&gt;The site should be accessible at &lt;a class="reference external" href="http://localhost"&gt;http://localhost&lt;/a&gt;/~&amp;lt;username&amp;gt;/public/login/
+The username is &lt;code&gt;admin&amp;#64;test.com&lt;/code&gt; here.&lt;/p&gt;
+&lt;p&gt;The API is accessible at:
+&lt;a class="reference external" href="http://localhost"&gt;http://localhost&lt;/a&gt;/~&amp;lt;username&amp;gt;/public/api/v2/cns-2018/checkUpdates&lt;/p&gt;
+&lt;p&gt;I did have quite a few issues with permissions, but then I'm neither a web
+developer nor a server administrator, so my skills in the department are rather
+limited.&lt;/p&gt;
+&lt;p&gt;I'll look at the Android application next, and hopefully, I'll be able to sync
+it up with the CMS server.&lt;/p&gt;
+</content><category term="Tech"/><category term="Community"/><category term="Conference"/><category term="Android"/><category term="Fedora"/></entry></feed>

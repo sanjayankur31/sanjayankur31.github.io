@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="Ankur Sinha" />
+    <meta name="generator" content="Pelican (VoidyBootstrap theme)" />
+    <meta name="twitter:card" content="summary"> 
+    <meta name="twitter:title" content="Giving Qutebrowser a go - a fantastic keyboard-focused browser">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:site" content="@sanjay_ankur">
+    <meta name="twitter:creator" content="@sanjay_ankur">
+    <meta name="twitter:domain" content="https://ankursinha.in">
+
+    <title>Giving Qutebrowser a go - a fantastic keyboard-focused browser - ankursinha.in/blog</title>
+
+   
+        <link rel="stylesheet"
+              href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+              integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+              crossorigin="anonymous" />
+
+
+
+
+
+      <link rel="stylesheet" href="https://ankursinha.in/theme/css/use-opensans.css" />
+      <link rel="stylesheet" href="https://ankursinha.in/theme/css/voidybootstrap.css" />
+      <link rel="stylesheet" href="https://ankursinha.in/theme/css/pygment.css" />
+
+    <link rel="shortcut icon" href="https://ankursinha.in/favicon.ico" />
+        <link href="https://ankursinha.in/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="ankursinha.in/blog Atom Feed" />
+        <link href="https://ankursinha.in/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="ankursinha.in/blog RSS Feed" />
+  
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MCTH8VNYDK"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-MCTH8VNYDK');
+    </script>
+
+  </head>
+
+  <body>
+   
+    <nav class="navbar navbar-default">
+      <div class="container">
+	   <div class="navbar-header">
+		<button type="button" class="navbar-toggle" 
+				data-toggle="collapse" data-target="#main-navbar-collapse">
+		  <span class="sr-only">Toggle navigation</span>
+		  <span class="icon-bar"></span>
+		  <span class="icon-bar"></span>
+		  <span class="icon-bar"></span>
+		</button>
+		<a class="navbar-brand" href="https://ankursinha.in/" rel="home">
+          <i class="fas fa-home fa-fw fa-lg"> </i> </a>
+       </div>
+
+      <div class="collapse navbar-collapse" id="main-navbar-collapse">
+        <ul class="nav navbar-nav">
+              <li>
+                <a href="https://ankursinha.in/pages/01-about.html">About Me</a>
+              </li>
+              <li>
+                <a href="https://ankursinha.in/pages/04-current-work.html">Current Projects</a>
+              </li>
+            <li class="divider"></li>
+            <li class="">
+              <a href="https://ankursinha.in/pages/03-publications.html">Publications</a>
+            </li>
+            <li class="">
+              <a href="https://ankursinha.in/pages/archives.html">Archives</a>
+            </li>
+          <li class="divider"></li>
+            <li><a href="https://ankursinha.in/feeds/all.atom.xml" 
+                   type="application/atom+xml" rel="alternate">
+                <i class="fas fa-rss fa-fw fa-lg"></i> </a></li>
+        </ul> <!-- /nav -->
+      </div> <!-- /navbar-collapse -->
+	  </div> <!-- /container -->
+    </nav> <!-- /navbar -->
+
+	<div class="jumbotron" id="overview">
+	  <div class="container">
+		<h1><a href="https://ankursinha.in/">ankursinha.in/blog</a></h1>
+		<p class="lead">neuroscience/fedora/musings</p>
+	  </div>
+	</div>
+
+    <div class="container" id="main-container">
+      <div class="row">
+        <div class="col-md-9" id="content">
+<article itemscope="itemscope" itemtype="http://schema.org/BlogPosting">
+  <header class="article-header">
+<abbr class="article-header-date">
+  Wed 21 June 2017
+</abbr> <h1>
+  <a href="https://ankursinha.in/2017/06/21/giving-qutebrowser-a-go-a-fantastic-keyboard-focused-browser.html" rel="bookmark"
+     title="Permalink to Giving Qutebrowser a go - a fantastic keyboard-focused browser">
+    Giving Qutebrowser a go - a fantastic keyboard-focused browser
+  </a>
+</h1><div class="article-header-info">
+  <p>
+      Posted by <a href="https://ankursinha.in/author/ankur.html">ankur</a>
+    in 
+    <a href="https://ankursinha.in/category/tech/">
+      Tech</a>
+(1005 words, approximately a 5 minute read)
+  </p>
+</div> <!-- /.article-header-info -->  </header>
+  <div class="content-body" itemprop="text articleBody">
+
+<p>
+    <ul class="list-inline">
+      <li class="list-inline-item">
+        <i class="fas fa-tags"></i>
+          <a href="https://ankursinha.in/tag/fedora/">#Fedora</a>,           <a href="https://ankursinha.in/tag/flatpak/">#FlatPak</a>,           <a href="https://ankursinha.in/tag/free-software/">#Free software</a>,           <a href="https://ankursinha.in/tag/linux/">#Linux</a>,           <a href="https://ankursinha.in/tag/python/">#Python</a>,           <a href="https://ankursinha.in/tag/vim/">#Vim</a>,           <a href="https://ankursinha.in/tag/qutebrowser/">#Qutebrowser</a>      </li>
+    </ul>
+</p>
+
+
+  <div>  <!-- Social media sharing buttons -->
+  <hr />
+    <ul class="list-inline">
+      <li class="list-inline-item text-muted" title="Share"><i class="fas fa-share-alt" title="Share this post"></i> Share this post:</li>
+      <li class="list-inline-item"><a class="fab fa-mastodon" href="https://toot.kytta.dev/?text=Giving%20Qutebrowser%20a%20go%20-%20a%20fantastic%20keyboard-focused%20browser%0D%0Ahttps%3A//ankursinha.in/2017/06/21/giving-qutebrowser-a-go-a-fantastic-keyboard-focused-browser.html%0D%0A%23Fedora %23FlatPak %23Freesoftware %23Linux %23Python %23Vim %23Qutebrowser" target="_blank" title="Share on mastodon"></a></li>
+      <li class="list-inline-item"><a class="fab fa-twitter" href="https://twitter.com/intent/tweet?text=Giving%20Qutebrowser%20a%20go%20-%20a%20fantastic%20keyboard-focused%20browser&url=https%3A//ankursinha.in/2017/06/21/giving-qutebrowser-a-go-a-fantastic-keyboard-focused-browser.html&via=sanjay_ankur&hashtags=fedora,flatpak,free-software,linux,python,vim,qutebrowser" target="_blank" title="Share on Twitter"></a></li>
+      <li class="list-inline-item"><a class="fab fa-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3A//ankursinha.in/2017/06/21/giving-qutebrowser-a-go-a-fantastic-keyboard-focused-browser.html" target="_blank" title="Share on Facebook"></a></li>
+      <li class="list-inline-item"><a class="fab fa-reddit" href="https://www.reddit.com/submit?url=https%3A//ankursinha.in/2017/06/21/giving-qutebrowser-a-go-a-fantastic-keyboard-focused-browser.html&title=Giving%20Qutebrowser%20a%20go%20-%20a%20fantastic%20keyboard-focused%20browser" target="_blank" title="Share on Reddit"></a></li>
+      <li class="list-inline-item"><a class="fab fa-linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A//ankursinha.in/2017/06/21/giving-qutebrowser-a-go-a-fantastic-keyboard-focused-browser.html&title=Giving%20Qutebrowser%20a%20go%20-%20a%20fantastic%20keyboard-focused%20browser&summary=After%20years%20of%20using%20the%20excellent%20Firefox%2C%20I%27ve%20decided%20to%20tweak%20my%20workflow%20a%20little%20more%20by%20giving%20Qutebrowser%20a%20go.%20Qutebrowser%20is%20a%20brilliant%20keyboard-focused%20browser.%20In%20this%20post%2C%20I%20document%20my%20first%20day%20with%20Qutebrowser%2C%20and%20I%20also%20include%20some%20tips%20and%20tricks%20that%20others%20may%20find%20helpful.&source=https%3A//ankursinha.in/2017/06/21/giving-qutebrowser-a-go-a-fantastic-keyboard-focused-browser.html" target="_blank" title="Share via LinkedIn<"></a></li>
+      <li class="list-inline-item"><a class="fas fa-mail-bulk" href="mailto:?subject=Giving%20Qutebrowser%20a%20go%20-%20a%20fantastic%20keyboard-focused%20browser&amp;body=https%3A//ankursinha.in/2017/06/21/giving-qutebrowser-a-go-a-fantastic-keyboard-focused-browser.html" target="_blank" title="Share via E-mail"></a></li>
+    </ul>
+  <hr />
+  </div> <!-- /Social media sharing buttons -->	<center><a class="reference external image-reference" href="https://ankursinha.in/images/20170621-qutebrowser3.png">
+<img alt="A screenshot showing hints in Qutebrowser on the Qutebrowser website" class="text-center img-responsive pagination-centered" src="https://ankursinha.in/images/20170621-qutebrowser3.png" style="width: 80%;" />
+</a>
+</center><p>Years ago, I was introduce to <a class="reference external" href="https://en.wikipedia.org/wiki/Touch_typing">touch typing</a>. I knew immediately that it was a skill I must learn. I remember spending hours playing with <a class="reference external" href="https://apps.fedoraproject.org/packages/gtypist">gtypist</a> trying to improve my typing efficiency. I'm not too bad nowadays. I can mostly type without looking at the keyboard at all, and with few errors.</p>
+<p>I've always loved using the command line. In fact, I maintain that new programmers should start at the command line and only move to IDEs once they've learned exactly what's being done under the hood. I use the terminal as much as conveniently possible - music via <a class="reference external" href="https://apps.fedoraproject.org/packages/ncmpcpp">ncmpcpp</a>, IRC on <a class="reference external" href="https://apps.fedoraproject.org/packages/irssi">irssi</a> (there are Gitter and Slack gateways to IRC too), <a class="reference external" href="https://apps.fedoraproject.org/packages/task">taskwarrior</a> to organise my TODOs, all my writing in <a class="reference external" href="https://vim.sourceforge.io/">VIM</a> (programming and otherwise), for example. <a class="reference external" href="https://apps.fedoraproject.org/packages/byobu">Byobu</a> makes it really easy.</p>
+<p>The one effect sticking to the command line so much has had on me is that I've developed a slight aversion to the mouse/touchpad. I now feel mildly annoyed if I must move my fingers off the home-row to do something. I must use the touchpad to check my mail/calendar on Evolution, for example, but this doesn't annoy me too much because I usually check these when I've taken a break from programming (or my <a class="reference external" href="https://xkcd.com/303/">code is compiling</a>). It's really on Firefox that the constant switching between keyboard and mouse used to be a real downer.</p>
+<p>Being a <a class="reference external" href="https://vim.sourceforge.io/">VIM</a> user, I did the expected - went looking to see if there was a way to use <a class="reference external" href="https://vim.sourceforge.io/">VIM</a> style key-mappings on Firefox. There are multiple add-ons that permit this with different feature sets - <a class="reference external" href="http://vimperator.org/">vimperator</a>, <a class="reference external" href="http://5digits.org/pentadactyl/">pentadactyl</a>, <a class="reference external" href="https://vimium.github.io/">vimium</a>, <a class="reference external" href="https://addons.mozilla.org/en-GB/firefox/addon/vimfx/">vimFX</a> are a few examples. Now, the different features these provide cater to different people's requirements. I went for pentadactly. Not only does it permit <a class="reference external" href="https://vim.sourceforge.io/">VIM</a> style key mappings and navigation, it also provides a vim style command line that is incredibly handy. I've used it for years now. The issue that has troubled pentadactyl for some time now is constant breakage - it tends to break each time the Firefox addon API is updated. Recently, I <a class="reference external" href="https://github.com/5digits/dactyl/issues/99">read that some major changes in the API will make pentadactly pretty much unusable in the near future</a>. This made me go looking for a more stable alternative. I tried one or two others - vimium for example, but somehow, I find vimium too simple.</p>
+<p>So, I <a class="reference external" href="https://www.reddit.com/r/linux/comments/3aqmhd/why_cant_we_have_a_nice_vimlike_webkit_browser/">dug further</a> and ran into <a class="reference external" href="https://fanglingsu.github.io/vimb/">Vimb</a> and <a class="reference external" href="https://www.qutebrowser.org/">Qutebrowser</a>. They're both &quot;vim like browsers&quot; i.e., they're designed for more advanced users and they provide <a class="reference external" href="https://vim.sourceforge.io/">VIM</a> like key-mappings and modes. I gave vimb a short try, but <a class="reference external" href="https://www.qutebrowser.org/">Qutebrowser</a> really impressed me a lot more.</p>
+<div class="section" id="qutebrowser">
+<h2>Qutebrowser</h2>
+<p>The best thing about <a class="reference external" href="https://www.qutebrowser.org/">Qutebrowser</a> is that it's <a class="reference external" href="https://github.com/qutebrowser/qutebrowser/pulse/monthly">actively maintained</a>. I even hopped on to the <a class="reference external" href="https://webchat.freenode.net/?channels=#qutebrowser">IRC channel</a> earlier today to get some help. The latest version is in Fedora already, so you can simply go <code>sudo dnf install qutebrowser</code> to give it a whirl. I wanted to test out the latest codebase, so I quickly set up a <a class="reference external" href="https://copr.fedorainfracloud.org/coprs/ankursinha/qutebrowser/">copr repository</a> that you can use too. I'm tinkering with <a class="reference external" href="http://flatpak.org/">FlatPak</a> to try and build one too, so that it becomes even easier to install, but I'm still figuring out how FlatPaks are built.</p>
+<center><a class="reference external image-reference" href="https://ankursinha.in/images/20170621-qutebrowser1.png">
+<img alt="A screenshot showing hints in Qutebrowser" class="text-center img-responsive pagination-centered" src="https://ankursinha.in/images/20170621-qutebrowser1.png" style="width: 80%;" />
+</a>
+</center><p>The screenshot shows &quot;hinting&quot; which is how one opens links. You press &quot;f&quot; and the various links in the page get labelled. Simply type the label of the link you want to visit. There's also &quot;advanced hinting&quot; which lets you do things like open links in a background tab, or in a new tab, or save (<a class="reference external" href="https://unix.stackexchange.com/questions/209660/why-is-the-vi-editors-copy-command-called-yank">yank</a>) a link URL.</p>
+<center><a class="reference external image-reference" href="https://ankursinha.in/images/20170621-qutebrowser2.png">
+<img alt="A screenshot showing the command mode in Qutebrowser" class="text-center img-responsive pagination-centered" src="https://ankursinha.in/images/20170621-qutebrowser2.png" style="width: 80%;" />
+</a>
+</center><p>This one shows the command mode - everything can be done here, including configuration of the browser or browsing related tasks.</p>
+<div class="section" id="a-few-tips">
+<h3>A few tips</h3>
+<p>I did a few things to get started. First, I wanted to use the new &quot;webengine&quot; backend. This requires the installation of two packages: <code>sudo dnf install python3-pyopengl python3-qt5-webengine</code>, and then creating a new file in <code>~/.local/share/applications/qutebrowser.desktop</code> with the following contents:</p>
+<pre class="code ini literal-block">
+<span class="k">[Desktop Entry]</span><span class="w">
+</span><span class="na">Name</span><span class="o">=</span><span class="s">qutebrowser</span><span class="w">
+</span><span class="na">GenericName</span><span class="o">=</span><span class="s">Web Browser</span><span class="w">
+</span><span class="na">Icon</span><span class="o">=</span><span class="s">qutebrowser</span><span class="w">
+</span><span class="na">Type</span><span class="o">=</span><span class="s">Application</span><span class="w">
+</span><span class="na">Categories</span><span class="o">=</span><span class="s">Network</span><span class="c1">;WebBrowser;</span><span class="w">
+</span><span class="na">Exec</span><span class="o">=</span><span class="s">qutebrowser --backend webengine %u</span><span class="w">
+</span><span class="na">Terminal</span><span class="o">=</span><span class="s">false</span><span class="w">
+</span><span class="na">StartupNotify</span><span class="o">=</span><span class="s">false</span><span class="w">
+</span><span class="na">MimeType</span><span class="o">=</span><span class="s">text/html</span><span class="c1">;text/xml;application/xhtml+xml;application/xml;application/rdf+xml;image/gif;image/jpeg;image/png;x-scheme-handler/http;x-scheme-handler/https;</span><span class="w">
+</span><span class="na">Keywords</span><span class="o">=</span><span class="s">Browser</span><span class="w">
+</span><span class="na">X-Desktop-File-Install-Version</span><span class="o">=</span><span class="s">0.23</span>
+</pre>
+<p>This new file simply ensures that picking <a class="reference external" href="https://www.qutebrowser.org/">Qutebrowser</a> from the activities menu will run the new backend. Without this, one would have to launch it from the terminal each time.</p>
+<p>Next, I configured it a bit to my liking - still very limited, but it's a start. The configuration file for <a class="reference external" href="https://www.qutebrowser.org/">Qutebrowser</a> is at <code>~/.config/qutebrowser/qutebrowser.conf</code>.  There's so much one can modify here. I've only set up a few search engines and updated the default to Google. To do this, one needs to modify the <code>[searchengines]</code> section in the file:</p>
+<pre class="code ini literal-block">
+<span class="na">DEFAULT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">https://google.com/search?hl=en-GB&amp;q={}</span><span class="w">
+</span><span class="na">duckduckgo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">https://duckduckgo.com/?q={}</span><span class="w">
+</span><span class="na">github</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">https://github.com/search?q={}</span><span class="w">
+</span><span class="na">google-scholar</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">https://scholar.google.co.uk/scholar?hl=en&amp;q={}</span>
+</pre>
+<p>I also enable <code>save-session</code> - just set it to <code>true</code>. There are a few other tweaks, such as updating the <code>startpage</code> to <a class="reference external" href="http://start.fedoraproject.org">http://start.fedoraproject.org</a>. There's even a built in ad-blocker that one can configure.</p>
+<p>To get flash working, one needs to also install the ppapi bits. Assuming one already has the flash plugin repository installed, <code>sudo dnf install flash-player-ppapi</code> does this. I haven't gotten Netflix to work yet - it requries some Silverlight thingy. I can always run Chrome or FF for that one rare purpose anyway.</p>
+<p>There are, obviously a few limitations in the current <a class="reference external" href="https://www.qutebrowser.org/">Qutebrowser</a> version. The most noticeable one is probably the lack of a sync service similar to ones Firefox and Chrome provide. Google does tell me something about using <a class="reference external" href="https://syncthing.net/">syncthing</a> but I haven't gotten down to this yet. While it would be nice to have, it isn't quite that necessary. There isn't a password manager either. There are <a class="reference external" href="https://github.com/qutebrowser/qutebrowser/issues/30">plans to develop a plug-in system</a> in the pipeline to implement such features already, though. (<a class="reference external" href="https://github.com/qutebrowser/qutebrowser/blob/master/doc/userscripts.asciidoc">userscripts</a> seem to provide some additional functionality too.)</p>
+<p>Anyway, it's a great, quick, and lean browser if you're a <a class="reference external" href="https://vim.sourceforge.io/">VIM</a> addict like me, so give it a go? If you have some cycles and are intersted in some hacking, get in touch with the devs over Github too. If not, please do at least <a class="reference external" href="https://ankursinha.in/2017/05/17/a-well-filed-software-issue-considerably-improves-the-chances-of-the-issue-being-fixed-quicker.html">file bugs</a> if you see them.</p>
+<p>Here's a <a class="reference external" href="https://www.qutebrowser.org/doc/quickstart.html">quickstart</a> to quickly get up and running with. Oh, and yeah, <em>the mouse/touchpad works in the browser too</em>!</p>
+</div>
+</div>
+
+  </div>
+  
+  <div>  <!-- Social media sharing buttons -->
+  <hr />
+    <ul class="list-inline">
+      <li class="list-inline-item text-muted" title="Share"><i class="fas fa-share-alt" title="Share this post"></i> Share this post:</li>
+      <li class="list-inline-item"><a class="fab fa-mastodon" href="https://toot.kytta.dev/?text=Giving%20Qutebrowser%20a%20go%20-%20a%20fantastic%20keyboard-focused%20browser%0D%0Ahttps%3A//ankursinha.in/2017/06/21/giving-qutebrowser-a-go-a-fantastic-keyboard-focused-browser.html%0D%0A%23Fedora %23FlatPak %23Freesoftware %23Linux %23Python %23Vim %23Qutebrowser" target="_blank" title="Share on mastodon"></a></li>
+      <li class="list-inline-item"><a class="fab fa-twitter" href="https://twitter.com/intent/tweet?text=Giving%20Qutebrowser%20a%20go%20-%20a%20fantastic%20keyboard-focused%20browser&url=https%3A//ankursinha.in/2017/06/21/giving-qutebrowser-a-go-a-fantastic-keyboard-focused-browser.html&via=sanjay_ankur&hashtags=fedora,flatpak,free-software,linux,python,vim,qutebrowser" target="_blank" title="Share on Twitter"></a></li>
+      <li class="list-inline-item"><a class="fab fa-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3A//ankursinha.in/2017/06/21/giving-qutebrowser-a-go-a-fantastic-keyboard-focused-browser.html" target="_blank" title="Share on Facebook"></a></li>
+      <li class="list-inline-item"><a class="fab fa-reddit" href="https://www.reddit.com/submit?url=https%3A//ankursinha.in/2017/06/21/giving-qutebrowser-a-go-a-fantastic-keyboard-focused-browser.html&title=Giving%20Qutebrowser%20a%20go%20-%20a%20fantastic%20keyboard-focused%20browser" target="_blank" title="Share on Reddit"></a></li>
+      <li class="list-inline-item"><a class="fab fa-linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A//ankursinha.in/2017/06/21/giving-qutebrowser-a-go-a-fantastic-keyboard-focused-browser.html&title=Giving%20Qutebrowser%20a%20go%20-%20a%20fantastic%20keyboard-focused%20browser&summary=After%20years%20of%20using%20the%20excellent%20Firefox%2C%20I%27ve%20decided%20to%20tweak%20my%20workflow%20a%20little%20more%20by%20giving%20Qutebrowser%20a%20go.%20Qutebrowser%20is%20a%20brilliant%20keyboard-focused%20browser.%20In%20this%20post%2C%20I%20document%20my%20first%20day%20with%20Qutebrowser%2C%20and%20I%20also%20include%20some%20tips%20and%20tricks%20that%20others%20may%20find%20helpful.&source=https%3A//ankursinha.in/2017/06/21/giving-qutebrowser-a-go-a-fantastic-keyboard-focused-browser.html" target="_blank" title="Share via LinkedIn<"></a></li>
+      <li class="list-inline-item"><a class="fas fa-mail-bulk" href="mailto:?subject=Giving%20Qutebrowser%20a%20go%20-%20a%20fantastic%20keyboard-focused%20browser&amp;body=https%3A//ankursinha.in/2017/06/21/giving-qutebrowser-a-go-a-fantastic-keyboard-focused-browser.html" target="_blank" title="Share via E-mail"></a></li>
+    </ul>
+  <hr />
+  </div> <!-- /Social media sharing buttons -->
+  <div class="comments">
+	<h2>Comments</h2>
+	<div id="disqus_thread"></div>
+	<script type="text/javascript">
+				   (function() {
+						var dsq = document.createElement('script');
+						dsq.type = 'text/javascript'; dsq.async = true;
+						dsq.src = '//ankursinha.disqus.com/embed.js';
+						(document.getElementsByTagName('head')[0] ||
+						 document.getElementsByTagName('body')[0]).appendChild(dsq);
+				  })();
+	</script>
+  </div>
+</article>
+        </div><!-- /content -->
+
+        <div class="col-md-3 sidebar-nav" id="sidebar">
+
+<div class="row">
+
+<div class="col-xs-6 col-md-12">
+<h4><i class="fas fa-comment fa-fw fa-lg"></i> Social</h4>
+<ul class="list-unstyled social-links">
+    <li><a rel="me" href="https://duckduckgo.com/?q=site%3Aankursinha.in&ia=web" target="_blank">
+	  <i class="fas fa-search fa-fw fa-lg" title="Search (DuckDuckGo)"></i>
+		Search (DuckDuckGo)
+	</a></li>
+    <li><a rel="me" href="www.linkedin.com/in/ankur-sinha-phd" target="_blank">
+	  <i class="fa fa-linkedin-square fa-fw fa-lg" title="LinkedIn"></i>
+		LinkedIn
+	</a></li>
+    <li><a rel="me" href="http://github.com/sanjayankur31" target="_blank">
+	  <i class="fab fa-github fa-fw fa-lg" title="GitHub"></i>
+		GitHub
+	</a></li>
+    <li><a rel="me" href=" https://orcid.org/0000-0001-7568-7167" target="_blank">
+	  <i class="fas fa-flask fa-fw fa-lg" title="Orcid"></i>
+		Orcid
+	</a></li>
+    <li><a rel="me" href="http://scholar.google.co.in/citations?user=919ScZEAAAAJ&hl=en" target="_blank">
+	  <i class="fas fa-graduation-cap fa-fw fa-lg" title="Scholar"></i>
+		Scholar
+	</a></li>
+    <li><a rel="me" href="https://fedoraproject.org/wiki/User:Ankursinha" target="_blank">
+	  <i class="fab fa-fedora fa-fw fa-lg" title="Fedora"></i>
+		Fedora
+	</a></li>
+    <li><a rel="me" href="https://ramblingreaders.org/user/sanjay_ankur" target="_blank">
+	  <i class="fas fa-book-reader fa-fw fa-lg" title="BookWyrm"></i>
+		BookWyrm
+	</a></li>
+    <li><a rel="me" href="https://fosstodon.org/@sanjay_ankur" target="_blank">
+	  <i class="fab fa-mastodon fa-fw fa-lg" title="Mastodon"></i>
+		Mastodon
+	</a></li>
+    <li><a rel="me" href="https://bsky.app/profile/sanjay-ankur.bsky.social" target="_blank">
+	  <i class="fas fa-people-arrows fa-fw fa-lg" title="BlueSky"></i>
+		BlueSky
+	</a></li>
+    <li><a rel="me" href="https://www.goodreads.com/user/show/32360473-ankur" target="_blank">
+	  <i class="fab fa-goodreads-g fa-fw fa-lg" title="Goodreads"></i>
+		Goodreads
+	</a></li>
+    <li><a rel="me" href="https://twitter.com/sanjay_ankur" target="_blank">
+	  <i class="fab fa-twitter fa-fw fa-lg" title="X"></i>
+		X
+	</a></li>
+    <li><a rel="me" href="https://coff.ee/sanjayankuu" target="_blank">
+	  <i class="fas fa-mug-hot fa-fw fa-lg" title="Buy me a coffee!"></i>
+		Buy me a coffee!
+	</a></li>
+</ul>
+</div>
+
+<div class="col-xs-6 col-md-12">
+<h4><i class="fas fa-folder fa-fw fa-lg"></i> Categories</h4>
+<ul class="list-unstyled category-links">
+  <li><a href="https://ankursinha.in/category/life/" >
+    <i class="fas fa-folder-open fa-fw fa-lg"></i> Life</a></li>
+  <li><a href="https://ankursinha.in/category/other/" >
+    <i class="fas fa-folder-open fa-fw fa-lg"></i> Other</a></li>
+  <li><a href="https://ankursinha.in/category/research/" >
+    <i class="fas fa-folder-open fa-fw fa-lg"></i> Research</a></li>
+  <li><a href="https://ankursinha.in/category/tech/" >
+    <i class="fas fa-folder-open fa-fw fa-lg"></i> Tech</a></li>
+</ul>
+</div>
+
+</div> <!-- /row -->
+
+  <h4><i class="fas fa-link fa-fw fa-lg"></i> Links</h4>
+  <ul class="list-unstyled category-links">
+    <li><a href="https://neuro.fedoraproject.org" >
+      <i class="fas fa-external-link-square-alt fa-fw fa-lg"></i> NeuroFedora</a></li>
+    <li><a href="http://fedoraproject.org" >
+      <i class="fas fa-external-link-square-alt fa-fw fa-lg"></i> Fedora Linux</a></li>
+    <li><a href="https://ocns.github.io/SoftwareWG/" >
+      <i class="fas fa-external-link-square-alt fa-fw fa-lg"></i> INCF/OCNS Software WG</a></li>
+    <li><a href="https://neuroblog.fedoraproject.org/planet-neuroscience/" >
+      <i class="fas fa-external-link-square-alt fa-fw fa-lg"></i> Neuroscience feeds</a></li>
+    <li><a href="https://neuroblog.fedoraproject.org/planet-neuroscientists/" >
+      <i class="fas fa-external-link-square-alt fa-fw fa-lg"></i> Neuroscientists feeds</a></li>
+  </ul>
+<h4><i class="fas fa-tags fa-fw fa-lg"></i> Tags</h4>
+<p class="tag-cloud">
+    <span class="tag-2">
+      <a href="https://ankursinha.in/tag/neurofedora/">
+          <i class="fas fa-tag"></i>
+        NeuroFedora
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="https://ankursinha.in/tag/vim/">
+          <i class="fas fa-tag"></i>
+        Vim
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="https://ankursinha.in/tag/open-source-brain/">
+          <i class="fas fa-tag"></i>
+        Open Source Brain
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="https://ankursinha.in/tag/zaphod/">
+          <i class="fas fa-tag"></i>
+        Zaphod
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="https://ankursinha.in/tag/social/">
+          <i class="fas fa-tag"></i>
+        Social
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="https://ankursinha.in/tag/pelican/">
+          <i class="fas fa-tag"></i>
+        Pelican
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="https://ankursinha.in/tag/neuroml/">
+          <i class="fas fa-tag"></i>
+        NeuroML
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="https://ankursinha.in/tag/flatpak/">
+          <i class="fas fa-tag"></i>
+        FlatPak
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="https://ankursinha.in/tag/irc/">
+          <i class="fas fa-tag"></i>
+        IRC
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="https://ankursinha.in/tag/neuron/">
+          <i class="fas fa-tag"></i>
+        Neuron
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="https://ankursinha.in/tag/community/">
+          <i class="fas fa-tag"></i>
+        Community
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="https://ankursinha.in/tag/computational-neuroscience/">
+          <i class="fas fa-tag"></i>
+        Computational Neuroscience
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="https://ankursinha.in/tag/python/">
+          <i class="fas fa-tag"></i>
+        Python
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="https://ankursinha.in/tag/gnome/">
+          <i class="fas fa-tag"></i>
+        GNOME
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="https://ankursinha.in/tag/git/">
+          <i class="fas fa-tag"></i>
+        Git
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="https://ankursinha.in/tag/github/">
+          <i class="fas fa-tag"></i>
+        GitHub
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="https://ankursinha.in/tag/ucl/">
+          <i class="fas fa-tag"></i>
+        UCL
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="https://ankursinha.in/tag/bash/">
+          <i class="fas fa-tag"></i>
+        Bash
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="https://ankursinha.in/tag/fedora/">
+          <i class="fas fa-tag"></i>
+        Fedora
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="https://ankursinha.in/tag/latex/">
+          <i class="fas fa-tag"></i>
+        LaTeX
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="https://ankursinha.in/tag/matlab/">
+          <i class="fas fa-tag"></i>
+        Matlab
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="https://ankursinha.in/tag/nest/">
+          <i class="fas fa-tag"></i>
+        NEST
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="https://ankursinha.in/tag/linux/">
+          <i class="fas fa-tag"></i>
+        Linux
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="https://ankursinha.in/tag/taskwarrior/">
+          <i class="fas fa-tag"></i>
+        Taskwarrior
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="https://ankursinha.in/tag/free-software/">
+          <i class="fas fa-tag"></i>
+        Free software
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="https://ankursinha.in/tag/gsoc/">
+          <i class="fas fa-tag"></i>
+        GSoC
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="https://ankursinha.in/tag/planet/">
+          <i class="fas fa-tag"></i>
+        Planet
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="https://ankursinha.in/tag/robotics/">
+          <i class="fas fa-tag"></i>
+        Robotics
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="https://ankursinha.in/tag/programming/">
+          <i class="fas fa-tag"></i>
+        Programming
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="https://ankursinha.in/tag/events/">
+          <i class="fas fa-tag"></i>
+        Events
+      </a>
+    </span>
+</p>
+<h4><i class="fas fa-rss fa-fw fa-lg"></i> Feeds</h4>
+<ul class="list-unstyled">
+    <li><a href="https://ankursinha.in/feeds/all.atom.xml" 
+		   type="application/atom+xml" rel="alternate">
+		<i class="fas fa-rss-square fa-fw fa-lg"></i> Atom Feed</a></li>
+    <li><a href="https://ankursinha.in/feeds/all.rss.xml" 
+		   type="application/rss+xml" rel="alternate">
+		<i class="fas fa-rss-square fa-fw fa-lg"></i> RSS feed</a></li>
+</ul>
+
+<hr />
+
+        </div><!--/sidebar -->
+      </div><!--/row-->
+    </div><!--/.container /#main-container -->
+
+    <footer id="site-footer">
+ 
+      <address id="site-colophon">
+        <p class="text-center text-muted">
+        <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br /><a href="http://ankursinha.in/" target="_blank" xmlns:dct="http://purl.org/dc/terms/" property="dct:title">ankursinha.in</a> by <a xmlns:cc="http://creativecommons.org/ns#" href="https://ankursinha.in/pages/01-about.html" property="cc:attributionName" rel="cc:attributionURL" target="_blank">Ankur Sinha</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Attribution 4.0 International License</a>.<br />
+        Site built using <a href="http://getpelican.com/" target="_blank">Pelican</a>
+        &nbsp;&bull;&nbsp; Theme based on
+        <a href="http://www.voidynullness.net/page/voidy-bootstrap-pelican-theme/"
+           target="_blank">VoidyBootstrap</a> by 
+        <a href="http://voidynullness.net"
+           target="_blank">RKI</a>  
+        </p>
+      </address><!-- /colophon  -->
+    </footer>
+
+<!-- DISQUS script for displaying comment count -->
+<script type="text/javascript">
+    var disqus_shortname = 'ankursinha';
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+
+    <!-- javascript -->
+   
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+    <script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+
+	<script src="https://kit.fontawesome.com/9f8622f8d1.js"></script>
+
+<!-- Facebook -->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+</script>
+
+<!-- Twitter -->
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+<!-- Google+ -->
+<!-- Synchronous 
+<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+-->
+<!-- Asynchronous -->
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/platform.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>  </body>
+</html>

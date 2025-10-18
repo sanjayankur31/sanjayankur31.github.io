@@ -1,0 +1,883 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>ankursinha.in/blog - Git</title><link href="https://ankursinha.in/" rel="alternate"/><link href="https://ankursinha.in/feeds/tags/git.atom.xml" rel="self"/><id>https://ankursinha.in/</id><updated>2025-09-23T10:44:04+01:00</updated><subtitle>neuroscience/fedora/musings</subtitle><entry><title>A Cookiecutter template to quickstart NeuroML modelling projects</title><link href="https://ankursinha.in/2025/09/23/a-cookiecutter-template-to-quickstart-neuroml-modelling-projects.html" rel="alternate"/><published>2025-09-23T10:44:04+01:00</published><updated>2025-09-23T10:44:04+01:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2025-09-23:/2025/09/23/a-cookiecutter-template-to-quickstart-neuroml-modelling-projects.html</id><summary type="html">&lt;p class="first last"&gt;I created a &lt;a class="reference external" href="https://cookiecutter.readthedocs.io/en/stable/"&gt;Cookiecutter&lt;/a&gt; project template that incorporates recommended modelling and coding practices to accelerate setting up a &lt;a class="reference external" href="https://docs.neuroml.org"&gt;NeuroML&lt;/a&gt; modelling project.&lt;/p&gt;
+</summary><content type="html">&lt;center&gt;&lt;a class="reference external image-reference" href="#"&gt;
+&lt;img alt="Cookiecutter and NeuroML project logos" src="https://ankursinha.in/images/20250923-neuroml-cookiecutter.png" style="height: 180.0px;" /&gt;
+&lt;/a&gt;
+&lt;/center&gt;&lt;p&gt;Creating new modelling projects, like other programming projects, include a number of repeated steps.
+When using the &lt;a class="reference external" href="https://docs.neuroml.org"&gt;NeuroML&lt;/a&gt; standard, one would use the &lt;a class="reference external" href="https://libneuroml.readthedocs.io/en/development/userdocs/"&gt;libNeuroML API&lt;/a&gt; to:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;create a new NeuroMLDocument (top level container class that includes all NeuroML components)&lt;/li&gt;
+&lt;li&gt;create a network&lt;/li&gt;
+&lt;li&gt;create populations&lt;/li&gt;
+&lt;li&gt;add cells&lt;/li&gt;
+&lt;li&gt;add connections&lt;/li&gt;
+&lt;li&gt;add stimuli&lt;/li&gt;
+&lt;li&gt;record various quantities (membrane potentials, for example)&lt;/li&gt;
+&lt;li&gt;create a &lt;a class="reference external" href="https://docs.neuroml.org/Userdocs/NeuroMLv2AndLEMS.html"&gt;LEMS&lt;/a&gt; simulation&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;One also needs to, among other steps, at least:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;install the NeuroML python packages: &lt;a class="reference external" href="https://docs.neuroml.org/Userdocs/Software/pyNeuroML.html"&gt;pyNeuroML&lt;/a&gt; pulls in most of them&lt;/li&gt;
+&lt;li&gt;select the simulation engine, and install the &lt;a class="reference external" href="https://docs.neuroml.org/Userdocs/Software/pyNeuroML.html"&gt;pyNeuroML&lt;/a&gt; extra to pull that in&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This is sufficient to create and simulate a model.
+Most people would tend to stop here, because this is really all they need to run their simulations and carry out their research.
+This is fine, but it misses out on recommended/best practices which make the modelling project:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;easier to manage and collaborate on&lt;/li&gt;
+&lt;li&gt;ready for sharing/reuse from the beginning (instead of people &amp;quot;cleaning up&amp;quot; their code in a panic when they need to share it as part of a publication)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;So, for &lt;a class="reference external" href="https://docs.neuroml.org"&gt;NeuroML&lt;/a&gt; projects, I created a &lt;a class="reference external" href="https://cookiecutter.readthedocs.io/en/stable/"&gt;Cookiecutter&lt;/a&gt; template that generates all of this boilerplate code, and implements a number of general and &lt;a class="reference external" href="https://docs.neuroml.org"&gt;NeuroML&lt;/a&gt; related best practices:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;adds a license&lt;/li&gt;
+&lt;li&gt;creates a clean directory structure that separates code from data, model code from analysis code, and model/simulation parameters from the model generation logic&lt;/li&gt;
+&lt;li&gt;creates a template Python script to create and simulate the model&lt;/li&gt;
+&lt;li&gt;adds &lt;a class="reference external" href="https://typer.tiangolo.com/"&gt;Typer&lt;/a&gt; based command line support in the script&lt;/li&gt;
+&lt;li&gt;sets up the project as a Git repository&lt;/li&gt;
+&lt;li&gt;adds requirements.txt files, linters, pre-commit hooks, and so on---things that we commonly use in software development&lt;/li&gt;
+&lt;li&gt;adds continuous validation of the model using the &lt;a class="reference external" href="https://github.com/OpenSourceBrain/osb-model-validation"&gt;OSB Model Validation framework&lt;/a&gt; as a GitHub Action (model validation is another strength of &lt;a class="reference external" href="https://docs.neuroml.org"&gt;NeuroML&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;enables the use of &lt;a class="reference external" href="https://git-annex.branchable.com/"&gt;git-annex&lt;/a&gt; to manage data in a separate repository&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Here is what the directory structure looks like.
+The &lt;code&gt;{{ cookiecutter.__project_slug }}&lt;/code&gt; and similar bits get renamed by &lt;a class="reference external" href="https://cookiecutter.readthedocs.io/en/stable/"&gt;Cookiecutter&lt;/a&gt; to create the required files/folders:&lt;/p&gt;
+&lt;pre class="code bash literal-block"&gt;
+$&lt;span class="w"&gt; &lt;/span&gt;tree&lt;span class="w"&gt; &lt;/span&gt;-a&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="se"&gt;\{\{\ &lt;/span&gt;cookiecutter.__project_slug&lt;span class="se"&gt;\ \}\}&lt;/span&gt;/&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="o"&gt;{{&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;cookiecutter.__project_slug&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;}}&lt;/span&gt;/&lt;span class="w"&gt;
+&lt;/span&gt;├--&lt;span class="w"&gt; &lt;/span&gt;code&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;├--&lt;span class="w"&gt; &lt;/span&gt;analysis&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;└--&lt;span class="w"&gt; &lt;/span&gt;Readme.md&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;├--&lt;span class="w"&gt; &lt;/span&gt;.flake8&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;├--&lt;span class="w"&gt; &lt;/span&gt;model&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;├--&lt;span class="w"&gt; &lt;/span&gt;cells&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;└--&lt;span class="w"&gt; &lt;/span&gt;.test.validate.omt&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;├--&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;{{&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;cookiecutter.__project_slug_nospace&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;}}&lt;/span&gt;.py&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;├--&lt;span class="w"&gt; &lt;/span&gt;inputs&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;└--&lt;span class="w"&gt; &lt;/span&gt;.test.validate.omt&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;├--&lt;span class="w"&gt; &lt;/span&gt;parameters&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;├--&lt;span class="w"&gt; &lt;/span&gt;general.json&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;└--&lt;span class="w"&gt; &lt;/span&gt;model.json&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;├--&lt;span class="w"&gt; &lt;/span&gt;Readme.md&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;└--&lt;span class="w"&gt; &lt;/span&gt;synapses&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt;       &lt;/span&gt;└--&lt;span class="w"&gt; &lt;/span&gt;.test.validate.omt&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;├--&lt;span class="w"&gt; &lt;/span&gt;.pre-commit-config.yaml&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;├--&lt;span class="w"&gt; &lt;/span&gt;requirements-dev.txt&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;└--&lt;span class="w"&gt; &lt;/span&gt;requirements.txt&lt;span class="w"&gt;
+&lt;/span&gt;├--&lt;span class="w"&gt; &lt;/span&gt;data&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;└--&lt;span class="w"&gt; &lt;/span&gt;Readme.md&lt;span class="w"&gt;
+&lt;/span&gt;├--&lt;span class="w"&gt; &lt;/span&gt;.github&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;└--&lt;span class="w"&gt; &lt;/span&gt;workflows&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt;       &lt;/span&gt;└--&lt;span class="w"&gt; &lt;/span&gt;omv-ci.yml&lt;span class="w"&gt;
+&lt;/span&gt;├--&lt;span class="w"&gt; &lt;/span&gt;LICENSE&lt;span class="w"&gt;
+&lt;/span&gt;└--&lt;span class="w"&gt; &lt;/span&gt;Readme.md
+&lt;/pre&gt;
+&lt;p&gt;Here is a video that illustrates creation of an example project using the template.
+One can install &lt;a class="reference external" href="https://cookiecutter.readthedocs.io/en/stable/"&gt;Cookiecutter&lt;/a&gt; in a virtual environment using &lt;code&gt;pip&lt;/code&gt; or &lt;code&gt;uv&lt;/code&gt; from PyPi, and run this command to get the template and interactively create a new project:&lt;/p&gt;
+&lt;pre class="code bash literal-block"&gt;
+$&lt;span class="w"&gt; &lt;/span&gt;cookiecutter&lt;span class="w"&gt; &lt;/span&gt;gh:sanjayankur31/neuroml-model-template
+&lt;/pre&gt;
+&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/8t1S4M0T_HY" frameborder="0" allowfullscreen&gt;
+&lt;/iframe&gt;&lt;p&gt;I am using the template myself, so I have tested the template, and there is CI in the repository to make sure it functions correctly with the default set up.
+I expect it will evolve further as others use it and provide more ideas/feedback on additional features that may be useful to include.&lt;/p&gt;
+&lt;p&gt;So, please, give it a go, and let me know what you think.&lt;/p&gt;
+</content><category term="Research"/><category term="NeuroML"/><category term="Cookiecutter"/><category term="Neuroscience"/><category term="Computational Neuroscience"/><category term="Pre-commit"/><category term="Python"/><category term="libNeuroML"/><category term="PyNeuroML"/><category term="GitHub"/><category term="Git"/></entry><entry><title>Zaphod is now on PyPi as zaphodtex</title><link href="https://ankursinha.in/2025/09/19/zaphod-is-now-on-pypi-as-zaphodtex.html" rel="alternate"/><published>2025-09-19T14:31:15+01:00</published><updated>2025-09-19T14:31:15+01:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2025-09-19:/2025/09/19/zaphod-is-now-on-pypi-as-zaphodtex.html</id><summary type="html">&lt;p class="first last"&gt;&lt;a class="reference external" href="https://github.com/sanjayankur31/zaphod"&gt;Zaphod&lt;/a&gt; is now installable from PyPi as &lt;tt class="docutils literal"&gt;zaphodtex&lt;/tt&gt;&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;A quick announcement post.&lt;/p&gt;
+&lt;p&gt;I had written &lt;a class="reference external" href="https://github.com/sanjayankur31/zaphod"&gt;Zaphod&lt;/a&gt; several years ago.
+It is a python wrapper around &lt;a class="reference external" href="https://github.com/ftilmann/latexdiff"&gt;LaTeXdiff&lt;/a&gt; that enables a Git workflow for generating diffs in &lt;a class="reference external" href="https://www.latex-project.org/"&gt;LaTeX&lt;/a&gt; documents.
+A demonstration is in the initial &lt;a class="reference external" href="https://ankursinha.in/2016/02/13/zaphod-a-latex-change-tracking-tool.html"&gt;announcement post&lt;/a&gt;.
+It lets you generate a diff, and it also lets you pick and choose what bits from the diff you want to incorporate.
+It does all of this using Git, so no work is every lost, and everything can be undone (or redone).&lt;/p&gt;
+&lt;p&gt;I finally got around to publishing it on PyPi &lt;a class="reference external" href="https://pypi.org/project/zaphodtex"&gt;as a package&lt;/a&gt;.
+Unfortunately, the name, zaphod, was already taken, so I have published it as &lt;code&gt;zaphodtex&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;So, you can now install it on your system directly using pip or uv:&lt;/p&gt;
+&lt;pre class="code bash literal-block"&gt;
+uv&lt;span class="w"&gt; &lt;/span&gt;pip&lt;span class="w"&gt; &lt;/span&gt;install&lt;span class="w"&gt; &lt;/span&gt;zaphodtex
+&lt;/pre&gt;
+&lt;p&gt;It will also make it easier for people to use it in their projects, on GitHub Actions and so on.&lt;/p&gt;
+</content><category term="Research"/><category term="LaTeX"/><category term="Git"/><category term="Fedora"/><category term="Zaphod"/></entry><entry><title>Fedora Classroom: Git 101: report</title><link href="https://ankursinha.in/2017/10/07/fedora-classroom-git-101-report.html" rel="alternate"/><published>2017-10-07T14:19:10+01:00</published><updated>2017-10-07T14:19:10+01:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2017-10-07:/2017/10/07/fedora-classroom-git-101-report.html</id><summary type="html">&lt;p class="first last"&gt;I taught a &lt;a class="reference external" href="https://fedoraproject.org/wiki/Classroom"&gt;Fedora Classroom&lt;/a&gt; session the other day - &lt;a class="reference external" href="https://meetbot.fedoraproject.org/fedora-classroom/2017-10-05/fedora-classroom.2017-10-05-14.17.log.html"&gt;Git 101&lt;/a&gt; -
+where I walked through the basics of &lt;a class="reference external" href="https://git-scm.com/"&gt;Git&lt;/a&gt;. This is a quick summary
+of the session.&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;I taught another &lt;a class="reference external" href="https://fedoraproject.org/wiki/Classroom"&gt;Fedora Classroom&lt;/a&gt; this week, on &lt;a class="reference external" href="https://meetbot.fedoraproject.org/fedora-classroom/2017-10-05/fedora-classroom.2017-10-05-14.17.log.html"&gt;Git 101&lt;/a&gt;. I used the &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Internet_Relay_Chat"&gt;IRC&lt;/a&gt;
+again since this session was to be another hands-on walkthrough. I reckon I've
+now learned that hands-on sessions go on longer than initially planned. This
+one lasted about three hours!&lt;/p&gt;
+&lt;div class="section" id="some-metrics"&gt;
+&lt;h2&gt;Some metrics&lt;/h2&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Length: 3 hours&lt;/li&gt;
+&lt;li&gt;Attendees: ~25 people&lt;/li&gt;
+&lt;li&gt;Sentences spoken: LOTS!&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="section" id="summary"&gt;
+&lt;h2&gt;Summary&lt;/h2&gt;
+&lt;p&gt;I didn't go much into the theory, and there's a lot of it in &lt;a class="reference external" href="https://git-scm.com/"&gt;Git&lt;/a&gt;. Instead, I
+had made it my goal to walk the attendees through the usual &lt;a class="reference external" href="https://git-scm.com/"&gt;Git&lt;/a&gt; workflow.
+So, that's exactly what we did. We started by setting up an empty repository,
+then added files to it, learned how to see changes and so on. Then, we moved
+on to branching.&lt;/p&gt;
+&lt;p&gt;Once we'd explored the advantages of using branches we started working with
+remotes. Everyone set up repositories on &lt;a class="reference external" href="https://pagure.io"&gt;Pagure&lt;/a&gt; or &lt;a class="reference external" href="https://github.com"&gt;Github&lt;/a&gt;. To end with, I
+got everyone to fork my repository and submit pull requests.&lt;/p&gt;
+&lt;p&gt;I think everyone got the hang of it. There were some good questions, a bit of
+discussion too. I do hope it'll get more people to use &lt;a class="reference external" href="https://git-scm.com/"&gt;Git&lt;/a&gt; and contribute to
+different projects on &lt;a class="reference external" href="https://pagure.io"&gt;Pagure&lt;/a&gt; or &lt;a class="reference external" href="https://github.com"&gt;Github&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="feedback-is-always-welcome"&gt;
+&lt;h2&gt;Feedback is always welcome&lt;/h2&gt;
+&lt;p&gt;If you had attended the session, or have gone through the logs and have some
+feedback, please get in touch. You can use the Fedora classroom channels:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;a class="reference external" href="mailto:classroom&amp;#64;lists.fedoraproject.org"&gt;mailing list&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;#fedora-classroom on Freenode &lt;a class="reference external" href="http://webchat.freenode.net/?channels=%23fedora-classroom"&gt;IRC channel&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;You can even comment on this blog post, and of course, you can give me feedback
+privately. I'm FranciscoD on quite a few Fedora IRC channels, and I can be
+reached via e-mail on my Fedora address at ankursinha AT fedoraproject DOT org.
+All suggestions, comments, criticism is most welcome.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="more-instructors-needed"&gt;
+&lt;h2&gt;More instructors needed!&lt;/h2&gt;
+&lt;p&gt;The classroom sessions are going rather well, but &lt;a class="reference external" href="https://fedoraproject.org/wiki/Classroom#Help_wanted"&gt;we still need more help&lt;/a&gt;. We'd like to cover
+more topics from different areas, not just tech related- everything from
+design, to free software philosophy and community building! If there's anything
+at all you think is worth a classroom session, please get in touch with the
+team on the &lt;a class="reference external" href="mailto:classroom&amp;#64;lists.fedoraproject.org"&gt;Fedora classroom mailing list&lt;/a&gt;. A log of all past sessions -
+whether on &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Internet_Relay_Chat"&gt;IRC&lt;/a&gt; or on a video platform are maintained on the wiki page &lt;a class="reference external" href="https://fedoraproject.org/wiki/Classroom#Previous_Sessions"&gt;here&lt;/a&gt; for everyone to
+peruse at their convenience.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="logs"&gt;
+&lt;h2&gt;Logs&lt;/h2&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://meetbot.fedoraproject.org/fedora-classroom/2017-10-05/fedora-classroom.2017-10-05-14.17.log.html"&gt;HTML logs&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://meetbot.fedoraproject.org/fedora-classroom/2017-10-05/fedora-classroom.2017-10-05-14.17.html"&gt;HTML minutes&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://meetbot.fedoraproject.org/fedora-classroom/2017-10-05/fedora-classroom.2017-10-05-14.17.txt"&gt;Text minutes&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+</content><category term="Tech"/><category term="Community"/><category term="Fedora"/><category term="Git"/><category term="Planet"/></entry><entry><title>Two new planets for neuroscientists</title><link href="https://ankursinha.in/2016/11/26/two-new-planets-for-neuroscientists.html" rel="alternate"/><published>2016-11-26T14:53:57+00:00</published><updated>2016-11-26T14:53:57+00:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2016-11-26:/2016/11/26/two-new-planets-for-neuroscientists.html</id><summary type="html">&lt;p class="first last"&gt;No, not heavenly bodies, feed aggregators.&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;Keeping up with research publications is always a challenge for researchers. There's simply too much going on. Most of us have a daily or maybe hebdomadal slot where we go over various journals and news. We use things like e-mail alerts, RSS feeds, and that sort of thing. I have a &lt;a class="reference external" href="https://github.com/sanjayankur31/feedlists"&gt;rather long list of RSS feeds&lt;/a&gt; set up in the excellent &lt;a class="reference external" href="https://lzone.de/liferea/"&gt;Liferea&lt;/a&gt; reader myself.&lt;/p&gt;
+&lt;p&gt;Now, the one problem with using a desktop application is that it must be set up on every machine that you use - even on your phone. This isn't ideal, really. It is also not ideal that we all end up having our own private lists. So, I thought it'd be nicer if I could set something up on the web that we could all access from everywhere without needing an app. The simple choice was to use &lt;a class="reference external" href="http://intertwingly.net/code/venus/"&gt;venus&lt;/a&gt; to set up &lt;em&gt;planet&lt;/em&gt; instances.&lt;/p&gt;
+&lt;p&gt;Those that have been around the free and open source community will already know what planets are. They're web pages that aggregate feeds from various sources - usually community members' blogs. There are quite a few around and I follow a few myself -  &lt;a class="reference external" href="https://planet.fedoraproject.org/"&gt;Planet Fedora&lt;/a&gt;, &lt;a class="reference external" href="http://planet.gnome.org/"&gt;Planet GNOME&lt;/a&gt;, and &lt;a class="reference external" href="https://planet.mozilla.org/"&gt;Planet Mozilla&lt;/a&gt;, for example. They're extremely useful to keep onesself up to date with the happenings in the communities.&lt;/p&gt;
+&lt;p&gt;So, I've gone ahead and set up two new planet instances to aggregate information from a myriad of neuroscience sources. The first is &lt;a class="reference external" href="https://sanjayankur31.github.io/planet-neuroscience/"&gt;Planet neuroscience&lt;/a&gt;. The feeds this one aggregates are all from peer reviewed journals. So, pure research on this one. It's one long list of new publications.&lt;/p&gt;
+&lt;p&gt;The second one is &lt;a class="reference external" href="https://sanjayankur31.github.io/planet-neuroscientists/"&gt;Planet neuroscientists&lt;/a&gt;. On this one, I collect posts from various neuroscience news sites and blogs. Quite a few of these sources help make neuroscience more accessible by summarising concepts and results. They also discuss more general topics such as the research method, collaboration, open access, and the sort. So, these are also quite useful to read.&lt;/p&gt;
+&lt;p&gt;I hope that these two planet instances will help us keep up to date with neuroscience research with less effort than before. They're both hosted on Github and are therefore, public pages. I don't reckon there'd be any bandwidth issues either. They're just static pages. Please do give them a go to see if you find them useful and of course, please spread the word too.&lt;/p&gt;
+&lt;p&gt;At the moment, I have a cron job that updates them once daily, and I've put up some initial source that I was already following. If you know of any other sources that are worth following too, please do get in touch with me. The themes are extremely simple. You can always open pull requests if you'd like to make them better.&lt;/p&gt;
+&lt;p&gt;Have a great weekend, and do drop me a line if you find these new planets useful!&lt;/p&gt;
+</content><category term="Research"/><category term="Fedora"/><category term="Community"/><category term="Computational neuroscience"/><category term="Git"/></entry><entry><title>Quickly scripting a grid-search for parameter tuning</title><link href="https://ankursinha.in/2016/08/27/quickly-scripting-a-grid-search-for-parameter-tuning.html" rel="alternate"/><published>2016-08-27T10:10:04+01:00</published><updated>2016-08-27T10:10:04+01:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2016-08-27:/2016/08/27/quickly-scripting-a-grid-search-for-parameter-tuning.html</id><summary type="html">&lt;p class="first last"&gt;Finding the right set of parameters is quite important in a lot of research - machine learning and computational neuroscience are two fields that I know of. I recently had to ascertain the optimal parameter set for my simulations too. I came up with a quick script to do it for me.&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;A lot of models rely on different parameters. In my cortical models, these are usually variables like conductances of different sets of synapses, the sparsity of different synapse sets, learning rates of spike time dependent plasticity learning rules and so on. Given how finely tuned neuronal networks sometimes are, models don't depict the expected behaviours for the entire domain of parameter values. Instead, we often must find the right ranges of these parameters.&lt;/p&gt;
+&lt;p&gt;In my simulations, I have some sets of synapses, and in my recent investigations, I needed to find the right &amp;quot;balance&amp;quot; between them. The standard way of going about this is to carry out an organised parameter search, what I think is referred to as a &amp;quot;grid search&amp;quot;. In a grid search, each point in the parameter space is tested to find the ranges where the required behaviour is simulated - really just simple brute force at play here. Now, since I have three parameters to test, my parameter space would be a three dimensional grid - the Cartesian product of the domains of the three parameters - &lt;code&gt;p1 x p2 x p3&lt;/code&gt;. For all possible ordered sets of p1, p2, and p3, I need to run my simulation - the number of possible combinations being &lt;code&gt;n(p1) x n(p2) x n(p3)&lt;/code&gt;, where &lt;code&gt;n&lt;/code&gt; is the cardinality of each set.&lt;/p&gt;
+&lt;p&gt;Of course, I wrote myself a script. Modifying the parameters by hand and then queuing up all these simulations manually on the cluster would just take too much time.&lt;/p&gt;
+&lt;div class="section" id="the-idea"&gt;
+&lt;h2&gt;The idea&lt;/h2&gt;
+&lt;p&gt;It's a simple Python script, and this fits well with my &lt;a class="reference external" href="20160531-some-tips-and-tricks-for-running-simulations-on-a-cluster.rst"&gt;workflow&lt;/a&gt; (which intensively uses Git and scripts to queue jobs on the cluster). The idea is:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;create a new Git branch for the grid search (so we keep things organised!)&lt;/li&gt;
+&lt;li&gt;use a simple scripting language to iterate over the parameter space&lt;/li&gt;
+&lt;li&gt;modify the parameters in the simulation source code&lt;/li&gt;
+&lt;li&gt;create a new commit for each point in the parameter space&lt;/li&gt;
+&lt;li&gt;queue up all these commits on the cluster&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="section" id="the-script"&gt;
+&lt;h2&gt;The script&lt;/h2&gt;
+&lt;p&gt;I've used Python - you can use another scripting language that you prefer. I wouldn't recommend a shell script - even though it's powerful, handling arrays and floats and the sort is quite tedious in bash.&lt;/p&gt;
+&lt;pre class="code Python literal-block"&gt;
+&lt;span class="ch"&gt;#!/usr/bin/env python3&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="sd"&gt;&amp;quot;&amp;quot;&amp;quot;
+Copyright 2016 Ankur Sinha
+Author: Ankur Sinha &amp;lt;sanjay DOT ankur AT gmail DOT com&amp;gt;
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see &amp;lt;http://www.gnu.org/licenses/&amp;gt;.
+&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+
+&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;sys&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;os&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;numpy&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;subprocess&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;datetime&lt;/span&gt;&lt;span class="w"&gt;
+
+
+&lt;/span&gt;&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;GridSearch&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+
+    &lt;/span&gt;&lt;span class="sd"&gt;&amp;quot;&amp;quot;&amp;quot;Set up your simulations for a grid search.
+
+
+    This will modify the source in a branch, make changes, commit
+    and then you can set these commits up on the cluster.
+    &amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+
+&lt;/span&gt;    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="fm"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;&lt;span class="w"&gt;
+        &lt;/span&gt;&lt;span class="sd"&gt;&amp;quot;&amp;quot;&amp;quot;Initialise.&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;source&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;/path/to/source/file/&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;branch&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;master&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+
+&lt;/span&gt;    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;usage&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;&lt;span class="w"&gt;
+        &lt;/span&gt;&lt;span class="sd"&gt;&amp;quot;&amp;quot;&amp;quot;Print usage.&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;        &lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Usage:&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;file&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;sys&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;stderr&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;        &lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;python3 grid_search.py &amp;lt;branch&amp;gt;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;file&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;sys&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;stderr&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;        &lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Branch MUST be specified.&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;file&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;sys&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;stderr&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+
+&lt;/span&gt;    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;setup&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;branch&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;range_dict&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;&lt;span class="w"&gt;
+        &lt;/span&gt;&lt;span class="sd"&gt;&amp;quot;&amp;quot;&amp;quot;Set it up.&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;branch&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;branch&lt;/span&gt;&lt;span class="w"&gt;
+
+&lt;/span&gt;        &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="nb"&gt;len&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;range_dict&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;'param1'&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;            &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;param1_increment&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mf"&gt;0.5&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;            &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;param1_min&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;range_dict&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;'param1'&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;            &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;param1_max&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;range_dict&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;'param1'&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;param1_increment&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;        &lt;span class="k"&gt;elif&lt;/span&gt; &lt;span class="nb"&gt;len&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;range_dict&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;'param1'&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;            &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;param1_increment&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;range_dict&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;'param1'&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;            &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;param1_min&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;range_dict&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;'param1'&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;            &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;param1_max&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;range_dict&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;'param1'&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;param1_increment&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;        &lt;span class="k"&gt;else&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;            &lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;param1 not found in dict. Exiting.&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;file&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;sys&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;stderr&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;            &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="kc"&gt;False&lt;/span&gt;&lt;span class="w"&gt;
+
+&lt;/span&gt;        &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="nb"&gt;len&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;range_dict&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;'param2'&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;            &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;param2_increment&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mf"&gt;0.5&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;            &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;param2_min&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;range_dict&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;'param2'&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;            &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;param2_max&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;range_dict&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;'param2'&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;param2_increment&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;        &lt;span class="k"&gt;elif&lt;/span&gt; &lt;span class="nb"&gt;len&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;range_dict&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;'param2'&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;            &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;param2_increment&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;range_dict&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;'param2'&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;            &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;param2_min&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;range_dict&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;'param2'&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;            &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;param2_max&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;range_dict&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;'param2'&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;param2_increment&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;        &lt;span class="k"&gt;else&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;            &lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;param2 not found in dict. Exiting.&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;file&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;sys&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;stderr&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;            &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="kc"&gt;False&lt;/span&gt;&lt;span class="w"&gt;
+
+&lt;/span&gt;        &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="nb"&gt;len&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;range_dict&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;'param3'&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;            &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;param3_increment&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mf"&gt;0.5&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;            &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;param3_min&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;range_dict&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;'param3'&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;            &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;param3_max&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;range_dict&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;'param3'&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;param3_increment&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;        &lt;span class="k"&gt;elif&lt;/span&gt; &lt;span class="nb"&gt;len&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;range_dict&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;'param3'&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;            &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;param3_increment&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;range_dict&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;'param3'&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;            &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;param3_min&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;range_dict&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;'param3'&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;            &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;param3_max&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;range_dict&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;'param3'&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;param3_increment&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;        &lt;span class="k"&gt;else&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;            &lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;param3 not found in dict. Exiting.&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;file&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;sys&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;stderr&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;            &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="kc"&gt;False&lt;/span&gt;&lt;span class="w"&gt;
+
+&lt;/span&gt;        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="kc"&gt;True&lt;/span&gt;&lt;span class="w"&gt;
+
+&lt;/span&gt;    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;run&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;&lt;span class="w"&gt;
+        &lt;/span&gt;&lt;span class="sd"&gt;&amp;quot;&amp;quot;&amp;quot;Run.&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;        &lt;span class="c1"&gt;# checkout the branch&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;        &lt;span class="n"&gt;git_args&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;checkout&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;-b&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;grid_search-&lt;/span&gt;&lt;span class="si"&gt;{}&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;format&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;            &lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;datetime&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;date&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;today&lt;/span&gt;&lt;span class="p"&gt;())),&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;branch&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;        &lt;span class="n"&gt;subprocess&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;call&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="s1"&gt;'git'&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;git_args&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+
+&lt;/span&gt;        &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;param1&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;numpy&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;arange&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;param1_min&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;param1_max&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;param1_increment&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;            &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;param2&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;numpy&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;arange&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;param2_min&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;param2_max&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;param2_increment&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;                &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;param3&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;numpy&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;arange&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;param3_min&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;param3_max&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;param3_increment&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;&lt;span class="w"&gt;
+
+&lt;/span&gt;                    &lt;span class="n"&gt;sed_args_param1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;'sed'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'-i'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;                                &lt;span class="s2"&gt;&amp;quot;s/param1 = .*$/param1 = &lt;/span&gt;&lt;span class="si"&gt;{}&lt;/span&gt;&lt;span class="s2"&gt;/&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;format&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;param1&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;                                &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;source&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;                    &lt;span class="n"&gt;subprocess&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;call&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;sed_args_param1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+
+&lt;/span&gt;                    &lt;span class="n"&gt;sed_args_param2&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;'sed'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'-i'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;                                &lt;span class="s2"&gt;&amp;quot;s/param2 = .*$/param2 = &lt;/span&gt;&lt;span class="si"&gt;{}&lt;/span&gt;&lt;span class="s2"&gt;/&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;format&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;param2&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;                                &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;source&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;                    &lt;span class="n"&gt;subprocess&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;call&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;sed_args_param2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+
+&lt;/span&gt;                    &lt;span class="n"&gt;sed_args_param3&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;'sed'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'-i'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;                                &lt;span class="s2"&gt;&amp;quot;s/param3 = .*$/param3 = &lt;/span&gt;&lt;span class="si"&gt;{}&lt;/span&gt;&lt;span class="s2"&gt;/&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;format&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;param3&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;                                &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;source&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;                    &lt;span class="n"&gt;subprocess&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;call&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;sed_args_param3&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+
+&lt;/span&gt;                    &lt;span class="n"&gt;git_args&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;add&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;source&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;                    &lt;span class="n"&gt;subprocess&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;call&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="s1"&gt;'git'&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;git_args&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+
+&lt;/span&gt;                    &lt;span class="n"&gt;commit_msg&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="si"&gt;{}&lt;/span&gt;&lt;span class="s2"&gt; &lt;/span&gt;&lt;span class="si"&gt;{}&lt;/span&gt;&lt;span class="s2"&gt; &lt;/span&gt;&lt;span class="si"&gt;{}&lt;/span&gt;&lt;span class="s2"&gt; &lt;/span&gt;&lt;span class="si"&gt;{}&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;format&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;                        &lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;datetime&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;date&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;today&lt;/span&gt;&lt;span class="p"&gt;()),&lt;/span&gt; &lt;span class="n"&gt;param1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;                        &lt;span class="n"&gt;param2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;param3&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+
+&lt;/span&gt;                    &lt;span class="n"&gt;git_args&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;commit&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;-m&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;commit_msg&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;                    &lt;span class="n"&gt;subprocess&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;call&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="s1"&gt;'git'&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;git_args&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+
+&lt;/span&gt;        &lt;span class="n"&gt;git_args&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;checkout&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;branch&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;        &lt;span class="n"&gt;subprocess&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;call&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="s1"&gt;'git'&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;git_args&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+
+&lt;/span&gt;&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="vm"&gt;__name__&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;__main__&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;    &lt;span class="n"&gt;search&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;GridSearch&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="nb"&gt;len&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;sys&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;argv&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;!=&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;        &lt;span class="n"&gt;search&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;usage&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;        &lt;span class="n"&gt;sys&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;exit&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;    &lt;span class="k"&gt;else&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;        &lt;span class="n"&gt;branch&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;sys&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;argv&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;        &lt;span class="c1"&gt;# dictionary that holds the required grid ranges&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;        &lt;span class="c1"&gt;# specify min, max if want a grid search, else specify only one value&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;        &lt;span class="c1"&gt;# if you specify max, min, you must specify increment&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;        &lt;span class="n"&gt;setup_dict&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;            &lt;span class="s1"&gt;'param1'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mf"&gt;3.&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;            &lt;span class="s1"&gt;'param2'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mf"&gt;0.5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;3.&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;0.5&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;            &lt;span class="s1"&gt;'param3'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;5.&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;30.&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;5.&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;        &lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;        &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;search&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;setup&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;branch&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;setup_dict&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;            &lt;span class="n"&gt;search&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;run&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/pre&gt;
+&lt;p&gt;Since I'm calling &lt;code&gt;sed&lt;/code&gt; to modify my source and replace the parameter values, the only requirement here is that my source code needs to have the three lines (look at the regular expressions):&lt;/p&gt;
+&lt;pre class="code Python literal-block"&gt;
+&lt;span class="n"&gt;param1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="o"&gt;..&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="n"&gt;param2&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="o"&gt;..&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="n"&gt;param3&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="o"&gt;..&lt;/span&gt;
+&lt;/pre&gt;
+&lt;p&gt;If all goes well, you should have a new branch:&lt;/p&gt;
+&lt;pre class="code console literal-block"&gt;
+&lt;span class="go"&gt;* 74866b6 - (3 months ago) Bugfix - neurons first, synapses later — Ankur Sinha (Ankur Sinha Gmail)
+| * fd6a7fa - (5 days ago) 2016-08-22 3.0 3.0 -30.0 — Ankur Sinha (Ankur Sinha Gmail) (origin/grid_search-2016-08-22, grid_search-2016-08-22)
+| * 33c95be - (5 days ago) 2016-08-22 3.0 3.0 -25.0 — Ankur Sinha (Ankur Sinha Gmail)
+| * 51f96c1 - (5 days ago) 2016-08-22 3.0 3.0 -20.0 — Ankur Sinha (Ankur Sinha Gmail)
+| * e8c106e - (5 days ago) 2016-08-22 3.0 3.0 -15.0 — Ankur Sinha (Ankur Sinha Gmail)
+| * eaa7341 - (5 days ago) 2016-08-22 3.0 3.0 -10.0 — Ankur Sinha (Ankur Sinha Gmail)
+| * 4597114 - (5 days ago) 2016-08-22 3.0 3.0 -5.0 — Ankur Sinha (Ankur Sinha Gmail)
+| * a111e00 - (5 days ago) 2016-08-22 3.0 2.5 -30.0 — Ankur Sinha (Ankur Sinha Gmail)
+| * 5261f4b - (5 days ago) 2016-08-22 3.0 2.5 -25.0 — Ankur Sinha (Ankur Sinha Gmail)
+| * d10a686 - (5 days ago) 2016-08-22 3.0 2.5 -20.0 — Ankur Sinha (Ankur Sinha Gmail)
+| * 91bc10e - (5 days ago) 2016-08-22 3.0 2.5 -15.0 — Ankur Sinha (Ankur Sinha Gmail)
+| * add5188 - (5 days ago) 2016-08-22 3.0 2.5 -10.0 — Ankur Sinha (Ankur Sinha Gmail)
+| * c93c817 - (5 days ago) 2016-08-22 3.0 2.5 -5.0 — Ankur Sinha (Ankur Sinha Gmail)
+| * 8e779b9 - (5 days ago) 2016-08-22 3.0 2.0 -30.0 — Ankur Sinha (Ankur Sinha Gmail)
+| * 9f67e1c - (5 days ago) 2016-08-22 3.0 2.0 -25.0 — Ankur Sinha (Ankur Sinha Gmail)
+.....&lt;/span&gt;
+&lt;/pre&gt;
+&lt;p&gt;Now, with the help of some bash hacking I get a list of all the commits I need to queue up in a single line:&lt;/p&gt;
+&lt;pre class="code bash literal-block"&gt;
+&lt;span class="c1"&gt;# list all commits reachable from grid_search.. branch but not from the base_branch
+&lt;/span&gt;$&lt;span class="w"&gt; &lt;/span&gt;git&lt;span class="w"&gt; &lt;/span&gt;log&lt;span class="w"&gt; &lt;/span&gt;base_branch..grid_search-2016-08-22&lt;span class="w"&gt;  &lt;/span&gt;--oneline&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;cut&lt;span class="w"&gt; &lt;/span&gt;-f1&lt;span class="w"&gt; &lt;/span&gt;-d&lt;span class="s2"&gt;&amp;quot; &amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;tr&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;\n&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot; &amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;fd6a7fa&lt;span class="w"&gt; &lt;/span&gt;33c95be&lt;span class="w"&gt; &lt;/span&gt;51f96c1&lt;span class="w"&gt; &lt;/span&gt;..&lt;span class="w"&gt; &lt;/span&gt;e8c106e&lt;span class="w"&gt; &lt;/span&gt;eaa7341
+&lt;/pre&gt;
+&lt;p&gt;Then, I use the bash &lt;code&gt;for&lt;/code&gt; construct to queue them all up as before:&lt;/p&gt;
+&lt;pre class="code bash literal-block"&gt;
+$&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;for&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;commit&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;in&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;fd6a7fa&lt;span class="w"&gt; &lt;/span&gt;33c95be&lt;span class="w"&gt; &lt;/span&gt;51f96c1&lt;span class="w"&gt; &lt;/span&gt;..&lt;span class="w"&gt; &lt;/span&gt;e8c106e&lt;span class="w"&gt; &lt;/span&gt;eaa7341&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;do&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;./start-job.sh&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$commit&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;32&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;sleep&lt;span class="w"&gt; &lt;/span&gt;1m&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;done&lt;/span&gt;
+&lt;/pre&gt;
+&lt;p&gt;Note - I used the &lt;code&gt;sleep&lt;/code&gt; command to space out each job by a minute. This is because my workflow uses folder names which are timestamps of when the job was queued up, like this: &lt;code&gt;201608121234&lt;/code&gt; (YYYYMMDDHHMM). So, I can't have two commits starting at the same minute.&lt;/p&gt;
+&lt;p&gt;There are many ways of carrying out the same method. This is what I quickly came up with. &lt;a class="reference external" href="http://scikit-learn.org"&gt;Scikit&lt;/a&gt;, for example has &lt;a class="reference external" href="http://scikit-learn.org/stable/modules/grid_search.html"&gt;methods for grid search&lt;/a&gt;, but they don't gel well with my simulations.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="postprocessing-all-this-data"&gt;
+&lt;h2&gt;Postprocessing all this data&lt;/h2&gt;
+&lt;p&gt;I have a bunch of scripts for post processing too - this grid search had 36 simulations, the postprocessing is still trudging along. The bigger question is: is there a good way of visualising all these results? I've had to resort to a spreadsheet - but if you have any suggestions, please do let me know. I really haven't found a nice front-end that would let me log results to a database and visualise them - over time, over parameters and so on - does anyone know one? What do people use to keep track of all their data?&lt;/p&gt;
+&lt;p&gt;Anyway, it's a long weekend here with Monday being a bank holiday. Enjoy the weekend, everyone!&lt;/p&gt;
+&lt;/div&gt;
+</content><category term="Research"/><category term="Computational neuroscience"/><category term="Fedora"/><category term="Git"/><category term="Programming"/><category term="Python"/></entry><entry><title>Checking your LaTeX sources for spelling errors with Hunspell</title><link href="https://ankursinha.in/2016/06/02/checking-your-latex-sources-for-spelling-errors-with-hunspell.html" rel="alternate"/><published>2016-06-02T11:42:00+01:00</published><updated>2016-06-02T11:42:00+01:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2016-06-02:/2016/06/02/checking-your-latex-sources-for-spelling-errors-with-hunspell.html</id><summary type="html">&lt;p class="first last"&gt;For command line users that write in &lt;a class="reference external" href="https://latex-project.org/intro.html"&gt;LaTeX&lt;/a&gt;, &lt;a class="reference external" href="http://hunspell.github.io/"&gt;Hunspell&lt;/a&gt; is a great tool to check spellings.&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;I usually use &lt;a class="reference external" href="http://www.vim.org/"&gt;Vim&lt;/a&gt; and a &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Makefile"&gt;Makefile&lt;/a&gt; when writing LaTeX documents. Even though &lt;a class="reference external" href="http://vimdoc.sourceforge.net/htmldoc/spell.html"&gt;Vim does permit you to check your spellings&lt;/a&gt;, it's always nice to run the entire text through a standalone spell checker before passing your documents on to others.&lt;/p&gt;
+&lt;p&gt;The workflow is quite simple. Once you've written your text, you commit your changes, and then you can use one of either &lt;a class="reference external" href="http://aspell.net/"&gt;Aspell&lt;/a&gt; or &lt;a class="reference external" href="http://hunspell.github.io/"&gt;Hunspell&lt;/a&gt; to check your text for spelling errors. Both provide an interactive interface that makes them easy to use.&lt;/p&gt;
+&lt;p&gt;On &lt;a class="reference external" href="http://getfedora.org"&gt;Fedora&lt;/a&gt;, you can install them using &lt;code&gt;dnf&lt;/code&gt;:&lt;/p&gt;
+&lt;pre class="code bash literal-block"&gt;
+sudo&lt;span class="w"&gt; &lt;/span&gt;dnf&lt;span class="w"&gt; &lt;/span&gt;install&lt;span class="w"&gt; &lt;/span&gt;aspell&lt;span class="w"&gt; &lt;/span&gt;hunspell
+&lt;/pre&gt;
+&lt;p&gt;You'll also need to make sure you have the language files installed:&lt;/p&gt;
+&lt;pre class="code bash literal-block"&gt;
+sudo&lt;span class="w"&gt; &lt;/span&gt;dnf&lt;span class="w"&gt; &lt;/span&gt;install&lt;span class="w"&gt; &lt;/span&gt;aspell-en&lt;span class="w"&gt; &lt;/span&gt;hunspell-en
+&lt;/pre&gt;
+&lt;p&gt;Then, to check all your &lt;code&gt;.tex&lt;/code&gt; files, you can use something like this:&lt;/p&gt;
+&lt;pre class="code bash literal-block"&gt;
+find&lt;span class="w"&gt; &lt;/span&gt;.&lt;span class="w"&gt; &lt;/span&gt;-name&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;*.tex&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-exec&lt;span class="w"&gt; &lt;/span&gt;aspell&lt;span class="w"&gt; &lt;/span&gt;--lang&lt;span class="o"&gt;=&lt;/span&gt;en&lt;span class="w"&gt; &lt;/span&gt;--mode&lt;span class="o"&gt;=&lt;/span&gt;tex&lt;span class="w"&gt; &lt;/span&gt;check&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;{}&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="se"&gt;\;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c1"&gt;# Aspell
+&lt;/span&gt;find&lt;span class="w"&gt; &lt;/span&gt;.&lt;span class="w"&gt; &lt;/span&gt;-name&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;*.tex&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-exec&lt;span class="w"&gt; &lt;/span&gt;hunspell&lt;span class="w"&gt; &lt;/span&gt;-t&lt;span class="w"&gt; &lt;/span&gt;-i&lt;span class="w"&gt; &lt;/span&gt;utf-8&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;'{}'&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="se"&gt;\;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c1"&gt;# Hunspell&lt;/span&gt;
+&lt;/pre&gt;
+&lt;p&gt;I looked around a bit, and decided to use &lt;a class="reference external" href="http://hunspell.github.io/"&gt;Hunspell&lt;/a&gt;. It's used by LibreOffice, Firefox, and other applications. I commit my work first and then run the above command which opens a window like this:&lt;/p&gt;
+&lt;a class="reference external image-reference" href="https://ankursinha.in/images/hunspell-example.png"&gt;
+&lt;img alt="Hunspell screenshot" src="https://ankursinha.in/images/hunspell-example.png" style="width: 750px;" /&gt;
+&lt;/a&gt;
+&lt;p&gt;Once you've gone through it and made your changes, you can then use &lt;code&gt;git diff --word-diff&lt;/code&gt; to review your changes. If you'd like to undo some of them, use &lt;code&gt;git add -i&lt;/code&gt; and so on:&lt;/p&gt;
+&lt;a class="reference external image-reference" href="https://ankursinha.in/images/git-word-diff.png"&gt;
+&lt;img alt="Git diff screenshot" src="https://ankursinha.in/images/git-word-diff.png" style="width: 750px;" /&gt;
+&lt;/a&gt;
+&lt;p&gt;That's it! Happy writing!&lt;/p&gt;
+</content><category term="Research"/><category term="Fedora"/><category term="Git"/><category term="LaTeX"/><category term="Linux"/><category term="Vim"/></entry><entry><title>Some tips and tricks for running simulations on a cluster</title><link href="https://ankursinha.in/2016/05/31/some-tips-and-tricks-for-running-simulations-on-a-cluster.html" rel="alternate"/><published>2016-05-31T19:17:32+01:00</published><updated>2016-05-31T19:17:32+01:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2016-05-31:/2016/05/31/some-tips-and-tricks-for-running-simulations-on-a-cluster.html</id><summary type="html">&lt;p class="first last"&gt;I use the cluster here at university to run my simulations in &lt;a class="reference external" href="https://github.com/nest/nest-simulator"&gt;Nest&lt;/a&gt;. This post documents some tips and tricks I've come up with to make my cluster tasks easier.&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;To begin with, you must use a terminal multiplexer! I use &lt;a class="reference external" href="http://byobu.org/"&gt;Byobu with tmux&lt;/a&gt; to multiplex a single SSH session. I use it on all my machines. It's an excellent tool.&lt;/p&gt;
+&lt;div class="section" id="monitoring-your-jobs"&gt;
+&lt;h2&gt;Monitoring your jobs&lt;/h2&gt;
+&lt;p&gt;Three of my Byobu screens run these commands to monitor the queue and my jobs:&lt;/p&gt;
+&lt;pre class="code bash literal-block"&gt;
+watch&lt;span class="w"&gt; &lt;/span&gt;-n&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;30&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;qstat&lt;span class="w"&gt; &lt;/span&gt;main&lt;span class="w"&gt;
+&lt;/span&gt;watch&lt;span class="w"&gt; &lt;/span&gt;-n&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;30&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;qstat&lt;span class="w"&gt; &lt;/span&gt;-B&lt;span class="w"&gt;
+&lt;/span&gt;watch&lt;span class="w"&gt; &lt;/span&gt;-n&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;30&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;/usr/local/maui/bin/showq&lt;span class="w"&gt; &lt;/span&gt;-u&lt;span class="w"&gt; &lt;/span&gt;asinha
+&lt;/pre&gt;
+&lt;p&gt;&lt;code&gt;showq&lt;/code&gt; may be installed elsewhere. Use &lt;code&gt;which showq&lt;/code&gt; to locate it. More information on the commands can be found in their manuals:&lt;/p&gt;
+&lt;pre class="code bash literal-block"&gt;
+man&lt;span class="w"&gt; &lt;/span&gt;watch&lt;span class="w"&gt;
+&lt;/span&gt;man&lt;span class="w"&gt; &lt;/span&gt;qstat
+&lt;/pre&gt;
+&lt;p&gt;Remember, to find a man page, you can use the &lt;code&gt;apropos&lt;/code&gt; command.&lt;/p&gt;
+&lt;p&gt;I run all my simulations in a specific directory on the shared data disk. I usually also monitor this folder. It gives me an idea of how much my simulations have progressed. Something like this works:&lt;/p&gt;
+&lt;pre class="code bash literal-block"&gt;
+watch&lt;span class="w"&gt; &lt;/span&gt;-n&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;30&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;'du -sch *'&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c1"&gt;# in the directory that stores simulation results*&lt;/span&gt;
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div class="section" id="use-git"&gt;
+&lt;h2&gt;Use Git&lt;/h2&gt;
+&lt;p&gt;Of course. If you make frequent changes, you must use a version control system. I stick to &lt;code&gt;git&lt;/code&gt; myself. You can use &lt;code&gt;svn&lt;/code&gt; or &lt;code&gt;hg&lt;/code&gt; if you wish - whatever floats your boat.&lt;/p&gt;
+&lt;p&gt;An issue I've stumbled upon while working with the cluster is that the program you want it to run is not loaded into memory until your job begins to run. So, if you want to run a certain version of your program on the cluster, say some version_1, you must not make any changes to this version until the queued job has begun to run. This is extremely inconvenient, especially if you make frequent changes to your simulations, as is often the case in research. I would, for example, like to queue separate jobs in parallel for a myriad of tiny changes and then compare results.&lt;/p&gt;
+&lt;p&gt;Enter &lt;a class="reference external" href="https://git-scm.com/docs/git-worktree"&gt;git work-tree&lt;/a&gt;! The simplest solution to the aforementioned issue is to checkout different work-trees for commits you want to test and queue up jobs for each individually. This would work really well. Once the simulation finishes, you can remove the work-tree.&lt;/p&gt;
+&lt;p&gt;Unfortunately, clusters usually run stable long term support oriented versions of Linux distributions - EL/CentOS/Scientific. As a result, it's quite probable that the version of git on the cluster doesn't support work-trees - as is the case with the cluster I use. I came up with a workaround which works somewhat like work-trees - I manually clone my source repository to a temporary location, checkout the commit I want to run (which is what work-trees sort of are), and set up a job that runs this particular simulation version. It uses two scripts:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;A template PBS script for the simulation run. This will be passed to &lt;code&gt;qsub&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;A script that clones my repo, checks out the required commit, completes the template script, and calls &lt;code&gt;qsub&lt;/code&gt; to queue up the job.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The first is a simple PBS script:&lt;/p&gt;
+&lt;pre class="code bash literal-block"&gt;
+&lt;span class="c1"&gt;# File: run-sim.sh
+&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="c1"&gt;#PBS -l walltime=48:00:00
+#PBS -l nodes=50
+#PBS -m abe
+#PBS -N nest_v_s
+&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;module&lt;span class="w"&gt; &lt;/span&gt;unload&lt;span class="w"&gt; &lt;/span&gt;mpi/mpich-x86_64&lt;span class="w"&gt;
+&lt;/span&gt;module&lt;span class="w"&gt; &lt;/span&gt;load&lt;span class="w"&gt; &lt;/span&gt;mvapich2-1.7&lt;span class="w"&gt;
+
+&lt;/span&gt;&lt;span class="nv"&gt;SIM_PATH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;/stri-data/asinha/simulations-nest/&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="nv"&gt;SIM_TIME&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="nv"&gt;PROGRAM_PATH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$SIM_PATH&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$SIM_TIME&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&amp;quot;/Sinha2016/src/Sinha2016.py&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="nv"&gt;RESULT_PATH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$SIM_PATH&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$SIM_TIME&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&amp;quot;/result/&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="nv"&gt;NUM_NODES&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;50&lt;/span&gt;&lt;span class="w"&gt;
+
+&lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;------------------------------------------------------&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;'Job is running on nodes'&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;cat&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;$PBS_NODEFILE&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;------------------------------------------------------&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;PBS:&lt;span class="w"&gt; &lt;/span&gt;qsub&lt;span class="w"&gt; &lt;/span&gt;is&lt;span class="w"&gt; &lt;/span&gt;running&lt;span class="w"&gt; &lt;/span&gt;on&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;$PBS_O_HOST&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;PBS:&lt;span class="w"&gt; &lt;/span&gt;originating&lt;span class="w"&gt; &lt;/span&gt;queue&lt;span class="w"&gt; &lt;/span&gt;is&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;$PBS_O_QUEUE&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;PBS:&lt;span class="w"&gt; &lt;/span&gt;executing&lt;span class="w"&gt; &lt;/span&gt;queue&lt;span class="w"&gt; &lt;/span&gt;is&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;$PBS_QUEUE&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;PBS:&lt;span class="w"&gt; &lt;/span&gt;working&lt;span class="w"&gt; &lt;/span&gt;directory&lt;span class="w"&gt; &lt;/span&gt;is&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;$PBS_O_WORKDIR&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;PBS:&lt;span class="w"&gt; &lt;/span&gt;execution&lt;span class="w"&gt; &lt;/span&gt;mode&lt;span class="w"&gt; &lt;/span&gt;is&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;$PBS_ENVIRONMENT&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;PBS:&lt;span class="w"&gt; &lt;/span&gt;job&lt;span class="w"&gt; &lt;/span&gt;identifier&lt;span class="w"&gt; &lt;/span&gt;is&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;$PBS_JOBID&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;PBS:&lt;span class="w"&gt; &lt;/span&gt;job&lt;span class="w"&gt; &lt;/span&gt;name&lt;span class="w"&gt; &lt;/span&gt;is&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;$PBS_JOBNAME&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;PBS:&lt;span class="w"&gt; &lt;/span&gt;node&lt;span class="w"&gt; &lt;/span&gt;file&lt;span class="w"&gt; &lt;/span&gt;is&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;$PBS_NODEFILE&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;PBS:&lt;span class="w"&gt; &lt;/span&gt;current&lt;span class="w"&gt; &lt;/span&gt;home&lt;span class="w"&gt; &lt;/span&gt;directory&lt;span class="w"&gt; &lt;/span&gt;is&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;$PBS_O_HOME&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;PBS:&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;PATH&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;$PBS_O_PATH&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;------------------------------------------------------&lt;span class="w"&gt;
+
+&lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;ANKUR&amp;gt;&amp;gt; Begun at &lt;/span&gt;&lt;span class="nv"&gt;$SIM_TIME&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;ANKUR&amp;gt;&amp;gt; Script: &lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;0&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+
+&lt;/span&gt;mkdir&lt;span class="w"&gt; &lt;/span&gt;-pv&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;$RESULT_PATH&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="nb"&gt;cd&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;$RESULT_PATH&lt;/span&gt;&lt;span class="w"&gt;
+
+&lt;/span&gt;/usr/local/bin/mpiexec&lt;span class="w"&gt; &lt;/span&gt;-n&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;$NUM_NODES&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;python&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;$PROGRAM_PATH&lt;/span&gt;&lt;span class="w"&gt;
+
+&lt;/span&gt;&lt;span class="nv"&gt;END_TIME&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;date&lt;span class="w"&gt; &lt;/span&gt;+%Y%m%d%H%M&lt;span class="k"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;ANKUR&amp;gt;&amp;gt; Ended at &lt;/span&gt;&lt;span class="nv"&gt;$END_TIME&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+&lt;/pre&gt;
+&lt;p&gt;It sets up the required PBS options, then loads the MPI module I wish to use. It creates a directory where my simulation's results will be stored, enters it, and then uses &lt;code&gt;mpiexec&lt;/code&gt; to run my Python program.&lt;/p&gt;
+&lt;p&gt;The second script is a wrapper that clones the required commit, sets up the correct paths in the above script and the calls &lt;code&gt;qsub&lt;/code&gt;:&lt;/p&gt;
+&lt;pre class="code bash literal-block"&gt;
+&lt;span class="c1"&gt;# File: setup-job.sh
+&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="nv"&gt;SOURCE_PATH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;/home/asinha/Documents/02_Code/00_repos/00_mine/Sinha2016/&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="nv"&gt;GIT_COMMIT&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="nv"&gt;SIM_PATH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;/stri-data/asinha/simulations-nest/&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="nv"&gt;SIM_TIME&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;date&lt;span class="w"&gt; &lt;/span&gt;+%Y%m%d%H%M&lt;span class="k"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="nv"&gt;RUN_SCRIPT&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;scripts/cluster/nest-runsim.sh&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="nv"&gt;RUN_NEW&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="nv"&gt;ERROR&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;no&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="nv"&gt;NUM_NODES&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;50&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="nv"&gt;CUR_SIM_PATH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+
+&lt;/span&gt;&lt;span class="k"&gt;function&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;queue_task&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="o"&gt;{&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nb"&gt;pushd&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$CUR_SIM_PATH&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+        &lt;/span&gt;qsub&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$RUN_NEW&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nb"&gt;popd&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="o"&gt;}&lt;/span&gt;&lt;span class="w"&gt;
+
+&lt;/span&gt;&lt;span class="k"&gt;function&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;setup_env&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="o"&gt;{&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nv"&gt;CUR_SIM_PATH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$SIM_PATH&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$SIM_TIME&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;This simulation will run in: &lt;/span&gt;&lt;span class="nv"&gt;$CUR_SIM_PATH&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;mkdir&lt;span class="w"&gt; &lt;/span&gt;-pv&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$CUR_SIM_PATH&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+
+    &lt;/span&gt;&lt;span class="nb"&gt;pushd&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$CUR_SIM_PATH&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+        &lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Cloning source repository...&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+        &lt;/span&gt;git&lt;span class="w"&gt; &lt;/span&gt;clone&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$SOURCE_PATH&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Sinha2016&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+
+        &lt;/span&gt;&lt;span class="nb"&gt;pushd&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Sinha2016&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+            &lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Checking out commit &lt;/span&gt;&lt;span class="nv"&gt;$GIT_COMMIT&lt;/span&gt;&lt;span class="s2"&gt;...&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+            &lt;/span&gt;git&lt;span class="w"&gt; &lt;/span&gt;checkout&lt;span class="w"&gt; &lt;/span&gt;-b&lt;span class="w"&gt; &lt;/span&gt;this_sim&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$GIT_COMMIT&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+            &lt;/span&gt;&lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$?&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-ne&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt;
+            &lt;/span&gt;&lt;span class="k"&gt;then&lt;/span&gt;&lt;span class="w"&gt;
+                &lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Error occured. Could not checkout &lt;/span&gt;&lt;span class="nv"&gt;$GIT_COMMIT&lt;/span&gt;&lt;span class="s2"&gt;. Exiting...&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+                &lt;/span&gt;&lt;span class="nv"&gt;ERROR&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;yes&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+            &lt;/span&gt;&lt;span class="k"&gt;fi&lt;/span&gt;&lt;span class="w"&gt;
+        &lt;/span&gt;&lt;span class="nb"&gt;popd&lt;/span&gt;&lt;span class="w"&gt;
+
+        &lt;/span&gt;&lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;xyes&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;==&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;x&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$ERROR&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt;
+        &lt;/span&gt;&lt;span class="k"&gt;then&lt;/span&gt;&lt;span class="w"&gt;
+            &lt;/span&gt;&lt;span class="nb"&gt;exit&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-1&lt;span class="w"&gt;
+        &lt;/span&gt;&lt;span class="k"&gt;fi&lt;/span&gt;&lt;span class="w"&gt;
+
+        &lt;/span&gt;&lt;span class="nv"&gt;RUN_NEW&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;nest_&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$GIT_COMMIT&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&amp;quot;.sh&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+        &lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Setting up &lt;/span&gt;&lt;span class="nv"&gt;$RUN_NEW&lt;/span&gt;&lt;span class="s2"&gt;...&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+        &lt;/span&gt;cp&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$SOURCE_PATH&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$RUN_SCRIPT&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$RUN_NEW&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-v&lt;span class="w"&gt;
+        &lt;/span&gt;sed&lt;span class="w"&gt; &lt;/span&gt;-i&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;s|nest_v_s|nest_&lt;/span&gt;&lt;span class="nv"&gt;$GIT_COMMIT&lt;/span&gt;&lt;span class="s2"&gt;|&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$RUN_NEW&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+        &lt;/span&gt;sed&lt;span class="w"&gt; &lt;/span&gt;-i&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;s|nodes=.*|nodes=&lt;/span&gt;&lt;span class="nv"&gt;$NUM_NODES&lt;/span&gt;&lt;span class="s2"&gt;|&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$RUN_NEW&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+        &lt;/span&gt;sed&lt;span class="w"&gt; &lt;/span&gt;-i&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;s|NUM_NODES=.*|NUM_NODES=&lt;/span&gt;&lt;span class="nv"&gt;$NUM_NODES&lt;/span&gt;&lt;span class="s2"&gt;|&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$RUN_NEW&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+        &lt;/span&gt;sed&lt;span class="w"&gt; &lt;/span&gt;-i&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;s|SIM_TIME=.*|SIM_TIME=&lt;/span&gt;&lt;span class="nv"&gt;$SIM_TIME&lt;/span&gt;&lt;span class="s2"&gt;|&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$RUN_NEW&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nb"&gt;popd&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="o"&gt;}&lt;/span&gt;&lt;span class="w"&gt;
+
+&lt;/span&gt;&lt;span class="k"&gt;function&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;usage&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="o"&gt;{&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Usage: &lt;/span&gt;&lt;span class="nv"&gt;$0&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Queue up a job to run a particular git commit&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$0&lt;/span&gt;&lt;span class="s2"&gt; &amp;lt;git_commit&amp;gt; &amp;lt;number_nodes&amp;gt;&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="o"&gt;}&lt;/span&gt;&lt;span class="w"&gt;
+
+&lt;/span&gt;&lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$#&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-ne&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;2&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="k"&gt;then&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Error occurred. Exiting...&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Received &lt;/span&gt;&lt;span class="nv"&gt;$#&lt;/span&gt;&lt;span class="s2"&gt; arguments. Expected: 3&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;usage&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nb"&gt;exit&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-1&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="k"&gt;fi&lt;/span&gt;&lt;span class="w"&gt;
+
+&lt;/span&gt;&lt;span class="nv"&gt;GIT_COMMIT&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$1&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="nv"&gt;NUM_NODES&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$2&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;setup_env&lt;span class="w"&gt;
+&lt;/span&gt;queue_task&lt;span class="w"&gt;
+
+&lt;/span&gt;&lt;span class="nb"&gt;exit&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt;
+&lt;/pre&gt;
+&lt;p&gt;This takes two arguments, as the &lt;code&gt;usage&lt;/code&gt; function will tell you. The first argument is the commit you want to run the simulation for, and the second is the number of nodes you want to use. It'll clone your repository to a temporary location and checkout this specified commit. Then, it'll modify the first script &lt;code&gt;run-sim.sh&lt;/code&gt; to set up the correct path to the code and also correctly specify the number of nodes you'd want to request. Finally, once all this is done, it'll call &lt;code&gt;qsub run-sim.sh&lt;/code&gt; to queue up your job. I use unique date stamps as directory names to distinguish between simulation runs, but you can use another unique identifier.&lt;/p&gt;
+&lt;p&gt;Now, this copy of your code, at the specified commit will be used for the job you've queued. You can merrily go about tinkering with the main source repo without affecting queued up jobs. Yay!&lt;/p&gt;
+&lt;p&gt;Even though I've used Python here, you can use similar scripts for compiled languages. You'll simply have to compile your executable after you checkout the required commit.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="other-miscellaneous-stuff"&gt;
+&lt;h2&gt;Other miscellaneous stuff&lt;/h2&gt;
+&lt;p&gt;My lab mate, Alex, recently introduced me to &lt;a class="reference external" href="https://www.continuum.io/downloads"&gt;Anaconda&lt;/a&gt;. It's a great tool for that lets you install packages in your user specific directory. It contains quite a few python and other related packages. No need to use &lt;code&gt;sudo&lt;/code&gt; with it, and you can use &lt;code&gt;pip&lt;/code&gt; etc. with it too. It even lets you set up virtual environments and things.&lt;/p&gt;
+&lt;p&gt;I think that's it for today. I'll update the post with other things I find/learn as I continue my adventures with the cluster.&lt;/p&gt;
+&lt;/div&gt;
+</content><category term="Research"/><category term="Bash"/><category term="Computational neuroscience"/><category term="Git"/><category term="Linux"/><category term="NEST"/><category term="Programming"/><category term="Fedora"/></entry><entry><title>Calliope - helping you keep a diary - in LaTeX!</title><link href="https://ankursinha.in/2016/03/05/calliope-helping-you-keep-a-diary-in-latex.html" rel="alternate"/><published>2016-03-05T14:07:52+00:00</published><updated>2016-03-05T14:07:52+00:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2016-03-05:/2016/03/05/calliope-helping-you-keep-a-diary-in-latex.html</id><summary type="html">&lt;p class="first last"&gt;Most researchers keep a research journal where we note down our musings, notes and so on. While a paper diary is still quite common, I'd really prefer something on my laptop/computer. There are various applications out there for journal writing, but none of them really match up to good old &lt;a class="reference external" href="https://en.wikibooks.org/wiki/LaTeX"&gt;LaTeX&lt;/a&gt;. I've written a simple script that makes it really easy to maintain a journal using LaTeX - &lt;a class="reference external" href="https://github.com/sanjayankur31/calliope"&gt;Calliope&lt;/a&gt;.&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;Quite a few people write personal diaries - researchers tend to also keep research diaries where we note our generally brilliant ideas. I've used &lt;a class="reference external" href="http://lifeograph.sourceforge.net/wiki/Main_Page"&gt;Lifeograph&lt;/a&gt; for a number of years now. It's a great application with all the right features that a diary needs - chapters, tags, and  metrics. It doesn't quite work for a &lt;em&gt;research diary&lt;/em&gt;, though - it doesn't support maths notation for a start, and we really do write a lot of very complicated maths from time to time. (The kinds with lots of symbols you see in the films? Think &amp;quot;&lt;a class="reference external" href="http://www.imdb.com/title/tt0268978/"&gt;A beautiful mind&lt;/a&gt;&amp;quot;.)&lt;/p&gt;
+&lt;p&gt;The simple solution, of course, is &lt;a class="reference external" href="http://lifeograph.sourceforge.net/wiki/Main_Page"&gt;LaTeX&lt;/a&gt;. &lt;a class="reference external" href="http://lifeograph.sourceforge.net/wiki/Main_Page"&gt;LaTeX&lt;/a&gt; is used extensively in academic writing. While it does have a reputation for being complex and complicated (&lt;a class="reference external" href="http://english.stackexchange.com/questions/10459/what-is-the-difference-between-complicated-and-complex"&gt;YES! There's a difference in the two words - they're not interchangeable!&lt;/a&gt;) at times, it is by far the best tool for academic writing. It has everything a researcher needs - citation support, can be customised to fit multiple format, and if you pair it with &lt;a class="reference external" href="https://git-scm.com/"&gt;Git&lt;/a&gt; you even have versioning and &lt;a class="reference external" href="http://ankursinha.in/blog/tag/zaphod/"&gt;change tracking&lt;/a&gt;.&lt;/p&gt;
+&lt;div class="section" id="calliope"&gt;
+&lt;h2&gt;Calliope&lt;/h2&gt;
+&lt;p&gt;I went looking for packages that may provide this functionality in &lt;a class="reference external" href="http://lifeograph.sourceforge.net/wiki/Main_Page"&gt;LaTeX&lt;/a&gt; but didn't quite find any that had a convenient workflow and so on. I ran into a &lt;a class="reference external" href="https://github.com/mikhailklassen/research-diary-project"&gt;this Github project&lt;/a&gt; instead, which is a set of templates and scripts that does quite a good job. I've forked it and made some improvements. There's now a single script that takes arguments, for example. I've also added support for indexing - which works similar to tagging - it'll generate a nice clickable index at the end of the document. Of course, I've given it a fancy name, &lt;a class="reference external" href="https://github.com/sanjayankur31/calliope"&gt;Calliope, and put it up on Github&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Usage is quite straightforward:&lt;/p&gt;
+&lt;pre class="code bash literal-block"&gt;
+&lt;span class="o"&gt;[&lt;/span&gt;asinha&amp;#64;cs-as14aho-2-herts-ac-uk&lt;span class="w"&gt;  &lt;/span&gt;00_research_diary&lt;span class="o"&gt;(&lt;/span&gt;master&lt;span class="w"&gt; &lt;/span&gt;%&lt;span class="o"&gt;=)]&lt;/span&gt;$&lt;span class="w"&gt; &lt;/span&gt;./calliope.sh&lt;span class="w"&gt; &lt;/span&gt;-h&lt;span class="w"&gt;
+    &lt;/span&gt;usage:&lt;span class="w"&gt; &lt;/span&gt;./calliope.sh&lt;span class="w"&gt; &lt;/span&gt;options&lt;span class="w"&gt;
+
+    &lt;/span&gt;Master&lt;span class="w"&gt; &lt;/span&gt;script&lt;span class="w"&gt; &lt;/span&gt;file&lt;span class="w"&gt; &lt;/span&gt;that&lt;span class="w"&gt; &lt;/span&gt;provides&lt;span class="w"&gt; &lt;/span&gt;functions&lt;span class="w"&gt; &lt;/span&gt;to&lt;span class="w"&gt; &lt;/span&gt;maintain&lt;span class="w"&gt; &lt;/span&gt;a&lt;span class="w"&gt; &lt;/span&gt;journal&lt;span class="w"&gt; &lt;/span&gt;using&lt;span class="w"&gt; &lt;/span&gt;LaTeX.&lt;span class="w"&gt;
+
+    &lt;/span&gt;OPTIONS:&lt;span class="w"&gt;
+    &lt;/span&gt;-h&lt;span class="w"&gt;  &lt;/span&gt;Show&lt;span class="w"&gt; &lt;/span&gt;this&lt;span class="w"&gt; &lt;/span&gt;message&lt;span class="w"&gt; &lt;/span&gt;and&lt;span class="w"&gt; &lt;/span&gt;quit&lt;span class="w"&gt;
+
+    &lt;/span&gt;-t&lt;span class="w"&gt;  &lt;/span&gt;Add&lt;span class="w"&gt; &lt;/span&gt;new&lt;span class="w"&gt; &lt;/span&gt;entry&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;for&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;today&lt;span class="w"&gt;
+
+    &lt;/span&gt;-c&lt;span class="w"&gt;  &lt;/span&gt;Compile&lt;span class="w"&gt; &lt;/span&gt;today&lt;span class="err"&gt;'&lt;/span&gt;s&lt;span class="w"&gt; &lt;/span&gt;entry&lt;span class="w"&gt;
+
+    &lt;/span&gt;-a&lt;span class="w"&gt;  &lt;/span&gt;&amp;lt;year&amp;gt;&lt;span class="w"&gt;
+        &lt;/span&gt;Year&lt;span class="w"&gt; &lt;/span&gt;to&lt;span class="w"&gt; &lt;/span&gt;generate&lt;span class="w"&gt; &lt;/span&gt;anthology&lt;span class="w"&gt; &lt;/span&gt;of&lt;span class="w"&gt;
+
+    &lt;/span&gt;-p&lt;span class="w"&gt;  &lt;/span&gt;&amp;lt;year&amp;gt;&lt;span class="w"&gt;
+        &lt;/span&gt;Compile&lt;span class="w"&gt; &lt;/span&gt;all&lt;span class="w"&gt; &lt;/span&gt;entries&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;in&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;this&lt;span class="w"&gt; &lt;/span&gt;year&lt;span class="w"&gt;
+
+    &lt;/span&gt;-s&lt;span class="w"&gt;  &lt;/span&gt;&amp;lt;entry&amp;gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;yyyy-mm-dd&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+        &lt;/span&gt;Compile&lt;span class="w"&gt; &lt;/span&gt;specific&lt;span class="w"&gt; &lt;/span&gt;entry
+&lt;/pre&gt;
+&lt;p&gt;This is what the directory structure looks like:&lt;/p&gt;
+&lt;pre class="code bash literal-block"&gt;
+&lt;span class="o"&gt;[&lt;/span&gt;asinha&amp;#64;cs-as14aho-2-herts-ac-uk&lt;span class="w"&gt;  &lt;/span&gt;00_research_diary&lt;span class="o"&gt;(&lt;/span&gt;master&lt;span class="w"&gt; &lt;/span&gt;%&lt;span class="o"&gt;=)]&lt;/span&gt;$&lt;span class="w"&gt; &lt;/span&gt;tree&lt;span class="w"&gt;
+&lt;/span&gt;.&lt;span class="w"&gt;
+&lt;/span&gt;├──&lt;span class="w"&gt; &lt;/span&gt;calliope.sh&lt;span class="w"&gt;
+&lt;/span&gt;├──&lt;span class="w"&gt; &lt;/span&gt;diary&lt;span class="w"&gt;
+&lt;/span&gt;│&lt;span class="w"&gt;&amp;nbsp;&amp;nbsp; &lt;/span&gt;├──&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;2016&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;│&lt;span class="w"&gt;&amp;nbsp;&amp;nbsp; &lt;/span&gt;│&lt;span class="w"&gt;&amp;nbsp;&amp;nbsp; &lt;/span&gt;├──&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;2016&lt;/span&gt;-03-04.tex&lt;span class="w"&gt;
+&lt;/span&gt;│&lt;span class="w"&gt;&amp;nbsp;&amp;nbsp; &lt;/span&gt;│&lt;span class="w"&gt;&amp;nbsp;&amp;nbsp; &lt;/span&gt;├──&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;2016&lt;/span&gt;-03-05.tex&lt;span class="w"&gt;
+&lt;/span&gt;│&lt;span class="w"&gt;&amp;nbsp;&amp;nbsp; &lt;/span&gt;│&lt;span class="w"&gt;&amp;nbsp;&amp;nbsp; &lt;/span&gt;├──&lt;span class="w"&gt; &lt;/span&gt;images&lt;span class="w"&gt;
+&lt;/span&gt;│&lt;span class="w"&gt;&amp;nbsp;&amp;nbsp; &lt;/span&gt;│&lt;span class="w"&gt;&amp;nbsp;&amp;nbsp; &lt;/span&gt;├──&lt;span class="w"&gt; &lt;/span&gt;research_diary.sty&lt;span class="w"&gt; &lt;/span&gt;-&amp;gt;&lt;span class="w"&gt; &lt;/span&gt;../../templates/research_diary.sty&lt;span class="w"&gt;
+&lt;/span&gt;│&lt;span class="w"&gt;&amp;nbsp;&amp;nbsp; &lt;/span&gt;│&lt;span class="w"&gt;&amp;nbsp;&amp;nbsp; &lt;/span&gt;└──&lt;span class="w"&gt; &lt;/span&gt;stdp_connection_symmetric.h&lt;span class="w"&gt;
+&lt;/span&gt;│&lt;span class="w"&gt;&amp;nbsp;&amp;nbsp; &lt;/span&gt;└──&lt;span class="w"&gt; &lt;/span&gt;research_diary.sty&lt;span class="w"&gt; &lt;/span&gt;-&amp;gt;&lt;span class="w"&gt; &lt;/span&gt;../templates/research_diary.sty&lt;span class="w"&gt;
+&lt;/span&gt;├──&lt;span class="w"&gt; &lt;/span&gt;pdfs&lt;span class="w"&gt;
+&lt;/span&gt;│&lt;span class="w"&gt;&amp;nbsp;&amp;nbsp; &lt;/span&gt;└──&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;2016&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;│&lt;span class="w"&gt;&amp;nbsp;&amp;nbsp;     &lt;/span&gt;├──&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;2016&lt;/span&gt;-03-04.pdf&lt;span class="w"&gt;
+&lt;/span&gt;│&lt;span class="w"&gt;&amp;nbsp;&amp;nbsp;     &lt;/span&gt;└──&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;2016&lt;/span&gt;-03-05.pdf&lt;span class="w"&gt;
+&lt;/span&gt;├──&lt;span class="w"&gt; &lt;/span&gt;README.rst&lt;span class="w"&gt;
+&lt;/span&gt;└──&lt;span class="w"&gt; &lt;/span&gt;templates&lt;span class="w"&gt;
+    &lt;/span&gt;├──&lt;span class="w"&gt; &lt;/span&gt;entry.tex&lt;span class="w"&gt;
+    &lt;/span&gt;└──&lt;span class="w"&gt; &lt;/span&gt;research_diary.sty&lt;span class="w"&gt;
+
+        &lt;/span&gt;&lt;span class="m"&gt;6&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;directories,&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;11&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;files
+&lt;/pre&gt;
+&lt;p&gt;The script generates your source &lt;a class="reference external" href="http://lifeograph.sourceforge.net/wiki/Main_Page"&gt;LaTeX&lt;/a&gt; files and puts them in the folders in &lt;tt class="docutils literal"&gt;diary/&lt;/tt&gt;. Then you write up and use the script to compile it - the generated pdfs are collected in the &lt;tt class="docutils literal"&gt;pdfs/&lt;/tt&gt; folder. The script can also generate an anthology for a year you pick. The resultant pdf for a daily entry will look like this:&lt;/p&gt;
+&lt;a class="reference external image-reference" href="https://ankursinha.in/images/20160305-Calliope.png"&gt;
+&lt;img alt="Screenshot showing pdf generated by Calliope" class="align-center" src="https://ankursinha.in/images/20160305-Calliope.png" style="width: 500px;" /&gt;
+&lt;/a&gt;
+&lt;p&gt;That's pretty much it. Commit your entry to Git and you're done.&lt;/p&gt;
+&lt;p&gt;So, give it a go and please &lt;a class="reference external" href="https://github.com/sanjayankur31/calliope/issues/"&gt;file issues&lt;/a&gt; if you have any suggestions that would improve it.&lt;/p&gt;
+&lt;/div&gt;
+</content><category term="Research"/><category term="Fedora"/><category term="Git"/><category term="LaTeX"/><category term="Linux"/><category term="Calliope"/></entry><entry><title>New Zaphod release - v0.5.7</title><link href="https://ankursinha.in/2016/02/28/new-zaphod-release-v0-5-7.html" rel="alternate"/><published>2016-02-28T16:52:27+00:00</published><updated>2016-02-28T16:52:27+00:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2016-02-28:/2016/02/28/new-zaphod-release-v0-5-7.html</id><summary type="html">&lt;p class="first last"&gt;I've released a new version of &lt;a class="reference external" href="https://github.com/sanjayankur31/zaphod"&gt;Zaphod&lt;/a&gt; - A LaTeX change tracking tool that I've been working on recently.&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;&lt;a class="reference external" href="https://ankursinha.in/2016/02/13/zaphod-a-latex-change-tracking-tool.html"&gt;I'd written about Zaphod recently&lt;/a&gt;. I've been making some tweaks to it - just some enhancements to the revision bit which will make it easier to use. The diff bit is still the same - I didn't see the need to make too many improvements there.&lt;/p&gt;
+&lt;div class="section" id="new-revision-bits"&gt;
+&lt;h2&gt;New revision bits&lt;/h2&gt;
+&lt;p&gt;Now, it looks like this when you start it up:&lt;/p&gt;
+&lt;pre class="code bash literal-block"&gt;
+&lt;span class="o"&gt;[&lt;/span&gt;asinha&amp;#64;cs-as14aho-2-herts-ac-uk&lt;span class="w"&gt;  &lt;/span&gt;latex-changes&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;201602281328&lt;/span&gt;-latexdiff-annotated&lt;span class="o"&gt;)]&lt;/span&gt;$&lt;span class="w"&gt; &lt;/span&gt;python3&lt;span class="w"&gt; &lt;/span&gt;../zaphod/zaphod.py&lt;span class="w"&gt; &lt;/span&gt;revise&lt;span class="w"&gt; &lt;/span&gt;-m&lt;span class="w"&gt; &lt;/span&gt;paper.tex&lt;span class="w"&gt; &lt;/span&gt;-s&lt;span class="w"&gt; &lt;/span&gt;src&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;Zaphod&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;LaTeX&lt;span class="w"&gt; &lt;/span&gt;files&lt;span class="w"&gt; &lt;/span&gt;with&lt;span class="w"&gt; &lt;/span&gt;annotations:&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;src/discussion.tex&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="m"&gt;2&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;src/introduction.tex&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="m"&gt;3&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;src/paper.tex&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="m"&gt;4&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;src/methods.tex&lt;span class="w"&gt;
+
+&lt;/span&gt;Pick&lt;span class="w"&gt; &lt;/span&gt;file&lt;span class="w"&gt; &lt;/span&gt;to&lt;span class="w"&gt; &lt;/span&gt;revise?&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;-4/Q/q:
+&lt;/pre&gt;
+&lt;p&gt;The idea here is that the user should be able to pick what file they want to edit. Previously, Zaphod just went file after file.&lt;/p&gt;
+&lt;p&gt;Once you pick a file, it'll look like this:&lt;/p&gt;
+&lt;pre class="code bash literal-block"&gt;
+....&lt;span class="w"&gt;
+&lt;/span&gt;Pick&lt;span class="w"&gt; &lt;/span&gt;file&lt;span class="w"&gt; &lt;/span&gt;to&lt;span class="w"&gt; &lt;/span&gt;revise?&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;-4/Q/q:&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;1&lt;/span&gt;&lt;span class="w"&gt;
+
+&lt;/span&gt;&lt;span class="o"&gt;======&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;src/discussion.tex&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;======&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;+++&lt;span class="w"&gt; &lt;/span&gt;Addition&lt;span class="w"&gt; &lt;/span&gt;found&lt;span class="w"&gt; &lt;/span&gt;+++&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="se"&gt;\s&lt;/span&gt;ection&lt;span class="o"&gt;{&lt;/span&gt;Discussion&lt;span class="o"&gt;}&lt;/span&gt;&lt;span class="w"&gt;
+
+&lt;/span&gt;Add&lt;span class="w"&gt; &lt;/span&gt;a&lt;span class="w"&gt; &lt;/span&gt;new&lt;span class="w"&gt; &lt;/span&gt;file.&lt;span class="w"&gt;
+
+&lt;/span&gt;+++&lt;span class="w"&gt; &lt;/span&gt;Addition&lt;span class="w"&gt; &lt;/span&gt;found&lt;span class="w"&gt; &lt;/span&gt;+++&lt;span class="w"&gt;
+&lt;/span&gt;Accept&lt;span class="w"&gt; &lt;/span&gt;addition?&lt;span class="w"&gt; &lt;/span&gt;Y/N/Q/y/n/q:&lt;span class="w"&gt; &lt;/span&gt;y&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;Zaphod&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;Addition&lt;span class="w"&gt; &lt;/span&gt;accepted.&lt;span class="w"&gt;
+
+&lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;Zaphod&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;File&lt;span class="w"&gt; &lt;/span&gt;src/discussion.tex&lt;span class="w"&gt; &lt;/span&gt;revised&lt;span class="w"&gt; &lt;/span&gt;and&lt;span class="w"&gt; &lt;/span&gt;saved.&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;Zaphod&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;LaTeX&lt;span class="w"&gt; &lt;/span&gt;files&lt;span class="w"&gt; &lt;/span&gt;with&lt;span class="w"&gt; &lt;/span&gt;annotations:&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;src/introduction.tex&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="m"&gt;2&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;src/paper.tex&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="m"&gt;3&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;src/methods.tex&lt;span class="w"&gt;
+
+&lt;/span&gt;Pick&lt;span class="w"&gt; &lt;/span&gt;file&lt;span class="w"&gt; &lt;/span&gt;to&lt;span class="w"&gt; &lt;/span&gt;revise?&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;-3/Q/q:
+&lt;/pre&gt;
+&lt;p&gt;But, you can also make partial revisions. This is handy in situations where you have a long file and do not have the time to go over all of it at once. So, here's an example. I go over some changes, but I need to stop there for the moment:&lt;/p&gt;
+&lt;pre class="code bash literal-block"&gt;
+...&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;Zaphod&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;LaTeX&lt;span class="w"&gt; &lt;/span&gt;files&lt;span class="w"&gt; &lt;/span&gt;with&lt;span class="w"&gt; &lt;/span&gt;annotations:&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;src/introduction.tex&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="m"&gt;2&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;src/paper.tex&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="m"&gt;3&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;src/methods.tex&lt;span class="w"&gt;
+
+&lt;/span&gt;Pick&lt;span class="w"&gt; &lt;/span&gt;file&lt;span class="w"&gt; &lt;/span&gt;to&lt;span class="w"&gt; &lt;/span&gt;revise?&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;-3/Q/q:&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;2&lt;/span&gt;&lt;span class="w"&gt;
+
+&lt;/span&gt;&lt;span class="o"&gt;======&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;src/paper.tex&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;======&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;---&lt;span class="w"&gt; &lt;/span&gt;Deletion&lt;span class="w"&gt; &lt;/span&gt;found&lt;span class="w"&gt; &lt;/span&gt;---&lt;span class="w"&gt;
+&lt;/span&gt;Tracking&lt;span class="w"&gt;
+&lt;/span&gt;---&lt;span class="w"&gt; &lt;/span&gt;Deletion&lt;span class="w"&gt; &lt;/span&gt;found&lt;span class="w"&gt; &lt;/span&gt;---&lt;span class="w"&gt;
+&lt;/span&gt;Accept&lt;span class="w"&gt; &lt;/span&gt;deletion?&lt;span class="w"&gt; &lt;/span&gt;Y/N/Q/y/n/q:&lt;span class="w"&gt; &lt;/span&gt;y&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;Zaphod&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;Deletion&lt;span class="w"&gt; &lt;/span&gt;accepted.&lt;span class="w"&gt;
+
+&lt;/span&gt;&lt;span class="o"&gt;======&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;src/paper.tex&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;======&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;+++&lt;span class="w"&gt; &lt;/span&gt;Addition&lt;span class="w"&gt; &lt;/span&gt;found&lt;span class="w"&gt; &lt;/span&gt;+++&lt;span class="w"&gt;
+&lt;/span&gt;Visualising&lt;span class="w"&gt;
+&lt;/span&gt;+++&lt;span class="w"&gt; &lt;/span&gt;Addition&lt;span class="w"&gt; &lt;/span&gt;found&lt;span class="w"&gt; &lt;/span&gt;+++&lt;span class="w"&gt;
+&lt;/span&gt;Accept&lt;span class="w"&gt; &lt;/span&gt;addition?&lt;span class="w"&gt; &lt;/span&gt;Y/N/Q/y/n/q:&lt;span class="w"&gt; &lt;/span&gt;y&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;Zaphod&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;Addition&lt;span class="w"&gt; &lt;/span&gt;accepted.&lt;span class="w"&gt;
+
+&lt;/span&gt;&lt;span class="o"&gt;======&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;src/paper.tex&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;======&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;+++&lt;span class="w"&gt; &lt;/span&gt;Addition&lt;span class="w"&gt; &lt;/span&gt;found&lt;span class="w"&gt; &lt;/span&gt;+++&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="se"&gt;\i&lt;/span&gt;nput&lt;span class="o"&gt;{&lt;/span&gt;discussion&lt;span class="o"&gt;}&lt;/span&gt;&lt;span class="w"&gt;
+
+&lt;/span&gt;+++&lt;span class="w"&gt; &lt;/span&gt;Addition&lt;span class="w"&gt; &lt;/span&gt;found&lt;span class="w"&gt; &lt;/span&gt;+++&lt;span class="w"&gt;
+&lt;/span&gt;Accept&lt;span class="w"&gt; &lt;/span&gt;addition?&lt;span class="w"&gt; &lt;/span&gt;Y/N/Q/y/n/q:&lt;span class="w"&gt; &lt;/span&gt;q&lt;span class="w"&gt;
+&lt;/span&gt;Save&lt;span class="w"&gt; &lt;/span&gt;partial&lt;span class="w"&gt; &lt;/span&gt;file?&lt;span class="w"&gt; &lt;/span&gt;Y/N/y/n:&lt;span class="w"&gt; &lt;/span&gt;y&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;Zaphod&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;Some&lt;span class="w"&gt; &lt;/span&gt;files&lt;span class="w"&gt; &lt;/span&gt;still&lt;span class="w"&gt; &lt;/span&gt;have&lt;span class="w"&gt; &lt;/span&gt;latexdiff&lt;span class="w"&gt; &lt;/span&gt;annotations:&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;src/introduction.tex&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="m"&gt;2&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;src/methods.tex&lt;span class="w"&gt;
+
+&lt;/span&gt;Generate&lt;span class="w"&gt; &lt;/span&gt;pdf?&lt;span class="w"&gt; &lt;/span&gt;Y/y/N/n:&lt;span class="w"&gt; &lt;/span&gt;n&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;Zaphod&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;Not&lt;span class="w"&gt; &lt;/span&gt;generating&lt;span class="w"&gt; &lt;/span&gt;pdf.&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;Zaphod&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;Following&lt;span class="w"&gt; &lt;/span&gt;files&lt;span class="w"&gt; &lt;/span&gt;have&lt;span class="w"&gt; &lt;/span&gt;been&lt;span class="w"&gt; &lt;/span&gt;revised&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;maybe&lt;span class="w"&gt; &lt;/span&gt;partially&lt;span class="o"&gt;)&lt;/span&gt;:&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;src/discussion.tex&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="m"&gt;2&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;src/paper.tex&lt;span class="w"&gt;
+
+&lt;/span&gt;Commit&lt;span class="w"&gt; &lt;/span&gt;current&lt;span class="w"&gt; &lt;/span&gt;changes?&lt;span class="w"&gt; &lt;/span&gt;Y/y/N/n:&lt;span class="w"&gt; &lt;/span&gt;n&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;Zaphod&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;Exiting&lt;span class="w"&gt; &lt;/span&gt;without&lt;span class="w"&gt; &lt;/span&gt;committing.
+&lt;/pre&gt;
+&lt;p&gt;There's one catch here, though. Because I want to make absolutely sure that Zaphod doesn't make any changes &amp;quot;by mistake&amp;quot;, you'll have to either stash or commit these changes before you can run Zaphod again. This is just to be on the safer side. A better way would probably be for Zaphod to remember what files were partially revised, but I haven't implemented it at the moment. I'd actually just commit the changes - I mean, that's why we've got Git, right?&lt;/p&gt;
+&lt;pre class="code bash literal-block"&gt;
+&lt;span class="o"&gt;[&lt;/span&gt;asinha&amp;#64;cs-as14aho-2-herts-ac-uk&lt;span class="w"&gt;  &lt;/span&gt;latex-changes&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;201602281328&lt;/span&gt;-latexdiff-annotated&lt;span class="w"&gt; &lt;/span&gt;*&lt;span class="o"&gt;)]&lt;/span&gt;$&lt;span class="w"&gt; &lt;/span&gt;python3&lt;span class="w"&gt; &lt;/span&gt;../zaphod/zaphod.py&lt;span class="w"&gt; &lt;/span&gt;revise&lt;span class="w"&gt; &lt;/span&gt;-m&lt;span class="w"&gt; &lt;/span&gt;paper.tex&lt;span class="w"&gt; &lt;/span&gt;-s&lt;span class="w"&gt; &lt;/span&gt;src&lt;span class="w"&gt;
+&lt;/span&gt;Modifed&lt;span class="w"&gt; &lt;/span&gt;or&lt;span class="w"&gt; &lt;/span&gt;untracked&lt;span class="w"&gt; &lt;/span&gt;files&lt;span class="w"&gt; &lt;/span&gt;found.&lt;span class="w"&gt;
+&lt;/span&gt;git&lt;span class="w"&gt; &lt;/span&gt;status&lt;span class="w"&gt; &lt;/span&gt;output:&lt;span class="w"&gt;
+ &lt;/span&gt;M&lt;span class="w"&gt; &lt;/span&gt;src/discussion.tex&lt;span class="w"&gt;
+ &lt;/span&gt;M&lt;span class="w"&gt; &lt;/span&gt;src/paper.tex&lt;span class="w"&gt;
+
+&lt;/span&gt;Please&lt;span class="w"&gt; &lt;/span&gt;stash&lt;span class="w"&gt; &lt;/span&gt;or&lt;span class="w"&gt; &lt;/span&gt;commit&lt;span class="w"&gt; &lt;/span&gt;and&lt;span class="w"&gt; &lt;/span&gt;rerun&lt;span class="w"&gt; &lt;/span&gt;Zaphod.
+&lt;/pre&gt;
+&lt;p&gt;That's it. I think it's a lot easier to use now, and in this design addresses a lot more use cases than it did before.&lt;/p&gt;
+&lt;p&gt;&lt;a class="reference external" href="https://github.com/sanjayankur31/zaphod/releases"&gt;Give it a go&lt;/a&gt; and &lt;a class="reference external" href="https://github.com/sanjayankur31/zaphod/issues/new"&gt;let me know&lt;/a&gt; if things break - I've tested it myself, but only on a mock document.&lt;/p&gt;
+&lt;/div&gt;
+</content><category term="Research"/><category term="LaTeX"/><category term="Programming"/><category term="Git"/><category term="Fedora"/><category term="Zaphod"/></entry><entry><title>Zaphod - a LaTeX change tracking tool</title><link href="https://ankursinha.in/2016/02/13/zaphod-a-latex-change-tracking-tool.html" rel="alternate"/><published>2016-02-13T17:16:24+00:00</published><updated>2016-02-13T17:16:24+00:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2016-02-13:/2016/02/13/zaphod-a-latex-change-tracking-tool.html</id><summary type="html">&lt;p class="first last"&gt;Introducing &lt;a class="reference external" href="https://github.com/sanjayankur31/zaphod"&gt;Zaphod&lt;/a&gt; - a &lt;a class="reference external" href="https://www.python.org/"&gt;Python&lt;/a&gt; script that attempts to help &lt;a class="reference external" href="https://en.wikipedia.org/wiki/LaTeX"&gt;LaTeX&lt;/a&gt; users collaborate over their academic writing. It uses the power of &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Git_(software)"&gt;Git&lt;/a&gt; to track changes, &lt;a class="reference external" href="https://www.ctan.org/pkg/latexdiff?lang=en"&gt;latexdiff&lt;/a&gt; to generate a PDF with annotated additions and removals from the document, and provides a simple interactive review tool that lets the user pick what changes they want to accept. You can use Zaphod to track changes in your LaTeX documents.&lt;/p&gt;
+</summary><content type="html">&lt;div class="section" id="the-name"&gt;
+&lt;h2&gt;The name&lt;/h2&gt;
+&lt;p&gt;Well, I needn't say much here, need I? &lt;a class="reference external" href="https://en.wikipedia.org/wiki/The_Hitchhiker%27s_Guide_to_the_Galaxy"&gt;Hitchhiker's guide to the galaxy&lt;/a&gt;, anyone?&lt;/p&gt;
+&lt;p&gt;Of course, a good tip to naming a new open source tool is to pick a project name that is easily searchable. With &lt;a class="reference external" href="https://en.wikipedia.org/wiki/LaTeX"&gt;LaTeX&lt;/a&gt; related searches, it's a tad difficult - the addition of the word to LaTeX to anything tends to generate rather undesirable results. Fortunately, &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Zaphod_Beeblebrox"&gt;Zaphod&lt;/a&gt; seems to have been spared the honour..&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="latex-is-great"&gt;
+&lt;h2&gt;LaTeX is great!&lt;/h2&gt;
+&lt;p&gt;Academics really like &lt;a class="reference external" href="https://en.wikipedia.org/wiki/LaTeX"&gt;LaTeX&lt;/a&gt; - it's a brilliant tool, the best one in my opinion, for academic writing. Using LaTeX is widely accepted to be more complex than using a simple &lt;a class="reference external" href="https://en.wikipedia.org/wiki/WYSIWYG"&gt;WYSIWYG&lt;/a&gt; tool like Word. One writes in plain text using LaTeX constructs and then compiles it to produce a brilliantly formatted PDF. The point of using LaTeX is that you get to focus on the matter - the actual text, and LaTeX largely takes care of the look, the formatting and all that. There are &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Comparison_of_TeX_editors"&gt;quite a few applications&lt;/a&gt; that provide one click compilation and other features, by the way, so you don't absolutely have to use the command line. There's even &lt;a class="reference external" href="https://www.lyx.org/"&gt;Lyx&lt;/a&gt; which is quite close to a WYSIWYG application for LaTeX.&lt;/p&gt;
+&lt;div class="section" id="tracking-changes"&gt;
+&lt;h3&gt;Tracking changes&lt;/h3&gt;
+&lt;p&gt;Another limitation of using LaTeX is that you can't easily see what's changed between versions of PDFs. This makes collaboration using LaTeX difficult.&lt;/p&gt;
+&lt;p&gt;Word, for example, has a very useful &amp;quot;&lt;a class="reference external" href="https://support.office.com/en-us/article/Track-changes-while-you-edit-024158a3-7e62-4f05-8bb7-dc3ecf0295c4"&gt;Track changes&lt;/a&gt;&amp;quot; feature that lets you record your changes and then lets the next person easily review them and decide which ones are to be applied.&lt;/p&gt;
+&lt;p&gt;There are various tools strewn over the Internet that do help with this, but they aren't quite as convenient as I'd have hoped. Some examples:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://www.ctan.org/pkg/latexdiff?lang=en"&gt;latexdiff&lt;/a&gt; (Zaphod is based on this and uses it to generate changes - why reinvent the wheel?)&lt;/li&gt;
+&lt;li&gt;the &lt;a class="reference external" href="http://www.ctan.org/pkg/changes"&gt;changes&lt;/a&gt; package&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="http://trackchanges.sourceforge.net/"&gt;track changes&lt;/a&gt; (didn't try this out)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="so-zaphod"&gt;
+&lt;h2&gt;So - Zaphod&lt;/h2&gt;
+&lt;p&gt;Various editors make writing LaTeX quite easy. That isn't much of an issue any more. Zaphod tries to address the second issue - tracking changes. It combines existing tools to implement a certain workflow where you can write text, send it to people, verify and include their changes.&lt;/p&gt;
+&lt;div class="section" id="the-workflow-an-example"&gt;
+&lt;h3&gt;The workflow - an example&lt;/h3&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Create a Git repository for your LaTeX paper.&lt;/li&gt;
+&lt;li&gt;Write your draft.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I'm using a &lt;a class="reference external" href="https://github.com/sanjayankur31/latex-changes"&gt;test repository&lt;/a&gt; which looks like this:&lt;/p&gt;
+&lt;pre class="code bash literal-block"&gt;
+&lt;span class="o"&gt;[&lt;/span&gt;asinha&amp;#64;ankur&lt;span class="w"&gt;  &lt;/span&gt;latex-changes&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;master&lt;/span&gt;&lt;span class="o"&gt;=)]&lt;/span&gt;$&lt;span class="w"&gt; &lt;/span&gt;tree&lt;span class="w"&gt;
+&lt;/span&gt;.&lt;span class="w"&gt;
+&lt;/span&gt;├──&lt;span class="w"&gt; &lt;/span&gt;LICENSE&lt;span class="w"&gt;
+&lt;/span&gt;├──&lt;span class="w"&gt; &lt;/span&gt;README.rst&lt;span class="w"&gt;
+&lt;/span&gt;└──&lt;span class="w"&gt; &lt;/span&gt;src&lt;span class="w"&gt;
+    &lt;/span&gt;├──&lt;span class="w"&gt; &lt;/span&gt;abstract.tex&lt;span class="w"&gt;
+    &lt;/span&gt;├──&lt;span class="w"&gt; &lt;/span&gt;conclusion.tex&lt;span class="w"&gt;
+    &lt;/span&gt;├──&lt;span class="w"&gt; &lt;/span&gt;discussion.tex&lt;span class="w"&gt;
+    &lt;/span&gt;├──&lt;span class="w"&gt; &lt;/span&gt;introduction.tex&lt;span class="w"&gt;
+    &lt;/span&gt;├──&lt;span class="w"&gt; &lt;/span&gt;Makefile&lt;span class="w"&gt;
+    &lt;/span&gt;├──&lt;span class="w"&gt; &lt;/span&gt;methods.tex&lt;span class="w"&gt;
+    &lt;/span&gt;├──&lt;span class="w"&gt; &lt;/span&gt;paper.pdf&lt;span class="w"&gt;
+    &lt;/span&gt;├──&lt;span class="w"&gt; &lt;/span&gt;paper.tex&lt;span class="w"&gt;
+    &lt;/span&gt;└──&lt;span class="w"&gt; &lt;/span&gt;results.tex&lt;span class="w"&gt;
+
+&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;directory,&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;19&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;files&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;asinha&amp;#64;ankur&lt;span class="w"&gt;  &lt;/span&gt;latex-changes&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;master&lt;/span&gt;&lt;span class="o"&gt;=)]&lt;/span&gt;$
+&lt;/pre&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Commit your changes.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Your repository will look something like this:&lt;/p&gt;
+&lt;pre class="code bash literal-block"&gt;
+&lt;span class="o"&gt;[&lt;/span&gt;asinha&amp;#64;ankur&lt;span class="w"&gt;  &lt;/span&gt;latex-changes&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;master&lt;/span&gt;&lt;span class="o"&gt;=)]&lt;/span&gt;$&lt;span class="w"&gt; &lt;/span&gt;git&lt;span class="w"&gt; &lt;/span&gt;lg&lt;span class="w"&gt;
+&lt;/span&gt;*&lt;span class="w"&gt; &lt;/span&gt;280fef6&lt;span class="w"&gt; &lt;/span&gt;-&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;4&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;days&lt;span class="w"&gt; &lt;/span&gt;ago&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;Subsection&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nb"&gt;test&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;—&lt;span class="w"&gt; &lt;/span&gt;Ankur&lt;span class="w"&gt; &lt;/span&gt;Sinha&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;Ankur&lt;span class="w"&gt; &lt;/span&gt;Sinha&lt;span class="w"&gt; &lt;/span&gt;Gmail&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;HEAD&lt;span class="w"&gt; &lt;/span&gt;-&amp;gt;&lt;span class="w"&gt; &lt;/span&gt;master,&lt;span class="w"&gt; &lt;/span&gt;origin/master,&lt;span class="w"&gt; &lt;/span&gt;origin/HEAD&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;*&lt;span class="w"&gt; &lt;/span&gt;0c0238b&lt;span class="w"&gt; &lt;/span&gt;-&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;4&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;days&lt;span class="w"&gt; &lt;/span&gt;ago&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;Moved&lt;span class="w"&gt; &lt;/span&gt;script&lt;span class="w"&gt; &lt;/span&gt;to&lt;span class="w"&gt; &lt;/span&gt;its&lt;span class="w"&gt; &lt;/span&gt;own&lt;span class="w"&gt; &lt;/span&gt;repository&lt;span class="w"&gt; &lt;/span&gt;—&lt;span class="w"&gt; &lt;/span&gt;Ankur&lt;span class="w"&gt; &lt;/span&gt;Sinha&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;Ankur&lt;span class="w"&gt; &lt;/span&gt;Sinha&lt;span class="w"&gt; &lt;/span&gt;Gmail&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;....&lt;span class="w"&gt;
+&lt;/span&gt;*&lt;span class="w"&gt; &lt;/span&gt;164e0d3&lt;span class="w"&gt; &lt;/span&gt;-&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;8&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;days&lt;span class="w"&gt; &lt;/span&gt;ago&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;Add&lt;span class="w"&gt; &lt;/span&gt;vim&lt;span class="w"&gt; &lt;/span&gt;temp&lt;span class="w"&gt; &lt;/span&gt;files&lt;span class="w"&gt; &lt;/span&gt;to&lt;span class="w"&gt; &lt;/span&gt;gitignore&lt;span class="w"&gt; &lt;/span&gt;—&lt;span class="w"&gt; &lt;/span&gt;Ankur&lt;span class="w"&gt; &lt;/span&gt;Sinha&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;Ankur&lt;span class="w"&gt; &lt;/span&gt;Sinha&lt;span class="w"&gt; &lt;/span&gt;Gmail&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;*&lt;span class="w"&gt; &lt;/span&gt;bd02966&lt;span class="w"&gt; &lt;/span&gt;-&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;8&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;days&lt;span class="w"&gt; &lt;/span&gt;ago&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;Commit&lt;span class="w"&gt; &lt;/span&gt;fake&lt;span class="w"&gt; &lt;/span&gt;paper&lt;span class="w"&gt; &lt;/span&gt;—&lt;span class="w"&gt; &lt;/span&gt;Ankur&lt;span class="w"&gt; &lt;/span&gt;Sinha&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;Ankur&lt;span class="w"&gt; &lt;/span&gt;Sinha&lt;span class="w"&gt; &lt;/span&gt;Gmail&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;*&lt;span class="w"&gt; &lt;/span&gt;11ad32b&lt;span class="w"&gt; &lt;/span&gt;-&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;8&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;days&lt;span class="w"&gt; &lt;/span&gt;ago&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;Initial&lt;span class="w"&gt; &lt;/span&gt;commit&lt;span class="w"&gt; &lt;/span&gt;—&lt;span class="w"&gt; &lt;/span&gt;Ankur&lt;span class="w"&gt; &lt;/span&gt;Sinha
+&lt;/pre&gt;
+&lt;p&gt;This is all pretty standard Git usage. Now, the interesting part:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Send your PDF and LaTeX sources to your collaborator (or give them access to your repository).&lt;/li&gt;
+&lt;li&gt;They make changes and commit them. Now, your Git revision tree will look something like this:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class="code bash literal-block"&gt;
+&lt;span class="o"&gt;[&lt;/span&gt;asinha&amp;#64;ankur&lt;span class="w"&gt;  &lt;/span&gt;latex-changes&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;master&lt;/span&gt;&lt;span class="o"&gt;=)]&lt;/span&gt;$&lt;span class="w"&gt; &lt;/span&gt;git&lt;span class="w"&gt; &lt;/span&gt;lg&lt;span class="w"&gt;
+&lt;/span&gt;*&lt;span class="w"&gt; &lt;/span&gt;46d0c11&lt;span class="w"&gt; &lt;/span&gt;-&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;4&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;hours&lt;span class="w"&gt; &lt;/span&gt;ago&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;Add&lt;span class="w"&gt; &lt;/span&gt;a&lt;span class="w"&gt; &lt;/span&gt;new&lt;span class="w"&gt; &lt;/span&gt;file.&lt;span class="w"&gt; &lt;/span&gt;—&lt;span class="w"&gt; &lt;/span&gt;Ankur&lt;span class="w"&gt; &lt;/span&gt;Sinha&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;Ankur&lt;span class="w"&gt; &lt;/span&gt;Sinha&lt;span class="w"&gt; &lt;/span&gt;Gmail&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;HEAD&lt;span class="w"&gt; &lt;/span&gt;-&amp;gt;&lt;span class="w"&gt; &lt;/span&gt;master,&lt;span class="w"&gt; &lt;/span&gt;origin/master,&lt;span class="w"&gt; &lt;/span&gt;origin/HEAD&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;*&lt;span class="w"&gt; &lt;/span&gt;ba4b06d&lt;span class="w"&gt; &lt;/span&gt;-&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;3&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;days&lt;span class="w"&gt; &lt;/span&gt;ago&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;Update&lt;span class="w"&gt; &lt;/span&gt;readme&lt;span class="w"&gt; &lt;/span&gt;—&lt;span class="w"&gt; &lt;/span&gt;Ankur&lt;span class="w"&gt; &lt;/span&gt;Sinha&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;Ankur&lt;span class="w"&gt; &lt;/span&gt;Sinha&lt;span class="w"&gt; &lt;/span&gt;Gmail&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;*&lt;span class="w"&gt; &lt;/span&gt;53033b8&lt;span class="w"&gt; &lt;/span&gt;-&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;3&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;days&lt;span class="w"&gt; &lt;/span&gt;ago&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;Remove&lt;span class="w"&gt; &lt;/span&gt;example&lt;span class="w"&gt; &lt;/span&gt;output&lt;span class="w"&gt; &lt;/span&gt;directory&lt;span class="w"&gt; &lt;/span&gt;—&lt;span class="w"&gt; &lt;/span&gt;Ankur&lt;span class="w"&gt; &lt;/span&gt;Sinha&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;Ankur&lt;span class="w"&gt; &lt;/span&gt;Sinha&lt;span class="w"&gt; &lt;/span&gt;Gmail&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;*&lt;span class="w"&gt; &lt;/span&gt;d82266b&lt;span class="w"&gt; &lt;/span&gt;-&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;4&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;days&lt;span class="w"&gt; &lt;/span&gt;ago&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;More&lt;span class="w"&gt; &lt;/span&gt;subsection&lt;span class="w"&gt; &lt;/span&gt;changes&lt;span class="w"&gt; &lt;/span&gt;—&lt;span class="w"&gt; &lt;/span&gt;Ankur&lt;span class="w"&gt; &lt;/span&gt;Sinha&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;Ankur&lt;span class="w"&gt; &lt;/span&gt;Sinha&lt;span class="w"&gt; &lt;/span&gt;Gmail&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;*&lt;span class="w"&gt; &lt;/span&gt;280fef6&lt;span class="w"&gt; &lt;/span&gt;-&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;4&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;days&lt;span class="w"&gt; &lt;/span&gt;ago&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;Subsection&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nb"&gt;test&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;—&lt;span class="w"&gt; &lt;/span&gt;Ankur&lt;span class="w"&gt; &lt;/span&gt;Sinha&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;Ankur&lt;span class="w"&gt; &lt;/span&gt;Sinha&lt;span class="w"&gt; &lt;/span&gt;Gmail&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+  &lt;/span&gt;...
+&lt;/pre&gt;
+&lt;p&gt;Zaphod lets you specify two Git revisions and generates a list of changes between these two. So, for example, running the diff command would do this:&lt;/p&gt;
+&lt;pre class="code bash literal-block"&gt;
+&lt;span class="o"&gt;[&lt;/span&gt;asinha&amp;#64;ankur&lt;span class="w"&gt;  &lt;/span&gt;latex-changes&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;master&lt;/span&gt;&lt;span class="o"&gt;=)]&lt;/span&gt;$&lt;span class="w"&gt; &lt;/span&gt;python3&lt;span class="w"&gt; &lt;/span&gt;../zaphod/zaphod.py&lt;span class="w"&gt; &lt;/span&gt;diff&lt;span class="w"&gt; &lt;/span&gt;-r&lt;span class="w"&gt; &lt;/span&gt;bd02966&lt;span class="w"&gt; &lt;/span&gt;-m&lt;span class="w"&gt; &lt;/span&gt;paper.tex&lt;span class="w"&gt; &lt;/span&gt;-s&lt;span class="w"&gt; &lt;/span&gt;src&lt;span class="w"&gt;
+ &lt;/span&gt;....&lt;span class="w"&gt;
+ &lt;/span&gt;....&lt;span class="w"&gt;
+ &lt;/span&gt;COMPLETE:&lt;span class="w"&gt; &lt;/span&gt;The&lt;span class="w"&gt; &lt;/span&gt;following&lt;span class="w"&gt; &lt;/span&gt;branches&lt;span class="w"&gt; &lt;/span&gt;have&lt;span class="w"&gt; &lt;/span&gt;been&lt;span class="w"&gt; &lt;/span&gt;created:&lt;span class="w"&gt;
+ &lt;/span&gt;&lt;span class="m"&gt;201602131935&lt;/span&gt;-latexdiff-rev1:&lt;span class="w"&gt; &lt;/span&gt;Revision&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;.&lt;span class="w"&gt;
+ &lt;/span&gt;&lt;span class="m"&gt;201602131935&lt;/span&gt;-latexdiff-rev2:&lt;span class="w"&gt; &lt;/span&gt;Revision&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;2&lt;/span&gt;.&lt;span class="w"&gt;
+ &lt;/span&gt;&lt;span class="m"&gt;201602131935&lt;/span&gt;-latexdiff-annotated:&lt;span class="w"&gt; &lt;/span&gt;Branch&lt;span class="w"&gt; &lt;/span&gt;with&lt;span class="w"&gt; &lt;/span&gt;annotated&lt;span class="w"&gt; &lt;/span&gt;versions&lt;span class="w"&gt; &lt;/span&gt;of&lt;span class="w"&gt; &lt;/span&gt;sources&lt;span class="w"&gt; &lt;/span&gt;and&lt;span class="w"&gt; &lt;/span&gt;diff&lt;span class="w"&gt; &lt;/span&gt;pdf.&lt;span class="w"&gt;
+ &lt;/span&gt;The&lt;span class="w"&gt; &lt;/span&gt;generated&lt;span class="w"&gt; &lt;/span&gt;diff&lt;span class="w"&gt; &lt;/span&gt;pdf&lt;span class="w"&gt; &lt;/span&gt;is:&lt;span class="w"&gt; &lt;/span&gt;src/diff-bd02966-master.pdf.
+&lt;/pre&gt;
+&lt;p&gt;and your repository now looks like this:&lt;/p&gt;
+&lt;pre class="code bash literal-block"&gt;
+*&lt;span class="w"&gt; &lt;/span&gt;9e58178&lt;span class="w"&gt; &lt;/span&gt;-&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;2&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;minutes&lt;span class="w"&gt; &lt;/span&gt;ago&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;Save&lt;span class="w"&gt; &lt;/span&gt;annotated&lt;span class="w"&gt; &lt;/span&gt;changes&lt;span class="w"&gt; &lt;/span&gt;between&lt;span class="w"&gt; &lt;/span&gt;bd02966&lt;span class="w"&gt; &lt;/span&gt;and&lt;span class="w"&gt; &lt;/span&gt;master&lt;span class="w"&gt; &lt;/span&gt;—&lt;span class="w"&gt; &lt;/span&gt;Ankur&lt;span class="w"&gt; &lt;/span&gt;Sinha&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;Ankur&lt;span class="w"&gt; &lt;/span&gt;Sinha&lt;span class="w"&gt; &lt;/span&gt;Gmail&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;HEAD&lt;span class="w"&gt; &lt;/span&gt;-&amp;gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;201602131935&lt;/span&gt;-latexdiff-annotated&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;*&lt;span class="w"&gt; &lt;/span&gt;46d0c11&lt;span class="w"&gt; &lt;/span&gt;-&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;5&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;hours&lt;span class="w"&gt; &lt;/span&gt;ago&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;Add&lt;span class="w"&gt; &lt;/span&gt;a&lt;span class="w"&gt; &lt;/span&gt;new&lt;span class="w"&gt; &lt;/span&gt;file.&lt;span class="w"&gt; &lt;/span&gt;—&lt;span class="w"&gt; &lt;/span&gt;Ankur&lt;span class="w"&gt; &lt;/span&gt;Sinha&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;Ankur&lt;span class="w"&gt; &lt;/span&gt;Sinha&lt;span class="w"&gt; &lt;/span&gt;Gmail&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;origin/master,&lt;span class="w"&gt; &lt;/span&gt;origin/HEAD,&lt;span class="w"&gt; &lt;/span&gt;master,&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;201602131935&lt;/span&gt;-latexdiff-rev2&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;*&lt;span class="w"&gt; &lt;/span&gt;ba4b06d&lt;span class="w"&gt; &lt;/span&gt;-&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;3&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;days&lt;span class="w"&gt; &lt;/span&gt;ago&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;Update&lt;span class="w"&gt; &lt;/span&gt;readme&lt;span class="w"&gt; &lt;/span&gt;—&lt;span class="w"&gt; &lt;/span&gt;Ankur&lt;span class="w"&gt; &lt;/span&gt;Sinha&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;Ankur&lt;span class="w"&gt; &lt;/span&gt;Sinha&lt;span class="w"&gt; &lt;/span&gt;Gmail&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;....&lt;span class="w"&gt;
+&lt;/span&gt;*&lt;span class="w"&gt; &lt;/span&gt;bd02966&lt;span class="w"&gt; &lt;/span&gt;-&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;8&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;days&lt;span class="w"&gt; &lt;/span&gt;ago&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;Commit&lt;span class="w"&gt; &lt;/span&gt;fake&lt;span class="w"&gt; &lt;/span&gt;paper&lt;span class="w"&gt; &lt;/span&gt;—&lt;span class="w"&gt; &lt;/span&gt;Ankur&lt;span class="w"&gt; &lt;/span&gt;Sinha&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;Ankur&lt;span class="w"&gt; &lt;/span&gt;Sinha&lt;span class="w"&gt; &lt;/span&gt;Gmail&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;201602131935&lt;/span&gt;-latexdiff-rev1&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;*&lt;span class="w"&gt; &lt;/span&gt;11ad32b&lt;span class="w"&gt; &lt;/span&gt;-&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;8&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;days&lt;span class="w"&gt; &lt;/span&gt;ago&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;Initial&lt;span class="w"&gt; &lt;/span&gt;commit&lt;span class="w"&gt; &lt;/span&gt;—&lt;span class="w"&gt; &lt;/span&gt;Ankur&lt;span class="w"&gt; &lt;/span&gt;Sinha
+&lt;/pre&gt;
+&lt;p&gt;Zaphod uses latexdiff to check for differences between the two revisions, marks them as branches for easy reference, and then creates a new branch with annotated source files and a nice pdf which looks like this:&lt;/p&gt;
+&lt;a class="reference external image-reference" href="https://ankursinha.in/images/20160213-zaphod-screenshot.png"&gt;
+&lt;img alt="Screenshot of annotated PDF" class="align-center" src="https://ankursinha.in/images/20160213-zaphod-screenshot.png" style="height: 400.0px;" /&gt;
+&lt;/a&gt;
+&lt;p&gt;That looks rather nice, isn't it? And it resembles what a Word document with annotations looks like too. latexdiff has various markup styles which can be passed to Zaphod as arguments to modify how the annotations look. The most important part here is that because Zaphod is using mighty Git, there's no chance of you losing any work at all. &lt;em&gt;In fact, if you have untracked and uncommitted changes in your repository, Zaphod refuses to run at all.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Now, a look at how the revise function works:&lt;/p&gt;
+&lt;pre class="code bash literal-block"&gt;
+&lt;span class="o"&gt;[&lt;/span&gt;asinha&amp;#64;ankur&lt;span class="w"&gt;  &lt;/span&gt;latex-changes&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;201602131935&lt;/span&gt;-latexdiff-annotated&lt;span class="o"&gt;)]&lt;/span&gt;$&lt;span class="w"&gt; &lt;/span&gt;python3&lt;span class="w"&gt; &lt;/span&gt;../zaphod/zaphod.py&lt;span class="w"&gt; &lt;/span&gt;revise&lt;span class="w"&gt; &lt;/span&gt;-s&lt;span class="w"&gt; &lt;/span&gt;src/&lt;span class="w"&gt; &lt;/span&gt;-m&lt;span class="w"&gt; &lt;/span&gt;paper.tex&lt;span class="w"&gt;
+&lt;/span&gt;Working&lt;span class="w"&gt; &lt;/span&gt;on&lt;span class="w"&gt; &lt;/span&gt;file:&lt;span class="w"&gt; &lt;/span&gt;src/paper.tex.&lt;span class="w"&gt;
+&lt;/span&gt;File&lt;span class="w"&gt; &lt;/span&gt;under&lt;span class="w"&gt; &lt;/span&gt;revision:&lt;span class="w"&gt; &lt;/span&gt;src/paper.tex&lt;span class="w"&gt;
+
+&lt;/span&gt;Deletion&lt;span class="w"&gt; &lt;/span&gt;found:&lt;span class="w"&gt;
+&lt;/span&gt;---&lt;span class="w"&gt;
+&lt;/span&gt;Tracking&lt;span class="w"&gt;
+&lt;/span&gt;---&lt;span class="w"&gt;
+
+&lt;/span&gt;Delete?&lt;span class="w"&gt; &lt;/span&gt;Y/N/y/n:&lt;span class="w"&gt; &lt;/span&gt;y&lt;span class="w"&gt;
+&lt;/span&gt;Deleted&lt;span class="w"&gt;
+
+&lt;/span&gt;File&lt;span class="w"&gt; &lt;/span&gt;under&lt;span class="w"&gt; &lt;/span&gt;revision:&lt;span class="w"&gt; &lt;/span&gt;src/paper.tex&lt;span class="w"&gt;
+
+&lt;/span&gt;Addition&lt;span class="w"&gt; &lt;/span&gt;found:&lt;span class="w"&gt;
+&lt;/span&gt;+++&lt;span class="w"&gt;
+&lt;/span&gt;Visualising&lt;span class="w"&gt;
+&lt;/span&gt;+++&lt;span class="w"&gt;
+
+&lt;/span&gt;Add?&lt;span class="w"&gt; &lt;/span&gt;Y/N/y/n:&lt;span class="w"&gt; &lt;/span&gt;n&lt;span class="w"&gt;
+&lt;/span&gt;Skipped&lt;span class="w"&gt;
+
+&lt;/span&gt;File&lt;span class="w"&gt; &lt;/span&gt;under&lt;span class="w"&gt; &lt;/span&gt;revision:&lt;span class="w"&gt; &lt;/span&gt;src/paper.tex&lt;span class="w"&gt;
+
+&lt;/span&gt;Addition&lt;span class="w"&gt; &lt;/span&gt;found:&lt;span class="w"&gt;
+&lt;/span&gt;+++&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="se"&gt;\i&lt;/span&gt;nput&lt;span class="o"&gt;{&lt;/span&gt;discussion&lt;span class="o"&gt;}&lt;/span&gt;&lt;span class="w"&gt;
+
+&lt;/span&gt;+++&lt;span class="w"&gt;
+
+&lt;/span&gt;Add?&lt;span class="w"&gt; &lt;/span&gt;Y/N/y/n:&lt;span class="w"&gt;
+&lt;/span&gt;....&lt;span class="w"&gt;
+&lt;/span&gt;....&lt;span class="w"&gt;
+&lt;/span&gt;....&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="m"&gt;201602131935&lt;/span&gt;-latexdiff-annotated&lt;span class="w"&gt; &lt;/span&gt;3ba757f&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;Save&lt;span class="w"&gt; &lt;/span&gt;after&lt;span class="w"&gt; &lt;/span&gt;going&lt;span class="w"&gt; &lt;/span&gt;through&lt;span class="w"&gt; &lt;/span&gt;changes&lt;span class="w"&gt;
+ &lt;/span&gt;&lt;span class="m"&gt;5&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;files&lt;span class="w"&gt; &lt;/span&gt;changed,&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;34&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;insertions&lt;span class="o"&gt;(&lt;/span&gt;+&lt;span class="o"&gt;)&lt;/span&gt;,&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;56&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;deletions&lt;span class="o"&gt;(&lt;/span&gt;-&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+ &lt;/span&gt;create&lt;span class="w"&gt; &lt;/span&gt;mode&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;100644&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;src/accepted.pdf&lt;span class="w"&gt;
+ &lt;/span&gt;rewrite&lt;span class="w"&gt; &lt;/span&gt;src/paper.tex&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;72&lt;/span&gt;%&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+
+&lt;/span&gt;COMPLETE:&lt;span class="w"&gt; &lt;/span&gt;Changes&lt;span class="w"&gt; &lt;/span&gt;accepted&lt;span class="w"&gt; &lt;/span&gt;and&lt;span class="w"&gt; &lt;/span&gt;committed.&lt;span class="w"&gt;
+&lt;/span&gt;The&lt;span class="w"&gt; &lt;/span&gt;generated&lt;span class="w"&gt; &lt;/span&gt;pdf&lt;span class="w"&gt; &lt;/span&gt;is:&lt;span class="w"&gt; &lt;/span&gt;src//accepted.pdf.&lt;span class="w"&gt;
+&lt;/span&gt;You&lt;span class="w"&gt; &lt;/span&gt;can&lt;span class="w"&gt; &lt;/span&gt;merge&lt;span class="w"&gt; &lt;/span&gt;this&lt;span class="w"&gt; &lt;/span&gt;branch&lt;span class="w"&gt; &lt;/span&gt;to&lt;span class="w"&gt; &lt;/span&gt;master&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;you&lt;span class="w"&gt; &lt;/span&gt;wish.
+&lt;/pre&gt;
+&lt;p&gt;and your repository looks like this:&lt;/p&gt;
+&lt;pre class="code bash literal-block"&gt;
+&lt;span class="o"&gt;[&lt;/span&gt;asinha&amp;#64;ankur&lt;span class="w"&gt;  &lt;/span&gt;latex-changes&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;201602131935&lt;/span&gt;-latexdiff-annotated&lt;span class="o"&gt;)]&lt;/span&gt;$&lt;span class="w"&gt; &lt;/span&gt;git&lt;span class="w"&gt; &lt;/span&gt;lg&lt;span class="w"&gt;
+&lt;/span&gt;*&lt;span class="w"&gt; &lt;/span&gt;3ba757f&lt;span class="w"&gt; &lt;/span&gt;-&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;53&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;seconds&lt;span class="w"&gt; &lt;/span&gt;ago&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;Save&lt;span class="w"&gt; &lt;/span&gt;after&lt;span class="w"&gt; &lt;/span&gt;going&lt;span class="w"&gt; &lt;/span&gt;through&lt;span class="w"&gt; &lt;/span&gt;changes&lt;span class="w"&gt; &lt;/span&gt;—&lt;span class="w"&gt; &lt;/span&gt;Ankur&lt;span class="w"&gt; &lt;/span&gt;Sinha&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;Ankur&lt;span class="w"&gt; &lt;/span&gt;Sinha&lt;span class="w"&gt; &lt;/span&gt;Gmail&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;HEAD&lt;span class="w"&gt; &lt;/span&gt;-&amp;gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;201602131935&lt;/span&gt;-latexdiff-annotated&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;*&lt;span class="w"&gt; &lt;/span&gt;9e58178&lt;span class="w"&gt; &lt;/span&gt;-&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;17&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;minutes&lt;span class="w"&gt; &lt;/span&gt;ago&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;Save&lt;span class="w"&gt; &lt;/span&gt;annotated&lt;span class="w"&gt; &lt;/span&gt;changes&lt;span class="w"&gt; &lt;/span&gt;between&lt;span class="w"&gt; &lt;/span&gt;bd02966&lt;span class="w"&gt; &lt;/span&gt;and&lt;span class="w"&gt; &lt;/span&gt;master&lt;span class="w"&gt; &lt;/span&gt;—&lt;span class="w"&gt; &lt;/span&gt;Ankur&lt;span class="w"&gt; &lt;/span&gt;Sinha&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;Ankur&lt;span class="w"&gt; &lt;/span&gt;Sinha&lt;span class="w"&gt; &lt;/span&gt;Gmail&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;*&lt;span class="w"&gt; &lt;/span&gt;46d0c11&lt;span class="w"&gt; &lt;/span&gt;-&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;5&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;hours&lt;span class="w"&gt; &lt;/span&gt;ago&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;Add&lt;span class="w"&gt; &lt;/span&gt;a&lt;span class="w"&gt; &lt;/span&gt;new&lt;span class="w"&gt; &lt;/span&gt;file.&lt;span class="w"&gt; &lt;/span&gt;—&lt;span class="w"&gt; &lt;/span&gt;Ankur&lt;span class="w"&gt; &lt;/span&gt;Sinha&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;Ankur&lt;span class="w"&gt; &lt;/span&gt;Sinha&lt;span class="w"&gt; &lt;/span&gt;Gmail&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;origin/master,&lt;span class="w"&gt; &lt;/span&gt;origin/HEAD,&lt;span class="w"&gt; &lt;/span&gt;master,&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;201602131935&lt;/span&gt;-latexdiff-rev2&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;....
+&lt;/pre&gt;
+&lt;p&gt;The new pdf, accepted.pdf, is the latest version of your document and includes the changes you think should make the cut. If you're happy with these, you can simply merge this branch into master, and continue working. If you're not, you can go back to master, or another commit, and tinker some more - we're using Git, do what you want. In line with what I did above, the PDF looks like this:&lt;/p&gt;
+&lt;a class="reference external image-reference" href="https://ankursinha.in/images/20160213-zaphod-2.png"&gt;
+&lt;img alt="Screenshot of annotated PDF" class="align-center" src="https://ankursinha.in/images/20160213-zaphod-2.png" style="height: 400.0px;" /&gt;
+&lt;/a&gt;
+&lt;p&gt;Pretty neat, huh? At least I think so ;)&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="give-it-a-go"&gt;
+&lt;h2&gt;Give it a go!&lt;/h2&gt;
+&lt;p&gt;I've tested the tool out myself on a number of different cases, but I'm quite certain I've missed some and there are always bugs that I haven't run into yet. It's a rather simple script in its current version - not all the commands that are called are checked for errors and so on. As I get more time in the future, I'll keep improving it. For the time being, though, it does work.&lt;/p&gt;
+&lt;p&gt;Give it a go and let me know what you think? It's &lt;a class="reference external" href="https://github.com/sanjayankur31/zaphod"&gt;hosted on Github&lt;/a&gt;, so feel free to report issues and open pull requests. Let's make LaTeX even more usable!&lt;/p&gt;
+&lt;/div&gt;
+</content><category term="Research"/><category term="LaTeX"/><category term="Programming"/><category term="Git"/><category term="Fedora"/><category term="Zaphod"/></entry></feed>

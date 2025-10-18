@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="Ankur Sinha" />
+    <meta name="generator" content="Pelican (VoidyBootstrap theme)" />
+    <meta name="twitter:card" content="summary"> 
+    <meta name="twitter:title" content="Zaphod - a LaTeX change tracking tool">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:site" content="@sanjay_ankur">
+    <meta name="twitter:creator" content="@sanjay_ankur">
+    <meta name="twitter:domain" content="https://ankursinha.in">
+
+    <title>Zaphod - a LaTeX change tracking tool - ankursinha.in/blog</title>
+
+   
+        <link rel="stylesheet"
+              href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+              integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+              crossorigin="anonymous" />
+
+
+
+
+
+      <link rel="stylesheet" href="https://ankursinha.in/theme/css/use-opensans.css" />
+      <link rel="stylesheet" href="https://ankursinha.in/theme/css/voidybootstrap.css" />
+      <link rel="stylesheet" href="https://ankursinha.in/theme/css/pygment.css" />
+
+    <link rel="shortcut icon" href="https://ankursinha.in/favicon.ico" />
+        <link href="https://ankursinha.in/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="ankursinha.in/blog Atom Feed" />
+        <link href="https://ankursinha.in/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="ankursinha.in/blog RSS Feed" />
+  
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MCTH8VNYDK"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-MCTH8VNYDK');
+    </script>
+
+  </head>
+
+  <body>
+   
+    <nav class="navbar navbar-default">
+      <div class="container">
+	   <div class="navbar-header">
+		<button type="button" class="navbar-toggle" 
+				data-toggle="collapse" data-target="#main-navbar-collapse">
+		  <span class="sr-only">Toggle navigation</span>
+		  <span class="icon-bar"></span>
+		  <span class="icon-bar"></span>
+		  <span class="icon-bar"></span>
+		</button>
+		<a class="navbar-brand" href="https://ankursinha.in/" rel="home">
+          <i class="fas fa-home fa-fw fa-lg"> </i> </a>
+       </div>
+
+      <div class="collapse navbar-collapse" id="main-navbar-collapse">
+        <ul class="nav navbar-nav">
+              <li>
+                <a href="https://ankursinha.in/pages/01-about.html">About Me</a>
+              </li>
+              <li>
+                <a href="https://ankursinha.in/pages/04-current-work.html">Current Projects</a>
+              </li>
+            <li class="divider"></li>
+            <li class="">
+              <a href="https://ankursinha.in/pages/03-publications.html">Publications</a>
+            </li>
+            <li class="">
+              <a href="https://ankursinha.in/pages/archives.html">Archives</a>
+            </li>
+          <li class="divider"></li>
+            <li><a href="https://ankursinha.in/feeds/all.atom.xml" 
+                   type="application/atom+xml" rel="alternate">
+                <i class="fas fa-rss fa-fw fa-lg"></i> </a></li>
+        </ul> <!-- /nav -->
+      </div> <!-- /navbar-collapse -->
+	  </div> <!-- /container -->
+    </nav> <!-- /navbar -->
+
+	<div class="jumbotron" id="overview">
+	  <div class="container">
+		<h1><a href="https://ankursinha.in/">ankursinha.in/blog</a></h1>
+		<p class="lead">neuroscience/fedora/musings</p>
+	  </div>
+	</div>
+
+    <div class="container" id="main-container">
+      <div class="row">
+        <div class="col-md-9" id="content">
+<article itemscope="itemscope" itemtype="http://schema.org/BlogPosting">
+  <header class="article-header">
+<abbr class="article-header-date">
+  Sat 13 February 2016
+</abbr> <h1>
+  <a href="https://ankursinha.in/2016/02/13/zaphod-a-latex-change-tracking-tool.html" rel="bookmark"
+     title="Permalink to Zaphod - a LaTeX change tracking tool">
+    Zaphod - a LaTeX change tracking tool
+  </a>
+</h1><div class="article-header-info">
+  <p>
+      Posted by <a href="https://ankursinha.in/author/ankur.html">ankur</a>
+    in 
+    <a href="https://ankursinha.in/category/research/">
+      Research</a>
+(1198 words, approximately a 5 minute read)
+  </p>
+</div> <!-- /.article-header-info -->  </header>
+  <div class="content-body" itemprop="text articleBody">
+
+<p>
+    <ul class="list-inline">
+      <li class="list-inline-item">
+        <i class="fas fa-tags"></i>
+          <a href="https://ankursinha.in/tag/latex/">#LaTeX</a>,           <a href="https://ankursinha.in/tag/programming/">#Programming</a>,           <a href="https://ankursinha.in/tag/git/">#Git</a>,           <a href="https://ankursinha.in/tag/fedora/">#Fedora</a>,           <a href="https://ankursinha.in/tag/zaphod/">#Zaphod</a>      </li>
+    </ul>
+</p>
+
+
+  <div>  <!-- Social media sharing buttons -->
+  <hr />
+    <ul class="list-inline">
+      <li class="list-inline-item text-muted" title="Share"><i class="fas fa-share-alt" title="Share this post"></i> Share this post:</li>
+      <li class="list-inline-item"><a class="fab fa-mastodon" href="https://toot.kytta.dev/?text=Zaphod%20-%20a%20LaTeX%20change%20tracking%20tool%0D%0Ahttps%3A//ankursinha.in/2016/02/13/zaphod-a-latex-change-tracking-tool.html%0D%0A%23LaTeX %23Programming %23Git %23Fedora %23Zaphod" target="_blank" title="Share on mastodon"></a></li>
+      <li class="list-inline-item"><a class="fab fa-twitter" href="https://twitter.com/intent/tweet?text=Zaphod%20-%20a%20LaTeX%20change%20tracking%20tool&url=https%3A//ankursinha.in/2016/02/13/zaphod-a-latex-change-tracking-tool.html&via=sanjay_ankur&hashtags=latex,programming,git,fedora,zaphod" target="_blank" title="Share on Twitter"></a></li>
+      <li class="list-inline-item"><a class="fab fa-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3A//ankursinha.in/2016/02/13/zaphod-a-latex-change-tracking-tool.html" target="_blank" title="Share on Facebook"></a></li>
+      <li class="list-inline-item"><a class="fab fa-reddit" href="https://www.reddit.com/submit?url=https%3A//ankursinha.in/2016/02/13/zaphod-a-latex-change-tracking-tool.html&title=Zaphod%20-%20a%20LaTeX%20change%20tracking%20tool" target="_blank" title="Share on Reddit"></a></li>
+      <li class="list-inline-item"><a class="fab fa-linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A//ankursinha.in/2016/02/13/zaphod-a-latex-change-tracking-tool.html&title=Zaphod%20-%20a%20LaTeX%20change%20tracking%20tool&summary=Introducing%20Zaphod%20-%20a%20Python%20script%20that%20attempts%20to%20help%20LaTeX%20users%20collaborate%20over%20their%20academic%20writing.%20It%20uses%20the%20power%20of%20Git%20to%20track%20changes%2C%20latexdiff%20to%20generate%20a%20PDF%20with%20annotated%20additions%20and%20removals%20from%20the%20document%2C%20and%20provides%20a%20simple%20interactive%20review%20tool%20that%20lets%20the%20user%20pick%20what%20changes%20they%20want%20to%20accept.%20You%20can%20use%20Zaphod%20to%20track%20changes%20in%20your%20LaTeX%20documents.&source=https%3A//ankursinha.in/2016/02/13/zaphod-a-latex-change-tracking-tool.html" target="_blank" title="Share via LinkedIn<"></a></li>
+      <li class="list-inline-item"><a class="fas fa-mail-bulk" href="mailto:?subject=Zaphod%20-%20a%20LaTeX%20change%20tracking%20tool&amp;body=https%3A//ankursinha.in/2016/02/13/zaphod-a-latex-change-tracking-tool.html" target="_blank" title="Share via E-mail"></a></li>
+    </ul>
+  <hr />
+  </div> <!-- /Social media sharing buttons -->	<div class="section" id="the-name">
+<h2>The name</h2>
+<p>Well, I needn't say much here, need I? <a class="reference external" href="https://en.wikipedia.org/wiki/The_Hitchhiker%27s_Guide_to_the_Galaxy">Hitchhiker's guide to the galaxy</a>, anyone?</p>
+<p>Of course, a good tip to naming a new open source tool is to pick a project name that is easily searchable. With <a class="reference external" href="https://en.wikipedia.org/wiki/LaTeX">LaTeX</a> related searches, it's a tad difficult - the addition of the word to LaTeX to anything tends to generate rather undesirable results. Fortunately, <a class="reference external" href="https://en.wikipedia.org/wiki/Zaphod_Beeblebrox">Zaphod</a> seems to have been spared the honour..</p>
+</div>
+<div class="section" id="latex-is-great">
+<h2>LaTeX is great!</h2>
+<p>Academics really like <a class="reference external" href="https://en.wikipedia.org/wiki/LaTeX">LaTeX</a> - it's a brilliant tool, the best one in my opinion, for academic writing. Using LaTeX is widely accepted to be more complex than using a simple <a class="reference external" href="https://en.wikipedia.org/wiki/WYSIWYG">WYSIWYG</a> tool like Word. One writes in plain text using LaTeX constructs and then compiles it to produce a brilliantly formatted PDF. The point of using LaTeX is that you get to focus on the matter - the actual text, and LaTeX largely takes care of the look, the formatting and all that. There are <a class="reference external" href="https://en.wikipedia.org/wiki/Comparison_of_TeX_editors">quite a few applications</a> that provide one click compilation and other features, by the way, so you don't absolutely have to use the command line. There's even <a class="reference external" href="https://www.lyx.org/">Lyx</a> which is quite close to a WYSIWYG application for LaTeX.</p>
+<div class="section" id="tracking-changes">
+<h3>Tracking changes</h3>
+<p>Another limitation of using LaTeX is that you can't easily see what's changed between versions of PDFs. This makes collaboration using LaTeX difficult.</p>
+<p>Word, for example, has a very useful &quot;<a class="reference external" href="https://support.office.com/en-us/article/Track-changes-while-you-edit-024158a3-7e62-4f05-8bb7-dc3ecf0295c4">Track changes</a>&quot; feature that lets you record your changes and then lets the next person easily review them and decide which ones are to be applied.</p>
+<p>There are various tools strewn over the Internet that do help with this, but they aren't quite as convenient as I'd have hoped. Some examples:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://www.ctan.org/pkg/latexdiff?lang=en">latexdiff</a> (Zaphod is based on this and uses it to generate changes - why reinvent the wheel?)</li>
+<li>the <a class="reference external" href="http://www.ctan.org/pkg/changes">changes</a> package</li>
+<li><a class="reference external" href="http://trackchanges.sourceforge.net/">track changes</a> (didn't try this out)</li>
+</ul>
+</div>
+</div>
+<div class="section" id="so-zaphod">
+<h2>So - Zaphod</h2>
+<p>Various editors make writing LaTeX quite easy. That isn't much of an issue any more. Zaphod tries to address the second issue - tracking changes. It combines existing tools to implement a certain workflow where you can write text, send it to people, verify and include their changes.</p>
+<div class="section" id="the-workflow-an-example">
+<h3>The workflow - an example</h3>
+<ul class="simple">
+<li>Create a Git repository for your LaTeX paper.</li>
+<li>Write your draft.</li>
+</ul>
+<p>I'm using a <a class="reference external" href="https://github.com/sanjayankur31/latex-changes">test repository</a> which looks like this:</p>
+<pre class="code bash literal-block">
+<span class="o">[</span>asinha&#64;ankur<span class="w">  </span>latex-changes<span class="o">(</span><span class="nv">master</span><span class="o">=)]</span>$<span class="w"> </span>tree<span class="w">
+</span>.<span class="w">
+</span>├──<span class="w"> </span>LICENSE<span class="w">
+</span>├──<span class="w"> </span>README.rst<span class="w">
+</span>└──<span class="w"> </span>src<span class="w">
+    </span>├──<span class="w"> </span>abstract.tex<span class="w">
+    </span>├──<span class="w"> </span>conclusion.tex<span class="w">
+    </span>├──<span class="w"> </span>discussion.tex<span class="w">
+    </span>├──<span class="w"> </span>introduction.tex<span class="w">
+    </span>├──<span class="w"> </span>Makefile<span class="w">
+    </span>├──<span class="w"> </span>methods.tex<span class="w">
+    </span>├──<span class="w"> </span>paper.pdf<span class="w">
+    </span>├──<span class="w"> </span>paper.tex<span class="w">
+    </span>└──<span class="w"> </span>results.tex<span class="w">
+
+</span><span class="m">1</span><span class="w"> </span>directory,<span class="w"> </span><span class="m">19</span><span class="w"> </span>files<span class="w">
+</span><span class="o">[</span>asinha&#64;ankur<span class="w">  </span>latex-changes<span class="o">(</span><span class="nv">master</span><span class="o">=)]</span>$
+</pre>
+<ul class="simple">
+<li>Commit your changes.</li>
+</ul>
+<p>Your repository will look something like this:</p>
+<pre class="code bash literal-block">
+<span class="o">[</span>asinha&#64;ankur<span class="w">  </span>latex-changes<span class="o">(</span><span class="nv">master</span><span class="o">=)]</span>$<span class="w"> </span>git<span class="w"> </span>lg<span class="w">
+</span>*<span class="w"> </span>280fef6<span class="w"> </span>-<span class="w"> </span><span class="o">(</span><span class="m">4</span><span class="w"> </span>days<span class="w"> </span>ago<span class="o">)</span><span class="w"> </span>Subsection<span class="w"> </span><span class="nb">test</span><span class="w"> </span>—<span class="w"> </span>Ankur<span class="w"> </span>Sinha<span class="w"> </span><span class="o">(</span>Ankur<span class="w"> </span>Sinha<span class="w"> </span>Gmail<span class="o">)</span><span class="w"> </span><span class="o">(</span>HEAD<span class="w"> </span>-&gt;<span class="w"> </span>master,<span class="w"> </span>origin/master,<span class="w"> </span>origin/HEAD<span class="o">)</span><span class="w">
+</span>*<span class="w"> </span>0c0238b<span class="w"> </span>-<span class="w"> </span><span class="o">(</span><span class="m">4</span><span class="w"> </span>days<span class="w"> </span>ago<span class="o">)</span><span class="w"> </span>Moved<span class="w"> </span>script<span class="w"> </span>to<span class="w"> </span>its<span class="w"> </span>own<span class="w"> </span>repository<span class="w"> </span>—<span class="w"> </span>Ankur<span class="w"> </span>Sinha<span class="w"> </span><span class="o">(</span>Ankur<span class="w"> </span>Sinha<span class="w"> </span>Gmail<span class="o">)</span><span class="w">
+</span>....<span class="w">
+</span>*<span class="w"> </span>164e0d3<span class="w"> </span>-<span class="w"> </span><span class="o">(</span><span class="m">8</span><span class="w"> </span>days<span class="w"> </span>ago<span class="o">)</span><span class="w"> </span>Add<span class="w"> </span>vim<span class="w"> </span>temp<span class="w"> </span>files<span class="w"> </span>to<span class="w"> </span>gitignore<span class="w"> </span>—<span class="w"> </span>Ankur<span class="w"> </span>Sinha<span class="w"> </span><span class="o">(</span>Ankur<span class="w"> </span>Sinha<span class="w"> </span>Gmail<span class="o">)</span><span class="w">
+</span>*<span class="w"> </span>bd02966<span class="w"> </span>-<span class="w"> </span><span class="o">(</span><span class="m">8</span><span class="w"> </span>days<span class="w"> </span>ago<span class="o">)</span><span class="w"> </span>Commit<span class="w"> </span>fake<span class="w"> </span>paper<span class="w"> </span>—<span class="w"> </span>Ankur<span class="w"> </span>Sinha<span class="w"> </span><span class="o">(</span>Ankur<span class="w"> </span>Sinha<span class="w"> </span>Gmail<span class="o">)</span><span class="w">
+</span>*<span class="w"> </span>11ad32b<span class="w"> </span>-<span class="w"> </span><span class="o">(</span><span class="m">8</span><span class="w"> </span>days<span class="w"> </span>ago<span class="o">)</span><span class="w"> </span>Initial<span class="w"> </span>commit<span class="w"> </span>—<span class="w"> </span>Ankur<span class="w"> </span>Sinha
+</pre>
+<p>This is all pretty standard Git usage. Now, the interesting part:</p>
+<ul class="simple">
+<li>Send your PDF and LaTeX sources to your collaborator (or give them access to your repository).</li>
+<li>They make changes and commit them. Now, your Git revision tree will look something like this:</li>
+</ul>
+<pre class="code bash literal-block">
+<span class="o">[</span>asinha&#64;ankur<span class="w">  </span>latex-changes<span class="o">(</span><span class="nv">master</span><span class="o">=)]</span>$<span class="w"> </span>git<span class="w"> </span>lg<span class="w">
+</span>*<span class="w"> </span>46d0c11<span class="w"> </span>-<span class="w"> </span><span class="o">(</span><span class="m">4</span><span class="w"> </span>hours<span class="w"> </span>ago<span class="o">)</span><span class="w"> </span>Add<span class="w"> </span>a<span class="w"> </span>new<span class="w"> </span>file.<span class="w"> </span>—<span class="w"> </span>Ankur<span class="w"> </span>Sinha<span class="w"> </span><span class="o">(</span>Ankur<span class="w"> </span>Sinha<span class="w"> </span>Gmail<span class="o">)</span><span class="w"> </span><span class="o">(</span>HEAD<span class="w"> </span>-&gt;<span class="w"> </span>master,<span class="w"> </span>origin/master,<span class="w"> </span>origin/HEAD<span class="o">)</span><span class="w">
+</span>*<span class="w"> </span>ba4b06d<span class="w"> </span>-<span class="w"> </span><span class="o">(</span><span class="m">3</span><span class="w"> </span>days<span class="w"> </span>ago<span class="o">)</span><span class="w"> </span>Update<span class="w"> </span>readme<span class="w"> </span>—<span class="w"> </span>Ankur<span class="w"> </span>Sinha<span class="w"> </span><span class="o">(</span>Ankur<span class="w"> </span>Sinha<span class="w"> </span>Gmail<span class="o">)</span><span class="w">
+</span>*<span class="w"> </span>53033b8<span class="w"> </span>-<span class="w"> </span><span class="o">(</span><span class="m">3</span><span class="w"> </span>days<span class="w"> </span>ago<span class="o">)</span><span class="w"> </span>Remove<span class="w"> </span>example<span class="w"> </span>output<span class="w"> </span>directory<span class="w"> </span>—<span class="w"> </span>Ankur<span class="w"> </span>Sinha<span class="w"> </span><span class="o">(</span>Ankur<span class="w"> </span>Sinha<span class="w"> </span>Gmail<span class="o">)</span><span class="w">
+</span>*<span class="w"> </span>d82266b<span class="w"> </span>-<span class="w"> </span><span class="o">(</span><span class="m">4</span><span class="w"> </span>days<span class="w"> </span>ago<span class="o">)</span><span class="w"> </span>More<span class="w"> </span>subsection<span class="w"> </span>changes<span class="w"> </span>—<span class="w"> </span>Ankur<span class="w"> </span>Sinha<span class="w"> </span><span class="o">(</span>Ankur<span class="w"> </span>Sinha<span class="w"> </span>Gmail<span class="o">)</span><span class="w">
+</span>*<span class="w"> </span>280fef6<span class="w"> </span>-<span class="w"> </span><span class="o">(</span><span class="m">4</span><span class="w"> </span>days<span class="w"> </span>ago<span class="o">)</span><span class="w"> </span>Subsection<span class="w"> </span><span class="nb">test</span><span class="w"> </span>—<span class="w"> </span>Ankur<span class="w"> </span>Sinha<span class="w"> </span><span class="o">(</span>Ankur<span class="w"> </span>Sinha<span class="w"> </span>Gmail<span class="o">)</span><span class="w">
+  </span>...
+</pre>
+<p>Zaphod lets you specify two Git revisions and generates a list of changes between these two. So, for example, running the diff command would do this:</p>
+<pre class="code bash literal-block">
+<span class="o">[</span>asinha&#64;ankur<span class="w">  </span>latex-changes<span class="o">(</span><span class="nv">master</span><span class="o">=)]</span>$<span class="w"> </span>python3<span class="w"> </span>../zaphod/zaphod.py<span class="w"> </span>diff<span class="w"> </span>-r<span class="w"> </span>bd02966<span class="w"> </span>-m<span class="w"> </span>paper.tex<span class="w"> </span>-s<span class="w"> </span>src<span class="w">
+ </span>....<span class="w">
+ </span>....<span class="w">
+ </span>COMPLETE:<span class="w"> </span>The<span class="w"> </span>following<span class="w"> </span>branches<span class="w"> </span>have<span class="w"> </span>been<span class="w"> </span>created:<span class="w">
+ </span><span class="m">201602131935</span>-latexdiff-rev1:<span class="w"> </span>Revision<span class="w"> </span><span class="m">1</span>.<span class="w">
+ </span><span class="m">201602131935</span>-latexdiff-rev2:<span class="w"> </span>Revision<span class="w"> </span><span class="m">2</span>.<span class="w">
+ </span><span class="m">201602131935</span>-latexdiff-annotated:<span class="w"> </span>Branch<span class="w"> </span>with<span class="w"> </span>annotated<span class="w"> </span>versions<span class="w"> </span>of<span class="w"> </span>sources<span class="w"> </span>and<span class="w"> </span>diff<span class="w"> </span>pdf.<span class="w">
+ </span>The<span class="w"> </span>generated<span class="w"> </span>diff<span class="w"> </span>pdf<span class="w"> </span>is:<span class="w"> </span>src/diff-bd02966-master.pdf.
+</pre>
+<p>and your repository now looks like this:</p>
+<pre class="code bash literal-block">
+*<span class="w"> </span>9e58178<span class="w"> </span>-<span class="w"> </span><span class="o">(</span><span class="m">2</span><span class="w"> </span>minutes<span class="w"> </span>ago<span class="o">)</span><span class="w"> </span>Save<span class="w"> </span>annotated<span class="w"> </span>changes<span class="w"> </span>between<span class="w"> </span>bd02966<span class="w"> </span>and<span class="w"> </span>master<span class="w"> </span>—<span class="w"> </span>Ankur<span class="w"> </span>Sinha<span class="w"> </span><span class="o">(</span>Ankur<span class="w"> </span>Sinha<span class="w"> </span>Gmail<span class="o">)</span><span class="w"> </span><span class="o">(</span>HEAD<span class="w"> </span>-&gt;<span class="w"> </span><span class="m">201602131935</span>-latexdiff-annotated<span class="o">)</span><span class="w">
+</span>*<span class="w"> </span>46d0c11<span class="w"> </span>-<span class="w"> </span><span class="o">(</span><span class="m">5</span><span class="w"> </span>hours<span class="w"> </span>ago<span class="o">)</span><span class="w"> </span>Add<span class="w"> </span>a<span class="w"> </span>new<span class="w"> </span>file.<span class="w"> </span>—<span class="w"> </span>Ankur<span class="w"> </span>Sinha<span class="w"> </span><span class="o">(</span>Ankur<span class="w"> </span>Sinha<span class="w"> </span>Gmail<span class="o">)</span><span class="w"> </span><span class="o">(</span>origin/master,<span class="w"> </span>origin/HEAD,<span class="w"> </span>master,<span class="w"> </span><span class="m">201602131935</span>-latexdiff-rev2<span class="o">)</span><span class="w">
+</span>*<span class="w"> </span>ba4b06d<span class="w"> </span>-<span class="w"> </span><span class="o">(</span><span class="m">3</span><span class="w"> </span>days<span class="w"> </span>ago<span class="o">)</span><span class="w"> </span>Update<span class="w"> </span>readme<span class="w"> </span>—<span class="w"> </span>Ankur<span class="w"> </span>Sinha<span class="w"> </span><span class="o">(</span>Ankur<span class="w"> </span>Sinha<span class="w"> </span>Gmail<span class="o">)</span><span class="w">
+</span>....<span class="w">
+</span>*<span class="w"> </span>bd02966<span class="w"> </span>-<span class="w"> </span><span class="o">(</span><span class="m">8</span><span class="w"> </span>days<span class="w"> </span>ago<span class="o">)</span><span class="w"> </span>Commit<span class="w"> </span>fake<span class="w"> </span>paper<span class="w"> </span>—<span class="w"> </span>Ankur<span class="w"> </span>Sinha<span class="w"> </span><span class="o">(</span>Ankur<span class="w"> </span>Sinha<span class="w"> </span>Gmail<span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="m">201602131935</span>-latexdiff-rev1<span class="o">)</span><span class="w">
+</span>*<span class="w"> </span>11ad32b<span class="w"> </span>-<span class="w"> </span><span class="o">(</span><span class="m">8</span><span class="w"> </span>days<span class="w"> </span>ago<span class="o">)</span><span class="w"> </span>Initial<span class="w"> </span>commit<span class="w"> </span>—<span class="w"> </span>Ankur<span class="w"> </span>Sinha
+</pre>
+<p>Zaphod uses latexdiff to check for differences between the two revisions, marks them as branches for easy reference, and then creates a new branch with annotated source files and a nice pdf which looks like this:</p>
+<a class="reference external image-reference" href="https://ankursinha.in/images/20160213-zaphod-screenshot.png">
+<img alt="Screenshot of annotated PDF" class="align-center" src="https://ankursinha.in/images/20160213-zaphod-screenshot.png" style="height: 400.0px;" />
+</a>
+<p>That looks rather nice, isn't it? And it resembles what a Word document with annotations looks like too. latexdiff has various markup styles which can be passed to Zaphod as arguments to modify how the annotations look. The most important part here is that because Zaphod is using mighty Git, there's no chance of you losing any work at all. <em>In fact, if you have untracked and uncommitted changes in your repository, Zaphod refuses to run at all.</em></p>
+<p>Now, a look at how the revise function works:</p>
+<pre class="code bash literal-block">
+<span class="o">[</span>asinha&#64;ankur<span class="w">  </span>latex-changes<span class="o">(</span><span class="m">201602131935</span>-latexdiff-annotated<span class="o">)]</span>$<span class="w"> </span>python3<span class="w"> </span>../zaphod/zaphod.py<span class="w"> </span>revise<span class="w"> </span>-s<span class="w"> </span>src/<span class="w"> </span>-m<span class="w"> </span>paper.tex<span class="w">
+</span>Working<span class="w"> </span>on<span class="w"> </span>file:<span class="w"> </span>src/paper.tex.<span class="w">
+</span>File<span class="w"> </span>under<span class="w"> </span>revision:<span class="w"> </span>src/paper.tex<span class="w">
+
+</span>Deletion<span class="w"> </span>found:<span class="w">
+</span>---<span class="w">
+</span>Tracking<span class="w">
+</span>---<span class="w">
+
+</span>Delete?<span class="w"> </span>Y/N/y/n:<span class="w"> </span>y<span class="w">
+</span>Deleted<span class="w">
+
+</span>File<span class="w"> </span>under<span class="w"> </span>revision:<span class="w"> </span>src/paper.tex<span class="w">
+
+</span>Addition<span class="w"> </span>found:<span class="w">
+</span>+++<span class="w">
+</span>Visualising<span class="w">
+</span>+++<span class="w">
+
+</span>Add?<span class="w"> </span>Y/N/y/n:<span class="w"> </span>n<span class="w">
+</span>Skipped<span class="w">
+
+</span>File<span class="w"> </span>under<span class="w"> </span>revision:<span class="w"> </span>src/paper.tex<span class="w">
+
+</span>Addition<span class="w"> </span>found:<span class="w">
+</span>+++<span class="w">
+</span><span class="se">\i</span>nput<span class="o">{</span>discussion<span class="o">}</span><span class="w">
+
+</span>+++<span class="w">
+
+</span>Add?<span class="w"> </span>Y/N/y/n:<span class="w">
+</span>....<span class="w">
+</span>....<span class="w">
+</span>....<span class="w">
+</span><span class="o">[</span><span class="m">201602131935</span>-latexdiff-annotated<span class="w"> </span>3ba757f<span class="o">]</span><span class="w"> </span>Save<span class="w"> </span>after<span class="w"> </span>going<span class="w"> </span>through<span class="w"> </span>changes<span class="w">
+ </span><span class="m">5</span><span class="w"> </span>files<span class="w"> </span>changed,<span class="w"> </span><span class="m">34</span><span class="w"> </span>insertions<span class="o">(</span>+<span class="o">)</span>,<span class="w"> </span><span class="m">56</span><span class="w"> </span>deletions<span class="o">(</span>-<span class="o">)</span><span class="w">
+ </span>create<span class="w"> </span>mode<span class="w"> </span><span class="m">100644</span><span class="w"> </span>src/accepted.pdf<span class="w">
+ </span>rewrite<span class="w"> </span>src/paper.tex<span class="w"> </span><span class="o">(</span><span class="m">72</span>%<span class="o">)</span><span class="w">
+
+</span>COMPLETE:<span class="w"> </span>Changes<span class="w"> </span>accepted<span class="w"> </span>and<span class="w"> </span>committed.<span class="w">
+</span>The<span class="w"> </span>generated<span class="w"> </span>pdf<span class="w"> </span>is:<span class="w"> </span>src//accepted.pdf.<span class="w">
+</span>You<span class="w"> </span>can<span class="w"> </span>merge<span class="w"> </span>this<span class="w"> </span>branch<span class="w"> </span>to<span class="w"> </span>master<span class="w"> </span><span class="k">if</span><span class="w"> </span>you<span class="w"> </span>wish.
+</pre>
+<p>and your repository looks like this:</p>
+<pre class="code bash literal-block">
+<span class="o">[</span>asinha&#64;ankur<span class="w">  </span>latex-changes<span class="o">(</span><span class="m">201602131935</span>-latexdiff-annotated<span class="o">)]</span>$<span class="w"> </span>git<span class="w"> </span>lg<span class="w">
+</span>*<span class="w"> </span>3ba757f<span class="w"> </span>-<span class="w"> </span><span class="o">(</span><span class="m">53</span><span class="w"> </span>seconds<span class="w"> </span>ago<span class="o">)</span><span class="w"> </span>Save<span class="w"> </span>after<span class="w"> </span>going<span class="w"> </span>through<span class="w"> </span>changes<span class="w"> </span>—<span class="w"> </span>Ankur<span class="w"> </span>Sinha<span class="w"> </span><span class="o">(</span>Ankur<span class="w"> </span>Sinha<span class="w"> </span>Gmail<span class="o">)</span><span class="w"> </span><span class="o">(</span>HEAD<span class="w"> </span>-&gt;<span class="w"> </span><span class="m">201602131935</span>-latexdiff-annotated<span class="o">)</span><span class="w">
+</span>*<span class="w"> </span>9e58178<span class="w"> </span>-<span class="w"> </span><span class="o">(</span><span class="m">17</span><span class="w"> </span>minutes<span class="w"> </span>ago<span class="o">)</span><span class="w"> </span>Save<span class="w"> </span>annotated<span class="w"> </span>changes<span class="w"> </span>between<span class="w"> </span>bd02966<span class="w"> </span>and<span class="w"> </span>master<span class="w"> </span>—<span class="w"> </span>Ankur<span class="w"> </span>Sinha<span class="w"> </span><span class="o">(</span>Ankur<span class="w"> </span>Sinha<span class="w"> </span>Gmail<span class="o">)</span><span class="w">
+</span>*<span class="w"> </span>46d0c11<span class="w"> </span>-<span class="w"> </span><span class="o">(</span><span class="m">5</span><span class="w"> </span>hours<span class="w"> </span>ago<span class="o">)</span><span class="w"> </span>Add<span class="w"> </span>a<span class="w"> </span>new<span class="w"> </span>file.<span class="w"> </span>—<span class="w"> </span>Ankur<span class="w"> </span>Sinha<span class="w"> </span><span class="o">(</span>Ankur<span class="w"> </span>Sinha<span class="w"> </span>Gmail<span class="o">)</span><span class="w"> </span><span class="o">(</span>origin/master,<span class="w"> </span>origin/HEAD,<span class="w"> </span>master,<span class="w"> </span><span class="m">201602131935</span>-latexdiff-rev2<span class="o">)</span><span class="w">
+</span>....
+</pre>
+<p>The new pdf, accepted.pdf, is the latest version of your document and includes the changes you think should make the cut. If you're happy with these, you can simply merge this branch into master, and continue working. If you're not, you can go back to master, or another commit, and tinker some more - we're using Git, do what you want. In line with what I did above, the PDF looks like this:</p>
+<a class="reference external image-reference" href="https://ankursinha.in/images/20160213-zaphod-2.png">
+<img alt="Screenshot of annotated PDF" class="align-center" src="https://ankursinha.in/images/20160213-zaphod-2.png" style="height: 400.0px;" />
+</a>
+<p>Pretty neat, huh? At least I think so ;)</p>
+</div>
+</div>
+<div class="section" id="give-it-a-go">
+<h2>Give it a go!</h2>
+<p>I've tested the tool out myself on a number of different cases, but I'm quite certain I've missed some and there are always bugs that I haven't run into yet. It's a rather simple script in its current version - not all the commands that are called are checked for errors and so on. As I get more time in the future, I'll keep improving it. For the time being, though, it does work.</p>
+<p>Give it a go and let me know what you think? It's <a class="reference external" href="https://github.com/sanjayankur31/zaphod">hosted on Github</a>, so feel free to report issues and open pull requests. Let's make LaTeX even more usable!</p>
+</div>
+
+  </div>
+  
+  <div>  <!-- Social media sharing buttons -->
+  <hr />
+    <ul class="list-inline">
+      <li class="list-inline-item text-muted" title="Share"><i class="fas fa-share-alt" title="Share this post"></i> Share this post:</li>
+      <li class="list-inline-item"><a class="fab fa-mastodon" href="https://toot.kytta.dev/?text=Zaphod%20-%20a%20LaTeX%20change%20tracking%20tool%0D%0Ahttps%3A//ankursinha.in/2016/02/13/zaphod-a-latex-change-tracking-tool.html%0D%0A%23LaTeX %23Programming %23Git %23Fedora %23Zaphod" target="_blank" title="Share on mastodon"></a></li>
+      <li class="list-inline-item"><a class="fab fa-twitter" href="https://twitter.com/intent/tweet?text=Zaphod%20-%20a%20LaTeX%20change%20tracking%20tool&url=https%3A//ankursinha.in/2016/02/13/zaphod-a-latex-change-tracking-tool.html&via=sanjay_ankur&hashtags=latex,programming,git,fedora,zaphod" target="_blank" title="Share on Twitter"></a></li>
+      <li class="list-inline-item"><a class="fab fa-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3A//ankursinha.in/2016/02/13/zaphod-a-latex-change-tracking-tool.html" target="_blank" title="Share on Facebook"></a></li>
+      <li class="list-inline-item"><a class="fab fa-reddit" href="https://www.reddit.com/submit?url=https%3A//ankursinha.in/2016/02/13/zaphod-a-latex-change-tracking-tool.html&title=Zaphod%20-%20a%20LaTeX%20change%20tracking%20tool" target="_blank" title="Share on Reddit"></a></li>
+      <li class="list-inline-item"><a class="fab fa-linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A//ankursinha.in/2016/02/13/zaphod-a-latex-change-tracking-tool.html&title=Zaphod%20-%20a%20LaTeX%20change%20tracking%20tool&summary=Introducing%20Zaphod%20-%20a%20Python%20script%20that%20attempts%20to%20help%20LaTeX%20users%20collaborate%20over%20their%20academic%20writing.%20It%20uses%20the%20power%20of%20Git%20to%20track%20changes%2C%20latexdiff%20to%20generate%20a%20PDF%20with%20annotated%20additions%20and%20removals%20from%20the%20document%2C%20and%20provides%20a%20simple%20interactive%20review%20tool%20that%20lets%20the%20user%20pick%20what%20changes%20they%20want%20to%20accept.%20You%20can%20use%20Zaphod%20to%20track%20changes%20in%20your%20LaTeX%20documents.&source=https%3A//ankursinha.in/2016/02/13/zaphod-a-latex-change-tracking-tool.html" target="_blank" title="Share via LinkedIn<"></a></li>
+      <li class="list-inline-item"><a class="fas fa-mail-bulk" href="mailto:?subject=Zaphod%20-%20a%20LaTeX%20change%20tracking%20tool&amp;body=https%3A//ankursinha.in/2016/02/13/zaphod-a-latex-change-tracking-tool.html" target="_blank" title="Share via E-mail"></a></li>
+    </ul>
+  <hr />
+  </div> <!-- /Social media sharing buttons -->
+  <div class="comments">
+	<h2>Comments</h2>
+	<div id="disqus_thread"></div>
+	<script type="text/javascript">
+				   (function() {
+						var dsq = document.createElement('script');
+						dsq.type = 'text/javascript'; dsq.async = true;
+						dsq.src = '//ankursinha.disqus.com/embed.js';
+						(document.getElementsByTagName('head')[0] ||
+						 document.getElementsByTagName('body')[0]).appendChild(dsq);
+				  })();
+	</script>
+  </div>
+</article>
+        </div><!-- /content -->
+
+        <div class="col-md-3 sidebar-nav" id="sidebar">
+
+<div class="row">
+
+<div class="col-xs-6 col-md-12">
+<h4><i class="fas fa-comment fa-fw fa-lg"></i> Social</h4>
+<ul class="list-unstyled social-links">
+    <li><a rel="me" href="https://duckduckgo.com/?q=site%3Aankursinha.in&ia=web" target="_blank">
+	  <i class="fas fa-search fa-fw fa-lg" title="Search (DuckDuckGo)"></i>
+		Search (DuckDuckGo)
+	</a></li>
+    <li><a rel="me" href="www.linkedin.com/in/ankur-sinha-phd" target="_blank">
+	  <i class="fa fa-linkedin-square fa-fw fa-lg" title="LinkedIn"></i>
+		LinkedIn
+	</a></li>
+    <li><a rel="me" href="http://github.com/sanjayankur31" target="_blank">
+	  <i class="fab fa-github fa-fw fa-lg" title="GitHub"></i>
+		GitHub
+	</a></li>
+    <li><a rel="me" href=" https://orcid.org/0000-0001-7568-7167" target="_blank">
+	  <i class="fas fa-flask fa-fw fa-lg" title="Orcid"></i>
+		Orcid
+	</a></li>
+    <li><a rel="me" href="http://scholar.google.co.in/citations?user=919ScZEAAAAJ&hl=en" target="_blank">
+	  <i class="fas fa-graduation-cap fa-fw fa-lg" title="Scholar"></i>
+		Scholar
+	</a></li>
+    <li><a rel="me" href="https://fedoraproject.org/wiki/User:Ankursinha" target="_blank">
+	  <i class="fab fa-fedora fa-fw fa-lg" title="Fedora"></i>
+		Fedora
+	</a></li>
+    <li><a rel="me" href="https://ramblingreaders.org/user/sanjay_ankur" target="_blank">
+	  <i class="fas fa-book-reader fa-fw fa-lg" title="BookWyrm"></i>
+		BookWyrm
+	</a></li>
+    <li><a rel="me" href="https://fosstodon.org/@sanjay_ankur" target="_blank">
+	  <i class="fab fa-mastodon fa-fw fa-lg" title="Mastodon"></i>
+		Mastodon
+	</a></li>
+    <li><a rel="me" href="https://bsky.app/profile/sanjay-ankur.bsky.social" target="_blank">
+	  <i class="fas fa-people-arrows fa-fw fa-lg" title="BlueSky"></i>
+		BlueSky
+	</a></li>
+    <li><a rel="me" href="https://www.goodreads.com/user/show/32360473-ankur" target="_blank">
+	  <i class="fab fa-goodreads-g fa-fw fa-lg" title="Goodreads"></i>
+		Goodreads
+	</a></li>
+    <li><a rel="me" href="https://twitter.com/sanjay_ankur" target="_blank">
+	  <i class="fab fa-twitter fa-fw fa-lg" title="X"></i>
+		X
+	</a></li>
+    <li><a rel="me" href="https://coff.ee/sanjayankuu" target="_blank">
+	  <i class="fas fa-mug-hot fa-fw fa-lg" title="Buy me a coffee!"></i>
+		Buy me a coffee!
+	</a></li>
+</ul>
+</div>
+
+<div class="col-xs-6 col-md-12">
+<h4><i class="fas fa-folder fa-fw fa-lg"></i> Categories</h4>
+<ul class="list-unstyled category-links">
+  <li><a href="https://ankursinha.in/category/life/" >
+    <i class="fas fa-folder-open fa-fw fa-lg"></i> Life</a></li>
+  <li><a href="https://ankursinha.in/category/other/" >
+    <i class="fas fa-folder-open fa-fw fa-lg"></i> Other</a></li>
+  <li><a href="https://ankursinha.in/category/research/" >
+    <i class="fas fa-folder-open fa-fw fa-lg"></i> Research</a></li>
+  <li><a href="https://ankursinha.in/category/tech/" >
+    <i class="fas fa-folder-open fa-fw fa-lg"></i> Tech</a></li>
+</ul>
+</div>
+
+</div> <!-- /row -->
+
+  <h4><i class="fas fa-link fa-fw fa-lg"></i> Links</h4>
+  <ul class="list-unstyled category-links">
+    <li><a href="https://neuro.fedoraproject.org" >
+      <i class="fas fa-external-link-square-alt fa-fw fa-lg"></i> NeuroFedora</a></li>
+    <li><a href="http://fedoraproject.org" >
+      <i class="fas fa-external-link-square-alt fa-fw fa-lg"></i> Fedora Linux</a></li>
+    <li><a href="https://ocns.github.io/SoftwareWG/" >
+      <i class="fas fa-external-link-square-alt fa-fw fa-lg"></i> INCF/OCNS Software WG</a></li>
+    <li><a href="https://neuroblog.fedoraproject.org/planet-neuroscience/" >
+      <i class="fas fa-external-link-square-alt fa-fw fa-lg"></i> Neuroscience feeds</a></li>
+    <li><a href="https://neuroblog.fedoraproject.org/planet-neuroscientists/" >
+      <i class="fas fa-external-link-square-alt fa-fw fa-lg"></i> Neuroscientists feeds</a></li>
+  </ul>
+<h4><i class="fas fa-tags fa-fw fa-lg"></i> Tags</h4>
+<p class="tag-cloud">
+    <span class="tag-2">
+      <a href="https://ankursinha.in/tag/neurofedora/">
+          <i class="fas fa-tag"></i>
+        NeuroFedora
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="https://ankursinha.in/tag/vim/">
+          <i class="fas fa-tag"></i>
+        Vim
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="https://ankursinha.in/tag/open-source-brain/">
+          <i class="fas fa-tag"></i>
+        Open Source Brain
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="https://ankursinha.in/tag/zaphod/">
+          <i class="fas fa-tag"></i>
+        Zaphod
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="https://ankursinha.in/tag/social/">
+          <i class="fas fa-tag"></i>
+        Social
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="https://ankursinha.in/tag/pelican/">
+          <i class="fas fa-tag"></i>
+        Pelican
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="https://ankursinha.in/tag/neuroml/">
+          <i class="fas fa-tag"></i>
+        NeuroML
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="https://ankursinha.in/tag/flatpak/">
+          <i class="fas fa-tag"></i>
+        FlatPak
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="https://ankursinha.in/tag/irc/">
+          <i class="fas fa-tag"></i>
+        IRC
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="https://ankursinha.in/tag/neuron/">
+          <i class="fas fa-tag"></i>
+        Neuron
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="https://ankursinha.in/tag/community/">
+          <i class="fas fa-tag"></i>
+        Community
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="https://ankursinha.in/tag/computational-neuroscience/">
+          <i class="fas fa-tag"></i>
+        Computational Neuroscience
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="https://ankursinha.in/tag/python/">
+          <i class="fas fa-tag"></i>
+        Python
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="https://ankursinha.in/tag/gnome/">
+          <i class="fas fa-tag"></i>
+        GNOME
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="https://ankursinha.in/tag/git/">
+          <i class="fas fa-tag"></i>
+        Git
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="https://ankursinha.in/tag/github/">
+          <i class="fas fa-tag"></i>
+        GitHub
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="https://ankursinha.in/tag/ucl/">
+          <i class="fas fa-tag"></i>
+        UCL
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="https://ankursinha.in/tag/bash/">
+          <i class="fas fa-tag"></i>
+        Bash
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="https://ankursinha.in/tag/fedora/">
+          <i class="fas fa-tag"></i>
+        Fedora
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="https://ankursinha.in/tag/latex/">
+          <i class="fas fa-tag"></i>
+        LaTeX
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="https://ankursinha.in/tag/matlab/">
+          <i class="fas fa-tag"></i>
+        Matlab
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="https://ankursinha.in/tag/nest/">
+          <i class="fas fa-tag"></i>
+        NEST
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="https://ankursinha.in/tag/linux/">
+          <i class="fas fa-tag"></i>
+        Linux
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="https://ankursinha.in/tag/taskwarrior/">
+          <i class="fas fa-tag"></i>
+        Taskwarrior
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="https://ankursinha.in/tag/free-software/">
+          <i class="fas fa-tag"></i>
+        Free software
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="https://ankursinha.in/tag/gsoc/">
+          <i class="fas fa-tag"></i>
+        GSoC
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="https://ankursinha.in/tag/planet/">
+          <i class="fas fa-tag"></i>
+        Planet
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="https://ankursinha.in/tag/robotics/">
+          <i class="fas fa-tag"></i>
+        Robotics
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="https://ankursinha.in/tag/programming/">
+          <i class="fas fa-tag"></i>
+        Programming
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="https://ankursinha.in/tag/events/">
+          <i class="fas fa-tag"></i>
+        Events
+      </a>
+    </span>
+</p>
+<h4><i class="fas fa-rss fa-fw fa-lg"></i> Feeds</h4>
+<ul class="list-unstyled">
+    <li><a href="https://ankursinha.in/feeds/all.atom.xml" 
+		   type="application/atom+xml" rel="alternate">
+		<i class="fas fa-rss-square fa-fw fa-lg"></i> Atom Feed</a></li>
+    <li><a href="https://ankursinha.in/feeds/all.rss.xml" 
+		   type="application/rss+xml" rel="alternate">
+		<i class="fas fa-rss-square fa-fw fa-lg"></i> RSS feed</a></li>
+</ul>
+
+<hr />
+
+        </div><!--/sidebar -->
+      </div><!--/row-->
+    </div><!--/.container /#main-container -->
+
+    <footer id="site-footer">
+ 
+      <address id="site-colophon">
+        <p class="text-center text-muted">
+        <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br /><a href="http://ankursinha.in/" target="_blank" xmlns:dct="http://purl.org/dc/terms/" property="dct:title">ankursinha.in</a> by <a xmlns:cc="http://creativecommons.org/ns#" href="https://ankursinha.in/pages/01-about.html" property="cc:attributionName" rel="cc:attributionURL" target="_blank">Ankur Sinha</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Attribution 4.0 International License</a>.<br />
+        Site built using <a href="http://getpelican.com/" target="_blank">Pelican</a>
+        &nbsp;&bull;&nbsp; Theme based on
+        <a href="http://www.voidynullness.net/page/voidy-bootstrap-pelican-theme/"
+           target="_blank">VoidyBootstrap</a> by 
+        <a href="http://voidynullness.net"
+           target="_blank">RKI</a>  
+        </p>
+      </address><!-- /colophon  -->
+    </footer>
+
+<!-- DISQUS script for displaying comment count -->
+<script type="text/javascript">
+    var disqus_shortname = 'ankursinha';
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+
+    <!-- javascript -->
+   
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+    <script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+
+	<script src="https://kit.fontawesome.com/9f8622f8d1.js"></script>
+
+<!-- Facebook -->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+</script>
+
+<!-- Twitter -->
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+<!-- Google+ -->
+<!-- Synchronous 
+<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+-->
+<!-- Asynchronous -->
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/platform.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>  </body>
+</html>

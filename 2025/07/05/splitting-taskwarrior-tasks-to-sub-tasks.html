@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="Ankur Sinha" />
+    <meta name="generator" content="Pelican (VoidyBootstrap theme)" />
+    <meta name="twitter:card" content="summary"> 
+    <meta name="twitter:title" content="Splitting Taskwarrior tasks to sub-tasks">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:site" content="@sanjay_ankur">
+    <meta name="twitter:creator" content="@sanjay_ankur">
+    <meta name="twitter:domain" content="https://ankursinha.in">
+
+    <title>Splitting Taskwarrior tasks to sub-tasks - ankursinha.in/blog</title>
+
+   
+        <link rel="stylesheet"
+              href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+              integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+              crossorigin="anonymous" />
+
+
+
+
+
+      <link rel="stylesheet" href="https://ankursinha.in/theme/css/use-opensans.css" />
+      <link rel="stylesheet" href="https://ankursinha.in/theme/css/voidybootstrap.css" />
+      <link rel="stylesheet" href="https://ankursinha.in/theme/css/pygment.css" />
+
+    <link rel="shortcut icon" href="https://ankursinha.in/favicon.ico" />
+        <link href="https://ankursinha.in/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="ankursinha.in/blog Atom Feed" />
+        <link href="https://ankursinha.in/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="ankursinha.in/blog RSS Feed" />
+  
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MCTH8VNYDK"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-MCTH8VNYDK');
+    </script>
+
+  </head>
+
+  <body>
+   
+    <nav class="navbar navbar-default">
+      <div class="container">
+	   <div class="navbar-header">
+		<button type="button" class="navbar-toggle" 
+				data-toggle="collapse" data-target="#main-navbar-collapse">
+		  <span class="sr-only">Toggle navigation</span>
+		  <span class="icon-bar"></span>
+		  <span class="icon-bar"></span>
+		  <span class="icon-bar"></span>
+		</button>
+		<a class="navbar-brand" href="https://ankursinha.in/" rel="home">
+          <i class="fas fa-home fa-fw fa-lg"> </i> </a>
+       </div>
+
+      <div class="collapse navbar-collapse" id="main-navbar-collapse">
+        <ul class="nav navbar-nav">
+              <li>
+                <a href="https://ankursinha.in/pages/01-about.html">About Me</a>
+              </li>
+              <li>
+                <a href="https://ankursinha.in/pages/04-current-work.html">Current Projects</a>
+              </li>
+            <li class="divider"></li>
+            <li class="">
+              <a href="https://ankursinha.in/pages/03-publications.html">Publications</a>
+            </li>
+            <li class="">
+              <a href="https://ankursinha.in/pages/archives.html">Archives</a>
+            </li>
+          <li class="divider"></li>
+            <li><a href="https://ankursinha.in/feeds/all.atom.xml" 
+                   type="application/atom+xml" rel="alternate">
+                <i class="fas fa-rss fa-fw fa-lg"></i> </a></li>
+        </ul> <!-- /nav -->
+      </div> <!-- /navbar-collapse -->
+	  </div> <!-- /container -->
+    </nav> <!-- /navbar -->
+
+	<div class="jumbotron" id="overview">
+	  <div class="container">
+		<h1><a href="https://ankursinha.in/">ankursinha.in/blog</a></h1>
+		<p class="lead">neuroscience/fedora/musings</p>
+	  </div>
+	</div>
+
+    <div class="container" id="main-container">
+      <div class="row">
+        <div class="col-md-9" id="content">
+<article itemscope="itemscope" itemtype="http://schema.org/BlogPosting">
+  <header class="article-header">
+<abbr class="article-header-date">
+  Sat 05 July 2025
+</abbr> <h1>
+  <a href="https://ankursinha.in/2025/07/05/splitting-taskwarrior-tasks-to-sub-tasks.html" rel="bookmark"
+     title="Permalink to Splitting Taskwarrior tasks to sub-tasks">
+    Splitting Taskwarrior tasks to sub-tasks
+  </a>
+</h1><div class="article-header-info">
+  <p>
+      Posted by <a href="https://ankursinha.in/author/ankur.html">ankur</a>
+    in 
+    <a href="https://ankursinha.in/category/tech/">
+      Tech</a>
+(649 words, approximately a 3 minute read)
+  </p>
+</div> <!-- /.article-header-info -->  </header>
+  <div class="content-body" itemprop="text articleBody">
+
+<p>
+    <ul class="list-inline">
+      <li class="list-inline-item">
+        <i class="fas fa-tags"></i>
+          <a href="https://ankursinha.in/tag/taskwarrior/">#Taskwarrior</a>,           <a href="https://ankursinha.in/tag/productivity/">#Productivity</a>,           <a href="https://ankursinha.in/tag/python/">#Python</a>      </li>
+    </ul>
+</p>
+
+
+  <div>  <!-- Social media sharing buttons -->
+  <hr />
+    <ul class="list-inline">
+      <li class="list-inline-item text-muted" title="Share"><i class="fas fa-share-alt" title="Share this post"></i> Share this post:</li>
+      <li class="list-inline-item"><a class="fab fa-mastodon" href="https://toot.kytta.dev/?text=Splitting%20Taskwarrior%20tasks%20to%20sub-tasks%0D%0Ahttps%3A//ankursinha.in/2025/07/05/splitting-taskwarrior-tasks-to-sub-tasks.html%0D%0A%23Taskwarrior %23Productivity %23Python" target="_blank" title="Share on mastodon"></a></li>
+      <li class="list-inline-item"><a class="fab fa-twitter" href="https://twitter.com/intent/tweet?text=Splitting%20Taskwarrior%20tasks%20to%20sub-tasks&url=https%3A//ankursinha.in/2025/07/05/splitting-taskwarrior-tasks-to-sub-tasks.html&via=sanjay_ankur&hashtags=taskwarrior,productivity,python" target="_blank" title="Share on Twitter"></a></li>
+      <li class="list-inline-item"><a class="fab fa-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3A//ankursinha.in/2025/07/05/splitting-taskwarrior-tasks-to-sub-tasks.html" target="_blank" title="Share on Facebook"></a></li>
+      <li class="list-inline-item"><a class="fab fa-reddit" href="https://www.reddit.com/submit?url=https%3A//ankursinha.in/2025/07/05/splitting-taskwarrior-tasks-to-sub-tasks.html&title=Splitting%20Taskwarrior%20tasks%20to%20sub-tasks" target="_blank" title="Share on Reddit"></a></li>
+      <li class="list-inline-item"><a class="fab fa-linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A//ankursinha.in/2025/07/05/splitting-taskwarrior-tasks-to-sub-tasks.html&title=Splitting%20Taskwarrior%20tasks%20to%20sub-tasks&summary=A%20quick%20script%20to%20split%20Taskwarrior%20tasks%20in%20to%20sub-tasks.&source=https%3A//ankursinha.in/2025/07/05/splitting-taskwarrior-tasks-to-sub-tasks.html" target="_blank" title="Share via LinkedIn<"></a></li>
+      <li class="list-inline-item"><a class="fas fa-mail-bulk" href="mailto:?subject=Splitting%20Taskwarrior%20tasks%20to%20sub-tasks&amp;body=https%3A//ankursinha.in/2025/07/05/splitting-taskwarrior-tasks-to-sub-tasks.html" target="_blank" title="Share via E-mail"></a></li>
+    </ul>
+  <hr />
+  </div> <!-- /Social media sharing buttons -->	<center><a class="reference external image-reference" href="https://taskwarrior.org">
+<img alt="Logo for Taskwarrior" src="https://ankursinha.in/images/20250705-tw.png" style="height: 150.0px;" />
+</a>
+</center><p>A feature that I often miss in <a class="reference external" href="https://taskwarrior.org/">Taskwarrior</a> (which I use for managing my tasks in a <a class="reference external" href="https://en.wikipedia.org/wiki/Getting_Things_Done">Getting Things Done</a> method) is the ability to split tasks into sub-tasks.</p>
+<p>A common use case, for example, is when I add a research paper that I want to read to my task list.
+It's usually added as &quot;Read &lt;title of research paper&gt;&quot;, with the URL or the file path as an annotation.
+However, when I do get down to read it, I want to break it down into smaller, manageable tasks that I can do over a few days such as &quot;Read introduction&quot;, &quot;Read results&quot;.
+This applies for lots of other tasks too, which turn into projects with sub-tasks when I finally do get down to working on them.</p>
+<p>The way to do it is to create new tasks for each of these, and then replace the original task with them.
+It is also a workflow that cab be easily scripted so that one doesn't have to manually create the tasks and copy over annotations and so on.</p>
+<p>Here is a script I wrote:</p>
+<pre class="code python literal-block">
+<span class="ch">#!/usr/bin/env python3</span><span class="w">
+</span><span class="sd">&quot;&quot;&quot;
+Split a taskwarrior task into sub-tasks
+
+File: task-split.py
+
+Copyright 2025 Ankur Sinha
+Author: Ankur Sinha &lt;sanjay DOT ankur AT gmail DOT com&gt;
+&quot;&quot;&quot;</span><span class="w">
+
+
+</span><span class="kn">import</span> <span class="nn">typing</span><span class="w">
+</span><span class="kn">import</span> <span class="nn">typer</span><span class="w">
+</span><span class="kn">import</span> <span class="nn">subprocess</span><span class="w">
+</span><span class="kn">import</span> <span class="nn">json</span><span class="w">
+
+
+</span><span class="kn">import</span> <span class="nn">logging</span><span class="w">
+
+
+</span><span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">NOTSET</span><span class="p">)</span><span class="w">
+</span><span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s2">&quot;task-split&quot;</span><span class="p">)</span><span class="w">
+</span><span class="n">logger</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">)</span><span class="w">
+</span><span class="n">logger</span><span class="o">.</span><span class="n">propagate</span> <span class="o">=</span> <span class="kc">False</span><span class="w">
+
+</span><span class="n">formatter</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">Formatter</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%(name)s</span><span class="s2"> (</span><span class="si">%(levelname)s</span><span class="s2">): </span><span class="si">%(message)s</span><span class="s2">&quot;</span><span class="p">)</span><span class="w">
+</span><span class="n">handler</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">StreamHandler</span><span class="p">()</span><span class="w">
+</span><span class="n">handler</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">)</span><span class="w">
+</span><span class="n">handler</span><span class="o">.</span><span class="n">setFormatter</span><span class="p">(</span><span class="n">formatter</span><span class="p">)</span><span class="w">
+
+</span><span class="n">logger</span><span class="o">.</span><span class="n">addHandler</span><span class="p">(</span><span class="n">handler</span><span class="p">)</span><span class="w">
+
+
+</span><span class="k">def</span> <span class="nf">split</span><span class="p">(</span><span class="n">src_task</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">new_project</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">sub_tasks</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span><span class="w">
+</span>          <span class="n">dry_run</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span><span class="w">
+    </span><span class="sd">&quot;&quot;&quot;Split task into new sub-tasks
+
+    For each provided sub_tasks string, a new task is created using the string
+    as description in the provided new_project. Annotations from the provided
+    src_task are copied over and the src_task is removed.
+
+    If dry_run is enabled (default), the src_task will be obtained but not
+    processed.
+
+    :param src_task: id of task to split
+    :type src_task: int
+    :param sub_tasks: list of sub-tasks to create
+    :type sub_tasks: list(str)
+    :returns: None
+
+    &quot;&quot;&quot;</span><span class="w">
+</span>    <span class="c1"># Always get info on the task</span><span class="w">
+</span>    <span class="n">ret</span> <span class="o">=</span> <span class="kc">None</span><span class="w">
+</span>    <span class="n">get_task_command</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;task </span><span class="si">{</span><span class="n">src_task</span><span class="si">}</span><span class="s2"> export&quot;</span><span class="w">
+</span>    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">get_task_command</span><span class="p">)</span><span class="w">
+</span>    <span class="n">ret</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">get_task_command</span><span class="o">.</span><span class="n">split</span><span class="p">(),</span> <span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span> <span class="n">stderr</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">)</span><span class="w">
+
+</span>    <span class="k">if</span> <span class="n">ret</span><span class="o">.</span><span class="n">returncode</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span><span class="w">
+</span>        <span class="n">task_stdout</span> <span class="o">=</span> <span class="n">ret</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span><span class="w">
+</span>        <span class="n">task_json</span> <span class="o">=</span> <span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">task_stdout</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span><span class="w">
+</span>        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">task_json</span><span class="p">)</span><span class="w">
+</span>        <span class="n">tags</span> <span class="o">=</span> <span class="n">task_json</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'tags'</span><span class="p">,</span> <span class="p">[])</span><span class="w">
+</span>        <span class="n">priority</span> <span class="o">=</span> <span class="n">task_json</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'priority'</span><span class="p">,</span> <span class="s1">'L'</span><span class="p">)</span><span class="w">
+</span>        <span class="n">due</span> <span class="o">=</span> <span class="n">task_json</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'due'</span><span class="p">,</span> <span class="s1">'eod'</span><span class="p">)</span><span class="w">
+</span>        <span class="n">estimate</span> <span class="o">=</span> <span class="n">task_json</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'estimate'</span><span class="p">,</span> <span class="s1">'1h'</span><span class="p">)</span><span class="w">
+</span>        <span class="n">impact</span> <span class="o">=</span> <span class="n">task_json</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'impact'</span><span class="p">,</span> <span class="s1">'L'</span><span class="p">)</span><span class="w">
+</span>        <span class="n">annotations</span> <span class="o">=</span> <span class="n">task_json</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'annotations'</span><span class="p">,</span> <span class="p">[])</span><span class="w">
+</span>        <span class="n">description</span> <span class="o">=</span> <span class="n">task_json</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'description'</span><span class="p">)</span><span class="w">
+</span>        <span class="n">uuid</span> <span class="o">=</span> <span class="n">task_json</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'uuid'</span><span class="p">)</span><span class="w">
+
+</span>        <span class="c1"># clear ret for future dry runs</span><span class="w">
+</span>        <span class="n">ret</span> <span class="o">=</span> <span class="kc">None</span><span class="w">
+
+</span>        <span class="k">for</span> <span class="n">sub_task</span> <span class="ow">in</span> <span class="n">sub_tasks</span><span class="p">:</span><span class="w">
+</span>            <span class="n">new_task_command</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;task add project:</span><span class="si">{</span><span class="n">new_project</span><span class="si">}</span><span class="s2"> tags:</span><span class="si">{</span><span class="s1">','</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">tags</span><span class="p">)</span><span class="si">}</span><span class="s2"> priority:</span><span class="si">{</span><span class="n">priority</span><span class="si">}</span><span class="s2"> due:</span><span class="si">{</span><span class="n">due</span><span class="si">}</span><span class="s2"> impact:</span><span class="si">{</span><span class="n">impact</span><span class="si">}</span><span class="s2"> estimate:</span><span class="si">{</span><span class="n">estimate</span><span class="si">}</span><span class="s2"> '</span><span class="si">{</span><span class="n">sub_task</span><span class="si">}</span><span class="s2">'&quot;</span><span class="w">
+</span>            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">new_task_command</span><span class="p">)</span><span class="w">
+
+</span>            <span class="k">if</span> <span class="ow">not</span> <span class="n">dry_run</span><span class="p">:</span><span class="w">
+</span>                <span class="n">ret</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">new_task_command</span><span class="o">.</span><span class="n">split</span><span class="p">())</span><span class="w">
+
+</span>            <span class="n">annotate_task_command</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;task +LATEST annotate '</span><span class="si">{</span><span class="n">description</span><span class="si">}</span><span class="s2">'&quot;</span><span class="w">
+</span>            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">annotate_task_command</span><span class="p">)</span><span class="w">
+</span>            <span class="k">if</span> <span class="ow">not</span> <span class="n">dry_run</span> <span class="ow">and</span> <span class="p">(</span><span class="n">ret</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">ret</span><span class="o">.</span><span class="n">returncode</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span><span class="w">
+</span>                <span class="n">ret</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">annotate_task_command</span><span class="o">.</span><span class="n">split</span><span class="p">())</span><span class="w">
+
+</span>            <span class="k">for</span> <span class="n">annotation</span> <span class="ow">in</span> <span class="n">annotations</span><span class="p">:</span><span class="w">
+</span>                <span class="n">annotation_description</span> <span class="o">=</span> <span class="n">annotation</span><span class="p">[</span><span class="s1">'description'</span><span class="p">]</span><span class="w">
+</span>                <span class="n">annotate_task_command</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;task +LATEST annotate '</span><span class="si">{</span><span class="n">annotation_description</span><span class="si">}</span><span class="s2">'&quot;</span><span class="w">
+</span>                <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">annotate_task_command</span><span class="p">)</span><span class="w">
+</span>                <span class="k">if</span> <span class="ow">not</span> <span class="n">dry_run</span> <span class="ow">and</span> <span class="p">(</span><span class="n">ret</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">ret</span><span class="o">.</span><span class="n">returncode</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span><span class="w">
+</span>                    <span class="n">ret</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">annotate_task_command</span><span class="o">.</span><span class="n">split</span><span class="p">())</span><span class="w">
+
+</span>        <span class="n">mark_original_as_done_command</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;task uuid:</span><span class="si">{</span><span class="n">uuid</span><span class="si">}</span><span class="s2"> done&quot;</span><span class="w">
+</span>        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">mark_original_as_done_command</span><span class="p">)</span><span class="w">
+</span>        <span class="k">if</span> <span class="ow">not</span> <span class="n">dry_run</span><span class="p">:</span><span class="w">
+</span>            <span class="n">ret</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">mark_original_as_done_command</span><span class="o">.</span><span class="n">split</span><span class="p">())</span><span class="w">
+
+
+</span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span><span class="w">
+</span>    <span class="n">typer</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">split</span><span class="p">)</span>
+</pre>
+<p>It uses <a class="reference external" href="https://typer.tiangolo.com/">typer</a> to provide command line features:</p>
+<pre class="code bash literal-block">
+task-split<span class="w"> </span>--help<span class="w">
+
+</span>Usage:<span class="w"> </span>task-split<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span><span class="w"> </span>SRC_TASK<span class="w"> </span>NEW_PROJECT<span class="w"> </span>SUB_TASKS...<span class="w">
+
+</span>Split<span class="w"> </span>task<span class="w"> </span>into<span class="w"> </span>new<span class="w"> </span>sub-tasks<span class="w">
+
+</span>Arguments<span class="w">
+</span>*<span class="w">    </span>src_task<span class="w">         </span>INTEGER<span class="w">       </span><span class="o">[</span>default:<span class="w"> </span>None<span class="o">]</span><span class="w">
+</span>*<span class="w">    </span>new_project<span class="w">      </span>TEXT<span class="w">          </span><span class="o">[</span>default:<span class="w"> </span>None<span class="o">]</span><span class="w">
+</span>*<span class="w">    </span>sub_tasks<span class="w">        </span>SUB_TASKS...<span class="w">  </span><span class="o">[</span>default:<span class="w"> </span>None<span class="o">]</span><span class="w">
+
+</span>Options<span class="w">
+</span>--dry-run<span class="w">    </span>--no-dry-run<span class="w">      </span><span class="o">[</span>default:<span class="w"> </span>dry-run<span class="o">]</span><span class="w">
+</span>--help<span class="w">                         </span>Show<span class="w"> </span>this<span class="w"> </span>message<span class="w"> </span>and<span class="w"> </span>exit.
+</pre>
+<p>So, if one has a task &quot;Put up shelves&quot; with ID 800, it can now be broken into a number of smaller tasks:</p>
+<pre class="code bash literal-block">
+task-split<span class="w"> </span><span class="m">800</span><span class="w"> </span><span class="s2">&quot;personal.shelves&quot;</span><span class="w"> </span><span class="s2">&quot;Buy shelves&quot;</span><span class="w"> </span><span class="s2">&quot;Buy drill&quot;</span><span class="w"> </span><span class="s2">&quot;Buy tools&quot;</span>
+</pre>
+<p>This will add the new tasks to the &quot;personal.shelves&quot; topic, and copy over meta-data from the original task, such as annotations, priority, due date and other user defined attributes.
+It runs in &quot;dry-run&quot; mode by default to give me a chance to double-check the commands/tasks.
+To carry out the operations, pass the <code>--no-dry-run</code> flag to the script too.</p>
+<p>The script is heavily based on my personal workflow, but can easily be tweaked.
+It lives <a class="reference external" href="https://github.com/sanjayankur31/100_dotfiles/blob/main/bin/task-split">here on GitHub</a> and you are welcome to modify it to suit your own workflow.</p>
+<p>Please remember to make it executable and put it in your PATH to be able to run the command on your terminal, and do remember to install typer.
+On Fedora, this would be <code>sudo dnf install python3-typer</code>.</p>
+
+  </div>
+  
+  <div>  <!-- Social media sharing buttons -->
+  <hr />
+    <ul class="list-inline">
+      <li class="list-inline-item text-muted" title="Share"><i class="fas fa-share-alt" title="Share this post"></i> Share this post:</li>
+      <li class="list-inline-item"><a class="fab fa-mastodon" href="https://toot.kytta.dev/?text=Splitting%20Taskwarrior%20tasks%20to%20sub-tasks%0D%0Ahttps%3A//ankursinha.in/2025/07/05/splitting-taskwarrior-tasks-to-sub-tasks.html%0D%0A%23Taskwarrior %23Productivity %23Python" target="_blank" title="Share on mastodon"></a></li>
+      <li class="list-inline-item"><a class="fab fa-twitter" href="https://twitter.com/intent/tweet?text=Splitting%20Taskwarrior%20tasks%20to%20sub-tasks&url=https%3A//ankursinha.in/2025/07/05/splitting-taskwarrior-tasks-to-sub-tasks.html&via=sanjay_ankur&hashtags=taskwarrior,productivity,python" target="_blank" title="Share on Twitter"></a></li>
+      <li class="list-inline-item"><a class="fab fa-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3A//ankursinha.in/2025/07/05/splitting-taskwarrior-tasks-to-sub-tasks.html" target="_blank" title="Share on Facebook"></a></li>
+      <li class="list-inline-item"><a class="fab fa-reddit" href="https://www.reddit.com/submit?url=https%3A//ankursinha.in/2025/07/05/splitting-taskwarrior-tasks-to-sub-tasks.html&title=Splitting%20Taskwarrior%20tasks%20to%20sub-tasks" target="_blank" title="Share on Reddit"></a></li>
+      <li class="list-inline-item"><a class="fab fa-linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A//ankursinha.in/2025/07/05/splitting-taskwarrior-tasks-to-sub-tasks.html&title=Splitting%20Taskwarrior%20tasks%20to%20sub-tasks&summary=A%20quick%20script%20to%20split%20Taskwarrior%20tasks%20in%20to%20sub-tasks.&source=https%3A//ankursinha.in/2025/07/05/splitting-taskwarrior-tasks-to-sub-tasks.html" target="_blank" title="Share via LinkedIn<"></a></li>
+      <li class="list-inline-item"><a class="fas fa-mail-bulk" href="mailto:?subject=Splitting%20Taskwarrior%20tasks%20to%20sub-tasks&amp;body=https%3A//ankursinha.in/2025/07/05/splitting-taskwarrior-tasks-to-sub-tasks.html" target="_blank" title="Share via E-mail"></a></li>
+    </ul>
+  <hr />
+  </div> <!-- /Social media sharing buttons -->
+  <div class="comments">
+	<h2>Comments</h2>
+	<div id="disqus_thread"></div>
+	<script type="text/javascript">
+				   (function() {
+						var dsq = document.createElement('script');
+						dsq.type = 'text/javascript'; dsq.async = true;
+						dsq.src = '//ankursinha.disqus.com/embed.js';
+						(document.getElementsByTagName('head')[0] ||
+						 document.getElementsByTagName('body')[0]).appendChild(dsq);
+				  })();
+	</script>
+  </div>
+</article>
+        </div><!-- /content -->
+
+        <div class="col-md-3 sidebar-nav" id="sidebar">
+
+<div class="row">
+
+<div class="col-xs-6 col-md-12">
+<h4><i class="fas fa-comment fa-fw fa-lg"></i> Social</h4>
+<ul class="list-unstyled social-links">
+    <li><a rel="me" href="https://duckduckgo.com/?q=site%3Aankursinha.in&ia=web" target="_blank">
+	  <i class="fas fa-search fa-fw fa-lg" title="Search (DuckDuckGo)"></i>
+		Search (DuckDuckGo)
+	</a></li>
+    <li><a rel="me" href="www.linkedin.com/in/ankur-sinha-phd" target="_blank">
+	  <i class="fa fa-linkedin-square fa-fw fa-lg" title="LinkedIn"></i>
+		LinkedIn
+	</a></li>
+    <li><a rel="me" href="http://github.com/sanjayankur31" target="_blank">
+	  <i class="fab fa-github fa-fw fa-lg" title="GitHub"></i>
+		GitHub
+	</a></li>
+    <li><a rel="me" href=" https://orcid.org/0000-0001-7568-7167" target="_blank">
+	  <i class="fas fa-flask fa-fw fa-lg" title="Orcid"></i>
+		Orcid
+	</a></li>
+    <li><a rel="me" href="http://scholar.google.co.in/citations?user=919ScZEAAAAJ&hl=en" target="_blank">
+	  <i class="fas fa-graduation-cap fa-fw fa-lg" title="Scholar"></i>
+		Scholar
+	</a></li>
+    <li><a rel="me" href="https://fedoraproject.org/wiki/User:Ankursinha" target="_blank">
+	  <i class="fab fa-fedora fa-fw fa-lg" title="Fedora"></i>
+		Fedora
+	</a></li>
+    <li><a rel="me" href="https://ramblingreaders.org/user/sanjay_ankur" target="_blank">
+	  <i class="fas fa-book-reader fa-fw fa-lg" title="BookWyrm"></i>
+		BookWyrm
+	</a></li>
+    <li><a rel="me" href="https://fosstodon.org/@sanjay_ankur" target="_blank">
+	  <i class="fab fa-mastodon fa-fw fa-lg" title="Mastodon"></i>
+		Mastodon
+	</a></li>
+    <li><a rel="me" href="https://bsky.app/profile/sanjay-ankur.bsky.social" target="_blank">
+	  <i class="fas fa-people-arrows fa-fw fa-lg" title="BlueSky"></i>
+		BlueSky
+	</a></li>
+    <li><a rel="me" href="https://www.goodreads.com/user/show/32360473-ankur" target="_blank">
+	  <i class="fab fa-goodreads-g fa-fw fa-lg" title="Goodreads"></i>
+		Goodreads
+	</a></li>
+    <li><a rel="me" href="https://twitter.com/sanjay_ankur" target="_blank">
+	  <i class="fab fa-twitter fa-fw fa-lg" title="X"></i>
+		X
+	</a></li>
+    <li><a rel="me" href="https://coff.ee/sanjayankuu" target="_blank">
+	  <i class="fas fa-mug-hot fa-fw fa-lg" title="Buy me a coffee!"></i>
+		Buy me a coffee!
+	</a></li>
+</ul>
+</div>
+
+<div class="col-xs-6 col-md-12">
+<h4><i class="fas fa-folder fa-fw fa-lg"></i> Categories</h4>
+<ul class="list-unstyled category-links">
+  <li><a href="https://ankursinha.in/category/life/" >
+    <i class="fas fa-folder-open fa-fw fa-lg"></i> Life</a></li>
+  <li><a href="https://ankursinha.in/category/other/" >
+    <i class="fas fa-folder-open fa-fw fa-lg"></i> Other</a></li>
+  <li><a href="https://ankursinha.in/category/research/" >
+    <i class="fas fa-folder-open fa-fw fa-lg"></i> Research</a></li>
+  <li><a href="https://ankursinha.in/category/tech/" >
+    <i class="fas fa-folder-open fa-fw fa-lg"></i> Tech</a></li>
+</ul>
+</div>
+
+</div> <!-- /row -->
+
+  <h4><i class="fas fa-link fa-fw fa-lg"></i> Links</h4>
+  <ul class="list-unstyled category-links">
+    <li><a href="https://neuro.fedoraproject.org" >
+      <i class="fas fa-external-link-square-alt fa-fw fa-lg"></i> NeuroFedora</a></li>
+    <li><a href="http://fedoraproject.org" >
+      <i class="fas fa-external-link-square-alt fa-fw fa-lg"></i> Fedora Linux</a></li>
+    <li><a href="https://ocns.github.io/SoftwareWG/" >
+      <i class="fas fa-external-link-square-alt fa-fw fa-lg"></i> INCF/OCNS Software WG</a></li>
+    <li><a href="https://neuroblog.fedoraproject.org/planet-neuroscience/" >
+      <i class="fas fa-external-link-square-alt fa-fw fa-lg"></i> Neuroscience feeds</a></li>
+    <li><a href="https://neuroblog.fedoraproject.org/planet-neuroscientists/" >
+      <i class="fas fa-external-link-square-alt fa-fw fa-lg"></i> Neuroscientists feeds</a></li>
+  </ul>
+<h4><i class="fas fa-tags fa-fw fa-lg"></i> Tags</h4>
+<p class="tag-cloud">
+    <span class="tag-2">
+      <a href="https://ankursinha.in/tag/neurofedora/">
+          <i class="fas fa-tag"></i>
+        NeuroFedora
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="https://ankursinha.in/tag/vim/">
+          <i class="fas fa-tag"></i>
+        Vim
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="https://ankursinha.in/tag/open-source-brain/">
+          <i class="fas fa-tag"></i>
+        Open Source Brain
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="https://ankursinha.in/tag/zaphod/">
+          <i class="fas fa-tag"></i>
+        Zaphod
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="https://ankursinha.in/tag/social/">
+          <i class="fas fa-tag"></i>
+        Social
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="https://ankursinha.in/tag/pelican/">
+          <i class="fas fa-tag"></i>
+        Pelican
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="https://ankursinha.in/tag/neuroml/">
+          <i class="fas fa-tag"></i>
+        NeuroML
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="https://ankursinha.in/tag/flatpak/">
+          <i class="fas fa-tag"></i>
+        FlatPak
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="https://ankursinha.in/tag/irc/">
+          <i class="fas fa-tag"></i>
+        IRC
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="https://ankursinha.in/tag/neuron/">
+          <i class="fas fa-tag"></i>
+        Neuron
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="https://ankursinha.in/tag/community/">
+          <i class="fas fa-tag"></i>
+        Community
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="https://ankursinha.in/tag/computational-neuroscience/">
+          <i class="fas fa-tag"></i>
+        Computational Neuroscience
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="https://ankursinha.in/tag/python/">
+          <i class="fas fa-tag"></i>
+        Python
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="https://ankursinha.in/tag/gnome/">
+          <i class="fas fa-tag"></i>
+        GNOME
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="https://ankursinha.in/tag/git/">
+          <i class="fas fa-tag"></i>
+        Git
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="https://ankursinha.in/tag/github/">
+          <i class="fas fa-tag"></i>
+        GitHub
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="https://ankursinha.in/tag/ucl/">
+          <i class="fas fa-tag"></i>
+        UCL
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="https://ankursinha.in/tag/bash/">
+          <i class="fas fa-tag"></i>
+        Bash
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="https://ankursinha.in/tag/fedora/">
+          <i class="fas fa-tag"></i>
+        Fedora
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="https://ankursinha.in/tag/latex/">
+          <i class="fas fa-tag"></i>
+        LaTeX
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="https://ankursinha.in/tag/matlab/">
+          <i class="fas fa-tag"></i>
+        Matlab
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="https://ankursinha.in/tag/nest/">
+          <i class="fas fa-tag"></i>
+        NEST
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="https://ankursinha.in/tag/linux/">
+          <i class="fas fa-tag"></i>
+        Linux
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="https://ankursinha.in/tag/taskwarrior/">
+          <i class="fas fa-tag"></i>
+        Taskwarrior
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="https://ankursinha.in/tag/free-software/">
+          <i class="fas fa-tag"></i>
+        Free software
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="https://ankursinha.in/tag/gsoc/">
+          <i class="fas fa-tag"></i>
+        GSoC
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="https://ankursinha.in/tag/planet/">
+          <i class="fas fa-tag"></i>
+        Planet
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="https://ankursinha.in/tag/robotics/">
+          <i class="fas fa-tag"></i>
+        Robotics
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="https://ankursinha.in/tag/programming/">
+          <i class="fas fa-tag"></i>
+        Programming
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="https://ankursinha.in/tag/events/">
+          <i class="fas fa-tag"></i>
+        Events
+      </a>
+    </span>
+</p>
+<h4><i class="fas fa-rss fa-fw fa-lg"></i> Feeds</h4>
+<ul class="list-unstyled">
+    <li><a href="https://ankursinha.in/feeds/all.atom.xml" 
+		   type="application/atom+xml" rel="alternate">
+		<i class="fas fa-rss-square fa-fw fa-lg"></i> Atom Feed</a></li>
+    <li><a href="https://ankursinha.in/feeds/all.rss.xml" 
+		   type="application/rss+xml" rel="alternate">
+		<i class="fas fa-rss-square fa-fw fa-lg"></i> RSS feed</a></li>
+</ul>
+
+<hr />
+
+        </div><!--/sidebar -->
+      </div><!--/row-->
+    </div><!--/.container /#main-container -->
+
+    <footer id="site-footer">
+ 
+      <address id="site-colophon">
+        <p class="text-center text-muted">
+        <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br /><a href="http://ankursinha.in/" target="_blank" xmlns:dct="http://purl.org/dc/terms/" property="dct:title">ankursinha.in</a> by <a xmlns:cc="http://creativecommons.org/ns#" href="https://ankursinha.in/pages/01-about.html" property="cc:attributionName" rel="cc:attributionURL" target="_blank">Ankur Sinha</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Attribution 4.0 International License</a>.<br />
+        Site built using <a href="http://getpelican.com/" target="_blank">Pelican</a>
+        &nbsp;&bull;&nbsp; Theme based on
+        <a href="http://www.voidynullness.net/page/voidy-bootstrap-pelican-theme/"
+           target="_blank">VoidyBootstrap</a> by 
+        <a href="http://voidynullness.net"
+           target="_blank">RKI</a>  
+        </p>
+      </address><!-- /colophon  -->
+    </footer>
+
+<!-- DISQUS script for displaying comment count -->
+<script type="text/javascript">
+    var disqus_shortname = 'ankursinha';
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+
+    <!-- javascript -->
+   
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+    <script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+
+	<script src="https://kit.fontawesome.com/9f8622f8d1.js"></script>
+
+<!-- Facebook -->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+</script>
+
+<!-- Twitter -->
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+<!-- Google+ -->
+<!-- Synchronous 
+<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+-->
+<!-- Asynchronous -->
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/platform.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>  </body>
+</html>

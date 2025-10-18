@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="Ankur Sinha" />
+    <meta name="generator" content="Pelican (VoidyBootstrap theme)" />
+    <meta name="twitter:card" content="summary"> 
+    <meta name="twitter:title" content="Using Vim for C/C++ development efficiently">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:site" content="@sanjay_ankur">
+    <meta name="twitter:creator" content="@sanjay_ankur">
+    <meta name="twitter:domain" content="https://ankursinha.in">
+
+    <title>Using Vim for C/C++ development efficiently - ankursinha.in/blog</title>
+
+   
+        <link rel="stylesheet"
+              href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+              integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+              crossorigin="anonymous" />
+
+
+
+
+
+      <link rel="stylesheet" href="https://ankursinha.in/theme/css/use-opensans.css" />
+      <link rel="stylesheet" href="https://ankursinha.in/theme/css/voidybootstrap.css" />
+      <link rel="stylesheet" href="https://ankursinha.in/theme/css/pygment.css" />
+
+    <link rel="shortcut icon" href="https://ankursinha.in/favicon.ico" />
+        <link href="https://ankursinha.in/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="ankursinha.in/blog Atom Feed" />
+        <link href="https://ankursinha.in/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="ankursinha.in/blog RSS Feed" />
+  
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MCTH8VNYDK"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-MCTH8VNYDK');
+    </script>
+
+  </head>
+
+  <body>
+   
+    <nav class="navbar navbar-default">
+      <div class="container">
+	   <div class="navbar-header">
+		<button type="button" class="navbar-toggle" 
+				data-toggle="collapse" data-target="#main-navbar-collapse">
+		  <span class="sr-only">Toggle navigation</span>
+		  <span class="icon-bar"></span>
+		  <span class="icon-bar"></span>
+		  <span class="icon-bar"></span>
+		</button>
+		<a class="navbar-brand" href="https://ankursinha.in/" rel="home">
+          <i class="fas fa-home fa-fw fa-lg"> </i> </a>
+       </div>
+
+      <div class="collapse navbar-collapse" id="main-navbar-collapse">
+        <ul class="nav navbar-nav">
+              <li>
+                <a href="https://ankursinha.in/pages/01-about.html">About Me</a>
+              </li>
+              <li>
+                <a href="https://ankursinha.in/pages/04-current-work.html">Current Projects</a>
+              </li>
+            <li class="divider"></li>
+            <li class="">
+              <a href="https://ankursinha.in/pages/03-publications.html">Publications</a>
+            </li>
+            <li class="">
+              <a href="https://ankursinha.in/pages/archives.html">Archives</a>
+            </li>
+          <li class="divider"></li>
+            <li><a href="https://ankursinha.in/feeds/all.atom.xml" 
+                   type="application/atom+xml" rel="alternate">
+                <i class="fas fa-rss fa-fw fa-lg"></i> </a></li>
+        </ul> <!-- /nav -->
+      </div> <!-- /navbar-collapse -->
+	  </div> <!-- /container -->
+    </nav> <!-- /navbar -->
+
+	<div class="jumbotron" id="overview">
+	  <div class="container">
+		<h1><a href="https://ankursinha.in/">ankursinha.in/blog</a></h1>
+		<p class="lead">neuroscience/fedora/musings</p>
+	  </div>
+	</div>
+
+    <div class="container" id="main-container">
+      <div class="row">
+        <div class="col-md-9" id="content">
+<article itemscope="itemscope" itemtype="http://schema.org/BlogPosting">
+  <header class="article-header">
+<abbr class="article-header-date">
+  Fri 12 June 2015
+</abbr> <h1>
+  <a href="https://ankursinha.in/2015/06/12/vim-c-plugins.html" rel="bookmark"
+     title="Permalink to Using Vim for C/C++ development efficiently">
+    Using Vim for C/C++ development efficiently
+  </a>
+</h1><div class="article-header-info">
+  <p>
+      Posted by <a href="https://ankursinha.in/author/ankur.html">ankur</a>
+    in 
+    <a href="https://ankursinha.in/category/tech/">
+      Tech</a>
+(964 words, approximately a 4 minute read)
+  </p>
+</div> <!-- /.article-header-info -->  </header>
+  <div class="content-body" itemprop="text articleBody">
+
+<p>
+    <ul class="list-inline">
+      <li class="list-inline-item">
+        <i class="fas fa-tags"></i>
+          <a href="https://ankursinha.in/tag/fedora/">#Fedora</a>,           <a href="https://ankursinha.in/tag/programming/">#Programming</a>,           <a href="https://ankursinha.in/tag/linux/">#Linux</a>      </li>
+    </ul>
+</p>
+
+
+  <div>  <!-- Social media sharing buttons -->
+  <hr />
+    <ul class="list-inline">
+      <li class="list-inline-item text-muted" title="Share"><i class="fas fa-share-alt" title="Share this post"></i> Share this post:</li>
+      <li class="list-inline-item"><a class="fab fa-mastodon" href="https://toot.kytta.dev/?text=Using%20Vim%20for%20C/C%2B%2B%20development%20efficiently%0D%0Ahttps%3A//ankursinha.in/2015/06/12/vim-c-plugins.html%0D%0A%23Fedora %23Programming %23Linux" target="_blank" title="Share on mastodon"></a></li>
+      <li class="list-inline-item"><a class="fab fa-twitter" href="https://twitter.com/intent/tweet?text=Using%20Vim%20for%20C/C%2B%2B%20development%20efficiently&url=https%3A//ankursinha.in/2015/06/12/vim-c-plugins.html&via=sanjay_ankur&hashtags=fedora,programming,linux" target="_blank" title="Share on Twitter"></a></li>
+      <li class="list-inline-item"><a class="fab fa-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3A//ankursinha.in/2015/06/12/vim-c-plugins.html" target="_blank" title="Share on Facebook"></a></li>
+      <li class="list-inline-item"><a class="fab fa-reddit" href="https://www.reddit.com/submit?url=https%3A//ankursinha.in/2015/06/12/vim-c-plugins.html&title=Using%20Vim%20for%20C/C%2B%2B%20development%20efficiently" target="_blank" title="Share on Reddit"></a></li>
+      <li class="list-inline-item"><a class="fab fa-linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A//ankursinha.in/2015/06/12/vim-c-plugins.html&title=Using%20Vim%20for%20C/C%2B%2B%20development%20efficiently&summary=Vim%20is%20a%20great%20editor.%20Here%20are%20some%20tips%20and%20plug-ins%20that%20I%27ve%20collected%20over%20the%20years%20that%20will%20help%20you%20use%20it%20better%20while%20writing%20C/C%2B%2B%20code.&source=https%3A//ankursinha.in/2015/06/12/vim-c-plugins.html" target="_blank" title="Share via LinkedIn<"></a></li>
+      <li class="list-inline-item"><a class="fas fa-mail-bulk" href="mailto:?subject=Using%20Vim%20for%20C/C%2B%2B%20development%20efficiently&amp;body=https%3A//ankursinha.in/2015/06/12/vim-c-plugins.html" target="_blank" title="Share via E-mail"></a></li>
+    </ul>
+  <hr />
+  </div> <!-- /Social media sharing buttons -->	<p>Vim is truly a great editor. (Before you begin to yell, so is Emacs.) I've used Vim for quite a while now, and have collected certain plug-ins over time to improve my workflow. This post just collates this information - it's all take from various sources on the internet and I will provide references at the end of the page.</p>
+<div class="section" id="touch-typing">
+<h2>Touch typing</h2>
+<p>Perhaps the most critical feature of Vim is that it enables touch typists to work extremely efficiently. If you don't know what touch typing is, now is a great time to learn. See those two protrusions on the F and J letters of your keyboard? They're there for a reason - that way you know where you &quot;home row&quot; is all the time. Vim is designed in a way that ensures that you never have to lift your hands off the home row. I dislike moving my hand to use the mouse, and I'll briefly discuss what I do to reduce mouse usage to a minimum too. A great tool available on most Linux distributions is &quot;gtypist&quot;. It has sets of exercises that teach you to touch type. On a Fedora system, you can install it by using DNF:</p>
+<div class="highlight"><pre><span></span>sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>gtypist
+</pre></div>
+</div>
+<div class="section" id="vim-modes-and-switching-between-them">
+<h2>Vim modes and switching between them</h2>
+<p>Vim has three main modes that are used frequently - you should use vimtutor to learn them and how to use them efficiently:</p>
+<ul class="simple">
+<li><strong>Insert mode</strong>: where it's basically a simple text editor - only use this when you're writing text, not for moving, not for copy pasting, not for anything, only when you enter text.</li>
+<li><strong>Command mode</strong>: where you can use Vim commands to do things - move around efficiently, find, replace, copy, paste, run recorded command sequences, save, quit, and so on.</li>
+<li><strong>Last line mode</strong>: similar to command mode, but instead of using keyboard short cuts to run commands, you write them on a command prompt</li>
+</ul>
+<p>When Vim starts, you're in command mode. To move to insert mode, you simply press &quot;i&quot; and start typing. To move from command mode to last line mode, you press &quot;:&quot;. This brings up a &quot;:&quot; on the last line and you can enter commands there, like &quot;:wq&quot; which is used to save(w) and quit(q) the file.</p>
+<p>Moving from insert mode back to command mode requires you to press Esc (escape). Now, this annoyed me, because escape isn't near the home row, but there is a historical reason for why Esc is still the chosen key. The good news is that <strong>you don't have to use Esc</strong> to get out of insert mode, you can use one of the many <strong>alternatives</strong> - Ctrl +C, or Ctrl+[ and so on and always keep your fingers on your home row.</p>
+</div>
+<div class="section" id="plug-in-installation-and-maintenance">
+<h2>Plug-in installation and maintenance</h2>
+<p>Before I discuss plug-ins, a little bit about maintaining them. They all go into the ~/.vimrc directory, but keeping them sane across different machines is sometimes quite a pain. I've now been using <strong>pathogen</strong> to install plug-ins - it makes things really easy. To maintain plug-ins, I use git, of course! Most plug-ins are housed on github, and you can simply clone them into the bundle directory that pathogen uses. To make it even easier, you can add them as git sub modules. Now, you can set up a new machine, clone your vim files repository and you're good to go! <a class="reference external" href="https://github.com/sanjayankur31/vimfiles">My vimfiles directory is here</a>. Obviously, it has various customisations, so it'll probably be better if you use it only as a reference.</p>
+</div>
+<div class="section" id="plugin-1-cvim-an-ide-for-c-c">
+<h2>Plugin 1 - CVim - an IDE for C/C++</h2>
+<p>CVim adds all sorts of nifty features to Vim. For instance, you have commands that add template classes - declarations, comments, implemetations; hot keys to quickly compile and run your commands and so on. The <a class="reference external" href="http://lug.fh-swf.de/vim/vim-c/c-hotkeys.pdf">hotkey cheatsheet</a> will give you a good idea of what this plugin provides.</p>
+</div>
+<div class="section" id="plugin-2-cscope-ctags">
+<h2>Plugin 2 - cscope/ctags</h2>
+<p>These aren't vim plug-ins, rather they are utilities that add tagging support to Vim. You can use these to find and jump to function calls, funciton and variable declarations and so on. They come in really handy, especially when you're reading code. On Fedora, you can install them using DNF:</p>
+<div class="highlight"><pre><span></span>sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>cscope<span class="w"> </span>ctags
+</pre></div>
+<p>There are cscope related plugins that will solve common issues too. For example, the cscope-autoload plugin comes in handy - it automatically loads the cscope database file for you when you open a programme source code file. It's the only one I use at the moment - quite enough.</p>
+</div>
+<div class="section" id="plugin-3-neocomplete">
+<h2>Plugin 3 - neocomplete</h2>
+<p>Vim already has a basic completion feature in it. Neocomplete adds to that - completes all sorts of things. Have a look at the github page, they have screenshots.</p>
+</div>
+<div class="section" id="plugin-4-syntastic">
+<h2>Plugin 4 - syntastic</h2>
+<p>As the main page says: Syntastic is a syntax checking plugin for Vim that runs files through external syntax checkers and displays any resulting errors to the user. It comes in really handy - even when I'm writing my blog posts in rst.</p>
+</div>
+<div class="section" id="keeping-your-fingers-on-the-home-row-outside-vim">
+<h2>Keeping your fingers on the home row outside Vim</h2>
+<ul class="simple">
+<li>I rarely use the mouse to switch between windows. &quot;Alt + Tab&quot;; &quot;Alt + ~&quot; work nicely enough. This is why I really like Gnome3 - I don't need a bottom panel with windows listed on it.</li>
+<li>For Firefox, I use the Pentadactyl extension - This basically lets you use vim keybindings in Firefox. It's brilliant - you rarely need to use the mouse.</li>
+<li>On the terminal I use byobu-tmux - it let's you use multiple terminal screens that you can cycle between nicely using only key board shortcuts. Use any number of TUI programs you want with this - irssi, ncmpcpp, vim, rtorrent, vit (for taskwarrior) and so on - no need to use the mouse at all.</li>
+</ul>
+</div>
+<div class="section" id="references">
+<h2>References</h2>
+<ul class="simple">
+<li><a class="reference external" href="https://en.wikipedia.org/wiki/Touch_typing">Touch typing</a></li>
+<li><a class="reference external" href="https://apps.fedoraproject.org/packages/gtypist">Gtypist</a></li>
+<li><a class="reference external" href="http://vim.wikia.com/wiki/Tutorial">vimtutor</a></li>
+<li><a class="reference external" href="http://vim.wikia.com/wiki/Avoid_the_escape_key">Avoiding the escape key in vim</a></li>
+<li><a class="reference external" href="https://github.com/tpope/vim-pathogen">Pathogen</a></li>
+<li><a class="reference external" href="https://git-scm.com/book/en/v2/Git-Tools-Submodules">Git submodules</a></li>
+<li><a class="reference external" href="http://www.vim.org/scripts/script.php?script_id=213">Cvim</a></li>
+<li><a class="reference external" href="http://cscope.sourceforge.net/cscope_vim_tutorial.html">Using cscope with Vim</a></li>
+<li><a class="reference external" href="http://vim.wikia.com/wiki/Browsing_programs_with_tags">Using tags in Vim</a></li>
+<li><a class="reference external" href="http://www.vim.org/scripts/script.php?script_id=157">Cscope autoload plug-in</a></li>
+<li><a class="reference external" href="https://github.com/Shougo/neocomplete.vim">Neocomplete</a></li>
+<li><a class="reference external" href="https://github.com/scrooloose/syntastic#introduction">Syntastic</a></li>
+<li><a class="reference external" href="http://5digits.org/pentadactyl/">Pentadactyl</a></li>
+<li><a class="reference external" href="https://apps.fedoraproject.org/packages/byobu">Byobu</a></li>
+<li><a class="reference external" href="https://apps.fedoraproject.org/packages/tmux">Tmux</a></li>
+<li><a class="reference external" href="https://apps.fedoraproject.org/packages/irssi">IRSSI</a></li>
+<li><a class="reference external" href="https://apps.fedoraproject.org/packages/ncmpcpp">ncmpcpp</a></li>
+<li><a class="reference external" href="https://apps.fedoraproject.org/packages/rtorrent">rtorrent</a></li>
+<li><a class="reference external" href="https://apps.fedoraproject.org/packages/vit">vit</a></li>
+</ul>
+</div>
+
+  </div>
+  
+  <div>  <!-- Social media sharing buttons -->
+  <hr />
+    <ul class="list-inline">
+      <li class="list-inline-item text-muted" title="Share"><i class="fas fa-share-alt" title="Share this post"></i> Share this post:</li>
+      <li class="list-inline-item"><a class="fab fa-mastodon" href="https://toot.kytta.dev/?text=Using%20Vim%20for%20C/C%2B%2B%20development%20efficiently%0D%0Ahttps%3A//ankursinha.in/2015/06/12/vim-c-plugins.html%0D%0A%23Fedora %23Programming %23Linux" target="_blank" title="Share on mastodon"></a></li>
+      <li class="list-inline-item"><a class="fab fa-twitter" href="https://twitter.com/intent/tweet?text=Using%20Vim%20for%20C/C%2B%2B%20development%20efficiently&url=https%3A//ankursinha.in/2015/06/12/vim-c-plugins.html&via=sanjay_ankur&hashtags=fedora,programming,linux" target="_blank" title="Share on Twitter"></a></li>
+      <li class="list-inline-item"><a class="fab fa-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3A//ankursinha.in/2015/06/12/vim-c-plugins.html" target="_blank" title="Share on Facebook"></a></li>
+      <li class="list-inline-item"><a class="fab fa-reddit" href="https://www.reddit.com/submit?url=https%3A//ankursinha.in/2015/06/12/vim-c-plugins.html&title=Using%20Vim%20for%20C/C%2B%2B%20development%20efficiently" target="_blank" title="Share on Reddit"></a></li>
+      <li class="list-inline-item"><a class="fab fa-linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A//ankursinha.in/2015/06/12/vim-c-plugins.html&title=Using%20Vim%20for%20C/C%2B%2B%20development%20efficiently&summary=Vim%20is%20a%20great%20editor.%20Here%20are%20some%20tips%20and%20plug-ins%20that%20I%27ve%20collected%20over%20the%20years%20that%20will%20help%20you%20use%20it%20better%20while%20writing%20C/C%2B%2B%20code.&source=https%3A//ankursinha.in/2015/06/12/vim-c-plugins.html" target="_blank" title="Share via LinkedIn<"></a></li>
+      <li class="list-inline-item"><a class="fas fa-mail-bulk" href="mailto:?subject=Using%20Vim%20for%20C/C%2B%2B%20development%20efficiently&amp;body=https%3A//ankursinha.in/2015/06/12/vim-c-plugins.html" target="_blank" title="Share via E-mail"></a></li>
+    </ul>
+  <hr />
+  </div> <!-- /Social media sharing buttons -->
+  <div class="comments">
+	<h2>Comments</h2>
+	<div id="disqus_thread"></div>
+	<script type="text/javascript">
+				   (function() {
+						var dsq = document.createElement('script');
+						dsq.type = 'text/javascript'; dsq.async = true;
+						dsq.src = '//ankursinha.disqus.com/embed.js';
+						(document.getElementsByTagName('head')[0] ||
+						 document.getElementsByTagName('body')[0]).appendChild(dsq);
+				  })();
+	</script>
+  </div>
+</article>
+        </div><!-- /content -->
+
+        <div class="col-md-3 sidebar-nav" id="sidebar">
+
+<div class="row">
+
+<div class="col-xs-6 col-md-12">
+<h4><i class="fas fa-comment fa-fw fa-lg"></i> Social</h4>
+<ul class="list-unstyled social-links">
+    <li><a rel="me" href="https://duckduckgo.com/?q=site%3Aankursinha.in&ia=web" target="_blank">
+	  <i class="fas fa-search fa-fw fa-lg" title="Search (DuckDuckGo)"></i>
+		Search (DuckDuckGo)
+	</a></li>
+    <li><a rel="me" href="www.linkedin.com/in/ankur-sinha-phd" target="_blank">
+	  <i class="fa fa-linkedin-square fa-fw fa-lg" title="LinkedIn"></i>
+		LinkedIn
+	</a></li>
+    <li><a rel="me" href="http://github.com/sanjayankur31" target="_blank">
+	  <i class="fab fa-github fa-fw fa-lg" title="GitHub"></i>
+		GitHub
+	</a></li>
+    <li><a rel="me" href=" https://orcid.org/0000-0001-7568-7167" target="_blank">
+	  <i class="fas fa-flask fa-fw fa-lg" title="Orcid"></i>
+		Orcid
+	</a></li>
+    <li><a rel="me" href="http://scholar.google.co.in/citations?user=919ScZEAAAAJ&hl=en" target="_blank">
+	  <i class="fas fa-graduation-cap fa-fw fa-lg" title="Scholar"></i>
+		Scholar
+	</a></li>
+    <li><a rel="me" href="https://fedoraproject.org/wiki/User:Ankursinha" target="_blank">
+	  <i class="fab fa-fedora fa-fw fa-lg" title="Fedora"></i>
+		Fedora
+	</a></li>
+    <li><a rel="me" href="https://ramblingreaders.org/user/sanjay_ankur" target="_blank">
+	  <i class="fas fa-book-reader fa-fw fa-lg" title="BookWyrm"></i>
+		BookWyrm
+	</a></li>
+    <li><a rel="me" href="https://fosstodon.org/@sanjay_ankur" target="_blank">
+	  <i class="fab fa-mastodon fa-fw fa-lg" title="Mastodon"></i>
+		Mastodon
+	</a></li>
+    <li><a rel="me" href="https://bsky.app/profile/sanjay-ankur.bsky.social" target="_blank">
+	  <i class="fas fa-people-arrows fa-fw fa-lg" title="BlueSky"></i>
+		BlueSky
+	</a></li>
+    <li><a rel="me" href="https://www.goodreads.com/user/show/32360473-ankur" target="_blank">
+	  <i class="fab fa-goodreads-g fa-fw fa-lg" title="Goodreads"></i>
+		Goodreads
+	</a></li>
+    <li><a rel="me" href="https://twitter.com/sanjay_ankur" target="_blank">
+	  <i class="fab fa-twitter fa-fw fa-lg" title="X"></i>
+		X
+	</a></li>
+    <li><a rel="me" href="https://coff.ee/sanjayankuu" target="_blank">
+	  <i class="fas fa-mug-hot fa-fw fa-lg" title="Buy me a coffee!"></i>
+		Buy me a coffee!
+	</a></li>
+</ul>
+</div>
+
+<div class="col-xs-6 col-md-12">
+<h4><i class="fas fa-folder fa-fw fa-lg"></i> Categories</h4>
+<ul class="list-unstyled category-links">
+  <li><a href="https://ankursinha.in/category/life/" >
+    <i class="fas fa-folder-open fa-fw fa-lg"></i> Life</a></li>
+  <li><a href="https://ankursinha.in/category/other/" >
+    <i class="fas fa-folder-open fa-fw fa-lg"></i> Other</a></li>
+  <li><a href="https://ankursinha.in/category/research/" >
+    <i class="fas fa-folder-open fa-fw fa-lg"></i> Research</a></li>
+  <li><a href="https://ankursinha.in/category/tech/" >
+    <i class="fas fa-folder-open fa-fw fa-lg"></i> Tech</a></li>
+</ul>
+</div>
+
+</div> <!-- /row -->
+
+  <h4><i class="fas fa-link fa-fw fa-lg"></i> Links</h4>
+  <ul class="list-unstyled category-links">
+    <li><a href="https://neuro.fedoraproject.org" >
+      <i class="fas fa-external-link-square-alt fa-fw fa-lg"></i> NeuroFedora</a></li>
+    <li><a href="http://fedoraproject.org" >
+      <i class="fas fa-external-link-square-alt fa-fw fa-lg"></i> Fedora Linux</a></li>
+    <li><a href="https://ocns.github.io/SoftwareWG/" >
+      <i class="fas fa-external-link-square-alt fa-fw fa-lg"></i> INCF/OCNS Software WG</a></li>
+    <li><a href="https://neuroblog.fedoraproject.org/planet-neuroscience/" >
+      <i class="fas fa-external-link-square-alt fa-fw fa-lg"></i> Neuroscience feeds</a></li>
+    <li><a href="https://neuroblog.fedoraproject.org/planet-neuroscientists/" >
+      <i class="fas fa-external-link-square-alt fa-fw fa-lg"></i> Neuroscientists feeds</a></li>
+  </ul>
+<h4><i class="fas fa-tags fa-fw fa-lg"></i> Tags</h4>
+<p class="tag-cloud">
+    <span class="tag-2">
+      <a href="https://ankursinha.in/tag/neurofedora/">
+          <i class="fas fa-tag"></i>
+        NeuroFedora
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="https://ankursinha.in/tag/vim/">
+          <i class="fas fa-tag"></i>
+        Vim
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="https://ankursinha.in/tag/open-source-brain/">
+          <i class="fas fa-tag"></i>
+        Open Source Brain
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="https://ankursinha.in/tag/zaphod/">
+          <i class="fas fa-tag"></i>
+        Zaphod
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="https://ankursinha.in/tag/social/">
+          <i class="fas fa-tag"></i>
+        Social
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="https://ankursinha.in/tag/pelican/">
+          <i class="fas fa-tag"></i>
+        Pelican
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="https://ankursinha.in/tag/neuroml/">
+          <i class="fas fa-tag"></i>
+        NeuroML
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="https://ankursinha.in/tag/flatpak/">
+          <i class="fas fa-tag"></i>
+        FlatPak
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="https://ankursinha.in/tag/irc/">
+          <i class="fas fa-tag"></i>
+        IRC
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="https://ankursinha.in/tag/neuron/">
+          <i class="fas fa-tag"></i>
+        Neuron
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="https://ankursinha.in/tag/community/">
+          <i class="fas fa-tag"></i>
+        Community
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="https://ankursinha.in/tag/computational-neuroscience/">
+          <i class="fas fa-tag"></i>
+        Computational Neuroscience
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="https://ankursinha.in/tag/python/">
+          <i class="fas fa-tag"></i>
+        Python
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="https://ankursinha.in/tag/gnome/">
+          <i class="fas fa-tag"></i>
+        GNOME
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="https://ankursinha.in/tag/git/">
+          <i class="fas fa-tag"></i>
+        Git
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="https://ankursinha.in/tag/github/">
+          <i class="fas fa-tag"></i>
+        GitHub
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="https://ankursinha.in/tag/ucl/">
+          <i class="fas fa-tag"></i>
+        UCL
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="https://ankursinha.in/tag/bash/">
+          <i class="fas fa-tag"></i>
+        Bash
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="https://ankursinha.in/tag/fedora/">
+          <i class="fas fa-tag"></i>
+        Fedora
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="https://ankursinha.in/tag/latex/">
+          <i class="fas fa-tag"></i>
+        LaTeX
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="https://ankursinha.in/tag/matlab/">
+          <i class="fas fa-tag"></i>
+        Matlab
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="https://ankursinha.in/tag/nest/">
+          <i class="fas fa-tag"></i>
+        NEST
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="https://ankursinha.in/tag/linux/">
+          <i class="fas fa-tag"></i>
+        Linux
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="https://ankursinha.in/tag/taskwarrior/">
+          <i class="fas fa-tag"></i>
+        Taskwarrior
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="https://ankursinha.in/tag/free-software/">
+          <i class="fas fa-tag"></i>
+        Free software
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="https://ankursinha.in/tag/gsoc/">
+          <i class="fas fa-tag"></i>
+        GSoC
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="https://ankursinha.in/tag/planet/">
+          <i class="fas fa-tag"></i>
+        Planet
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="https://ankursinha.in/tag/robotics/">
+          <i class="fas fa-tag"></i>
+        Robotics
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="https://ankursinha.in/tag/programming/">
+          <i class="fas fa-tag"></i>
+        Programming
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="https://ankursinha.in/tag/events/">
+          <i class="fas fa-tag"></i>
+        Events
+      </a>
+    </span>
+</p>
+<h4><i class="fas fa-rss fa-fw fa-lg"></i> Feeds</h4>
+<ul class="list-unstyled">
+    <li><a href="https://ankursinha.in/feeds/all.atom.xml" 
+		   type="application/atom+xml" rel="alternate">
+		<i class="fas fa-rss-square fa-fw fa-lg"></i> Atom Feed</a></li>
+    <li><a href="https://ankursinha.in/feeds/all.rss.xml" 
+		   type="application/rss+xml" rel="alternate">
+		<i class="fas fa-rss-square fa-fw fa-lg"></i> RSS feed</a></li>
+</ul>
+
+<hr />
+
+        </div><!--/sidebar -->
+      </div><!--/row-->
+    </div><!--/.container /#main-container -->
+
+    <footer id="site-footer">
+ 
+      <address id="site-colophon">
+        <p class="text-center text-muted">
+        <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br /><a href="http://ankursinha.in/" target="_blank" xmlns:dct="http://purl.org/dc/terms/" property="dct:title">ankursinha.in</a> by <a xmlns:cc="http://creativecommons.org/ns#" href="https://ankursinha.in/pages/01-about.html" property="cc:attributionName" rel="cc:attributionURL" target="_blank">Ankur Sinha</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Attribution 4.0 International License</a>.<br />
+        Site built using <a href="http://getpelican.com/" target="_blank">Pelican</a>
+        &nbsp;&bull;&nbsp; Theme based on
+        <a href="http://www.voidynullness.net/page/voidy-bootstrap-pelican-theme/"
+           target="_blank">VoidyBootstrap</a> by 
+        <a href="http://voidynullness.net"
+           target="_blank">RKI</a>  
+        </p>
+      </address><!-- /colophon  -->
+    </footer>
+
+<!-- DISQUS script for displaying comment count -->
+<script type="text/javascript">
+    var disqus_shortname = 'ankursinha';
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+
+    <!-- javascript -->
+   
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+    <script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+
+	<script src="https://kit.fontawesome.com/9f8622f8d1.js"></script>
+
+<!-- Facebook -->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+</script>
+
+<!-- Twitter -->
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+<!-- Google+ -->
+<!-- Synchronous 
+<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+-->
+<!-- Asynchronous -->
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/platform.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>  </body>
+</html>
