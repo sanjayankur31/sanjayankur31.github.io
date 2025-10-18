@@ -24,8 +24,14 @@ Community & leadership
 -----------------------
 
 UCL Biosciences PhD mentoring programme
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+========================================
 
-**2023 -**
+**2023 - 2025**
 
+I served as one of the lead mentors that organised the Biosciences PhD mentoring programme, which matched 50+ PhD candidates with 50+ post-doc mentors for career development support.
+
+
+
+OCNS PhD/post-doc career development workshops
+===============================================
 
