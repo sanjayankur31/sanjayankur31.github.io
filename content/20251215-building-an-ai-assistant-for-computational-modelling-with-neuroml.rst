@@ -1,7 +1,7 @@
 Building an AI assistant for computational modelling with NeuroML
 #################################################################
-:date: 2025-12-15 14:09:35
-:modified: 2025-12-15 14:09:35
+:date: 2026-01-08 16:25:49
+:modified: 2026-01-08 16:25:49
 :author: ankur
 :category: Tech
 :tags: LLM, RAG, NeuroML, Neuroscience, Computational neuroscience, Computational modelling, LangChain, LangGraph, Agentic AI, Tools, MCP, Ollama, Python
