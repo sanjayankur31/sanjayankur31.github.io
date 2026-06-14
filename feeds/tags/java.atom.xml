@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>ankursinha.in/blog - Java</title><link href="https://ankursinha.in/" rel="alternate"/><link href="https://ankursinha.in/feeds/tags/java.atom.xml" rel="self"/><id>https://ankursinha.in/</id><updated>2024-06-17T12:37:22+01:00</updated><subtitle>neuroscience/fedora/musings</subtitle><entry><title>Week 24 update</title><link href="https://ankursinha.in/2024/06/17/week-24-update.html" rel="alternate"/><published>2024-06-17T12:37:22+01:00</published><updated>2024-06-17T12:37:22+01:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2024-06-17:/2024/06/17/week-24-update.html</id><summary type="html">&lt;p class="first last"&gt;Weekly update to week #24&lt;/p&gt;
+</summary><content type="html">&lt;div class="section" id="neuroml-related"&gt;
+&lt;h2&gt;NeuroML related&lt;/h2&gt;
+&lt;div class="figure align-center"&gt;
+&lt;img alt="NeuroML is a standard and software ecosystem for biophysically detailed neuronal modelling." class="text-center img-responsive pagination-centered" src="https://ankursinha.in/images/neuroml-logo.png" style="width: 40%;" /&gt;
+&lt;p class="caption"&gt;&lt;a class="reference external" href="https://neuroml.org"&gt;NeuroML&lt;/a&gt; is a standard and software ecosystem for biophysically detailed neuronal modelling.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;We made a few bug fixes to &lt;a class="reference external" href="https://github.com/LEMS/jLEMS"&gt;jLEMS&lt;/a&gt; to ensure that errors relating to dimensions and units do propagate all the way to the top level code and cause the model execution to stop.
+The exceptions were being thrown correctly but they were being printed out to the user as warnings and not being allowed to propagate further.&lt;/p&gt;
+&lt;p&gt;While tinkering with this, I also found a minor bug in our SBML to LEMS conversion code.
+One of the time constants in the generated LEMS code wasn't given the right dimensions.
+It was a &lt;a class="reference external" href="https://github.com/NeuroML/org.neuroml.import/pull/24"&gt;simple enough fix&lt;/a&gt;.&lt;/p&gt;
+&lt;div class="section" id="gsoc"&gt;
+&lt;h3&gt;GSoC&lt;/h3&gt;
+&lt;p&gt;This is ticking along.
+Aditya and Ioannis are still working on their tasks and pushing to their draft pull requests.
+They should be ready to review next week.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="model-conversion"&gt;
+&lt;h3&gt;Model conversion&lt;/h3&gt;
+&lt;p&gt;I'm still working on the converting the two remaining Calcium channels in &lt;a class="reference external" href="https://www.cell.com/cell-reports/fulltext/S2211-1247(18)31088-X"&gt;Zang et al&lt;/a&gt;.
+They're slightly trickier to convert because of the formalism they follow, but I should get there with another few days of work.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="setting-up-vim-for-multi-repo-java-projects"&gt;
+&lt;h2&gt;Setting up Vim for multi-repo Java projects&lt;/h2&gt;
+&lt;p&gt;Because the NeuroML Java code is broken down into a number of different Java packages (&lt;a class="reference external" href="https://github.com/NeuroML/org.neuroml.import"&gt;org.neuroml.import&lt;/a&gt;, &lt;a class="reference external" href="https://github.com/NeuroML/org.neuroml.export"&gt;org.neuroml.export&lt;/a&gt; and so on), while working on &lt;a class="reference external" href="https://github.com/LEMS/jLEMS"&gt;jLEMS&lt;/a&gt;, I had to remind myself how to work on multi-repository/multi-project Java projects in &lt;a class="reference external" href="https://vim.org"&gt;Vim&lt;/a&gt;.
+I use &lt;a class="reference external" href="https://github.com/ycm-core/YouCompleteMe"&gt;YouCompleteMe (YCM)&lt;/a&gt; which is quite excellent for completion and code navigation.
+I had to figure out how to configure it to allow me to jump from one Java project to another (like one would do in an Eclipse workspace).&lt;/p&gt;
+&lt;p&gt;The &lt;a class="reference external" href="https://github.com/ycm-core/YouCompleteMe?tab=readme-ov-file#java-semantic-completion"&gt;documentation&lt;/a&gt; didn't really help me, unfortunately.
+It says to use &lt;a class="reference external" href="https://eclipseide.org/"&gt;Eclipse&lt;/a&gt;/&lt;a class="reference external" href="https://maven.apache.org/"&gt;Maven&lt;/a&gt;/&lt;a class="reference external" href="https://gradle.org/"&gt;Gradle&lt;/a&gt; configuration files that &lt;a class="reference external" href="https://github.com/eclipse/eclipse.jdt.ls"&gt;JDT&lt;/a&gt; (the engine YCM uses for Java) understands, but doesn't really say much about how to configure these.
+So, were the &lt;code&gt;pom.xml&lt;/code&gt; files that our projects had enough?
+Didn't look like it---they do have dependency information, but only as packages, not as related source directories.
+So, I wasn't sure how to go about it.
+I tried to copy all my Java repositories into a &amp;quot;top level&amp;quot; (workspace style) folder and configure that as a &amp;quot;multi-project&amp;quot; Java maven package.
+I don't think that quite worked, or perhaps I didn't know how to quite set it up.
+I didn't want to have to create a new project either.&lt;/p&gt;
+&lt;p&gt;Eventually, I tried an Eclipse &lt;code&gt;.project&lt;/code&gt; file to the top level directory which tells JDT what project/repository folders are related to each other.
+Again, I wasn't sure how to write this by hand, but turns out a minimal one is quite sufficient.&lt;/p&gt;
+&lt;p&gt;So, for example, my &lt;cite&gt;NeuroML/software&lt;/cite&gt; folder looks like this:&lt;/p&gt;
+&lt;pre class="code console literal-block"&gt;
+&lt;span class="go"&gt;AllenInstituteNeuroML/    inspyred/  libNeuroML/          netpyne/         NeuroMLCAP/             OpenCortex/          org.neuroml.model/                  pylems/
+biosimulations-runutils/  jLEMS/     MDF/                 neuroConstruct/  NeuroMLlite/            org.neuroml1.model/  org.neuroml.model.injectingplugin/  pyNeuroML/
+eden/                     jNeuroML/  modelspec/           NeuroML2/        neuroml-template-repo/  org.neuroml.export/  osb-model-validation/               pynsgr/
+generateds-code/          LEMS/      morphology_include/  NeuroML_API/     neurotune/              org.neuroml.import/  pyelectro/&lt;/span&gt;
+&lt;/pre&gt;
+&lt;p&gt;The main exporter code is in &lt;code&gt;org.neuroml.export&lt;/code&gt;, but it references code in &lt;code&gt;jLEMS&lt;/code&gt; and &lt;code&gt;org.neuroml.import&lt;/code&gt; and so on.
+Adding a minimal &lt;code&gt;.project&lt;/code&gt; file to this top level directory was enough:&lt;/p&gt;
+&lt;pre class="code xml literal-block"&gt;
+&lt;span class="cp"&gt;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot;?&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;projectDescription&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+        &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;name&amp;gt;&lt;/span&gt;parent-project&lt;span class="nt"&gt;&amp;lt;/name&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+        &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;comment&amp;gt;&amp;lt;/comment&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+        &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;projects&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+        &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;/projects&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+        &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;buildSpec&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+                &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;buildCommand&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+                        &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;name&amp;gt;&lt;/span&gt;org.eclipse.m2e.core.maven2Builder&lt;span class="nt"&gt;&amp;lt;/name&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+                        &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;arguments&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+                        &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;/arguments&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+                &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;/buildCommand&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+        &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;/buildSpec&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+        &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;natures&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+                &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;nature&amp;gt;&lt;/span&gt;org.eclipse.m2e.core.maven2Nature&lt;span class="nt"&gt;&amp;lt;/nature&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+        &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;/natures&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+        &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;filteredResources&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+                &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;filter&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+                        &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;id&amp;gt;&lt;/span&gt;1718191734481&lt;span class="nt"&gt;&amp;lt;/id&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+                        &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;name&amp;gt;&amp;lt;/name&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+                        &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;type&amp;gt;&lt;/span&gt;30&lt;span class="nt"&gt;&amp;lt;/type&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+                        &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;matcher&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+                                &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;id&amp;gt;&lt;/span&gt;org.eclipse.core.resources.regexFilterMatcher&lt;span class="nt"&gt;&amp;lt;/id&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+                                &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;arguments&amp;gt;&lt;/span&gt;node_modules|\.git|__CREATED_BY_JAVA_LANGUAGE_SERVER__&lt;span class="nt"&gt;&amp;lt;/arguments&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+                        &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;/matcher&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+                &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;/filter&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+        &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;/filteredResources&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;/projectDescription&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;
+&lt;/div&gt;
+</content><category term="Life"/><category term="NeuroML"/><category term="Computational Neuroscience"/><category term="Fedora"/><category term="GSoC"/><category term="GitHub"/><category term="Vim"/><category term="Java"/></entry></feed>

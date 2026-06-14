@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>ankursinha.in/blog - Zaphod</title><link href="https://ankursinha.in/" rel="alternate"/><link href="https://ankursinha.in/feeds/tags/zaphod.atom.xml" rel="self"/><id>https://ankursinha.in/</id><updated>2025-09-19T14:31:15+01:00</updated><subtitle>neuroscience/fedora/musings</subtitle><entry><title>Zaphod is now on PyPi as zaphodtex</title><link href="https://ankursinha.in/2025/09/19/zaphod-is-now-on-pypi-as-zaphodtex.html" rel="alternate"/><published>2025-09-19T14:31:15+01:00</published><updated>2025-09-19T14:31:15+01:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2025-09-19:/2025/09/19/zaphod-is-now-on-pypi-as-zaphodtex.html</id><summary type="html">&lt;p class="first last"&gt;&lt;a class="reference external" href="https://github.com/sanjayankur31/zaphod"&gt;Zaphod&lt;/a&gt; is now installable from PyPi as &lt;tt class="docutils literal"&gt;zaphodtex&lt;/tt&gt;&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;A quick announcement post.&lt;/p&gt;
+&lt;p&gt;I had written &lt;a class="reference external" href="https://github.com/sanjayankur31/zaphod"&gt;Zaphod&lt;/a&gt; several years ago.
+It is a python wrapper around &lt;a class="reference external" href="https://github.com/ftilmann/latexdiff"&gt;LaTeXdiff&lt;/a&gt; that enables a Git workflow for generating diffs in &lt;a class="reference external" href="https://www.latex-project.org/"&gt;LaTeX&lt;/a&gt; documents.
+A demonstration is in the initial &lt;a class="reference external" href="https://ankursinha.in/2016/02/13/zaphod-a-latex-change-tracking-tool.html"&gt;announcement post&lt;/a&gt;.
+It lets you generate a diff, and it also lets you pick and choose what bits from the diff you want to incorporate.
+It does all of this using Git, so no work is every lost, and everything can be undone (or redone).&lt;/p&gt;
+&lt;p&gt;I finally got around to publishing it on PyPi &lt;a class="reference external" href="https://pypi.org/project/zaphodtex"&gt;as a package&lt;/a&gt;.
+Unfortunately, the name, zaphod, was already taken, so I have published it as &lt;code&gt;zaphodtex&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;So, you can now install it on your system directly using pip or uv:&lt;/p&gt;
+&lt;pre class="code bash literal-block"&gt;
+uv&lt;span class="w"&gt; &lt;/span&gt;pip&lt;span class="w"&gt; &lt;/span&gt;install&lt;span class="w"&gt; &lt;/span&gt;zaphodtex
+&lt;/pre&gt;
+&lt;p&gt;It will also make it easier for people to use it in their projects, on GitHub Actions and so on.&lt;/p&gt;
+</content><category term="Research"/><category term="LaTeX"/><category term="Git"/><category term="Fedora"/><category term="Zaphod"/></entry><entry><title>New Zaphod release - v0.5.7</title><link href="https://ankursinha.in/2016/02/28/new-zaphod-release-v0-5-7.html" rel="alternate"/><published>2016-02-28T16:52:27+00:00</published><updated>2016-02-28T16:52:27+00:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2016-02-28:/2016/02/28/new-zaphod-release-v0-5-7.html</id><summary type="html">&lt;p class="first last"&gt;I've released a new version of &lt;a class="reference external" href="https://github.com/sanjayankur31/zaphod"&gt;Zaphod&lt;/a&gt; - A LaTeX change tracking tool that I've been working on recently.&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;&lt;a class="reference external" href="https://ankursinha.in/2016/02/13/zaphod-a-latex-change-tracking-tool.html"&gt;I'd written about Zaphod recently&lt;/a&gt;. I've been making some tweaks to it - just some enhancements to the revision bit which will make it easier to use. The diff bit is still the same - I didn't see the need to make too many improvements there.&lt;/p&gt;
+&lt;div class="section" id="new-revision-bits"&gt;
+&lt;h2&gt;New revision bits&lt;/h2&gt;
+&lt;p&gt;Now, it looks like this when you start it up:&lt;/p&gt;
+&lt;pre class="code bash literal-block"&gt;
+&lt;span class="o"&gt;[&lt;/span&gt;asinha&amp;#64;cs-as14aho-2-herts-ac-uk&lt;span class="w"&gt;  &lt;/span&gt;latex-changes&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;201602281328&lt;/span&gt;-latexdiff-annotated&lt;span class="o"&gt;)]&lt;/span&gt;$&lt;span class="w"&gt; &lt;/span&gt;python3&lt;span class="w"&gt; &lt;/span&gt;../zaphod/zaphod.py&lt;span class="w"&gt; &lt;/span&gt;revise&lt;span class="w"&gt; &lt;/span&gt;-m&lt;span class="w"&gt; &lt;/span&gt;paper.tex&lt;span class="w"&gt; &lt;/span&gt;-s&lt;span class="w"&gt; &lt;/span&gt;src&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;Zaphod&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;LaTeX&lt;span class="w"&gt; &lt;/span&gt;files&lt;span class="w"&gt; &lt;/span&gt;with&lt;span class="w"&gt; &lt;/span&gt;annotations:&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;src/discussion.tex&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="m"&gt;2&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;src/introduction.tex&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="m"&gt;3&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;src/paper.tex&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="m"&gt;4&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;src/methods.tex&lt;span class="w"&gt;
+
+&lt;/span&gt;Pick&lt;span class="w"&gt; &lt;/span&gt;file&lt;span class="w"&gt; &lt;/span&gt;to&lt;span class="w"&gt; &lt;/span&gt;revise?&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;-4/Q/q:
+&lt;/pre&gt;
+&lt;p&gt;The idea here is that the user should be able to pick what file they want to edit. Previously, Zaphod just went file after file.&lt;/p&gt;
+&lt;p&gt;Once you pick a file, it'll look like this:&lt;/p&gt;
+&lt;pre class="code bash literal-block"&gt;
+....&lt;span class="w"&gt;
+&lt;/span&gt;Pick&lt;span class="w"&gt; &lt;/span&gt;file&lt;span class="w"&gt; &lt;/span&gt;to&lt;span class="w"&gt; &lt;/span&gt;revise?&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;-4/Q/q:&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;1&lt;/span&gt;&lt;span class="w"&gt;
+
+&lt;/span&gt;&lt;span class="o"&gt;======&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;src/discussion.tex&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;======&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;+++&lt;span class="w"&gt; &lt;/span&gt;Addition&lt;span class="w"&gt; &lt;/span&gt;found&lt;span class="w"&gt; &lt;/span&gt;+++&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="se"&gt;\s&lt;/span&gt;ection&lt;span class="o"&gt;{&lt;/span&gt;Discussion&lt;span class="o"&gt;}&lt;/span&gt;&lt;span class="w"&gt;
+
+&lt;/span&gt;Add&lt;span class="w"&gt; &lt;/span&gt;a&lt;span class="w"&gt; &lt;/span&gt;new&lt;span class="w"&gt; &lt;/span&gt;file.&lt;span class="w"&gt;
+
+&lt;/span&gt;+++&lt;span class="w"&gt; &lt;/span&gt;Addition&lt;span class="w"&gt; &lt;/span&gt;found&lt;span class="w"&gt; &lt;/span&gt;+++&lt;span class="w"&gt;
+&lt;/span&gt;Accept&lt;span class="w"&gt; &lt;/span&gt;addition?&lt;span class="w"&gt; &lt;/span&gt;Y/N/Q/y/n/q:&lt;span class="w"&gt; &lt;/span&gt;y&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;Zaphod&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;Addition&lt;span class="w"&gt; &lt;/span&gt;accepted.&lt;span class="w"&gt;
+
+&lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;Zaphod&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;File&lt;span class="w"&gt; &lt;/span&gt;src/discussion.tex&lt;span class="w"&gt; &lt;/span&gt;revised&lt;span class="w"&gt; &lt;/span&gt;and&lt;span class="w"&gt; &lt;/span&gt;saved.&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;Zaphod&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;LaTeX&lt;span class="w"&gt; &lt;/span&gt;files&lt;span class="w"&gt; &lt;/span&gt;with&lt;span class="w"&gt; &lt;/span&gt;annotations:&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;src/introduction.tex&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="m"&gt;2&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;src/paper.tex&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="m"&gt;3&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;src/methods.tex&lt;span class="w"&gt;
+
+&lt;/span&gt;Pick&lt;span class="w"&gt; &lt;/span&gt;file&lt;span class="w"&gt; &lt;/span&gt;to&lt;span class="w"&gt; &lt;/span&gt;revise?&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;-3/Q/q:
+&lt;/pre&gt;
+&lt;p&gt;But, you can also make partial revisions. This is handy in situations where you have a long file and do not have the time to go over all of it at once. So, here's an example. I go over some changes, but I need to stop there for the moment:&lt;/p&gt;
+&lt;pre class="code bash literal-block"&gt;
+...&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;Zaphod&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;LaTeX&lt;span class="w"&gt; &lt;/span&gt;files&lt;span class="w"&gt; &lt;/span&gt;with&lt;span class="w"&gt; &lt;/span&gt;annotations:&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;src/introduction.tex&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="m"&gt;2&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;src/paper.tex&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="m"&gt;3&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;src/methods.tex&lt;span class="w"&gt;
+
+&lt;/span&gt;Pick&lt;span class="w"&gt; &lt;/span&gt;file&lt;span class="w"&gt; &lt;/span&gt;to&lt;span class="w"&gt; &lt;/span&gt;revise?&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;-3/Q/q:&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;2&lt;/span&gt;&lt;span class="w"&gt;
+
+&lt;/span&gt;&lt;span class="o"&gt;======&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;src/paper.tex&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;======&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;---&lt;span class="w"&gt; &lt;/span&gt;Deletion&lt;span class="w"&gt; &lt;/span&gt;found&lt;span class="w"&gt; &lt;/span&gt;---&lt;span class="w"&gt;
+&lt;/span&gt;Tracking&lt;span class="w"&gt;
+&lt;/span&gt;---&lt;span class="w"&gt; &lt;/span&gt;Deletion&lt;span class="w"&gt; &lt;/span&gt;found&lt;span class="w"&gt; &lt;/span&gt;---&lt;span class="w"&gt;
+&lt;/span&gt;Accept&lt;span class="w"&gt; &lt;/span&gt;deletion?&lt;span class="w"&gt; &lt;/span&gt;Y/N/Q/y/n/q:&lt;span class="w"&gt; &lt;/span&gt;y&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;Zaphod&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;Deletion&lt;span class="w"&gt; &lt;/span&gt;accepted.&lt;span class="w"&gt;
+
+&lt;/span&gt;&lt;span class="o"&gt;======&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;src/paper.tex&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;======&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;+++&lt;span class="w"&gt; &lt;/span&gt;Addition&lt;span class="w"&gt; &lt;/span&gt;found&lt;span class="w"&gt; &lt;/span&gt;+++&lt;span class="w"&gt;
+&lt;/span&gt;Visualising&lt;span class="w"&gt;
+&lt;/span&gt;+++&lt;span class="w"&gt; &lt;/span&gt;Addition&lt;span class="w"&gt; &lt;/span&gt;found&lt;span class="w"&gt; &lt;/span&gt;+++&lt;span class="w"&gt;
+&lt;/span&gt;Accept&lt;span class="w"&gt; &lt;/span&gt;addition?&lt;span class="w"&gt; &lt;/span&gt;Y/N/Q/y/n/q:&lt;span class="w"&gt; &lt;/span&gt;y&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;Zaphod&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;Addition&lt;span class="w"&gt; &lt;/span&gt;accepted.&lt;span class="w"&gt;
+
+&lt;/span&gt;&lt;span class="o"&gt;======&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;src/paper.tex&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;======&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;+++&lt;span class="w"&gt; &lt;/span&gt;Addition&lt;span class="w"&gt; &lt;/span&gt;found&lt;span class="w"&gt; &lt;/span&gt;+++&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="se"&gt;\i&lt;/span&gt;nput&lt;span class="o"&gt;{&lt;/span&gt;discussion&lt;span class="o"&gt;}&lt;/span&gt;&lt;span class="w"&gt;
+
+&lt;/span&gt;+++&lt;span class="w"&gt; &lt;/span&gt;Addition&lt;span class="w"&gt; &lt;/span&gt;found&lt;span class="w"&gt; &lt;/span&gt;+++&lt;span class="w"&gt;
+&lt;/span&gt;Accept&lt;span class="w"&gt; &lt;/span&gt;addition?&lt;span class="w"&gt; &lt;/span&gt;Y/N/Q/y/n/q:&lt;span class="w"&gt; &lt;/span&gt;q&lt;span class="w"&gt;
+&lt;/span&gt;Save&lt;span class="w"&gt; &lt;/span&gt;partial&lt;span class="w"&gt; &lt;/span&gt;file?&lt;span class="w"&gt; &lt;/span&gt;Y/N/y/n:&lt;span class="w"&gt; &lt;/span&gt;y&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;Zaphod&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;Some&lt;span class="w"&gt; &lt;/span&gt;files&lt;span class="w"&gt; &lt;/span&gt;still&lt;span class="w"&gt; &lt;/span&gt;have&lt;span class="w"&gt; &lt;/span&gt;latexdiff&lt;span class="w"&gt; &lt;/span&gt;annotations:&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;src/introduction.tex&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="m"&gt;2&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;src/methods.tex&lt;span class="w"&gt;
+
+&lt;/span&gt;Generate&lt;span class="w"&gt; &lt;/span&gt;pdf?&lt;span class="w"&gt; &lt;/span&gt;Y/y/N/n:&lt;span class="w"&gt; &lt;/span&gt;n&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;Zaphod&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;Not&lt;span class="w"&gt; &lt;/span&gt;generating&lt;span class="w"&gt; &lt;/span&gt;pdf.&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;Zaphod&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;Following&lt;span class="w"&gt; &lt;/span&gt;files&lt;span class="w"&gt; &lt;/span&gt;have&lt;span class="w"&gt; &lt;/span&gt;been&lt;span class="w"&gt; &lt;/span&gt;revised&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;maybe&lt;span class="w"&gt; &lt;/span&gt;partially&lt;span class="o"&gt;)&lt;/span&gt;:&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;src/discussion.tex&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="m"&gt;2&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;src/paper.tex&lt;span class="w"&gt;
+
+&lt;/span&gt;Commit&lt;span class="w"&gt; &lt;/span&gt;current&lt;span class="w"&gt; &lt;/span&gt;changes?&lt;span class="w"&gt; &lt;/span&gt;Y/y/N/n:&lt;span class="w"&gt; &lt;/span&gt;n&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;Zaphod&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;Exiting&lt;span class="w"&gt; &lt;/span&gt;without&lt;span class="w"&gt; &lt;/span&gt;committing.
+&lt;/pre&gt;
+&lt;p&gt;There's one catch here, though. Because I want to make absolutely sure that Zaphod doesn't make any changes &amp;quot;by mistake&amp;quot;, you'll have to either stash or commit these changes before you can run Zaphod again. This is just to be on the safer side. A better way would probably be for Zaphod to remember what files were partially revised, but I haven't implemented it at the moment. I'd actually just commit the changes - I mean, that's why we've got Git, right?&lt;/p&gt;
+&lt;pre class="code bash literal-block"&gt;
+&lt;span class="o"&gt;[&lt;/span&gt;asinha&amp;#64;cs-as14aho-2-herts-ac-uk&lt;span class="w"&gt;  &lt;/span&gt;latex-changes&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;201602281328&lt;/span&gt;-latexdiff-annotated&lt;span class="w"&gt; &lt;/span&gt;*&lt;span class="o"&gt;)]&lt;/span&gt;$&lt;span class="w"&gt; &lt;/span&gt;python3&lt;span class="w"&gt; &lt;/span&gt;../zaphod/zaphod.py&lt;span class="w"&gt; &lt;/span&gt;revise&lt;span class="w"&gt; &lt;/span&gt;-m&lt;span class="w"&gt; &lt;/span&gt;paper.tex&lt;span class="w"&gt; &lt;/span&gt;-s&lt;span class="w"&gt; &lt;/span&gt;src&lt;span class="w"&gt;
+&lt;/span&gt;Modifed&lt;span class="w"&gt; &lt;/span&gt;or&lt;span class="w"&gt; &lt;/span&gt;untracked&lt;span class="w"&gt; &lt;/span&gt;files&lt;span class="w"&gt; &lt;/span&gt;found.&lt;span class="w"&gt;
+&lt;/span&gt;git&lt;span class="w"&gt; &lt;/span&gt;status&lt;span class="w"&gt; &lt;/span&gt;output:&lt;span class="w"&gt;
+ &lt;/span&gt;M&lt;span class="w"&gt; &lt;/span&gt;src/discussion.tex&lt;span class="w"&gt;
+ &lt;/span&gt;M&lt;span class="w"&gt; &lt;/span&gt;src/paper.tex&lt;span class="w"&gt;
+
+&lt;/span&gt;Please&lt;span class="w"&gt; &lt;/span&gt;stash&lt;span class="w"&gt; &lt;/span&gt;or&lt;span class="w"&gt; &lt;/span&gt;commit&lt;span class="w"&gt; &lt;/span&gt;and&lt;span class="w"&gt; &lt;/span&gt;rerun&lt;span class="w"&gt; &lt;/span&gt;Zaphod.
+&lt;/pre&gt;
+&lt;p&gt;That's it. I think it's a lot easier to use now, and in this design addresses a lot more use cases than it did before.&lt;/p&gt;
+&lt;p&gt;&lt;a class="reference external" href="https://github.com/sanjayankur31/zaphod/releases"&gt;Give it a go&lt;/a&gt; and &lt;a class="reference external" href="https://github.com/sanjayankur31/zaphod/issues/new"&gt;let me know&lt;/a&gt; if things break - I've tested it myself, but only on a mock document.&lt;/p&gt;
+&lt;/div&gt;
+</content><category term="Research"/><category term="LaTeX"/><category term="Programming"/><category term="Git"/><category term="Fedora"/><category term="Zaphod"/></entry><entry><title>Zaphod - a LaTeX change tracking tool</title><link href="https://ankursinha.in/2016/02/13/zaphod-a-latex-change-tracking-tool.html" rel="alternate"/><published>2016-02-13T17:16:24+00:00</published><updated>2016-02-13T17:16:24+00:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2016-02-13:/2016/02/13/zaphod-a-latex-change-tracking-tool.html</id><summary type="html">&lt;p class="first last"&gt;Introducing &lt;a class="reference external" href="https://github.com/sanjayankur31/zaphod"&gt;Zaphod&lt;/a&gt; - a &lt;a class="reference external" href="https://www.python.org/"&gt;Python&lt;/a&gt; script that attempts to help &lt;a class="reference external" href="https://en.wikipedia.org/wiki/LaTeX"&gt;LaTeX&lt;/a&gt; users collaborate over their academic writing. It uses the power of &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Git_(software)"&gt;Git&lt;/a&gt; to track changes, &lt;a class="reference external" href="https://www.ctan.org/pkg/latexdiff?lang=en"&gt;latexdiff&lt;/a&gt; to generate a PDF with annotated additions and removals from the document, and provides a simple interactive review tool that lets the user pick what changes they want to accept. You can use Zaphod to track changes in your LaTeX documents.&lt;/p&gt;
+</summary><content type="html">&lt;div class="section" id="the-name"&gt;
+&lt;h2&gt;The name&lt;/h2&gt;
+&lt;p&gt;Well, I needn't say much here, need I? &lt;a class="reference external" href="https://en.wikipedia.org/wiki/The_Hitchhiker%27s_Guide_to_the_Galaxy"&gt;Hitchhiker's guide to the galaxy&lt;/a&gt;, anyone?&lt;/p&gt;
+&lt;p&gt;Of course, a good tip to naming a new open source tool is to pick a project name that is easily searchable. With &lt;a class="reference external" href="https://en.wikipedia.org/wiki/LaTeX"&gt;LaTeX&lt;/a&gt; related searches, it's a tad difficult - the addition of the word to LaTeX to anything tends to generate rather undesirable results. Fortunately, &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Zaphod_Beeblebrox"&gt;Zaphod&lt;/a&gt; seems to have been spared the honour..&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="latex-is-great"&gt;
+&lt;h2&gt;LaTeX is great!&lt;/h2&gt;
+&lt;p&gt;Academics really like &lt;a class="reference external" href="https://en.wikipedia.org/wiki/LaTeX"&gt;LaTeX&lt;/a&gt; - it's a brilliant tool, the best one in my opinion, for academic writing. Using LaTeX is widely accepted to be more complex than using a simple &lt;a class="reference external" href="https://en.wikipedia.org/wiki/WYSIWYG"&gt;WYSIWYG&lt;/a&gt; tool like Word. One writes in plain text using LaTeX constructs and then compiles it to produce a brilliantly formatted PDF. The point of using LaTeX is that you get to focus on the matter - the actual text, and LaTeX largely takes care of the look, the formatting and all that. There are &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Comparison_of_TeX_editors"&gt;quite a few applications&lt;/a&gt; that provide one click compilation and other features, by the way, so you don't absolutely have to use the command line. There's even &lt;a class="reference external" href="https://www.lyx.org/"&gt;Lyx&lt;/a&gt; which is quite close to a WYSIWYG application for LaTeX.&lt;/p&gt;
+&lt;div class="section" id="tracking-changes"&gt;
+&lt;h3&gt;Tracking changes&lt;/h3&gt;
+&lt;p&gt;Another limitation of using LaTeX is that you can't easily see what's changed between versions of PDFs. This makes collaboration using LaTeX difficult.&lt;/p&gt;
+&lt;p&gt;Word, for example, has a very useful &amp;quot;&lt;a class="reference external" href="https://support.office.com/en-us/article/Track-changes-while-you-edit-024158a3-7e62-4f05-8bb7-dc3ecf0295c4"&gt;Track changes&lt;/a&gt;&amp;quot; feature that lets you record your changes and then lets the next person easily review them and decide which ones are to be applied.&lt;/p&gt;
+&lt;p&gt;There are various tools strewn over the Internet that do help with this, but they aren't quite as convenient as I'd have hoped. Some examples:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://www.ctan.org/pkg/latexdiff?lang=en"&gt;latexdiff&lt;/a&gt; (Zaphod is based on this and uses it to generate changes - why reinvent the wheel?)&lt;/li&gt;
+&lt;li&gt;the &lt;a class="reference external" href="http://www.ctan.org/pkg/changes"&gt;changes&lt;/a&gt; package&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="http://trackchanges.sourceforge.net/"&gt;track changes&lt;/a&gt; (didn't try this out)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="so-zaphod"&gt;
+&lt;h2&gt;So - Zaphod&lt;/h2&gt;
+&lt;p&gt;Various editors make writing LaTeX quite easy. That isn't much of an issue any more. Zaphod tries to address the second issue - tracking changes. It combines existing tools to implement a certain workflow where you can write text, send it to people, verify and include their changes.&lt;/p&gt;
+&lt;div class="section" id="the-workflow-an-example"&gt;
+&lt;h3&gt;The workflow - an example&lt;/h3&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Create a Git repository for your LaTeX paper.&lt;/li&gt;
+&lt;li&gt;Write your draft.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I'm using a &lt;a class="reference external" href="https://github.com/sanjayankur31/latex-changes"&gt;test repository&lt;/a&gt; which looks like this:&lt;/p&gt;
+&lt;pre class="code bash literal-block"&gt;
+&lt;span class="o"&gt;[&lt;/span&gt;asinha&amp;#64;ankur&lt;span class="w"&gt;  &lt;/span&gt;latex-changes&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;master&lt;/span&gt;&lt;span class="o"&gt;=)]&lt;/span&gt;$&lt;span class="w"&gt; &lt;/span&gt;tree&lt;span class="w"&gt;
+&lt;/span&gt;.&lt;span class="w"&gt;
+&lt;/span&gt;├──&lt;span class="w"&gt; &lt;/span&gt;LICENSE&lt;span class="w"&gt;
+&lt;/span&gt;├──&lt;span class="w"&gt; &lt;/span&gt;README.rst&lt;span class="w"&gt;
+&lt;/span&gt;└──&lt;span class="w"&gt; &lt;/span&gt;src&lt;span class="w"&gt;
+    &lt;/span&gt;├──&lt;span class="w"&gt; &lt;/span&gt;abstract.tex&lt;span class="w"&gt;
+    &lt;/span&gt;├──&lt;span class="w"&gt; &lt;/span&gt;conclusion.tex&lt;span class="w"&gt;
+    &lt;/span&gt;├──&lt;span class="w"&gt; &lt;/span&gt;discussion.tex&lt;span class="w"&gt;
+    &lt;/span&gt;├──&lt;span class="w"&gt; &lt;/span&gt;introduction.tex&lt;span class="w"&gt;
+    &lt;/span&gt;├──&lt;span class="w"&gt; &lt;/span&gt;Makefile&lt;span class="w"&gt;
+    &lt;/span&gt;├──&lt;span class="w"&gt; &lt;/span&gt;methods.tex&lt;span class="w"&gt;
+    &lt;/span&gt;├──&lt;span class="w"&gt; &lt;/span&gt;paper.pdf&lt;span class="w"&gt;
+    &lt;/span&gt;├──&lt;span class="w"&gt; &lt;/span&gt;paper.tex&lt;span class="w"&gt;
+    &lt;/span&gt;└──&lt;span class="w"&gt; &lt;/span&gt;results.tex&lt;span class="w"&gt;
+
+&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;directory,&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;19&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;files&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;asinha&amp;#64;ankur&lt;span class="w"&gt;  &lt;/span&gt;latex-changes&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;master&lt;/span&gt;&lt;span class="o"&gt;=)]&lt;/span&gt;$
+&lt;/pre&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Commit your changes.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Your repository will look something like this:&lt;/p&gt;
+&lt;pre class="code bash literal-block"&gt;
+&lt;span class="o"&gt;[&lt;/span&gt;asinha&amp;#64;ankur&lt;span class="w"&gt;  &lt;/span&gt;latex-changes&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;master&lt;/span&gt;&lt;span class="o"&gt;=)]&lt;/span&gt;$&lt;span class="w"&gt; &lt;/span&gt;git&lt;span class="w"&gt; &lt;/span&gt;lg&lt;span class="w"&gt;
+&lt;/span&gt;*&lt;span class="w"&gt; &lt;/span&gt;280fef6&lt;span class="w"&gt; &lt;/span&gt;-&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;4&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;days&lt;span class="w"&gt; &lt;/span&gt;ago&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;Subsection&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nb"&gt;test&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;—&lt;span class="w"&gt; &lt;/span&gt;Ankur&lt;span class="w"&gt; &lt;/span&gt;Sinha&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;Ankur&lt;span class="w"&gt; &lt;/span&gt;Sinha&lt;span class="w"&gt; &lt;/span&gt;Gmail&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;HEAD&lt;span class="w"&gt; &lt;/span&gt;-&amp;gt;&lt;span class="w"&gt; &lt;/span&gt;master,&lt;span class="w"&gt; &lt;/span&gt;origin/master,&lt;span class="w"&gt; &lt;/span&gt;origin/HEAD&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;*&lt;span class="w"&gt; &lt;/span&gt;0c0238b&lt;span class="w"&gt; &lt;/span&gt;-&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;4&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;days&lt;span class="w"&gt; &lt;/span&gt;ago&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;Moved&lt;span class="w"&gt; &lt;/span&gt;script&lt;span class="w"&gt; &lt;/span&gt;to&lt;span class="w"&gt; &lt;/span&gt;its&lt;span class="w"&gt; &lt;/span&gt;own&lt;span class="w"&gt; &lt;/span&gt;repository&lt;span class="w"&gt; &lt;/span&gt;—&lt;span class="w"&gt; &lt;/span&gt;Ankur&lt;span class="w"&gt; &lt;/span&gt;Sinha&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;Ankur&lt;span class="w"&gt; &lt;/span&gt;Sinha&lt;span class="w"&gt; &lt;/span&gt;Gmail&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;....&lt;span class="w"&gt;
+&lt;/span&gt;*&lt;span class="w"&gt; &lt;/span&gt;164e0d3&lt;span class="w"&gt; &lt;/span&gt;-&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;8&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;days&lt;span class="w"&gt; &lt;/span&gt;ago&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;Add&lt;span class="w"&gt; &lt;/span&gt;vim&lt;span class="w"&gt; &lt;/span&gt;temp&lt;span class="w"&gt; &lt;/span&gt;files&lt;span class="w"&gt; &lt;/span&gt;to&lt;span class="w"&gt; &lt;/span&gt;gitignore&lt;span class="w"&gt; &lt;/span&gt;—&lt;span class="w"&gt; &lt;/span&gt;Ankur&lt;span class="w"&gt; &lt;/span&gt;Sinha&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;Ankur&lt;span class="w"&gt; &lt;/span&gt;Sinha&lt;span class="w"&gt; &lt;/span&gt;Gmail&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;*&lt;span class="w"&gt; &lt;/span&gt;bd02966&lt;span class="w"&gt; &lt;/span&gt;-&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;8&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;days&lt;span class="w"&gt; &lt;/span&gt;ago&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;Commit&lt;span class="w"&gt; &lt;/span&gt;fake&lt;span class="w"&gt; &lt;/span&gt;paper&lt;span class="w"&gt; &lt;/span&gt;—&lt;span class="w"&gt; &lt;/span&gt;Ankur&lt;span class="w"&gt; &lt;/span&gt;Sinha&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;Ankur&lt;span class="w"&gt; &lt;/span&gt;Sinha&lt;span class="w"&gt; &lt;/span&gt;Gmail&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;*&lt;span class="w"&gt; &lt;/span&gt;11ad32b&lt;span class="w"&gt; &lt;/span&gt;-&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;8&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;days&lt;span class="w"&gt; &lt;/span&gt;ago&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;Initial&lt;span class="w"&gt; &lt;/span&gt;commit&lt;span class="w"&gt; &lt;/span&gt;—&lt;span class="w"&gt; &lt;/span&gt;Ankur&lt;span class="w"&gt; &lt;/span&gt;Sinha
+&lt;/pre&gt;
+&lt;p&gt;This is all pretty standard Git usage. Now, the interesting part:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Send your PDF and LaTeX sources to your collaborator (or give them access to your repository).&lt;/li&gt;
+&lt;li&gt;They make changes and commit them. Now, your Git revision tree will look something like this:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class="code bash literal-block"&gt;
+&lt;span class="o"&gt;[&lt;/span&gt;asinha&amp;#64;ankur&lt;span class="w"&gt;  &lt;/span&gt;latex-changes&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;master&lt;/span&gt;&lt;span class="o"&gt;=)]&lt;/span&gt;$&lt;span class="w"&gt; &lt;/span&gt;git&lt;span class="w"&gt; &lt;/span&gt;lg&lt;span class="w"&gt;
+&lt;/span&gt;*&lt;span class="w"&gt; &lt;/span&gt;46d0c11&lt;span class="w"&gt; &lt;/span&gt;-&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;4&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;hours&lt;span class="w"&gt; &lt;/span&gt;ago&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;Add&lt;span class="w"&gt; &lt;/span&gt;a&lt;span class="w"&gt; &lt;/span&gt;new&lt;span class="w"&gt; &lt;/span&gt;file.&lt;span class="w"&gt; &lt;/span&gt;—&lt;span class="w"&gt; &lt;/span&gt;Ankur&lt;span class="w"&gt; &lt;/span&gt;Sinha&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;Ankur&lt;span class="w"&gt; &lt;/span&gt;Sinha&lt;span class="w"&gt; &lt;/span&gt;Gmail&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;HEAD&lt;span class="w"&gt; &lt;/span&gt;-&amp;gt;&lt;span class="w"&gt; &lt;/span&gt;master,&lt;span class="w"&gt; &lt;/span&gt;origin/master,&lt;span class="w"&gt; &lt;/span&gt;origin/HEAD&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;*&lt;span class="w"&gt; &lt;/span&gt;ba4b06d&lt;span class="w"&gt; &lt;/span&gt;-&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;3&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;days&lt;span class="w"&gt; &lt;/span&gt;ago&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;Update&lt;span class="w"&gt; &lt;/span&gt;readme&lt;span class="w"&gt; &lt;/span&gt;—&lt;span class="w"&gt; &lt;/span&gt;Ankur&lt;span class="w"&gt; &lt;/span&gt;Sinha&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;Ankur&lt;span class="w"&gt; &lt;/span&gt;Sinha&lt;span class="w"&gt; &lt;/span&gt;Gmail&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;*&lt;span class="w"&gt; &lt;/span&gt;53033b8&lt;span class="w"&gt; &lt;/span&gt;-&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;3&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;days&lt;span class="w"&gt; &lt;/span&gt;ago&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;Remove&lt;span class="w"&gt; &lt;/span&gt;example&lt;span class="w"&gt; &lt;/span&gt;output&lt;span class="w"&gt; &lt;/span&gt;directory&lt;span class="w"&gt; &lt;/span&gt;—&lt;span class="w"&gt; &lt;/span&gt;Ankur&lt;span class="w"&gt; &lt;/span&gt;Sinha&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;Ankur&lt;span class="w"&gt; &lt;/span&gt;Sinha&lt;span class="w"&gt; &lt;/span&gt;Gmail&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;*&lt;span class="w"&gt; &lt;/span&gt;d82266b&lt;span class="w"&gt; &lt;/span&gt;-&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;4&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;days&lt;span class="w"&gt; &lt;/span&gt;ago&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;More&lt;span class="w"&gt; &lt;/span&gt;subsection&lt;span class="w"&gt; &lt;/span&gt;changes&lt;span class="w"&gt; &lt;/span&gt;—&lt;span class="w"&gt; &lt;/span&gt;Ankur&lt;span class="w"&gt; &lt;/span&gt;Sinha&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;Ankur&lt;span class="w"&gt; &lt;/span&gt;Sinha&lt;span class="w"&gt; &lt;/span&gt;Gmail&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;*&lt;span class="w"&gt; &lt;/span&gt;280fef6&lt;span class="w"&gt; &lt;/span&gt;-&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;4&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;days&lt;span class="w"&gt; &lt;/span&gt;ago&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;Subsection&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nb"&gt;test&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;—&lt;span class="w"&gt; &lt;/span&gt;Ankur&lt;span class="w"&gt; &lt;/span&gt;Sinha&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;Ankur&lt;span class="w"&gt; &lt;/span&gt;Sinha&lt;span class="w"&gt; &lt;/span&gt;Gmail&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+  &lt;/span&gt;...
+&lt;/pre&gt;
+&lt;p&gt;Zaphod lets you specify two Git revisions and generates a list of changes between these two. So, for example, running the diff command would do this:&lt;/p&gt;
+&lt;pre class="code bash literal-block"&gt;
+&lt;span class="o"&gt;[&lt;/span&gt;asinha&amp;#64;ankur&lt;span class="w"&gt;  &lt;/span&gt;latex-changes&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;master&lt;/span&gt;&lt;span class="o"&gt;=)]&lt;/span&gt;$&lt;span class="w"&gt; &lt;/span&gt;python3&lt;span class="w"&gt; &lt;/span&gt;../zaphod/zaphod.py&lt;span class="w"&gt; &lt;/span&gt;diff&lt;span class="w"&gt; &lt;/span&gt;-r&lt;span class="w"&gt; &lt;/span&gt;bd02966&lt;span class="w"&gt; &lt;/span&gt;-m&lt;span class="w"&gt; &lt;/span&gt;paper.tex&lt;span class="w"&gt; &lt;/span&gt;-s&lt;span class="w"&gt; &lt;/span&gt;src&lt;span class="w"&gt;
+ &lt;/span&gt;....&lt;span class="w"&gt;
+ &lt;/span&gt;....&lt;span class="w"&gt;
+ &lt;/span&gt;COMPLETE:&lt;span class="w"&gt; &lt;/span&gt;The&lt;span class="w"&gt; &lt;/span&gt;following&lt;span class="w"&gt; &lt;/span&gt;branches&lt;span class="w"&gt; &lt;/span&gt;have&lt;span class="w"&gt; &lt;/span&gt;been&lt;span class="w"&gt; &lt;/span&gt;created:&lt;span class="w"&gt;
+ &lt;/span&gt;&lt;span class="m"&gt;201602131935&lt;/span&gt;-latexdiff-rev1:&lt;span class="w"&gt; &lt;/span&gt;Revision&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;.&lt;span class="w"&gt;
+ &lt;/span&gt;&lt;span class="m"&gt;201602131935&lt;/span&gt;-latexdiff-rev2:&lt;span class="w"&gt; &lt;/span&gt;Revision&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;2&lt;/span&gt;.&lt;span class="w"&gt;
+ &lt;/span&gt;&lt;span class="m"&gt;201602131935&lt;/span&gt;-latexdiff-annotated:&lt;span class="w"&gt; &lt;/span&gt;Branch&lt;span class="w"&gt; &lt;/span&gt;with&lt;span class="w"&gt; &lt;/span&gt;annotated&lt;span class="w"&gt; &lt;/span&gt;versions&lt;span class="w"&gt; &lt;/span&gt;of&lt;span class="w"&gt; &lt;/span&gt;sources&lt;span class="w"&gt; &lt;/span&gt;and&lt;span class="w"&gt; &lt;/span&gt;diff&lt;span class="w"&gt; &lt;/span&gt;pdf.&lt;span class="w"&gt;
+ &lt;/span&gt;The&lt;span class="w"&gt; &lt;/span&gt;generated&lt;span class="w"&gt; &lt;/span&gt;diff&lt;span class="w"&gt; &lt;/span&gt;pdf&lt;span class="w"&gt; &lt;/span&gt;is:&lt;span class="w"&gt; &lt;/span&gt;src/diff-bd02966-master.pdf.
+&lt;/pre&gt;
+&lt;p&gt;and your repository now looks like this:&lt;/p&gt;
+&lt;pre class="code bash literal-block"&gt;
+*&lt;span class="w"&gt; &lt;/span&gt;9e58178&lt;span class="w"&gt; &lt;/span&gt;-&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;2&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;minutes&lt;span class="w"&gt; &lt;/span&gt;ago&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;Save&lt;span class="w"&gt; &lt;/span&gt;annotated&lt;span class="w"&gt; &lt;/span&gt;changes&lt;span class="w"&gt; &lt;/span&gt;between&lt;span class="w"&gt; &lt;/span&gt;bd02966&lt;span class="w"&gt; &lt;/span&gt;and&lt;span class="w"&gt; &lt;/span&gt;master&lt;span class="w"&gt; &lt;/span&gt;—&lt;span class="w"&gt; &lt;/span&gt;Ankur&lt;span class="w"&gt; &lt;/span&gt;Sinha&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;Ankur&lt;span class="w"&gt; &lt;/span&gt;Sinha&lt;span class="w"&gt; &lt;/span&gt;Gmail&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;HEAD&lt;span class="w"&gt; &lt;/span&gt;-&amp;gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;201602131935&lt;/span&gt;-latexdiff-annotated&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;*&lt;span class="w"&gt; &lt;/span&gt;46d0c11&lt;span class="w"&gt; &lt;/span&gt;-&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;5&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;hours&lt;span class="w"&gt; &lt;/span&gt;ago&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;Add&lt;span class="w"&gt; &lt;/span&gt;a&lt;span class="w"&gt; &lt;/span&gt;new&lt;span class="w"&gt; &lt;/span&gt;file.&lt;span class="w"&gt; &lt;/span&gt;—&lt;span class="w"&gt; &lt;/span&gt;Ankur&lt;span class="w"&gt; &lt;/span&gt;Sinha&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;Ankur&lt;span class="w"&gt; &lt;/span&gt;Sinha&lt;span class="w"&gt; &lt;/span&gt;Gmail&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;origin/master,&lt;span class="w"&gt; &lt;/span&gt;origin/HEAD,&lt;span class="w"&gt; &lt;/span&gt;master,&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;201602131935&lt;/span&gt;-latexdiff-rev2&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;*&lt;span class="w"&gt; &lt;/span&gt;ba4b06d&lt;span class="w"&gt; &lt;/span&gt;-&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;3&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;days&lt;span class="w"&gt; &lt;/span&gt;ago&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;Update&lt;span class="w"&gt; &lt;/span&gt;readme&lt;span class="w"&gt; &lt;/span&gt;—&lt;span class="w"&gt; &lt;/span&gt;Ankur&lt;span class="w"&gt; &lt;/span&gt;Sinha&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;Ankur&lt;span class="w"&gt; &lt;/span&gt;Sinha&lt;span class="w"&gt; &lt;/span&gt;Gmail&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;....&lt;span class="w"&gt;
+&lt;/span&gt;*&lt;span class="w"&gt; &lt;/span&gt;bd02966&lt;span class="w"&gt; &lt;/span&gt;-&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;8&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;days&lt;span class="w"&gt; &lt;/span&gt;ago&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;Commit&lt;span class="w"&gt; &lt;/span&gt;fake&lt;span class="w"&gt; &lt;/span&gt;paper&lt;span class="w"&gt; &lt;/span&gt;—&lt;span class="w"&gt; &lt;/span&gt;Ankur&lt;span class="w"&gt; &lt;/span&gt;Sinha&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;Ankur&lt;span class="w"&gt; &lt;/span&gt;Sinha&lt;span class="w"&gt; &lt;/span&gt;Gmail&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;201602131935&lt;/span&gt;-latexdiff-rev1&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;*&lt;span class="w"&gt; &lt;/span&gt;11ad32b&lt;span class="w"&gt; &lt;/span&gt;-&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;8&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;days&lt;span class="w"&gt; &lt;/span&gt;ago&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;Initial&lt;span class="w"&gt; &lt;/span&gt;commit&lt;span class="w"&gt; &lt;/span&gt;—&lt;span class="w"&gt; &lt;/span&gt;Ankur&lt;span class="w"&gt; &lt;/span&gt;Sinha
+&lt;/pre&gt;
+&lt;p&gt;Zaphod uses latexdiff to check for differences between the two revisions, marks them as branches for easy reference, and then creates a new branch with annotated source files and a nice pdf which looks like this:&lt;/p&gt;
+&lt;a class="reference external image-reference" href="https://ankursinha.in/images/20160213-zaphod-screenshot.png"&gt;
+&lt;img alt="Screenshot of annotated PDF" class="align-center" src="https://ankursinha.in/images/20160213-zaphod-screenshot.png" style="height: 400.0px;" /&gt;
+&lt;/a&gt;
+&lt;p&gt;That looks rather nice, isn't it? And it resembles what a Word document with annotations looks like too. latexdiff has various markup styles which can be passed to Zaphod as arguments to modify how the annotations look. The most important part here is that because Zaphod is using mighty Git, there's no chance of you losing any work at all. &lt;em&gt;In fact, if you have untracked and uncommitted changes in your repository, Zaphod refuses to run at all.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Now, a look at how the revise function works:&lt;/p&gt;
+&lt;pre class="code bash literal-block"&gt;
+&lt;span class="o"&gt;[&lt;/span&gt;asinha&amp;#64;ankur&lt;span class="w"&gt;  &lt;/span&gt;latex-changes&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;201602131935&lt;/span&gt;-latexdiff-annotated&lt;span class="o"&gt;)]&lt;/span&gt;$&lt;span class="w"&gt; &lt;/span&gt;python3&lt;span class="w"&gt; &lt;/span&gt;../zaphod/zaphod.py&lt;span class="w"&gt; &lt;/span&gt;revise&lt;span class="w"&gt; &lt;/span&gt;-s&lt;span class="w"&gt; &lt;/span&gt;src/&lt;span class="w"&gt; &lt;/span&gt;-m&lt;span class="w"&gt; &lt;/span&gt;paper.tex&lt;span class="w"&gt;
+&lt;/span&gt;Working&lt;span class="w"&gt; &lt;/span&gt;on&lt;span class="w"&gt; &lt;/span&gt;file:&lt;span class="w"&gt; &lt;/span&gt;src/paper.tex.&lt;span class="w"&gt;
+&lt;/span&gt;File&lt;span class="w"&gt; &lt;/span&gt;under&lt;span class="w"&gt; &lt;/span&gt;revision:&lt;span class="w"&gt; &lt;/span&gt;src/paper.tex&lt;span class="w"&gt;
+
+&lt;/span&gt;Deletion&lt;span class="w"&gt; &lt;/span&gt;found:&lt;span class="w"&gt;
+&lt;/span&gt;---&lt;span class="w"&gt;
+&lt;/span&gt;Tracking&lt;span class="w"&gt;
+&lt;/span&gt;---&lt;span class="w"&gt;
+
+&lt;/span&gt;Delete?&lt;span class="w"&gt; &lt;/span&gt;Y/N/y/n:&lt;span class="w"&gt; &lt;/span&gt;y&lt;span class="w"&gt;
+&lt;/span&gt;Deleted&lt;span class="w"&gt;
+
+&lt;/span&gt;File&lt;span class="w"&gt; &lt;/span&gt;under&lt;span class="w"&gt; &lt;/span&gt;revision:&lt;span class="w"&gt; &lt;/span&gt;src/paper.tex&lt;span class="w"&gt;
+
+&lt;/span&gt;Addition&lt;span class="w"&gt; &lt;/span&gt;found:&lt;span class="w"&gt;
+&lt;/span&gt;+++&lt;span class="w"&gt;
+&lt;/span&gt;Visualising&lt;span class="w"&gt;
+&lt;/span&gt;+++&lt;span class="w"&gt;
+
+&lt;/span&gt;Add?&lt;span class="w"&gt; &lt;/span&gt;Y/N/y/n:&lt;span class="w"&gt; &lt;/span&gt;n&lt;span class="w"&gt;
+&lt;/span&gt;Skipped&lt;span class="w"&gt;
+
+&lt;/span&gt;File&lt;span class="w"&gt; &lt;/span&gt;under&lt;span class="w"&gt; &lt;/span&gt;revision:&lt;span class="w"&gt; &lt;/span&gt;src/paper.tex&lt;span class="w"&gt;
+
+&lt;/span&gt;Addition&lt;span class="w"&gt; &lt;/span&gt;found:&lt;span class="w"&gt;
+&lt;/span&gt;+++&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="se"&gt;\i&lt;/span&gt;nput&lt;span class="o"&gt;{&lt;/span&gt;discussion&lt;span class="o"&gt;}&lt;/span&gt;&lt;span class="w"&gt;
+
+&lt;/span&gt;+++&lt;span class="w"&gt;
+
+&lt;/span&gt;Add?&lt;span class="w"&gt; &lt;/span&gt;Y/N/y/n:&lt;span class="w"&gt;
+&lt;/span&gt;....&lt;span class="w"&gt;
+&lt;/span&gt;....&lt;span class="w"&gt;
+&lt;/span&gt;....&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="m"&gt;201602131935&lt;/span&gt;-latexdiff-annotated&lt;span class="w"&gt; &lt;/span&gt;3ba757f&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;Save&lt;span class="w"&gt; &lt;/span&gt;after&lt;span class="w"&gt; &lt;/span&gt;going&lt;span class="w"&gt; &lt;/span&gt;through&lt;span class="w"&gt; &lt;/span&gt;changes&lt;span class="w"&gt;
+ &lt;/span&gt;&lt;span class="m"&gt;5&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;files&lt;span class="w"&gt; &lt;/span&gt;changed,&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;34&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;insertions&lt;span class="o"&gt;(&lt;/span&gt;+&lt;span class="o"&gt;)&lt;/span&gt;,&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;56&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;deletions&lt;span class="o"&gt;(&lt;/span&gt;-&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+ &lt;/span&gt;create&lt;span class="w"&gt; &lt;/span&gt;mode&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;100644&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;src/accepted.pdf&lt;span class="w"&gt;
+ &lt;/span&gt;rewrite&lt;span class="w"&gt; &lt;/span&gt;src/paper.tex&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;72&lt;/span&gt;%&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+
+&lt;/span&gt;COMPLETE:&lt;span class="w"&gt; &lt;/span&gt;Changes&lt;span class="w"&gt; &lt;/span&gt;accepted&lt;span class="w"&gt; &lt;/span&gt;and&lt;span class="w"&gt; &lt;/span&gt;committed.&lt;span class="w"&gt;
+&lt;/span&gt;The&lt;span class="w"&gt; &lt;/span&gt;generated&lt;span class="w"&gt; &lt;/span&gt;pdf&lt;span class="w"&gt; &lt;/span&gt;is:&lt;span class="w"&gt; &lt;/span&gt;src//accepted.pdf.&lt;span class="w"&gt;
+&lt;/span&gt;You&lt;span class="w"&gt; &lt;/span&gt;can&lt;span class="w"&gt; &lt;/span&gt;merge&lt;span class="w"&gt; &lt;/span&gt;this&lt;span class="w"&gt; &lt;/span&gt;branch&lt;span class="w"&gt; &lt;/span&gt;to&lt;span class="w"&gt; &lt;/span&gt;master&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;you&lt;span class="w"&gt; &lt;/span&gt;wish.
+&lt;/pre&gt;
+&lt;p&gt;and your repository looks like this:&lt;/p&gt;
+&lt;pre class="code bash literal-block"&gt;
+&lt;span class="o"&gt;[&lt;/span&gt;asinha&amp;#64;ankur&lt;span class="w"&gt;  &lt;/span&gt;latex-changes&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;201602131935&lt;/span&gt;-latexdiff-annotated&lt;span class="o"&gt;)]&lt;/span&gt;$&lt;span class="w"&gt; &lt;/span&gt;git&lt;span class="w"&gt; &lt;/span&gt;lg&lt;span class="w"&gt;
+&lt;/span&gt;*&lt;span class="w"&gt; &lt;/span&gt;3ba757f&lt;span class="w"&gt; &lt;/span&gt;-&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;53&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;seconds&lt;span class="w"&gt; &lt;/span&gt;ago&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;Save&lt;span class="w"&gt; &lt;/span&gt;after&lt;span class="w"&gt; &lt;/span&gt;going&lt;span class="w"&gt; &lt;/span&gt;through&lt;span class="w"&gt; &lt;/span&gt;changes&lt;span class="w"&gt; &lt;/span&gt;—&lt;span class="w"&gt; &lt;/span&gt;Ankur&lt;span class="w"&gt; &lt;/span&gt;Sinha&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;Ankur&lt;span class="w"&gt; &lt;/span&gt;Sinha&lt;span class="w"&gt; &lt;/span&gt;Gmail&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;HEAD&lt;span class="w"&gt; &lt;/span&gt;-&amp;gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;201602131935&lt;/span&gt;-latexdiff-annotated&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;*&lt;span class="w"&gt; &lt;/span&gt;9e58178&lt;span class="w"&gt; &lt;/span&gt;-&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;17&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;minutes&lt;span class="w"&gt; &lt;/span&gt;ago&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;Save&lt;span class="w"&gt; &lt;/span&gt;annotated&lt;span class="w"&gt; &lt;/span&gt;changes&lt;span class="w"&gt; &lt;/span&gt;between&lt;span class="w"&gt; &lt;/span&gt;bd02966&lt;span class="w"&gt; &lt;/span&gt;and&lt;span class="w"&gt; &lt;/span&gt;master&lt;span class="w"&gt; &lt;/span&gt;—&lt;span class="w"&gt; &lt;/span&gt;Ankur&lt;span class="w"&gt; &lt;/span&gt;Sinha&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;Ankur&lt;span class="w"&gt; &lt;/span&gt;Sinha&lt;span class="w"&gt; &lt;/span&gt;Gmail&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;*&lt;span class="w"&gt; &lt;/span&gt;46d0c11&lt;span class="w"&gt; &lt;/span&gt;-&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;5&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;hours&lt;span class="w"&gt; &lt;/span&gt;ago&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;Add&lt;span class="w"&gt; &lt;/span&gt;a&lt;span class="w"&gt; &lt;/span&gt;new&lt;span class="w"&gt; &lt;/span&gt;file.&lt;span class="w"&gt; &lt;/span&gt;—&lt;span class="w"&gt; &lt;/span&gt;Ankur&lt;span class="w"&gt; &lt;/span&gt;Sinha&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;Ankur&lt;span class="w"&gt; &lt;/span&gt;Sinha&lt;span class="w"&gt; &lt;/span&gt;Gmail&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;origin/master,&lt;span class="w"&gt; &lt;/span&gt;origin/HEAD,&lt;span class="w"&gt; &lt;/span&gt;master,&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;201602131935&lt;/span&gt;-latexdiff-rev2&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;....
+&lt;/pre&gt;
+&lt;p&gt;The new pdf, accepted.pdf, is the latest version of your document and includes the changes you think should make the cut. If you're happy with these, you can simply merge this branch into master, and continue working. If you're not, you can go back to master, or another commit, and tinker some more - we're using Git, do what you want. In line with what I did above, the PDF looks like this:&lt;/p&gt;
+&lt;a class="reference external image-reference" href="https://ankursinha.in/images/20160213-zaphod-2.png"&gt;
+&lt;img alt="Screenshot of annotated PDF" class="align-center" src="https://ankursinha.in/images/20160213-zaphod-2.png" style="height: 400.0px;" /&gt;
+&lt;/a&gt;
+&lt;p&gt;Pretty neat, huh? At least I think so ;)&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="give-it-a-go"&gt;
+&lt;h2&gt;Give it a go!&lt;/h2&gt;
+&lt;p&gt;I've tested the tool out myself on a number of different cases, but I'm quite certain I've missed some and there are always bugs that I haven't run into yet. It's a rather simple script in its current version - not all the commands that are called are checked for errors and so on. As I get more time in the future, I'll keep improving it. For the time being, though, it does work.&lt;/p&gt;
+&lt;p&gt;Give it a go and let me know what you think? It's &lt;a class="reference external" href="https://github.com/sanjayankur31/zaphod"&gt;hosted on Github&lt;/a&gt;, so feel free to report issues and open pull requests. Let's make LaTeX even more usable!&lt;/p&gt;
+&lt;/div&gt;
+</content><category term="Research"/><category term="LaTeX"/><category term="Programming"/><category term="Git"/><category term="Fedora"/><category term="Zaphod"/></entry></feed>

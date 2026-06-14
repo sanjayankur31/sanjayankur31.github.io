@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>ankursinha.in/blog - IRC</title><link href="https://ankursinha.in/" rel="alternate"/><link href="https://ankursinha.in/feeds/tags/irc.atom.xml" rel="self"/><id>https://ankursinha.in/</id><updated>2021-01-12T20:27:27+00:00</updated><subtitle>neuroscience/fedora/musings</subtitle><entry><title>Restarting regular Fedora India meetings</title><link href="https://ankursinha.in/2021/01/12/restarting-regular-fedora-india-meetings.html" rel="alternate"/><published>2021-01-12T20:27:27+00:00</published><updated>2021-01-12T20:27:27+00:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2021-01-12:/2021/01/12/restarting-regular-fedora-india-meetings.html</id><summary type="html">&lt;p class="first last"&gt;We're restarting regular meetings for the Fedora India community. Come join us!&lt;/p&gt;
+</summary><content type="html">&lt;center&gt;&lt;div class="figure"&gt;
+&lt;a class="reference external image-reference" href="#"&gt;
+&lt;img alt="Photo by Nikunj Gupta on Unsplash." class="img-responsive" src="https://ankursinha.in/images/20210112.jpg" style="width: 80%;" /&gt;
+&lt;/a&gt;
+&lt;p class="caption"&gt;Photo by &lt;a class="reference external" href="https://unsplash.com/&amp;#64;mecyborg?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText"&gt;Nikunj Gupta&lt;/a&gt; on &lt;a class="reference external" href="https://unsplash.com/s/photos/india?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText"&gt;Unsplash&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/center&gt;&lt;p&gt;The &lt;a class="reference external" href="https://fedoraproject.org/wiki/India"&gt;Fedora India community&lt;/a&gt; has always been quite an active group of people working in various Fedora teams and Special Interest Groups (SIGs).
+At some point in recent years, people got busy with projects as we tend to do, and we stopped having regular community meetings.
+This is unfortunate, since these meetings keep the community ticking, and provide a platform for new members to join in.&lt;/p&gt;
+&lt;p&gt;Recently, there's been interest in revitalising the Fedora India community.
+We've started to clean up the mailing list, and we'd like to restart regular meetings.
+We had a short first one at the end of 2020 to kick things off.
+You can read the logs &lt;a class="reference external" href="https://meetbot.fedoraproject.org/teams/fedora-india/fedora-india.2020-12-11-10.01.html"&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The next meeting, the first of 2021, will happen soon.
+In the meantime, this is a short notice to make the community aware of these on-goings.
+Please subscribe to the &lt;a class="reference external" href="https://lists.fedoraproject.org/admin/lists/india.lists.fedoraproject.org/"&gt;mailing list&lt;/a&gt; to keep up with the community's activities.
+If it has been a while since you were active there, please feel free to send in a short introduction so newcomers can get to know you.&lt;/p&gt;
+&lt;p&gt;The usual chat channels are also active.
+You can join #fedora-india on the Freenode IRC network &lt;a class="reference external" href="https://webchat.freenode.net/?channels=#fedora-neuro"&gt;here&lt;/a&gt;.
+It is also bridged to the &lt;a class="reference external" href="https://t.me/fedoraindia"&gt;&amp;#64;fedoraindia Telegram super group&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;We hope to see you in the channels!&lt;/p&gt;
+</content><category term="Tech"/><category term="Community"/><category term="Fedora"/><category term="IRC"/><category term="Matrix"/><category term="India"/></entry><entry><title>Fedora Join is now on Telegram and Matrix</title><link href="https://ankursinha.in/2018/03/24/fedora-join-is-now-on-telegram-and-matrix.html" rel="alternate"/><published>2018-03-24T12:07:07+00:00</published><updated>2018-03-24T12:07:07+00:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2018-03-24:/2018/03/24/fedora-join-is-now-on-telegram-and-matrix.html</id><summary type="html">&lt;p class="first last"&gt;We set up new communication channels for &lt;a class="reference external" href="https://fedoraproject.org/wiki/SIGs/Join?rd=Fedora_Join_SIG"&gt;Fedora Join&lt;/a&gt;. Come speak
+to us!&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;As the subject says, we're now on &lt;a class="reference external" href="https://telegram.org/"&gt;Telegram&lt;/a&gt; and on &lt;a class="reference external" href="https://matrix.org/blog/home/"&gt;Matrix&lt;/a&gt; now! If you'd like
+to contribute to Fedora, come speak to us! Spread the word!&lt;/p&gt;
+&lt;p&gt;We're now on:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;IRC: &lt;a class="reference external" href="https://webchat.freenode.net/?channels=#fedora-join"&gt;#fedora-join&lt;/a&gt; on Freenode&lt;/li&gt;
+&lt;li&gt;Telegram: &lt;a class="reference external" href="https://t.me/joinfedora"&gt;Fedora Join SIG&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Matrix: &lt;a class="reference external" href="https://riot.im/app/#/room/%23freenode_%23fedora-join:matrix.org"&gt;#fedora-join&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Mailing list: &lt;a class="reference external" href="https://lists.fedoraproject.org/admin/lists/fedora-join&amp;#64;lists.fedoraproject.org/"&gt;Fedora Join&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The &lt;a class="reference external" href="https://telegram.org/"&gt;Telegram&lt;/a&gt; and &lt;a class="reference external" href="https://matrix.org/blog/home/"&gt;Matrix&lt;/a&gt; channel are both bridged to the &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Freenode"&gt;IRC&lt;/a&gt; channel. So, one
+can monitor any of them and keep in touch.&lt;/p&gt;
+&lt;p&gt;We're already seeing more people in the channels, and that's really great to
+see!&lt;/p&gt;
+</content><category term="Tech"/><category term="Fedora"/><category term="IRC"/><category term="Matrix"/><category term="Telegram"/></entry><entry><title>Setting up an IRC bouncer (ZNC) on Amazon AWS and connecting to it using Irssi</title><link href="https://ankursinha.in/2017/08/26/setting-up-an-irc-bouncer-znc-on-amazon-aws-and-connecting-to-it-using-irssi.html" rel="alternate"/><published>2017-08-26T13:42:40+01:00</published><updated>2017-08-26T13:42:40+01:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2017-08-26:/2017/08/26/setting-up-an-irc-bouncer-znc-on-amazon-aws-and-connecting-to-it-using-irssi.html</id><summary type="html">&lt;p class="first last"&gt;I finally found the time to set up an IRC bouncer to keep myself permanently connected to &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Internet_Relay_Chat"&gt;IRC&lt;/a&gt; networks. This post documents how I went about it using &lt;a class="reference external" href="https://aws.amazon.com"&gt;Amazon AWS&lt;/a&gt;, &lt;a class="reference external" href="https://znc.in"&gt;ZNC&lt;/a&gt;, and &lt;a class="reference external" href="https://irssi.org/"&gt;Irssi&lt;/a&gt;.&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;Given how important a collaborative tool the &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Internet_Relay_Chat"&gt;IRC&lt;/a&gt; is for us free software enthusiasts, it is imperative that one be accessible on various networks as much as possible. Personally, I used to leave my system at the laboratory logged in all the time, but then I'd have to VPN into the university and then SSH into my system there. Not ideal, really.&lt;/p&gt;
+&lt;p&gt;The commonest way of always remaining connected to the &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Internet_Relay_Chat"&gt;IRC&lt;/a&gt; is to use an &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Internet_Relay_Chat"&gt;IRC&lt;/a&gt; bouncer. The bouncer remains connected to one's networks all the time, and one can use a client from wherever to connect to the networks via this bouncer. There are a few free to use bouncers that one can use, of course. On preliminary investigation though, it didn't seem too hard to set a private instance up, so I gave it a go.&lt;/p&gt;
+&lt;div class="section" id="amazon-aws-set-up"&gt;
+&lt;h2&gt;Amazon AWS set up&lt;/h2&gt;
+&lt;p&gt;The bouncer must be deployed on a system that is accessible from anywhere to be truly useful. While I do have hosting for this blog, it's cheap shared hosting without shell access. So, I needed another machine. Some research led me to &lt;a class="reference external" href="https://aws.amazon.com/free/"&gt;the free tier on Amazon AWS&lt;/a&gt; where one can get a free AWS instance for 12 months. The process is &lt;a class="reference external" href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/"&gt;very well documented&lt;/a&gt;, so I won't clone it here. There are various Linux operating systems that one can choose from. Being a Fedora user, I opted for Red Hat Enterprise Linux, but any Linux would work.&lt;/p&gt;
+&lt;p&gt;After the AWS instance is up and running, one must follow the instructions in the documentation to enable SSH access to it. It requires setting up security rules using the web console.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="znc-set-up"&gt;
+&lt;h2&gt;ZNC set up&lt;/h2&gt;
+&lt;p&gt;There are a few bouncers available. I chose the popular &lt;a class="reference external" href="https://znc.in"&gt;ZNC&lt;/a&gt; bouncer.&lt;/p&gt;
+&lt;p&gt;On a Red Hat system, &lt;a class="reference external" href="https://znc.in"&gt;ZNC&lt;/a&gt; is available in the &lt;a class="reference external" href="https://fedoraproject.org/wiki/EPEL#How_can_I_use_these_extra_packages.3F"&gt;&amp;quot;extra packages&amp;quot; repositories&lt;/a&gt;. So, it comes down to a few commands:&lt;/p&gt;
+&lt;pre class="code bash literal-block"&gt;
+sudo&lt;span class="w"&gt; &lt;/span&gt;yum&lt;span class="w"&gt; &lt;/span&gt;install&lt;span class="w"&gt; &lt;/span&gt;https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm&lt;span class="w"&gt;
+&lt;/span&gt;sudo&lt;span class="w"&gt; &lt;/span&gt;yum&lt;span class="w"&gt; &lt;/span&gt;install&lt;span class="w"&gt; &lt;/span&gt;znc
+&lt;/pre&gt;
+&lt;p&gt;This will install the &lt;a class="reference external" href="https://znc.in"&gt;ZNC&lt;/a&gt; package. &lt;a class="reference external" href="https://znc.in"&gt;ZNC&lt;/a&gt; provides a &lt;a class="reference external" href="https://wiki.znc.in/Configuration"&gt;simple way of configuring&lt;/a&gt; it too:&lt;/p&gt;
+&lt;pre class="code bash literal-block"&gt;
+sudo&lt;span class="w"&gt; &lt;/span&gt;znc&lt;span class="w"&gt; &lt;/span&gt;--makeconfig
+&lt;/pre&gt;
+&lt;p&gt;Of course, one must make sure that the service is always running:&lt;/p&gt;
+&lt;pre class="code bash literal-block"&gt;
+sudo&lt;span class="w"&gt; &lt;/span&gt;systemctl&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nb"&gt;enable&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;znc.service&lt;span class="w"&gt;
+&lt;/span&gt;sudo&lt;span class="w"&gt; &lt;/span&gt;systemctl&lt;span class="w"&gt; &lt;/span&gt;start&lt;span class="w"&gt; &lt;/span&gt;znc.service
+&lt;/pre&gt;
+&lt;p&gt;During the configuration, one must note what port &lt;a class="reference external" href="https://znc.in"&gt;ZNC&lt;/a&gt; was set up to listen to, and what the public IP of the AWS machine is.  These are required to set up the &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Internet_Relay_Chat"&gt;IRC&lt;/a&gt; client later, in this case &lt;a class="reference external" href="https://irssi.org/"&gt;Irssi&lt;/a&gt;. One must also remember to open this port to inbound connections. This can be done using the AWS web console in the same way as the SSH port was enabled earlier. Please refer to the &lt;a class="reference external" href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AccessingInstancesLinux.html"&gt;relevant bits in the AWS documentation&lt;/a&gt;. &lt;a class="reference external" href="https://znc.in"&gt;ZNC&lt;/a&gt; can be further configured through the &lt;a class="reference external" href="https://wiki.znc.in/Webadmin"&gt;web administration interface&lt;/a&gt;. One can add more networks, channels, and useful &lt;a class="reference external" href="https://wiki.znc.in/Modules"&gt;ZNC modules&lt;/a&gt; there.&lt;/p&gt;
+&lt;p&gt;&lt;a class="reference external" href="https://jazzy.id.au/2012/08/23/why_does_chrome_consider_some_ports_unsafe.html"&gt;Browsers seem to ban connecting to a few ports that are deemed dangerous&lt;/a&gt;. I found this to be the case on &lt;a class="reference external" href="https://www.mozilla.org/en-GB/firefox/new/"&gt;Firefox&lt;/a&gt;, &lt;a class="reference external" href="https://www.google.com/chrome/index.html"&gt;Chrome&lt;/a&gt;, and &lt;a class="reference external" href="https://www.qutebrowser.org/"&gt;Qutebrowser&lt;/a&gt;. Instructions on how to workaround this ban are here for &lt;a class="reference external" href="https://support.mozilla.org/en-US/questions/1083282"&gt;Firefox&lt;/a&gt; and &lt;a class="reference external" href="https://superuser.com/questions/188006/how-to-fix-err-unsafe-port-error-on-chrome-when-browsing-to-unsafe-ports"&gt;Chrome&lt;/a&gt; respectively. I couldn't figure out how this needs to be done for &lt;a class="reference external" href="https://www.qutebrowser.org/"&gt;Qutebrowser&lt;/a&gt; and I've filed an &lt;a class="reference external" href="https://github.com/qutebrowser/qutebrowser/issues/2925#issuecomment-324812384"&gt;issue here&lt;/a&gt;. It seems to be an &lt;a class="reference external" href="https://bugreports.qt.io/browse/QTBUG-62808"&gt;upstream QT issue&lt;/a&gt; that is already being looked into.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="irssi-set-up"&gt;
+&lt;h2&gt;Irssi set up&lt;/h2&gt;
+&lt;p&gt;Once the bouncer has been deployed correctly, all that remains is to configure an &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Internet_Relay_Chat"&gt;IRC&lt;/a&gt; client to connect to it. I use &lt;a class="reference external" href="https://irssi.org/"&gt;Irssi&lt;/a&gt; myself so the steps documented here will be specific to it. However, they should be general enough to be applicable to other clients too.&lt;/p&gt;
+&lt;p&gt;Installing &lt;a class="reference external" href="https://irssi.org/"&gt;Irssi&lt;/a&gt; on a Fedora system is trivial, of course:&lt;/p&gt;
+&lt;pre class="code bash literal-block"&gt;
+sudo&lt;span class="w"&gt; &lt;/span&gt;dnf&lt;span class="w"&gt; &lt;/span&gt;install&lt;span class="w"&gt; &lt;/span&gt;Fedora&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c1"&gt;# node that Fedora uses DNF now&lt;/span&gt;
+&lt;/pre&gt;
+&lt;p&gt;&lt;a class="reference external" href="https://irssi.org/"&gt;Irssi&lt;/a&gt; reads its configuration file from &lt;code&gt;~/.irssi/config&lt;/code&gt;. There are commands to configure servers, and these write to the configuration file that has quite a simple structure and can be edited directly using a text editor. The relevant snippets from my configuration file are below. Here, because we're connecting to our &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Internet_Relay_Chat"&gt;IRC&lt;/a&gt; servers via the bouncer, the address in use will be that of the bouncer. The &lt;a class="reference external" href="https://znc.in"&gt;ZNC&lt;/a&gt; web administration interface informs on what the password should be.&lt;/p&gt;
+&lt;pre class="code text literal-block"&gt;
+servers = (
+  {
+    address = &amp;quot;&amp;lt;public address of the AWS instance&amp;quot;;
+    chatnet = &amp;quot;freenode&amp;quot;;
+    port = &amp;quot;&amp;lt;port ZNC is listening to&amp;gt;&amp;quot;;
+    password = &amp;quot;&amp;lt;ZNC username/network1:password&amp;gt;&amp;quot;;
+    use_tls = &amp;quot;yes&amp;quot;;
+    tls_verify = &amp;quot;no&amp;quot;;
+    autoconnect = &amp;quot;yes&amp;quot;;
+  },
+  {
+    address = &amp;quot;&amp;lt;public address of the AWS instance&amp;quot;;
+    chatnet = &amp;quot;slack&amp;quot;;
+    port = &amp;quot;port ZNC is listening to&amp;quot;;
+    password = &amp;quot;&amp;lt;ZNC username/network2:password&amp;gt;&amp;quot;;
+    use_tls = &amp;quot;yes&amp;quot;;
+    tls_verify = &amp;quot;no&amp;quot;;
+    autoconnect = &amp;quot;yes&amp;quot;;
+  }
+);
+&lt;/pre&gt;
+&lt;p&gt;&lt;a class="reference external" href="https://irssi.org/"&gt;Irssi&lt;/a&gt; can also be customised to suit the user - such as the window layout, plug-ins, theme. I won't document how here. Instead I refer to the &lt;a class="reference external" href="https://irssi.org/documentation/"&gt;Irssi documentation&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="conclusion"&gt;
+&lt;h2&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;That's quite it. The bouncer will always run, and wherever one is, one can use a client to keep up with happenings. I hope this post will make it easier for others to set up their private bouncers too. Comments, and feedback are always welcome. Cheers!&lt;/p&gt;
+&lt;/div&gt;
+</content><category term="Tech"/><category term="Fedora"/><category term="IRC"/><category term="ZNC"/><category term="AWS"/><category term="Irssi"/></entry></feed>

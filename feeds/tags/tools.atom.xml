@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>ankursinha.in/blog - Tools</title><link href="https://ankursinha.in/" rel="alternate"/><link href="https://ankursinha.in/feeds/tags/tools.atom.xml" rel="self"/><id>https://ankursinha.in/</id><updated>2026-01-30T16:19:10+00:00</updated><subtitle>neuroscience/fedora/musings</subtitle><entry><title>Building an AI assistant for computational modelling with NeuroML</title><link href="https://ankursinha.in/2026/01/30/building-an-ai-assistant-for-computational-modelling-with-neuroml.html" rel="alternate"/><published>2026-01-30T16:19:10+00:00</published><updated>2026-01-30T16:19:10+00:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2026-01-30:/2026/01/30/building-an-ai-assistant-for-computational-modelling-with-neuroml.html</id><summary type="html">&lt;p class="first last"&gt;A progress report on building an LLM/AI assistant for computational modelling in neuroscience with &lt;a class="reference external" href="https://docs.neuroml.org"&gt;NeuroML&lt;/a&gt;.&lt;/p&gt;
+</summary><content type="html">&lt;div class="section" id="brain-models-are-hard-to-build"&gt;
+&lt;h2&gt;Brain models are hard to build&lt;/h2&gt;
+&lt;p&gt;While experiments remain the primary method by which we neuroscientists gather information on the brain, we still rely on theory and models to combine experimental observations into unified theories.
+Models allow us to modify and record from all components, and they allow us to simulate various conditions---all of which is quite hard to do in experiments.&lt;/p&gt;
+&lt;p&gt;Researchers model the brain at multiple levels of detail depending on what it is they are looking to study.
+Biologically detailed models, where we include all the biological mechanisms that we know of---detailed neuronal morphologies and ionic conductances---are important for us to understand the mechanisms underlying emergent behaviours.&lt;/p&gt;
+&lt;p&gt;These detailed models are complex and difficult to work with.
+&lt;a class="reference external" href="https://docs.neuroml.org"&gt;NeuroML&lt;/a&gt;, a standard and software ecosystem for computational modelling in Neuroscience, aims to help by making models easier to work with.
+The standard provides ready-to-use model components and models can be validated before they are simulated.
+&lt;a class="reference external" href="https://docs.neuroml.org"&gt;NeuroML&lt;/a&gt; is also simulator independent, which allows researchers to create a model and run it using a supported simulation engine of choice.&lt;/p&gt;
+&lt;div class="figure align-center"&gt;
+&lt;a class="reference external image-reference" href="#"&gt;
+&lt;img alt="NeuroML is a standard and software ecosystem for biophysically detailed neuronal modelling." class="text-center img-responsive pagination-centered" src="https://ankursinha.in/images/neuroml-logo.png" style="width: 40%;" /&gt;
+&lt;/a&gt;
+&lt;/div&gt;
+&lt;p&gt;In spite of &lt;a class="reference external" href="https://docs.neuroml.org"&gt;NeuroML&lt;/a&gt; and other community developed tools, a bottleneck remains.
+In addition to the biology and biophysics, to build and run models, one also needs to know modelling/simulation and related software development practices.
+This is a lot, presents quite a steep learning curve and makes modelling less accessible to researchers.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="llm-based-assistants-provide-a-possible-solution"&gt;
+&lt;h2&gt;LLM based assistants provide a possible solution&lt;/h2&gt;
+&lt;p&gt;LLMs allow users to interact with complex systems using natural language by mapping user queries to relevant concepts and context.
+This makes it possible to use LLMs as an interface layer where researchers can continue to use their own terminology and domain-specific language, rather than first learning a new tool's vocabulary.
+They can ask general questions, interactively explore concepts through a chat interface, and slowly build up their knowledge.&lt;/p&gt;
+&lt;p&gt;We are currently leveraging LLMs in two ways.&lt;/p&gt;
+&lt;div class="section" id="rag"&gt;
+&lt;h3&gt;RAG&lt;/h3&gt;
+&lt;p&gt;The first way we are using LLMs is to make it easier for people to query information about &lt;a class="reference external" href="https://docs.neuroml.org"&gt;NeuroML&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;As a first implementation, we queried standard LLMs (ChatGPT/Gemini/Claude) for information.
+While this seemingly worked well and the responses sounded correct, given that LLMs have a tendency to hallucinate, there was no way to ensure that the generated responses were factually correct.&lt;/p&gt;
+&lt;p&gt;This is a well known issue with LLMs, and the current industry solution for building knowledge systems using LLMs with correctness in mind is the &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Retrieval-augmented_generation"&gt;RAG&lt;/a&gt; system.
+In a RAG system, instead of the LLM answering a user query using its own trained data, the LLM is provided with curated data from an information store and asked to generate a response strictly based on it.
+This helps to limit the response to known correct data, and greatly improves the quality of the responses.
+RAGs can still generate errors, though, since their responses are only as good as the underlying sources and prompts used, but they perform better than off-the-shelf LLMs.&lt;/p&gt;
+&lt;p&gt;For &lt;a class="reference external" href="https://docs.neuroml.org"&gt;NeuroML&lt;/a&gt; we use the following sources of verified information:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;the documentation from &lt;a class="reference external" href="https://docs.neuroml.org"&gt;https://docs.neuroml.org&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://docs.neuroml.org"&gt;NeuroML&lt;/a&gt; publications&lt;/li&gt;
+&lt;li&gt;other sources, such as well validated models from our &lt;a class="reference external" href="https://github.com/OpenSourceBrain"&gt;Open Source Brain platform&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I have spent the past couple of months creating a RAG for &lt;a class="reference external" href="https://docs.neuroml.org"&gt;NeuroML&lt;/a&gt;.
+The code lives &lt;a class="reference external" href="https://github.com/NeuroML/neuroml-ai/tree/main/rag_pkg"&gt;here on GitHub&lt;/a&gt; and a test deployment is &lt;a class="reference external" href="https://huggingface.co/spaces/NeuroML/NeuroML-AI"&gt;here on HuggingFace&lt;/a&gt;.
+It works well, so we consider it stable and ready for use.&lt;/p&gt;
+&lt;p&gt;Here is a quick demo screen cast:&lt;/p&gt;
+&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/5uc1MS7-2uo" frameborder="0" allowfullscreen&gt;
+&lt;/iframe&gt;&lt;p&gt;We haven't dedicated too many resources to the HuggingFace instance, though, as it's meant to be a demo only.
+If you do wish to use it extensively, a more robust way is to run it locally on your computer.
+If you have the hardware, you can use it completely offline by using locally installed models via &lt;a class="reference external" href="ollama.com"&gt;Ollama&lt;/a&gt; (as I do on my Fedora Linux installation).
+If not, you can also use any of the standard models, either directly, or via other providers like HuggingFace.&lt;/p&gt;
+&lt;p&gt;The package can be installed using &lt;code&gt;pip&lt;/code&gt;, and more instructions on installation and configuration is included in the package Readme.
+Please do use it and provide feedback on how we can improve it.&lt;/p&gt;
+&lt;div class="section" id="implementation-notes-for-those-interested"&gt;
+&lt;h4&gt;Implementation notes (for those interested)&lt;/h4&gt;
+&lt;p&gt;The RAG system is implemented as a Python package using LangChain/LangGraph.
+The &amp;quot;LangGraph&amp;quot; for the system is shown below.
+We use the LLM to generate a search query for the retrieval step, and we also include an evaluator node that checks if the generated response is good enough---whether it uses the context, answers the query, and is complete.
+If not, we iterate to either get more data from the store, to regenerate a better response, or to generate a new query.&lt;/p&gt;
+&lt;div class="figure align-center"&gt;
+&lt;a class="reference external image-reference" href="#"&gt;
+&lt;img alt="The LangGraph for the NeuroML RAG implementation showing its various nodes." class="text-center img-responsive pagination-centered" src="https://ankursinha.in/images/20260129-nml-rag-langgraph.png" style="width: 60%;" /&gt;
+&lt;/a&gt;
+&lt;/div&gt;
+&lt;p&gt;The RAG system exposes a REST API (using FastAPI) and can be used via any clients.
+A couple are provided---a command line interface and a Streamlit based web interface (shown in the demo video).&lt;/p&gt;
+&lt;p&gt;The RAG system is designed to be generic.
+Using configuration files, one can specify what domains the system is to answer questions about, and provide vector stores for each domain.
+So, you can also use it for your own, non-NeuroML, purposes.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="model-generation-and-simulation"&gt;
+&lt;h3&gt;Model generation and simulation&lt;/h3&gt;
+&lt;p&gt;The second way in which we are looking to accelerate modelling using LLMs is by using them to help researchers build and simulate models.&lt;/p&gt;
+&lt;p&gt;Unfortunately, off-the-shelf LLMs don't do well when generating &lt;a class="reference external" href="https://docs.neuroml.org"&gt;NeuroML&lt;/a&gt; code, even though they are consistently getting better at generating standard programming language code.
+In my testing, they tended to write &amp;quot;correct Python&amp;quot;, but mixed up lots of different libraries with &lt;a class="reference external" href="https://docs.neuroml.org"&gt;NeuroML&lt;/a&gt; APIs.
+This is likely because there isn't so much &lt;a class="reference external" href="https://docs.neuroml.org"&gt;NeuroML&lt;/a&gt; Python code out there for LLMs to &amp;quot;learn&amp;quot; from during their training.&lt;/p&gt;
+&lt;p&gt;One option is for us to fine tune a model with &lt;a class="reference external" href="https://docs.neuroml.org"&gt;NeuroML&lt;/a&gt; examples, but this is quite an undertaking.
+We currently don't have access to the infrastructure required to do this, and even if we did, we will still need to generate synthetic &lt;a class="reference external" href="https://docs.neuroml.org"&gt;NeuroML&lt;/a&gt; examples for the fine-tuning.
+Finally, we would need to publish/host/deploy the model for the community to use.&lt;/p&gt;
+&lt;p&gt;An alternative, with &lt;a class="reference external" href="https://platform.openai.com/docs/guides/function-calling"&gt;function/tool calls&lt;/a&gt; becoming the norm in LLMs, is to set up a LLM based agentic code generation workflow.&lt;/p&gt;
+&lt;p&gt;Unlike a free-flowing general-purpose programming language like Python, NeuroML has a formally defined schema which models can be validated against.
+Each model component fits in at a particular place, and each parameter is clearly defined in terms of its units and significance.
+&lt;a class="reference external" href="https://docs.neuroml.org"&gt;NeuroML&lt;/a&gt; provides multiple levels of validation that give the user specific, detailed feedback when a model component is found to be invalid.
+Further, the &lt;a class="reference external" href="https://docs.neuroml.org"&gt;NeuroML&lt;/a&gt; libraries already include functions to validate models, read and write them, and to simulate them using different simulation engines.&lt;/p&gt;
+&lt;p&gt;These features lend themselves nicely to a workflow in which an LLM iteratively generates small &lt;a class="reference external" href="https://docs.neuroml.org"&gt;NeuroML&lt;/a&gt; components, validates them, and refines them based on structured feedback.
+This is currently a work in progress in a separate &lt;a class="reference external" href="https://github.com/NeuroML/neuroml-ai/tree/main/code_ai_pkg"&gt;package&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;I plan to write a follow up post on this once I have a working prototype.&lt;/p&gt;
+&lt;hr class="docutils" /&gt;
+&lt;p&gt;While being mindful of the hype around LLMs/AI, we do believe that these tools can accelerate science by removing/reducing some common accessibility barriers.
+They're certainly worth experimenting with, and I am hopeful that the modelling/simulation pipeline will help experimentalists that would like to integrate modelling in their work do so, completing the neuroscience research loop.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</content><category term="Tech"/><category term="LLM"/><category term="RAG"/><category term="NeuroML"/><category term="Neuroscience"/><category term="Computational neuroscience"/><category term="Computational modelling"/><category term="LangChain"/><category term="LangGraph"/><category term="Agentic AI"/><category term="Tools"/><category term="MCP"/><category term="Ollama"/><category term="Python"/><category term="Fedora"/></entry></feed>
