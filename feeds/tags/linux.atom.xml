@@ -1,0 +1,564 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>ankursinha.in/blog - Linux</title><link href="https://ankursinha.in/" rel="alternate"/><link href="https://ankursinha.in/feeds/tags/linux.atom.xml" rel="self"/><id>https://ankursinha.in/</id><updated>2024-11-25T14:49:25+00:00</updated><subtitle>neuroscience/fedora/musings</subtitle><entry><title>Accessing UCL VPN using OpenConnect on Linux systems</title><link href="https://ankursinha.in/2024/11/25/accessing-ucl-vpn-using-openconnect-on-linux-systems.html" rel="alternate"/><published>2024-11-25T14:49:25+00:00</published><updated>2024-11-25T14:49:25+00:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2024-11-25:/2024/11/25/accessing-ucl-vpn-using-openconnect-on-linux-systems.html</id><summary type="html">&lt;p class="first last"&gt;A quick note on accessing UCL VPN using OpenConnect on Linux systems.&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;I needed to use the &lt;a class="reference external" href="https://www.ucl.ac.uk/isd/services/get-connected/ucl-virtual-private-network-vpn"&gt;UCL VPN&lt;/a&gt; again, on my Fedora/Linux machine.
+Linux isn't really supported by the university infrastructure, but there are &lt;a class="reference external" href="https://blogs.ucl.ac.uk/dh/2015/09/18/tutorial-ucl-vpn-linux/"&gt;instructions that others have come up with&lt;/a&gt; and they had worked for me the last time I'd needed VPN access.
+Unfortunately, that was a few years ago, and things have changed a little since then.
+Notably, UCL has introduced two factor authentication (2FA).&lt;/p&gt;
+&lt;p&gt;I had to look around a little but I did manage to get it to work again using NetworkManager.
+I thought I'd write it up quickly so everyone that needs it, including future me, have a quick reference to look at.&lt;/p&gt;
+&lt;p&gt;This is on Fedora 41 with the following OpenConnect packages:&lt;/p&gt;
+&lt;pre class="code bash literal-block"&gt;
+$&lt;span class="w"&gt; &lt;/span&gt;rpm&lt;span class="w"&gt; &lt;/span&gt;-qa&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="se"&gt;\*&lt;/span&gt;openconnect&lt;span class="se"&gt;\*&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;openconnect-9.12-6.fc41.x86_64&lt;span class="w"&gt;
+&lt;/span&gt;NetworkManager-openconnect-1.2.10-6.fc41.x86_64&lt;span class="w"&gt;
+&lt;/span&gt;NetworkManager-openconnect-gnome-1.2.10-6.fc41.x86_64
+&lt;/pre&gt;
+&lt;p&gt;In NetworkManager one needs to create a new VPN connection with the following settings:&lt;/p&gt;
+&lt;div class="figure align-center"&gt;
+&lt;a class="reference external image-reference" href="https://ankursinha.in/images/neuroml-logo.png"&gt;
+&lt;img alt="Screenshot of settings in Network Manager for setting up a VPN connection to UCL VPN using Open Connect (settings are listed below)" class="text-center img-responsive pagination-centered" src="https://ankursinha.in/images/20241125-openconnect-nm.png" style="width: 80%;" /&gt;
+&lt;/a&gt;
+&lt;/div&gt;
+&lt;p&gt;Here are the settings in a list too:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;VPN Protocol: Cisco AnyConnect or OpenConnect&lt;/li&gt;
+&lt;li&gt;Gateway: vpn.ucl.ac.uk&lt;/li&gt;
+&lt;li&gt;User Agent: AnyConnect&lt;/li&gt;
+&lt;li&gt;CA Certificate: &amp;lt;None&amp;gt;&lt;/li&gt;
+&lt;li&gt;Proxy: &amp;lt;leave blank&amp;gt;&lt;/li&gt;
+&lt;li&gt;Allow security scanner trojan (CSD): Yes (checked)&lt;/li&gt;
+&lt;li&gt;Trojan (CSD) wrapper script: &lt;code&gt;/usr/libexec/openconnect/csd-post.sh&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Reported OS: Windows 10 (I didn't try another)&lt;/li&gt;
+&lt;li&gt;Machine certificate: &amp;lt;None&amp;gt;&lt;/li&gt;
+&lt;li&gt;Machine private key: &amp;lt;will be greyed out&amp;gt;&lt;/li&gt;
+&lt;li&gt;User certification: &amp;lt;None&amp;gt;&lt;/li&gt;
+&lt;li&gt;User private key: &amp;lt;will be greyed out&amp;gt;&lt;/li&gt;
+&lt;li&gt;Use FSID for key passphrase: No (unchecked)&lt;/li&gt;
+&lt;li&gt;Prevent user from manually accepting invalid credentials: No (unchecked)&lt;/li&gt;
+&lt;li&gt;Token mode: TOTP - manually entered&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This is similar to what had worked before.
+What changed:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;It didn't work without setting the User Agent to &amp;quot;AnyConnect&amp;quot;&lt;/li&gt;
+&lt;li&gt;I set the token mode to &amp;quot;TOTP - manually entered&amp;quot;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This opens up a web login page where one can enter their credentials.&lt;/p&gt;
+</content><category term="Tech"/><category term="UCL"/><category term="VPN"/><category term="AnyConnect"/><category term="OpenConnect"/><category term="Linux"/><category term="Fedora"/></entry><entry><title>Isolating Tmux windows to prevent systemd-oomd from killing the server</title><link href="https://ankursinha.in/2022/10/29/isolating-tmux-windows-to-prevent-systemd-oomd-from-killing-the-server.html" rel="alternate"/><published>2022-10-29T13:30:32+01:00</published><updated>2022-10-31T17:22:54+00:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2022-10-29:/2022/10/29/isolating-tmux-windows-to-prevent-systemd-oomd-from-killing-the-server.html</id><summary type="html">&lt;p class="first last"&gt;This post documents how one can isolate different &lt;a class="reference external" href="https://github.com/tmux/tmux/wiki"&gt;Tmux&lt;/a&gt; windows to prevent one of them getting killed by &lt;a class="reference external" href="https://www.freedesktop.org/software/systemd/man/systemd-oomd.html"&gt;systemd-oomd&lt;/a&gt; from causing the whole Tmux server (and all sessions!) to also be killed.&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;I run a number of &lt;a class="reference external" href="https://github.com/tmux/tmux/wiki"&gt;Tmux&lt;/a&gt; sessions, one for each project or context, (via &lt;a class="reference external" href="https://www.byobu.org/"&gt;Byobu&lt;/a&gt;) to do my work on a daily basis.
+&lt;a class="reference external" href="https://github.com/tmux/tmux/wiki"&gt;Tmux&lt;/a&gt; uses a client-server architecture, so there's a &lt;a class="reference external" href="https://github.com/tmux/tmux/wiki"&gt;Tmux&lt;/a&gt; server running that all of these sessions connect to.
+Some time ago, I began noticing that all my &lt;a class="reference external" href="https://github.com/tmux/tmux/wiki"&gt;Tmux&lt;/a&gt; sessions were being killed while I worked.
+I knew this wasn't a random occurrence.
+A look at the logs told me that &lt;a class="reference external" href="https://www.freedesktop.org/software/systemd/man/systemd-oomd.html"&gt;systemd-oomd&lt;/a&gt; was killing my &lt;a class="reference external" href="https://github.com/tmux/tmux/wiki"&gt;Tmux&lt;/a&gt; server, and all my sessions and their windows with it---all my vim sessions, all of it.&lt;/p&gt;
+&lt;p&gt;This, of course, is far from ideal.
+What's happening here is that one of the processes occupying a &lt;a class="reference external" href="https://github.com/tmux/tmux/wiki"&gt;Tmux&lt;/a&gt; window consumes lots of CPU/memory and &lt;a class="reference external" href="https://www.freedesktop.org/software/systemd/man/systemd-oomd.html"&gt;systemd-oomd&lt;/a&gt; needs to kill it.
+However, &lt;a class="reference external" href="https://www.freedesktop.org/software/systemd/man/systemd-oomd.html"&gt;systemd-oomd&lt;/a&gt; does not work on a per-process level.
+It works on a cgroup level.
+So, it kills the whole cgroup, taking the &lt;a class="reference external" href="https://github.com/tmux/tmux/wiki"&gt;Tmux&lt;/a&gt; server down.&lt;/p&gt;
+&lt;p&gt;I've been looking at ways of preventing this from happening.
+One option is to &lt;a class="reference external" href="https://fedoraproject.org/wiki/User:Tuju/Disable_systemd-oomd"&gt;disable systemd-oomd&lt;/a&gt; completely.
+I think I've been fine before these OOM tools came along, but I do see the advantages of having them.
+So I'd rather keep them around and configure them if possible.&lt;/p&gt;
+&lt;p&gt;The other, perhaps simpler, option is to somehow isolate each of my &lt;a class="reference external" href="https://github.com/tmux/tmux/wiki"&gt;Tmux&lt;/a&gt; windows so that they're all killed independently without affecting each other.
+I looked into this latter option first.
+After some &lt;a class="reference external" href="https://ask.fedoraproject.org/t/how-would-one-create-new-tmux-servers-each-isolated-in-a-separate-slice-so-that-if-systemd-oomd-kills-one-the-other-tmux-servers-keep-living/27891/2"&gt;discussion on Ask Fedora&lt;/a&gt;, I came up with a solution: run every &lt;a class="reference external" href="https://github.com/tmux/tmux/wiki"&gt;Tmux&lt;/a&gt; window in isolation using &lt;cite&gt;systemd-run&lt;/cite&gt;.&lt;/p&gt;
+&lt;p&gt;So, when we start a new &lt;a class="reference external" href="https://github.com/tmux/tmux/wiki"&gt;Tmux&lt;/a&gt; session, we want to start our first window using &lt;cite&gt;systemd-run&lt;/cite&gt;.
+Easiest to do this using a bash function that one can put in their &lt;cite&gt;~/.bashrc&lt;/cite&gt; file:&lt;/p&gt;
+&lt;pre class="code bash literal-block"&gt;
+&lt;span class="c1"&gt;# create new session, and ensure first window runs in a separate systemd
+# scope
+&lt;/span&gt;byobu-new-session&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="o"&gt;{&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;byobu&lt;span class="w"&gt; &lt;/span&gt;new&lt;span class="w"&gt; &lt;/span&gt;-s&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;$1&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;systemd-run&lt;span class="w"&gt; &lt;/span&gt;--user&lt;span class="w"&gt; &lt;/span&gt;--scope&lt;span class="w"&gt; &lt;/span&gt;bash&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="o"&gt;}&lt;/span&gt;
+&lt;/pre&gt;
+&lt;p&gt;Next, to open a new window in an existing session using &lt;cite&gt;systemd-run&lt;/cite&gt;, we can use the &lt;cite&gt;new window&lt;/cite&gt; &lt;a class="reference external" href="https://github.com/tmux/tmux/wiki"&gt;Tmux&lt;/a&gt; command:&lt;/p&gt;
+&lt;pre class="code bash literal-block"&gt;
+new-window&lt;span class="w"&gt; &lt;/span&gt;systemd-run&lt;span class="w"&gt; &lt;/span&gt;--user&lt;span class="w"&gt; &lt;/span&gt;--scope&lt;span class="w"&gt; &lt;/span&gt;bash
+&lt;/pre&gt;
+&lt;p&gt;This can be bound to a keyboard shortcut:&lt;/p&gt;
+&lt;pre class="code bash literal-block"&gt;
+bind-key&lt;span class="w"&gt; &lt;/span&gt;c&lt;span class="w"&gt; &lt;/span&gt;new-window&lt;span class="w"&gt; &lt;/span&gt;systemd-run&lt;span class="w"&gt; &lt;/span&gt;--user&lt;span class="w"&gt; &lt;/span&gt;--scope&lt;span class="w"&gt; &lt;/span&gt;bash
+&lt;/pre&gt;
+&lt;p&gt;That's it.
+Using &lt;cite&gt;systemd-cgls&lt;/cite&gt; one can see that each new &lt;a class="reference external" href="https://github.com/tmux/tmux/wiki"&gt;Tmux&lt;/a&gt; window starts in a new systemd scope.
+To test that this now isolates each window, one can run something like &lt;cite&gt;tail /dev/zero&lt;/cite&gt; to cause it to get killed by &lt;a class="reference external" href="https://www.freedesktop.org/software/systemd/man/systemd-oomd.html"&gt;systemd-oomd&lt;/a&gt; while leaving other windows, sessions, and the server untouched.&lt;/p&gt;
+&lt;p&gt;This seems to be working very well for me.
+If you have a better solution, do let me know, though.&lt;/p&gt;
+&lt;div class="section" id="edit-a-simpler-way"&gt;
+&lt;h2&gt;Edit: a simpler way&lt;/h2&gt;
+&lt;p&gt;As it happens, there's a much easier way to do this.
+Instead of modifying &lt;cite&gt;~/.bashrc&lt;/cite&gt; and then re-binding the &lt;cite&gt;new-window&lt;/cite&gt; key, all one needs to do is redefine the &lt;cite&gt;default-command&lt;/cite&gt; parameter that &lt;a class="reference external" href="https://github.com/tmux/tmux/wiki"&gt;Tmux&lt;/a&gt; uses so that it runs the &lt;cite&gt;systemd-run&lt;/cite&gt; command:&lt;/p&gt;
+&lt;pre class="code bash literal-block"&gt;
+&lt;span class="c1"&gt;# in tmux.conf
+&lt;/span&gt;set-option&lt;span class="w"&gt; &lt;/span&gt;-g&lt;span class="w"&gt; &lt;/span&gt;default-command&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;'systemd-run --user --scope bash'&lt;/span&gt;
+&lt;/pre&gt;
+&lt;/div&gt;
+</content><category term="Tech"/><category term="Linux"/><category term="Tmux"/><category term="Byobu"/><category term="Systemd"/><category term="Fedora"/></entry><entry><title>NeuroFedora: towards a ready to use Free/Open source environment for neuroscientists</title><link href="https://ankursinha.in/2018/10/06/neurofedora-towards-a-ready-to-use-free-open-source-environment-for-neuroscientists.html" rel="alternate"/><published>2018-10-06T00:19:32+01:00</published><updated>2018-10-06T00:19:32+01:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2018-10-06:/2018/10/06/neurofedora-towards-a-ready-to-use-free-open-source-environment-for-neuroscientists.html</id><summary type="html">&lt;p class="first last"&gt;I have recently resurrected the &lt;a class="reference external" href="https://fedoraproject.org/wiki/SIGs/NeuroFedora"&gt;NeuroFedora SIG&lt;/a&gt;. We aim to make
+&lt;a class="reference external" href="https://getfedora.org"&gt;Fedora&lt;/a&gt; a ready to use platform for neuroscientists, so that they can
+focus on the science. Read on to learn more!&lt;/p&gt;
+</summary><content type="html">&lt;div class="figure"&gt;
+&lt;a class="reference external image-reference" href="https://ankursinha.in/images/20181005-NeuroFedoraLogo01.png"&gt;
+&lt;img alt="NeuroFedora logo!" class="text-center img-responsive pagination-centered" src="https://ankursinha.in/images/20181005-NeuroFedoraLogo01.png" style="width: 30%;" /&gt;
+&lt;/a&gt;
+&lt;p class="caption"&gt;&lt;a class="reference external" href="https://pagure.io/design/issue/602"&gt;NeuroFedora logo by Terezahl from the Fedora Design Team&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;I've recently resurrected the &lt;a class="reference external" href="https://fedoraproject.org/wiki/SIGs/NeuroFedora"&gt;NeuroFedora SIG&lt;/a&gt;. Many thanks to &lt;a class="reference external" href="https://fedoraproject.org/wiki/User:Ignatenkobrain"&gt;Igor&lt;/a&gt; and the others who had
+worked on it in the past and have given us a firm base to build on.&lt;/p&gt;
+&lt;div class="section" id="the-goal"&gt;
+&lt;h2&gt;The goal&lt;/h2&gt;
+&lt;p&gt;The (current) goal of the &lt;a class="reference external" href="https://fedoraproject.org/wiki/SIGs/NeuroFedora"&gt;NeuroFedora SIG&lt;/a&gt; is to make Fedora an easy to use
+platform for neuroscientists. We aim to do this by making commonly used
+Neuroscience software easily installable on a &lt;a class="reference external" href="https://getfedora.org"&gt;Fedora&lt;/a&gt; system.&lt;/p&gt;
+&lt;p&gt;Neuroscience is an extremely multidisciplinary field. It brings together
+mathematicians, chemists, biologists, physicists, psychologists, engineers
+(electrical and others), computer scientists and more. A lot of software is used
+nowadays in Neuroscience for:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;data collection, analysis, and sharing&lt;/li&gt;
+&lt;li&gt;lots of image processing (a lot of ML is used here, think Data Science)&lt;/li&gt;
+&lt;li&gt;simulation of brain networks (&lt;a class="reference external" href="https://neuron.yale.edu/neuron/"&gt;NEURON&lt;/a&gt;, &lt;a class="reference external" href="https://nest-simulator.org"&gt;Nest&lt;/a&gt;, &lt;a class="reference external" href="https://github.com/BhallaLab/moose"&gt;Moose&lt;/a&gt;, &lt;a class="reference external" href="https://github.com/NeuralEnsemble/PyNN"&gt;PyNN&lt;/a&gt;, &lt;a class="reference external" href="http://briansimulator.org/"&gt;Brian&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;dissemination of scientific results (peer reviewed and otherwise, think
+&lt;a class="reference external" href="http://tug.org/"&gt;LaTeX&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Given that a large proportion of neuroscientists are not trained in
+computer science, a lot of time and effort is spent setting up systems,
+installing software (often building whole &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Dependency_hell"&gt;dependency chains&lt;/a&gt; from source). This can be
+hard for people not well-versed in build systems and so on.&lt;/p&gt;
+&lt;p&gt;So, at &lt;a class="reference external" href="https://neuro.fedoraproject.org"&gt;NeuroFedora&lt;/a&gt;, we will provide a ready to use &lt;a class="reference external" href="https://getfedora.org"&gt;Fedora&lt;/a&gt; based system for
+neuroscientists to work with, so they can quickly get their environment set up
+and work on the science.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="why-fedora"&gt;
+&lt;h2&gt;Why Fedora?&lt;/h2&gt;
+&lt;p&gt;For one, I have been a &lt;a class="reference external" href="https://fedoraproject.org/wiki/User:Ankursinha"&gt;contributor&lt;/a&gt; for a while and know the
+&lt;a class="reference external" href="https://apps.fedoraproject.org/"&gt;community and the infrastructure&lt;/a&gt; quite
+well. That applies to me and others from the &lt;a class="reference external" href="https://getfedora.org"&gt;Fedora&lt;/a&gt; community that may work on
+this and not the research community in general.&lt;/p&gt;
+&lt;p&gt;Technically, there are many advantages of using &lt;a class="reference external" href="https://getfedora.org"&gt;Fedora&lt;/a&gt; as a base.
+Fedora is closely linked to the &lt;a class="reference external" href="https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux"&gt;Red Hat Enterprise Linux&lt;/a&gt;
+eco system---which &lt;a class="reference external" href="https://www.centos.org/"&gt;Cent OS&lt;/a&gt; is a part of and
+&lt;a class="reference external" href="https://www.scientificlinux.org/about/"&gt;Scientific Linux is&lt;/a&gt; is based on
+too (Recently, &lt;a class="reference external" href="https://coreos.com/"&gt;CoreOS also joined the Red Hat family&lt;/a&gt;). RPM based systems are commonly deployed in
+supercomputers and clusters. So, making this software available on &lt;a class="reference external" href="https://getfedora.org"&gt;Fedora&lt;/a&gt; also
+makes it simpler to make it available on these systems.  Additionally, the
+&lt;a class="reference external" href="https://getfedora.org"&gt;Fedora&lt;/a&gt; community is promoting &lt;a class="reference external" href="https://flatpak.org/"&gt;Flatpaks&lt;/a&gt;, and working to permit multiple
+versions of software via the &lt;a class="reference external" href="https://docs.fedoraproject.org/en-US/modularity/"&gt;modularity&lt;/a&gt; system. &lt;a class="reference external" href="https://getfedora.org"&gt;Fedora&lt;/a&gt; also supports &lt;a class="reference external" href="https://www.docker.com/"&gt;Docker&lt;/a&gt;
+very &lt;a class="reference external" href="https://fedoraproject.org/wiki/Docker"&gt;well&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="join-us"&gt;
+&lt;h2&gt;Join us!&lt;/h2&gt;
+&lt;p&gt;Packaging software is only &lt;em&gt;one&lt;/em&gt; way in which one can contribute.  Writing docs
+and answering questions about the software in &lt;a class="reference external" href="https://neuro.fedoraproject.org"&gt;NeuroFedora&lt;/a&gt; are other ways too,
+for example.  If you are interested in neuroscience and in promoting &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Open_science"&gt;Open
+Science&lt;/a&gt;, please consider
+joining the SIG. You can get in touch with us via one of our many
+&lt;a class="reference external" href="https://fedoraproject.org/wiki/SIGs/NeuroFedora#Communication_and_getting_help"&gt;communication channels&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;This invitation extends to all--undergraduates, post-graduates, trainee
+researchers (PhD candidates like me), professional researchers, hobbyists, and
+everyone else.  If you work in the field already, it is a great way of
+supporting the research community. For others, it is a great place to
+learn about neuroscience, and  &lt;a class="reference external" href="https://www.fsf.org/blogs/community/user-liberation-watch-and-share-our-new-video"&gt;Free Software&lt;/a&gt;
+and the various technical skills that go into developing software.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="current-status"&gt;
+&lt;h2&gt;Current status&lt;/h2&gt;
+&lt;p&gt;We track the software we are working on &lt;a class="reference external" href="https://fedoraproject.org/wiki/SIGs/NeuroFedora/PackageSet"&gt;here&lt;/a&gt;. A lot of
+software is now ready to use in Fedora. This includes various Python libraries
+and simulators such as &lt;a class="reference external" href="https://nest-simulator.org"&gt;Nest&lt;/a&gt; and &lt;a class="reference external" href="https://github.com/BhallaLab/moose"&gt;Moose&lt;/a&gt;. &lt;a class="reference external" href="https://neuron.yale.edu/neuron/"&gt;Neuron&lt;/a&gt;, &lt;a class="reference external" href="http://briansimulator.org/"&gt;Brian&lt;/a&gt;, and &lt;a class="reference external" href="https://github.com/NeuralEnsemble/PyNN"&gt;PyNN&lt;/a&gt; are all in
+the pipeline. All of &lt;a class="reference external" href="http://tug.org/texlive/"&gt;TeX Live&lt;/a&gt; is also available in
+&lt;a class="reference external" href="https://getfedora.org"&gt;Fedora&lt;/a&gt;. If there is other Free/Open source software that you use which isn't
+on our list, please let us know.  If you can help maintain it with us, that'll
+be even better.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="fedora-free-software-and-science"&gt;
+&lt;h2&gt;Fedora/Free software and Science&lt;/h2&gt;
+&lt;p&gt;Open science shares the &lt;a class="reference external" href="https://www.gnu.org/philosophy/"&gt;philosophy of FOSS&lt;/a&gt;. The data, the tools, the results, should
+be accessible to all to understand, use, learn from, and develop. More and more
+researchers are making it a point to keep Science as open as possible whether
+it is to do with the &lt;a class="reference external" href="http://opensourceforneuroscience.org/"&gt;tools&lt;/a&gt; or
+&lt;a class="reference external" href="https://en.wikipedia.org/wiki/Open_access"&gt;dissemination&lt;/a&gt; of their
+findings. &lt;a class="reference external" href="https://neuro.fedoraproject.org"&gt;NeuroFedora&lt;/a&gt; hopes to aid this movement. Come, join us!&lt;/p&gt;
+&lt;/div&gt;
+</content><category term="Research"/><category term="Community"/><category term="Computational neuroscience"/><category term="Fedora"/><category term="Free software"/><category term="Linux"/><category term="NEST"/><category term="Neuron"/><category term="Numpy"/><category term="Pandas"/><category term="Planet"/><category term="Python"/><category term="Reproducible research"/><category term="Sumatra"/><category term="TeX"/><category term="NeuroFedora"/></entry><entry><title>Fedora Classroom: Command Line 101: report</title><link href="https://ankursinha.in/2017/08/10/fedora-classroom-command-line-101-report.html" rel="alternate"/><published>2017-08-10T23:03:24+01:00</published><updated>2017-08-10T23:03:24+01:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2017-08-10:/2017/08/10/fedora-classroom-command-line-101-report.html</id><summary type="html">&lt;p class="first last"&gt;I taught a &lt;a class="reference external" href="https://fedoraproject.org/wiki/Classroom"&gt;Fedora classroom&lt;/a&gt; session today - &amp;quot;Command Line 101&amp;quot; - where I introduced the command line and demonstrated how useful the command line is. This is a quick summary of the session.&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;We've gotten the &lt;a class="reference external" href="https://fedoraproject.org/wiki/Classroom"&gt;Fedora classroom&lt;/a&gt; sessions going again. After two really good ones, I taught the &lt;a class="reference external" href="https://fedoramagazine.org/fedora-classroom-session-3/"&gt;third one&lt;/a&gt; today - a beginners session to the command line. Unlike the previous ones that used video platforms, I decided that the &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Internet_Relay_Chat"&gt;IRC&lt;/a&gt; was best suited to this session, even more so because I wanted it to be a hands-on session. It went off pretty well. Here are a few notes. Links to the logs are at the bottom of this post.&lt;/p&gt;
+&lt;div class="section" id="some-metrics"&gt;
+&lt;h2&gt;Some metrics&lt;/h2&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Length: 2 hours (was planned to be an hour, but we quickly realised that it wouldn't be enough!)&lt;/li&gt;
+&lt;li&gt;Attendees: 29 - a few of us had FAS usernames too (so we shared cookies!)&lt;/li&gt;
+&lt;li&gt;About 800 sentences were spoken (I spoke about half of these, of course)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="section" id="summary"&gt;
+&lt;h2&gt;Summary&lt;/h2&gt;
+&lt;p&gt;I quite enjoyed it, but then I enjoy tinkering with the command line anyway. A few folks stuck around for the full two hours, so that does indicate that they found the session somewhat useful. I'd put up a &lt;a class="reference external" href="https://gist.github.com/sanjayankur31/f40070c6925e8885394d2dd750ae4cb8"&gt;gist here with a tentative agenda&lt;/a&gt;. We didn't manage to go more than half way through it, though. We:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;did a quick introduction to what a shell is&lt;/li&gt;
+&lt;li&gt;learned how to get help using local information - using the man pages&lt;/li&gt;
+&lt;li&gt;quickly saw the difference between absolute and relative paths, and also learned about &lt;code&gt;..&lt;/code&gt; and &lt;code&gt;.&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;went on to look at some more basic commands/built-ins and their switches/flags/options: &lt;code&gt;ls, apropos, clear, cd, pwd, which, alias, rm, tree, mkdir, wget, rmdir, rm, fpaste, wc, head, tail, more, less, cat, tac, grep, sort, uniq&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;used these commands to download a copy of &lt;a class="reference external" href="http://www.gutenberg.org/cache/epub/1120/pg1120.txt"&gt;&amp;quot;The tragedy of Julius Caesar&amp;quot; from Project Gutenberg&lt;/a&gt;, and then extracted some information from it. For example, we obtained how many times Caesar was mentioned in the text. For a more advanced task we also obtained how many times Caesar, Brutus, Cassius, and Casca were each mentioned using a single set of commands. This required the use of &lt;code&gt;grep, sort, uniq, wc&lt;/code&gt; in different combinations using input-output redirection (pipes in this case). At no point did we use a text editor, and we stuck to using local man pages.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="section" id="takeaways"&gt;
+&lt;h2&gt;Takeaways&lt;/h2&gt;
+&lt;p&gt;I hope that this rather quick session gave the participants some idea of how the shell can be used for lots of tasks. I also hoped to show them that there's a lot of information available on the system itself that a user can refer to.&lt;/p&gt;
+&lt;p&gt;I learned a few things myself. I learned that an hour is too short for a proper online session, for example. My supposition that demonstrating commands using tasks would make the session more appealing seems to have been correct too. Only, maybe next time I'll pick a more contemporary text?&lt;/p&gt;
+&lt;p&gt;For the next session, I'll try and cover slightly more advanced topics, such as tests, loops, maybe even a bit of awk. We shall see.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="feedback-is-always-welcome"&gt;
+&lt;h2&gt;Feedback is always welcome&lt;/h2&gt;
+&lt;p&gt;If you had attended the session, or have gone through the logs and have some feedback, please get in touch. You can use the Fedora classroom channels:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;a class="reference external" href="mailto:classroom&amp;#64;lists.fedoraproject.org"&gt;mailing list&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;#fedora-classroom on Freenode &lt;a class="reference external" href="http://webchat.freenode.net/?channels=%23fedora-classroom"&gt;IRC channel&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;You can even comment on this blog post, and of course, you can give me feedback privately. I'm also looking to make a list of tasks that I can use in future sessions - tasks that would be useful, fun, and that would also require some command line tricks - such that they would demonstrate the power of the command line. So, if you have your pet command line tricks/aliases, please do get in touch.&lt;/p&gt;
+&lt;p&gt;I'm FranciscoD on quite a few Fedora IRC channels, and I can be reached via e-mail on my Fedora address at ankursinha AT fedoraproject DOT org. All suggestions, comments, criticism is most welcome.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="more-instructors-needed"&gt;
+&lt;h2&gt;More instructors needed!&lt;/h2&gt;
+&lt;p&gt;The classroom sessions are going rather well, but &lt;a class="reference external" href="https://fedoraproject.org/wiki/Classroom#Help_wanted"&gt;we still need more help&lt;/a&gt;. We need more people helping with logistics, and of course, if we are to continue these sessions every week, we need more instructors! If there's anything at all you think is worth a classroom session, please get in touch with the team on the &lt;a class="reference external" href="mailto:classroom&amp;#64;lists.fedoraproject.org"&gt;Fedora classroom mailing list&lt;/a&gt;. A log of all past sessions - whether on &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Internet_Relay_Chat"&gt;IRC&lt;/a&gt; or on a video platform are maintained on the wiki page &lt;a class="reference external" href="https://fedoraproject.org/wiki/Classroom#Previous_Sessions"&gt;here&lt;/a&gt; for everyone to peruse at their convenience.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="logs"&gt;
+&lt;h2&gt;Logs&lt;/h2&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://meetbot.fedoraproject.org/fedora-classroom/2017-08-10/%22fedora_classroom_-_command_line_101%22.2017-08-10-13.00.log.html"&gt;HTML logs&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://meetbot.fedoraproject.org/fedora-classroom/2017-08-10/%22fedora_classroom_-_command_line_101%22.2017-08-10-13.00.txt"&gt;Text minutes&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://meetbot.fedoraproject.org/fedora-classroom/2017-08-10/%22fedora_classroom_-_command_line_101%22.2017-08-10-13.00.html"&gt;HTML minutes&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+</content><category term="Tech"/><category term="Bash"/><category term="Blog"/><category term="Community"/><category term="Linux"/><category term="Planet"/><category term="Fedora"/></entry><entry><title>Bringing together Gitter, IRC, and Slack channels in one place on Riot</title><link href="https://ankursinha.in/2017/07/12/bringing-together-gitter-irc-and-slack-channels-in-one-place-on-riot.html" rel="alternate"/><published>2017-07-12T13:55:17+01:00</published><updated>2017-07-12T13:55:17+01:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2017-07-12:/2017/07/12/bringing-together-gitter-irc-and-slack-channels-in-one-place-on-riot.html</id><summary type="html">&lt;p class="first last"&gt;Different teams use different platforms to communicate within themselves. When teams on different communication platforms want to collaborate, though - there's a bit of an issue. In this post, I document how one can setup channels on various platforms (&lt;a class="reference external" href="https://slack.com"&gt;Slack&lt;/a&gt;, &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Internet_Relay_Chat"&gt;IRC&lt;/a&gt;, &lt;a class="reference external" href="https://gitter.im"&gt;Gitter&lt;/a&gt;) and bring them all together on &lt;a class="reference external" href="https://riot.im"&gt;Riot&lt;/a&gt;.&lt;/p&gt;
+</summary><content type="html">&lt;div class="section" id="let-s-not-let-our-choice-of-platform-limit-us"&gt;
+&lt;h2&gt;Let's not let our choice of platform limit us&lt;/h2&gt;
+&lt;p&gt;There are usually multiple platforms that provide similar functions. For instance, one can pick between &lt;a class="reference external" href="https://github.com"&gt;Github&lt;/a&gt;, &lt;a class="reference external" href="https://gitlab.com"&gt;GitLab&lt;/a&gt;, and &lt;a class="reference external" href="https://bitbucket.com"&gt;BitBucket&lt;/a&gt; for collaborative development interfaces, and one certainly should have the freedom to do so. Similarly, one can use different operating systems, web browsers, phones, etc etc etc. But, one must remember is that for a lot of us, these are simply means to an end - not the end themselves. They are tools that facilitate the completion of our goals. Different individuals or teams preferring different platforms should not hamper collaboration under any circumstances.&lt;/p&gt;
+&lt;p&gt;When it comes to communcation, different teams use different platforms. Some prefer e-mails - either private or using a mailing list. E-mails work well, but they're often overkill for simpler tasks. They're also not the best mode for quick collaborative development. This is where real-time chat comes in. Most open source communities maintain both mailing lists and chat infrastructure.&lt;/p&gt;
+&lt;p&gt;When it comes to chat platforms too, there are multiple options. &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Internet_Relay_Chat"&gt;IRC&lt;/a&gt;, &lt;a class="reference external" href="https://gitter.im"&gt;Gitter&lt;/a&gt;, and &lt;a class="reference external" href="https://riot.im"&gt;Riot&lt;/a&gt; are designed to handle large communities and are therefore, usually preferred by open source communities. &lt;a class="reference external" href="https://slack.com"&gt;Slack&lt;/a&gt; seems to be preferred by smaller teams. There are others - &lt;a class="reference external" href="https://mattermost.com"&gt;Mattermost&lt;/a&gt;, for example, but I haven't much experience with them.&lt;/p&gt;
+&lt;p&gt;Often, I've found people wary of hopping on to a different platform simply because it's too much work to set up yet another client that one must then also monitor. While this is understandable, it then has what I consider quite a major downside - limited communication amongst groups that are on different platforms. Fortunately, most platforms support bridges which lets the user connect them with other platforms.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="riot-bringing-it-all-together-in-once-place"&gt;
+&lt;h2&gt;Riot - bringing it all together in once place&lt;/h2&gt;
+&lt;center&gt;&lt;a class="reference external image-reference" href="https://ankursinha.in/images/20170628-riot.png"&gt;
+&lt;img alt="Using riot to access IRC, Slack, and Gitter" class="text-center img-responsive pagination-centered" src="https://ankursinha.in/images/20170628-riot.png" style="width: 70%;" /&gt;
+&lt;/a&gt;
+&lt;/center&gt;&lt;p&gt;&lt;a class="reference external" href="https://riot.im"&gt;Riot&lt;/a&gt; is an Open source platform that uses the &lt;a class="reference external" href="https://matrix.org/"&gt;Matrix&lt;/a&gt; protocol. It's similar to &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Internet_Relay_Chat"&gt;IRC&lt;/a&gt;, but it's a lot more usable. and what is better, one can integrate &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Internet_Relay_Chat"&gt;IRC&lt;/a&gt;, &lt;a class="reference external" href="https://slack.com"&gt;Slack&lt;/a&gt;, and &lt;a class="reference external" href="https://gitter.im"&gt;Gitter&lt;/a&gt; into &lt;a class="reference external" href="https://riot.im"&gt;Riot&lt;/a&gt; - so one can interact with users over all these platforms in one place. For example, the image below shows &lt;a class="reference external" href="https://riot.im/app/#/room/%23neuroscience-central-lobby:matrix.org"&gt;Neuroscience-central/Lobby&lt;/a&gt; room  that I've set up on &lt;a class="reference external" href="https://riot.im"&gt;Riot&lt;/a&gt;. But, I've also gone ahead and connected this room to the &lt;a class="reference external" href="https://gitter.im/neuroscience-central/Lobby"&gt;Neuroscience-central/Lobby room on Gitter&lt;/a&gt;, and to the &lt;a class="reference external" href="https://webchat.freenode.net/?channels=#neuroscience-central-lobby"&gt;#neuroscience-central-lobby channel on IRC&lt;/a&gt;. So, everyone on any of these platforms can communicate with each other.&lt;/p&gt;
+&lt;center&gt;&lt;a class="reference external image-reference" href="https://ankursinha.in/images/20170628-riot-gitter.png"&gt;
+&lt;img alt="Neuroscience-Central/Lobby on Riot integrated with the same room on Gitter." class="text-center img-responsive pagination-centered" src="https://ankursinha.in/images/20170628-riot-gitter.png" style="width: 70%;" /&gt;
+&lt;/a&gt;
+&lt;/center&gt;&lt;p&gt;Setting up the integrations is rather easy too. One needs to go to the integrations tab and set them up.&lt;/p&gt;
+&lt;center&gt;&lt;a class="reference external image-reference" href="https://ankursinha.in/images/20170628-riot-integrations.png"&gt;
+&lt;img alt="Integrations on Riot" class="text-center img-responsive pagination-centered" src="https://ankursinha.in/images/20170628-riot-integrations.png" style="width: 70%;" /&gt;
+&lt;/a&gt;
+&lt;/center&gt;&lt;p&gt;There are &lt;a class="reference external" href="https://riot.im/desktop.html"&gt;desktop clients&lt;/a&gt; available for &lt;a class="reference external" href="https://riot.im"&gt;Riot&lt;/a&gt; too. (&lt;a class="reference external" href="https://copr.fedorainfracloud.org/coprs/taw/Riot/"&gt;Here's a COPR for Fedora&lt;/a&gt;). &lt;a class="reference external" href="https://opensource.com/article/17/5/introducing-riot-IRC"&gt;Here's a great post on opensource.com&lt;/a&gt; discussing &lt;a class="reference external" href="https://riot.im"&gt;Riot&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;So, if you're an admin looking to set up a new chat channel - consider setting up on different platforms and integrating them with &lt;a class="reference external" href="https://riot.im"&gt;Riot&lt;/a&gt; - it'll make things a lot easier for your users.&lt;/p&gt;
+&lt;/div&gt;
+</content><category term="Tech"/><category term="Community"/><category term="Computational neuroscience"/><category term="Fedora"/><category term="FlatPak"/><category term="Free software"/><category term="Gitter"/><category term="Linux"/><category term="Planet"/></entry><entry><title>Giving Qutebrowser a go - a fantastic keyboard-focused browser</title><link href="https://ankursinha.in/2017/06/21/giving-qutebrowser-a-go-a-fantastic-keyboard-focused-browser.html" rel="alternate"/><published>2017-06-21T00:09:30+01:00</published><updated>2017-06-21T00:09:30+01:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2017-06-21:/2017/06/21/giving-qutebrowser-a-go-a-fantastic-keyboard-focused-browser.html</id><summary type="html">&lt;p class="first last"&gt;After years of using the excellent Firefox, I've decided to tweak my workflow a little more by giving &lt;a class="reference external" href="https://www.qutebrowser.org/"&gt;Qutebrowser&lt;/a&gt; a go. &lt;a class="reference external" href="https://www.qutebrowser.org/"&gt;Qutebrowser&lt;/a&gt; is a brilliant keyboard-focused browser. In this post, I document my first day with &lt;a class="reference external" href="https://www.qutebrowser.org/"&gt;Qutebrowser&lt;/a&gt;, and I also include some tips and tricks that others may find helpful.&lt;/p&gt;
+</summary><content type="html">&lt;center&gt;&lt;a class="reference external image-reference" href="https://ankursinha.in/images/20170621-qutebrowser3.png"&gt;
+&lt;img alt="A screenshot showing hints in Qutebrowser on the Qutebrowser website" class="text-center img-responsive pagination-centered" src="https://ankursinha.in/images/20170621-qutebrowser3.png" style="width: 80%;" /&gt;
+&lt;/a&gt;
+&lt;/center&gt;&lt;p&gt;Years ago, I was introduce to &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Touch_typing"&gt;touch typing&lt;/a&gt;. I knew immediately that it was a skill I must learn. I remember spending hours playing with &lt;a class="reference external" href="https://apps.fedoraproject.org/packages/gtypist"&gt;gtypist&lt;/a&gt; trying to improve my typing efficiency. I'm not too bad nowadays. I can mostly type without looking at the keyboard at all, and with few errors.&lt;/p&gt;
+&lt;p&gt;I've always loved using the command line. In fact, I maintain that new programmers should start at the command line and only move to IDEs once they've learned exactly what's being done under the hood. I use the terminal as much as conveniently possible - music via &lt;a class="reference external" href="https://apps.fedoraproject.org/packages/ncmpcpp"&gt;ncmpcpp&lt;/a&gt;, IRC on &lt;a class="reference external" href="https://apps.fedoraproject.org/packages/irssi"&gt;irssi&lt;/a&gt; (there are Gitter and Slack gateways to IRC too), &lt;a class="reference external" href="https://apps.fedoraproject.org/packages/task"&gt;taskwarrior&lt;/a&gt; to organise my TODOs, all my writing in &lt;a class="reference external" href="https://vim.sourceforge.io/"&gt;VIM&lt;/a&gt; (programming and otherwise), for example. &lt;a class="reference external" href="https://apps.fedoraproject.org/packages/byobu"&gt;Byobu&lt;/a&gt; makes it really easy.&lt;/p&gt;
+&lt;p&gt;The one effect sticking to the command line so much has had on me is that I've developed a slight aversion to the mouse/touchpad. I now feel mildly annoyed if I must move my fingers off the home-row to do something. I must use the touchpad to check my mail/calendar on Evolution, for example, but this doesn't annoy me too much because I usually check these when I've taken a break from programming (or my &lt;a class="reference external" href="https://xkcd.com/303/"&gt;code is compiling&lt;/a&gt;). It's really on Firefox that the constant switching between keyboard and mouse used to be a real downer.&lt;/p&gt;
+&lt;p&gt;Being a &lt;a class="reference external" href="https://vim.sourceforge.io/"&gt;VIM&lt;/a&gt; user, I did the expected - went looking to see if there was a way to use &lt;a class="reference external" href="https://vim.sourceforge.io/"&gt;VIM&lt;/a&gt; style key-mappings on Firefox. There are multiple add-ons that permit this with different feature sets - &lt;a class="reference external" href="http://vimperator.org/"&gt;vimperator&lt;/a&gt;, &lt;a class="reference external" href="http://5digits.org/pentadactyl/"&gt;pentadactyl&lt;/a&gt;, &lt;a class="reference external" href="https://vimium.github.io/"&gt;vimium&lt;/a&gt;, &lt;a class="reference external" href="https://addons.mozilla.org/en-GB/firefox/addon/vimfx/"&gt;vimFX&lt;/a&gt; are a few examples. Now, the different features these provide cater to different people's requirements. I went for pentadactly. Not only does it permit &lt;a class="reference external" href="https://vim.sourceforge.io/"&gt;VIM&lt;/a&gt; style key mappings and navigation, it also provides a vim style command line that is incredibly handy. I've used it for years now. The issue that has troubled pentadactyl for some time now is constant breakage - it tends to break each time the Firefox addon API is updated. Recently, I &lt;a class="reference external" href="https://github.com/5digits/dactyl/issues/99"&gt;read that some major changes in the API will make pentadactly pretty much unusable in the near future&lt;/a&gt;. This made me go looking for a more stable alternative. I tried one or two others - vimium for example, but somehow, I find vimium too simple.&lt;/p&gt;
+&lt;p&gt;So, I &lt;a class="reference external" href="https://www.reddit.com/r/linux/comments/3aqmhd/why_cant_we_have_a_nice_vimlike_webkit_browser/"&gt;dug further&lt;/a&gt; and ran into &lt;a class="reference external" href="https://fanglingsu.github.io/vimb/"&gt;Vimb&lt;/a&gt; and &lt;a class="reference external" href="https://www.qutebrowser.org/"&gt;Qutebrowser&lt;/a&gt;. They're both &amp;quot;vim like browsers&amp;quot; i.e., they're designed for more advanced users and they provide &lt;a class="reference external" href="https://vim.sourceforge.io/"&gt;VIM&lt;/a&gt; like key-mappings and modes. I gave vimb a short try, but &lt;a class="reference external" href="https://www.qutebrowser.org/"&gt;Qutebrowser&lt;/a&gt; really impressed me a lot more.&lt;/p&gt;
+&lt;div class="section" id="qutebrowser"&gt;
+&lt;h2&gt;Qutebrowser&lt;/h2&gt;
+&lt;p&gt;The best thing about &lt;a class="reference external" href="https://www.qutebrowser.org/"&gt;Qutebrowser&lt;/a&gt; is that it's &lt;a class="reference external" href="https://github.com/qutebrowser/qutebrowser/pulse/monthly"&gt;actively maintained&lt;/a&gt;. I even hopped on to the &lt;a class="reference external" href="https://webchat.freenode.net/?channels=#qutebrowser"&gt;IRC channel&lt;/a&gt; earlier today to get some help. The latest version is in Fedora already, so you can simply go &lt;code&gt;sudo dnf install qutebrowser&lt;/code&gt; to give it a whirl. I wanted to test out the latest codebase, so I quickly set up a &lt;a class="reference external" href="https://copr.fedorainfracloud.org/coprs/ankursinha/qutebrowser/"&gt;copr repository&lt;/a&gt; that you can use too. I'm tinkering with &lt;a class="reference external" href="http://flatpak.org/"&gt;FlatPak&lt;/a&gt; to try and build one too, so that it becomes even easier to install, but I'm still figuring out how FlatPaks are built.&lt;/p&gt;
+&lt;center&gt;&lt;a class="reference external image-reference" href="https://ankursinha.in/images/20170621-qutebrowser1.png"&gt;
+&lt;img alt="A screenshot showing hints in Qutebrowser" class="text-center img-responsive pagination-centered" src="https://ankursinha.in/images/20170621-qutebrowser1.png" style="width: 80%;" /&gt;
+&lt;/a&gt;
+&lt;/center&gt;&lt;p&gt;The screenshot shows &amp;quot;hinting&amp;quot; which is how one opens links. You press &amp;quot;f&amp;quot; and the various links in the page get labelled. Simply type the label of the link you want to visit. There's also &amp;quot;advanced hinting&amp;quot; which lets you do things like open links in a background tab, or in a new tab, or save (&lt;a class="reference external" href="https://unix.stackexchange.com/questions/209660/why-is-the-vi-editors-copy-command-called-yank"&gt;yank&lt;/a&gt;) a link URL.&lt;/p&gt;
+&lt;center&gt;&lt;a class="reference external image-reference" href="https://ankursinha.in/images/20170621-qutebrowser2.png"&gt;
+&lt;img alt="A screenshot showing the command mode in Qutebrowser" class="text-center img-responsive pagination-centered" src="https://ankursinha.in/images/20170621-qutebrowser2.png" style="width: 80%;" /&gt;
+&lt;/a&gt;
+&lt;/center&gt;&lt;p&gt;This one shows the command mode - everything can be done here, including configuration of the browser or browsing related tasks.&lt;/p&gt;
+&lt;div class="section" id="a-few-tips"&gt;
+&lt;h3&gt;A few tips&lt;/h3&gt;
+&lt;p&gt;I did a few things to get started. First, I wanted to use the new &amp;quot;webengine&amp;quot; backend. This requires the installation of two packages: &lt;code&gt;sudo dnf install python3-pyopengl python3-qt5-webengine&lt;/code&gt;, and then creating a new file in &lt;code&gt;~/.local/share/applications/qutebrowser.desktop&lt;/code&gt; with the following contents:&lt;/p&gt;
+&lt;pre class="code ini literal-block"&gt;
+&lt;span class="k"&gt;[Desktop Entry]&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="na"&gt;Name&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;qutebrowser&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="na"&gt;GenericName&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;Web Browser&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="na"&gt;Icon&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;qutebrowser&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="na"&gt;Type&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;Application&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="na"&gt;Categories&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;Network&lt;/span&gt;&lt;span class="c1"&gt;;WebBrowser;&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="na"&gt;Exec&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;qutebrowser --backend webengine %u&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="na"&gt;Terminal&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;false&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="na"&gt;StartupNotify&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;false&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="na"&gt;MimeType&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;text/html&lt;/span&gt;&lt;span class="c1"&gt;;text/xml;application/xhtml+xml;application/xml;application/rdf+xml;image/gif;image/jpeg;image/png;x-scheme-handler/http;x-scheme-handler/https;&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="na"&gt;Keywords&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;Browser&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="na"&gt;X-Desktop-File-Install-Version&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;0.23&lt;/span&gt;
+&lt;/pre&gt;
+&lt;p&gt;This new file simply ensures that picking &lt;a class="reference external" href="https://www.qutebrowser.org/"&gt;Qutebrowser&lt;/a&gt; from the activities menu will run the new backend. Without this, one would have to launch it from the terminal each time.&lt;/p&gt;
+&lt;p&gt;Next, I configured it a bit to my liking - still very limited, but it's a start. The configuration file for &lt;a class="reference external" href="https://www.qutebrowser.org/"&gt;Qutebrowser&lt;/a&gt; is at &lt;code&gt;~/.config/qutebrowser/qutebrowser.conf&lt;/code&gt;.  There's so much one can modify here. I've only set up a few search engines and updated the default to Google. To do this, one needs to modify the &lt;code&gt;[searchengines]&lt;/code&gt; section in the file:&lt;/p&gt;
+&lt;pre class="code ini literal-block"&gt;
+&lt;span class="na"&gt;DEFAULT&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;https://google.com/search?hl=en-GB&amp;amp;q={}&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="na"&gt;duckduckgo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;https://duckduckgo.com/?q={}&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="na"&gt;github&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;https://github.com/search?q={}&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="na"&gt;google-scholar&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;https://scholar.google.co.uk/scholar?hl=en&amp;amp;q={}&lt;/span&gt;
+&lt;/pre&gt;
+&lt;p&gt;I also enable &lt;code&gt;save-session&lt;/code&gt; - just set it to &lt;code&gt;true&lt;/code&gt;. There are a few other tweaks, such as updating the &lt;code&gt;startpage&lt;/code&gt; to &lt;a class="reference external" href="http://start.fedoraproject.org"&gt;http://start.fedoraproject.org&lt;/a&gt;. There's even a built in ad-blocker that one can configure.&lt;/p&gt;
+&lt;p&gt;To get flash working, one needs to also install the ppapi bits. Assuming one already has the flash plugin repository installed, &lt;code&gt;sudo dnf install flash-player-ppapi&lt;/code&gt; does this. I haven't gotten Netflix to work yet - it requries some Silverlight thingy. I can always run Chrome or FF for that one rare purpose anyway.&lt;/p&gt;
+&lt;p&gt;There are, obviously a few limitations in the current &lt;a class="reference external" href="https://www.qutebrowser.org/"&gt;Qutebrowser&lt;/a&gt; version. The most noticeable one is probably the lack of a sync service similar to ones Firefox and Chrome provide. Google does tell me something about using &lt;a class="reference external" href="https://syncthing.net/"&gt;syncthing&lt;/a&gt; but I haven't gotten down to this yet. While it would be nice to have, it isn't quite that necessary. There isn't a password manager either. There are &lt;a class="reference external" href="https://github.com/qutebrowser/qutebrowser/issues/30"&gt;plans to develop a plug-in system&lt;/a&gt; in the pipeline to implement such features already, though. (&lt;a class="reference external" href="https://github.com/qutebrowser/qutebrowser/blob/master/doc/userscripts.asciidoc"&gt;userscripts&lt;/a&gt; seem to provide some additional functionality too.)&lt;/p&gt;
+&lt;p&gt;Anyway, it's a great, quick, and lean browser if you're a &lt;a class="reference external" href="https://vim.sourceforge.io/"&gt;VIM&lt;/a&gt; addict like me, so give it a go? If you have some cycles and are intersted in some hacking, get in touch with the devs over Github too. If not, please do at least &lt;a class="reference external" href="https://ankursinha.in/2017/05/17/a-well-filed-software-issue-considerably-improves-the-chances-of-the-issue-being-fixed-quicker.html"&gt;file bugs&lt;/a&gt; if you see them.&lt;/p&gt;
+&lt;p&gt;Here's a &lt;a class="reference external" href="https://www.qutebrowser.org/doc/quickstart.html"&gt;quickstart&lt;/a&gt; to quickly get up and running with. Oh, and yeah, &lt;em&gt;the mouse/touchpad works in the browser too&lt;/em&gt;!&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</content><category term="Tech"/><category term="Fedora"/><category term="FlatPak"/><category term="Free software"/><category term="Linux"/><category term="Python"/><category term="Vim"/><category term="Qutebrowser"/></entry><entry><title>Checking your LaTeX sources for spelling errors with Hunspell</title><link href="https://ankursinha.in/2016/06/02/checking-your-latex-sources-for-spelling-errors-with-hunspell.html" rel="alternate"/><published>2016-06-02T11:42:00+01:00</published><updated>2016-06-02T11:42:00+01:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2016-06-02:/2016/06/02/checking-your-latex-sources-for-spelling-errors-with-hunspell.html</id><summary type="html">&lt;p class="first last"&gt;For command line users that write in &lt;a class="reference external" href="https://latex-project.org/intro.html"&gt;LaTeX&lt;/a&gt;, &lt;a class="reference external" href="http://hunspell.github.io/"&gt;Hunspell&lt;/a&gt; is a great tool to check spellings.&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;I usually use &lt;a class="reference external" href="http://www.vim.org/"&gt;Vim&lt;/a&gt; and a &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Makefile"&gt;Makefile&lt;/a&gt; when writing LaTeX documents. Even though &lt;a class="reference external" href="http://vimdoc.sourceforge.net/htmldoc/spell.html"&gt;Vim does permit you to check your spellings&lt;/a&gt;, it's always nice to run the entire text through a standalone spell checker before passing your documents on to others.&lt;/p&gt;
+&lt;p&gt;The workflow is quite simple. Once you've written your text, you commit your changes, and then you can use one of either &lt;a class="reference external" href="http://aspell.net/"&gt;Aspell&lt;/a&gt; or &lt;a class="reference external" href="http://hunspell.github.io/"&gt;Hunspell&lt;/a&gt; to check your text for spelling errors. Both provide an interactive interface that makes them easy to use.&lt;/p&gt;
+&lt;p&gt;On &lt;a class="reference external" href="http://getfedora.org"&gt;Fedora&lt;/a&gt;, you can install them using &lt;code&gt;dnf&lt;/code&gt;:&lt;/p&gt;
+&lt;pre class="code bash literal-block"&gt;
+sudo&lt;span class="w"&gt; &lt;/span&gt;dnf&lt;span class="w"&gt; &lt;/span&gt;install&lt;span class="w"&gt; &lt;/span&gt;aspell&lt;span class="w"&gt; &lt;/span&gt;hunspell
+&lt;/pre&gt;
+&lt;p&gt;You'll also need to make sure you have the language files installed:&lt;/p&gt;
+&lt;pre class="code bash literal-block"&gt;
+sudo&lt;span class="w"&gt; &lt;/span&gt;dnf&lt;span class="w"&gt; &lt;/span&gt;install&lt;span class="w"&gt; &lt;/span&gt;aspell-en&lt;span class="w"&gt; &lt;/span&gt;hunspell-en
+&lt;/pre&gt;
+&lt;p&gt;Then, to check all your &lt;code&gt;.tex&lt;/code&gt; files, you can use something like this:&lt;/p&gt;
+&lt;pre class="code bash literal-block"&gt;
+find&lt;span class="w"&gt; &lt;/span&gt;.&lt;span class="w"&gt; &lt;/span&gt;-name&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;*.tex&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-exec&lt;span class="w"&gt; &lt;/span&gt;aspell&lt;span class="w"&gt; &lt;/span&gt;--lang&lt;span class="o"&gt;=&lt;/span&gt;en&lt;span class="w"&gt; &lt;/span&gt;--mode&lt;span class="o"&gt;=&lt;/span&gt;tex&lt;span class="w"&gt; &lt;/span&gt;check&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;{}&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="se"&gt;\;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c1"&gt;# Aspell
+&lt;/span&gt;find&lt;span class="w"&gt; &lt;/span&gt;.&lt;span class="w"&gt; &lt;/span&gt;-name&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;*.tex&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-exec&lt;span class="w"&gt; &lt;/span&gt;hunspell&lt;span class="w"&gt; &lt;/span&gt;-t&lt;span class="w"&gt; &lt;/span&gt;-i&lt;span class="w"&gt; &lt;/span&gt;utf-8&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;'{}'&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="se"&gt;\;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c1"&gt;# Hunspell&lt;/span&gt;
+&lt;/pre&gt;
+&lt;p&gt;I looked around a bit, and decided to use &lt;a class="reference external" href="http://hunspell.github.io/"&gt;Hunspell&lt;/a&gt;. It's used by LibreOffice, Firefox, and other applications. I commit my work first and then run the above command which opens a window like this:&lt;/p&gt;
+&lt;a class="reference external image-reference" href="https://ankursinha.in/images/hunspell-example.png"&gt;
+&lt;img alt="Hunspell screenshot" src="https://ankursinha.in/images/hunspell-example.png" style="width: 750px;" /&gt;
+&lt;/a&gt;
+&lt;p&gt;Once you've gone through it and made your changes, you can then use &lt;code&gt;git diff --word-diff&lt;/code&gt; to review your changes. If you'd like to undo some of them, use &lt;code&gt;git add -i&lt;/code&gt; and so on:&lt;/p&gt;
+&lt;a class="reference external image-reference" href="https://ankursinha.in/images/git-word-diff.png"&gt;
+&lt;img alt="Git diff screenshot" src="https://ankursinha.in/images/git-word-diff.png" style="width: 750px;" /&gt;
+&lt;/a&gt;
+&lt;p&gt;That's it! Happy writing!&lt;/p&gt;
+</content><category term="Research"/><category term="Fedora"/><category term="Git"/><category term="LaTeX"/><category term="Linux"/><category term="Vim"/></entry><entry><title>Some tips and tricks for running simulations on a cluster</title><link href="https://ankursinha.in/2016/05/31/some-tips-and-tricks-for-running-simulations-on-a-cluster.html" rel="alternate"/><published>2016-05-31T19:17:32+01:00</published><updated>2016-05-31T19:17:32+01:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2016-05-31:/2016/05/31/some-tips-and-tricks-for-running-simulations-on-a-cluster.html</id><summary type="html">&lt;p class="first last"&gt;I use the cluster here at university to run my simulations in &lt;a class="reference external" href="https://github.com/nest/nest-simulator"&gt;Nest&lt;/a&gt;. This post documents some tips and tricks I've come up with to make my cluster tasks easier.&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;To begin with, you must use a terminal multiplexer! I use &lt;a class="reference external" href="http://byobu.org/"&gt;Byobu with tmux&lt;/a&gt; to multiplex a single SSH session. I use it on all my machines. It's an excellent tool.&lt;/p&gt;
+&lt;div class="section" id="monitoring-your-jobs"&gt;
+&lt;h2&gt;Monitoring your jobs&lt;/h2&gt;
+&lt;p&gt;Three of my Byobu screens run these commands to monitor the queue and my jobs:&lt;/p&gt;
+&lt;pre class="code bash literal-block"&gt;
+watch&lt;span class="w"&gt; &lt;/span&gt;-n&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;30&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;qstat&lt;span class="w"&gt; &lt;/span&gt;main&lt;span class="w"&gt;
+&lt;/span&gt;watch&lt;span class="w"&gt; &lt;/span&gt;-n&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;30&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;qstat&lt;span class="w"&gt; &lt;/span&gt;-B&lt;span class="w"&gt;
+&lt;/span&gt;watch&lt;span class="w"&gt; &lt;/span&gt;-n&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;30&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;/usr/local/maui/bin/showq&lt;span class="w"&gt; &lt;/span&gt;-u&lt;span class="w"&gt; &lt;/span&gt;asinha
+&lt;/pre&gt;
+&lt;p&gt;&lt;code&gt;showq&lt;/code&gt; may be installed elsewhere. Use &lt;code&gt;which showq&lt;/code&gt; to locate it. More information on the commands can be found in their manuals:&lt;/p&gt;
+&lt;pre class="code bash literal-block"&gt;
+man&lt;span class="w"&gt; &lt;/span&gt;watch&lt;span class="w"&gt;
+&lt;/span&gt;man&lt;span class="w"&gt; &lt;/span&gt;qstat
+&lt;/pre&gt;
+&lt;p&gt;Remember, to find a man page, you can use the &lt;code&gt;apropos&lt;/code&gt; command.&lt;/p&gt;
+&lt;p&gt;I run all my simulations in a specific directory on the shared data disk. I usually also monitor this folder. It gives me an idea of how much my simulations have progressed. Something like this works:&lt;/p&gt;
+&lt;pre class="code bash literal-block"&gt;
+watch&lt;span class="w"&gt; &lt;/span&gt;-n&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;30&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;'du -sch *'&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c1"&gt;# in the directory that stores simulation results*&lt;/span&gt;
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div class="section" id="use-git"&gt;
+&lt;h2&gt;Use Git&lt;/h2&gt;
+&lt;p&gt;Of course. If you make frequent changes, you must use a version control system. I stick to &lt;code&gt;git&lt;/code&gt; myself. You can use &lt;code&gt;svn&lt;/code&gt; or &lt;code&gt;hg&lt;/code&gt; if you wish - whatever floats your boat.&lt;/p&gt;
+&lt;p&gt;An issue I've stumbled upon while working with the cluster is that the program you want it to run is not loaded into memory until your job begins to run. So, if you want to run a certain version of your program on the cluster, say some version_1, you must not make any changes to this version until the queued job has begun to run. This is extremely inconvenient, especially if you make frequent changes to your simulations, as is often the case in research. I would, for example, like to queue separate jobs in parallel for a myriad of tiny changes and then compare results.&lt;/p&gt;
+&lt;p&gt;Enter &lt;a class="reference external" href="https://git-scm.com/docs/git-worktree"&gt;git work-tree&lt;/a&gt;! The simplest solution to the aforementioned issue is to checkout different work-trees for commits you want to test and queue up jobs for each individually. This would work really well. Once the simulation finishes, you can remove the work-tree.&lt;/p&gt;
+&lt;p&gt;Unfortunately, clusters usually run stable long term support oriented versions of Linux distributions - EL/CentOS/Scientific. As a result, it's quite probable that the version of git on the cluster doesn't support work-trees - as is the case with the cluster I use. I came up with a workaround which works somewhat like work-trees - I manually clone my source repository to a temporary location, checkout the commit I want to run (which is what work-trees sort of are), and set up a job that runs this particular simulation version. It uses two scripts:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;A template PBS script for the simulation run. This will be passed to &lt;code&gt;qsub&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;A script that clones my repo, checks out the required commit, completes the template script, and calls &lt;code&gt;qsub&lt;/code&gt; to queue up the job.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The first is a simple PBS script:&lt;/p&gt;
+&lt;pre class="code bash literal-block"&gt;
+&lt;span class="c1"&gt;# File: run-sim.sh
+&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="c1"&gt;#PBS -l walltime=48:00:00
+#PBS -l nodes=50
+#PBS -m abe
+#PBS -N nest_v_s
+&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;module&lt;span class="w"&gt; &lt;/span&gt;unload&lt;span class="w"&gt; &lt;/span&gt;mpi/mpich-x86_64&lt;span class="w"&gt;
+&lt;/span&gt;module&lt;span class="w"&gt; &lt;/span&gt;load&lt;span class="w"&gt; &lt;/span&gt;mvapich2-1.7&lt;span class="w"&gt;
+
+&lt;/span&gt;&lt;span class="nv"&gt;SIM_PATH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;/stri-data/asinha/simulations-nest/&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="nv"&gt;SIM_TIME&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="nv"&gt;PROGRAM_PATH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$SIM_PATH&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$SIM_TIME&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&amp;quot;/Sinha2016/src/Sinha2016.py&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="nv"&gt;RESULT_PATH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$SIM_PATH&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$SIM_TIME&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&amp;quot;/result/&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="nv"&gt;NUM_NODES&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;50&lt;/span&gt;&lt;span class="w"&gt;
+
+&lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;------------------------------------------------------&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;'Job is running on nodes'&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;cat&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;$PBS_NODEFILE&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;------------------------------------------------------&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;PBS:&lt;span class="w"&gt; &lt;/span&gt;qsub&lt;span class="w"&gt; &lt;/span&gt;is&lt;span class="w"&gt; &lt;/span&gt;running&lt;span class="w"&gt; &lt;/span&gt;on&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;$PBS_O_HOST&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;PBS:&lt;span class="w"&gt; &lt;/span&gt;originating&lt;span class="w"&gt; &lt;/span&gt;queue&lt;span class="w"&gt; &lt;/span&gt;is&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;$PBS_O_QUEUE&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;PBS:&lt;span class="w"&gt; &lt;/span&gt;executing&lt;span class="w"&gt; &lt;/span&gt;queue&lt;span class="w"&gt; &lt;/span&gt;is&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;$PBS_QUEUE&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;PBS:&lt;span class="w"&gt; &lt;/span&gt;working&lt;span class="w"&gt; &lt;/span&gt;directory&lt;span class="w"&gt; &lt;/span&gt;is&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;$PBS_O_WORKDIR&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;PBS:&lt;span class="w"&gt; &lt;/span&gt;execution&lt;span class="w"&gt; &lt;/span&gt;mode&lt;span class="w"&gt; &lt;/span&gt;is&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;$PBS_ENVIRONMENT&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;PBS:&lt;span class="w"&gt; &lt;/span&gt;job&lt;span class="w"&gt; &lt;/span&gt;identifier&lt;span class="w"&gt; &lt;/span&gt;is&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;$PBS_JOBID&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;PBS:&lt;span class="w"&gt; &lt;/span&gt;job&lt;span class="w"&gt; &lt;/span&gt;name&lt;span class="w"&gt; &lt;/span&gt;is&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;$PBS_JOBNAME&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;PBS:&lt;span class="w"&gt; &lt;/span&gt;node&lt;span class="w"&gt; &lt;/span&gt;file&lt;span class="w"&gt; &lt;/span&gt;is&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;$PBS_NODEFILE&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;PBS:&lt;span class="w"&gt; &lt;/span&gt;current&lt;span class="w"&gt; &lt;/span&gt;home&lt;span class="w"&gt; &lt;/span&gt;directory&lt;span class="w"&gt; &lt;/span&gt;is&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;$PBS_O_HOME&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;PBS:&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;PATH&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;$PBS_O_PATH&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;------------------------------------------------------&lt;span class="w"&gt;
+
+&lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;ANKUR&amp;gt;&amp;gt; Begun at &lt;/span&gt;&lt;span class="nv"&gt;$SIM_TIME&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;ANKUR&amp;gt;&amp;gt; Script: &lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;0&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+
+&lt;/span&gt;mkdir&lt;span class="w"&gt; &lt;/span&gt;-pv&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;$RESULT_PATH&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="nb"&gt;cd&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;$RESULT_PATH&lt;/span&gt;&lt;span class="w"&gt;
+
+&lt;/span&gt;/usr/local/bin/mpiexec&lt;span class="w"&gt; &lt;/span&gt;-n&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;$NUM_NODES&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;python&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;$PROGRAM_PATH&lt;/span&gt;&lt;span class="w"&gt;
+
+&lt;/span&gt;&lt;span class="nv"&gt;END_TIME&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;date&lt;span class="w"&gt; &lt;/span&gt;+%Y%m%d%H%M&lt;span class="k"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;ANKUR&amp;gt;&amp;gt; Ended at &lt;/span&gt;&lt;span class="nv"&gt;$END_TIME&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+&lt;/pre&gt;
+&lt;p&gt;It sets up the required PBS options, then loads the MPI module I wish to use. It creates a directory where my simulation's results will be stored, enters it, and then uses &lt;code&gt;mpiexec&lt;/code&gt; to run my Python program.&lt;/p&gt;
+&lt;p&gt;The second script is a wrapper that clones the required commit, sets up the correct paths in the above script and the calls &lt;code&gt;qsub&lt;/code&gt;:&lt;/p&gt;
+&lt;pre class="code bash literal-block"&gt;
+&lt;span class="c1"&gt;# File: setup-job.sh
+&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="nv"&gt;SOURCE_PATH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;/home/asinha/Documents/02_Code/00_repos/00_mine/Sinha2016/&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="nv"&gt;GIT_COMMIT&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="nv"&gt;SIM_PATH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;/stri-data/asinha/simulations-nest/&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="nv"&gt;SIM_TIME&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;date&lt;span class="w"&gt; &lt;/span&gt;+%Y%m%d%H%M&lt;span class="k"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="nv"&gt;RUN_SCRIPT&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;scripts/cluster/nest-runsim.sh&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="nv"&gt;RUN_NEW&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="nv"&gt;ERROR&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;no&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="nv"&gt;NUM_NODES&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;50&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="nv"&gt;CUR_SIM_PATH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+
+&lt;/span&gt;&lt;span class="k"&gt;function&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;queue_task&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="o"&gt;{&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nb"&gt;pushd&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$CUR_SIM_PATH&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+        &lt;/span&gt;qsub&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$RUN_NEW&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nb"&gt;popd&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="o"&gt;}&lt;/span&gt;&lt;span class="w"&gt;
+
+&lt;/span&gt;&lt;span class="k"&gt;function&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;setup_env&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="o"&gt;{&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nv"&gt;CUR_SIM_PATH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$SIM_PATH&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$SIM_TIME&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;This simulation will run in: &lt;/span&gt;&lt;span class="nv"&gt;$CUR_SIM_PATH&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;mkdir&lt;span class="w"&gt; &lt;/span&gt;-pv&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$CUR_SIM_PATH&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+
+    &lt;/span&gt;&lt;span class="nb"&gt;pushd&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$CUR_SIM_PATH&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+        &lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Cloning source repository...&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+        &lt;/span&gt;git&lt;span class="w"&gt; &lt;/span&gt;clone&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$SOURCE_PATH&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Sinha2016&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+
+        &lt;/span&gt;&lt;span class="nb"&gt;pushd&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Sinha2016&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+            &lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Checking out commit &lt;/span&gt;&lt;span class="nv"&gt;$GIT_COMMIT&lt;/span&gt;&lt;span class="s2"&gt;...&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+            &lt;/span&gt;git&lt;span class="w"&gt; &lt;/span&gt;checkout&lt;span class="w"&gt; &lt;/span&gt;-b&lt;span class="w"&gt; &lt;/span&gt;this_sim&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$GIT_COMMIT&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+            &lt;/span&gt;&lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$?&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-ne&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt;
+            &lt;/span&gt;&lt;span class="k"&gt;then&lt;/span&gt;&lt;span class="w"&gt;
+                &lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Error occured. Could not checkout &lt;/span&gt;&lt;span class="nv"&gt;$GIT_COMMIT&lt;/span&gt;&lt;span class="s2"&gt;. Exiting...&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+                &lt;/span&gt;&lt;span class="nv"&gt;ERROR&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;yes&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+            &lt;/span&gt;&lt;span class="k"&gt;fi&lt;/span&gt;&lt;span class="w"&gt;
+        &lt;/span&gt;&lt;span class="nb"&gt;popd&lt;/span&gt;&lt;span class="w"&gt;
+
+        &lt;/span&gt;&lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;xyes&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;==&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;x&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$ERROR&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt;
+        &lt;/span&gt;&lt;span class="k"&gt;then&lt;/span&gt;&lt;span class="w"&gt;
+            &lt;/span&gt;&lt;span class="nb"&gt;exit&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-1&lt;span class="w"&gt;
+        &lt;/span&gt;&lt;span class="k"&gt;fi&lt;/span&gt;&lt;span class="w"&gt;
+
+        &lt;/span&gt;&lt;span class="nv"&gt;RUN_NEW&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;nest_&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$GIT_COMMIT&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&amp;quot;.sh&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+        &lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Setting up &lt;/span&gt;&lt;span class="nv"&gt;$RUN_NEW&lt;/span&gt;&lt;span class="s2"&gt;...&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+        &lt;/span&gt;cp&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$SOURCE_PATH&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$RUN_SCRIPT&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$RUN_NEW&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-v&lt;span class="w"&gt;
+        &lt;/span&gt;sed&lt;span class="w"&gt; &lt;/span&gt;-i&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;s|nest_v_s|nest_&lt;/span&gt;&lt;span class="nv"&gt;$GIT_COMMIT&lt;/span&gt;&lt;span class="s2"&gt;|&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$RUN_NEW&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+        &lt;/span&gt;sed&lt;span class="w"&gt; &lt;/span&gt;-i&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;s|nodes=.*|nodes=&lt;/span&gt;&lt;span class="nv"&gt;$NUM_NODES&lt;/span&gt;&lt;span class="s2"&gt;|&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$RUN_NEW&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+        &lt;/span&gt;sed&lt;span class="w"&gt; &lt;/span&gt;-i&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;s|NUM_NODES=.*|NUM_NODES=&lt;/span&gt;&lt;span class="nv"&gt;$NUM_NODES&lt;/span&gt;&lt;span class="s2"&gt;|&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$RUN_NEW&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+        &lt;/span&gt;sed&lt;span class="w"&gt; &lt;/span&gt;-i&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;s|SIM_TIME=.*|SIM_TIME=&lt;/span&gt;&lt;span class="nv"&gt;$SIM_TIME&lt;/span&gt;&lt;span class="s2"&gt;|&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$RUN_NEW&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nb"&gt;popd&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="o"&gt;}&lt;/span&gt;&lt;span class="w"&gt;
+
+&lt;/span&gt;&lt;span class="k"&gt;function&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;usage&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="o"&gt;{&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Usage: &lt;/span&gt;&lt;span class="nv"&gt;$0&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Queue up a job to run a particular git commit&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$0&lt;/span&gt;&lt;span class="s2"&gt; &amp;lt;git_commit&amp;gt; &amp;lt;number_nodes&amp;gt;&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="o"&gt;}&lt;/span&gt;&lt;span class="w"&gt;
+
+&lt;/span&gt;&lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$#&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-ne&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;2&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="k"&gt;then&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Error occurred. Exiting...&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Received &lt;/span&gt;&lt;span class="nv"&gt;$#&lt;/span&gt;&lt;span class="s2"&gt; arguments. Expected: 3&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;usage&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nb"&gt;exit&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-1&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="k"&gt;fi&lt;/span&gt;&lt;span class="w"&gt;
+
+&lt;/span&gt;&lt;span class="nv"&gt;GIT_COMMIT&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$1&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="nv"&gt;NUM_NODES&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$2&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;setup_env&lt;span class="w"&gt;
+&lt;/span&gt;queue_task&lt;span class="w"&gt;
+
+&lt;/span&gt;&lt;span class="nb"&gt;exit&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt;
+&lt;/pre&gt;
+&lt;p&gt;This takes two arguments, as the &lt;code&gt;usage&lt;/code&gt; function will tell you. The first argument is the commit you want to run the simulation for, and the second is the number of nodes you want to use. It'll clone your repository to a temporary location and checkout this specified commit. Then, it'll modify the first script &lt;code&gt;run-sim.sh&lt;/code&gt; to set up the correct path to the code and also correctly specify the number of nodes you'd want to request. Finally, once all this is done, it'll call &lt;code&gt;qsub run-sim.sh&lt;/code&gt; to queue up your job. I use unique date stamps as directory names to distinguish between simulation runs, but you can use another unique identifier.&lt;/p&gt;
+&lt;p&gt;Now, this copy of your code, at the specified commit will be used for the job you've queued. You can merrily go about tinkering with the main source repo without affecting queued up jobs. Yay!&lt;/p&gt;
+&lt;p&gt;Even though I've used Python here, you can use similar scripts for compiled languages. You'll simply have to compile your executable after you checkout the required commit.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="other-miscellaneous-stuff"&gt;
+&lt;h2&gt;Other miscellaneous stuff&lt;/h2&gt;
+&lt;p&gt;My lab mate, Alex, recently introduced me to &lt;a class="reference external" href="https://www.continuum.io/downloads"&gt;Anaconda&lt;/a&gt;. It's a great tool for that lets you install packages in your user specific directory. It contains quite a few python and other related packages. No need to use &lt;code&gt;sudo&lt;/code&gt; with it, and you can use &lt;code&gt;pip&lt;/code&gt; etc. with it too. It even lets you set up virtual environments and things.&lt;/p&gt;
+&lt;p&gt;I think that's it for today. I'll update the post with other things I find/learn as I continue my adventures with the cluster.&lt;/p&gt;
+&lt;/div&gt;
+</content><category term="Research"/><category term="Bash"/><category term="Computational neuroscience"/><category term="Git"/><category term="Linux"/><category term="NEST"/><category term="Programming"/><category term="Fedora"/></entry><entry><title>Calliope - helping you keep a diary - in LaTeX!</title><link href="https://ankursinha.in/2016/03/05/calliope-helping-you-keep-a-diary-in-latex.html" rel="alternate"/><published>2016-03-05T14:07:52+00:00</published><updated>2016-03-05T14:07:52+00:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2016-03-05:/2016/03/05/calliope-helping-you-keep-a-diary-in-latex.html</id><summary type="html">&lt;p class="first last"&gt;Most researchers keep a research journal where we note down our musings, notes and so on. While a paper diary is still quite common, I'd really prefer something on my laptop/computer. There are various applications out there for journal writing, but none of them really match up to good old &lt;a class="reference external" href="https://en.wikibooks.org/wiki/LaTeX"&gt;LaTeX&lt;/a&gt;. I've written a simple script that makes it really easy to maintain a journal using LaTeX - &lt;a class="reference external" href="https://github.com/sanjayankur31/calliope"&gt;Calliope&lt;/a&gt;.&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;Quite a few people write personal diaries - researchers tend to also keep research diaries where we note our generally brilliant ideas. I've used &lt;a class="reference external" href="http://lifeograph.sourceforge.net/wiki/Main_Page"&gt;Lifeograph&lt;/a&gt; for a number of years now. It's a great application with all the right features that a diary needs - chapters, tags, and  metrics. It doesn't quite work for a &lt;em&gt;research diary&lt;/em&gt;, though - it doesn't support maths notation for a start, and we really do write a lot of very complicated maths from time to time. (The kinds with lots of symbols you see in the films? Think &amp;quot;&lt;a class="reference external" href="http://www.imdb.com/title/tt0268978/"&gt;A beautiful mind&lt;/a&gt;&amp;quot;.)&lt;/p&gt;
+&lt;p&gt;The simple solution, of course, is &lt;a class="reference external" href="http://lifeograph.sourceforge.net/wiki/Main_Page"&gt;LaTeX&lt;/a&gt;. &lt;a class="reference external" href="http://lifeograph.sourceforge.net/wiki/Main_Page"&gt;LaTeX&lt;/a&gt; is used extensively in academic writing. While it does have a reputation for being complex and complicated (&lt;a class="reference external" href="http://english.stackexchange.com/questions/10459/what-is-the-difference-between-complicated-and-complex"&gt;YES! There's a difference in the two words - they're not interchangeable!&lt;/a&gt;) at times, it is by far the best tool for academic writing. It has everything a researcher needs - citation support, can be customised to fit multiple format, and if you pair it with &lt;a class="reference external" href="https://git-scm.com/"&gt;Git&lt;/a&gt; you even have versioning and &lt;a class="reference external" href="http://ankursinha.in/blog/tag/zaphod/"&gt;change tracking&lt;/a&gt;.&lt;/p&gt;
+&lt;div class="section" id="calliope"&gt;
+&lt;h2&gt;Calliope&lt;/h2&gt;
+&lt;p&gt;I went looking for packages that may provide this functionality in &lt;a class="reference external" href="http://lifeograph.sourceforge.net/wiki/Main_Page"&gt;LaTeX&lt;/a&gt; but didn't quite find any that had a convenient workflow and so on. I ran into a &lt;a class="reference external" href="https://github.com/mikhailklassen/research-diary-project"&gt;this Github project&lt;/a&gt; instead, which is a set of templates and scripts that does quite a good job. I've forked it and made some improvements. There's now a single script that takes arguments, for example. I've also added support for indexing - which works similar to tagging - it'll generate a nice clickable index at the end of the document. Of course, I've given it a fancy name, &lt;a class="reference external" href="https://github.com/sanjayankur31/calliope"&gt;Calliope, and put it up on Github&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Usage is quite straightforward:&lt;/p&gt;
+&lt;pre class="code bash literal-block"&gt;
+&lt;span class="o"&gt;[&lt;/span&gt;asinha&amp;#64;cs-as14aho-2-herts-ac-uk&lt;span class="w"&gt;  &lt;/span&gt;00_research_diary&lt;span class="o"&gt;(&lt;/span&gt;master&lt;span class="w"&gt; &lt;/span&gt;%&lt;span class="o"&gt;=)]&lt;/span&gt;$&lt;span class="w"&gt; &lt;/span&gt;./calliope.sh&lt;span class="w"&gt; &lt;/span&gt;-h&lt;span class="w"&gt;
+    &lt;/span&gt;usage:&lt;span class="w"&gt; &lt;/span&gt;./calliope.sh&lt;span class="w"&gt; &lt;/span&gt;options&lt;span class="w"&gt;
+
+    &lt;/span&gt;Master&lt;span class="w"&gt; &lt;/span&gt;script&lt;span class="w"&gt; &lt;/span&gt;file&lt;span class="w"&gt; &lt;/span&gt;that&lt;span class="w"&gt; &lt;/span&gt;provides&lt;span class="w"&gt; &lt;/span&gt;functions&lt;span class="w"&gt; &lt;/span&gt;to&lt;span class="w"&gt; &lt;/span&gt;maintain&lt;span class="w"&gt; &lt;/span&gt;a&lt;span class="w"&gt; &lt;/span&gt;journal&lt;span class="w"&gt; &lt;/span&gt;using&lt;span class="w"&gt; &lt;/span&gt;LaTeX.&lt;span class="w"&gt;
+
+    &lt;/span&gt;OPTIONS:&lt;span class="w"&gt;
+    &lt;/span&gt;-h&lt;span class="w"&gt;  &lt;/span&gt;Show&lt;span class="w"&gt; &lt;/span&gt;this&lt;span class="w"&gt; &lt;/span&gt;message&lt;span class="w"&gt; &lt;/span&gt;and&lt;span class="w"&gt; &lt;/span&gt;quit&lt;span class="w"&gt;
+
+    &lt;/span&gt;-t&lt;span class="w"&gt;  &lt;/span&gt;Add&lt;span class="w"&gt; &lt;/span&gt;new&lt;span class="w"&gt; &lt;/span&gt;entry&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;for&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;today&lt;span class="w"&gt;
+
+    &lt;/span&gt;-c&lt;span class="w"&gt;  &lt;/span&gt;Compile&lt;span class="w"&gt; &lt;/span&gt;today&lt;span class="err"&gt;'&lt;/span&gt;s&lt;span class="w"&gt; &lt;/span&gt;entry&lt;span class="w"&gt;
+
+    &lt;/span&gt;-a&lt;span class="w"&gt;  &lt;/span&gt;&amp;lt;year&amp;gt;&lt;span class="w"&gt;
+        &lt;/span&gt;Year&lt;span class="w"&gt; &lt;/span&gt;to&lt;span class="w"&gt; &lt;/span&gt;generate&lt;span class="w"&gt; &lt;/span&gt;anthology&lt;span class="w"&gt; &lt;/span&gt;of&lt;span class="w"&gt;
+
+    &lt;/span&gt;-p&lt;span class="w"&gt;  &lt;/span&gt;&amp;lt;year&amp;gt;&lt;span class="w"&gt;
+        &lt;/span&gt;Compile&lt;span class="w"&gt; &lt;/span&gt;all&lt;span class="w"&gt; &lt;/span&gt;entries&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;in&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;this&lt;span class="w"&gt; &lt;/span&gt;year&lt;span class="w"&gt;
+
+    &lt;/span&gt;-s&lt;span class="w"&gt;  &lt;/span&gt;&amp;lt;entry&amp;gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;yyyy-mm-dd&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+        &lt;/span&gt;Compile&lt;span class="w"&gt; &lt;/span&gt;specific&lt;span class="w"&gt; &lt;/span&gt;entry
+&lt;/pre&gt;
+&lt;p&gt;This is what the directory structure looks like:&lt;/p&gt;
+&lt;pre class="code bash literal-block"&gt;
+&lt;span class="o"&gt;[&lt;/span&gt;asinha&amp;#64;cs-as14aho-2-herts-ac-uk&lt;span class="w"&gt;  &lt;/span&gt;00_research_diary&lt;span class="o"&gt;(&lt;/span&gt;master&lt;span class="w"&gt; &lt;/span&gt;%&lt;span class="o"&gt;=)]&lt;/span&gt;$&lt;span class="w"&gt; &lt;/span&gt;tree&lt;span class="w"&gt;
+&lt;/span&gt;.&lt;span class="w"&gt;
+&lt;/span&gt;├──&lt;span class="w"&gt; &lt;/span&gt;calliope.sh&lt;span class="w"&gt;
+&lt;/span&gt;├──&lt;span class="w"&gt; &lt;/span&gt;diary&lt;span class="w"&gt;
+&lt;/span&gt;│&lt;span class="w"&gt;&amp;nbsp;&amp;nbsp; &lt;/span&gt;├──&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;2016&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;│&lt;span class="w"&gt;&amp;nbsp;&amp;nbsp; &lt;/span&gt;│&lt;span class="w"&gt;&amp;nbsp;&amp;nbsp; &lt;/span&gt;├──&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;2016&lt;/span&gt;-03-04.tex&lt;span class="w"&gt;
+&lt;/span&gt;│&lt;span class="w"&gt;&amp;nbsp;&amp;nbsp; &lt;/span&gt;│&lt;span class="w"&gt;&amp;nbsp;&amp;nbsp; &lt;/span&gt;├──&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;2016&lt;/span&gt;-03-05.tex&lt;span class="w"&gt;
+&lt;/span&gt;│&lt;span class="w"&gt;&amp;nbsp;&amp;nbsp; &lt;/span&gt;│&lt;span class="w"&gt;&amp;nbsp;&amp;nbsp; &lt;/span&gt;├──&lt;span class="w"&gt; &lt;/span&gt;images&lt;span class="w"&gt;
+&lt;/span&gt;│&lt;span class="w"&gt;&amp;nbsp;&amp;nbsp; &lt;/span&gt;│&lt;span class="w"&gt;&amp;nbsp;&amp;nbsp; &lt;/span&gt;├──&lt;span class="w"&gt; &lt;/span&gt;research_diary.sty&lt;span class="w"&gt; &lt;/span&gt;-&amp;gt;&lt;span class="w"&gt; &lt;/span&gt;../../templates/research_diary.sty&lt;span class="w"&gt;
+&lt;/span&gt;│&lt;span class="w"&gt;&amp;nbsp;&amp;nbsp; &lt;/span&gt;│&lt;span class="w"&gt;&amp;nbsp;&amp;nbsp; &lt;/span&gt;└──&lt;span class="w"&gt; &lt;/span&gt;stdp_connection_symmetric.h&lt;span class="w"&gt;
+&lt;/span&gt;│&lt;span class="w"&gt;&amp;nbsp;&amp;nbsp; &lt;/span&gt;└──&lt;span class="w"&gt; &lt;/span&gt;research_diary.sty&lt;span class="w"&gt; &lt;/span&gt;-&amp;gt;&lt;span class="w"&gt; &lt;/span&gt;../templates/research_diary.sty&lt;span class="w"&gt;
+&lt;/span&gt;├──&lt;span class="w"&gt; &lt;/span&gt;pdfs&lt;span class="w"&gt;
+&lt;/span&gt;│&lt;span class="w"&gt;&amp;nbsp;&amp;nbsp; &lt;/span&gt;└──&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;2016&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;│&lt;span class="w"&gt;&amp;nbsp;&amp;nbsp;     &lt;/span&gt;├──&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;2016&lt;/span&gt;-03-04.pdf&lt;span class="w"&gt;
+&lt;/span&gt;│&lt;span class="w"&gt;&amp;nbsp;&amp;nbsp;     &lt;/span&gt;└──&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;2016&lt;/span&gt;-03-05.pdf&lt;span class="w"&gt;
+&lt;/span&gt;├──&lt;span class="w"&gt; &lt;/span&gt;README.rst&lt;span class="w"&gt;
+&lt;/span&gt;└──&lt;span class="w"&gt; &lt;/span&gt;templates&lt;span class="w"&gt;
+    &lt;/span&gt;├──&lt;span class="w"&gt; &lt;/span&gt;entry.tex&lt;span class="w"&gt;
+    &lt;/span&gt;└──&lt;span class="w"&gt; &lt;/span&gt;research_diary.sty&lt;span class="w"&gt;
+
+        &lt;/span&gt;&lt;span class="m"&gt;6&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;directories,&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;11&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;files
+&lt;/pre&gt;
+&lt;p&gt;The script generates your source &lt;a class="reference external" href="http://lifeograph.sourceforge.net/wiki/Main_Page"&gt;LaTeX&lt;/a&gt; files and puts them in the folders in &lt;tt class="docutils literal"&gt;diary/&lt;/tt&gt;. Then you write up and use the script to compile it - the generated pdfs are collected in the &lt;tt class="docutils literal"&gt;pdfs/&lt;/tt&gt; folder. The script can also generate an anthology for a year you pick. The resultant pdf for a daily entry will look like this:&lt;/p&gt;
+&lt;a class="reference external image-reference" href="https://ankursinha.in/images/20160305-Calliope.png"&gt;
+&lt;img alt="Screenshot showing pdf generated by Calliope" class="align-center" src="https://ankursinha.in/images/20160305-Calliope.png" style="width: 500px;" /&gt;
+&lt;/a&gt;
+&lt;p&gt;That's pretty much it. Commit your entry to Git and you're done.&lt;/p&gt;
+&lt;p&gt;So, give it a go and please &lt;a class="reference external" href="https://github.com/sanjayankur31/calliope/issues/"&gt;file issues&lt;/a&gt; if you have any suggestions that would improve it.&lt;/p&gt;
+&lt;/div&gt;
+</content><category term="Research"/><category term="Fedora"/><category term="Git"/><category term="LaTeX"/><category term="Linux"/><category term="Calliope"/></entry><entry><title>Hello from Fedora 23!</title><link href="https://ankursinha.in/2015/09/25/hello-from-fedora-23.html" rel="alternate"/><published>2015-09-25T14:57:53+01:00</published><updated>2015-09-25T14:57:53+01:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2015-09-25:/2015/09/25/hello-from-fedora-23.html</id><summary type="html">&lt;p class="first last"&gt;Upgraded to Fedora 23 and it works like a charm!&lt;/p&gt;
+</summary><content type="html">&lt;center&gt;&lt;a class="reference external image-reference" href="https://ankursinha.in/images/Fedora23.png"&gt;
+&lt;img alt="Fedora 23" src="https://ankursinha.in/images/Fedora23.png" /&gt;
+&lt;/a&gt;
+&lt;/center&gt;&lt;p&gt;Hello from Fedora 23!&lt;/p&gt;
+&lt;p&gt;I just upgraded not one, not two, not three, but &lt;strong&gt;four&lt;/strong&gt; of my Fedora systems using the &lt;a class="reference external" href="https://fedoraproject.org/wiki/DNF_system_upgrade"&gt;dnf system-upgrade plugin&lt;/a&gt; and it worked like a charm in each case. Three were workstation installations while the last was a server installation, and I'm happy to report that after the upgrade, they're all alive and healthy!&lt;/p&gt;
+&lt;p&gt;I'm using Gnome on my Fedora system, so I now have the new Gnome 3.18 release. I haven't had any crashes yet - all the applications that I use frequently - Gnome Terminal, Evolution, Firefox, Nautilus, Revelation, Gnome Software, and a bunch of others seem to work just right.&lt;/p&gt;
+&lt;p&gt;This is going to be another marvellous Fedora release! Hurray!&lt;/p&gt;
+</content><category term="Tech"/><category term="Fedora"/><category term="GNOME"/><category term="Linux"/><category term="RPMFusion"/></entry></feed>

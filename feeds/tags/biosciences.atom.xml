@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>ankursinha.in/blog - Biosciences</title><link href="https://ankursinha.in/" rel="alternate"/><link href="https://ankursinha.in/feeds/tags/biosciences.atom.xml" rel="self"/><id>https://ankursinha.in/</id><updated>2024-06-21T13:16:43+01:00</updated><subtitle>neuroscience/fedora/musings</subtitle><entry><title>Week 25 update</title><link href="https://ankursinha.in/2024/06/21/week-25-update.html" rel="alternate"/><published>2024-06-21T13:16:43+01:00</published><updated>2024-06-21T13:16:43+01:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2024-06-21:/2024/06/21/week-25-update.html</id><summary type="html">&lt;p class="first last"&gt;Weekly update to week #25&lt;/p&gt;
+</summary><content type="html">&lt;div class="section" id="neuroml-related"&gt;
+&lt;h2&gt;NeuroML related&lt;/h2&gt;
+&lt;div class="figure align-center"&gt;
+&lt;img alt="NeuroML is a standard and software ecosystem for biophysically detailed neuronal modelling." class="text-center img-responsive pagination-centered" src="https://ankursinha.in/images/neuroml-logo.png" style="width: 40%;" /&gt;
+&lt;p class="caption"&gt;&lt;a class="reference external" href="https://neuroml.org"&gt;NeuroML&lt;/a&gt; is a standard and software ecosystem for biophysically detailed neuronal modelling.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;We made new releases of &lt;a class="reference external" href="https://github.com/NeuroML/jNeuroML"&gt;jNeuroML&lt;/a&gt; and &lt;a class="reference external" href="https://github.com/NeuroML/pyNeuroML"&gt;pyNeuroML&lt;/a&gt;.
+The new releases allow users to keep their &lt;a class="reference external" href="https://docs.neuroml.org/Userdocs/Schemas/Cells.html#morphology"&gt;morphology&lt;/a&gt; in separate files and &amp;quot;include&amp;quot; these in cell files.
+The use case here is that when investigating neuronal biophysics, it would be useful to not have to repeat the morphology each time the cell is used.&lt;/p&gt;
+&lt;p&gt;We also updated our &lt;a class="reference external" href="https://docs.neuroml.org/Userdocs/ImportingMorphologyFiles.html#neuroml2"&gt;documentation&lt;/a&gt; to note this new feature.&lt;/p&gt;
+&lt;div class="section" id="google-summer-of-code"&gt;
+&lt;h3&gt;Google Summer of Code&lt;/h3&gt;
+&lt;p&gt;Aditya and Ioannis have both completed their first tasks and their pull requests are ready for review.
+I'll try and review them next week.
+In the meantime, they've got new tasks for next week.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="model-conversion"&gt;
+&lt;h3&gt;Model conversion&lt;/h3&gt;
+&lt;p&gt;I'm still working on the converting the two remaining Calcium channels in &lt;a class="reference external" href="https://www.cell.com/cell-reports/fulltext/S2211-1247(18)31088-X"&gt;Zang et al&lt;/a&gt;.
+They're slightly trickier to convert because of the formalism they follow, but I should get there with another few days of work.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="ucl"&gt;
+&lt;h2&gt;UCL&lt;/h2&gt;
+&lt;p&gt;The &lt;a class="reference external" href="https://www.ucl.ac.uk/research/domains/neuroscience/events/neuroscience-symposia"&gt;UCL Neuroscience symposium&lt;/a&gt; was on Thursday.
+The talks and posters were great and very informative, e.g.:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;on visual processing (using &lt;a class="reference external" href="https://www.nature.com/articles/d41586-019-00791-w"&gt;really cool virtual reality experiments&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;on the role of sleep on synapses numbers&lt;/li&gt;
+&lt;li&gt;Dementia with particular focus on Alzheimer's disease and the role of the &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Tau_protein"&gt;tau protein&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;We'd also had a really interesting talk on the &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Glucagon-like_peptide-1"&gt;GLP-1 receptor&lt;/a&gt;, which is involved in the secretion of insulin for maintenance of blood sugar levels, at our &lt;a class="reference external" href="https://www.ucl.ac.uk/biosciences/neuroscience-physiology-and-pharmacology"&gt;Neuroscience, Pharmacology, and Physiology (NPP)&lt;/a&gt; departmental seminar.&lt;/p&gt;
+&lt;p&gt;I'm also involved with the mentoring programme that the &lt;a class="reference external" href="https://www.ucl.ac.uk/biosciences/"&gt;Division of Biosciences&lt;/a&gt; runs for PhD students.
+We had discussed this at the divisional meeting last week, and now we have a few tasks to carry out to improve the programme's reach to more students.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="ocns"&gt;
+&lt;h2&gt;OCNS&lt;/h2&gt;
+&lt;div class="figure align-center"&gt;
+&lt;img alt="The annual conference of the Organization for Computational Neurosciences will happen in July in Natal, Brazil, this year." class="text-center img-responsive pagination-centered" src="https://ankursinha.in/images/2024-cns-2024-banner.png" style="width: 60%;" /&gt;
+&lt;p class="caption"&gt;The annual conference of the Organization for Computational Neurosciences will happen in July in Natal, Brazil, this year.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;I'm organising the career development workshop at the &lt;a class="reference external" href="https://www.cnsorg.org/cns-2024-quick"&gt;annual conference&lt;/a&gt; of the Organization for Computational Neuroscience as part of my Board member responsibilities.
+This year, we're hosting a &amp;quot;beyond academia&amp;quot; session where we'll have folks who have worked or are currently working in industry after their doctorates and initial academic positions will speak about their experiences.
+The goal is to discuss careers that academics can take up outside of the traditional academic research domain.
+With help from a number of Board members and others at the lab at UCL, I had a list of people to reach out to.
+We now have a panel of four, so we're on track.&lt;/p&gt;
+&lt;p&gt;The programme for the conference is also now online on &lt;a class="reference external" href="https://cns2024.sched.com/"&gt;Sched&lt;/a&gt;, and registration is still open.&lt;/p&gt;
+&lt;p&gt;I also had a quick meeting with the &lt;a class="reference external" href="https://www.cnsorg.org/board-of-directors"&gt;OCNS EDI chair&lt;/a&gt;, Eirini Mavristaki, about the mentoring programme that the OCNS is trying to set up for its members.
+Eirini has already got most of it ready, and I'll help with the remaining bits to try and launch it at the conference or soon after.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="fedora-related"&gt;
+&lt;h2&gt;Fedora related&lt;/h2&gt;
+&lt;p&gt;A few of us contributors met for a catch up last evening.
+We met in Soho, had a few drinks and then had a great meal in Chinatown.
+We organise these on the &lt;a class="reference external" href="https://matrix.to/#/#region-uk:fedoraproject.org"&gt;Fedora UK matrix channel&lt;/a&gt;, so if you're interested in joining us for the next meetup, please drop in there and let us know.&lt;/p&gt;
+&lt;p&gt;We had the &lt;a class="reference external" href="https://neuro.fedoraproject.org"&gt;NeuroSIG&lt;/a&gt; meeting on Monday.
+We went through our packages and so on.
+They look fine.
+A few are broken after the Python 3.13 mass re-build but as more and more packages are fixed, a lot of our packages should also start to build.&lt;/p&gt;
+&lt;/div&gt;
+</content><category term="Life"/><category term="NeuroML"/><category term="Computational Neuroscience"/><category term="Fedora"/><category term="GSoC"/><category term="UCL"/><category term="NPP"/><category term="Biosciences"/></entry></feed>

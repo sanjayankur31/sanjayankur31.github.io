@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>ankursinha.in/blog - AnyConnect</title><link href="https://ankursinha.in/" rel="alternate"/><link href="https://ankursinha.in/feeds/tags/anyconnect.atom.xml" rel="self"/><id>https://ankursinha.in/</id><updated>2024-11-25T14:49:25+00:00</updated><subtitle>neuroscience/fedora/musings</subtitle><entry><title>Accessing UCL VPN using OpenConnect on Linux systems</title><link href="https://ankursinha.in/2024/11/25/accessing-ucl-vpn-using-openconnect-on-linux-systems.html" rel="alternate"/><published>2024-11-25T14:49:25+00:00</published><updated>2024-11-25T14:49:25+00:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2024-11-25:/2024/11/25/accessing-ucl-vpn-using-openconnect-on-linux-systems.html</id><summary type="html">&lt;p class="first last"&gt;A quick note on accessing UCL VPN using OpenConnect on Linux systems.&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;I needed to use the &lt;a class="reference external" href="https://www.ucl.ac.uk/isd/services/get-connected/ucl-virtual-private-network-vpn"&gt;UCL VPN&lt;/a&gt; again, on my Fedora/Linux machine.
+Linux isn't really supported by the university infrastructure, but there are &lt;a class="reference external" href="https://blogs.ucl.ac.uk/dh/2015/09/18/tutorial-ucl-vpn-linux/"&gt;instructions that others have come up with&lt;/a&gt; and they had worked for me the last time I'd needed VPN access.
+Unfortunately, that was a few years ago, and things have changed a little since then.
+Notably, UCL has introduced two factor authentication (2FA).&lt;/p&gt;
+&lt;p&gt;I had to look around a little but I did manage to get it to work again using NetworkManager.
+I thought I'd write it up quickly so everyone that needs it, including future me, have a quick reference to look at.&lt;/p&gt;
+&lt;p&gt;This is on Fedora 41 with the following OpenConnect packages:&lt;/p&gt;
+&lt;pre class="code bash literal-block"&gt;
+$&lt;span class="w"&gt; &lt;/span&gt;rpm&lt;span class="w"&gt; &lt;/span&gt;-qa&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="se"&gt;\*&lt;/span&gt;openconnect&lt;span class="se"&gt;\*&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;openconnect-9.12-6.fc41.x86_64&lt;span class="w"&gt;
+&lt;/span&gt;NetworkManager-openconnect-1.2.10-6.fc41.x86_64&lt;span class="w"&gt;
+&lt;/span&gt;NetworkManager-openconnect-gnome-1.2.10-6.fc41.x86_64
+&lt;/pre&gt;
+&lt;p&gt;In NetworkManager one needs to create a new VPN connection with the following settings:&lt;/p&gt;
+&lt;div class="figure align-center"&gt;
+&lt;a class="reference external image-reference" href="https://ankursinha.in/images/neuroml-logo.png"&gt;
+&lt;img alt="Screenshot of settings in Network Manager for setting up a VPN connection to UCL VPN using Open Connect (settings are listed below)" class="text-center img-responsive pagination-centered" src="https://ankursinha.in/images/20241125-openconnect-nm.png" style="width: 80%;" /&gt;
+&lt;/a&gt;
+&lt;/div&gt;
+&lt;p&gt;Here are the settings in a list too:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;VPN Protocol: Cisco AnyConnect or OpenConnect&lt;/li&gt;
+&lt;li&gt;Gateway: vpn.ucl.ac.uk&lt;/li&gt;
+&lt;li&gt;User Agent: AnyConnect&lt;/li&gt;
+&lt;li&gt;CA Certificate: &amp;lt;None&amp;gt;&lt;/li&gt;
+&lt;li&gt;Proxy: &amp;lt;leave blank&amp;gt;&lt;/li&gt;
+&lt;li&gt;Allow security scanner trojan (CSD): Yes (checked)&lt;/li&gt;
+&lt;li&gt;Trojan (CSD) wrapper script: &lt;code&gt;/usr/libexec/openconnect/csd-post.sh&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Reported OS: Windows 10 (I didn't try another)&lt;/li&gt;
+&lt;li&gt;Machine certificate: &amp;lt;None&amp;gt;&lt;/li&gt;
+&lt;li&gt;Machine private key: &amp;lt;will be greyed out&amp;gt;&lt;/li&gt;
+&lt;li&gt;User certification: &amp;lt;None&amp;gt;&lt;/li&gt;
+&lt;li&gt;User private key: &amp;lt;will be greyed out&amp;gt;&lt;/li&gt;
+&lt;li&gt;Use FSID for key passphrase: No (unchecked)&lt;/li&gt;
+&lt;li&gt;Prevent user from manually accepting invalid credentials: No (unchecked)&lt;/li&gt;
+&lt;li&gt;Token mode: TOTP - manually entered&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This is similar to what had worked before.
+What changed:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;It didn't work without setting the User Agent to &amp;quot;AnyConnect&amp;quot;&lt;/li&gt;
+&lt;li&gt;I set the token mode to &amp;quot;TOTP - manually entered&amp;quot;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This opens up a web login page where one can enter their credentials.&lt;/p&gt;
+</content><category term="Tech"/><category term="UCL"/><category term="VPN"/><category term="AnyConnect"/><category term="OpenConnect"/><category term="Linux"/><category term="Fedora"/></entry></feed>

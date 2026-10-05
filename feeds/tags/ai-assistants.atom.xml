@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>ankursinha.in/blog - AI Assistants</title><link href="https://ankursinha.in/" rel="alternate"/><link href="https://ankursinha.in/feeds/tags/ai-assistants.atom.xml" rel="self"/><id>https://ankursinha.in/</id><updated>2026-09-08T17:16:56+01:00</updated><subtitle>neuroscience/fedora/musings</subtitle><entry><title>Neuroscience AI assistant updates: scope, funding, ideas, and a name: Klea</title><link href="https://ankursinha.in/2026/09/08/neuroscience-ai-assistant-updates-scope-funding-ideas-and-a-name-klea.html" rel="alternate"/><published>2026-09-08T17:16:56+01:00</published><updated>2026-09-08T17:16:56+01:00</updated><author><name>ankur</name></author><id>tag:ankursinha.in,2026-09-08:/2026/09/08/neuroscience-ai-assistant-updates-scope-funding-ideas-and-a-name-klea.html</id><summary type="html">&lt;p class="first last"&gt;The Neuroscience AI assistant finally has a name, &lt;a class="reference external" href="https://neuroklea.org"&gt;Klea&lt;/a&gt;. Read on for more updates.&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;In a &lt;a class="reference external" href="https://ankursinha.in/2026/01/30/building-an-ai-assistant-for-computational-modelling-with-neuroml.html"&gt;past post&lt;/a&gt;, I had written about my current project, where I am building an AI assistant for Neuroscience.&lt;/p&gt;
+&lt;p&gt;To quickly recap the motivation, for projects that we neuroscientists would like to undertake, including both experimental and modelling projects, we are often (even regularly) hampered by the question of &amp;quot;how are we going to carry out this investigation?&amp;quot;
+This is because the methods/techniques/code that need to be implemented are non-trivial to create.
+A lot of what we do is at the &amp;quot;edge of science&amp;quot;, which means that it hasn't really been done before.
+Even if it has, for example an analysis methodology/technique may be well established, it still needs to be implemented in the specific novel context of the research project.&lt;/p&gt;
+&lt;p&gt;Research projects nowadays are necessarily multi-disciplinary.
+Experimental projects require experimentalists, that may be specialists in neurobiology, neuroanatomy, neurophysiology, to know enough about analysis and the tools for analyses---generally writing code.
+Modelling folks like me, on the other hand specialise in modelling and software development but need to know enough neurobiology, neuroanatomy, and neurophysiology to be able to build models.
+We speak slightly different languages, because each specialism has its own jargon, and so the same word can mean different things in different domains.&lt;/p&gt;
+&lt;p&gt;Generative AI based tools can help with this.
+To begin with, because they work on the basis of semantic similarity (meanings of words), they can cover different domains.
+Next, we're seeing more and more tools that are built around LLMs now being able to carry out tasks.
+I won't go into the AGI debate, or into a discussion whether LLMs and these systems are intelligent here.
+I have my views, like everyone else.
+What I will say is that I have found these tools useful, with caveats.&lt;/p&gt;
+&lt;p&gt;The most common caveat is the lack of correctness.
+LLMs work towards completion by generation---there may be multiple ways of completing a task, not all of them correct.&lt;/p&gt;
+&lt;p&gt;For science, correctness is paramount.
+We'd rather have a slow system that takes longer to develop than one that was generated in a day but that does not guarantee correctness.
+It isn't enough to be evidence based either.
+We must be able to clearly trace the evidence.&lt;/p&gt;
+&lt;div class="section" id="klea"&gt;
+&lt;h2&gt;Klea&lt;/h2&gt;
+&lt;p&gt;The goal of this project is to develop an AI assistant grounded in evidence.
+Since I last wrote, we submitted this as a project proposal to the &lt;a class="reference external" href="https://biofair.uk/updates/2026/biofair-pathfinder-projects-launch-with-800k-to-transform-uk-fair-practices/"&gt;BioFAIR Pathfinders call and were accepted&lt;/a&gt;.
+This means I now have a one year grant to work on this particular project.&lt;/p&gt;
+&lt;p&gt;To make it easy to find, we came up with &amp;quot;&lt;a class="reference external" href="https://neuroklea.org"&gt;Klea&lt;/a&gt;&amp;quot; as a name.
+It's really &amp;quot;KLEA&amp;quot; for &amp;quot;&lt;strong&gt;K&lt;/strong&gt;nowledge Va&lt;strong&gt;l&lt;/strong&gt;idated &lt;strong&gt;E&lt;/strong&gt;xpert &lt;strong&gt;A&lt;/strong&gt;sistant&amp;quot;.
+&lt;code&gt;klea-&lt;/code&gt; is also a nice prefix for commands.
+Though it's being developed primarily with Neuroscience as the test domain, it's a general framework and tool that can be used for any domains.&lt;/p&gt;
+&lt;p&gt;As noted in the previous post, &lt;a class="reference external" href="https://neuroklea.org"&gt;Klea&lt;/a&gt; includes two components:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;a &lt;a class="reference external" href="https://neuroklea.org/concepts/rag.html"&gt;RAG_&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;a task/coding agent (WIP)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="section" id="klea-rag"&gt;
+&lt;h3&gt;Klea RAG&lt;/h3&gt;
+&lt;p&gt;Klea-RAG is fairly complete.
+You can install it from pypi: &lt;code&gt;pip install klea-rag&lt;/code&gt; (or &lt;code&gt;uv pip install klea-rag&lt;/code&gt; if you prefer &lt;cite&gt;uv&lt;/cite&gt; like me).
+It also includes utilities to create your vector stores and attach them to the RAG.
+You can also attach MCP servers.
+Note that the RAG is limited to information retrieval, and while you can attach MCP servers to it that can carry out write operations, that is discouraged.
+A complete walkthrough on setting it up is &lt;a class="reference external" href="https://neuroklea.org/cookbook/huggingface.html"&gt;here in the cookbook&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Now, as noted earlier, it isn't just enough to try to be correct.
+It's important to be able to confirm how the system arrived at its result.
+For this, the framework has grown inspection capabilities, along with a brand new &lt;a class="reference external" href="https://nicegui.io/"&gt;NiceGUI&lt;/a&gt; frontend since Streamlit was a bit too basic to add the additional UI elements.&lt;/p&gt;
+&lt;p&gt;The inspection features use LangGraph's streaming features to allow each node to emit progress events.
+The RAG emits information from each node:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;classification&lt;/li&gt;
+&lt;li&gt;semantic search keywords&lt;/li&gt;
+&lt;li&gt;retrieval results&lt;/li&gt;
+&lt;li&gt;answer generation and evaluation.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The figures below make it easier to see.&lt;/p&gt;
+&lt;div class="figure align-center"&gt;
+&lt;a class="reference external image-reference" href="https://ankursinha.in/images/20260908-klea-rag-chat.png"&gt;
+&lt;img alt="Screenshot showing Klea RAG's new interface with a query and result" class="text-center img-responsive pagination-centered" src="https://ankursinha.in/images/20260908-klea-rag-chat.png" style="width: 75%;" /&gt;
+&lt;/a&gt;
+&lt;/div&gt;
+&lt;p&gt;The new Klea RAG interface is divided into several components:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;the left side bar: for managing chats, deleting user data&lt;/li&gt;
+&lt;li&gt;the main central panel: the chat and inspection views live here&lt;/li&gt;
+&lt;li&gt;the right hand side bar for information and state updates: the top lists the model in use and so on, the bottom bit shows state updates sent by the graph nodes.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;In this screenshot, one can see the chat view.
+I asked a question, and the system generated an answer, and listed references.
+These references are created from the curated documentation that was provided to the system in the vector stores.
+So, it is not hallucinated.
+The right hand pane lists all the documents that were referenced along with their scores.&lt;/p&gt;
+&lt;p&gt;Users can verify the information using the references and the referenced documents.&lt;/p&gt;
+&lt;p&gt;The top part of the right hand panel also allows users to change models as required.
+One can set default models, as I've done here, but users can then use their own models and API keys to use different models that they have access to.&lt;/p&gt;
+&lt;div class="figure align-center"&gt;
+&lt;a class="reference external image-reference" href="https://ankursinha.in/images/20260908-klea-rag-inspection.png"&gt;
+&lt;img alt="Screenshot showing Klea RAG's new interface's inspection pane showing different node outputs" class="text-center img-responsive pagination-centered" src="https://ankursinha.in/images/20260908-klea-rag-inspection.png" style="width: 75%;" /&gt;
+&lt;/a&gt;
+&lt;/div&gt;
+&lt;p&gt;The next image shows the inspection pane.
+Here, one can review all the steps that system took to arrive at this answer, with the input/outputs, retrieved information, tool calls and so on.
+This is of great value---because it allows us to verify the results have greater confidence in the system's outputs.&lt;/p&gt;
+&lt;p&gt;I now have multiple deployments of the RAG on HuggingFace.
+One for &lt;a class="reference external" href="https://huggingface.co/spaces/NeuroML/NeuroKLEA"&gt;NeuroML&lt;/a&gt;, one for &lt;a class="reference external" href="https://huggingface.co/spaces/sanjayankur31/OSB-AI"&gt;Open Source Brain&lt;/a&gt; (this includes an MCP server to query a database of Open Source Brain repositories), and a third one for &lt;a class="reference external" href="https://huggingface.co/spaces/sanjayankur31/OpenWormLLM"&gt;OpenWorm&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;These are all containerised, and you will notice that they follow the same deployment pattern.
+You can clone one of these HuggingFace spaces and tweak the configuration to set up your personal deployment.&lt;/p&gt;
+&lt;p&gt;Note that you can also just use the RAG locally on your machine.
+It's designed to work for both use cases---local use and deployments.
+I tend to mostly use it locally.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="klea-agent"&gt;
+&lt;h3&gt;Klea Agent&lt;/h3&gt;
+&lt;p&gt;The agent is now a work in progress, with the RAG relatively stable.
+I still don't promise API compatibility though, since the general framework may change/evolve as we get feedback from our users.
+It'll follow the same framework, but we make some architectural decisions to make it &amp;quot;science worthy&amp;quot;, because otherwise, why not just use an existing coding agent?&lt;/p&gt;
+&lt;hr class="docutils" /&gt;
+&lt;p&gt;I'll write about this more in coming posts, but you can follow progress on the &lt;a class="reference external" href="https://github.com/NeuroML/neuroklea/"&gt;GitHub repository&lt;/a&gt; in the meantime.
+Klea has detailed documentation at &lt;a class="reference external" href="https://neuroklea.org"&gt;https://neuroklea.org&lt;/a&gt;, and in the GitHub repository---ADRs, C4 diagrams, nodes, commented code.
+Please take a look and let me know what you think.
+Feedback is always welcome.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</content><category term="Research"/><category term="Neuroscience"/><category term="Open Science"/><category term="AI Assistants"/><category term="LLM"/><category term="LangChain"/><category term="LangGraph"/><category term="MCP"/><category term="Skills"/><category term="Python"/><category term="FastAPI"/><category term="FastMCP"/><category term="NeuroML"/><category term="NWB"/><category term="Computational Neuroscience"/><category term="Computational Modelling"/><category term="Data Analysis"/><category term="Klea"/></entry></feed>
